@@ -19,10 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoalaWebControls", "KoalaWe
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WKA", "WKA\", "{AC71AD33-4F4A-4215-AC20-2EBD8B33AB1A}"
 	ProjectSection(WebsiteProperties) = preProject
-		SccProjectName = ""
-		SccAuxPath = ""
-		SccLocalPath = ""
-		SccProvider = ""
+		SccProjectName = "Svn"
+		SccAuxPath = "Svn"
+		SccLocalPath = "Svn"
+		SccProvider = "SubversionScc"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		ProjectReferences = "{D1D98D00-D15E-4213-9D8A-E23FAF15EED5}|KoalaWebControls.dll;{1B771975-3A87-4508-BED1-742B39D6552E}|FEL.dll;{262B3E82-2A96-4ED0-AE2C-D93BB7D6844B}|HER.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/WKA"
@@ -42,6 +42,11 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WKA", "WKA\", "{AC71AD33-4F
 		VWDPort = "42345"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
+	ProjectSection(SvnOrigin) = preProject
+		@Keys = Enlist,Svn.Uri
+		Enlist = Required
+		Svn.Uri = WKA/
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WKA_Rep", "WKA_Rep\WKA_Rep.csproj", "{56CB74F3-EE16-4AD5-9AB8-971C274D2703}"
 EndProject
@@ -60,6 +65,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zGeneraClases", "GeneraClases\zGeneraClases.csproj", "{720F28EF-8882-4FA9-BE91-5DFB0AE48464}"
 EndProject
 Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
 		Debug|Any CPU = Debug|Any CPU
@@ -278,9 +287,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal
