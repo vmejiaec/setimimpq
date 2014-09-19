@@ -1,0 +1,75 @@
+body
+{
+    color:#000000;
+    font-family:arial,verdana,sans-serif;
+    font-size:small;
+}
+
+.edicion
+{
+	background-color:lemonchiffon;
+	font-family:Arial;
+}
+
+.lectura
+{
+	font-family:Arial;
+	background-color:White;
+}
+
+/*AutoComplete flyout */
+
+.autocomplete_completionListElement 
+{  
+	visibility : hidden;
+	margin : 0px!important;
+	background-color : inherit;
+	color : windowtext;
+	border : buttonshadow;
+	border-width : 1px;
+	border-style : solid;
+	cursor : 'default';
+	overflow : auto;
+	height : 200px;
+   	text-align : left; 
+   	list-style-type : none;
+}
+
+/* AutoComplete item */
+
+.autocomplete_listItem 
+{
+	background-color : window;
+	color : windowtext;
+	padding : 1px;
+}
+
+/* AutoComplete highlighted item */
+
+.autocomplete_highlightedListItem
+{
+	background-color: #ffff99;
+	color: black;
+	padding: 1px;
+}
+
+.ModalPopUpCargando
+{
+    background-color:#F5F5F5; 
+    border-width:2px; 
+    border-color:#A2ABBC; 
+    border-style:solid;
+    text-align:left;
+    padding-bottom:5px;
+    padding-left:5px;
+    padding-right:5px;
+    padding-top:5px;
+    width:250px;
+    position:absolute; 
+}
+
+.modalBackgroundEspera {
+	background-color:#FFFFFF;
+    filter:alpha(opacity=80);
+    opacity:0.8;
+}

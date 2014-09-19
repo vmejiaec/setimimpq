@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <root>
+    <!-- 
+    Microsoft ResX Schema  
+    Version 2.0 
+    The primary goals of this format is to allow a simple XML format  
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes  
+    associated with the data types.
+    Example:
+    ... ado.net/XML headers &amp; schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+    <comment>This is a comment</comment>
+    </data>
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs. 
+    Each data row contains a name, and value. The row also contains a  
+    type or mimetype. Type corresponds to a .NET class that support  
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not  
+    extensible. For a given mimetype the value must be set accordingly: 
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below. 
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+    : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter 
+    : and then encoded with base64 encoding.
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+    : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+    : and then encoded with base64 encoding.
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+    : using a System.ComponentModel.TypeConverter
+    : and then encoded with base64 encoding.
+    -->
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">/>
+    <xsd:complexType>
+    <xsd:choice maxOccurs="unbounded">
+    <xsd:element name="metadata">
+    <xsd:complexType>
+    <xsd:sequence>
+    <xsd:element name="value" type="xsd:string" minOccurs="0" />
+    </xsd:sequence>
+    <xsd:attribute name="name" use="required" type="xsd:string" />
+    <xsd:attribute name="type" type="xsd:string" />
+    <xsd:attribute name="mimetype" type="xsd:string" />
+    <xsd:attribute ref="xml:space" />
+    </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="assembly">
+    <xsd:complexType>
+    <xsd:attribute name="alias" type="xsd:string" />
+    <xsd:attribute name="name" type="xsd:string" />
+    </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="data">
+    <xsd:complexType>
+    <xsd:sequence>
+    <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+    <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+    </xsd:sequence>
+    <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+    <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+    <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+    <xsd:attribute ref="xml:space" />
+    </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="resheader">
+    <xsd:complexType>
+    <xsd:sequence>
+    <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+    </xsd:sequence>
+    <xsd:attribute name="name" type="xsd:string" use="required" />
+    </xsd:complexType>
+    </xsd:element>
+    </xsd:choice>
+    </xsd:complexType>
+    </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+    <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+        <data name="Btn_AvanzadoRecursoKCG.Text" xml:space="preserve">
+        <value>Avanzado</value>
+        </data>
+        <data name="Btn_AvanzadoRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Tool Avanzado</value>
+        </data>
+        <data name="Btn_AvanzadoRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_AvanzadoRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_BuscarRecursoKCG.Text" xml:space="preserve">
+        <value>Buscar</value>
+        </data>
+        <data name="Btn_BuscarRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Tool Buscar</value>
+        </data>
+        <data name="Btn_BuscarRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_BuscarRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_CamposRecursoKCG.Text" xml:space="preserve">
+        <value>Campos</value>
+        </data>
+        <data name="Btn_CamposRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Tool Campos</value>
+        </data>
+        <data name="Btn_CamposRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_CamposRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_Cancelar_FiltrosRecursoKCG.Text" xml:space="preserve">
+        <value>Cancelar Filtros</value>
+        </data>
+        <data name="Btn_Cancelar_FiltrosRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Tool Cancelar Filtros</value>
+        </data>
+        <data name="Btn_Cancelar_FiltrosRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_Cancelar_FiltrosRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_LimpiarRecursoKCG.Text" xml:space="preserve">
+        <value>Limpiar</value>
+        </data>
+        <data name="Btn_LimpiarRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Tool Limpiar</value>
+        </data>
+        <data name="Btn_LimpiarRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_LimpiarRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Apr_Estados_EstadoRecursoKCG.Text" xml:space="preserve">
+        <value>Estados</value>
+        </data>
+        <data name="Apr_Estados_EstadoRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Estados</value>
+        </data>
+        <data name="Apr_Estados_EstadoRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Apr_Estados_EstadoRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Apr_Estados_OrdenRecursoKCG.Text" xml:space="preserve">
+        <value>Orden</value>
+        </data>
+        <data name="Apr_Estados_OrdenRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Orden</value>
+        </data>
+        <data name="Apr_Estados_OrdenRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Apr_Estados_OrdenRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_AceptarRecursoKCG.Text" xml:space="preserve">
+        <value>Aceptar</value>
+        </data>
+        <data name="Btn_AceptarRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Alt + A</value>
+        </data>
+        <data name="Btn_AceptarRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_AceptarRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_AnteriorRecursoKCG.Text" xml:space="preserve">
+        <value>Anterior</value>
+        </data>
+        <data name="Btn_AnteriorRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Alt + R</value>
+        </data>
+        <data name="Btn_AnteriorRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_AnteriorRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_AtrasRecursoKCG.Text" xml:space="preserve">
+        <value>Atras</value>
+        </data>
+        <data name="Btn_AtrasRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Alt + B</value>
+        </data>
+        <data name="Btn_AtrasRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_AtrasRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imageNO.gif</value>
+        </data>
+        
+        <data name="Btn_AyudaRecursoKCG.Text" xml:space="preserve">
+        <value>Ayuda</value>
+        </data>
+        <data name="Btn_AyudaRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Alt + H</value>
+        </data>
+        <data name="Btn_AyudaRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_AyudaRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_CancelRecursoKCG.Text" xml:space="preserve">
+        <value>Cancelar</value>
+        </data>
+        <data name="Btn_CancelRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Alt + C</value>
+        </data>
+        <data name="Btn_CancelRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_CancelRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_DeleteRecursoKCG.Text" xml:space="preserve">
+        <value>Eliminar</value>
+        </data>
+        <data name="Btn_DeleteRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Alt + D</value>
+        </data>
+        <data name="Btn_DeleteRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_DeleteRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_EditRecursoKCG.Text" xml:space="preserve">
+        <value>Editar</value>
+        </data>
+        <data name="Btn_EditRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Alt + E</value>
+        </data>
+        <data name="Btn_EditRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_EditRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_FiltrarRecursoKCG.Text" xml:space="preserve">
+        <value>Filtrar</value>
+        </data>
+        <data name="Btn_FiltrarRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Alt + T</value>
+        </data>
+        <data name="Btn_FiltrarRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_FiltrarRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_InsertRecursoKCG.Text" xml:space="preserve">
+        <value>Insertar</value>
+        </data>
+        <data name="Btn_InsertRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Alt + I</value>
+        </data>
+        <data name="Btn_InsertRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_InsertRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_Insertar_RaizRecursoKCG.Text" xml:space="preserve">
+        <value>Proyectos</value>
+        </data>
+        <data name="Btn_Insertar_RaizRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Proyectos</value>
+        </data>
+        <data name="Btn_Insertar_RaizRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_Insertar_RaizRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_LogRecursoKCG.Text" xml:space="preserve">
+        <value>Registrarse</value>
+        </data>
+        <data name="Btn_LogRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Registrarse</value>
+        </data>
+        <data name="Btn_LogRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_LogRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_NewRecursoKCG.Text" xml:space="preserve">
+        <value>Nuevo</value>
+        </data>
+        <data name="Btn_NewRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Alt + N</value>
+        </data>
+        <data name="Btn_NewRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_NewRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imageNO.gif</value>
+        </data>
+        
+        <data name="Btn_Pagina_AnteriorRecursoKCG.Text" xml:space="preserve">
+        <value>Página Anterior</value>
+        </data>
+        <data name="Btn_Pagina_AnteriorRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Página Anterior</value>
+        </data>
+        <data name="Btn_Pagina_AnteriorRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_Pagina_AnteriorRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_SeleccionRecursoKCG.Text" xml:space="preserve">
+        <value>Seleccionar</value>
+        </data>
+        <data name="Btn_SeleccionRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Alt + S</value>
+        </data>
+        <data name="Btn_SeleccionRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_SeleccionRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imageNO.gif</value>
+        </data>
+        
+        <data name="Btn_SiguienteRecursoKCG.Text" xml:space="preserve">
+        <value>Siguiente</value>
+        </data>
+        <data name="Btn_SiguienteRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Alt + G</value>
+        </data>
+        <data name="Btn_SiguienteRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_SiguienteRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_UpdateRecursoKCG.Text" xml:space="preserve">
+        <value>Actualizar</value>
+        </data>
+        <data name="Btn_UpdateRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Alt + U</value>
+        </data>
+        <data name="Btn_UpdateRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Btn_UpdateRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Rec_Apr_EstadosRecursoKCG.Text" xml:space="preserve">
+        <value>Estados</value>
+        </data>
+        <data name="Rec_Apr_EstadosRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Estados</value>
+        </data>
+        <data name="Rec_Apr_EstadosRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Rec_Apr_EstadosRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Tit_Apr_EstadosRecursoKCG.Text" xml:space="preserve">
+        <value>Estados</value>
+        </data>
+        <data name="Tit_Apr_EstadosRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Estados</value>
+        </data>
+        <data name="Tit_Apr_EstadosRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagen.gif</value>
+        </data>
+        <data name="Tit_Apr_EstadosRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_BeforeRecursoKCG.Text" xml:space="preserve">
+        <value>Antes</value>
+        </data>
+        <data name="Btn_BeforeRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Alt + 2</value>
+        </data>
+        <data name="Btn_BeforeRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\Btn_Before.png</value>
+        </data>
+        <data name="Btn_BeforeRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_FirstRecursoKCG.Text" xml:space="preserve">
+        <value>Primero</value>
+        </data>
+        <data name="Btn_FirstRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Alt + 4</value>
+        </data>
+        <data name="Btn_FirstRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\Btn_First.png</value>
+        </data>
+        <data name="Btn_FirstRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_LastRecursoKCG.Text" xml:space="preserve">
+        <value>Último</value>
+        </data>
+        <data name="Btn_LastRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Alt + 1</value>
+        </data>
+        <data name="Btn_LastRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\Btn_Last.png</value>
+        </data>
+        <data name="Btn_LastRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Btn_NextRecursoKCG.Text" xml:space="preserve">
+        <value>Siguiente</value>
+        </data>
+        <data name="Btn_NextRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Alt + 3</value>
+        </data>
+        <data name="Btn_NextRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\Btn_Next.png</value>
+        </data>
+        <data name="Btn_NextRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value>~\imagenes_predeterminadas\imagenNO.gif</value>
+        </data>
+        
+        <data name="Tec_AceptarRecursoKCG.AccesKey" xml:space="preserve">
+        <value>A</value>
+        </data>
+        
+        <data name="Tec_ActualizarRecursoKCG.AccesKey" xml:space="preserve">
+        <value>U</value>
+        </data>
+        
+        <data name="Tec_AnteriorRecursoKCG.AccesKey" xml:space="preserve">
+        <value>R</value>
+        </data>
+        
+        <data name="Tec_AtrasRecursoKCG.AccesKey" xml:space="preserve">
+        <value>B</value>
+        </data>
+        
+        <data name="Tec_AyudaRecursoKCG.AccesKey" xml:space="preserve">
+        <value>H</value>
+        </data>
+        
+        <data name="Tec_CancelarRecursoKCG.AccesKey" xml:space="preserve">
+        <value>C</value>
+        </data>
+        
+        <data name="Tec_EditarRecursoKCG.AccesKey" xml:space="preserve">
+        <value>E</value>
+        </data>
+        
+        <data name="Tec_EliminarRecursoKCG.AccesKey" xml:space="preserve">
+        <value>D</value>
+        </data>
+        
+        <data name="Tec_FiltroRecursoKCG.AccesKey" xml:space="preserve">
+        <value>T</value>
+        </data>
+        
+        <data name="Tec_GridRecursoKCG.AccesKey" xml:space="preserve">
+        <value>L</value>
+        </data>
+        
+        <data name="Tec_InicioRecursoKCG.AccesKey" xml:space="preserve">
+        <value>F</value>
+        </data>
+        
+        <data name="Tec_InsertarRecursoKCG.AccesKey" xml:space="preserve">
+        <value>I</value>
+        </data>
+        
+        <data name="Tec_NuevoRecursoKCG.AccesKey" xml:space="preserve">
+        <value>N</value>
+        </data>
+        
+        <data name="Tec_SeleccionarRecursoKCG.AccesKey" xml:space="preserve">
+        <value>S</value>
+        </data>
+        
+        <data name="Tec_SiguienteRecursoKCG.AccesKey" xml:space="preserve">
+        <value>G</value>
+        </data>
+        <data name="MSJ1RecursoKCG.ErrorMessage" xml:space="preserve">
+        <value>Es obligatorio  este campo </value>
+        </data>
+        <data name="MSJ1RecursoKCG.Text" xml:space="preserve">
+        <value>*</value>
+        </data>
+        <data name="MSJ10RecursoKCG.Text" xml:space="preserve">
+          <value>Proceso  realizado con éxito</value>
+          </data>
+          <data name="MSJ10RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Proceso  realizado con éxito</value>
+        </data>
+        <data name="MSJ100RecursoKCG.Text" xml:space="preserve">
+        <value>Otro Usuario ha Actualizado el Registro(Vuelva a Intentarlo)...</value>
+        </data>
+        <data name="MSJ100RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Otro Usuario ha Actualizado el Registro(Vuelva a Intentarlo)...</value>
+        </data>
+        <data name="MSJ101RecursoKCG.Text" xml:space="preserve">
+        <value>El Número de Cédula Ingresado no es Válido</value>
+        </data>
+        <data name="MSJ101RecursoKCG.ToolTip" xml:space="preserve">
+        <value>El Número de Cédula Ingresado no es Válido</value>
+        </data>
+        <data name="MSJ102RecursoKCG.Text" xml:space="preserve">
+        <value>No se pudo actualizar el valor de la publicación</value>
+        </data>
+        <data name="MSJ102RecursoKCG.ToolTip" xml:space="preserve">
+        <value>No se pudo actualizar el valor de la publicación</value>
+        </data>
+        <data name="MSJ103RecursoKCG.Text" xml:space="preserve">
+        <value>Excede al valor máximo. {0}</value>
+        </data>
+        <data name="MSJ103RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Excede al valor máximo. {0}</value>
+        </data>
+        <data name="MSJ104RecursoKCG.Text" xml:space="preserve">
+        <value>Solo puede existir una planilla de {0}.</value>
+        </data>
+        <data name="MSJ104RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Solo puede existir una planilla de {0}.</value>
+        </data>
+        <data name="MSJ105RecursoKCG.Text" xml:space="preserve">
+        <value>El valor excede al % máximo permitido por planilla {0}</value>
+        </data>
+        <data name="MSJ105RecursoKCG.ToolTip" xml:space="preserve">
+        <value>El valor excede al % máximo permitido por planilla {0}</value>
+        </data>
+        <data name="MSJ106RecursoKCG.Text" xml:space="preserve">
+        <value>No se pudo actualizar los Costos de Equipo del Proyecto</value>
+        </data>
+        <data name="MSJ106RecursoKCG.ToolTip" xml:space="preserve">
+        <value>No se pudo actualizar los Costos de Equipo del Proyecto</value>
+        </data>
+        <data name="MSJ107RecursoKCG.Text" xml:space="preserve">
+        <value>No se pudo actualizar los Costos de Mano de Obra del Proyecto</value>
+        </data>
+        <data name="MSJ107RecursoKCG.ToolTip" xml:space="preserve">
+        <value>No se pudo actualizar los Costos de Mano de Obra del Proyecto</value>
+        </data>
+        <data name="MSJ108RecursoKCG.Text" xml:space="preserve">
+        <value>No se pudo actualizar los Costos de Material del Proyecto</value>
+        </data>
+        <data name="MSJ108RecursoKCG.ToolTip" xml:space="preserve">
+        <value>No se pudo actualizar los Costos de Material del Proyecto</value>
+        </data>
+        <data name="MSJ109RecursoKCG.Text" xml:space="preserve">
+        <value>La primera planilla a insertar debe ser del tipo Anticipo.</value>
+        </data>
+        <data name="MSJ109RecursoKCG.ToolTip" xml:space="preserve">
+        <value>La primera planilla a insertar debe ser del tipo Anticipo.</value>
+        </data>
+        <data name="MSJ11RecursoKCG.Text" xml:space="preserve">
+        <value>Esta  seguro  de eliminar el registro</value>
+        </data>
+        <data name="MSJ11RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Esta  seguro  de eliminar el registro</value>
+        </data>
+        <data name="MSJ110RecursoKCG.Text" xml:space="preserve">
+        <value>Se necesita el Código Institucional</value>
+        </data>
+        <data name="MSJ110RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Se necesita el Código Institucional</value>
+        </data>
+        <data name="MSJ111RecursoKCG.Text" xml:space="preserve">
+        <value>Existe informacion en tablas relacionadas.</value>
+        </data>
+        <data name="MSJ111RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Existe informacion en tablas relacionadas.</value>
+        </data>
+        <data name="MSJ112RecursoKCG.Text" xml:space="preserve">
+        <value>No tiene permiso para cambiar el Estado.{0}</value>
+        </data>
+        <data name="MSJ112RecursoKCG.ToolTip" xml:space="preserve">
+        <value>No tiene permiso para cambiar el Estado.{0}</value>
+        </data>
+        <data name="MSJ113RecursoKCG.Text" xml:space="preserve">
+        <value>Campo Requerido{0}</value>
+        </data>
+        <data name="MSJ113RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Campo Requerido{0}</value>
+        </data>
+        <data name="MSJ12RecursoKCG.Text" xml:space="preserve">
+        <value>Esta seguro de actualizar  los datos</value>
+        </data>
+        <data name="MSJ12RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Esta seguro de actualizar  los datos</value>
+        </data>
+        <data name="MSJ14RecursoKCG.Text" xml:space="preserve">
+          <value>Proceso no realizado</value>
+          </data>
+          <data name="MSJ14RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Proceso no realizado</value>
+        </data>
+        <data name="MSJ15RecursoKCG.ErrorMessage" xml:space="preserve">
+        <value>Valor Maximo tiene que ser mayor a valor minimo</value>
+        </data>
+        <data name="MSJ15RecursoKCG.Text" xml:space="preserve">
+        <value>*</value>
+        </data>
+        <data name="MSJ16RecursoKCG.Text" xml:space="preserve">
+        <value>Codigo de Registrarse :</value>
+        </data>
+        <data name="MSJ16RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Codigo de Registrarse :</value>
+        </data>
+        <data name="MSJ17RecursoKCG.Text" xml:space="preserve">
+        <value>Error al obtener la Secuencia</value>
+        </data>
+        <data name="MSJ17RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Error al obtener la Secuencia</value>
+        </data>
+        <data name="MSJ18RecursoKCG.Text" xml:space="preserve">
+        <value>Codigo demasiado Extenso</value>
+        </data>
+        <data name="MSJ18RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Codigo demasiado Extenso</value>
+        </data>
+        <data name="MSJ19RecursoKCG.Text" xml:space="preserve">
+        <value>No existen datos en la Base para validar el Acceso</value>
+        </data>
+        <data name="MSJ19RecursoKCG.ToolTip" xml:space="preserve">
+        <value>No existen datos en la Base para validar el Acceso</value>
+        </data>
+        <data name="MSJ2RecursoKCG.ErrorMessage" xml:space="preserve">
+        <value>Nombre es obligatorio</value>
+        </data>
+        <data name="MSJ2RecursoKCG.Text" xml:space="preserve">
+        <value>*</value>
+        </data>
+        <data name="MSJ20RecursoKCG.Text" xml:space="preserve">
+        <value>Usuario o Contraseña Incorrecta</value>
+        </data>
+        <data name="MSJ20RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Usuario o Contraseña Incorrecta</value>
+        </data>
+        <data name="MSJ21RecursoKCG.ErrorMessage" xml:space="preserve">
+        <value>Ingreso Obligatorio</value>
+        </data>
+        <data name="MSJ21RecursoKCG.Text" xml:space="preserve">
+        <value>*</value>
+        </data>
+        <data name="MSJ22RecursoKCG.Text" xml:space="preserve">
+        <value>Error en el Campo: {0}</value>
+        </data>
+        <data name="MSJ22RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Error en el Campo: {0}</value>
+        </data>
+        <data name="MSJ23RecursoKCG.Text" xml:space="preserve">
+        <value>Cargando...</value>
+        </data>
+        <data name="MSJ23RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Cargando...</value>
+        </data>
+        <data name="MSJ24RecursoKCG.ErrorMessage" xml:space="preserve">
+        <value>Porcentaje fuera de rango (0% - 100%)</value>
+        </data>
+        <data name="MSJ24RecursoKCG.Text" xml:space="preserve">
+        <value>*</value>
+        </data>
+        <data name="MSJ25RecursoKCG.ErrorMessage" xml:space="preserve">
+        <value>El campo no puede ser NULL</value>
+        </data>
+        <data name="MSJ25RecursoKCG.Text" xml:space="preserve">
+        <value>*</value>
+        </data>
+        <data name="MSJ26RecursoKCG.Text" xml:space="preserve">
+        <value>No se puede eliminar el registro porque existen datos relacionados</value>
+        </data>
+        <data name="MSJ26RecursoKCG.ToolTip" xml:space="preserve">
+        <value>No se puede eliminar el registro porque existen datos relacionados</value>
+        </data>
+        <data name="MSJ27RecursoKCG.Text" xml:space="preserve">
+        <value>Debe ingresar un nombre unico {0}</value>
+        </data>
+        <data name="MSJ27RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Debe ingresar un nombre unico {0}</value>
+        </data>
+        <data name="MSJ28RecursoKCG.Text" xml:space="preserve">
+        <value>Error al cargar el archivo: {0}</value>
+        </data>
+        <data name="MSJ28RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Error al cargar el archivo: {0}</value>
+        </data>
+        <data name="MSJ29RecursoKCG.ErrorMessage" xml:space="preserve">
+        <value>Debe ser mayor o igual a cero</value>
+        </data>
+        <data name="MSJ29RecursoKCG.Text" xml:space="preserve">
+        <value>*</value>
+        </data>
+        <data name="MSJ3RecursoKCG.ErrorMessage" xml:space="preserve">
+        <value>Código  es obligatorio</value>
+        </data>
+        <data name="MSJ3RecursoKCG.Text" xml:space="preserve">
+        <value>*</value>
+        </data>
+        <data name="MSJ30RecursoKCG.ErrorMessage" xml:space="preserve">
+        <value>Datos incompletos</value>
+        </data>
+        <data name="MSJ30RecursoKCG.Text" xml:space="preserve">
+        <value>*</value>
+        </data>
+        <data name="MSJ31RecursoKCG.Text" xml:space="preserve">
+          <value>Debe grabar para que se refleje el cambio</value>
+          </data>
+          <data name="MSJ31RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Debe grabar para que se refleje el cambio</value>
+        </data>
+        <data name="MSJ32RecursoKCG.Text" xml:space="preserve">
+        <value>Debe ingresar un codigo unico: {0}</value>
+        </data>
+        <data name="MSJ32RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Debe ingresar un codigo unico: {0}</value>
+        </data>
+        <data name="MSJ33RecursoKCG.Text" xml:space="preserve">
+        <value>Debe ingresar un Tipo único {0}</value>
+        </data>
+        <data name="MSJ33RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Debe ingresar un Tipo único {0}</value>
+        </data>
+        <data name="MSJ34RecursoKCG.Text" xml:space="preserve">
+        <value>Error no personalizado</value>
+        </data>
+        <data name="MSJ34RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Error no personalizado</value>
+        </data>
+        <data name="MSJ35RecursoKCG.Text" xml:space="preserve">
+        <value>No se puede ingresar. Atributo repetido</value>
+        </data>
+        <data name="MSJ35RecursoKCG.ToolTip" xml:space="preserve">
+        <value>No se puede ingresar. Atributo repetido</value>
+        </data>
+        <data name="MSJ36RecursoKCG.Text" xml:space="preserve">
+        <value>No se puede ingresar. Ubicación repetida</value>
+        </data>
+        <data name="MSJ36RecursoKCG.ToolTip" xml:space="preserve">
+        <value>No se puede ingresar. Ubicación repetida</value>
+        </data>
+        <data name="MSJ37RecursoKCG.Text" xml:space="preserve">
+          <value>Ingrese mínimo 3 caracteres para desplegar la consulta.</value>
+          </data>
+          <data name="MSJ37RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Ingrese mínimo 3 caracteres para desplegar la consulta.</value>
+        </data>
+        <data name="MSJ4RecursoKCG.ErrorMessage" xml:space="preserve">
+        <value>Debe ser  mayor  a cero </value>
+        </data>
+        <data name="MSJ4RecursoKCG.Text" xml:space="preserve">
+        <value>*</value>
+        </data>
+        <data name="MSJ5RecursoKCG.ErrorMessage" xml:space="preserve">
+        <value>Debe ser un número entero</value>
+        </data>
+        <data name="MSJ5RecursoKCG.Text" xml:space="preserve">
+        <value>*</value>
+        </data>
+        <data name="MSJ6RecursoKCG.ErrorMessage" xml:space="preserve">
+        <value>Debe escoger una opción</value>
+        </data>
+        <data name="MSJ6RecursoKCG.Text" xml:space="preserve">
+        <value>*</value>
+        </data>
+        <data name="MSJ7RecursoKCG.ErrorMessage" xml:space="preserve">
+        <value>Debe ingresar  una fecha adecuada</value>
+        </data>
+        <data name="MSJ7RecursoKCG.Text" xml:space="preserve">
+        <value>*</value>
+        </data>
+        <data name="MSJ8RecursoKCG.ErrorMessage" xml:space="preserve">
+        <value>La fecha inicial  debe ser menor a la fecha final</value>
+        </data>
+        <data name="MSJ8RecursoKCG.Text" xml:space="preserve">
+        <value>*</value>
+        </data>
+        <data name="MSJ86RecursoKCG.Text" xml:space="preserve">
+        <value>La página ya existe en el servidor</value>
+        </data>
+        <data name="MSJ86RecursoKCG.ToolTip" xml:space="preserve">
+        <value>La página ya existe en el servidor</value>
+        </data>
+        <data name="MSJ9RecursoKCG.Text" xml:space="preserve">
+          <value>Escoja  la fecha actual</value>
+          </data>
+          <data name="MSJ9RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Escoja  la fecha actual</value>
+        </data>
+        
+    </root>
+    

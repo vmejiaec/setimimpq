@@ -1,0 +1,15 @@
+
+<asp:WebPartZone  runat="server" BackColor="White" 
+BorderWidth="0px" Padding="0" 
+WebPartVerbRenderMode="TitleBar" 
+TitleBarVerbButtonType="Link" 
+PartChromeType="TitleOnly" Font-Names="Verdana,Times New Roman,Arial" 
+Font-Size="X-Small">
+<ConnectVerb Visible="False" />
+<EditVerb Visible="False" />
+<MenuLabelStyle BackColor="White" />
+<MenuVerbStyle BackColor="White" />
+</asp:WebPartZone>
+
+
+

@@ -1,0 +1,12 @@
+<asp:Label  Runat="server" Font-Names="Verdana, Times New Roman , Arial" Font-Size="8pt"></asp:Label>
+<asp:Label  skinid="TituloPaginas" Runat="server" Font-Names="Verdana, Times New Roman , Arial" Font-Size="10px" Font-Bold=true></asp:Label>
+<asp:Label  skinid="LabelTitulo" Runat="server" Font-Names="Verdana, Times New Roman , Arial" Font-Size="12px"></asp:Label>
+<asp:Label  skinid="Tablas" Runat="server" height="22" bgcolor="#E0DFE3" Font-Names="Verdana, Times New Roman , Arial" Font-Size="11px"></asp:Label>
+
+<asp:Label  skinid="Titulares" Runat="server" Font-Names="Verdana, Times New Roman , Arial" Font-Size="14px" Font-Bold=true ForeColor="#1E6AC5"></asp:Label>
+<asp:Label  skinid="TitulosCampos" Runat="server" Font-Names="Verdana, Times New Roman , Arial" Font-Size="11px"  BackColor="#DADEE1"></asp:Label>
+<asp:Label  skinid="Subtitulos" runat="server" Style=" line-height: 7mm; text-align: center;" Font-Names="Verdana, Times New Roman , Arial" BackColor="#003366" Font-Bold="True" ForeColor="White" ></asp:Label>
+
+
+
+

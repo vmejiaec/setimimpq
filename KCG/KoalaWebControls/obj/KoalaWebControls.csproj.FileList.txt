@@ -1,0 +1,9 @@
+obj\Debug\ResolveAssemblyReference.cache
+bin\Debug\KoalaWebControls.dll
+bin\Debug\KoalaWebControls.pdb
+bin\Debug\FEL.dll
+bin\Debug\HER.dll
+bin\Debug\HER.pdb
+bin\Debug\FEL.pdb
+obj\Debug\KoalaWebControls.dll
+obj\Debug\KoalaWebControls.pdb

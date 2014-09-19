@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BA85EB0E-B913-4AD4-91A0-5253BDAC64B1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>zPruebas</RootNamespace>
+    <AssemblyName>zPruebas</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CEL\DO_Pla_Cta.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="CEL\DO_Pla_Doc.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="CEL\DO_Pla_Mov.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="CEL\DO_Pla_Partida.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="CEL\DO_Pla_Poa.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="CEL\DO_Pla_Tarea.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="EWS\WS_PLA.asmx.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FEL\BO_Pla_Cta.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="FEL\BO_Pla_Doc.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="FEL\BO_Pla_Mov.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="FEL\BO_Pla_Partida.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="FEL\BO_Pla_Poa.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="FEL\BO_Pla_Tarea.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="generaCEL.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>generaCEL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ADL\ADL.csproj">
+      <Project>{C70DFDE9-E132-42D4-962A-BE3D21772FC8}</Project>
+      <Name>ADL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AEL\AEL.csproj">
+      <Project>{EC8BE054-EABA-4849-B26A-96287C018644}</Project>
+      <Name>AEL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BEL\BEL.csproj">
+      <Project>{3E39F46C-182A-48FC-9D86-AD858AAD5889}</Project>
+      <Name>BEL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CEL\CEL.csproj">
+      <Project>{B5EE6234-C960-4F34-8333-4F28A87D8941}</Project>
+      <Name>CEL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GeneraClases\zGeneraClases.csproj">
+      <Project>{720F28EF-8882-4FA9-BE91-5DFB0AE48464}</Project>
+      <Name>zGeneraClases</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HER\HER.csproj">
+      <Project>{262B3E82-2A96-4ED0-AE2C-D93BB7D6844B}</Project>
+      <Name>HER</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="CEL\generaCEL.txt4" />
+    <None Include="EWS\generaCEL.txt4" />
+    <None Include="FEL\generaCEL.txt4" />
+    <None Include="Planificacion.xsd">
+      <LastGenOutput>Planificacion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="generaCEL.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>generaCEL.cs</LastGenOutput>
+      <Parameters>&lt;%3fxml version="1.0" encoding="utf-16"%3f&gt;
+&lt;ArrayOfParameterStorage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Parameters>
+    </None>
+    <None Include="TemplateFilemanager.ttinclude" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

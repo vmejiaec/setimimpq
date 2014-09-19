@@ -1,0 +1,76 @@
+<%@ Master Language="C#" 
+    AutoEventWireup="true" 
+    CodeBehind="MasterReportes.master.cs" 
+    Inherits="MasterReportes" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="AjaxToolkit" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <link href="App_Themes/KReporte/reporte.css" rel="Stylesheet" type="text/css" />
+    <title>Modulo de Reportes</title>
+</head>
+<body style="width: 1100px; height:700px">
+    <form id="form1" runat="server">
+        <div id="Principal" style="width: 1024px; height: 700px">
+            <asp:ScriptManager 
+                ID="ScriptManager1" 
+                runat="server" 
+                EnableScriptLocalization="true" 
+                EnableScriptGlobalization="true"
+                AsyncPostBackTimeout="900"         
+                ScriptMode="Auto">
+                <Scripts>
+                    <asp:ScriptReference Path="JavaScript/BloqueoControles.js" />
+                </Scripts>
+            </asp:ScriptManager>
+            <asp:Panel 
+                ID="pnlEspera" 
+                runat="server" 
+                CssClass="ModalPopUpCargando"
+                style="display:none">
+                <h4>Por favor espere...</h4>
+                <table>
+                    <tr>
+                        <td style="width: 30px; padding: 6px 6px 6px 6px" valign="top">
+                            <img src="../imagenes/ajaximagenes/cargandoMensaje.gif" id="IMG1" />
+                        </td>
+                        <td valign="top">
+                            <p>El sistema esta procesando la operación</p>
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+            <ajaxToolkit:ModalPopupExtender 
+                ID="mpeMensajeEspera"
+                BehaviorID="Cargando" 
+                runat="server" 
+                TargetControlID="btnEspera" 
+                PopupControlID="pnlEspera"  
+                DropShadow="true"    
+                BackgroundCssClass="modalBackgroundEspera">
+            </ajaxToolkit:ModalPopupExtender>
+            <asp:Button 
+                ID="btnEspera" 
+                runat="server" 
+                style ="display:none" />
+            <asp:Panel 
+                runat="server" 
+                ID="pnlContenido"
+                Width="1020px"
+                Height="550px" 
+                ScrollBars="None"                
+                Wrap="true">
+                <div id="Div1" style="margin:10px 15px 10px 15px">
+                    <asp:ContentPlaceHolder
+                        ID="ContentPlaceHolder1"
+                        runat="server">         
+                    </asp:ContentPlaceHolder>
+                </div>
+            </asp:Panel>
+        </div>
+    </form>
+</body>
+</html>

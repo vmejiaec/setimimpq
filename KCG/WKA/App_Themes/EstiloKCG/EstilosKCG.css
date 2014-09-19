@@ -1,0 +1,23 @@
+.TEXTO_EDICION_KCG
+{
+	background-color:lemonchiffon;
+	font-family:Arial;
+}
+
+.TEXTO_COMBOPER_KCG
+{
+	background-color:#CCFFFF;
+	font-family:Arial;	
+}
+
+.TEXTO_LECTURA_KCG
+{
+	font-family:Arial;
+	background-color:White;
+}
+
+.ESTADO
+{
+    font-weight:bold;
+    color:Red;
+}

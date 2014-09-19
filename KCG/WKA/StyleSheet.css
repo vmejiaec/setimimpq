@@ -1,0 +1,298 @@
+﻿/* Victor: Estilos para el grid view */
+.gvColID
+{
+    margin: 30px;
+    text-align: center;
+}
+
+.gvColCodigo
+{
+    text-align: center;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.gvColString
+{
+    padding-right: 10px;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.gvColInt
+{
+    margin: 30px;
+    text-align: right;
+}
+
+.gvColDecimal
+{
+    margin: 30px;
+    text-align: right;
+}
+
+.gvColFecha
+{
+    margin: 100px;
+    text-align: center;
+}
+
+/*Victor estilos para dividir la pantalla*/
+
+.panCol2
+{
+    float: left;
+    width: 30%;
+    display:block;
+}
+/*CollapsiblePanel*/
+.collapsePanel {
+	
+	background-color:white;
+	overflow:hidden;
+}
+
+.collapsePanelHeader{
+	width:100%;
+	height:30px;
+	background-image: url(images/bg-menu-main.png);
+	background-repeat:repeat-x;
+	color:#FFF;
+	font-weight:bold;
+}
+
+.MenuVerticalText {
+	writing-mode: tb-rl;
+	filter: flipv fliph;
+	font-size: small;
+	color:#F5F5F5;
+}
+
+.barraEstado
+{
+	font-size: small;
+	color:#F5F5F5;
+}
+
+.modalBackground {
+	background-color:Gray;
+	filter:alpha(opacity=70);
+	opacity:0.7;
+	
+}
+
+.textoSession
+{
+	font-family:Verdana;
+	font-size:xx-small;
+	color:Blue;
+}
+
+.controlIdioma
+{
+	font-size:x-small;
+	color:#F5F5F5;
+	background-color:#B45F04;
+	
+}
+
+..clsPanel legend 
+{ 
+color: red; 
+} 
+
+..clsPanel fieldset 
+{ 
+border: solid 1px red; 
+} 
+
+
+body {
+    color:#000000;
+    font-family:arial,verdana,sans-serif;
+    font-size:small;
+}    
+.alternatingrowstyle{
+    background-color:#f9f9f9;
+}
+.headerstyle{
+    background-color:#e5e5e5;
+    height:23px;
+}
+.headerstyle th {
+    border:1px solid #bbbbbb;
+    padding-left:5px;
+    text-align:left;
+}  
+.headerstyle a {
+    color:black;
+}
+
+.selectedrowstyle {
+	background:#c5c5c5;
+    font-weight:bold;
+}
+    
+.sortalternatingrowstyle{
+    background-color:#e5e5e5
+}
+.sortrowstyle{
+    background-color:#f0f0f0
+}
+.sortascheaderstyle{
+    background:#c5c5c5 url(Img/sort_asc.gif) no-repeat scroll right center;
+    padding-left:5px;
+}
+.sortdescheaderstyle{
+    background:#c5c5c5 url(Img/sort_desc.gif) no-repeat scroll right center;
+    padding-left:5px;
+}   
+.pagerstyle{
+    color:#444444;
+    background-color:#e5e5e5;
+    font-size:x-small;
+    text-align:right;
+} 
+.pagerstyle select{
+    font-size:x-small;
+}  
+.previous{
+    background:transparent url(Img/previous.gif) no-repeat scroll center;
+    height:1.3em;
+    width:16px;
+}
+.next{
+    background:transparent url(Img/next.gif) no-repeat scroll center;
+    height:1.3em;
+    width:16px;
+}  
+.gotopage{
+    font-size:x-small;
+    width:20px;
+}
+
+.filtro
+{
+    background-color:#F5F5F5; 
+    border-width:2px; 
+    border-color:#A2ABBC; 
+    border-style:solid;
+    text-align:left;
+    padding-bottom:5px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:5px;
+    width:450px;
+    position:absolute; 
+    font-size:x-small;
+}
+
+.filtroControles
+{
+     font-size:x-small;	
+}
+
+.cerrar{
+    background: transparent url(Img/botonCerrar.bmp) no-repeat scroll center;
+    height:21px;
+    width:21px;
+}
+
+.previousNavegacion{
+    background:transparent url(Img/previous.gif) no-repeat scroll center;
+    height:1.3em;
+    width:16px;
+    color:#444444;
+    background-color:#e5e5e5;
+}
+.nextNavegacion{
+    background:transparent url(Img/next.gif) no-repeat scroll center;
+    height:1.3em;
+    width:16px;
+    color:#444444;
+    background-color:#e5e5e5;
+}
+
+/*AutoComplete flyout */
+
+.autocomplete_completionListElement 
+{  
+	visibility : hidden;
+	margin : 0px!important;
+	background-color : inherit;
+	color : windowtext;
+	border : buttonshadow;
+	border-width : 1px;
+	border-style : solid;
+	cursor : 'default';
+	overflow : auto;
+	height : 200px;
+    text-align : left; 
+    list-style-type : none;
+}
+
+/* AutoComplete item */
+
+.autocomplete_listItem 
+{
+	background-color : window;
+	color : windowtext;
+	padding : 1px;
+}
+
+/* AutoComplete highlighted item */
+
+.autocomplete_highlightedListItem
+{
+	background-color: #ffff99;
+	color: black;
+	padding: 1px;
+}
+
+
+
+/************ MaskedEdit Related Styles ***********************/
+.MaskedEditFocus
+{
+    background-color: #ffffcc;
+    color: #000000;
+}
+.MaskedEditMessage
+{
+	color: #ff0000;
+	font-weight: bold;
+}
+.MaskedEditError
+{
+    background-color: #ffcccc;
+}
+.MaskedEditFocusNegative
+{
+    background-color: #ffffcc;
+    color: #ff0000;
+}
+.MaskedEditBlurNegative
+{
+    color: #ff0000;
+}
+
+.ModalPopUpCargando
+{
+    background-color:#F5F5F5; 
+    border-width:2px; 
+    border-color:#A2ABBC; 
+    border-style:solid;
+    text-align:left;
+    padding-bottom:5px;
+    padding-left:5px;
+    padding-right:5px;
+    padding-top:5px;
+    width:250px;
+    position:absolute; 
+}
+
+.modalBackgroundEspera {
+	background-color:#FFFFFF;
+    filter:alpha(opacity=80);
+    opacity:0.8;
+}

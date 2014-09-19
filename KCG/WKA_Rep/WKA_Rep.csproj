@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{56CB74F3-EE16-4AD5-9AB8-971C274D2703}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WKA_Rep</RootNamespace>
+    <AssemblyName>WKA_Rep</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=1.0.20229.27748, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\KoalaWebControls\bin\Debug\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="ConvertCantidad, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Reportes\DLL\ConvertCantidad.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\Microsoft.ReportViewer.WebForms\8.0.0.0__b03f5f7f11d50a3a\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="APU\APU_RUBRO_REPORTE.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Imagenes\fonsal.JPG" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APU\APU_OFERTA_CUADRILLA_REPORTE.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>APU_OFERTA_CUADRILLA_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_OFERTA_CUADRILLA_REPORTE.aspx.designer.cs">
+      <DependentUpon>APU_OFERTA_CUADRILLA_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_OFERTA_INDICE_REPORTE.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>APU_OFERTA_INDICE_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_OFERTA_INDICE_REPORTE.aspx.designer.cs">
+      <DependentUpon>APU_OFERTA_INDICE_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_OFERTA_RUBRO_BASICO_REPORTE.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>APU_OFERTA_RUBRO_BASICO_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_OFERTA_RUBRO_BASICO_REPORTE.aspx.designer.cs">
+      <DependentUpon>APU_OFERTA_RUBRO_BASICO_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_OFERTA_RUBRO_INSUMO_REPORTE.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>APU_OFERTA_RUBRO_INSUMO_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_OFERTA_RUBRO_INSUMO_REPORTE.aspx.designer.cs">
+      <DependentUpon>APU_OFERTA_RUBRO_INSUMO_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_OFERTA_RUBRO_MATERIAL_REPORTE.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>APU_OFERTA_RUBRO_MATERIAL_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_OFERTA_RUBRO_MATERIAL_REPORTE.aspx.designer.cs">
+      <DependentUpon>APU_OFERTA_RUBRO_MATERIAL_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_OFERTA_RUBRO_REPORTE.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>APU_OFERTA_RUBRO_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_OFERTA_RUBRO_REPORTE.aspx.designer.cs">
+      <DependentUpon>APU_OFERTA_RUBRO_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_PROYECTO_CUADRILLA_REPORTE.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>APU_PROYECTO_CUADRILLA_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_PROYECTO_CUADRILLA_REPORTE.aspx.designer.cs">
+      <DependentUpon>APU_PROYECTO_CUADRILLA_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_PROYECTO_INDICE_MEMORIA_REPORTE.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>APU_PROYECTO_INDICE_MEMORIA_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_PROYECTO_INDICE_MEMORIA_REPORTE.aspx.designer.cs">
+      <DependentUpon>APU_PROYECTO_INDICE_MEMORIA_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_PROYECTO_INDICE_REPORTE.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>APU_PROYECTO_INDICE_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_PROYECTO_INDICE_REPORTE.aspx.designer.cs">
+      <DependentUpon>APU_PROYECTO_INDICE_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\Apu_Proyecto_Oferta_Rubro_Reporte.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Apu_Proyecto_Oferta_Rubro_Reporte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\Apu_Proyecto_Oferta_Rubro_Reporte.aspx.designer.cs">
+      <DependentUpon>Apu_Proyecto_Oferta_Rubro_Reporte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_PROYECTO_RUBRO_BASICO_REPORTE.aspx.cs">
+      <DependentUpon>APU_PROYECTO_RUBRO_BASICO_REPORTE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="APU\APU_PROYECTO_RUBRO_BASICO_REPORTE.aspx.designer.cs">
+      <DependentUpon>APU_PROYECTO_RUBRO_BASICO_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_PROYECTO_RUBRO_INSUMO_REPORTE.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>APU_PROYECTO_RUBRO_INSUMO_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_PROYECTO_RUBRO_INSUMO_REPORTE.aspx.designer.cs">
+      <DependentUpon>APU_PROYECTO_RUBRO_INSUMO_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_PROYECTO_RUBRO_MATERIAL_REPORTE.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>APU_PROYECTO_RUBRO_MATERIAL_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_PROYECTO_RUBRO_MATERIAL_REPORTE.aspx.designer.cs">
+      <DependentUpon>APU_PROYECTO_RUBRO_MATERIAL_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_PROYECTO_RUBRO_REPORTE.aspx.cs">
+      <DependentUpon>APU_PROYECTO_RUBRO_REPORTE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="APU\APU_PROYECTO_RUBRO_REPORTE.aspx.designer.cs">
+      <DependentUpon>APU_PROYECTO_RUBRO_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_PROYECTO_RUBRO_TECNICA_REPORTE.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>APU_PROYECTO_RUBRO_TECNICA_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_PROYECTO_RUBRO_TECNICA_REPORTE.aspx.designer.cs">
+      <DependentUpon>APU_PROYECTO_RUBRO_TECNICA_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_RUBRO_ANALISIS_UNITARIO.aspx.cs">
+      <DependentUpon>APU_RUBRO_ANALISIS_UNITARIO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="APU\APU_RUBRO_ANALISIS_UNITARIO.aspx.designer.cs">
+      <DependentUpon>APU_RUBRO_ANALISIS_UNITARIO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_RUBRO_INSUMO_BASICO_REPORTE.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>APU_RUBRO_INSUMO_BASICO_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_RUBRO_INSUMO_BASICO_REPORTE.aspx.designer.cs">
+      <DependentUpon>APU_RUBRO_INSUMO_BASICO_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_RUBRO_INSUMO_REPORTE.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>APU_RUBRO_INSUMO_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_RUBRO_INSUMO_REPORTE.aspx.designer.cs">
+      <DependentUpon>APU_RUBRO_INSUMO_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_RUBRO_LISTADO.aspx.cs">
+      <DependentUpon>APU_RUBRO_LISTADO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="APU\APU_RUBRO_LISTADO.aspx.designer.cs">
+      <DependentUpon>APU_RUBRO_LISTADO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_RUBRO_REPORTE.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>APU_RUBRO_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\APU_RUBRO_REPORTE.aspx.designer.cs">
+      <DependentUpon>APU_RUBRO_REPORTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\R_APU_PRESUPUESTO_CUADRILLA.aspx.cs">
+      <DependentUpon>R_APU_PRESUPUESTO_CUADRILLA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="APU\R_APU_PRESUPUESTO_CUADRILLA.aspx.designer.cs">
+      <DependentUpon>R_APU_PRESUPUESTO_CUADRILLA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\R_APU_PRESUPUESTO_INDICE.aspx.cs">
+      <DependentUpon>R_APU_PRESUPUESTO_INDICE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="APU\R_APU_PRESUPUESTO_INDICE.aspx.designer.cs">
+      <DependentUpon>R_APU_PRESUPUESTO_INDICE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU\R_APU_PRESUPUESTO_RUBRO.aspx.cs">
+      <DependentUpon>R_APU_PRESUPUESTO_RUBRO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="APU\R_APU_PRESUPUESTO_RUBRO.aspx.designer.cs">
+      <DependentUpon>R_APU_PRESUPUESTO_RUBRO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="APU_REP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>APU_REP.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIS\R_FIS_CATALOGO.aspx.cs">
+      <DependentUpon>R_FIS_CATALOGO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIS\R_FIS_CATALOGO.aspx.designer.cs">
+      <DependentUpon>R_FIS_CATALOGO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIS\R_FIS_LISTADO_FISCALIZACION.aspx.cs">
+      <DependentUpon>R_FIS_LISTADO_FISCALIZACION.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIS\R_FIS_LISTADO_FISCALIZACION.aspx.designer.cs">
+      <DependentUpon>R_FIS_LISTADO_FISCALIZACION.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\KPaginaReporte.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIS\R_FIS_PLANILLA_DET.aspx.cs">
+      <DependentUpon>R_FIS_PLANILLA_DET.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIS\R_FIS_PLANILLA_DET.aspx.designer.cs">
+      <DependentUpon>R_FIS_PLANILLA_DET.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIS\R_FIS_PLANILLA_FISCALIZADOR.aspx.cs">
+      <DependentUpon>R_FIS_PLANILLA_FISCALIZADOR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIS\R_FIS_PLANILLA_FISCALIZADOR.aspx.designer.cs">
+      <DependentUpon>R_FIS_PLANILLA_FISCALIZADOR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIS\R_FIS_PLANILLA_REAJUSTE.aspx.cs">
+      <DependentUpon>R_FIS_PLANILLA_REAJUSTE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIS\R_FIS_PLANILLA_REAJUSTE.aspx.designer.cs">
+      <DependentUpon>R_FIS_PLANILLA_REAJUSTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIS\R_FIS_PLANILLA_REAJUSTE_DIS.aspx.cs">
+      <DependentUpon>R_FIS_PLANILLA_REAJUSTE_DIS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIS\R_FIS_PLANILLA_REAJUSTE_DIS.aspx.designer.cs">
+      <DependentUpon>R_FIS_PLANILLA_REAJUSTE_DIS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIS\R_FIS_PLANILLA_REAJUSTE_REA.aspx.cs">
+      <DependentUpon>R_FIS_PLANILLA_REAJUSTE_REA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIS\R_FIS_PLANILLA_REAJUSTE_REA.aspx.designer.cs">
+      <DependentUpon>R_FIS_PLANILLA_REAJUSTE_REA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterReportes.Master.cs">
+      <DependentUpon>MasterReportes.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterReportes.Master.designer.cs">
+      <DependentUpon>MasterReportes.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PER\R_PER_PERSONAL.aspx.cs">
+      <DependentUpon>R_PER_PERSONAL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PER\R_PER_PERSONAL.aspx.designer.cs">
+      <DependentUpon>R_PER_PERSONAL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="App_Code\ResponseHelper.cs" />
+    <Compile Include="App_Code\Scope_Factory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AEL\AEL.csproj">
+      <Project>{EC8BE054-EABA-4849-B26A-96287C018644}</Project>
+      <Name>AEL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BEL\BEL.csproj">
+      <Project>{3E39F46C-182A-48FC-9D86-AD858AAD5889}</Project>
+      <Name>BEL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CEL\CEL.csproj">
+      <Project>{B5EE6234-C960-4F34-8333-4F28A87D8941}</Project>
+      <Name>CEL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HER\HER.csproj">
+      <Project>{262B3E82-2A96-4ED0-AE2C-D93BB7D6844B}</Project>
+      <Name>HER</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\REL\REL.csproj">
+      <Project>{0401907C-4FF8-444A-9AE6-A1AF8AC51C91}</Project>
+      <Name>REL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\APU_RUBRO_REPORTE.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="APU\APU_OFERTA_CUADRILLA_REPORTE.aspx" />
+    <Content Include="APU\APU_OFERTA_INDICE_REPORTE.aspx" />
+    <Content Include="APU\APU_OFERTA_RUBRO_BASICO_REPORTE.aspx" />
+    <Content Include="APU\APU_OFERTA_RUBRO_INSUMO_REPORTE.aspx" />
+    <Content Include="APU\APU_OFERTA_RUBRO_MATERIAL_REPORTE.aspx" />
+    <Content Include="APU\APU_OFERTA_RUBRO_REPORTE.aspx" />
+    <Content Include="APU\APU_PROYECTO_CUADRILLA_REPORTE.aspx" />
+    <Content Include="APU\APU_PROYECTO_INDICE_MEMORIA_REPORTE.aspx" />
+    <Content Include="APU\APU_PROYECTO_INDICE_REPORTE.aspx" />
+    <Content Include="App_LocalResources\APU_PROYECTO_RUBRO_REPORTE.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\APU_PROYECTO_RUBRO_BASICO_REPORTE.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="APU\APU_PROYECTO_RUBRO_BASICO_REPORTE.aspx" />
+    <Content Include="APU\APU_PROYECTO_RUBRO_INSUMO_REPORTE.aspx" />
+    <Content Include="APU\APU_PROYECTO_RUBRO_MATERIAL_REPORTE.aspx" />
+    <Content Include="App_LocalResources\APU_PROYECTO_RUBRO_MATERIAL_REPORTE.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="APU\APU_PROYECTO_RUBRO_REPORTE.aspx" />
+    <Content Include="APU\APU_PROYECTO_RUBRO_TECNICA_REPORTE.aspx" />
+    <Content Include="App_LocalResources\APU_PROYECTO_RUBRO_TECNICA_REPORTE.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\APU_PROYECTO_RUBRO_INSUMO_REPORTE.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\APU_PROYECTO_INDICE_REPORTE.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\APU_PROYECTO_CUADRILLA_REPORTE.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\APU_OFERTA_RUBRO_REPORTE.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\APU_OFERTA_RUBRO_BASICO_REPORTE.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\APU_OFERTA_RUBRO_MATERIAL_REPORTE.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\APU_OFERTA_RUBRO_INSUMO_REPORTE.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\APU_OFERTA_INDICE_REPORTE.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\APU_OFERTA_CUADRILLA_REPORTE.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="APU\APU_RUBRO_ANALISIS_UNITARIO.aspx" />
+    <Content Include="APU\APU_RUBRO_INSUMO_BASICO_REPORTE.aspx" />
+    <Content Include="APU\APU_RUBRO_INSUMO_REPORTE.aspx" />
+    <Content Include="App_LocalResources\APU_RUBRO_INSUMO_REPORTE.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\APU_RUBRO_INSUMO_BASICO_REPORTE.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\APU_PROYECTO_INDICE_MEMORIA_TECNICA.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="APU\APU_RUBRO_LISTADO.aspx" />
+    <Content Include="Imagenes\ajaximagenes\cargandoMensaje.gif" />
+    <Content Include="JavaScript\BloqueoControles.js" />
+    <EmbeddedResource Include="APU\APU_OFERTA_CUADRILLA_REPORTE.rdlc" />
+    <EmbeddedResource Include="APU\APU_OFERTA_INDICE_REPORTE.rdlc" />
+    <EmbeddedResource Include="APU\APU_OFERTA_RUBRO_BASICO_REPORTE.rdlc" />
+    <EmbeddedResource Include="APU\APU_OFERTA_RUBRO_INSUMO_REPORTE.rdlc" />
+    <EmbeddedResource Include="APU\APU_OFERTA_RUBRO_MATERIAL_REPORTE.rdlc" />
+    <EmbeddedResource Include="APU\APU_OFERTA_RUBRO_REPORTE.rdlc" />
+    <EmbeddedResource Include="APU\APU_PROYECTO_CUADRILLA_REPORTE.rdlc" />
+    <EmbeddedResource Include="APU\APU_PROYECTO_INDICE_MEMORIA_REPORTE.rdlc" />
+    <EmbeddedResource Include="APU\APU_PROYECTO_INDICE_REPORTE.rdlc" />
+    <EmbeddedResource Include="APU\Apu_Proyecto_Oferta_Rubro_Reporte.rdlc" />
+    <EmbeddedResource Include="APU\APU_PROYECTO_RUBRO_BASICO_REPORTE.rdlc" />
+    <EmbeddedResource Include="APU\APU_PROYECTO_RUBRO_INSUMO_REPORTE.rdlc" />
+    <EmbeddedResource Include="APU\APU_PROYECTO_RUBRO_MATERIAL_REPORTE.rdlc" />
+    <EmbeddedResource Include="APU\APU_PROYECTO_RUBRO_REPORTE.rdlc" />
+    <EmbeddedResource Include="APU\APU_PROYECTO_RUBRO_TECNICA_REPORTE.rdlc" />
+    <EmbeddedResource Include="APU\APU_RUBRO_ANALISIS_UNITARIO.rdlc" />
+    <EmbeddedResource Include="APU\APU_RUBRO_INSUMO_BASICO_REPORTE.rdlc" />
+    <EmbeddedResource Include="APU\APU_RUBRO_INSUMO_REPORTE.rdlc" />
+    <EmbeddedResource Include="APU\APU_RUBRO_LISTADO.rdlc" />
+    <EmbeddedResource Include="APU\APU_RUBRO_LISTADO_EQUIPO.rdlc" />
+    <EmbeddedResource Include="APU\APU_RUBRO_LISTADO_MANO_OBRA.rdlc" />
+    <EmbeddedResource Include="APU\APU_RUBRO_LISTADO_MATERIALES.rdlc" />
+    <EmbeddedResource Include="APU\APU_RUBRO_LISTADO_TECNICA.rdlc" />
+    <EmbeddedResource Include="APU\APU_RUBRO_REPORTE.rdlc" />
+    <EmbeddedResource Include="APU\R_APU_PRESUPUESTO_CUADRILLA.rdlc" />
+    <EmbeddedResource Include="APU\R_APU_PRESUPUESTO_INDICE.rdlc" />
+    <EmbeddedResource Include="APU\R_APU_PRESUPUESTO_RUBRO.rdlc" />
+    <EmbeddedResource Include="FIS\R_FIS_CATALOGO.rdlc" />
+    <EmbeddedResource Include="FIS\R_FIS_LISTADO_FISCALIZACION.rdlc" />
+    <EmbeddedResource Include="FIS\R_FIS_PLANILLA_DET.rdlc" />
+    <EmbeddedResource Include="FIS\R_FIS_PLANILLA_FISCALIZADOR.rdlc" />
+    <EmbeddedResource Include="FIS\R_FIS_PLANILLA_REAJUSTE.rdlc" />
+    <EmbeddedResource Include="FIS\R_FIS_PLANILLA_REAJUSTE_DIS.rdlc" />
+    <EmbeddedResource Include="FIS\R_FIS_PLANILLA_REAJUSTE_REA.rdlc" />
+    <EmbeddedResource Include="FIS\SR_FIS_AMPLICION_PRESUPUESTO.rdlc" />
+    <EmbeddedResource Include="FIS\SR_Fis_Catalogo_Categoria.rdlc" />
+    <EmbeddedResource Include="FIS\SR_Fis_Catalogo_Indice.rdlc" />
+    <EmbeddedResource Include="FIS\SR_Fis_Catalogo_Mano_Obra.rdlc" />
+    <EmbeddedResource Include="FIS\SR_FIS_PLANILLA_AMPLIACION.rdlc" />
+    <EmbeddedResource Include="FIS\SR_FIS_PLANILLA_DIS.rdlc" />
+    <EmbeddedResource Include="FIS\SR_FIS_PLANILLA_MULTA.rdlc" />
+    <EmbeddedResource Include="FIS\SR_FIS_PLANILLA_REA.rdlc" />
+    <EmbeddedResource Include="FIS\SR_FIS_PLANILLA_REAJUSTE_CUAD.rdlc" />
+    <EmbeddedResource Include="FIS\SR_FIS_PLANILLA_REAJUSTE_CUADRILLA.rdlc" />
+    <EmbeddedResource Include="FIS\SR_FIS_PLANILLA_REAJUSTE_FOR.rdlc" />
+    <EmbeddedResource Include="FIS\SR_FIS_PLANILLA_REAJUSTE_FORMULA.rdlc" />
+    <EmbeddedResource Include="FIS\SR_FIS_PLANILLA_REAJ_REA_CUAD.rdlc" />
+    <EmbeddedResource Include="FIS\SR_FIS_PLANILLA_REAJ_REA_CUADRILLA.rdlc" />
+    <EmbeddedResource Include="FIS\SR_FIS_PLANILLA_REAJ_REA_FOR.rdlc" />
+    <EmbeddedResource Include="FIS\SR_FIS_PLANILLA_REAJ_REA_FORMULA.rdlc" />
+    <EmbeddedResource Include="PER\R_PER_PERSONAL.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\KReporte\reporte.css" />
+    <Content Include="APU\R_APU_PRESUPUESTO_CUADRILLA.aspx" />
+    <Content Include="APU\R_APU_PRESUPUESTO_INDICE.aspx" />
+    <Content Include="APU\R_APU_PRESUPUESTO_RUBRO.aspx" />
+    <Content Include="FIS\R_FIS_CATALOGO.aspx" />
+    <Content Include="FIS\R_FIS_LISTADO_FISCALIZACION.aspx" />
+    <Content Include="FIS\R_FIS_PLANILLA_REAJUSTE_DIS.aspx" />
+    <Content Include="FIS\R_FIS_PLANILLA_REAJUSTE_REA.aspx" />
+    <Content Include="imagenes_predeterminadas\basePlay.JPG" />
+    <Content Include="imagenes_predeterminadas\baseUndo.JPG" />
+    <Content Include="imagenes_predeterminadas\baseUsu.JPG" />
+    <Content Include="imagenes_predeterminadas\Bocadillo.JPG" />
+    <Content Include="imagenes_predeterminadas\Btn_Before.png" />
+    <Content Include="imagenes_predeterminadas\Btn_First.png" />
+    <Content Include="imagenes_predeterminadas\Btn_Last.png" />
+    <Content Include="imagenes_predeterminadas\Btn_Next.png" />
+    <Content Include="imagenes_predeterminadas\doc.JPG" />
+    <Content Include="imagenes_predeterminadas\docOpen.JPG" />
+    <Content Include="imagenes_predeterminadas\docStat.JPG" />
+    <Content Include="imagenes_predeterminadas\fonsal.jpg" />
+    <Content Include="imagenes_predeterminadas\imagen.gif" />
+    <Content Include="imagenes_predeterminadas\Tachuela01.JPG" />
+    <Content Include="imagenes_predeterminadas\Tachuela02.JPG" />
+    <Content Include="imagenes_predeterminadas\Tachuela03.JPG" />
+    <Content Include="imagenes_predeterminadas\Tachuela04.JPG" />
+    <Content Include="MasterReportes.Master" />
+    <Content Include="PER\R_PER_PERSONAL.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="APU\Apu_Proyecto_Oferta_Rubro_Reporte.aspx" />
+    <Content Include="bin\ADL.dll" />
+    <Content Include="bin\ADL.pdb" />
+    <Content Include="bin\AEL.dll" />
+    <Content Include="bin\AEL.pdb" />
+    <Content Include="bin\AjaxControlToolkit.dll" />
+    <Content Include="bin\BEL.dll" />
+    <Content Include="bin\BEL.pdb" />
+    <Content Include="bin\CEL.dll" />
+    <Content Include="bin\CEL.pdb" />
+    <Content Include="bin\ConvertCantidad.dll" />
+    <Content Include="bin\HER.dll" />
+    <Content Include="bin\HER.pdb" />
+    <Content Include="bin\REL.dll" />
+    <Content Include="bin\REL.pdb" />
+    <Content Include="FIS\R_FIS_PLANILLA_DET.aspx" />
+    <Content Include="FIS\R_FIS_PLANILLA_FISCALIZADOR.aspx" />
+    <Content Include="FIS\R_FIS_PLANILLA_REAJUSTE.aspx" />
+    <Content Include="imagenes_predeterminadas\fonsal1.jpg" />
+    <Content Include="imagenes_predeterminadas\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="APU_REP.xsc">
+      <DependentUpon>APU_REP.xsd</DependentUpon>
+    </None>
+    <None Include="APU_REP.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>APU_REP.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="APU_REP.xss">
+      <DependentUpon>APU_REP.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>1773</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/WKA_Rep</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
