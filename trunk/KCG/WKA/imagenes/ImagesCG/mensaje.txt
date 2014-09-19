@@ -1,0 +1,8 @@
+&news=<u>Este es un mensaje de prueba que es llamado de un archivo .txt actualizable</u><br>
+
+
+
+
+
+
+

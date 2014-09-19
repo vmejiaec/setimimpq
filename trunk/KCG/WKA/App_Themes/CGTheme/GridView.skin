@@ -1,0 +1,15 @@
+<asp:GridView Runat="server" >
+
+
+            <RowStyle Font-Names="verdana, times new roman , arial" Font-Size="11px" Width=100% BackColor="#E2E2E2"></RowStyle>
+            <AlternatingRowStyle Font-Names="verdana, times new roman , arial" Font-Size="11px"
+                BackColor="#D1E1ED"></AlternatingRowStyle>
+            <FooterStyle Font-Names="verdana, times new roman , arial" Font-Size="11px"></FooterStyle>
+            <PagerStyle Font-Names="verdana, times new roman , arial" Font-Size="11px"
+                BackColor="#ACC9DE"></PagerStyle>
+            <HeaderStyle Font-Names="verdana, times new roman , arial" Font-Size="11px"
+                BackColor="#6BBCE5" Width=100%></HeaderStyle>            
+            <SelectedRowStyle Font-Names="verdana, times new roman , arial" Font-Size="11px"></SelectedRowStyle>            
+    </asp:GridView>
+    
+    

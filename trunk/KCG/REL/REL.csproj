@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0401907C-4FF8-444A-9AE6-A1AF8AC51C91}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>REL</RootNamespace>
+    <AssemblyName>REL</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>http://localhost/REL/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APU\RO_Apu_Oferta_Cuadrilla_Diferencia.cs" />
+    <Compile Include="APU\RO_Apu_Oferta_Diferencia.cs" />
+    <Compile Include="APU\RO_Apu_Presupuesto.cs" />
+    <Compile Include="APU\RO_Apu_Presupuesto_Cuadrilla.cs" />
+    <Compile Include="APU\RO_Apu_Presupuesto_Formula.cs" />
+    <Compile Include="APU\RO_Apu_Presupuesto_Indice.cs" />
+    <Compile Include="APU\RO_Apu_Presupuesto_Rubro.cs" />
+    <Compile Include="APU\RO_Apu_Proyecto_Cuadrilla_Diferencia.cs" />
+    <Compile Include="APU\RO_Apu_Proyecto_Diferencia.cs" />
+    <Compile Include="APU\RO_Apu_Proyecto_Equipo_Indice.cs" />
+    <Compile Include="APU\RO_Apu_Proyecto_Material.cs" />
+    <Compile Include="APU\RO_Apu_Proyecto_Transporte_Indice.cs" />
+    <Compile Include="APU\RO_Apu_Rubro_Equipo.cs" />
+    <Compile Include="APU\RO_Apu_Rubro_Insumo.cs" />
+    <Compile Include="APU\RO_Apu_Oferta_Cuadrilla.cs" />
+    <Compile Include="APU\RO_Apu_Oferta_Indice.cs" />
+    <Compile Include="APU\RO_Apu_Oferta.cs" />
+    <Compile Include="APU\RO_Apu_Oferta_Rubro.cs" />
+    <Compile Include="APU\RO_Apu_Oferta_Rubro_Insumo.cs" />
+    <Compile Include="APU\RO_Apu_Oferta_Rubro_Material.cs" />
+    <Compile Include="APU\RO_Apu_Proyecto_Cuadrilla.cs" />
+    <Compile Include="APU\RO_Apu_Proyecto_Indice.cs" />
+    <Compile Include="APU\RO_Apu_Proyecto_Rubro_Insumo.cs" />
+    <Compile Include="APU\RO_Apu_Proyecto_Rubro_Material.cs" />
+    <Compile Include="APU\RO_Apu_Proyecto.cs" />
+    <Compile Include="APU\RO_Apu_Proyecto_Rubro_Tecnica.cs" />
+    <Compile Include="APU\RO_Apu_Rubro_Mano_Obra.cs" />
+    <Compile Include="APU\RO_Apu_Rubro_Material.cs" />
+    <Compile Include="APU\RO_Apu_Rubro_Tecnica.cs" />
+    <Compile Include="APU\RO_Per_Personal.cs" />
+    <Compile Include="APU\RO_Apu_Proyecto_Rubro.cs" />
+    <Compile Include="APU\RO_Apu_Subtitulo.cs" />
+    <Compile Include="APU\RO_Apu_Titulo.cs" />
+    <Compile Include="APU\RO_Apu_Rubro.cs" />
+    <Compile Include="FIS\RO_Fis_Ampliacion.cs" />
+    <Compile Include="FIS\RO_Fis_Catalogo.cs" />
+    <Compile Include="FIS\RO_Fis_Catalogo_Categoria.cs" />
+    <Compile Include="FIS\RO_Fis_Catalogo_Indice.cs" />
+    <Compile Include="FIS\RO_Fis_Catalogo_Mano_Obra.cs" />
+    <Compile Include="FIS\RO_Fis_Fiscalizacion.cs" />
+    <Compile Include="FIS\RO_Fis_Planilla.cs" />
+    <Compile Include="FIS\RO_Fis_Planilla_Det_Reporte.cs" />
+    <Compile Include="FIS\RO_Fis_Planilla_Multa.cs" />
+    <Compile Include="FIS\RO_Fis_Planilla_Resumen.cs" />
+    <Compile Include="INT\RO_Int_Empresa.cs" />
+    <Compile Include="PER\RO_Per_Personal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AEL\AEL.csproj">
+      <Project>{EC8BE054-EABA-4849-B26A-96287C018644}</Project>
+      <Name>AEL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BEL\BEL.csproj">
+      <Project>{3E39F46C-182A-48FC-9D86-AD858AAD5889}</Project>
+      <Name>BEL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CEL\CEL.csproj">
+      <Project>{B5EE6234-C960-4F34-8333-4F28A87D8941}</Project>
+      <Name>CEL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

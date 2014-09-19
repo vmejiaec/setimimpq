@@ -1,0 +1,257 @@
+<%@ Master 
+    Language="C#" 
+    AutoEventWireup="true" 
+    CodeFile="KOALA.master.cs" 
+    Inherits="KOALA" %>
+    
+<%@ Register 
+    Src="WebUserControls/wucIdiomas.ascx" 
+    TagName="wucIdiomas" 
+    TagPrefix="uc3" %>
+
+<%@ Register 
+    Src="WebUserControls/SesionKCG.ascx" 
+    TagName="SesionKCG" 
+    TagPrefix="uc2" %>
+
+<%@ Register 
+    Src="WebUserControls/MenuKCG.ascx" 
+    TagName="MenuKCG" 
+    TagPrefix="uc1" %>
+
+<%@ Register 
+    Assembly="AjaxControlToolkit" 
+    Namespace="AjaxControlToolkit" 
+    TagPrefix="ajaxToolkit" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>
+        Página Master
+    </title>
+    <link 
+        href="StyleSheet.css" 
+        rel="stylesheet" 
+        type="text/css" />
+</head>
+<body style="width: 1100px; height:700px">
+    <form 
+        id="form1" 
+        runat="server">
+        <div
+            id="Principal" 
+            style="width: 1024px; height: 700px">            
+            <asp:ScriptManager 
+                ID="ScriptManager1" 
+                runat="server" 
+                ScriptMode="Auto"
+                EnableScriptLocalization="true" 
+                EnableScriptGlobalization="true"
+                AsyncPostBackTimeout="500">
+                <Scripts>
+                    <asp:ScriptReference Path="JavaScripts/BloqueoControles.js" />                    
+                </Scripts>
+            </asp:ScriptManager>            
+                    <asp:Panel 
+                        ID="pnlEspera" 
+                        runat="server" 
+                        CssClass="ModalPopUpCargando"
+                        style="display:none">
+                        <h4>Por favor espere...</h4>
+                        <table>
+                            <tr>
+                                <td 
+                                    style="width: 30px; padding: 6px 6px 6px 6px" valign="top">
+                                    <img 
+                                        src="../imagenes/ajaximagenes/cargandoMensaje.gif" />
+                                </td>
+                                <td valign="top">
+                                    <p>
+                                        El sistema esta procesando la operación
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </asp:Panel>
+                    <ajaxToolkit:ModalPopupExtender 
+                        ID="mpeMensajeEspera"
+                        BehaviorID="Cargando" 
+                        runat="server" 
+                        TargetControlID="btnEspera" 
+                        PopupControlID="pnlEspera"  
+                        DropShadow="true"    
+                        BackgroundCssClass="modalBackgroundEspera">
+                    </ajaxToolkit:ModalPopupExtender>            
+                    <asp:Button 
+                        ID="btnEspera" 
+                        runat="server" 
+                        Text="Button" 
+                        style="display:none"/>
+                    <table border="0" cellpadding="0" cellspacing="0" style="width: 102%">
+                        <tr valign="top" height="70" >                
+                            <td colspan="4" style="height: 3px; width: 1214px; background-color: #006699;"> 
+                                <img id="Img1" runat="server"
+                                    src="images_principal/base5.JPG" style="margin-top:auto; height: 71px; width: 1145px;" />
+                                
+                                 
+                                <div style="position:absolute; left: 1165px; top: 65px;">
+                                    <uc3:wucIdiomas 
+                                        ID="WucIdiomas1" 
+                                        runat="server" />
+                                </div>
+                                <div style=" position:absolute; left: 600px; top: 65px;">
+                                    <uc2:SesionKCG 
+                                        ID="SesionKCG1" 
+                                        runat="server" />
+                                </div>
+                                <div style="position:absolute; left: 015px; top: 66px;">
+                                    <asp:ImageButton 
+                                        ID="btnAyuda" 
+                                        runat="server"
+                                        usesubmitbehavior="false"
+                                        ImageUrl="~/imagenes/contenido/libro.gif" 
+                                        meta:resourcekey="Btn_AyudaRecursoKCG"/>
+                                </div>                            
+                                <asp:UpdatePanel 
+                                    ID="udpAtrasAdelanteBotones"
+                                    runat="server">
+                                    <ContentTemplate>                               
+                                        <div style="position:absolute; left: 40px; top: 65px;">
+                                            <asp:ImageButton 
+                                                ID="btnAtras" 
+                                                runat="server"
+                                                usesubmitbehavior="false"
+                                                ImageUrl="~/imagenes/contenido/arrow_left.gif"  
+                                                meta:resourcekey="Btn_AnteriorRecursoKCG"/>
+                                        </div>                            
+                                        <div style="position:absolute; left: 60px; top: 65px;">
+                                            <asp:ImageButton 
+                                                ID="btnAdelante" 
+                                                runat="server"
+                                                usesubmitbehavior="false"
+                                                ImageUrl="~/imagenes/contenido/arrow_right.gif"  
+                                                meta:resourcekey="Btn_SiguienteRecursoKCG"/>
+                                        </div>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </td>
+                        </tr>
+                    </table>
+                    <table border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <%--Barra Menu vertical--%>
+                            <td valign="top" height="522px" style="width: 20px; background-color: #006699;">                     
+                                <asp:Panel 
+                                    ID="Panel2" 
+                                    runat="server"
+                                    Height="522px"
+                                    width="20px">
+                                    <div 
+                                        class="MenuVerticalText" 
+                                        style="cursor: pointer; vertical-align: top;">
+                                        <div style="float: left;">
+                                            Menu
+                                        </div>
+                                        <div style="float: left;">
+                                            <asp:Label 
+                                                ID="Label1" 
+                                                runat="server">
+                                                    (Mostrar Menu...)
+                                            </asp:Label>
+                                        </div>
+                                        <div style="float: right; vertical-align: top;">
+                                            <asp:Image 
+                                                ID="Image1" 
+                                                runat="server" 
+                                                ImageUrl="~/images/expand_blue.jpg" 
+                                                AlternateText="(Show Details...)"/>
+                                        </div>
+                                    </div>
+                                </asp:Panel>
+                            </td>
+                            <%--Menu --%>
+                            <td valign="top" style="background-color: #006699;">                                
+                                <asp:Panel 
+                                    id="menu" 
+                                    runat="server" 
+                                    Width="0px" 
+                                    Height="650px"
+                                    ScrollBars="Auto"
+                                    BackImageUrl="~/images_principal/Menu5.JPG"                               
+                                    style="overflow:hidden">
+                                    <asp:UpdatePanel 
+                                    ID="UpdatePanel1" 
+                                    runat="server">
+                                    <ContentTemplate>
+                                    <uc1:MenuKCG 
+                                        ID="MenuKCG1" 
+                                        runat="server"/>
+                                        </ContentTemplate>
+                                </asp:UpdatePanel>
+                                </asp:Panel>
+                            </td>
+                            <%--Contenido --%>
+                            <td valign ="top">
+                                <table width="1120" border="0" cellpadding="0" cellspacing="0">
+                                    <tr height="550">
+                                        <td style="background-color: #FFFFFF; vertical-align: top">
+                                            <asp:Panel 
+                                                runat="server" 
+                                                ID="pnlContenido"
+                                                Width="1120px"
+                                                Height="650px" 
+                                                BorderWidth="0"
+                                                ScrollBars="Auto"
+                                                Wrap="true">                                        
+                                                <asp:ContentPlaceHolder 
+                                                    ID="ContentPlaceHolder1" 
+                                                    runat="server">
+                                                </asp:ContentPlaceHolder>
+                                            </asp:Panel>
+                                        </td>
+                                    </tr>                            
+                                    <tr height="22px">
+                                        <td style="background-color: #006699;">
+                                            <div class="barraEstado">
+                                                <asp:UpdatePanel 
+                                                    runat="server" 
+                                                    ID="UpError">
+                                                    <ContentTemplate>
+                                                        <asp:Label 
+                                                            ID="LabelError" 
+                                                            runat="server" 
+                                                            EnableViewState="False" 
+                                                            Text="Barra de Estado">
+                                                        </asp:Label>
+                                                    </ContentTemplate>
+                                                </asp:UpdatePanel>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <ajaxToolkit:CollapsiblePanelExtender 
+                        ID="cpeDemo" 
+                        runat="Server"
+                        TargetControlID="menu"
+                        ExpandControlID="Panel2"
+                        CollapseControlID="Panel2" 
+                        Collapsed="True"
+                        TextLabelID="Label1"
+                        ImageControlID="Image1"    
+                        ExpandedText="(Ocultar Menu...)"
+                        CollapsedText="(Mostrar...)"
+                        ExpandedImage="~/images/collapse_blue.jpg"
+                        CollapsedImage="~/images/expand_blue.jpg"
+                        ExpandDirection="Horizontal"
+                        SuppressPostBack="true"
+                        ExpandedSize = "200"
+                        CollapsedSize ="0"/>
+        </div>
+    </form>
+</body>
+</html>

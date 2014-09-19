@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <root>
+    <!-- 
+    Microsoft ResX Schema  
+    Version 2.0 
+    The primary goals of this format is to allow a simple XML format  
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes  
+    associated with the data types.
+    Example:
+    ... ado.net/XML headers &amp; schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+    <comment>This is a comment</comment>
+    </data>
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs. 
+    Each data row contains a name, and value. The row also contains a  
+    type or mimetype. Type corresponds to a .NET class that support  
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not  
+    extensible. For a given mimetype the value must be set accordingly: 
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below. 
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+    : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter 
+    : and then encoded with base64 encoding.
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+    : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+    : and then encoded with base64 encoding.
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+    : using a System.ComponentModel.TypeConverter
+    : and then encoded with base64 encoding.
+    -->
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">/>
+    <xsd:complexType>
+    <xsd:choice maxOccurs="unbounded">
+    <xsd:element name="metadata">
+    <xsd:complexType>
+    <xsd:sequence>
+    <xsd:element name="value" type="xsd:string" minOccurs="0" />
+    </xsd:sequence>
+    <xsd:attribute name="name" use="required" type="xsd:string" />
+    <xsd:attribute name="type" type="xsd:string" />
+    <xsd:attribute name="mimetype" type="xsd:string" />
+    <xsd:attribute ref="xml:space" />
+    </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="assembly">
+    <xsd:complexType>
+    <xsd:attribute name="alias" type="xsd:string" />
+    <xsd:attribute name="name" type="xsd:string" />
+    </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="data">
+    <xsd:complexType>
+    <xsd:sequence>
+    <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+    <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+    </xsd:sequence>
+    <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+    <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+    <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+    <xsd:attribute ref="xml:space" />
+    </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="resheader">
+    <xsd:complexType>
+    <xsd:sequence>
+    <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+    </xsd:sequence>
+    <xsd:attribute name="name" type="xsd:string" use="required" />
+    </xsd:complexType>
+    </xsd:element>
+    </xsd:choice>
+    </xsd:complexType>
+    </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+    <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+        <data name="Apu_Material_CodigoRecursoKCG.Text" xml:space="preserve">
+        <value>Código</value>
+        </data>
+        <data name="Apu_Material_CodigoRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Columna Código</value>
+        </data>
+        <data name="BoundApu_Material_CodigoRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Código</value>
+        </data>
+        
+        <data name="Apu_Material_NombreRecursoKCG.Text" xml:space="preserve">
+        <value>Material</value>
+        </data>
+        <data name="Apu_Material_NombreRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Ingresar el nombre del material</value>
+        </data>
+        <data name="BoundApu_Material_NombreRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Material</value>
+        </data>
+        
+        <data name="Apu_Material_UnidadRecursoKCG.Text" xml:space="preserve">
+        <value>Unidad</value>
+        </data>
+        <data name="Apu_Material_UnidadRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Ingresar la Unidad</value>
+        </data>
+        <data name="BoundApu_Material_UnidadRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Unidad</value>
+        </data>
+        
+        <data name="Apu_Proyecto_CodigoRecursoKCG.Text" xml:space="preserve">
+        <value>Cod. Proyecto </value>
+        </data>
+        <data name="Apu_Proyecto_CodigoRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Ingrese el código del proyecto</value>
+        </data>
+        <data name="BoundApu_Proyecto_CodigoRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Cod. Proyecto </value>
+        </data>
+        
+        <data name="Apu_Proyecto_NombreRecursoKCG.Text" xml:space="preserve">
+        <value>Proyecto</value>
+        </data>
+        <data name="Apu_Proyecto_NombreRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Ingrese Nombre Proyecto</value>
+        </data>
+        <data name="BoundApu_Proyecto_NombreRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Proyecto</value>
+        </data>
+        
+        <data name="Apu_Rubro_CodigoRecursoKCG.Text" xml:space="preserve">
+        <value>Cod. Rubro</value>
+        </data>
+        <data name="Apu_Rubro_CodigoRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Ingrese el código de rubro</value>
+        </data>
+        <data name="BoundApu_Rubro_CodigoRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Cod. Rubro</value>
+        </data>
+        
+        <data name="Apu_Rubro_NombreRecursoKCG.Text" xml:space="preserve">
+        <value>Rubro</value>
+        </data>
+        <data name="Apu_Rubro_NombreRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Ingrese el nombre del rubro</value>
+        </data>
+        <data name="BoundApu_Rubro_NombreRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Rubro</value>
+        </data>
+        
+        <data name="Apu_Rubro_UnidadRecursoKCG.Text" xml:space="preserve">
+        <value>Unidad</value>
+        </data>
+        <data name="Apu_Rubro_UnidadRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Ingrese la Unidad</value>
+        </data>
+        <data name="BoundApu_Rubro_UnidadRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Unidad</value>
+        </data>
+        
+        <data name="CantidadRecursoKCG.Text" xml:space="preserve">
+        <value>Cantidad</value>
+        </data>
+        <data name="CantidadRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Ingrese la Cantidad</value>
+        </data>
+        <data name="BoundCantidadRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Cantidad</value>
+        </data>
+        
+        <data name="costo_totalRecursoKCG.Text" xml:space="preserve">
+        <value>Costo Total</value>
+        </data>
+        <data name="costo_totalRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Ingresar el Costo Total</value>
+        </data>
+        <data name="Boundcosto_totalRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Costo Total</value>
+        </data>
+        
+        <data name="costo_unitario_transporteRecursoKCG.Text" xml:space="preserve">
+        <value>Tarifa</value>
+        </data>
+        <data name="costo_unitario_transporteRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Ingresar el Costo Unitario del Trnasporte</value>
+        </data>
+        <data name="Boundcosto_unitario_transporteRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Tarifa</value>
+        </data>
+        
+        <data name="Estado_NombreRecursoKCG.Text" xml:space="preserve">
+        <value>Estado</value>
+        </data>
+        <data name="Estado_NombreRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Estados</value>
+        </data>
+        <data name="BoundEstado_NombreRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Estado</value>
+        </data>
+        
+        <data name="int_moneda_simboloRecursoKCG.Text" xml:space="preserve">
+        <value>Símbolo de la moneda</value>
+        </data>
+        <data name="int_moneda_simboloRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Ingresar el símbolo de la moneda</value>
+        </data>
+        <data name="Boundint_moneda_simboloRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Símbolo de la moneda</value>
+        </data>
+        
+        <data name="Btn_Apu_Proyecto_Rubro_Transporte_RubroRecursoKCG.Text" xml:space="preserve">
+        <value>Rubro</value>
+        </data>
+        <data name="Btn_Apu_Proyecto_Rubro_Transporte_RubroRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Ir a Rubro</value>
+        </data>
+        <data name="Btn_Apu_Proyecto_Rubro_Transporte_RubroRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value></value>
+        </data>
+        <data name="Btn_Apu_Proyecto_Rubro_Transporte_RubroRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value></value>
+        </data>
+        <data name="Rec_Apu_Proyecto_Rubro_TransporteRecursoKCG.GroupingText" xml:space="preserve">
+        <value>Transporte de Material</value>
+        </data>
+        <data name="Rec_Apu_Proyecto_Rubro_Transporte_ListadoRecursoKCG.GroupingText" xml:space="preserve">
+        <value>Listado</value>
+        </data>
+        <data name="Rec_Apu_Proyecto_Rubro_Transporte_ProyectoRecursoKCG.GroupingText" xml:space="preserve">
+        <value>Proyecto</value>
+        </data>
+        <data name="Rec_Apu_Proyecto_Rubro_Transporte_RubroRecursoKCG.GroupingText" xml:space="preserve">
+        <value>Rubro</value>
+        </data>
+        <data name="Tit_Apu_Proyecto_Rubro_TransporteRecursoKCG.Title" xml:space="preserve">
+        <value>Análisis de Precios Unitarios - Transporte</value>
+        </data>
+        
+    </root>
+    

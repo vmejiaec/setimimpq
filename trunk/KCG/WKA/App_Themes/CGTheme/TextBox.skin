@@ -1,0 +1,4 @@
+<asp:TextBox Runat="server" Font-Names="Verdana, Times New Roman , Arial" Font-Size="11px"></asp:TextBox>
+<asp:TextBox skinid="TextoCampo"  runat="server" BackColor="#C0FFFF" Font-Names="Verdana, Times New Roman , Arial" Font-Size="11px"></asp:TextBox>
+
+

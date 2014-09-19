@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1B771975-3A87-4508-BED1-742B39D6552E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FEL</RootNamespace>
+    <AssemblyName>FEL</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>http://localhost/FEL/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APROBACION\BO_Aprobacion_Estado.cs.cs" />
+    <Compile Include="APR\BO_Apr_Documento.cs" />
+    <Compile Include="APR\BO_Apr_Doc_Estado.cs" />
+    <Compile Include="APR\BO_Apr_Estado.cs" />
+    <Compile Include="APU\BO_Apu_Categoria.cs" />
+    <Compile Include="APU\BO_Apu_Equipo.cs" />
+    <Compile Include="APU\BO_Apu_Indice.cs" />
+    <Compile Include="APU\BO_Apu_Indice_Equipo.cs" />
+    <Compile Include="APU\BO_Apu_Lugar.cs" />
+    <Compile Include="APU\BO_Apu_Mano_Obra.cs" />
+    <Compile Include="APU\BO_Apu_Material.cs" />
+    <Compile Include="APU\BO_Apu_Oferta.cs" />
+    <Compile Include="APU\BO_Apu_Oferta_Categoria.cs" />
+    <Compile Include="APU\BO_Apu_Oferta_Cuadrilla.cs" />
+    <Compile Include="APU\BO_Apu_Oferta_Cuadrilla_Diferencia.cs" />
+    <Compile Include="APU\BO_Apu_Oferta_Diferencia.cs" />
+    <Compile Include="APU\BO_Apu_Oferta_Equipo.cs" />
+    <Compile Include="APU\BO_Apu_Oferta_Equipo_Indice.cs" />
+    <Compile Include="APU\BO_Apu_Oferta_Indice.cs" />
+    <Compile Include="APU\BO_Apu_Oferta_Mano_Obra.cs" />
+    <Compile Include="APU\BO_Apu_Oferta_Material.cs" />
+    <Compile Include="APU\BO_Apu_Oferta_Rubro.cs" />
+    <Compile Include="APU\BO_Apu_Oferta_Rubro_Equipo.cs" />
+    <Compile Include="APU\BO_Apu_Oferta_Rubro_Insumo.cs" />
+    <Compile Include="APU\BO_Apu_Oferta_Rubro_Mano_Obra.cs" />
+    <Compile Include="APU\BO_Apu_Oferta_Rubro_Material.cs" />
+    <Compile Include="APU\BO_Apu_Oferta_Transporte_Indice.cs" />
+    <Compile Include="APU\BO_Apu_Parametros.cs" />
+    <Compile Include="APU\BO_Apu_Presupuesto.cs" />
+    <Compile Include="APU\BO_Apu_Presupuesto_Cuadrilla.cs" />
+    <Compile Include="APU\BO_Apu_Presupuesto_Formula.cs" />
+    <Compile Include="APU\BO_Apu_Presupuesto_Indice.cs" />
+    <Compile Include="APU\BO_Apu_Presupuesto_Rubro.cs" />
+    <Compile Include="APU\BO_Apu_Presupuesto_Rubro_Insumo.cs" />
+    <Compile Include="APU\BO_Apu_Provincia.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto_Categoria.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto_Cuadrilla.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto_Cuadrilla_Diferencia.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto_Diferencia.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto_Equipo.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto_Equipo_Indice.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto_Indice.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto_Insumo.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto_Mano_Obra.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto_Material.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto_Rubro.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto_Rubro_Documento.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto_Rubro_Equipo.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto_Rubro_Insumo.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto_Rubro_Mano_Obra.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto_Rubro_Material.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto_Rubro_Tecnica.cs" />
+    <Compile Include="APU\BO_Apu_Proyecto_Transporte_Indice.cs" />
+    <Compile Include="APU\BO_Apu_Rubro.cs" />
+    <Compile Include="APU\BO_Apu_Rubro_Documento.cs" />
+    <Compile Include="APU\BO_Apu_Rubro_Equipo.cs" />
+    <Compile Include="APU\BO_Apu_Rubro_Insumo.cs" />
+    <Compile Include="APU\BO_Apu_Rubro_Mano_Obra.cs" />
+    <Compile Include="APU\BO_Apu_Rubro_Material.cs" />
+    <Compile Include="APU\BO_Apu_Rubro_Tecnica.cs" />
+    <Compile Include="APU\BO_Apu_Subtitulo.cs" />
+    <Compile Include="APU\BO_Apu_Titulo.cs" />
+    <Compile Include="AUD\BO_Aud_Auditoria.cs" />
+    <Compile Include="AUD\BO_Aud_Log.cs" />
+    <Compile Include="AUD\BO_Aud_Par_Auditoria.cs" />
+    <Compile Include="AUD\BO_Aud_Par_Log.cs" />
+    <Compile Include="DIC\BO_Dic_Campo.cs" />
+    <Compile Include="DIC\BO_Dic_Codigo.cs" />
+    <Compile Include="DIC\BO_Dic_Contenedor.cs" />
+    <Compile Include="DIC\BO_Dic_Con_Campo.cs" />
+    <Compile Include="DIC\BO_Dic_Con_Elemento.cs" />
+    <Compile Include="DIC\BO_Dic_Con_Objeto.cs" />
+    <Compile Include="DIC\BO_Dic_Dominio.cs" />
+    <Compile Include="DIC\BO_Dic_General.cs" />
+    <Compile Include="DIC\BO_Dic_Modulo.cs" />
+    <Compile Include="DIC\BO_Dic_Objeto.cs" />
+    <Compile Include="DIC\BO_Dic_Paginacion.cs" />
+    <Compile Include="DIC\BO_Dic_Pantalla.cs" />
+    <Compile Include="DIC\BO_Dic_Par_Paginacion.cs" />
+    <Compile Include="DIC\BO_Dic_Rotulo.cs" />
+    <Compile Include="DIC\BO_Dic_Secuencia.cs" />
+    <Compile Include="EST\BO_Est_Menu_Arbol.cs" />
+    <Compile Include="FIS\BO_Fis_Ampliacion.cs" />
+    <Compile Include="FIS\BO_Fis_Catalogo.cs" />
+    <Compile Include="FIS\BO_Fis_Catalogo_Categoria.cs" />
+    <Compile Include="FIS\BO_Fis_Catalogo_Indice.cs" />
+    <Compile Include="FIS\BO_Fis_Catalogo_Mano_Obra.cs" />
+    <Compile Include="FIS\BO_Fis_Fiscalizacion.cs" />
+    <Compile Include="FIS\BO_Fis_Multa.cs" />
+    <Compile Include="FIS\BO_Fis_Planilla.cs" />
+    <Compile Include="FIS\BO_Fis_Planilla_Det.cs" />
+    <Compile Include="FIS\BO_Fis_Planilla_Det_Reporte.cs" />
+    <Compile Include="FIS\BO_Fis_Planilla_Multa.cs" />
+    <Compile Include="FIS\BO_Fis_Planilla_Resumen.cs" />
+    <Compile Include="HIS\BO_His_Historico.cs" />
+    <Compile Include="INT\BO_Int_Empresa.cs" />
+    <Compile Include="INT\BO_Int_Moneda.cs" />
+    <Compile Include="INT\BO_Int_Subproyecto.cs" />
+    <Compile Include="INT\BO_Int_Sucursal.cs" />
+    <Compile Include="INT\BO_Int_Usuario.cs" />
+    <Compile Include="META\BO_META.cs" />
+    <Compile Include="PAR\BO_Par_Retencion.cs" />
+    <Compile Include="PAR\BO_Par_Iva.cs" />
+    <Compile Include="PAR\BO_Par_Mensaje.cs" />
+    <Compile Include="PAR\BO_Par_Mensajeria.cs" />
+    <Compile Include="PAR\BO_Par_Razon_Social.cs" />
+    <Compile Include="PAR\BO_Par_Recursos.cs" />
+    <Compile Include="PAR\BO_Par_Recursos_Base.cs" />
+    <Compile Include="PAR\BO_Par_Servidor.cs" />
+    <Compile Include="PAR\BO_Par_Servidor_Det.cs" />
+    <Compile Include="PAR\BO_Par_Filtro.cs" />
+    <Compile Include="PAR\BO_Par_Tipo_Identificacion.cs" />
+    <Compile Include="PER\BO_Per_Personal.cs" />
+    <Compile Include="PLA\BO_Pla_Cta.cs" />
+    <Compile Include="PLA\BO_Pla_Doc.cs" />
+    <Compile Include="PLA\BO_Pla_Mov.cs" />
+    <Compile Include="PLA\BO_Pla_Partida.cs" />
+    <Compile Include="PLA\BO_Pla_Poa.cs" />
+    <Compile Include="PLA\BO_Pla_Tarea.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SEG\BO_Seg_Menu.cs" />
+    <Compile Include="SEG\BO_Seg_Rol.cs" />
+    <Compile Include="SEG\BO_Seg_Rol_Elemento.cs" />
+    <Compile Include="SEG\BO_Seg_Rol_Menu.cs" />
+    <Compile Include="SEG\BO_Seg_Rol_Objeto.cs" />
+    <Compile Include="SEG\BO_Seg_Rol_Usuario.cs" />
+    <Compile Include="SEG\BO_Seg_Rol_Usuario_Det.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="VER\BO_Ver_Documento.cs" />
+    <Compile Include="VER\BO_Ver_Doc_Estado.cs" />
+    <Compile Include="VER\BO_Ver_Dominio.cs" />
+    <Compile Include="VER\BO_Ver_Etiqueta.cs" />
+    <Compile Include="VER\BO_Ver_Mensaje.cs" />
+    <Compile Include="VER\BO_Ver_Version.cs" />
+    <Compile Include="WS.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HER\HER.csproj">
+      <Project>{262B3E82-2A96-4ED0-AE2C-D93BB7D6844B}</Project>
+      <Name>HER</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FEL Fonsal.txt" />
+    <None Include="FEL local.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FEL Local VS10.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

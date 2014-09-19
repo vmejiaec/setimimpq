@@ -1,0 +1,10 @@
+ <asp:Menu  runat="server" Orientation="Horizontal" ForeColor="Black" BackColor="#F7F6F3" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" StaticSubMenuIndent="10px">
+       
+             <StaticMenuItemStyle BorderStyle="Solid" ForeColor="Black" HorizontalPadding="5px" VerticalPadding="2px" />
+             <StaticSelectedStyle ForeColor="Black" BackColor="#E0E0E0" />
+             <StaticHoverStyle ForeColor="Black" BackColor="#E0E0E0" Font-Bold="False" />
+             <DynamicHoverStyle BackColor="WhiteSmoke" Font-Bold="False" ForeColor="Black" />
+             <DynamicMenuStyle BackColor="#F7F6F3" />
+             <DynamicSelectedStyle BackColor="#E0E0E0" ForeColor="Black" />
+             <DynamicMenuItemStyle ForeColor="Black" HorizontalPadding="5px" VerticalPadding="2px" />
+    </asp:Menu>

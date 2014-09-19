@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <root>
+    <!-- 
+    Microsoft ResX Schema  
+    Version 2.0 
+    The primary goals of this format is to allow a simple XML format  
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes  
+    associated with the data types.
+    Example:
+    ... ado.net/XML headers &amp; schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+    <comment>This is a comment</comment>
+    </data>
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs. 
+    Each data row contains a name, and value. The row also contains a  
+    type or mimetype. Type corresponds to a .NET class that support  
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not  
+    extensible. For a given mimetype the value must be set accordingly: 
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below. 
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+    : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter 
+    : and then encoded with base64 encoding.
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+    : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+    : and then encoded with base64 encoding.
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+    : using a System.ComponentModel.TypeConverter
+    : and then encoded with base64 encoding.
+    -->
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">/>
+    <xsd:complexType>
+    <xsd:choice maxOccurs="unbounded">
+    <xsd:element name="metadata">
+    <xsd:complexType>
+    <xsd:sequence>
+    <xsd:element name="value" type="xsd:string" minOccurs="0" />
+    </xsd:sequence>
+    <xsd:attribute name="name" use="required" type="xsd:string" />
+    <xsd:attribute name="type" type="xsd:string" />
+    <xsd:attribute name="mimetype" type="xsd:string" />
+    <xsd:attribute ref="xml:space" />
+    </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="assembly">
+    <xsd:complexType>
+    <xsd:attribute name="alias" type="xsd:string" />
+    <xsd:attribute name="name" type="xsd:string" />
+    </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="data">
+    <xsd:complexType>
+    <xsd:sequence>
+    <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+    <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+    </xsd:sequence>
+    <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+    <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+    <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+    <xsd:attribute ref="xml:space" />
+    </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="resheader">
+    <xsd:complexType>
+    <xsd:sequence>
+    <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+    </xsd:sequence>
+    <xsd:attribute name="name" type="xsd:string" use="required" />
+    </xsd:complexType>
+    </xsd:element>
+    </xsd:choice>
+    </xsd:complexType>
+    </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+    <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+        <data name="Apu_Origen_CodigoRecursoKCG.Text" xml:space="preserve">
+        <value>Código</value>
+        </data>
+        <data name="Apu_Origen_CodigoRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Código</value>
+        </data>
+        <data name="BoundApu_Origen_CodigoRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Código</value>
+        </data>
+        
+        <data name="Codigo_InstitucionRecursoKCG.Text" xml:space="preserve">
+        <value>Código Institucional</value>
+        </data>
+        <data name="Codigo_InstitucionRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Código Institucional</value>
+        </data>
+        <data name="BoundCodigo_InstitucionRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Código Institucional</value>
+        </data>
+        
+        <data name="ContratistaRecursoKCG.Text" xml:space="preserve">
+        <value>Contratista</value>
+        </data>
+        <data name="ContratistaRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Contratista</value>
+        </data>
+        <data name="BoundContratistaRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Contratista</value>
+        </data>
+        
+        <data name="Coordinador_1RecursoKCG.Text" xml:space="preserve">
+        <value>Coordinador 1</value>
+        </data>
+        <data name="Coordinador_1RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Coordinador 1</value>
+        </data>
+        <data name="BoundCoordinador_1RecursoKCG.HeaderText" xml:space="preserve">
+        <value>Coordinador 1</value>
+        </data>
+        
+        <data name="Coordinador_2RecursoKCG.Text" xml:space="preserve">
+        <value>Coordinador 2</value>
+        </data>
+        <data name="Coordinador_2RecursoKCG.ToolTip" xml:space="preserve">
+        <value>Coordinador 2</value>
+        </data>
+        <data name="BoundCoordinador_2RecursoKCG.HeaderText" xml:space="preserve">
+        <value>Coordinador 2</value>
+        </data>
+        
+        <data name="Creacion_Per_Personal_IdRecursoKCG.Text" xml:space="preserve">
+        <value>Usuario Inicial</value>
+        </data>
+        <data name="Creacion_Per_Personal_IdRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Usuario Inicial</value>
+        </data>
+        <data name="BoundCreacion_Per_Personal_IdRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Usuario Inicial</value>
+        </data>
+        
+        <data name="DescripcionRecursoKCG.Text" xml:space="preserve">
+        <value>Desc. Código Inst.</value>
+        </data>
+        <data name="DescripcionRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Desc. Código Inst.</value>
+        </data>
+        <data name="BoundDescripcionRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Desc. Código Inst.</value>
+        </data>
+        
+        <data name="Estado_NombreRecursoKCG.Text" xml:space="preserve">
+        <value>Estado del Proyecto</value>
+        </data>
+        <data name="Estado_NombreRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Estado del Proyecto</value>
+        </data>
+        <data name="BoundEstado_NombreRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Estado del Proyecto</value>
+        </data>
+        
+        <data name="Fecha_APURecursoKCG.Text" xml:space="preserve">
+        <value>Fecha Aprob. APU</value>
+        </data>
+        <data name="Fecha_APURecursoKCG.ToolTip" xml:space="preserve">
+        <value>Fecha Aprob. APU</value>
+        </data>
+        <data name="BoundFecha_APURecursoKCG.HeaderText" xml:space="preserve">
+        <value>Fecha Aprob. APU</value>
+        </data>
+        
+        <data name="Fecha_CierreRecursoKCG.Text" xml:space="preserve">
+        <value>Fecha Cierre Oferta</value>
+        </data>
+        <data name="Fecha_CierreRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Fecha Cierre Oferta</value>
+        </data>
+        <data name="BoundFecha_CierreRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Fecha Cierre Oferta</value>
+        </data>
+        
+        <data name="Fecha_Fin_ContratoRecursoKCG.Text" xml:space="preserve">
+        <value>Fecha Fin</value>
+        </data>
+        <data name="Fecha_Fin_ContratoRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Fecha Fin</value>
+        </data>
+        <data name="BoundFecha_Fin_ContratoRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Fecha Fin</value>
+        </data>
+        
+        <data name="Fecha_Indice_BaseRecursoKCG.Text" xml:space="preserve">
+        <value>Fecha Indices Base</value>
+        </data>
+        <data name="Fecha_Indice_BaseRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Fecha Indices Base</value>
+        </data>
+        <data name="BoundFecha_Indice_BaseRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Fecha Indices Base</value>
+        </data>
+        
+        <data name="Fecha_Indice_DefRecursoKCG.Text" xml:space="preserve">
+        <value>Fecha Indices Def.</value>
+        </data>
+        <data name="Fecha_Indice_DefRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Fecha Indices Def.</value>
+        </data>
+        <data name="BoundFecha_Indice_DefRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Fecha Indices Def.</value>
+        </data>
+        
+        <data name="Fecha_Ini_ContratoRecursoKCG.Text" xml:space="preserve">
+        <value>Fecha Inicio</value>
+        </data>
+        <data name="Fecha_Ini_ContratoRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Fecha Inicio</value>
+        </data>
+        <data name="BoundFecha_Ini_ContratoRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Fecha Inicio</value>
+        </data>
+        
+        <data name="FiscalizadorRecursoKCG.Text" xml:space="preserve">
+        <value>Fiscalizador</value>
+        </data>
+        <data name="FiscalizadorRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Fiscalizador</value>
+        </data>
+        <data name="BoundFiscalizadorRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Fiscalizador</value>
+        </data>
+        
+        <data name="LugarRecursoKCG.Text" xml:space="preserve">
+        <value>Lugar</value>
+        </data>
+        <data name="LugarRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Lugar</value>
+        </data>
+        <data name="BoundLugarRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Lugar</value>
+        </data>
+        
+        <data name="MontoRecursoKCG.Text" xml:space="preserve">
+        <value>Monto</value>
+        </data>
+        <data name="MontoRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Monto</value>
+        </data>
+        <data name="BoundMontoRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Monto</value>
+        </data>
+        
+        <data name="Plazo_ContratoRecursoKCG.Text" xml:space="preserve">
+        <value>Plazo</value>
+        </data>
+        <data name="Plazo_ContratoRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Plazo</value>
+        </data>
+        <data name="BoundPlazo_ContratoRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Plazo</value>
+        </data>
+        
+        <data name="Porcentaje_AnticipoRecursoKCG.Text" xml:space="preserve">
+        <value>% Anticipo</value>
+        </data>
+        <data name="Porcentaje_AnticipoRecursoKCG.ToolTip" xml:space="preserve">
+        <value>% Anticipo</value>
+        </data>
+        <data name="BoundPorcentaje_AnticipoRecursoKCG.HeaderText" xml:space="preserve">
+        <value>% Anticipo</value>
+        </data>
+        
+        <data name="Programa_CostosRecursoKCG.Text" xml:space="preserve">
+        <value>Programa</value>
+        </data>
+        <data name="Programa_CostosRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Programa</value>
+        </data>
+        <data name="BoundPrograma_CostosRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Programa</value>
+        </data>
+        
+        <data name="ProyectoRecursoKCG.Text" xml:space="preserve">
+        <value>Proyecto</value>
+        </data>
+        <data name="ProyectoRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Proyecto</value>
+        </data>
+        <data name="BoundProyectoRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Proyecto</value>
+        </data>
+        
+        <data name="Publicacion_BaseRecursoKCG.Text" xml:space="preserve">
+        <value>Publicación Base</value>
+        </data>
+        <data name="Publicacion_BaseRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Publicación Base</value>
+        </data>
+        <data name="BoundPublicacion_BaseRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Publicación Base</value>
+        </data>
+        
+        <data name="Publicacion_Base_DefRecursoKCG.Text" xml:space="preserve">
+        <value>Publicación Base Def.</value>
+        </data>
+        <data name="Publicacion_Base_DefRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Publicación Base Def.</value>
+        </data>
+        <data name="BoundPublicacion_Base_DefRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Publicación Base Def.</value>
+        </data>
+        
+        <data name="Subproyecto_CostosRecursoKCG.Text" xml:space="preserve">
+        <value>Objeto del Contrato</value>
+        </data>
+        <data name="Subproyecto_CostosRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Objeto del Contrato</value>
+        </data>
+        <data name="BoundSubproyecto_CostosRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Objeto del Contrato</value>
+        </data>
+        
+        <data name="Tipo_ContratoRecursoKCG.Text" xml:space="preserve">
+        <value>Tipo de Contrato</value>
+        </data>
+        <data name="Tipo_ContratoRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Tipo de Contrato</value>
+        </data>
+        <data name="BoundTipo_ContratoRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Tipo de Contrato</value>
+        </data>
+        
+        <data name="Ubicacion_CostosRecursoKCG.Text" xml:space="preserve">
+        <value>Ubicación</value>
+        </data>
+        <data name="Ubicacion_CostosRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Ubicación</value>
+        </data>
+        <data name="BoundUbicacion_CostosRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Ubicación</value>
+        </data>
+        
+        <data name="Update_Per_Personal_IdRecursoKCG.Text" xml:space="preserve">
+        <value>Usuario Actualiza</value>
+        </data>
+        <data name="Update_Per_Personal_IdRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Usuario Actualiza</value>
+        </data>
+        <data name="BoundUpdate_Per_Personal_IdRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Usuario Actualiza</value>
+        </data>
+        
+        <data name="Valor_AnticipoRecursoKCG.Text" xml:space="preserve">
+        <value>Valor del Anticipo</value>
+        </data>
+        <data name="Valor_AnticipoRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Valor del Anticipo</value>
+        </data>
+        <data name="BoundValor_AnticipoRecursoKCG.HeaderText" xml:space="preserve">
+        <value>Valor del Anticipo</value>
+        </data>
+        
+        <data name="Btn_Fis_Ampliaciones_PlazoRecursoKCG.Text" xml:space="preserve">
+        <value>Ampliaciones de Plazo</value>
+        </data>
+        <data name="Btn_Fis_Ampliaciones_PlazoRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Ampliaciones de Plazo</value>
+        </data>
+        <data name="Btn_Fis_Ampliaciones_PlazoRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value></value>
+        </data>
+        <data name="Btn_Fis_Ampliaciones_PlazoRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value></value>
+        </data>
+        
+        <data name="Btn_Fis_Listado_FiscalizacionRecursoKCG.Text" xml:space="preserve">
+        <value>Listado</value>
+        </data>
+        <data name="Btn_Fis_Listado_FiscalizacionRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Listado</value>
+        </data>
+        <data name="Btn_Fis_Listado_FiscalizacionRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value></value>
+        </data>
+        <data name="Btn_Fis_Listado_FiscalizacionRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value></value>
+        </data>
+        
+        <data name="Btn_Fis_Planilla_PeriodoRecursoKCG.Text" xml:space="preserve">
+        <value>Planillas x Periodo</value>
+        </data>
+        <data name="Btn_Fis_Planilla_PeriodoRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Planillas x Periodo</value>
+        </data>
+        <data name="Btn_Fis_Planilla_PeriodoRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value></value>
+        </data>
+        <data name="Btn_Fis_Planilla_PeriodoRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value></value>
+        </data>
+        
+        <data name="Btn_Fis_PlanillasRecursoKCG.Text" xml:space="preserve">
+        <value>Planillas</value>
+        </data>
+        <data name="Btn_Fis_PlanillasRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Planillas</value>
+        </data>
+        <data name="Btn_Fis_PlanillasRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value></value>
+        </data>
+        <data name="Btn_Fis_PlanillasRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value></value>
+        </data>
+        
+        <data name="Btn_Fis_PresupuestoRecursoKCG.Text" xml:space="preserve">
+        <value>Presupuesto</value>
+        </data>
+        <data name="Btn_Fis_PresupuestoRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Presupuesto</value>
+        </data>
+        <data name="Btn_Fis_PresupuestoRecursoKCG.ImagenActiva" xml:space="preserve">
+        <value></value>
+        </data>
+        <data name="Btn_Fis_PresupuestoRecursoKCG.ImagenDesactiva" xml:space="preserve">
+        <value></value>
+        </data>
+        
+        <data name="Men_Fis_FiscalizacionRecursoKCG.Text" xml:space="preserve">
+        <value>Proyecto</value>
+        </data>
+        <data name="Men_Fis_FiscalizacionRecursoKCG.ToolTip" xml:space="preserve">
+        <value>Proyecto</value>
+        </data>
+        <data name="Rec_Apu_Cod_InstitucionalRecursoKCG.GroupingText" xml:space="preserve">
+        <value>Código Institucional</value>
+        </data>
+        <data name="Rec_Apu_ProyectoRecursoKCG.GroupingText" xml:space="preserve">
+        <value>Proyecto</value>
+        </data>
+        <data name="Rec_Aud_AuditoriaRecursoKCG.GroupingText" xml:space="preserve">
+        <value>Auditoría</value>
+        </data>
+        <data name="Rec_Fis_FiscalizacionRecursoKCG.GroupingText" xml:space="preserve">
+        <value>Fiscalización</value>
+        </data>
+        <data name="Rec_Int_ContratoRecursoKCG.GroupingText" xml:space="preserve">
+        <value>Datos del Contrato</value>
+        </data>
+        <data name="Tit_Fis_FiscalizacionRecursoKCG.Title" xml:space="preserve">
+        <value>Formulario del Proyecto</value>
+        </data>
+        
+    </root>
+    

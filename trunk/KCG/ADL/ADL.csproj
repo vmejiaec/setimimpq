@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C70DFDE9-E132-42D4-962A-BE3D21772FC8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ADL</RootNamespace>
+    <AssemblyName>ADL</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>http://localhost/ADL/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aprobacion.cs">
+      <DependentUpon>Aprobacion.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Aprobacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Aprobacion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Apu.cs">
+      <DependentUpon>Apu.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Apu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Apu.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Auditoria.cs">
+      <DependentUpon>Auditoria.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Auditoria.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Auditoria.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BizWiz\TransactionSupport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Diccionario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Diccionario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Fiscalizacion.cs">
+      <DependentUpon>Fiscalizacion.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fiscalizacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Fiscalizacion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Historico.cs">
+      <DependentUpon>Historico.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Historico.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Historico.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Interface.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Interface.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Parametros.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Parametros.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Personal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Personal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Planificacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Planificacion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad.cs">
+      <DependentUpon>Seguridad.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Seguridad.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Seguridad.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Tesoreria.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Version.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Version.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Aprobacion.xsc">
+      <DependentUpon>Aprobacion.xsd</DependentUpon>
+    </None>
+    <None Include="Aprobacion.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Aprobacion.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Aprobacion.xss">
+      <DependentUpon>Aprobacion.xsd</DependentUpon>
+    </None>
+    <None Include="Apu.xsc">
+      <DependentUpon>Apu.xsd</DependentUpon>
+    </None>
+    <None Include="Apu.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Apu.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Apu.xss">
+      <DependentUpon>Apu.xsd</DependentUpon>
+    </None>
+    <None Include="Auditoria.xsc">
+      <DependentUpon>Auditoria.xsd</DependentUpon>
+    </None>
+    <None Include="Auditoria.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Auditoria.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Auditoria.xss">
+      <DependentUpon>Auditoria.xsd</DependentUpon>
+    </None>
+    <None Include="Diccionario.xsc">
+      <DependentUpon>Diccionario.xsd</DependentUpon>
+    </None>
+    <None Include="Diccionario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Diccionario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Diccionario.xss">
+      <DependentUpon>Diccionario.xsd</DependentUpon>
+    </None>
+    <None Include="Fiscalizacion.xsc">
+      <DependentUpon>Fiscalizacion.xsd</DependentUpon>
+    </None>
+    <None Include="Fiscalizacion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Fiscalizacion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Fiscalizacion.xss">
+      <DependentUpon>Fiscalizacion.xsd</DependentUpon>
+    </None>
+    <None Include="Historico.xsc">
+      <DependentUpon>Historico.xsd</DependentUpon>
+    </None>
+    <None Include="Historico.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Historico.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Historico.xss">
+      <DependentUpon>Historico.xsd</DependentUpon>
+    </None>
+    <None Include="Interface.xsc">
+      <DependentUpon>Interface.xsd</DependentUpon>
+    </None>
+    <None Include="Interface.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Interface.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Interface.xss">
+      <DependentUpon>Interface.xsd</DependentUpon>
+    </None>
+    <None Include="Parametros.xsc">
+      <DependentUpon>Parametros.xsd</DependentUpon>
+    </None>
+    <None Include="Parametros.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Parametros.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Parametros.xss">
+      <DependentUpon>Parametros.xsd</DependentUpon>
+    </None>
+    <None Include="Personal.xsc">
+      <DependentUpon>Personal.xsd</DependentUpon>
+    </None>
+    <None Include="Personal.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Personal.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Personal.xss">
+      <DependentUpon>Personal.xsd</DependentUpon>
+    </None>
+    <None Include="Planificacion.xsc">
+      <DependentUpon>Planificacion.xsd</DependentUpon>
+    </None>
+    <None Include="Planificacion.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Planificacion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Planificacion.xss">
+      <DependentUpon>Planificacion.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Seguridad.xsc">
+      <DependentUpon>Seguridad.xsd</DependentUpon>
+    </None>
+    <None Include="Seguridad.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Seguridad.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Seguridad.xss">
+      <DependentUpon>Seguridad.xsd</DependentUpon>
+    </None>
+    <None Include="Tesoreria.xsc">
+      <DependentUpon>Tesoreria.xsd</DependentUpon>
+    </None>
+    <None Include="Tesoreria.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Tesoreria.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Tesoreria.xss">
+      <DependentUpon>Tesoreria.xsd</DependentUpon>
+    </None>
+    <None Include="Version.xsc">
+      <DependentUpon>Version.xsd</DependentUpon>
+    </None>
+    <None Include="Version.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Version.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Version.xss">
+      <DependentUpon>Version.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
