@@ -4,12 +4,24 @@ AutoEventWireup="true" CodeFile="Pla_Cta_Lista.aspx.cs" Inherits="PLA_Pla_Cta_Li
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="panCol2">
     <asp:Panel runat = "server" ID="pgvPla_Partida" GroupingText="Listado de Partidas">
+    <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar">
+        <asp:Label ID="lbCodigo" runat="server" Text="Codigo"></asp:Label>
+        <asp:TextBox ID="tbCodigo" runat="server"></asp:TextBox>
+        <asp:Button ID="btBuscarCodigo" runat="server" Text="..." 
+            onclick="btBuscarCodigo_Click" />
+        <asp:Label ID="lbNombre" runat="server" Text="Nombre"></asp:Label>
+        <asp:TextBox ID="tbNombre" runat="server"></asp:TextBox>
+        <asp:Button ID="btBuscarNombre" runat="server" Text="..." />
+    </asp:Panel>
+    <asp:Panel runat="server" GroupingText="Partidas">
     <asp:GridView ID="gvPla_Partida" runat="server" AutoGenerateColumns="False" 
-        DataSourceID="odsPla_Partida" DataKeyNames="Id" AllowPaging="True">
+        DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Partida"
+            >
             <AlternatingRowStyle CssClass="alternatingrowstyle" />
             <HeaderStyle CssClass="headerstyle" />
             <PagerStyle CssClass="pagerstyle" />
-            <SelectedRowStyle CssClass="selectedrowstyle" />
+            <SelectedRowStyle CssClass="selectedrowstyle" 
+            />
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
             <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" Visible = "false" />
@@ -19,10 +31,15 @@ AutoEventWireup="true" CodeFile="Pla_Cta_Lista.aspx.cs" Inherits="PLA_Pla_Cta_Li
         </Columns>
     </asp:GridView>
     </asp:Panel>
+    </asp:Panel>
     </div>
     <div class = "panCol2">
-    <asp:Panel runat="server" ID="pfvPla_Partida" GroupingText="Editar la Partida">
-    <asp:FormView ID="fvPla_Pardida" runat="server" DataSourceID="odsfvPla_Partida">
+    <asp:Panel runat="server" ID="pfvPla_Partida" GroupingText="Crear, Editar o Borar una Partida">
+    <asp:FormView ID="fvPla_Pardida" runat="server" DataSourceID="odsfvPla_Partida" 
+            oniteminserting="fvPla_Pardida_ItemInserting" 
+            onitemdeleted="fvPla_Pardida_ItemDeleted" 
+            oniteminserted="fvPla_Pardida_ItemInserted" 
+            onitemupdated="fvPla_Pardida_ItemUpdated">
         <EditItemTemplate>
             Id:
             <asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' />
@@ -86,11 +103,30 @@ AutoEventWireup="true" CodeFile="Pla_Cta_Lista.aspx.cs" Inherits="PLA_Pla_Cta_Li
     </asp:FormView>
     </asp:Panel>
     </div>
-    <asp:ObjectDataSource ID="odsPla_Partida" runat="server" 
-        OldValuesParameterFormatString="original_{0}" SelectMethod="Get" 
+
+    <asp:ObjectDataSource ID="odsgvPla_Partida" runat="server" 
+        SelectMethod="Get" 
         TypeName="FEL.PLA.BO_Pla_Partida">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+
+    <asp:ObjectDataSource ID="odsgvPla_Partida_ByCodigo" runat="server" 
+        SelectMethod="GetByLikeCodigo" 
+        TypeName="FEL.PLA.BO_Pla_Partida">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+            <asp:ControlParameter ControlID="tbCodigo" Name="p_Codigo" PropertyName="Text" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+
+    <asp:ObjectDataSource ID="odsgvPla_Partida_ById" runat="server" 
+        SelectMethod="GetById" 
+        TypeName="FEL.PLA.BO_Pla_Partida">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+            <asp:Parameter Name="p_Id" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
 
@@ -102,11 +138,7 @@ AutoEventWireup="true" CodeFile="Pla_Cta_Lista.aspx.cs" Inherits="PLA_Pla_Cta_Li
         TypeName="FEL.PLA.BO_Pla_Partida"
         DataObjectTypeName="Pla_Partida"
         ConflictDetection = "CompareAllValues"
-        OldValuesParameterFormatString="original_{0}">
-        <InsertParameters>
-            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-            <asp:Parameter Name="n" Type="Object"  />
-        </InsertParameters>
+        OldValuesParameterFormatString="o">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
             <asp:ControlParameter ControlID="gvPla_Partida" Name="p_Id" PropertyName="SelectedValue" Type="Int32" />

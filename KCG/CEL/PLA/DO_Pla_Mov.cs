@@ -41,7 +41,7 @@ fila.Pla_Doc_Fecha
         return lista;
     } // xxx Fin de Select
 	//Insert
-	public int Insert(Scope s, Pla_Mov n)
+	public int Insert(Pla_Mov n)
     {
         int res;
         try {
@@ -59,7 +59,7 @@ n.Estado
         return res;
     } // xxx Fin de Insert
 	//Delete
-	public int Delete(Scope s, Pla_Mov o)
+	public int Delete(Pla_Mov o)
     {
         int res;
         try { 
@@ -78,7 +78,7 @@ o.Estado
         return res;
     } // xxx Fin de Delete
 	//Update
-	public int Update(Scope s, Pla_Mov o, Pla_Mov n)
+	public int Update(Pla_Mov o, Pla_Mov n)
     {
         int res;
         try

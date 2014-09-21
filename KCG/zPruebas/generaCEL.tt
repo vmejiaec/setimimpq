@@ -64,21 +64,21 @@ namespace FEL.<#= xsdNombreIniciales #>
         #region Insert, Update, Delete
 		// Insert
         [DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
-        public int Insert(Scope s, <#= tabla.Nombre #> n)
+        public int Insert(<#= tabla.Nombre #> n)
         {            
-            return Adapter.<#= tabla.Nombre #>_Insert(s, n);
+            return Adapter.<#= tabla.Nombre #>_Insert(n);
         }
 		// Delete
         [DataObjectMethodAttribute(DataObjectMethodType.Delete, false)]
-        public int Delete(Scope s, <#= tabla.Nombre #> o)
+        public int Delete(<#= tabla.Nombre #> o)
         {            
-            return Adapter.<#= tabla.Nombre #>_Delete(s, o);
+            return Adapter.<#= tabla.Nombre #>_Delete(o);
         }
 		// Update
         [DataObjectMethodAttribute(DataObjectMethodType.Update, false)]
-        public int Update(Scope s, <#= tabla.Nombre #> o, <#= tabla.Nombre #> n)
+        public int Update(<#= tabla.Nombre #> o, <#= tabla.Nombre #> n)
         {            
-            return Adapter.<#= tabla.Nombre #>_Update(s, o, n);
+            return Adapter.<#= tabla.Nombre #>_Update(o, n);
         }
         #endregion
         #region Procedimientos Get
@@ -151,19 +151,19 @@ namespace EWS
 		#endregion
 		#region Insert, Delete, Update
 		[WebMethod]
-        public int <#= tabla.Nombre #>_Insert(Scope s, <#= tabla.Nombre #> n)
+        public int <#= tabla.Nombre #>_Insert(<#= tabla.Nombre #> n)
         {
-            return <#= tabla.Nombre #>.Insert(s, n);
+            return <#= tabla.Nombre #>.Insert(n);
         }
 		[WebMethod]
-        public int <#= tabla.Nombre #>_Delete(Scope s, <#= tabla.Nombre #> o)
+        public int <#= tabla.Nombre #>_Delete(<#= tabla.Nombre #> o)
         {
-            return <#= tabla.Nombre #>.Delete(s, o);
+            return <#= tabla.Nombre #>.Delete(o);
         }
 		[WebMethod]
-        public int <#= tabla.Nombre #>_Update(Scope s, <#= tabla.Nombre #> o,<#= tabla.Nombre #> n)
+        public int <#= tabla.Nombre #>_Update(<#= tabla.Nombre #> o,<#= tabla.Nombre #> n)
         {
-            return <#= tabla.Nombre #>.Update(s, o, n);
+            return <#= tabla.Nombre #>.Update(o, n);
         }
 		#endregion
 		#region Métodos Get
@@ -289,7 +289,7 @@ private void BloqueProcSelect(genTabla tabla)
 private void BloqueProcsBasicos(genTabla tabla)
 {#>
 	//Insert
-	public int Insert(Scope s, <#= tabla.Nombre #> n)
+	public int Insert(<#= tabla.Nombre #> n)
     {
         int res;
         try {
@@ -302,7 +302,7 @@ private void BloqueProcsBasicos(genTabla tabla)
         return res;
     } // xxx Fin de Insert
 	//Delete
-	public int Delete(Scope s, <#= tabla.Nombre #> o)
+	public int Delete(<#= tabla.Nombre #> o)
     {
         int res;
         try { 
@@ -315,7 +315,7 @@ private void BloqueProcsBasicos(genTabla tabla)
         return res;
     } // xxx Fin de Delete
 	//Update
-	public int Update(Scope s, <#= tabla.Nombre #> o, <#= tabla.Nombre #> n)
+	public int Update(<#= tabla.Nombre #> o, <#= tabla.Nombre #> n)
     {
         int res;
         try

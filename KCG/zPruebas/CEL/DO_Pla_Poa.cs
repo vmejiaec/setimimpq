@@ -39,7 +39,7 @@ fila.Pla_Partida_Nombre
         return lista;
     } // xxx Fin de Select
 	//Insert
-	public int Insert(Scope s, Pla_Poa n)
+	public int Insert(Pla_Poa n)
     {
         int res;
         try {
@@ -55,7 +55,7 @@ n.Estado
         return res;
     } // xxx Fin de Insert
 	//Delete
-	public int Delete(Scope s, Pla_Poa o)
+	public int Delete(Pla_Poa o)
     {
         int res;
         try { 
@@ -72,7 +72,7 @@ o.Estado
         return res;
     } // xxx Fin de Delete
 	//Update
-	public int Update(Scope s, Pla_Poa o, Pla_Poa n)
+	public int Update(Pla_Poa o, Pla_Poa n)
     {
         int res;
         try
