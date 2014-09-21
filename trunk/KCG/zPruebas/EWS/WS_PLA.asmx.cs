@@ -33,19 +33,19 @@ namespace EWS
 		#endregion
 		#region Insert, Delete, Update
 		[WebMethod]
-        public int Pla_Cta_Insert(Scope s, Pla_Cta n)
+        public int Pla_Cta_Insert(Pla_Cta n)
         {
-            return Pla_Cta.Insert(s, n);
+            return Pla_Cta.Insert(n);
         }
 		[WebMethod]
-        public int Pla_Cta_Delete(Scope s, Pla_Cta o)
+        public int Pla_Cta_Delete(Pla_Cta o)
         {
-            return Pla_Cta.Delete(s, o);
+            return Pla_Cta.Delete(o);
         }
 		[WebMethod]
-        public int Pla_Cta_Update(Scope s, Pla_Cta o,Pla_Cta n)
+        public int Pla_Cta_Update(Pla_Cta o,Pla_Cta n)
         {
-            return Pla_Cta.Update(s, o, n);
+            return Pla_Cta.Update(o, n);
         }
 		#endregion
 		#region Métodos Get
@@ -102,19 +102,19 @@ namespace EWS
 		#endregion
 		#region Insert, Delete, Update
 		[WebMethod]
-        public int Pla_Partida_Insert(Scope s, Pla_Partida n)
+        public int Pla_Partida_Insert(Pla_Partida n)
         {
-            return Pla_Partida.Insert(s, n);
+            return Pla_Partida.Insert(n);
         }
 		[WebMethod]
-        public int Pla_Partida_Delete(Scope s, Pla_Partida o)
+        public int Pla_Partida_Delete(Pla_Partida o)
         {
-            return Pla_Partida.Delete(s, o);
+            return Pla_Partida.Delete(o);
         }
 		[WebMethod]
-        public int Pla_Partida_Update(Scope s, Pla_Partida o,Pla_Partida n)
+        public int Pla_Partida_Update(Pla_Partida o,Pla_Partida n)
         {
-            return Pla_Partida.Update(s, o, n);
+            return Pla_Partida.Update(o, n);
         }
 		#endregion
 		#region Métodos Get
@@ -151,19 +151,19 @@ namespace EWS
 		#endregion
 		#region Insert, Delete, Update
 		[WebMethod]
-        public int Pla_Doc_Insert(Scope s, Pla_Doc n)
+        public int Pla_Doc_Insert(Pla_Doc n)
         {
-            return Pla_Doc.Insert(s, n);
+            return Pla_Doc.Insert(n);
         }
 		[WebMethod]
-        public int Pla_Doc_Delete(Scope s, Pla_Doc o)
+        public int Pla_Doc_Delete(Pla_Doc o)
         {
-            return Pla_Doc.Delete(s, o);
+            return Pla_Doc.Delete(o);
         }
 		[WebMethod]
-        public int Pla_Doc_Update(Scope s, Pla_Doc o,Pla_Doc n)
+        public int Pla_Doc_Update(Pla_Doc o,Pla_Doc n)
         {
-            return Pla_Doc.Update(s, o, n);
+            return Pla_Doc.Update(o, n);
         }
 		#endregion
 		#region Métodos Get
@@ -190,19 +190,19 @@ namespace EWS
 		#endregion
 		#region Insert, Delete, Update
 		[WebMethod]
-        public int Pla_Tarea_Insert(Scope s, Pla_Tarea n)
+        public int Pla_Tarea_Insert(Pla_Tarea n)
         {
-            return Pla_Tarea.Insert(s, n);
+            return Pla_Tarea.Insert(n);
         }
 		[WebMethod]
-        public int Pla_Tarea_Delete(Scope s, Pla_Tarea o)
+        public int Pla_Tarea_Delete(Pla_Tarea o)
         {
-            return Pla_Tarea.Delete(s, o);
+            return Pla_Tarea.Delete(o);
         }
 		[WebMethod]
-        public int Pla_Tarea_Update(Scope s, Pla_Tarea o,Pla_Tarea n)
+        public int Pla_Tarea_Update(Pla_Tarea o,Pla_Tarea n)
         {
-            return Pla_Tarea.Update(s, o, n);
+            return Pla_Tarea.Update(o, n);
         }
 		#endregion
 		#region Métodos Get
@@ -239,19 +239,19 @@ namespace EWS
 		#endregion
 		#region Insert, Delete, Update
 		[WebMethod]
-        public int Pla_Mov_Insert(Scope s, Pla_Mov n)
+        public int Pla_Mov_Insert(Pla_Mov n)
         {
-            return Pla_Mov.Insert(s, n);
+            return Pla_Mov.Insert(n);
         }
 		[WebMethod]
-        public int Pla_Mov_Delete(Scope s, Pla_Mov o)
+        public int Pla_Mov_Delete(Pla_Mov o)
         {
-            return Pla_Mov.Delete(s, o);
+            return Pla_Mov.Delete(o);
         }
 		[WebMethod]
-        public int Pla_Mov_Update(Scope s, Pla_Mov o,Pla_Mov n)
+        public int Pla_Mov_Update(Pla_Mov o,Pla_Mov n)
         {
-            return Pla_Mov.Update(s, o, n);
+            return Pla_Mov.Update(o, n);
         }
 		#endregion
 		#region Métodos Get
@@ -293,19 +293,19 @@ namespace EWS
 		#endregion
 		#region Insert, Delete, Update
 		[WebMethod]
-        public int Pla_Poa_Insert(Scope s, Pla_Poa n)
+        public int Pla_Poa_Insert(Pla_Poa n)
         {
-            return Pla_Poa.Insert(s, n);
+            return Pla_Poa.Insert(n);
         }
 		[WebMethod]
-        public int Pla_Poa_Delete(Scope s, Pla_Poa o)
+        public int Pla_Poa_Delete(Pla_Poa o)
         {
-            return Pla_Poa.Delete(s, o);
+            return Pla_Poa.Delete(o);
         }
 		[WebMethod]
-        public int Pla_Poa_Update(Scope s, Pla_Poa o,Pla_Poa n)
+        public int Pla_Poa_Update(Pla_Poa o,Pla_Poa n)
         {
-            return Pla_Poa.Update(s, o, n);
+            return Pla_Poa.Update(o, n);
         }
 		#endregion
 		#region Métodos Get

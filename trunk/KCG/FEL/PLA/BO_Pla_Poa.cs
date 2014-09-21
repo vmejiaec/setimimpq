@@ -31,21 +31,21 @@ namespace FEL.PLA
         #region Insert, Update, Delete
 		// Insert
         [DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
-        public int Insert(Scope s, Pla_Poa n)
+        public int Insert(Pla_Poa n)
         {            
-            return Adapter.Pla_Poa_Insert(s, n);
+            return Adapter.Pla_Poa_Insert(n);
         }
 		// Delete
         [DataObjectMethodAttribute(DataObjectMethodType.Delete, false)]
-        public int Delete(Scope s, Pla_Poa o)
+        public int Delete(Pla_Poa o)
         {            
-            return Adapter.Pla_Poa_Delete(s, o);
+            return Adapter.Pla_Poa_Delete(o);
         }
 		// Update
         [DataObjectMethodAttribute(DataObjectMethodType.Update, false)]
-        public int Update(Scope s, Pla_Poa o, Pla_Poa n)
+        public int Update(Pla_Poa o, Pla_Poa n)
         {            
-            return Adapter.Pla_Poa_Update(s, o, n);
+            return Adapter.Pla_Poa_Update(o, n);
         }
         #endregion
         #region Procedimientos Get

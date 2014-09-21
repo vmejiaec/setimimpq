@@ -13,12 +13,25 @@ using System.Collections;
 public abstract class PaginaBase: KPagina
 {
     //Atributos abstractos
-    protected abstract ObjectDataSource odsFV { get; }
+    protected abstract GridView Gv { get; }
+    protected abstract FormView Fv { get; }
+    protected abstract ObjectDataSource odsGv { get; }
+    protected abstract ObjectDataSource odsFv { get; }
+    protected abstract ObjectDataSource odsGvById { get; }
+    
+    protected abstract string Contenedor { get; }
     //Atributos
 	protected Color bien = Color.WhiteSmoke;
     protected Color mal = Color.WhiteSmoke;
+    //Propiedades
     protected Scope Scope
-    { get { return (Scope) Session["Scope"]; } }
+    {
+        get
+        {
+            if (Session["Scope"] == null) Response.Redirect("~/PAS/PAR_ACCESO.aspx");
+            return (Scope)Session["Scope"];
+        }
+    }
     //Métodos
     protected void AsignarMensaje(string mensaje, Color color)
     {
@@ -42,21 +55,13 @@ public abstract class PaginaBase: KPagina
         pre_mensaje = string.Format(pre_mensaje, MensajeError);
         return pre_mensaje;
     }
-    //La carga inicial
-    //protected override void OnInit(EventArgs e)
-    //{
-    //    odsFV.Inserting += odsFV_Inserting;
-    //}
-    //Aumenta el parámetro de Scope
-    //private void odsFV_Inserting(object sender, ObjectDataSourceMethodEventArgs e)
-    //{
-    //    DictionaryEntry[] parametros = new DictionaryEntry[e.InputParameters.Count];
-    //    e.InputParameters.CopyTo(parametros, 0);
-    //    List<DictionaryEntry> parametrosList = new List<DictionaryEntry>();
-    //    parametrosList.AddRange(parametros);
-    //    e.InputParameters.Clear();
-    //    if (Session["Scope"] == null) Response.Redirect("~/PAS/PAR_ACCESO.aspx");
-    //    e.InputParameters.Add("s", Session["Scope"]);
-    //    e.InputParameters.Add("parametros", parametrosList);
-    //}
+
+    //Inicializa la página
+    protected override void OnLoad(EventArgs e) //Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            Scope.Dic_Contenedor_Nombre = Contenedor;
+        }
+    }
 }

@@ -37,7 +37,7 @@ fila.Per_Personal_Id_Modifica
         return lista;
     } // xxx Fin de Select
 	//Insert
-	public int Insert(Scope s, Pla_Doc n)
+	public int Insert(Pla_Doc n)
     {
         int res;
         try {
@@ -58,7 +58,7 @@ n.Per_Personal_Id_Modifica
         return res;
     } // xxx Fin de Insert
 	//Delete
-	public int Delete(Scope s, Pla_Doc o)
+	public int Delete(Pla_Doc o)
     {
         int res;
         try { 
@@ -80,7 +80,7 @@ o.Per_Personal_Id_Modifica
         return res;
     } // xxx Fin de Delete
 	//Update
-	public int Update(Scope s, Pla_Doc o, Pla_Doc n)
+	public int Update(Pla_Doc o, Pla_Doc n)
     {
         int res;
         try

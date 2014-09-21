@@ -118,12 +118,12 @@ namespace zGeneraClases
         // Lista de parámetros de un procedimiento para el método (tipo nombre)
         public string listaParamsMET()
         {
-            string lista = "";
+            string lista = "*";
             foreach (var param in Parametros.Where(x => x.Direccion == "Input"))
             {
                 lista += ", " + constantes.cambiaTipo[param.DbTipo] + " " + param.ParamNombre ;
             }
-            lista = lista.Replace("@", "");
+            lista = lista.Replace("*,","").Replace("@", "");
             return lista;
         }
         // Lista de parámetros de un procedimiento para el SP (nombre)

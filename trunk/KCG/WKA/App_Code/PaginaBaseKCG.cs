@@ -1041,8 +1041,7 @@ public abstract class PaginaBaseKCG : KPagina
 
     protected void AsignarContenedorAScope()
     {
-        if (Session["Scope"] == null)
-            Response.Redirect("~/PAS/PAR_ACCESO.aspx");
+        if (Session["Scope"] == null) Response.Redirect("~/PAS/PAR_ACCESO.aspx");
         Scope s = (Scope)Session["Scope"];
         s.Dic_Contenedor_Nombre = Contenedor;
     }

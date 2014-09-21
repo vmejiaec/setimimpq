@@ -34,7 +34,7 @@ fila.Estado
         return lista;
     } // xxx Fin de Select
 	//Insert
-	public int Insert(Scope s, Pla_Cta n)
+	public int Insert(Pla_Cta n)
     {
         int res;
         try {
@@ -52,7 +52,7 @@ n.Estado
         return res;
     } // xxx Fin de Insert
 	//Delete
-	public int Delete(Scope s, Pla_Cta o)
+	public int Delete(Pla_Cta o)
     {
         int res;
         try { 
@@ -71,7 +71,7 @@ o.Estado
         return res;
     } // xxx Fin de Delete
 	//Update
-	public int Update(Scope s, Pla_Cta o, Pla_Cta n)
+	public int Update(Pla_Cta o, Pla_Cta n)
     {
         int res;
         try
