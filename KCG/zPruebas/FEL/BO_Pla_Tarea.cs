@@ -52,14 +52,14 @@ namespace FEL.PLA
 		// Procedimientos Get
 		#region Métodos Get
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Tarea> GetById(Scope s , Int32 p_Id)
+		public List<Pla_Tarea> GetById(Scope s  Int32 p_Id)
         {
 			List<Pla_Tarea> lista = new List<Pla_Tarea>(
 				Adapter.Pla_Tarea_GetById(s,  p_Id));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Tarea> GetByPla_Cta_Id(Scope s , Int32 p_Pla_Cta_Id)
+		public List<Pla_Tarea> GetByPla_Cta_Id(Scope s  Int32 p_Pla_Cta_Id)
         {
 			List<Pla_Tarea> lista = new List<Pla_Tarea>(
 				Adapter.Pla_Tarea_GetByPla_Cta_Id(s,  p_Pla_Cta_Id));

@@ -24,25 +24,6 @@ public partial class PLA_Pla_Cta_Lista : PaginaBase
         e.Values["Estado"] = "PEN";
     }
 
-    protected void btBuscarCodigo_Click(object sender, EventArgs e)
-    {
-        buscarCodigo();
-    }
-
-    protected void buscarCodigo()
-    {
-        string criterio = tbCodigo.Text;
-        if (string.IsNullOrWhiteSpace(criterio))
-        {
-            Gv.DataSourceID = odsGv.ID;
-        }
-        else
-        {
-            Gv.DataSourceID = "odsgvPla_Partida_ByCodigo";
-        }
-        Gv.DataBind();
-    }
-
     protected override System.Web.UI.WebControls.GridView Gv
     {
         get { return gvPla_Partida; }
@@ -65,24 +46,57 @@ public partial class PLA_Pla_Cta_Lista : PaginaBase
 
     protected void fvPla_Pardida_ItemUpdated(object sender, System.Web.UI.WebControls.FormViewUpdatedEventArgs e)
     {
-        int id = int.Parse((string)e.NewValues["Id"]);
+        tbFiltroId.Text = (string) e.NewValues["Id"];
+        
         Gv.DataSourceID = odsGvById.ID;
-        odsGvById.SelectParameters["p_Id"].DefaultValue = id.ToString();
         Gv.DataBind();
         Gv.SelectedIndex = 0;
+        tbFiltro.Text = "";
     }
     protected void fvPla_Pardida_ItemDeleted(object sender, System.Web.UI.WebControls.FormViewDeletedEventArgs e)
     {
-        buscarCodigo();
+        Filtrar();
     }
 
     protected void fvPla_Pardida_ItemInserted(object sender, FormViewInsertedEventArgs e)
     {
-        buscarCodigo();
+        Gv.DataSourceID = odsGvById.ID;
+        Gv.DataBind();
+        Gv.SelectedIndex = 0;
+        tbFiltro.Text = "";
     }
 
     protected override ObjectDataSource odsGvById
     {
         get { return odsgvPla_Partida_ById; }
+    }
+
+    protected void ddlFiltro_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Filtrar();
+    }
+
+    protected void Filtrar()
+    {
+        string campo = ddlFiltro.SelectedValue;
+        string filtro = tbFiltro.Text;
+        switch (campo)
+        { 
+            case "Todos":
+                Gv.DataSourceID = odsGv.ID;
+                tbFiltro.Text = "";
+                break;
+            case "Codigo":
+                Gv.DataSourceID = "odsgvPla_Partida_ByCodigo";
+                break;
+            case "Nombre":
+                ;
+                break;
+        }
+        Gv.DataBind();
+    }
+    protected void odsfvPla_Partida_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
+    {
+        tbFiltroId.Text =  e.ReturnValue.ToString();
     }
 }

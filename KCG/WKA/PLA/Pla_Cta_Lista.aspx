@@ -4,14 +4,17 @@ AutoEventWireup="true" CodeFile="Pla_Cta_Lista.aspx.cs" Inherits="PLA_Pla_Cta_Li
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="panCol2">
     <asp:Panel runat = "server" ID="pgvPla_Partida" GroupingText="Listado de Partidas">
-    <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar">
-        <asp:Label ID="lbCodigo" runat="server" Text="Codigo"></asp:Label>
-        <asp:TextBox ID="tbCodigo" runat="server"></asp:TextBox>
-        <asp:Button ID="btBuscarCodigo" runat="server" Text="..." 
-            onclick="btBuscarCodigo_Click" />
-        <asp:Label ID="lbNombre" runat="server" Text="Nombre"></asp:Label>
-        <asp:TextBox ID="tbNombre" runat="server"></asp:TextBox>
-        <asp:Button ID="btBuscarNombre" runat="server" Text="..." />
+    <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
+        <asp:Label ID="lbFiltro" runat="server" Text="Filtro"></asp:Label>
+        <asp:TextBox ID="tbFiltro" runat="server"></asp:TextBox>
+        <asp:TextBox ID="tbFiltroId" runat="server" CssClass="filtroID"></asp:TextBox>
+        <asp:Button runat="server" ID="btFiltrar" Text="..." Visible="true" style="display:none"/>
+        <asp:DropDownList ID="ddlFiltro" runat="server" AutoPostBack="true"
+            onselectedindexchanged="ddlFiltro_SelectedIndexChanged">
+            <asp:ListItem Text = "Todos" Value="Todos" ></asp:ListItem>
+            <asp:ListItem Text = "Codigo" Value="Codigo" ></asp:ListItem>
+            <asp:ListItem Text = "Nombre" Value="Nombre" ></asp:ListItem>
+        </asp:DropDownList>
     </asp:Panel>
     <asp:Panel runat="server" GroupingText="Partidas">
     <asp:GridView ID="gvPla_Partida" runat="server" AutoGenerateColumns="False" 
@@ -114,10 +117,11 @@ AutoEventWireup="true" CodeFile="Pla_Cta_Lista.aspx.cs" Inherits="PLA_Pla_Cta_Li
 
     <asp:ObjectDataSource ID="odsgvPla_Partida_ByCodigo" runat="server" 
         SelectMethod="GetByLikeCodigo" 
-        TypeName="FEL.PLA.BO_Pla_Partida">
+        TypeName="FEL.PLA.BO_Pla_Partida" 
+        OldValuesParameterFormatString="original_{0}">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-            <asp:ControlParameter ControlID="tbCodigo" Name="p_Codigo" PropertyName="Text" Type="String" />
+            <asp:ControlParameter ControlID="tbFiltro" Name="p_Codigo" PropertyName="Text" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
 
@@ -126,7 +130,7 @@ AutoEventWireup="true" CodeFile="Pla_Cta_Lista.aspx.cs" Inherits="PLA_Pla_Cta_Li
         TypeName="FEL.PLA.BO_Pla_Partida">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-            <asp:Parameter Name="p_Id" Type="Int32" />
+            <asp:ControlParameter ControlID="tbFiltroId" Name="p_Id" PropertyName="Text" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
 
@@ -138,7 +142,7 @@ AutoEventWireup="true" CodeFile="Pla_Cta_Lista.aspx.cs" Inherits="PLA_Pla_Cta_Li
         TypeName="FEL.PLA.BO_Pla_Partida"
         DataObjectTypeName="Pla_Partida"
         ConflictDetection = "CompareAllValues"
-        OldValuesParameterFormatString="o">
+        OldValuesParameterFormatString="o" oninserted="odsfvPla_Partida_Inserted">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
             <asp:ControlParameter ControlID="gvPla_Partida" Name="p_Id" PropertyName="SelectedValue" Type="Int32" />

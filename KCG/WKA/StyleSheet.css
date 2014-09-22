@@ -45,6 +45,12 @@
     width: 30%;
     display:block;
 }
+
+/*Victor Estilo para el campo Id del panel filtro*/
+.filtroID
+{
+    display:none;
+}
 /*CollapsiblePanel*/
 .collapsePanel {
 	

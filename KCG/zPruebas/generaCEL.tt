@@ -1,4 +1,4 @@
-﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
 <#@ output extension=".cs" #>
 <#@ assembly name="$(ProjectDir)\bin\Debug\GeneraClases.dll" #>
 <#@ import namespace="zGeneraClases" #>
@@ -6,8 +6,11 @@
 <#@ import namespace="System.Reflection" #>
 <#@ include file="$(ProjectDir)\TemplateFilemanager.ttinclude" #>
 <#
+	//Parámetros 
+	string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Planificacion.xsd";
+	//Proceso
 	var manager = TemplateFileManager.Create(this);
-	ExtraeMetaDatos datos = new ExtraeMetaDatos(@"C:\IMPQ\Code\KApu_01\WEB\zPruebas\Planificacion.xsd");
+	ExtraeMetaDatos datos = new ExtraeMetaDatos(PathXSD);
 	// Genera los archivos CEL
 	foreach ( genTabla tabla in datos.BaseDatos)
     {

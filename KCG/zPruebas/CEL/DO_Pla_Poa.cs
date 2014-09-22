@@ -95,7 +95,7 @@ n.Id
         return res;
     } // xxx Fin de Update
 	// GetById
-		public List<Pla_Poa> GetById (Scope s , Int32 p_Id)
+		public List<Pla_Poa> GetById (Scope s  Int32 p_Id)
 		{
 			List<Pla_Poa> lista = new List<Pla_Poa>();
 			var tabla = Adapter.GetById( p_Id);
@@ -119,7 +119,7 @@ fila.Pla_Partida_Nombre
 			return lista;
 		}
 		// GetByPla_Partida_Id
-		public List<Pla_Poa> GetByPla_Partida_Id (Scope s , Int32 p_Pla_Partida_Id)
+		public List<Pla_Poa> GetByPla_Partida_Id (Scope s  Int32 p_Pla_Partida_Id)
 		{
 			List<Pla_Poa> lista = new List<Pla_Poa>();
 			var tabla = Adapter.GetByPla_Partida_Id( p_Pla_Partida_Id);
@@ -143,7 +143,7 @@ fila.Pla_Partida_Nombre
 			return lista;
 		}
 		// GetByPla_Tarea_Id
-		public List<Pla_Poa> GetByPla_Tarea_Id (Scope s , Int32 p_Pla_Tarea_Id)
+		public List<Pla_Poa> GetByPla_Tarea_Id (Scope s  Int32 p_Pla_Tarea_Id)
 		{
 			List<Pla_Poa> lista = new List<Pla_Poa>();
 			var tabla = Adapter.GetByPla_Tarea_Id( p_Pla_Tarea_Id);

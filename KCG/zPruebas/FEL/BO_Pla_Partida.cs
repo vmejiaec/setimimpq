@@ -52,14 +52,21 @@ namespace FEL.PLA
 		// Procedimientos Get
 		#region Métodos Get
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Partida> GetById(Scope s , Int32 p_Id)
+		public List<Pla_Partida> GetById(Scope s  Int32 p_Id)
         {
 			List<Pla_Partida> lista = new List<Pla_Partida>(
 				Adapter.Pla_Partida_GetById(s,  p_Id));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Partida> GetByLikeNombre(Scope s , string p_Nombre)
+		public List<Pla_Partida> GetByLikeCodigo(Scope s  string p_Codigo)
+        {
+			List<Pla_Partida> lista = new List<Pla_Partida>(
+				Adapter.Pla_Partida_GetByLikeCodigo(s,  p_Codigo));
+            return lista;
+        }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Pla_Partida> GetByLikeNombre(Scope s  string p_Nombre)
         {
 			List<Pla_Partida> lista = new List<Pla_Partida>(
 				Adapter.Pla_Partida_GetByLikeNombre(s,  p_Nombre));
@@ -67,6 +74,13 @@ namespace FEL.PLA
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+		 // InsertINT
+		public int Pla_Partida_InsertINT(Scope s  string Codigo, string Nombre, string Estado)
+        {
+			int res = 
+				Adapter.Pla_Partida_InsertINT(s,  Codigo, Nombre, Estado);
+            return res;
+        }
 		#endregion
 		#endregion
     }

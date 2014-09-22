@@ -50,86 +50,37 @@ namespace EWS
 		#endregion
 		#region Métodos Get
 		[WebMethod]
-		public List<Pla_Cta> Pla_Cta_GetByAnio(Scope s , string p_Anio)
+		public List<Pla_Cta> Pla_Cta_GetByAnio(Scope s  string p_Anio)
         {
             return Pla_Cta.GetByAnio(s,  p_Anio);
         }
 		[WebMethod]
-		public List<Pla_Cta> Pla_Cta_GetByLikeCodigo(Scope s , string p_Codigo)
+		public List<Pla_Cta> Pla_Cta_GetByLikeCodigo(Scope s  string p_Codigo)
         {
             return Pla_Cta.GetByLikeCodigo(s,  p_Codigo);
         }
 		[WebMethod]
-		public List<Pla_Cta> Pla_Cta_GetByLikeNombre(Scope s , string p_Nombre)
+		public List<Pla_Cta> Pla_Cta_GetByLikeNombre(Scope s  string p_Nombre)
         {
             return Pla_Cta.GetByLikeNombre(s,  p_Nombre);
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
 		[WebMethod]
-		public DateTime? Pla_Cta_Max_FechaDTM(Scope s , string p_Area_Solicita)
+		public DateTime? Pla_Cta_Max_FechaDTM(Scope s  string p_Area_Solicita)
         {
             return Pla_Cta.Max_FechaDTM(s,  p_Area_Solicita);
         }
 		[WebMethod]
-		public int Pla_Cta_SelNoRegistrosINT(Scope s , string p_Anio)
+		public int Pla_Cta_SelNoRegistrosINT(Scope s  string p_Anio)
         {
             return Pla_Cta.SelNoRegistrosINT(s,  p_Anio);
         }
 		[WebMethod]
-		public string Pla_Cta_SelTareasSTR(Scope s , string p_Anio, Int32 p_Pla_Cta_Id, DateTime p_Fecha)
+		public string Pla_Cta_SelTareasSTR(Scope s  string p_Anio, Int32 p_Pla_Cta_Id, DateTime p_Fecha)
         {
             return Pla_Cta.SelTareasSTR(s,  p_Anio, p_Pla_Cta_Id, p_Fecha);
         }
-		#endregion
-		#endregion
-	    #region Servicios para Pla_Partida
-        private DO_Pla_Partida _Pla_Partida;
-        public DO_Pla_Partida Pla_Partida {
-            get {
-                if (_Pla_Partida == null)
-                    _Pla_Partida = new DO_Pla_Partida();
-                return _Pla_Partida;
-            }
-        }
-
-		#region Select
-		[WebMethod]
-        public List<Pla_Partida> Pla_Partida_Get(Scope s)
-        {
-            return Pla_Partida.Get(s);
-        }
-		#endregion
-		#region Insert, Delete, Update
-		[WebMethod]
-        public int Pla_Partida_Insert(Pla_Partida n)
-        {
-            return Pla_Partida.Insert(n);
-        }
-		[WebMethod]
-        public int Pla_Partida_Delete(Pla_Partida o)
-        {
-            return Pla_Partida.Delete(o);
-        }
-		[WebMethod]
-        public int Pla_Partida_Update(Pla_Partida o,Pla_Partida n)
-        {
-            return Pla_Partida.Update(o, n);
-        }
-		#endregion
-		#region Métodos Get
-		[WebMethod]
-		public List<Pla_Partida> Pla_Partida_GetById(Scope s , Int32 p_Id)
-        {
-            return Pla_Partida.GetById(s,  p_Id);
-        }
-		[WebMethod]
-		public List<Pla_Partida> Pla_Partida_GetByLikeNombre(Scope s , string p_Nombre)
-        {
-            return Pla_Partida.GetByLikeNombre(s,  p_Nombre);
-        }
-		#endregion
-		#region Métodos Genéricos retornan un escalar
 		#endregion
 		#endregion
 	    #region Servicios para Pla_Doc
@@ -207,12 +158,12 @@ namespace EWS
 		#endregion
 		#region Métodos Get
 		[WebMethod]
-		public List<Pla_Tarea> Pla_Tarea_GetById(Scope s , Int32 p_Id)
+		public List<Pla_Tarea> Pla_Tarea_GetById(Scope s  Int32 p_Id)
         {
             return Pla_Tarea.GetById(s,  p_Id);
         }
 		[WebMethod]
-		public List<Pla_Tarea> Pla_Tarea_GetByPla_Cta_Id(Scope s , Int32 p_Pla_Cta_Id)
+		public List<Pla_Tarea> Pla_Tarea_GetByPla_Cta_Id(Scope s  Int32 p_Pla_Cta_Id)
         {
             return Pla_Tarea.GetByPla_Cta_Id(s,  p_Pla_Cta_Id);
         }
@@ -256,17 +207,17 @@ namespace EWS
 		#endregion
 		#region Métodos Get
 		[WebMethod]
-		public List<Pla_Mov> Pla_Mov_GetById(Scope s , Int32 p_Id)
+		public List<Pla_Mov> Pla_Mov_GetById(Scope s  Int32 p_Id)
         {
             return Pla_Mov.GetById(s,  p_Id);
         }
 		[WebMethod]
-		public List<Pla_Mov> Pla_Mov_GetByPla_Doc_Id(Scope s , Int32 p_Pla_Doc_Id)
+		public List<Pla_Mov> Pla_Mov_GetByPla_Doc_Id(Scope s  Int32 p_Pla_Doc_Id)
         {
             return Pla_Mov.GetByPla_Doc_Id(s,  p_Pla_Doc_Id);
         }
 		[WebMethod]
-		public List<Pla_Mov> Pla_Mov_GetByPla_Poa_Id(Scope s , Int32 p_Pla_Poa_Id)
+		public List<Pla_Mov> Pla_Mov_GetByPla_Poa_Id(Scope s  Int32 p_Pla_Poa_Id)
         {
             return Pla_Mov.GetByPla_Poa_Id(s,  p_Pla_Poa_Id);
         }
@@ -310,22 +261,81 @@ namespace EWS
 		#endregion
 		#region Métodos Get
 		[WebMethod]
-		public List<Pla_Poa> Pla_Poa_GetById(Scope s , Int32 p_Id)
+		public List<Pla_Poa> Pla_Poa_GetById(Scope s  Int32 p_Id)
         {
             return Pla_Poa.GetById(s,  p_Id);
         }
 		[WebMethod]
-		public List<Pla_Poa> Pla_Poa_GetByPla_Partida_Id(Scope s , Int32 p_Pla_Partida_Id)
+		public List<Pla_Poa> Pla_Poa_GetByPla_Partida_Id(Scope s  Int32 p_Pla_Partida_Id)
         {
             return Pla_Poa.GetByPla_Partida_Id(s,  p_Pla_Partida_Id);
         }
 		[WebMethod]
-		public List<Pla_Poa> Pla_Poa_GetByPla_Tarea_Id(Scope s , Int32 p_Pla_Tarea_Id)
+		public List<Pla_Poa> Pla_Poa_GetByPla_Tarea_Id(Scope s  Int32 p_Pla_Tarea_Id)
         {
             return Pla_Poa.GetByPla_Tarea_Id(s,  p_Pla_Tarea_Id);
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+		#endregion
+		#endregion
+	    #region Servicios para Pla_Partida
+        private DO_Pla_Partida _Pla_Partida;
+        public DO_Pla_Partida Pla_Partida {
+            get {
+                if (_Pla_Partida == null)
+                    _Pla_Partida = new DO_Pla_Partida();
+                return _Pla_Partida;
+            }
+        }
+
+		#region Select
+		[WebMethod]
+        public List<Pla_Partida> Pla_Partida_Get(Scope s)
+        {
+            return Pla_Partida.Get(s);
+        }
+		#endregion
+		#region Insert, Delete, Update
+		[WebMethod]
+        public int Pla_Partida_Insert(Pla_Partida n)
+        {
+            return Pla_Partida.Insert(n);
+        }
+		[WebMethod]
+        public int Pla_Partida_Delete(Pla_Partida o)
+        {
+            return Pla_Partida.Delete(o);
+        }
+		[WebMethod]
+        public int Pla_Partida_Update(Pla_Partida o,Pla_Partida n)
+        {
+            return Pla_Partida.Update(o, n);
+        }
+		#endregion
+		#region Métodos Get
+		[WebMethod]
+		public List<Pla_Partida> Pla_Partida_GetById(Scope s  Int32 p_Id)
+        {
+            return Pla_Partida.GetById(s,  p_Id);
+        }
+		[WebMethod]
+		public List<Pla_Partida> Pla_Partida_GetByLikeCodigo(Scope s  string p_Codigo)
+        {
+            return Pla_Partida.GetByLikeCodigo(s,  p_Codigo);
+        }
+		[WebMethod]
+		public List<Pla_Partida> Pla_Partida_GetByLikeNombre(Scope s  string p_Nombre)
+        {
+            return Pla_Partida.GetByLikeNombre(s,  p_Nombre);
+        }
+		#endregion
+		#region Métodos Genéricos retornan un escalar
+		[WebMethod]
+		public int Pla_Partida_InsertINT(Scope s  string Codigo, string Nombre, string Estado)
+        {
+            return Pla_Partida.InsertINT(s,  Codigo, Nombre, Estado);
+        }
 		#endregion
 		#endregion
 		}

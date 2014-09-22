@@ -83,7 +83,7 @@ n.Id
         return res;
     } // xxx Fin de Update
 	// GetById
-		public List<Pla_Partida> GetById (Scope s , Int32 p_Id)
+		public List<Pla_Partida> GetById (Scope s  Int32 p_Id)
 		{
 			List<Pla_Partida> lista = new List<Pla_Partida>();
 			var tabla = Adapter.GetById( p_Id);
@@ -98,8 +98,24 @@ fila.Estado
 			}
 			return lista;
 		}
+		// GetByLikeCodigo
+		public List<Pla_Partida> GetByLikeCodigo (Scope s  string p_Codigo)
+		{
+			List<Pla_Partida> lista = new List<Pla_Partida>();
+			var tabla = Adapter.GetByLikeCodigo( p_Codigo);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new Pla_Partida(
+				fila.Id,
+fila.Codigo,
+fila.Nombre,
+fila.Estado
+				));
+			}
+			return lista;
+		}
 		// GetByLikeNombre
-		public List<Pla_Partida> GetByLikeNombre (Scope s , string p_Nombre)
+		public List<Pla_Partida> GetByLikeNombre (Scope s  string p_Nombre)
 		{
 			List<Pla_Partida> lista = new List<Pla_Partida>();
 			var tabla = Adapter.GetByLikeNombre( p_Nombre);
@@ -113,6 +129,18 @@ fila.Estado
 				));
 			}
 			return lista;
+		}
+		// InsertINT
+		public int InsertINT (Scope s  string Codigo, string Nombre, string Estado)
+		{
+            int res;
+            try
+            {
+				res = (int)Adapter.InsertINT( Codigo, Nombre, Estado);
+            }
+            catch (SqlException e)
+            { throw (new Exception(e.Message)); }
+            return res;
 		}
 	}
 }

@@ -43,15 +43,15 @@ namespace zGeneraClases
         public void CrearClasesAEL(ExtraeMetaDatos datos, string _NameSpace)
         {
             // Crear el directorio dos niveles arriba con fecha y hora
-            string directorio = DateTime.Now.ToString( _NameSpace + "_yyyy-MM-dd_hh-mm");
-            Directory.CreateDirectory("..\\..\\" + directorio);
+            //string directorio = DateTime.Now.ToString( _NameSpace + "_yyyy-MM-dd_hh-mm");
+            //Directory.CreateDirectory("..\\..\\" + directorio);
             // Crear las clases AEL en la carpeta
             foreach (var t in datos.BaseDatos)
             {
                 this.claseNombre = t.Nombre;
                 this.NameSpace = _NameSpace;
                 this.campos = t.Campos;
-                CrearClaseAEL(directorio);
+                CrearClaseAEL("AEL");
             }
         }
 
