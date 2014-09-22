@@ -98,7 +98,7 @@ n.Id
         return res;
     } // xxx Fin de Update
 	// GetByAnio
-		public List<Pla_Cta> GetByAnio (Scope s , string p_Anio)
+		public List<Pla_Cta> GetByAnio (Scope s  string p_Anio)
 		{
 			List<Pla_Cta> lista = new List<Pla_Cta>();
 			var tabla = Adapter.GetByAnio( p_Anio);
@@ -117,7 +117,7 @@ fila.Estado
 			return lista;
 		}
 		// GetByLikeCodigo
-		public List<Pla_Cta> GetByLikeCodigo (Scope s , string p_Codigo)
+		public List<Pla_Cta> GetByLikeCodigo (Scope s  string p_Codigo)
 		{
 			List<Pla_Cta> lista = new List<Pla_Cta>();
 			var tabla = Adapter.GetByLikeCodigo( p_Codigo);
@@ -136,7 +136,7 @@ fila.Estado
 			return lista;
 		}
 		// GetByLikeNombre
-		public List<Pla_Cta> GetByLikeNombre (Scope s , string p_Nombre)
+		public List<Pla_Cta> GetByLikeNombre (Scope s  string p_Nombre)
 		{
 			List<Pla_Cta> lista = new List<Pla_Cta>();
 			var tabla = Adapter.GetByLikeNombre( p_Nombre);
@@ -155,7 +155,7 @@ fila.Estado
 			return lista;
 		}
 		// Max_FechaDTM
-		public DateTime? Max_FechaDTM (Scope s , string p_Area_Solicita)
+		public DateTime? Max_FechaDTM (Scope s  string p_Area_Solicita)
 		{
             DateTime? res;
             try
@@ -167,7 +167,7 @@ fila.Estado
             return res;
 		}
 		// SelNoRegistrosINT
-		public int SelNoRegistrosINT (Scope s , string p_Anio)
+		public int SelNoRegistrosINT (Scope s  string p_Anio)
 		{
             int res;
             try
@@ -179,7 +179,7 @@ fila.Estado
             return res;
 		}
 		// SelTareasSTR
-		public string SelTareasSTR (Scope s , string p_Anio, Int32 p_Pla_Cta_Id, DateTime p_Fecha)
+		public string SelTareasSTR (Scope s  string p_Anio, Int32 p_Pla_Cta_Id, DateTime p_Fecha)
 		{
             string res;
             try

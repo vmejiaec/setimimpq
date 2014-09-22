@@ -54,6 +54,8 @@
                     <asp:ScriptReference Path="JavaScripts/BloqueoControles.js" />                    
                 </Scripts>
             </asp:ScriptManager>            
+                    <%--BEGIN Panel con el mensaje de espera--%>
+                    
                     <asp:Panel 
                         ID="pnlEspera" 
                         runat="server" 
@@ -88,7 +90,9 @@
                         ID="btnEspera" 
                         runat="server" 
                         Text="Button" 
-                        style="display:none"/>
+                        style="display:none"
+                     />
+                    <%--END Panel con el mensaje de espera--%>
                     <table border="0" cellpadding="0" cellspacing="0" style="width: 102%">
                         <tr valign="top" height="70" >                
                             <td colspan="4" style="height: 3px; width: 1214px; background-color: #006699;"> 

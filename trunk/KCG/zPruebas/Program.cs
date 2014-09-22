@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using zGeneraClases;
-using System.IO;
-using System.Reflection;
-
-using ADL.PlanificacionTableAdapters;
+﻿using zGeneraClases;
 
 namespace zPruebas
 {
@@ -13,9 +6,31 @@ namespace zPruebas
     {
         static void Main(string[] args)
         {
-            ExtraeMetaDatos datos = new ExtraeMetaDatos(@"C:\IMPQ\Code\KApu_01\WEB\zPruebas\Planificacion.xsd");
-            Generador gen = new Generador();
-            gen.CrearClasesAEL(datos, "AEL.PLA");
+            //Parámetros 
+            string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Planificacion.xsd";
+            string NameSpace = "AEL.PLA";
+            bool CrearClasesAEL = false;
+            bool CopiarClasesAEL = false;
+            // // No olvide correr la plantilla generaCEL.tt para actualizar las capas
+            bool CopiarClasesDoEwsFel = true;
+            // Proceso CrearClasesAEL
+            if (CrearClasesAEL)
+            {
+                ExtraeMetaDatos datos = new ExtraeMetaDatos(PathXSD);
+                Generador gen = new Generador();
+                gen.CrearClasesAEL(datos, NameSpace);
+            }
+            // Proceso CopiarClasesAEL
+            if (CopiarClasesAEL)
+            { 
+
+            }
+            // Proceso CopiarClasesDoEwsFel
+            if (CopiarClasesDoEwsFel)
+            {
+
+            }
+           
         }
     }
 }

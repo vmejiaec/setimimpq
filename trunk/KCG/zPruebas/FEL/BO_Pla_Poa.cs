@@ -52,21 +52,21 @@ namespace FEL.PLA
 		// Procedimientos Get
 		#region Métodos Get
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Poa> GetById(Scope s , Int32 p_Id)
+		public List<Pla_Poa> GetById(Scope s  Int32 p_Id)
         {
 			List<Pla_Poa> lista = new List<Pla_Poa>(
 				Adapter.Pla_Poa_GetById(s,  p_Id));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Poa> GetByPla_Partida_Id(Scope s , Int32 p_Pla_Partida_Id)
+		public List<Pla_Poa> GetByPla_Partida_Id(Scope s  Int32 p_Pla_Partida_Id)
         {
 			List<Pla_Poa> lista = new List<Pla_Poa>(
 				Adapter.Pla_Poa_GetByPla_Partida_Id(s,  p_Pla_Partida_Id));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Poa> GetByPla_Tarea_Id(Scope s , Int32 p_Pla_Tarea_Id)
+		public List<Pla_Poa> GetByPla_Tarea_Id(Scope s  Int32 p_Pla_Tarea_Id)
         {
 			List<Pla_Poa> lista = new List<Pla_Poa>(
 				Adapter.Pla_Poa_GetByPla_Tarea_Id(s,  p_Pla_Tarea_Id));
