@@ -77,8 +77,15 @@ namespace FEL.PLA
 		 // InsertINT
 		[DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
 		public int InsertINT(Pla_Partida n)
-        {            
-            return Adapter.Pla_Partida_InsertINT(n);
+        {
+            try
+            {
+                return Adapter.Pla_Partida_InsertINT(n);
+            }
+            catch (Exception e)
+            {
+                throw (e);
+            }
         }
 		#endregion
 		#endregion

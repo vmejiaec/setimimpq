@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormViewSetim.cs" />
     <Compile Include="KBotonRegresar.cs" />
     <Compile Include="KEstado.cs" />
     <Compile Include="KGridBase.cs" />

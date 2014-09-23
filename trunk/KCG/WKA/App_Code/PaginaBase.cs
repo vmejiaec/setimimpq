@@ -22,7 +22,7 @@ public abstract class PaginaBase: KPagina
     protected abstract string Contenedor { get; }
     //Atributos
 	protected Color bien = Color.WhiteSmoke;
-    protected Color mal = Color.WhiteSmoke;
+    protected Color mal = Color.Red;
     //Propiedades
     protected Scope Scope
     {
@@ -33,6 +33,7 @@ public abstract class PaginaBase: KPagina
         }
     }
     //Métodos
+    // Coloca el mensaje en la barra inferior
     protected void AsignarMensaje(string mensaje, Color color)
     {
         ((Label)Master.FindControl("LabelError")).Text = mensaje;
@@ -63,5 +64,14 @@ public abstract class PaginaBase: KPagina
         {
             Scope.Dic_Contenedor_Nombre = Contenedor;
         }
+    }
+    // Extrae del mensaje el resumen del error
+    protected string ExtraeMensajeResumen(Exception e)
+    {
+        string resumen = e.Message;
+        resumen = resumen.Substring(
+            resumen.IndexOf("--->") + 4,
+            resumen.IndexOf("The statement has been") - resumen.IndexOf("--->") - 4);
+        return resumen;
     }
 }

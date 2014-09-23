@@ -51,6 +51,12 @@
 {
     display:none;
 }
+
+/*Victor Estilo para mensaje de error en el formview*/
+.FvMensajeError
+{
+    color: #FF5050;
+}
 /*CollapsiblePanel*/
 .collapsePanel {
 	
