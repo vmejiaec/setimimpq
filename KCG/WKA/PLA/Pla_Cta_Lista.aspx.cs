@@ -1,6 +1,7 @@
 ﻿using System;
 using FEL.PLA;
 using System.Web.UI.WebControls;
+using System.Web.Services.Protocols;
 
 public partial class PLA_Pla_Cta_Lista : PaginaBase
 {
@@ -21,7 +22,7 @@ public partial class PLA_Pla_Cta_Lista : PaginaBase
     {
         // Valor por defecto del Id y Estado
         e.Values["Id"] = -1;
-        e.Values["Estado"] = "PEN";
+        if (String.IsNullOrWhiteSpace((string)e.Values["Estado"])) e.Values["Estado"] = "PEN";
     }
 
     protected override System.Web.UI.WebControls.GridView Gv
@@ -46,12 +47,21 @@ public partial class PLA_Pla_Cta_Lista : PaginaBase
 
     protected void fvPla_Pardida_ItemUpdated(object sender, System.Web.UI.WebControls.FormViewUpdatedEventArgs e)
     {
-        tbFiltroId.Text = (string) e.NewValues["Id"];
-        
-        Gv.DataSourceID = odsGvById.ID;
-        Gv.DataBind();
-        Gv.SelectedIndex = 0;
-        tbFiltro.Text = "";
+        if (e.Exception != null)
+        {
+            var fvs = (Koala.KoalaWebControls.FormViewSetim)sender;
+            fvs.HayErrorInsUpd = true;
+            e.ExceptionHandled = true;
+            e.KeepInEditMode = true;
+        }
+        else
+        {
+            tbFiltroId.Text = (string)e.NewValues["Id"];
+            Gv.DataSourceID = odsGvById.ID;
+            Gv.DataBind();
+            Gv.SelectedIndex = 0;
+            tbFiltro.Text = "";
+        }
     }
     protected void fvPla_Pardida_ItemDeleted(object sender, System.Web.UI.WebControls.FormViewDeletedEventArgs e)
     {
@@ -60,10 +70,20 @@ public partial class PLA_Pla_Cta_Lista : PaginaBase
 
     protected void fvPla_Pardida_ItemInserted(object sender, FormViewInsertedEventArgs e)
     {
-        Gv.DataSourceID = odsGvById.ID;
-        Gv.DataBind();
-        Gv.SelectedIndex = 0;
-        tbFiltro.Text = "";
+        if (e.Exception != null)
+        {
+            var fvs = (Koala.KoalaWebControls.FormViewSetim) sender;
+            fvs.HayErrorInsUpd = true;
+            e.ExceptionHandled = true;
+            e.KeepInInsertMode = true;
+        }
+        else
+        {
+            Gv.DataSourceID = odsGvById.ID;
+            Gv.DataBind();
+            Gv.SelectedIndex = 0;
+            tbFiltro.Text = "";
+        }
     }
 
     protected override ObjectDataSource odsGvById
@@ -97,10 +117,30 @@ public partial class PLA_Pla_Cta_Lista : PaginaBase
     }
     protected void odsfvPla_Partida_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
     {
-        tbFiltroId.Text =  e.ReturnValue.ToString();
+        if (e.Exception != null)
+        {
+            SoapException ex = (SoapException)e.Exception.InnerException;
+            string errorResumen = ExtraeMensajeResumen(ex);
+            lbFvMsgError.Text = errorResumen;
+            AsignarMensaje(ex.Message, mal);
+        }
+        else
+        {
+            tbFiltroId.Text = e.ReturnValue.ToString();
+        }
     }
     protected void btFiltrar_Click(object sender, EventArgs e)
     {
         Filtrar();
+    }
+    protected void odsfvPla_Partida_Updated(object sender, ObjectDataSourceStatusEventArgs e)
+    {
+        if (e.Exception != null)
+        {
+            SoapException ex = (SoapException)e.Exception.InnerException;
+            string errorResumen = ExtraeMensajeResumen(ex);
+            lbFvMsgError.Text = errorResumen;
+            AsignarMensaje(ex.Message, mal);
+        }
     }
 }

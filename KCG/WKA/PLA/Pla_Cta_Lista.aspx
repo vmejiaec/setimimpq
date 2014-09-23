@@ -1,5 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/KOALA.master" 
-AutoEventWireup="true" CodeFile="Pla_Cta_Lista.aspx.cs" Inherits="PLA_Pla_Cta_Lista" %>
+﻿<%@ Page Title="" Language="C#" 
+MasterPageFile="~/KOALA.master" 
+AutoEventWireup="true" 
+CodeFile="Pla_Cta_Lista.aspx.cs" 
+Inherits="PLA_Pla_Cta_Lista" %>
+
+  <%@ Register tagprefix="koala" 
+    assembly="KoalaWebControls" 
+    namespace="Koala.KoalaWebControls" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="panCol2">
@@ -35,7 +42,7 @@ AutoEventWireup="true" CodeFile="Pla_Cta_Lista.aspx.cs" Inherits="PLA_Pla_Cta_Li
     </div>
     <div class = "panCol2">
     <asp:Panel runat="server" ID="pfvPla_Partida" GroupingText="Crear, Editar o Borar una Partida">
-    <asp:FormView ID="fvPla_Pardida" runat="server" DataSourceID="odsfvPla_Partida" 
+    <koala:FormViewSetim ID="fvPla_Pardida" runat="server" DataSourceID="odsfvPla_Partida" 
             oniteminserting="fvPla_Pardida_ItemInserting" 
             onitemdeleted="fvPla_Pardida_ItemDeleted" 
             oniteminserted="fvPla_Pardida_ItemInserted" 
@@ -111,7 +118,8 @@ AutoEventWireup="true" CodeFile="Pla_Cta_Lista.aspx.cs" Inherits="PLA_Pla_Cta_Li
             &nbsp;
             <asp:Button ID="NewButton" RunAt="server" CausesValidation="False" CommandName="New" Text="Nuevo" />
         </ItemTemplate>
-    </asp:FormView>
+    </koala:FormViewSetim>
+        <asp:Label ID="lbFvMsgError" runat="server" Text=":" CssClass="FvMensajeError"></asp:Label>
     </asp:Panel>
     </div>
 
@@ -159,7 +167,8 @@ AutoEventWireup="true" CodeFile="Pla_Cta_Lista.aspx.cs" Inherits="PLA_Pla_Cta_Li
         DataObjectTypeName="Pla_Partida"
         ConflictDetection = "CompareAllValues"
         OldValuesParameterFormatString="o" 
-        oninserted="odsfvPla_Partida_Inserted">
+        oninserted="odsfvPla_Partida_Inserted" 
+        onupdated="odsfvPla_Partida_Updated">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
             <asp:ControlParameter ControlID="gvPla_Partida" Name="p_Id" PropertyName="SelectedValue" Type="Int32" />
