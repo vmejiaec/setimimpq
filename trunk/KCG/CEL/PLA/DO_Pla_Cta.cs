@@ -155,7 +155,7 @@ fila.Estado
 			return lista;
 		}
 		// Max_FechaDTM
-		public DateTime? Max_FechaDTM (Scope s , string p_Area_Solicita)
+			public DateTime? Max_FechaDTM (Scope s , string p_Area_Solicita)
 		{
             DateTime? res;
             try
@@ -167,7 +167,7 @@ fila.Estado
             return res;
 		}
 		// SelNoRegistrosINT
-		public int SelNoRegistrosINT (Scope s , string p_Anio)
+			public int SelNoRegistrosINT (Scope s , string p_Anio)
 		{
             int res;
             try
@@ -179,7 +179,7 @@ fila.Estado
             return res;
 		}
 		// SelTareasSTR
-		public string SelTareasSTR (Scope s , string p_Anio, Int32 p_Pla_Cta_Id, DateTime p_Fecha)
+			public string SelTareasSTR (Scope s , string p_Anio, Int32 p_Pla_Cta_Id, DateTime p_Fecha)
 		{
             string res;
             try

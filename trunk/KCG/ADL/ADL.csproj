@@ -134,6 +134,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Personal.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Planificacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Planificacion.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -261,9 +266,15 @@
     <None Include="Personal.xss">
       <DependentUpon>Personal.xsd</DependentUpon>
     </None>
+    <None Include="Planificacion.xsc">
+      <DependentUpon>Planificacion.xsd</DependentUpon>
+    </None>
     <None Include="Planificacion.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Planificacion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Planificacion.xss">
+      <DependentUpon>Planificacion.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

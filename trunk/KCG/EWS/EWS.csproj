@@ -130,7 +130,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_PLA.asmx.cs">
-      <DependentUpon>WS_PLA.asmx</DependentUpon>
+      <DependentUpon>generaCEL.txt4</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_SEG.asmx.cs">
@@ -167,6 +167,9 @@
       <Project>{262B3E82-2A96-4ED0-AE2C-D93BB7D6844B}</Project>
       <Name>HER</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="generaCEL.txt4" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

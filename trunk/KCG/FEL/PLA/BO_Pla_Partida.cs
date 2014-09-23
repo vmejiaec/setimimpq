@@ -59,21 +59,27 @@ namespace FEL.PLA
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Pla_Partida> GetByLikeCodigo(Scope s , string p_Codigo)
+        {
+			List<Pla_Partida> lista = new List<Pla_Partida>(
+				Adapter.Pla_Partida_GetByLikeCodigo(s,  p_Codigo));
+            return lista;
+        }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
 		public List<Pla_Partida> GetByLikeNombre(Scope s , string p_Nombre)
         {
 			List<Pla_Partida> lista = new List<Pla_Partida>(
 				Adapter.Pla_Partida_GetByLikeNombre(s,  p_Nombre));
             return lista;
         }
-        [DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-        public List<Pla_Partida> GetByLikeCodigo(Scope s, string p_Codigo)
-        {
-            List<Pla_Partida> lista = new List<Pla_Partida>(
-                Adapter.Pla_Partida_GetByLikeCodigo(s, p_Codigo));
-            return lista;
-        }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+		 // InsertINT
+		[DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
+		public int InsertINT(Pla_Partida n)
+        {            
+            return Adapter.Pla_Partida_InsertINT(n);
+        }
 		#endregion
 		#endregion
     }

@@ -8,22 +8,23 @@
 <#
 	//Parámetros 
 	string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Planificacion.xsd";
+	string Iniciales = "PLA";
 	//Proceso
 	var manager = TemplateFileManager.Create(this);
 	ExtraeMetaDatos datos = new ExtraeMetaDatos(PathXSD);
 	// Genera los archivos CEL
 	foreach ( genTabla tabla in datos.BaseDatos)
     {
-		manager.StartNewFile(projectName:"zPruebas", folderName:"CEL", name: "DO_"+ tabla.Nombre +".cs" );
+		manager.StartNewFile(projectName:"CEL", folderName:Iniciales, name: "DO_"+ tabla.Nombre +".cs" );
 		ClaseDO(datos.xsdNombre, datos.xsdNombreIniciales, tabla);
 	}
 	// Genera el servicio Web
-	manager.StartNewFile(projectName:"zPruebas", folderName:"EWS", name: "WS_"+ datos.xsdNombreIniciales +".asmx.cs" );
+	manager.StartNewFile(projectName:"EWS", name: "WS_"+ datos.xsdNombreIniciales +".asmx.cs" );
 	ClaseWS(datos);
 	// Genera las clases FEL
 	foreach ( genTabla tabla in datos.BaseDatos)
     {
-		manager.StartNewFile(projectName:"zPruebas", folderName:"FEL", name: "BO_"+ tabla.Nombre +".cs" );
+		manager.StartNewFile(projectName:"FEL", folderName:Iniciales, name: "BO_"+ tabla.Nombre +".cs" );
 		ClaseFEL(datos.xsdNombre, datos.xsdNombreIniciales, tabla);
 	}
 	// Crea los arhivos 
@@ -100,13 +101,20 @@ namespace FEL.<#= xsdNombreIniciales #>
 		#region Métodos Genéricos retornan un escalar
 		<#+  foreach ( var proc in tabla.ProcGenericosScalar) {
 		#> // <#= proc.ProcNombre #>
+		<#+ if ( proc.ProcNombre == "InsertINT" ) {
+		#>[DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
+		public int InsertINT(<#= tabla.Nombre #> n)
+        {            
+            return Adapter.<#= tabla.Nombre #>_InsertINT(n);
+        }
+		<#+ } else { #>
 		public <#= proc.TipoDevueltoEscalar #> <#= tabla.Nombre #>_<#= proc.ProcNombre #>(Scope s <#= proc.listaParamsMET() #>)
         {
 			<#= proc.TipoDevueltoEscalar #> res = 
 				Adapter.<#= tabla.Nombre #>_<#= proc.ProcNombre #>(s, <#= proc.listaParamsSP() #>);
             return res;
         }
-		<#+ } 
+		<#+ } }
 		#>#endregion
 		#endregion
     }
@@ -180,12 +188,19 @@ namespace EWS
 		#>#endregion
 		#region Métodos Genéricos retornan un escalar
 		<#+  foreach ( var proc in tabla.ProcGenericosScalar) {
-		#>[WebMethod]
+		if (proc.ProcNombre == "InsertINT") {#>
+		[WebMethod]
+        public int <#= tabla.Nombre #>_InsertINT(<#= tabla.Nombre #> n)
+        {
+            return <#= tabla.Nombre #>.InsertINT(n);
+        }
+		<#+ } else { #>
+		[WebMethod]
 		public <#= proc.TipoDevueltoEscalar #> <#= tabla.Nombre #>_<#= proc.ProcNombre #>(Scope s <#= proc.listaParamsMET() #>)
         {
             return <#= tabla.Nombre #>.<#= proc.ProcNombre #>(s, <#= proc.listaParamsSP() #>);
         }
-		<#+ } 
+		<#+ } }
 		#>#endregion
 		#endregion
 	<#+ } #>
@@ -232,6 +247,20 @@ private void BloqueProcsScalar(genTabla tabla)
 {
 	 foreach (var pg in tabla.ProcGenericosScalar) { #>
 	// <#= pg.ProcNombre #>
+	<#+ if (pg.ProcNombre == "InsertINT") { #>
+	public int InsertINT(<#= tabla.Nombre #> n)
+    {
+        int res;
+        try {
+            res = Convert.ToInt16( Adapter.InsertINT(
+				<#= tabla.listaParams(tabla.ProcBasicos[0]) #>
+			));
+        }
+        catch (SqlException e)
+        { throw (new Exception( e.Message)); }
+        return res;
+    }
+	<#+ } else { #>
 		public <#= pg.TipoDevueltoEscalar #> <#= pg.ProcNombre #> (Scope s <#= pg.listaParamsMET() #>)
 		{
             <#= pg.TipoDevueltoEscalar #> res;
@@ -243,7 +272,7 @@ private void BloqueProcsScalar(genTabla tabla)
             { throw (new Exception(e.Message)); }
             return res;
 		}
-	<#+ } 
+	<#+ } }
 }
 #>
 

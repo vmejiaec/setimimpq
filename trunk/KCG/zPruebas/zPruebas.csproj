@@ -51,46 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CEL\DO_Pla_Cta.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
-    <Compile Include="CEL\DO_Pla_Doc.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
-    <Compile Include="CEL\DO_Pla_Mov.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
-    <Compile Include="CEL\DO_Pla_Partida.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
-    <Compile Include="CEL\DO_Pla_Poa.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
-    <Compile Include="CEL\DO_Pla_Tarea.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
-    <Compile Include="EWS\WS_PLA.asmx.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="FEL\BO_Pla_Cta.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
-    <Compile Include="FEL\BO_Pla_Doc.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
-    <Compile Include="FEL\BO_Pla_Mov.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
-    <Compile Include="FEL\BO_Pla_Partida.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
-    <Compile Include="FEL\BO_Pla_Poa.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
-    <Compile Include="FEL\BO_Pla_Tarea.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
     <Compile Include="generaCEL.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -127,9 +87,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="CEL\generaCEL.txt4" />
-    <None Include="EWS\generaCEL.txt4" />
-    <None Include="FEL\generaCEL.txt4" />
     <None Include="generaCEL.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>generaCEL.cs</LastGenOutput>
@@ -143,6 +100,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AEL\" />
+    <Folder Include="CEL\" />
+    <Folder Include="EWS\" />
+    <Folder Include="FEL\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

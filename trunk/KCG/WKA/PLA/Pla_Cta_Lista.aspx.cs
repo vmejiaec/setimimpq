@@ -90,7 +90,7 @@ public partial class PLA_Pla_Cta_Lista : PaginaBase
                 Gv.DataSourceID = "odsgvPla_Partida_ByCodigo";
                 break;
             case "Nombre":
-                ;
+                Gv.DataSourceID = "odsgvPla_Partida_ByNombre";
                 break;
         }
         Gv.DataBind();
@@ -98,5 +98,9 @@ public partial class PLA_Pla_Cta_Lista : PaginaBase
     protected void odsfvPla_Partida_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
     {
         tbFiltroId.Text =  e.ReturnValue.ToString();
+    }
+    protected void btFiltrar_Click(object sender, EventArgs e)
+    {
+        Filtrar();
     }
 }

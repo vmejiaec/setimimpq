@@ -2,6 +2,8 @@
 
 namespace zPruebas
 {
+    // No olvide correr la plantilla generaCEL.tt para actualizar las capas
+    // luego de que haya generado las entidades AEL
     class Program
     {
         static void Main(string[] args)
@@ -9,28 +11,9 @@ namespace zPruebas
             //Parámetros 
             string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Planificacion.xsd";
             string NameSpace = "AEL.PLA";
-            bool CrearClasesAEL = false;
-            bool CopiarClasesAEL = false;
-            // // No olvide correr la plantilla generaCEL.tt para actualizar las capas
-            bool CopiarClasesDoEwsFel = true;
-            // Proceso CrearClasesAEL
-            if (CrearClasesAEL)
-            {
-                ExtraeMetaDatos datos = new ExtraeMetaDatos(PathXSD);
-                Generador gen = new Generador();
-                gen.CrearClasesAEL(datos, NameSpace);
-            }
-            // Proceso CopiarClasesAEL
-            if (CopiarClasesAEL)
-            { 
-
-            }
-            // Proceso CopiarClasesDoEwsFel
-            if (CopiarClasesDoEwsFel)
-            {
-
-            }
-           
+            ExtraeMetaDatos datos = new ExtraeMetaDatos(PathXSD);
+            Generador gen = new Generador();
+            gen.CrearClasesAEL(datos, NameSpace);
         }
     }
 }
