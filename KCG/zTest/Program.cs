@@ -11,9 +11,9 @@ namespace zTest
         {
             ADL.PlanificacionTableAdapters.Pla_PartidaTableAdapter adp = new ADL.PlanificacionTableAdapters.Pla_PartidaTableAdapter();
 
-            var res = adp.Insert1("333vvv",
+            var res = Convert.ToInt32( adp.InsertINT("333vvv",
                 "partida 01",
-                "PEN");
+                "PEN"));
 
             var res2 = adp.Insert("333vvv",
                 "partida 01",

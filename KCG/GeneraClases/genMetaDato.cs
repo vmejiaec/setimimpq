@@ -123,7 +123,7 @@ namespace zGeneraClases
             {
                 lista += ", " + constantes.cambiaTipo[param.DbTipo] + " " + param.ParamNombre ;
             }
-            lista = lista.Replace("*,","").Replace("@", "");
+            lista = lista.Replace("*,", ",").Replace("@", "");
             return lista;
         }
         // Lista de parámetros de un procedimiento para el SP (nombre)

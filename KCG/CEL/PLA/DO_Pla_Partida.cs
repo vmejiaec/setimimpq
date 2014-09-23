@@ -98,6 +98,22 @@ fila.Estado
 			}
 			return lista;
 		}
+		// GetByLikeCodigo
+		public List<Pla_Partida> GetByLikeCodigo (Scope s , string p_Codigo)
+		{
+			List<Pla_Partida> lista = new List<Pla_Partida>();
+			var tabla = Adapter.GetByLikeCodigo( p_Codigo);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new Pla_Partida(
+				fila.Id,
+fila.Codigo,
+fila.Nombre,
+fila.Estado
+				));
+			}
+			return lista;
+		}
 		// GetByLikeNombre
 		public List<Pla_Partida> GetByLikeNombre (Scope s , string p_Nombre)
 		{
@@ -114,22 +130,20 @@ fila.Estado
 			}
 			return lista;
 		}
-
-        // GetByLikeCodigo
-        public List<Pla_Partida> GetByLikeCodigo(Scope s, string p_Codigo)
-        {
-            List<Pla_Partida> lista = new List<Pla_Partida>();
-            var tabla = Adapter.GetByLikeCodigo(p_Codigo);
-            foreach (var fila in tabla)
-            {
-                lista.Add(new Pla_Partida(
-                fila.Id,
-fila.Codigo,
-fila.Nombre,
-fila.Estado
-                ));
-            }
-            return lista;
+		// InsertINT
+		public int InsertINT(Pla_Partida n)
+    {
+        int res;
+        try {
+            res = Convert.ToInt16( Adapter.InsertINT(
+				n.Codigo,
+n.Nombre,
+n.Estado
+			));
         }
+        catch (SqlException e)
+        { throw (new Exception( e.Message)); }
+        return res;
+    }
 	}
 }

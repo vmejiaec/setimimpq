@@ -75,21 +75,21 @@ namespace FEL.PLA
 		#endregion
 		#region Métodos Genéricos retornan un escalar
 		 // Max_FechaDTM
-		public DateTime? Pla_Cta_Max_FechaDTM(Scope s , string p_Area_Solicita)
+				public DateTime? Pla_Cta_Max_FechaDTM(Scope s , string p_Area_Solicita)
         {
 			DateTime? res = 
 				Adapter.Pla_Cta_Max_FechaDTM(s,  p_Area_Solicita);
             return res;
         }
 		 // SelNoRegistrosINT
-		public int Pla_Cta_SelNoRegistrosINT(Scope s , string p_Anio)
+				public int Pla_Cta_SelNoRegistrosINT(Scope s , string p_Anio)
         {
 			int res = 
 				Adapter.Pla_Cta_SelNoRegistrosINT(s,  p_Anio);
             return res;
         }
 		 // SelTareasSTR
-		public string Pla_Cta_SelTareasSTR(Scope s , string p_Anio, Int32 p_Pla_Cta_Id, DateTime p_Fecha)
+				public string Pla_Cta_SelTareasSTR(Scope s , string p_Anio, Int32 p_Pla_Cta_Id, DateTime p_Fecha)
         {
 			string res = 
 				Adapter.Pla_Cta_SelTareasSTR(s,  p_Anio, p_Pla_Cta_Id, p_Fecha);

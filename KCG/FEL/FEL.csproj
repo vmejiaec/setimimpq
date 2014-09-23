@@ -179,12 +179,24 @@
     <Compile Include="PAR\BO_Par_Filtro.cs" />
     <Compile Include="PAR\BO_Par_Tipo_Identificacion.cs" />
     <Compile Include="PER\BO_Per_Personal.cs" />
-    <Compile Include="PLA\BO_Pla_Cta.cs" />
-    <Compile Include="PLA\BO_Pla_Doc.cs" />
-    <Compile Include="PLA\BO_Pla_Mov.cs" />
-    <Compile Include="PLA\BO_Pla_Partida.cs" />
-    <Compile Include="PLA\BO_Pla_Poa.cs" />
-    <Compile Include="PLA\BO_Pla_Tarea.cs" />
+    <Compile Include="PLA\BO_Pla_Cta.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="PLA\BO_Pla_Doc.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="PLA\BO_Pla_Mov.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="PLA\BO_Pla_Partida.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="PLA\BO_Pla_Poa.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="PLA\BO_Pla_Tarea.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -217,6 +229,7 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="PLA\generaCEL.txt4" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
