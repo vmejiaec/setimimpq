@@ -17,8 +17,7 @@ public abstract class PaginaBase: KPagina
     protected abstract FormView Fv { get; }
     protected abstract ObjectDataSource odsGv { get; }
     protected abstract ObjectDataSource odsFv { get; }
-    protected abstract ObjectDataSource odsGvById { get; }
-    
+    protected abstract ObjectDataSource odsGvById { get; }    
     protected abstract string Contenedor { get; }
     //Atributos
 	protected Color bien = Color.WhiteSmoke;

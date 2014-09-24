@@ -9,9 +9,11 @@ Inherits="PLA_Pla_Cta_Lista" %>
     namespace="Koala.KoalaWebControls" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:UpdatePanel runat="server" ID="udp">
+<ContentTemplate>
     <div class="panCol2">
     <asp:Panel runat = "server" ID="pgvPla_Partida" GroupingText="Listado de Partidas">
-    
+    <%--Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
         <asp:Label ID="lbFiltro" runat="server" Text="Filtro"></asp:Label>
         <asp:TextBox ID="tbFiltro" runat="server"></asp:TextBox>
@@ -23,12 +25,13 @@ Inherits="PLA_Pla_Cta_Lista" %>
             <asp:ListItem Text = "Nombre" Value="Nombre" ></asp:ListItem>
         </asp:DropDownList>
     </asp:Panel>
-
+    <%--GridView--%>
     <asp:Panel runat="server" GroupingText="Partidas">
     <asp:GridView ID="gvPla_Partida" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Partida" 
         SelectedRowStyle-CssClass="selectedrowstyle" AlternatingRowStyle-CssClass="alternatingrowstyle" 
-        HeaderStyle-CssClass="headerstyle" PagerStyle-CssClass="pagerstyle">
+        HeaderStyle-CssClass="headerstyle" PagerStyle-CssClass="pagerstyle" 
+            onselectedindexchanged="gvPla_Partida_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
             <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" Visible = "false" />
@@ -40,6 +43,7 @@ Inherits="PLA_Pla_Cta_Lista" %>
     </asp:Panel>
     </asp:Panel>
     </div>
+    <%--FormView--%>
     <div class = "panCol2">
     <asp:Panel runat="server" ID="pfvPla_Partida" GroupingText="Crear, Editar o Borar una Partida">
     <koala:FormViewSetim ID="fvPla_Pardida" runat="server" DataSourceID="odsfvPla_Partida" 
@@ -48,6 +52,7 @@ Inherits="PLA_Pla_Cta_Lista" %>
             oniteminserted="fvPla_Pardida_ItemInserted" 
             onitemupdated="fvPla_Pardida_ItemUpdated">
         <EditItemTemplate>
+            <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
             <table>
             <tr>
                 <td>Id:</td>
@@ -69,8 +74,10 @@ Inherits="PLA_Pla_Cta_Lista" %>
             <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
             &nbsp;
             <asp:Button ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+            </asp:Panel>
         </EditItemTemplate>
         <InsertItemTemplate>
+            <asp:Panel runat="server" ID = "panelInsertTemplate" DefaultButton="InsertButton">
             <table>
             <tr>
                 <td>Id:</td>
@@ -78,7 +85,17 @@ Inherits="PLA_Pla_Cta_Lista" %>
             </tr>
             <tr>
                 <td>Codigo:</td>
-                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>' /></td>
+                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>' />
+                    <asp:RequiredFieldValidator ID="rqCodigo" runat="server" 
+                    ControlToValidate="CodigoTextBox"
+                    ErrorMessage="El campo código es obligatorio" 
+                    Text="X" Display="Dynamic"/>                    
+                    <asp:RegularExpressionValidator ID="revCodigo" runat="server" 
+                    ControlToValidate="CodigoTextBox"
+                    ErrorMessage="El código debe ser de 8 dígitos"
+                    Text="X" Display="Dynamic" 
+                    ValidationExpression="\d{8}"/>
+                </td>
             </tr>
             <tr>
                 <td>Nombre:</td>
@@ -92,8 +109,10 @@ Inherits="PLA_Pla_Cta_Lista" %>
             <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
             &nbsp;
             <asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+            </asp:Panel>
         </InsertItemTemplate>
         <ItemTemplate>
+            <asp:Panel runat="server" ID="panelItemTemplate" DefaultButton="EditButton">
             <table>
             <tr>
                 <td>Id:</td>
@@ -117,12 +136,15 @@ Inherits="PLA_Pla_Cta_Lista" %>
             <asp:Button ID="DeleteButton" RunAt="server" CausesValidation="False" CommandName="Delete" Text="Borrar" />
             &nbsp;
             <asp:Button ID="NewButton" RunAt="server" CausesValidation="False" CommandName="New" Text="Nuevo" />
+            </asp:Panel>
         </ItemTemplate>
     </koala:FormViewSetim>
         <asp:Label ID="lbFvMsgError" runat="server" Text=":" CssClass="FvMensajeError"></asp:Label>
+        <asp:Label ID="lbFvMsgInfo" runat="server" Text=">" CssClass="FvMensajeInfo"></asp:Label>
+        <asp:ValidationSummary ID="vsErrorResumen" runat="server"/>
     </asp:Panel>
     </div>
-
+    <%--Objetos de Datos para el GridView --%>
     <asp:ObjectDataSource ID="odsgvPla_Partida" runat="server" 
         SelectMethod="Get" 
         TypeName="FEL.PLA.BO_Pla_Partida">
@@ -130,7 +152,6 @@ Inherits="PLA_Pla_Cta_Lista" %>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
         </SelectParameters>
     </asp:ObjectDataSource>
-
     <asp:ObjectDataSource ID="odsgvPla_Partida_ByCodigo" runat="server" 
         SelectMethod="GetByLikeCodigo" 
         TypeName="FEL.PLA.BO_Pla_Partida">
@@ -139,7 +160,6 @@ Inherits="PLA_Pla_Cta_Lista" %>
             <asp:ControlParameter ControlID="tbFiltro" Name="p_Codigo" PropertyName="Text" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
-
     <asp:ObjectDataSource ID="odsgvPla_Partida_ByNombre" runat="server" 
         SelectMethod="GetByLikeNombre" 
         TypeName="FEL.PLA.BO_Pla_Partida">
@@ -148,7 +168,6 @@ Inherits="PLA_Pla_Cta_Lista" %>
             <asp:ControlParameter ControlID="tbFiltro" Name="p_Nombre" PropertyName="Text" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
-
     <asp:ObjectDataSource ID="odsgvPla_Partida_ById" runat="server" 
         SelectMethod="GetById" 
         TypeName="FEL.PLA.BO_Pla_Partida">
@@ -157,7 +176,7 @@ Inherits="PLA_Pla_Cta_Lista" %>
             <asp:ControlParameter ControlID="tbFiltroId" Name="p_Id" PropertyName="Text" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
-
+    <%--Objetos de Datos para el FormView --%>
     <asp:ObjectDataSource ID="odsfvPla_Partida" runat="server" 
         SelectMethod="GetById"         
         DeleteMethod="Delete" 
@@ -168,7 +187,7 @@ Inherits="PLA_Pla_Cta_Lista" %>
         ConflictDetection = "CompareAllValues"
         OldValuesParameterFormatString="o" 
         oninserted="odsfvPla_Partida_Inserted" 
-        onupdated="odsfvPla_Partida_Updated">
+        onupdated="odsfvPla_Partida_Updated" ondeleted="odsfvPla_Partida_Deleted">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
             <asp:ControlParameter ControlID="gvPla_Partida" Name="p_Id" PropertyName="SelectedValue" Type="Int32" />
@@ -178,5 +197,7 @@ Inherits="PLA_Pla_Cta_Lista" %>
             <asp:Parameter Name="n" Type="Object" />
         </UpdateParameters>
     </asp:ObjectDataSource>
+</ContentTemplate>
+</asp:UpdatePanel>
 </asp:Content>
 
