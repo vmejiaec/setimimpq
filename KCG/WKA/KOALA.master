@@ -54,8 +54,7 @@
                     <asp:ScriptReference Path="JavaScripts/BloqueoControles.js" />                    
                 </Scripts>
             </asp:ScriptManager>            
-                    <%--BEGIN Panel con el mensaje de espera--%>
-                    
+                    <%--BEGIN Panel con el mensaje de espera--%>                    
                     <asp:Panel 
                         ID="pnlEspera" 
                         runat="server" 

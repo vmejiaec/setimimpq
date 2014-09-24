@@ -14,7 +14,11 @@ namespace Koala.KoalaWebControls
     {
         // Atributo para conocer si existe algún error
         protected bool hayErrorInsUpd = false;
-        public virtual bool HayErrorInsUpd { get { return hayErrorInsUpd; } set { hayErrorInsUpd = value; } }
+        public virtual bool HayErrorInsUpd 
+        { 
+            get { return hayErrorInsUpd; } 
+            set { hayErrorInsUpd = value; } 
+        }
         // Evita el que se limpie la forma luego de un error.
         protected override void OnDataSourceViewChanged(object sender, EventArgs e)
         {
