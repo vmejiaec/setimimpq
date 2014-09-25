@@ -1,4 +1,18 @@
-﻿/* Victor: Estilos para el grid view */
+﻿/*Victor: Estilos para los campos de texto*/
+
+.txtEdicion
+{
+    font-family: Arial;
+    background-color: #FFFFCC;
+}
+
+.txtLectura
+{
+	font-family:Arial;
+	background-color:White;
+}
+
+/* Victor: Estilos para el grid view */
 .gvColID
 {
     margin: 30px;
