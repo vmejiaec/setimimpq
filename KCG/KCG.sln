@@ -66,6 +66,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zGeneraClases", "GeneraClas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zTest", "zTest\zTest.csproj", "{E3F3A4A7-CFF6-4E9D-9B6F-47225F8CC434}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zGEN", "zGEN\zGEN.csproj", "{44719E8A-5D77-4FBD-81F2-612CF043422D}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -298,6 +300,18 @@ Global
 		{E3F3A4A7-CFF6-4E9D-9B6F-47225F8CC434}.Release|Mixed Platforms.Build.0 = Release|x86
 		{E3F3A4A7-CFF6-4E9D-9B6F-47225F8CC434}.Release|x86.ActiveCfg = Release|x86
 		{E3F3A4A7-CFF6-4E9D-9B6F-47225F8CC434}.Release|x86.Build.0 = Release|x86
+		{44719E8A-5D77-4FBD-81F2-612CF043422D}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{44719E8A-5D77-4FBD-81F2-612CF043422D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44719E8A-5D77-4FBD-81F2-612CF043422D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44719E8A-5D77-4FBD-81F2-612CF043422D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{44719E8A-5D77-4FBD-81F2-612CF043422D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{44719E8A-5D77-4FBD-81F2-612CF043422D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{44719E8A-5D77-4FBD-81F2-612CF043422D}.Release|.NET.ActiveCfg = Release|Any CPU
+		{44719E8A-5D77-4FBD-81F2-612CF043422D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44719E8A-5D77-4FBD-81F2-612CF043422D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44719E8A-5D77-4FBD-81F2-612CF043422D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{44719E8A-5D77-4FBD-81F2-612CF043422D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{44719E8A-5D77-4FBD-81F2-612CF043422D}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

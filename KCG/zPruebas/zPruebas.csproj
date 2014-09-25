@@ -51,6 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GeneraASP-GvFv.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneraASP-GvFv.tt</DependentUpon>
+    </Compile>
     <Compile Include="generaCEL.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -87,6 +92,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="GeneraASP-GvFv.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GeneraASP-GvFv.cs</LastGenOutput>
+    </None>
     <None Include="generaCEL.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>generaCEL.cs</LastGenOutput>

@@ -191,6 +191,7 @@
     </Compile>
     <Compile Include="PLA\DO_Pla_Partida.cs">
       <DependentUpon>generaCEL.txt4</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="PLA\DO_Pla_Poa.cs">
       <DependentUpon>generaCEL.txt4</DependentUpon>

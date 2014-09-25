@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" 
 MasterPageFile="~/KOALA.master" 
 AutoEventWireup="true" 
-CodeFile="Pla_Cta_Lista.aspx.cs" 
-Inherits="PLA_Pla_Cta_Lista" %>
+CodeFile="Pla_Partida_GvFv.aspx.cs" 
+Inherits="PLA_Pla_Partida_GvFv" %>
 
   <%@ Register tagprefix="koala" 
     assembly="KoalaWebControls" 
@@ -56,19 +56,19 @@ Inherits="PLA_Pla_Cta_Lista" %>
             <table>
             <tr style="display:none" >
                 <td>Id:</td>
-                <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' CssClass="txtEdicion" /></td>
+                <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' /></td>
             </tr>
             <tr>
                 <td>Codigo:</td>
-                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>' CssClass="txtEdicion" /></td>
+                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>' /></td>
             </tr>
             <tr>
                 <td>Nombre:</td>
-                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' CssClass="txtEdicion" /></td>
+                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' /></td>
             </tr>
             <tr style="display:none" >
                 <td>Estado:</td>
-                <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>' CssClass="txtEdicion" /></td>
+                <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>' /></td>
             </tr>
             </table>
             <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
@@ -81,17 +81,17 @@ Inherits="PLA_Pla_Cta_Lista" %>
             <table>
             <tr style="display:none" >
                 <td>Id:</td>
-                <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' CssClass="txtEdicion" /></td>
+                <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' /></td>
             </tr>
             <tr>
                 <td>Código:</td>
-                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>' CssClass="txtEdicion" />
+                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>' />
                     <%--Validadores--%>
                     <asp:RequiredFieldValidator ID="rqCodigo" runat="server" 
                     ControlToValidate="CodigoTextBox"
                     ErrorMessage="El campo Código es obligatorio" 
                     Text="X" Display="Dynamic"/>                    
-                    <%--<asp:RegularExpressionValidator ID="revCodigo" runat="server" 
+<%--                    <asp:RegularExpressionValidator ID="revCodigo" runat="server" 
                     ControlToValidate="CodigoTextBox"
                     ErrorMessage="El código debe ser de 8 dígitos"
                     Text="X" Display="Dynamic" 
@@ -100,7 +100,7 @@ Inherits="PLA_Pla_Cta_Lista" %>
             </tr>
             <tr>
                 <td>Nombre:</td>
-                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' CssClass="txtEdicion" /></td>
+                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' /></td>
                     <%--Validadores--%>
                     <asp:RequiredFieldValidator ID="rqNombre" runat="server" 
                     ControlToValidate="NombreTextBox"
@@ -109,7 +109,7 @@ Inherits="PLA_Pla_Cta_Lista" %>
             </tr>
             <tr style="display:none" >
                 <td>Estado:</td>
-                <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>' CssClass="txtEdicion" /></td>
+                <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>' /></td>
             </tr>
             </table>
             <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
@@ -206,4 +206,5 @@ Inherits="PLA_Pla_Cta_Lista" %>
 </ContentTemplate>
 </asp:UpdatePanel>
 </asp:Content>
+
 
