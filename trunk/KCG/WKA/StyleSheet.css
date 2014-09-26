@@ -1,15 +1,47 @@
 ﻿/*Victor: Estilos para los campos de texto*/
 
-.txtEdicion
+.txtEdit
 {
     font-family: Arial;
     background-color: #FFFFCC;
 }
 
-.txtLectura
+.txtEditNombre
 {
-	font-family:Arial;
-	background-color:White;
+    font-family: Arial;
+    background-color: #FFFFCC;
+}
+
+.txtEditNombreLargo
+{
+    font-family: Arial;
+    background-color: #FFFFCC;
+    width: 250px;
+    height:80px;
+}
+
+.txtItemNombreLargo
+{
+    font-family: Arial;
+    background-color: White;
+    width: 250px;
+    height:80px;
+}
+
+.txtEditDescripcion
+{
+    font-family: Arial;
+    background-color: #FFFFCC;
+    width: 250px;
+    height:80px;
+}
+
+.txtItemDescripcion
+{
+    font-family: Arial;
+    background-color: White;
+    width: 250px;
+    height:80px;
 }
 
 /* Victor: Estilos para el grid view */
@@ -52,11 +84,20 @@
 }
 
 /*Victor estilos para dividir la pantalla*/
-
+/*Victor es para el panel derecho del Form View*/
 .panCol2
 {
     float: left;
     width: 30%;
+    display:block;
+}
+
+/* Victor Es el panel izquierdo para el Grid con redimención automático*/
+.panCol3
+{
+    float: left;
+    max-width: 60%;
+    width: auto;
     display:block;
 }
 
