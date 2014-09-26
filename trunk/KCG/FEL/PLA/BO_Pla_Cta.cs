@@ -59,6 +59,13 @@ namespace FEL.PLA
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Pla_Cta> GetById(Scope s , Int32 p_Id)
+        {
+			List<Pla_Cta> lista = new List<Pla_Cta>(
+				Adapter.Pla_Cta_GetById(s,  p_Id));
+            return lista;
+        }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
 		public List<Pla_Cta> GetByLikeCodigo(Scope s , string p_Codigo)
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
@@ -74,6 +81,12 @@ namespace FEL.PLA
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+		 // InsertINT
+		[DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
+		public int InsertINT(Pla_Cta n)
+        {            
+            return Adapter.Pla_Cta_InsertINT(n);
+        }
 		 // Max_FechaDTM
 				public DateTime? Pla_Cta_Max_FechaDTM(Scope s , string p_Area_Solicita)
         {

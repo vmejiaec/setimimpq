@@ -55,6 +55,11 @@ namespace EWS
             return Pla_Cta.GetByAnio(s,  p_Anio);
         }
 		[WebMethod]
+		public List<Pla_Cta> Pla_Cta_GetById(Scope s , Int32 p_Id)
+        {
+            return Pla_Cta.GetById(s,  p_Id);
+        }
+		[WebMethod]
 		public List<Pla_Cta> Pla_Cta_GetByLikeCodigo(Scope s , string p_Codigo)
         {
             return Pla_Cta.GetByLikeCodigo(s,  p_Codigo);
@@ -66,6 +71,11 @@ namespace EWS
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+        public int Pla_Cta_InsertINT(Pla_Cta n)
+        {
+            return Pla_Cta.InsertINT(n);
+        }
 				[WebMethod]
 		public DateTime? Pla_Cta_Max_FechaDTM(Scope s , string p_Area_Solicita)
         {

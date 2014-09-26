@@ -1,5 +1,5 @@
 ﻿<#@ template debug="true" hostspecific="true" language="C#" #>
-<#@ output extension=".cs" #>
+<#@ output extension=".txt" #>
 <#@ assembly name="$(ProjectDir)\bin\Debug\GeneraClases.dll" #>
 <#@ import namespace="zGeneraClases" #>
 <#@ import namespace="System.IO" #>
@@ -9,7 +9,7 @@
 	//Parámetros 
 	string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Planificacion.xsd";
 	string Iniciales = "PLA";
-	string TablaBase = "Pla_Partida";
+	string TablaBase = "Pla_Cta";
 	//Proceso
 	var manager = TemplateFileManager.Create(this);
 	ExtraeMetaDatos datos = new ExtraeMetaDatos(PathXSD);	
@@ -43,7 +43,7 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
 <asp:UpdatePanel runat="server" ID="udp">
 <ContentTemplate>
     <div class="panCol2">
-    <asp:Panel runat = "server" ID="pgvPla_Partida" GroupingText="Listado de Partidas">
+    <asp:Panel runat = "server" ID="pgv<#= tabla.Nombre #>" GroupingText="Listado">
     <%--Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
         <asp:Label ID="lbFiltro" runat="server" Text="Filtro"></asp:Label>
@@ -52,56 +52,46 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
         <asp:Button runat="server" ID="btFiltrar" Text="..." Visible="true" onclick="btFiltrar_Click" style="display:none" />
         <asp:DropDownList ID="ddlFiltro" runat="server" AutoPostBack="true" onselectedindexchanged="ddlFiltro_SelectedIndexChanged">
             <asp:ListItem Text = "Todos" Value="Todos" ></asp:ListItem>
-            <asp:ListItem Text = "Codigo" Value="Codigo" ></asp:ListItem>
-            <asp:ListItem Text = "Nombre" Value="Nombre" ></asp:ListItem>
-        </asp:DropDownList>
+			<#+ foreach(var pg in tabla.ProcGenericosGet) { 
+				if (!string.IsNullOrWhiteSpace(pg.ProcNombreFiltro)) {
+            #><asp:ListItem Text = "<#= pg.ProcNombreFiltro #>" Value="<#= pg.ProcNombreFiltro #>" ></asp:ListItem>
+			<#+ }} 
+        #></asp:DropDownList>
     </asp:Panel>
     <%--GridView--%>
-    <asp:Panel runat="server" GroupingText="Partidas">
-    <asp:GridView ID="gvPla_Partida" runat="server" AutoGenerateColumns="False" 
-        DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Partida" 
+    <asp:Panel runat="server" GroupingText="Registros">
+    <asp:GridView ID="gv<#= tabla.Nombre #>" runat="server" AutoGenerateColumns="False" 
+        DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgv<#= tabla.Nombre #>" 
         SelectedRowStyle-CssClass="selectedrowstyle" AlternatingRowStyle-CssClass="alternatingrowstyle" 
         HeaderStyle-CssClass="headerstyle" PagerStyle-CssClass="pagerstyle" 
-            onselectedindexchanged="gvPla_Partida_SelectedIndexChanged">
+            onselectedindexchanged="gv<#= tabla.Nombre #>_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
-            <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" Visible = "false" />
-            <asp:BoundField DataField="Codigo" HeaderText="Codigo" SortExpression="Codigo" ItemStyle-CssClass="gvColCodigo" />
-            <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" ItemStyle-CssClass="gvColString"/>
-            <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" Visible="false"/>
-        </Columns>
+			<#+ foreach(var campo in tabla.Campos){ 
+				#><asp:BoundField DataField="<#= campo.Nombre #>" HeaderText="<#= campo.Nombre #>" <#= (campo.Nombre =="Id")? "Visible = \"false\"":"" #>  />
+			<#+ }
+	#></Columns>
     </asp:GridView>
     </asp:Panel>
     </asp:Panel>
     </div>
     <%--FormView--%>
     <div class = "panCol2">
-    <asp:Panel runat="server" ID="pfvPla_Partida" GroupingText="Crear, Editar o Borar una Partida">
-    <koala:FormViewSetim ID="fvPla_Pardida" runat="server" DataSourceID="odsfvPla_Partida" 
-            oniteminserting="fvPla_Pardida_ItemInserting" 
-            onitemdeleted="fvPla_Pardida_ItemDeleted" 
-            oniteminserted="fvPla_Pardida_ItemInserted" 
-            onitemupdated="fvPla_Pardida_ItemUpdated">
+    <asp:Panel runat="server" ID="pfv<#= tabla.Nombre #>" GroupingText="Crear, Editar o Borar un Registro">
+    <koala:FormViewSetim ID="fv<#= tabla.Nombre #>" runat="server" DataSourceID="odsfv<#= tabla.Nombre #>" 
+            oniteminserting="fv<#= tabla.Nombre #>_ItemInserting" 
+            onitemdeleted="fv<#= tabla.Nombre #>_ItemDeleted" 
+            oniteminserted="fv<#= tabla.Nombre #>_ItemInserted" 
+            onitemupdated="fv<#= tabla.Nombre #>_ItemUpdated">
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
             <table>
-            <tr style="display:none" >
-                <td>Id:</td>
-                <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' /></td>
+			<#+ foreach(var campo in tabla.Campos){  
+            #><tr <#= (campo.Nombre == "Id")? "style=\"display:none\"":"" #>>
+                <td> <#= campo.Nombre #> </td>
+                <td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>' CssClass="txtEdicion" /></td>
             </tr>
-            <tr>
-                <td>Codigo:</td>
-                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>' /></td>
-            </tr>
-            <tr>
-                <td>Nombre:</td>
-                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' /></td>
-            </tr>
-            <tr style="display:none" >
-                <td>Estado:</td>
-                <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>' /></td>
-            </tr>
-            </table>
+			<#+ } #></table>
             <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
             &nbsp;
             <asp:Button ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
@@ -110,39 +100,19 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
         <InsertItemTemplate>
             <asp:Panel runat="server" ID = "panelInsertTemplate" DefaultButton="InsertButton">
             <table>
-            <tr style="display:none" >
-                <td>Id:</td>
-                <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' /></td>
+			<#+ foreach(var campo in tabla.Campos) {
+            #><tr <#= (campo.Nombre == "Id")? "style=\"display:none\"":"" #>>
+                <td> <#= campo.Nombre #> </td>
+                <td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>' CssClass="txtEdicion"/>
+				<#+ if (campo.Nombre != "Id") {
+					#><%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rq<#= campo.Nombre #>" runat="server" 
+                    ControlToValidate="<#= campo.Nombre #>TextBox"
+                    ErrorMessage="El campo <#= campo.Nombre #> es obligatorio" 
+                    Text="X" Display="Dynamic"/>
+				<#+ } #></td>
             </tr>
-            <tr>
-                <td>Código:</td>
-                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>' />
-                    <%--Validadores--%>
-                    <asp:RequiredFieldValidator ID="rqCodigo" runat="server" 
-                    ControlToValidate="CodigoTextBox"
-                    ErrorMessage="El campo Código es obligatorio" 
-                    Text="X" Display="Dynamic"/>                    
-<%--                    <asp:RegularExpressionValidator ID="revCodigo" runat="server" 
-                    ControlToValidate="CodigoTextBox"
-                    ErrorMessage="El código debe ser de 8 dígitos"
-                    Text="X" Display="Dynamic" 
-                    ValidationExpression="\d{8}"/>--%>
-                </td>
-            </tr>
-            <tr>
-                <td>Nombre:</td>
-                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' /></td>
-                    <%--Validadores--%>
-                    <asp:RequiredFieldValidator ID="rqNombre" runat="server" 
-                    ControlToValidate="NombreTextBox"
-                    ErrorMessage="El campo Nombre es obligatorio" 
-                    Text="X" Display="Dynamic"/>  
-            </tr>
-            <tr style="display:none" >
-                <td>Estado:</td>
-                <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>' /></td>
-            </tr>
-            </table>
+			<#+ } #></table>
             <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
             &nbsp;
             <asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
@@ -151,23 +121,12 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
         <ItemTemplate>
             <asp:Panel runat="server" ID="panelItemTemplate" DefaultButton="EditButton">
             <table>
-            <tr style="display:none" >
-                <td>Id:</td>
-                <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' ReadOnly="true" /></td>
+			<#+ foreach(var campo in tabla.Campos){  
+            #><tr <#= (campo.Nombre == "Id")? "style=\"display:none\"":"" #>>
+                <td> <#= campo.Nombre #> </td>
+                <td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>'  ReadOnly="true"/></td>
             </tr>
-            <tr>
-                <td>Codigo:</td>
-                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>' ReadOnly="true" /></td>
-            </tr>
-            <tr>
-                <td>Nombre:</td>
-                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' ReadOnly="true" /></td>
-            </tr>
-            <tr style="display:none" >
-                <td>Estado:</td>
-                <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>' ReadOnly="true" /></td>
-            </tr>
-            </table>
+			<#+ } #></table>
             <asp:Button ID="EditButton" RunAt="server"  CausesValidation="False" CommandName="Edit" Text="Editar" />
             &nbsp;
             <asp:Button ID="DeleteButton" RunAt="server" CausesValidation="False" CommandName="Delete" Text="Borrar" />
@@ -181,53 +140,44 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
         <asp:ValidationSummary ID="vsErrorResumen" runat="server"/>
     </asp:Panel>
     </div>
-    <%--Objetos de Datos para el GridView --%>
-    <asp:ObjectDataSource ID="odsgvPla_Partida" runat="server" 
+    <%--Fuente de datos para el GridView --%>
+    <asp:ObjectDataSource ID="odsgv<#= tabla.Nombre #>" runat="server" 
         SelectMethod="Get" 
-        TypeName="FEL.PLA.BO_Pla_Partida">
+        TypeName="FEL.<#= Iniciales #>.BO_<#= tabla.Nombre #>">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
         </SelectParameters>
     </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="odsgvPla_Partida_ByCodigo" runat="server" 
-        SelectMethod="GetByLikeCodigo" 
-        TypeName="FEL.PLA.BO_Pla_Partida">
+	<%--Fuente de datos para los procesos genéricos --%>
+<#+ foreach(var pg in tabla.ProcGenericosGet) { #>
+    <asp:ObjectDataSource ID="odsgv<#= tabla.Nombre #>_<#= pg.ProcNombre #>" runat="server" 
+        SelectMethod="<#= pg.ProcNombre #>" 
+        TypeName="FEL.<#= Iniciales #>.BO_<#= tabla.Nombre #>">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-            <asp:ControlParameter ControlID="tbFiltro" Name="p_Codigo" PropertyName="Text" Type="String" />
-        </SelectParameters>
+			<#+ foreach(var param in pg.Parametros) {
+				if ( param.Direccion == "Input" ) {
+            #><asp:ControlParameter ControlID="tbFiltro" Name="<#= param.Nombre #>" PropertyName="Text" Type="<#= param.Tipo #>" />
+		<#+ }  }
+        #></SelectParameters>
     </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="odsgvPla_Partida_ByNombre" runat="server" 
-        SelectMethod="GetByLikeNombre" 
-        TypeName="FEL.PLA.BO_Pla_Partida">
-        <SelectParameters>
-            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-            <asp:ControlParameter ControlID="tbFiltro" Name="p_Nombre" PropertyName="Text" Type="String" />
-        </SelectParameters>
-    </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="odsgvPla_Partida_ById" runat="server" 
-        SelectMethod="GetById" 
-        TypeName="FEL.PLA.BO_Pla_Partida">
-        <SelectParameters>
-            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-            <asp:ControlParameter ControlID="tbFiltroId" Name="p_Id" PropertyName="Text" Type="Int32" />
-        </SelectParameters>
-    </asp:ObjectDataSource>
+<#+ } #>
     <%--Objetos de Datos para el FormView --%>
-    <asp:ObjectDataSource ID="odsfvPla_Partida" runat="server" 
+    <asp:ObjectDataSource ID="odsfv<#= tabla.Nombre #>" runat="server" 
         SelectMethod="GetById"         
         DeleteMethod="Delete" 
         InsertMethod="InsertINT" 
         UpdateMethod="Update"
-        TypeName="FEL.PLA.BO_Pla_Partida"
-        DataObjectTypeName="Pla_Partida"
+        TypeName="FEL.<#= Iniciales #>.BO_<#= tabla.Nombre #>"
+        DataObjectTypeName="<#= tabla.Nombre #>"
         ConflictDetection = "CompareAllValues"
-        OldValuesParameterFormatString="o" 
-        oninserted="odsfvPla_Partida_Inserted" 
-        onupdated="odsfvPla_Partida_Updated" ondeleted="odsfvPla_Partida_Deleted">
+        OldValuesParameterFormatString="o"
+        oninserted="odsfv<#= tabla.Nombre #>_Inserted" 
+        onupdated="odsfv<#= tabla.Nombre #>_Updated" 
+		ondeleted="odsfv<#= tabla.Nombre #>_Deleted">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-            <asp:ControlParameter ControlID="gvPla_Partida" Name="p_Id" PropertyName="SelectedValue" Type="Int32" />
+            <asp:ControlParameter ControlID="gv<#= tabla.Nombre #>" Name="p_Id" PropertyName="SelectedValue" Type="Int32" />
         </SelectParameters>
         <UpdateParameters>
             <asp:Parameter Name="o" Type="Object" />
@@ -264,27 +214,27 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
     #region Referencias a los objetos de pantalla
     protected override string Contenedor
     {
-        get { return "Pla_Cta_Partida"; }
+        get { return "<#= Iniciales #>_<#= tabla.Nombre #>_GvFv"; }
     }
     protected override GridView Gv
     {
-        get { return gvPla_Partida; }
+        get { return gv<#= tabla.Nombre #>; }
     }
     protected override FormView Fv
     {
-        get { return fvPla_Pardida; }
+        get { return fv<#= tabla.Nombre #>; }
     }
     protected override ObjectDataSource odsGv
     {
-        get { return odsgvPla_Partida; }
+        get { return odsgv<#= tabla.Nombre #>; }
     }
     protected override ObjectDataSource odsFv
     {
-        get { return odsfvPla_Partida; }
+        get { return odsfv<#= tabla.Nombre #>; }
     }
     protected override ObjectDataSource odsGvById
     {
-        get { return odsgvPla_Partida_ById; }
+        get { return odsgv<#= tabla.Nombre #>_GetById; }
     }
     #endregion
 
@@ -300,13 +250,13 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
                 Gv.DataSourceID = odsGv.ID;
                 tbFiltro.Text = "";
                 break;
-            case "Codigo":
-                Gv.DataSourceID = "odsgvPla_Partida_ByCodigo";
+			<#+ foreach(var pg in tabla.ProcGenericos){ 
+				if (!string.IsNullOrEmpty(pg.ProcNombreFiltro)) {
+            #>case "<#= pg.ProcNombreFiltro #>":
+                Gv.DataSourceID = "odsgv<#= tabla.Nombre #>_<#= pg.ProcNombre #>";
                 break;
-            case "Nombre":
-                Gv.DataSourceID = "odsgvPla_Partida_ByNombre";
-                break;
-        }
+			<#+ }} 
+        #>}
         Gv.DataBind();
         // Si existe algún error en el FormView lo borra
         lbFvMsgError.Text = ":";
@@ -324,7 +274,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
 
     // Eventos para despues de FormView
     #region Eventos para despues de FormView
-    protected void fvPla_Pardida_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
+    protected void fv<#= tabla.Nombre #>_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
     {
         if (e.Exception != null)
         {
@@ -342,7 +292,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
             tbFiltro.Text = "";
         }
     }
-    protected void fvPla_Pardida_ItemDeleted(object sender, FormViewDeletedEventArgs e)
+    protected void fv<#= tabla.Nombre #>_ItemDeleted(object sender, FormViewDeletedEventArgs e)
     {
         if (e.Exception != null)
         {
@@ -353,7 +303,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
             Filtrar();
         }
     }
-    protected void fvPla_Pardida_ItemInserted(object sender, FormViewInsertedEventArgs e)
+    protected void fv<#= tabla.Nombre #>_ItemInserted(object sender, FormViewInsertedEventArgs e)
     {
         if (e.Exception != null)
         {
@@ -373,7 +323,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
     #endregion
     // Eventos para despues del ObjectDataSource del FormView
     #region Eventos para despues del ObjectDataSource del FormView
-    protected void odsfvPla_Partida_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
+    protected void odsfv<#= tabla.Nombre #>_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
     {
         if (e.Exception != null)
         {
@@ -389,7 +339,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
             AsignarMensaje("Registro Insertado.",bien);
         }
     }
-    protected void odsfvPla_Partida_Updated(object sender, ObjectDataSourceStatusEventArgs e)
+    protected void odsfv<#= tabla.Nombre #>_Updated(object sender, ObjectDataSourceStatusEventArgs e)
     {
         if (e.Exception != null)
         {
@@ -404,7 +354,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
             AsignarMensaje("Registro Actualizado.", bien);
         }
     }
-    protected void odsfvPla_Partida_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
+    protected void odsfv<#= tabla.Nombre #>_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
     {
         if (e.Exception != null)
         {
@@ -423,7 +373,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
 
     // Valores por defecto antes de enviar a insertar, actualizar o borrar.
     #region Valores por defecto
-    protected void fvPla_Pardida_ItemInserting(object sender, FormViewInsertEventArgs e)
+    protected void fv<#= tabla.Nombre #>_ItemInserting(object sender, FormViewInsertEventArgs e)
     {
         // Valor por defecto del Id y Estado
         e.Values["Id"] = -1;
@@ -432,7 +382,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
     #endregion
 
     // Evento cuando se selecciona una fila del Grid
-    protected void gvPla_Partida_SelectedIndexChanged(object sender, EventArgs e)
+    protected void gv<#= tabla.Nombre #>_SelectedIndexChanged(object sender, EventArgs e)
     {
         lbFvMsgError.Text = ":";
         lbFvMsgInfo.Text = ">";

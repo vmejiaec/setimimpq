@@ -152,6 +152,16 @@ namespace zGeneraClases
                 return constantes.cambiaTipoSP[ProcNombre.Substring(ProcNombre.Length-3)];
             }
         }
+        // Retorna el texto para el filtro de la pagina
+        public string ProcNombreFiltro
+        {
+            get
+            {
+                int ini = ProcNombre.IndexOf("Like")+4;
+                int fin = ProcNombre.Length;
+                return (ProcNombre.Contains("Like"))? ProcNombre.Substring(ini):"";
+            }
+        }
     }
 
     public class genParametro
@@ -160,6 +170,14 @@ namespace zGeneraClases
         public string ParamNombre;
         public string DbTipo;
         public string SourceVersion;
+
+        public string Tipo {
+            get { return constantes.cambiaTipo[this.DbTipo]; }
+        }
+
+        public string Nombre {
+            get { return ParamNombre.Replace("@","");}
+        }
 
         public genParametro(string direccion, string paramNombre, string dbTipo, string sourceVersion)
         {
