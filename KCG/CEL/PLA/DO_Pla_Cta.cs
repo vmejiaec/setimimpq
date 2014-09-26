@@ -116,6 +116,25 @@ fila.Estado
 			}
 			return lista;
 		}
+		// GetById
+		public List<Pla_Cta> GetById (Scope s , Int32 p_Id)
+		{
+			List<Pla_Cta> lista = new List<Pla_Cta>();
+			var tabla = Adapter.GetById( p_Id);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new Pla_Cta(
+				fila.Id,
+fila.Anio,
+fila.Codigo,
+fila.Nivel,
+fila.Nombre,
+fila.Descripcion,
+fila.Estado
+				));
+			}
+			return lista;
+		}
 		// GetByLikeCodigo
 		public List<Pla_Cta> GetByLikeCodigo (Scope s , string p_Codigo)
 		{
@@ -154,6 +173,24 @@ fila.Estado
 			}
 			return lista;
 		}
+		// InsertINT
+		public int InsertINT(Pla_Cta n)
+    {
+        int res;
+        try {
+            res = Convert.ToInt16( Adapter.InsertINT(
+				n.Anio,
+n.Codigo,
+n.Nivel,
+n.Nombre,
+n.Descripcion,
+n.Estado
+			));
+        }
+        catch (SqlException e)
+        { throw (new Exception( e.Message)); }
+        return res;
+    }
 		// Max_FechaDTM
 			public DateTime? Max_FechaDTM (Scope s , string p_Area_Solicita)
 		{

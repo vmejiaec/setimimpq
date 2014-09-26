@@ -193,7 +193,8 @@ Inherits="PLA_Pla_Cta_Lista" %>
         ConflictDetection = "CompareAllValues"
         OldValuesParameterFormatString="o" 
         oninserted="odsfvPla_Partida_Inserted" 
-        onupdated="odsfvPla_Partida_Updated" ondeleted="odsfvPla_Partida_Deleted">
+        onupdated="odsfvPla_Partida_Updated" 
+        ondeleted="odsfvPla_Partida_Deleted">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
             <asp:ControlParameter ControlID="gvPla_Partida" Name="p_Id" PropertyName="SelectedValue" Type="Int32" />

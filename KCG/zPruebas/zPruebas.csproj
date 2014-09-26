@@ -51,11 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeneraASP-GvFv.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GeneraASP-GvFv.tt</DependentUpon>
-    </Compile>
     <Compile Include="generaCEL.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -94,7 +89,7 @@
     <None Include="app.config" />
     <None Include="GeneraASP-GvFv.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>GeneraASP-GvFv.cs</LastGenOutput>
+      <LastGenOutput>GeneraASP-GvFv.txt</LastGenOutput>
     </None>
     <None Include="generaCEL.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -112,6 +107,13 @@
     <Folder Include="CEL\" />
     <Folder Include="EWS\" />
     <Folder Include="FEL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GeneraASP-GvFv.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneraASP-GvFv.tt</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
