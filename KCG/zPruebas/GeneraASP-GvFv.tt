@@ -42,7 +42,7 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <asp:UpdatePanel runat="server" ID="udp">
 <ContentTemplate>
-    <div class="panCol2">
+    <div class="panCol3">
     <asp:Panel runat = "server" ID="pgv<#= tabla.Nombre #>" GroupingText="Listado">
     <%--Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
@@ -85,13 +85,7 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
             onitemupdated="fv<#= tabla.Nombre #>_ItemUpdated">
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
-            <table>
-			<#+ foreach(var campo in tabla.Campos){  
-            #><tr <#= (campo.Nombre == "Id")? "style=\"display:none\"":"" #>>
-                <td> <#= campo.Nombre #> </td>
-                <td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>' CssClass="txtEdicion" /></td>
-            </tr>
-			<#+ } #></table>
+			<#+ FV_Campos_Edit_Insert_Template(tabla); #>
             <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
             &nbsp;
             <asp:Button ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
@@ -99,20 +93,7 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
         </EditItemTemplate>
         <InsertItemTemplate>
             <asp:Panel runat="server" ID = "panelInsertTemplate" DefaultButton="InsertButton">
-            <table>
-			<#+ foreach(var campo in tabla.Campos) {
-            #><tr <#= (campo.Nombre == "Id")? "style=\"display:none\"":"" #>>
-                <td> <#= campo.Nombre #> </td>
-                <td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>' CssClass="txtEdicion"/>
-				<#+ if (campo.Nombre != "Id") {
-					#><%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rq<#= campo.Nombre #>" runat="server" 
-                    ControlToValidate="<#= campo.Nombre #>TextBox"
-                    ErrorMessage="El campo <#= campo.Nombre #> es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-				<#+ } #></td>
-            </tr>
-			<#+ } #></table>
+			<#+ FV_Campos_Edit_Insert_Template(tabla); #>
             <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
             &nbsp;
             <asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
@@ -120,13 +101,7 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
         </InsertItemTemplate>
         <ItemTemplate>
             <asp:Panel runat="server" ID="panelItemTemplate" DefaultButton="EditButton">
-            <table>
-			<#+ foreach(var campo in tabla.Campos){  
-            #><tr <#= (campo.Nombre == "Id")? "style=\"display:none\"":"" #>>
-                <td> <#= campo.Nombre #> </td>
-                <td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>'  ReadOnly="true"/></td>
-            </tr>
-			<#+ } #></table>
+            <#+ FV_Campos_Item_Template(tabla); #>
             <asp:Button ID="EditButton" RunAt="server"  CausesValidation="False" CommandName="Edit" Text="Editar" />
             &nbsp;
             <asp:Button ID="DeleteButton" RunAt="server" CausesValidation="False" CommandName="Delete" Text="Borrar" />
@@ -157,7 +132,7 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<#+ foreach(var param in pg.Parametros) {
 				if ( param.Direccion == "Input" ) {
-            #><asp:ControlParameter ControlID="tbFiltro" Name="<#= param.Nombre #>" PropertyName="Text" Type="<#= param.Tipo #>" />
+            #><asp:ControlParameter ControlID="<#= ((pg.ProcNombre).EndsWith("GetById"))? "tbFiltroId": "tbFiltro" #>" Name="<#= param.Nombre #>" PropertyName="Text" Type="<#= param.Tipo #>" />
 		<#+ }  }
         #></SelectParameters>
     </asp:ObjectDataSource>
@@ -187,11 +162,68 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
 </ContentTemplate>
 </asp:UpdatePanel>
 </asp:Content>
-
-
 <#+ 
   }
 #>
+
+<#+ private void FV_Campos_Edit_Insert_Template(genTabla tabla) {
+            #><table>
+			<#+ foreach(var campo in tabla.Campos){  
+            #><tr <#= (campo.Nombre == "Id")? "style=\"display:none\"":"" #>>
+                <td> <#= campo.Nombre #> </td>
+                <td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>' <#+ CssCampoEdit(campo.Nombre); #> />
+				<#+ if ( !constantes.CamposNoValidar.Any(c => c == campo.Nombre) ) {
+					#><%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rq<#= campo.Nombre #>" runat="server" 
+                    ControlToValidate="<#= campo.Nombre #>TextBox"
+                    ErrorMessage="El campo <#= campo.Nombre #> es obligatorio" 
+                    Text="X" Display="Dynamic"/>
+				<#+ } #></td>
+            </tr>
+			<#+ } #></table>
+<#+ } #>
+
+<#+ private void CssCampoEdit(string nombre){ 
+        switch (nombre)
+        {
+			case "Nombre":
+				#> CssClass="txtEditNombreLargo" TextMode="MultiLine" <#+ 
+				break;
+			case "Descripcion":
+				#> CssClass="txtEditDescripcion" TextMode="MultiLine" <#+ 
+				break;
+            default:
+				#> CssClass="txtEdit" <#+ 
+				break;
+        }
+
+	} #>
+
+<#+ private void FV_Campos_Item_Template(genTabla tabla) { 
+            #><table>
+			<#+ foreach(var campo in tabla.Campos){  
+            #><tr <#= (campo.Nombre == "Id")? "style=\"display:none\"":"" #>>
+                <td> <#= campo.Nombre #> </td>
+                <td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>'  ReadOnly="true" <#+ CssCampoItem(campo.Nombre); #>/></td>
+            </tr>
+			<#+ } #></table>
+<#+ } #>
+
+<#+ private void CssCampoItem(string nombre){ 
+        switch (nombre)
+        {
+			case "Nombre":
+				#> CssClass="txtItemNombreLargo" TextMode="MultiLine" <#+ 
+				break;
+			case "Descripcion":
+				#> CssClass="txtItemDescripcion" TextMode="MultiLine" <#+ 
+				break;
+            default:
+				#> CssClass="txtItem" <#+ 
+				break;
+        }
+
+	} #>
 
 <#+  
   private void ClaseBaseGvFv (string Iniciales, genTabla tabla)

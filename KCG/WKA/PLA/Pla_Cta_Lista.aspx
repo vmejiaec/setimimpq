@@ -11,7 +11,7 @@ Inherits="PLA_Pla_Cta_Lista" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <asp:UpdatePanel runat="server" ID="udp">
 <ContentTemplate>
-    <div class="panCol2">
+    <div class="panCol3">
     <asp:Panel runat = "server" ID="pgvPla_Partida" GroupingText="Listado de Partidas">
     <%--Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">

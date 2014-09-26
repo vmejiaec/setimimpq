@@ -11,10 +11,19 @@ Inherits="PLA_Pla_Cta_GvFv" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <asp:UpdatePanel runat="server" ID="udp">
 <ContentTemplate>
-    <div class="panCol2">
+    <div class="panCol3">
     <asp:Panel runat = "server" ID="pgvPla_Cta" GroupingText="Listado">
-    <%--Filtro--%>
+    <%--Filtros--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
+        <%--Filtro de Año--%>
+        <asp:Label ID="lbFiltroAnio" runat="server" Text="Año"></asp:Label>
+        <asp:DropDownList ID="ddlFiltroAnio" runat="server" AutoPostBack="True">
+            <asp:ListItem>2014</asp:ListItem>
+            <asp:ListItem>2015</asp:ListItem>
+            <asp:ListItem>2016</asp:ListItem>
+            <asp:ListItem>2017</asp:ListItem>
+        </asp:DropDownList>
+        <%--Filtros varios--%>
         <asp:Label ID="lbFiltro" runat="server" Text="Filtro"></asp:Label>
         <asp:TextBox ID="tbFiltro" runat="server"></asp:TextBox>
         <asp:TextBox ID="tbFiltroId" runat="server" CssClass="filtroID"></asp:TextBox>
@@ -28,7 +37,7 @@ Inherits="PLA_Pla_Cta_GvFv" %>
     <%--GridView--%>
     <asp:Panel runat="server" GroupingText="Registros">
     <asp:GridView ID="gvPla_Cta" runat="server" AutoGenerateColumns="False" 
-        DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Cta" 
+        DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Cta_GetByAnio" 
         SelectedRowStyle-CssClass="selectedrowstyle" AlternatingRowStyle-CssClass="alternatingrowstyle" 
         HeaderStyle-CssClass="headerstyle" PagerStyle-CssClass="pagerstyle" 
             onselectedindexchanged="gvPla_Cta_SelectedIndexChanged">
@@ -56,52 +65,15 @@ Inherits="PLA_Pla_Cta_GvFv" %>
             onitemupdated="fvPla_Cta_ItemUpdated">
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
-            <table>
+			<table>
 			<tr style="display:none">
                 <td> Id </td>
-                <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' CssClass="txtEdicion" /></td>
-            </tr>
-			<tr >
-                <td> Anio </td>
-                <td><asp:TextBox ID="AnioTextBox" runat="server" Text='<%# Bind("Anio") %>' CssClass="txtEdicion" /></td>
-            </tr>
-			<tr >
-                <td> Codigo </td>
-                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>' CssClass="txtEdicion" /></td>
-            </tr>
-			<tr >
-                <td> Nivel </td>
-                <td><asp:TextBox ID="NivelTextBox" runat="server" Text='<%# Bind("Nivel") %>' CssClass="txtEdicion" /></td>
-            </tr>
-			<tr >
-                <td> Nombre </td>
-                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' CssClass="txtEdicion" /></td>
-            </tr>
-			<tr >
-                <td> Descripcion </td>
-                <td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>' CssClass="txtEdicion" /></td>
-            </tr>
-			<tr >
-                <td> Estado </td>
-                <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>' CssClass="txtEdicion" /></td>
-            </tr>
-			</table>
-            <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
-            &nbsp;
-            <asp:Button ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
-            </asp:Panel>
-        </EditItemTemplate>
-        <InsertItemTemplate>
-            <asp:Panel runat="server" ID = "panelInsertTemplate" DefaultButton="InsertButton">
-            <table>
-			<tr style="display:none">
-                <td> Id </td>
-                <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' CssClass="txtEdicion"/>
+                <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  CssClass="txtEdit"  />
 				</td>
             </tr>
 			<tr >
                 <td> Anio </td>
-                <td><asp:TextBox ID="AnioTextBox" runat="server" Text='<%# Bind("Anio") %>' CssClass="txtEdicion"/>
+                <td><asp:TextBox ID="AnioTextBox" runat="server" Text='<%# Bind("Anio") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqAnio" runat="server" 
                     ControlToValidate="AnioTextBox"
@@ -111,7 +83,7 @@ Inherits="PLA_Pla_Cta_GvFv" %>
             </tr>
 			<tr >
                 <td> Codigo </td>
-                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>' CssClass="txtEdicion"/>
+                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqCodigo" runat="server" 
                     ControlToValidate="CodigoTextBox"
@@ -121,7 +93,7 @@ Inherits="PLA_Pla_Cta_GvFv" %>
             </tr>
 			<tr >
                 <td> Nivel </td>
-                <td><asp:TextBox ID="NivelTextBox" runat="server" Text='<%# Bind("Nivel") %>' CssClass="txtEdicion"/>
+                <td><asp:TextBox ID="NivelTextBox" runat="server" Text='<%# Bind("Nivel") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqNivel" runat="server" 
                     ControlToValidate="NivelTextBox"
@@ -131,7 +103,7 @@ Inherits="PLA_Pla_Cta_GvFv" %>
             </tr>
 			<tr >
                 <td> Nombre </td>
-                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' CssClass="txtEdicion"/>
+                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>'  CssClass="txtEditNombreLargo" TextMode="MultiLine"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqNombre" runat="server" 
                     ControlToValidate="NombreTextBox"
@@ -141,22 +113,76 @@ Inherits="PLA_Pla_Cta_GvFv" %>
             </tr>
 			<tr >
                 <td> Descripcion </td>
-                <td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>' CssClass="txtEdicion"/>
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqDescripcion" runat="server" 
-                    ControlToValidate="DescripcionTextBox"
-                    ErrorMessage="El campo Descripcion es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                <td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  CssClass="txtEditDescripcion" TextMode="MultiLine"  />
 				</td>
             </tr>
 			<tr >
                 <td> Estado </td>
-                <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>' CssClass="txtEdicion"/>
+                <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  CssClass="txtEdit"  />
+				</td>
+            </tr>
+			</table>
+            <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
+            &nbsp;
+            <asp:Button ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+            </asp:Panel>
+        </EditItemTemplate>
+        <InsertItemTemplate>
+            <asp:Panel runat="server" ID = "panelInsertTemplate" DefaultButton="InsertButton">
+			<table>
+			<tr style="display:none">
+                <td> Id </td>
+                <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  CssClass="txtEdit"  />
+				</td>
+            </tr>
+			<tr >
+                <td> Anio </td>
+                <td><asp:TextBox ID="AnioTextBox" runat="server" Text='<%# Bind("Anio") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqEstado" runat="server" 
-                    ControlToValidate="EstadoTextBox"
-                    ErrorMessage="El campo Estado es obligatorio" 
+                    <asp:RequiredFieldValidator ID="rqAnio" runat="server" 
+                    ControlToValidate="AnioTextBox"
+                    ErrorMessage="El campo Anio es obligatorio" 
                     Text="X" Display="Dynamic"/>
+				</td>
+            </tr>
+			<tr >
+                <td> Codigo </td>
+                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqCodigo" runat="server" 
+                    ControlToValidate="CodigoTextBox"
+                    ErrorMessage="El campo Codigo es obligatorio" 
+                    Text="X" Display="Dynamic"/>
+				</td>
+            </tr>
+			<tr >
+                <td> Nivel </td>
+                <td><asp:TextBox ID="NivelTextBox" runat="server" Text='<%# Bind("Nivel") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqNivel" runat="server" 
+                    ControlToValidate="NivelTextBox"
+                    ErrorMessage="El campo Nivel es obligatorio" 
+                    Text="X" Display="Dynamic"/>
+				</td>
+            </tr>
+			<tr >
+                <td> Nombre </td>
+                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>'  CssClass="txtEditNombreLargo" TextMode="MultiLine"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqNombre" runat="server" 
+                    ControlToValidate="NombreTextBox"
+                    ErrorMessage="El campo Nombre es obligatorio" 
+                    Text="X" Display="Dynamic"/>
+				</td>
+            </tr>
+			<tr >
+                <td> Descripcion </td>
+                <td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  CssClass="txtEditDescripcion" TextMode="MultiLine"  />
+				</td>
+            </tr>
+			<tr >
+                <td> Estado </td>
+                <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  CssClass="txtEdit"  />
 				</td>
             </tr>
 			</table>
@@ -170,31 +196,31 @@ Inherits="PLA_Pla_Cta_GvFv" %>
             <table>
 			<tr style="display:none">
                 <td> Id </td>
-                <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  ReadOnly="true"/></td>
+                <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
 			<tr >
                 <td> Anio </td>
-                <td><asp:TextBox ID="AnioTextBox" runat="server" Text='<%# Bind("Anio") %>'  ReadOnly="true"/></td>
+                <td><asp:TextBox ID="AnioTextBox" runat="server" Text='<%# Bind("Anio") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
 			<tr >
                 <td> Codigo </td>
-                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  ReadOnly="true"/></td>
+                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
 			<tr >
                 <td> Nivel </td>
-                <td><asp:TextBox ID="NivelTextBox" runat="server" Text='<%# Bind("Nivel") %>'  ReadOnly="true"/></td>
+                <td><asp:TextBox ID="NivelTextBox" runat="server" Text='<%# Bind("Nivel") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
 			<tr >
                 <td> Nombre </td>
-                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>'  ReadOnly="true"/></td>
+                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>'  ReadOnly="true"  CssClass="txtItemNombreLargo" TextMode="MultiLine" /></td>
             </tr>
 			<tr >
                 <td> Descripcion </td>
-                <td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  ReadOnly="true"/></td>
+                <td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  ReadOnly="true"  CssClass="txtItemDescripcion" TextMode="MultiLine" /></td>
             </tr>
 			<tr >
                 <td> Estado </td>
-                <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  ReadOnly="true"/></td>
+                <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
 			</table>
             <asp:Button ID="EditButton" RunAt="server"  CausesValidation="False" CommandName="Edit" Text="Editar" />
@@ -221,10 +247,12 @@ Inherits="PLA_Pla_Cta_GvFv" %>
 	<%--Fuente de datos para los procesos genéricos --%>
     <asp:ObjectDataSource ID="odsgvPla_Cta_GetByAnio" runat="server" 
         SelectMethod="GetByAnio" 
-        TypeName="FEL.PLA.BO_Pla_Cta">
+        TypeName="FEL.PLA.BO_Pla_Cta" 
+        OldValuesParameterFormatString="original_{0}">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-			<asp:ControlParameter ControlID="tbFiltro" Name="p_Anio" PropertyName="Text" Type="string" />
+			<asp:ControlParameter ControlID="ddlFiltroAnio" Name="p_Anio" 
+                PropertyName="SelectedValue" Type="string" />
 		</SelectParameters>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Cta_GetById" runat="server" 
@@ -232,7 +260,7 @@ Inherits="PLA_Pla_Cta_GvFv" %>
         TypeName="FEL.PLA.BO_Pla_Cta">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-			<asp:ControlParameter ControlID="tbFiltro" Name="p_Id" PropertyName="Text" Type="Int32" />
+			<asp:ControlParameter ControlID="tbFiltroId" Name="p_Id" PropertyName="Text" Type="Int32" />
 		</SelectParameters>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Cta_GetByLikeCodigo" runat="server" 
@@ -276,5 +304,3 @@ Inherits="PLA_Pla_Cta_GvFv" %>
 </ContentTemplate>
 </asp:UpdatePanel>
 </asp:Content>
-
-

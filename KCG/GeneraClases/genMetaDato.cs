@@ -30,6 +30,9 @@ namespace zGeneraClases
             {"INT",                 "int"},
             {"STR",                 "string"}
         };
+        // Lista de campos que no serán tomados en cuenta para los validadores en el ASP
+        public static List<string> CamposNoValidar = new List<string>() 
+        { "Id","Estado","Descripcion" };
     }
     // Clase para guardar las tablas y sus campos
     public class genTabla
