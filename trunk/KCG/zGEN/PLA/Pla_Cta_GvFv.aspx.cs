@@ -52,6 +52,12 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
                 tbFiltro.Text = "";
                 break;
 			case "Codigo":
+                Gv.DataSourceID = "odsgvPla_Cta_GetByAnioLikeCodigo";
+                break;
+			case "Nombre":
+                Gv.DataSourceID = "odsgvPla_Cta_GetByAnioLikeNombre";
+                break;
+			case "Codigo":
                 Gv.DataSourceID = "odsgvPla_Cta_GetByLikeCodigo";
                 break;
 			case "Nombre":

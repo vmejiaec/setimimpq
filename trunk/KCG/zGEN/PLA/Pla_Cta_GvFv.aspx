@@ -23,6 +23,8 @@ Inherits="PLA_Pla_Cta_GvFv" %>
             <asp:ListItem Text = "Todos" Value="Todos" ></asp:ListItem>
 			<asp:ListItem Text = "Codigo" Value="Codigo" ></asp:ListItem>
 			<asp:ListItem Text = "Nombre" Value="Nombre" ></asp:ListItem>
+			<asp:ListItem Text = "Codigo" Value="Codigo" ></asp:ListItem>
+			<asp:ListItem Text = "Nombre" Value="Nombre" ></asp:ListItem>
 			</asp:DropDownList>
     </asp:Panel>
     <%--GridView--%>
@@ -40,7 +42,7 @@ Inherits="PLA_Pla_Cta_GvFv" %>
 			<asp:BoundField DataField="Nivel" HeaderText="Nivel"   />
 			<asp:BoundField DataField="Nombre" HeaderText="Nombre"   />
 			<asp:BoundField DataField="Descripcion" HeaderText="Descripcion"   />
-			<asp:BoundField DataField="Estado" HeaderText="Estado"   />
+			<asp:BoundField DataField="Estado" HeaderText="Estado" Visible = "false"  />
 			</Columns>
     </asp:GridView>
     </asp:Panel>
@@ -107,7 +109,7 @@ Inherits="PLA_Pla_Cta_GvFv" %>
                 <td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  CssClass="txtEditDescripcion" TextMode="MultiLine"  />
 				</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Estado </td>
                 <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  CssClass="txtEdit"  />
 				</td>
@@ -171,7 +173,7 @@ Inherits="PLA_Pla_Cta_GvFv" %>
                 <td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  CssClass="txtEditDescripcion" TextMode="MultiLine"  />
 				</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Estado </td>
                 <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  CssClass="txtEdit"  />
 				</td>
@@ -209,7 +211,7 @@ Inherits="PLA_Pla_Cta_GvFv" %>
                 <td> Descripcion </td>
                 <td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  ReadOnly="true"  CssClass="txtItemDescripcion" TextMode="MultiLine" /></td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Estado </td>
                 <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
@@ -242,6 +244,24 @@ Inherits="PLA_Pla_Cta_GvFv" %>
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="tbFiltro" Name="p_Anio" PropertyName="Text" Type="string" />
+		</SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsgvPla_Cta_GetByAnioLikeCodigo" runat="server" 
+        SelectMethod="GetByAnioLikeCodigo" 
+        TypeName="FEL.PLA.BO_Pla_Cta">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+			<asp:ControlParameter ControlID="tbFiltro" Name="p_Anio" PropertyName="Text" Type="string" />
+		<asp:ControlParameter ControlID="tbFiltro" Name="p_Codigo" PropertyName="Text" Type="string" />
+		</SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsgvPla_Cta_GetByAnioLikeNombre" runat="server" 
+        SelectMethod="GetByAnioLikeNombre" 
+        TypeName="FEL.PLA.BO_Pla_Cta">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+			<asp:ControlParameter ControlID="tbFiltro" Name="p_Anio" PropertyName="Text" Type="string" />
+		<asp:ControlParameter ControlID="tbFiltro" Name="p_Nombre" PropertyName="Text" Type="string" />
 		</SelectParameters>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Cta_GetById" runat="server" 

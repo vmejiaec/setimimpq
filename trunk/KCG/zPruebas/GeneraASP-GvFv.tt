@@ -68,7 +68,7 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
 			<#+ foreach(var campo in tabla.Campos){ 
-				#><asp:BoundField DataField="<#= campo.Nombre #>" HeaderText="<#= campo.Nombre #>" <#= (campo.Nombre =="Id")? "Visible = \"false\"":"" #>  />
+				#><asp:BoundField DataField="<#= campo.Nombre #>" HeaderText="<#= campo.Nombre #>" <#= (campo.Nombre =="Id" || campo.Nombre =="Estado")? "Visible = \"false\"":"" #>  />
 			<#+ }
 	#></Columns>
     </asp:GridView>
@@ -169,7 +169,7 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
 <#+ private void FV_Campos_Edit_Insert_Template(genTabla tabla) {
             #><table>
 			<#+ foreach(var campo in tabla.Campos){  
-            #><tr <#= (campo.Nombre == "Id")? "style=\"display:none\"":"" #>>
+            #><tr <#= (campo.Nombre == "Id" ||campo.Nombre == "Estado")? "style=\"display:none\"":"" #>>
                 <td> <#= campo.Nombre #> </td>
                 <td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>' <#+ CssCampoEdit(campo.Nombre); #> />
 				<#+ if ( !constantes.CamposNoValidar.Any(c => c == campo.Nombre) ) {
@@ -202,7 +202,7 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
 <#+ private void FV_Campos_Item_Template(genTabla tabla) { 
             #><table>
 			<#+ foreach(var campo in tabla.Campos){  
-            #><tr <#= (campo.Nombre == "Id")? "style=\"display:none\"":"" #>>
+            #><tr <#= (campo.Nombre == "Id"||campo.Nombre == "Estado")? "style=\"display:none\"":"" #>>
                 <td> <#= campo.Nombre #> </td>
                 <td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>'  ReadOnly="true" <#+ CssCampoItem(campo.Nombre); #>/></td>
             </tr>
