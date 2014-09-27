@@ -2,13 +2,15 @@
 using FEL.PLA;
 using System.Web.UI.WebControls;
 using System.Web.Services.Protocols;
+using System.Data;
+using System.Collections.Generic;
 
 public partial class PLA_Pla_Cta_GvFv : PaginaBase
 {
     // Carga inicial
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
     }
 
     // Referencias a los objetos de pantalla
@@ -115,10 +117,9 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
         }
         else
         {
-            Gv.DataSourceID = odsGvById.ID;
+            //NUEVO poner en la plantilla
+            tbFiltroId.Text
             Gv.DataBind();
-            Gv.SelectedIndex = 0;
-            //tbFiltro.Text = "";
         }
     }
     #endregion
@@ -187,5 +188,30 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
     {
         lbFvMsgError.Text = ":";
         lbFvMsgInfo.Text = ">";
+    }
+    // NUEVO llevar a la plantilla
+    protected void fvPla_Cta_DataBound(object sender, EventArgs e)
+    {
+        if (Gv.Rows.Count == 0)
+            Fv.ChangeMode(FormViewMode.Insert);
+    }
+    // NUEVo llegar a la plantilla
+    protected void SeleccionarFilaEnGV(GridView gv, string txtId)
+    {
+        int noPagina = 0;
+        int noFila = 0;
+        if (!String.IsNullOrEmpty(txtId))
+        {
+            int nFiltroId = Convert.ToInt32(txtId);
+            List<Pla_Cta> lista = (List<Pla_Cta>)odsGv.Select();
+            int pos = lista.FindIndex(o => o.Id == nFiltroId);
+            if (pos >= 0)
+            {
+                noPagina = pos / Gv.PageSize;
+                noFila = pos - noPagina * Gv.PageSize;
+            }
+        }
+        Gv.PageIndex = noPagina;
+        Gv.SelectedIndex = noFila;
     }
 }

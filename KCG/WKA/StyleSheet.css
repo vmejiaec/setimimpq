@@ -183,25 +183,32 @@ body {
     font-family:arial,verdana,sans-serif;
     font-size:small;
 }    
-.alternatingrowstyle{
-    background-color:#f9f9f9;
+.alternatingrowstyle
+{
+    background-color: #DCE6F1;
 }
-.headerstyle{
-    background-color:#e5e5e5;
-    height:23px;
+.headerstyle
+{
+    background-color: #4F81BD;
+    height: 30px;
+    color: #FFFFFF;
 }
-.headerstyle th {
-    border:1px solid #bbbbbb;
-    padding-left:5px;
-    text-align:left;
+
+.headerstyle th
+{
+    border: 1px solid #bbbbbb;
+    padding-left: 5px;
+    text-align: left;
+    padding-right: 5px;
 }  
 .headerstyle a {
     color:black;
 }
 
-.selectedrowstyle {
-	background:#c5c5c5;
-    font-weight:bold;
+.selectedrowstyle
+{
+    background: #A0CBF5;
+    font-weight: bold;
 }
     
 .sortalternatingrowstyle{

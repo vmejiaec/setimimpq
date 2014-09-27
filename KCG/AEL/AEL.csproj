@@ -162,6 +162,7 @@
     <Compile Include="FIS\Fis_Planilla_Resumen.cs" />
     <Compile Include="GenerarCodigo.cs" />
     <Compile Include="HIS\His_Historico.cs" />
+    <Compile Include="cEntidad.cs" />
     <Compile Include="INT\Int_Empresa.cs" />
     <Compile Include="INT\Int_Moneda.cs" />
     <Compile Include="INT\Int_Subproyecto.cs" />

@@ -15,7 +15,7 @@ namespace AEL.PLA
     using System.Text;
     
     
-    public class Pla_Cta
+    public class Pla_Cta : cEntidad
     {
         
         // Comentario
