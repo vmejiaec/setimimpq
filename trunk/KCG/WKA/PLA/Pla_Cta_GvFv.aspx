@@ -13,6 +13,7 @@ Inherits="PLA_Pla_Cta_GvFv" %>
 <ContentTemplate>
     <div class="panCol3">
     <asp:Panel runat="server" ID="pcabAnio" GroupingText="Año">
+        <asp:Label ID="lbFiltroAnio" runat="server" Text="Seleccionar el año:"></asp:Label>
         <asp:DropDownList ID="ddlFiltroAnio" runat="server" AutoPostBack="true">
             <asp:ListItem>2014</asp:ListItem>
             <asp:ListItem>2015</asp:ListItem>
@@ -20,7 +21,7 @@ Inherits="PLA_Pla_Cta_GvFv" %>
             <asp:ListItem>2017</asp:ListItem>
         </asp:DropDownList>
     </asp:Panel>
-    <asp:Panel runat = "server" ID="pgvPla_Cta" GroupingText="Listado">
+    <asp:Panel runat = "server" ID="pgvPla_Cta" GroupingText="Listado de Cuentas">
     <%--Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
         <asp:Label ID="lbFiltro" runat="server" Text="Filtro"></asp:Label>
@@ -57,11 +58,11 @@ Inherits="PLA_Pla_Cta_GvFv" %>
     <%--FormView--%>
     <div class = "panCol2">
     <asp:Panel runat="server" ID="pfvPla_Cta" GroupingText="Crear, Editar o Borar un Registro">
-    <koala:FormViewSetim ID="fvPla_Cta" runat="server" DataSourceID="odsfvPla_Cta" 
+    <koala:FormViewSetim ID="fvPla_Cta" runat="server" DataSourceID="odsfvPla_Cta"
             oniteminserting="fvPla_Cta_ItemInserting" 
             onitemdeleted="fvPla_Cta_ItemDeleted" 
             oniteminserted="fvPla_Cta_ItemInserted" 
-            onitemupdated="fvPla_Cta_ItemUpdated">
+            onitemupdated="fvPla_Cta_ItemUpdated" ondatabound="fvPla_Cta_DataBound">
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
 			<table>

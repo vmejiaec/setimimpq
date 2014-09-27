@@ -9,15 +9,14 @@ namespace zTest
     {
         static void Main(string[] args)
         {
-            ADL.PlanificacionTableAdapters.Pla_PartidaTableAdapter adp = new ADL.PlanificacionTableAdapters.Pla_PartidaTableAdapter();
-
-            var res = Convert.ToInt32( adp.InsertINT("333vvv",
-                "partida 01",
-                "PEN"));
-
-            var res2 = adp.Insert("333vvv",
-                "partida 01",
-                "PEN");
+            Clase1 o = new Clase1(1,"nn","oo");
+            Clase1 p = new Clase1(1, "mm", "pp");
+            List<Clase1> lista1 = new List<Clase1>();
+            lista1.Add(o);
+            lista1.Add(p);
+            List<cEnt> lista = new List<cEnt>();
+            lista.Add(o);
+            lista.Add(p);
         }
     }
 }
