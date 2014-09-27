@@ -55,6 +55,16 @@ namespace EWS
             return Pla_Cta.GetByAnio(s,  p_Anio);
         }
 		[WebMethod]
+		public List<Pla_Cta> Pla_Cta_GetByAnioLikeCodigo(Scope s , string p_Anio, string p_Codigo)
+        {
+            return Pla_Cta.GetByAnioLikeCodigo(s,  p_Anio, p_Codigo);
+        }
+		[WebMethod]
+		public List<Pla_Cta> Pla_Cta_GetByAnioLikeNombre(Scope s , string p_Anio, string p_Nombre)
+        {
+            return Pla_Cta.GetByAnioLikeNombre(s,  p_Anio, p_Nombre);
+        }
+		[WebMethod]
 		public List<Pla_Cta> Pla_Cta_GetById(Scope s , Int32 p_Id)
         {
             return Pla_Cta.GetById(s,  p_Id);

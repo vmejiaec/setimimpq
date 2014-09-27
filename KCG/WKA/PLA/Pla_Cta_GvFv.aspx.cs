@@ -27,7 +27,7 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
     }
     protected override ObjectDataSource odsGv
     {
-        get { return odsgvPla_Cta; }
+        get { return odsgvPla_Cta_GetByAnio; }
     }
     protected override ObjectDataSource odsFv
     {
@@ -49,13 +49,13 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
         {
             case "Todos":
                 Gv.DataSourceID = odsGv.ID;
-                tbFiltro.Text = "";
+                //tbFiltro.Text = "";
                 break;
 			case "Codigo":
-                Gv.DataSourceID = "odsgvPla_Cta_GetByLikeCodigo";
+                Gv.DataSourceID = "odsgvPla_Cta_GetByAnioLikeCodigo";
                 break;
 			case "Nombre":
-                Gv.DataSourceID = "odsgvPla_Cta_GetByLikeNombre";
+                Gv.DataSourceID = "odsgvPla_Cta_GetByAnioLikeNombre";
                 break;
 			}
         Gv.DataBind();
@@ -90,7 +90,7 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
             Gv.DataSourceID = odsGvById.ID;
             Gv.DataBind();
             Gv.SelectedIndex = 0;
-            tbFiltro.Text = "";
+            //tbFiltro.Text = "";
         }
     }
     protected void fvPla_Cta_ItemDeleted(object sender, FormViewDeletedEventArgs e)
@@ -118,7 +118,7 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
             Gv.DataSourceID = odsGvById.ID;
             Gv.DataBind();
             Gv.SelectedIndex = 0;
-            tbFiltro.Text = "";
+            //tbFiltro.Text = "";
         }
     }
     #endregion
