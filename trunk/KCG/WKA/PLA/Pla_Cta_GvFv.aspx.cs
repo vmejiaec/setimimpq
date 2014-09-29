@@ -10,7 +10,11 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
     // Carga inicial
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        // Inicializa los controles de cabecera
+        ddlFiltroAnio.Items.Add(new ListItem("2014"));
+        ddlFiltroAnio.Items.Add(new ListItem("2015"));
+        ddlFiltroAnio.Items.Add(new ListItem("2016"));
+        ddlFiltroAnio.Items.Add(new ListItem("2017"));
     }
 
     // Referencias a los objetos de pantalla
@@ -51,7 +55,6 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
         {
             case "Todos":
                 Gv.DataSourceID = odsGv.ID;
-                //tbFiltro.Text = "";
                 break;
 			case "Codigo":
                 Gv.DataSourceID = "odsgvPla_Cta_GetByAnioLikeCodigo";
@@ -89,10 +92,8 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
         else
         {
             tbFiltroId.Text = (string)e.NewValues["Id"];
-            Gv.DataSourceID = odsGvById.ID;
+            SeleccionarFilaEnGV(Gv, tbFiltroId.Text);
             Gv.DataBind();
-            Gv.SelectedIndex = 0;
-            //tbFiltro.Text = "";
         }
     }
     protected void fvPla_Cta_ItemDeleted(object sender, FormViewDeletedEventArgs e)
@@ -117,8 +118,7 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
         }
         else
         {
-            //NUEVO poner en la plantilla
-            tbFiltroId.Text
+            SeleccionarFilaEnGV(Gv, tbFiltroId.Text);
             Gv.DataBind();
         }
     }
@@ -189,13 +189,13 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
         lbFvMsgError.Text = ":";
         lbFvMsgInfo.Text = ">";
     }
-    // NUEVO llevar a la plantilla
+    // Si no hay filas en el GridView entonces el FormView cambia a modo Insert
     protected void fvPla_Cta_DataBound(object sender, EventArgs e)
     {
         if (Gv.Rows.Count == 0)
             Fv.ChangeMode(FormViewMode.Insert);
     }
-    // NUEVo llegar a la plantilla
+    // Busca y selecciona la fila indicada en el GridView
     protected void SeleccionarFilaEnGV(GridView gv, string txtId)
     {
         int noPagina = 0;
@@ -203,7 +203,8 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
         if (!String.IsNullOrEmpty(txtId))
         {
             int nFiltroId = Convert.ToInt32(txtId);
-            List<Pla_Cta> lista = (List<Pla_Cta>)odsGv.Select();
+            var ods = (ObjectDataSource)gv.DataSourceObject;
+            List<Pla_Cta> lista = (List<Pla_Cta>)ods.Select();
             int pos = lista.FindIndex(o => o.Id == nFiltroId);
             if (pos >= 0)
             {
@@ -213,5 +214,22 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
         }
         Gv.PageIndex = noPagina;
         Gv.SelectedIndex = noFila;
+    }
+    // NUEVO 
+    // Inicializa los valores antes de que el FormView se dibuje en la página
+    protected void fvPla_Cta_PreRender(object sender, EventArgs e)
+    {
+        switch (Fv.CurrentMode)
+        {
+            case FormViewMode.Insert:
+                TextBox anio = (TextBox)Fv.FindControl("AnioTextBox");
+                anio.Text = ddlFiltroAnio.SelectedValue;
+                anio.ReadOnly = true;
+                break;
+            case FormViewMode.Edit:
+                break;
+            case FormViewMode.ReadOnly:
+                break;
+        }
     }
 }

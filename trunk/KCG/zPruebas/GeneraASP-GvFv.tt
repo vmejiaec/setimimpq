@@ -62,8 +62,10 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
     <asp:Panel runat="server" GroupingText="Registros">
     <asp:GridView ID="gv<#= tabla.Nombre #>" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgv<#= tabla.Nombre #>" 
-        SelectedRowStyle-CssClass="selectedrowstyle" AlternatingRowStyle-CssClass="alternatingrowstyle" 
-        HeaderStyle-CssClass="headerstyle" PagerStyle-CssClass="pagerstyle" 
+        SelectedRowStyle-CssClass="selectedrowstyle" 
+		AlternatingRowStyle-CssClass="alternatingrowstyle" 
+        HeaderStyle-CssClass="headerstyle" 
+		PagerStyle-CssClass="pagerstyle" 
             onselectedindexchanged="gv<#= tabla.Nombre #>_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
@@ -82,7 +84,8 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
             oniteminserting="fv<#= tabla.Nombre #>_ItemInserting" 
             onitemdeleted="fv<#= tabla.Nombre #>_ItemDeleted" 
             oniteminserted="fv<#= tabla.Nombre #>_ItemInserted" 
-            onitemupdated="fv<#= tabla.Nombre #>_ItemUpdated">
+            onitemupdated="fv<#= tabla.Nombre #>_ItemUpdated"
+			ondatabound="fv<#= tabla.Nombre #>_DataBound">
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
 			<#+ FV_Campos_Edit_Insert_Template(tabla); #>
@@ -280,7 +283,6 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         {
             case "Todos":
                 Gv.DataSourceID = odsGv.ID;
-                tbFiltro.Text = "";
                 break;
 			<#+ foreach(var pg in tabla.ProcGenericos){ 
 				if (!string.IsNullOrEmpty(pg.ProcNombreFiltro)) {
@@ -318,10 +320,8 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         else
         {
             tbFiltroId.Text = (string)e.NewValues["Id"];
-            Gv.DataSourceID = odsGvById.ID;
+            SeleccionarFilaEnGV(Gv, tbFiltroId.Text);
             Gv.DataBind();
-            Gv.SelectedIndex = 0;
-            tbFiltro.Text = "";
         }
     }
     protected void fv<#= tabla.Nombre #>_ItemDeleted(object sender, FormViewDeletedEventArgs e)
@@ -346,10 +346,8 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         }
         else
         {
-            Gv.DataSourceID = odsGvById.ID;
+            SeleccionarFilaEnGV(Gv, tbFiltroId.Text);
             Gv.DataBind();
-            Gv.SelectedIndex = 0;
-            tbFiltro.Text = "";
         }
     }
     #endregion
@@ -418,6 +416,32 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
     {
         lbFvMsgError.Text = ":";
         lbFvMsgInfo.Text = ">";
+    }
+	// Si no hay filas en el GridView entonces el FormView cambia a modo Insert
+    protected void fv<#= tabla.Nombre #>_DataBound(object sender, EventArgs e)
+    {
+        if (Gv.Rows.Count == 0)
+            Fv.ChangeMode(FormViewMode.Insert);
+    }
+	// Busca y selecciona la fila indicada en el GridView
+    protected void SeleccionarFilaEnGV(GridView gv, string txtId)
+    {
+        int noPagina = 0;
+        int noFila = 0;
+        if (!String.IsNullOrEmpty(txtId))
+        {
+            int nFiltroId = Convert.ToInt32(txtId);
+            var ods = (ObjectDataSource)gv.DataSourceObject;
+            List<<#= tabla.Nombre #>> lista = (List<<#= tabla.Nombre #>>)ods.Select();
+            int pos = lista.FindIndex(o => o.Id == nFiltroId);
+            if (pos >= 0)
+            {
+                noPagina = pos / Gv.PageSize;
+                noFila = pos - noPagina * Gv.PageSize;
+            }
+        }
+        Gv.PageIndex = noPagina;
+        Gv.SelectedIndex = noFila;
     }
 }
 <#+} #>

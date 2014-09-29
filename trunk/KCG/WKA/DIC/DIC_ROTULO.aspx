@@ -494,6 +494,19 @@
                 </Columns>
             </koala:KGrid>
         </asp:Panel>
+        <%--Controles para insertar o consultar la etiqueta del rótulo--%>
+        <asp:Panel runat="server" ID="pnlVictor" GroupingText="Mantenimiento de la etiqueta">
+        <asp:Label runat="server" ID="lbNombre" Text="Etiqueta"></asp:Label>
+        <asp:TextBox runat="server" ID="tbEtiquetaNombre" ></asp:TextBox>
+        <asp:Button runat ="server" ID="btConsultaEtiqueta" Text="Consutar" 
+                onclick="btConsultaEtiqueta_Click" />
+        <asp:Button runat ="server" ID="btActualizarEtiqueta" Text="Actualizar" 
+                onclick="btActualizarEtiqueta_Click" />
+        <asp:Button runat ="server" ID="btCrearEtiqueta" Text="Crear" 
+                onclick="btCrearEtiqueta_Click" />
+        <asp:Label runat="server" ID="lbMensaje" ForeColor="Red" Text=">"></asp:Label>
+        </asp:Panel>
+        <%-- * --%>
         </ContentTemplate>        
     </asp:UpdatePanel> 
     <asp:ObjectDataSource 

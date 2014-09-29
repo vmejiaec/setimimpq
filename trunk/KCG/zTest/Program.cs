@@ -9,14 +9,11 @@ namespace zTest
     {
         static void Main(string[] args)
         {
-            Clase1 o = new Clase1(1,"nn","oo");
-            Clase1 p = new Clase1(1, "mm", "pp");
-            List<Clase1> lista1 = new List<Clase1>();
-            lista1.Add(o);
-            lista1.Add(p);
-            List<cEnt> lista = new List<cEnt>();
-            lista.Add(o);
-            lista.Add(p);
+            CEL.VER.DO_Ver_Etiqueta adp = new CEL.VER.DO_Ver_Etiqueta();
+            AEL.VER.Ver_Etiqueta o = new AEL.VER.Ver_Etiqueta();
+            o.Nombre = "";
+            o.Dic_Rotulo_Id = "";
+            o.Ver_Version_Id ="1";
         }
     }
 }

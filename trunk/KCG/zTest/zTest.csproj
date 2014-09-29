@@ -43,8 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clase1.cs" />
-    <Compile Include="cEnt.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -53,6 +51,21 @@
       <Project>{C70DFDE9-E132-42D4-962A-BE3D21772FC8}</Project>
       <Name>ADL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AEL\AEL.csproj">
+      <Project>{EC8BE054-EABA-4849-B26A-96287C018644}</Project>
+      <Name>AEL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CEL\CEL.csproj">
+      <Project>{B5EE6234-C960-4F34-8333-4F28A87D8941}</Project>
+      <Name>CEL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\ADL.dll" />
+    <Content Include="bin\Debug\ADL.pdb" />
+    <Content Include="bin\Debug\zTest.exe" />
+    <Content Include="bin\Debug\zTest.pdb" />
+    <Content Include="bin\Debug\zTest.vshost.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
