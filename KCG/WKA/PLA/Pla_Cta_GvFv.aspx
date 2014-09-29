@@ -15,10 +15,10 @@ Inherits="PLA_Pla_Cta_GvFv" %>
     <asp:Panel runat="server" ID="pcabAnio" GroupingText="Año">
         <asp:Label ID="lbFiltroAnio" runat="server" Text="Seleccionar el año:"></asp:Label>
         <asp:DropDownList ID="ddlFiltroAnio" runat="server" AutoPostBack="true">
-            <asp:ListItem>2014</asp:ListItem>
+<%--            <asp:ListItem>2014</asp:ListItem>
             <asp:ListItem>2015</asp:ListItem>
             <asp:ListItem>2016</asp:ListItem>
-            <asp:ListItem>2017</asp:ListItem>
+            <asp:ListItem>2017</asp:ListItem>--%>
         </asp:DropDownList>
     </asp:Panel>
     <asp:Panel runat = "server" ID="pgvPla_Cta" GroupingText="Listado de Cuentas">
@@ -38,8 +38,10 @@ Inherits="PLA_Pla_Cta_GvFv" %>
     <asp:Panel runat="server" GroupingText="Registros">
     <asp:GridView ID="gvPla_Cta" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Cta_GetByAnio" 
-        SelectedRowStyle-CssClass="selectedrowstyle" AlternatingRowStyle-CssClass="alternatingrowstyle" 
-        HeaderStyle-CssClass="headerstyle" PagerStyle-CssClass="pagerstyle" 
+        SelectedRowStyle-CssClass="selectedrowstyle" 
+        AlternatingRowStyle-CssClass="alternatingrowstyle" 
+        HeaderStyle-CssClass="headerstyle" 
+        PagerStyle-CssClass="pagerstyle" 
             onselectedindexchanged="gvPla_Cta_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
@@ -62,7 +64,9 @@ Inherits="PLA_Pla_Cta_GvFv" %>
             oniteminserting="fvPla_Cta_ItemInserting" 
             onitemdeleted="fvPla_Cta_ItemDeleted" 
             oniteminserted="fvPla_Cta_ItemInserted" 
-            onitemupdated="fvPla_Cta_ItemUpdated" ondatabound="fvPla_Cta_DataBound">
+            onitemupdated="fvPla_Cta_ItemUpdated" 
+            ondatabound="fvPla_Cta_DataBound" 
+            onprerender="fvPla_Cta_PreRender">
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
 			<table>
@@ -73,12 +77,13 @@ Inherits="PLA_Pla_Cta_GvFv" %>
             </tr>
 			<tr >
                 <td> Anio </td>
-                <td><asp:TextBox ID="AnioTextBox" runat="server" Text='<%# Bind("Anio") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqAnio" runat="server" 
-                    ControlToValidate="AnioTextBox"
-                    ErrorMessage="El campo Anio es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                <td>
+                <asp:DropDownList ID="ddlAnio" runat="server" SelectedValue='<%# Bind("Anio") %>' >
+                    <asp:ListItem>2014</asp:ListItem>
+                    <asp:ListItem>2015</asp:ListItem>
+                    <asp:ListItem>2016</asp:ListItem>
+                    <asp:ListItem>2017</asp:ListItem>
+                </asp:DropDownList>
 				</td>
             </tr>
 			<tr >

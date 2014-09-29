@@ -52,6 +52,15 @@
   lista.Sort(new Ver_Etiqueta_Comparar(sortExpression));
   return lista;
   }
+
+  [DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+  public List<Ver_Etiqueta> GetByDic_Rotulo_Id(string sortExpression, Scope s, string Dic_Rotulo_Id)
+  {
+      List<Ver_Etiqueta> lista = new List<Ver_Etiqueta>(Adapter.Ver_Etiqueta_GetByDic_Rotulo_Id(s, Dic_Rotulo_Id));
+      lista.Sort(new Ver_Etiqueta_Comparar(sortExpression));
+      return lista;
+  }
+
   [DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
   public DataTable GetByCodigo(Scope s ,string Codigo)
   {

@@ -255,6 +255,11 @@ using HER;
     return Ver_Etiqueta.GetByCodigo(s, Codigo );
     }
     [WebMethod]
+    public List<Ver_Etiqueta> Ver_Etiqueta_GetByDic_Rotulo_Id(Scope s, string Dic_Rotulo_Id)
+    {
+        return Ver_Etiqueta.GetByDic_Rotulo_Id(s, Dic_Rotulo_Id);
+    }
+    [WebMethod]
     public List< Ver_Etiqueta> Ver_Etiqueta_GetById ( Scope s, string Id)
     {
     return Ver_Etiqueta.GetById(s, Id );
