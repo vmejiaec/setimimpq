@@ -49,8 +49,7 @@
                 <tr>
                     <td 
                         style="width: 30px; padding: 6px 6px 6px 6px" valign="top">
-                        <img 
-                            src="../imagenes/ajaximagenes/cargandoMensaje.gif" />
+                        <img src="../imagenes/ajaximagenes/cargandoMensaje.gif" />
                     </td>
                     <td valign="top">
                         <p>
@@ -71,34 +70,31 @@
         </ajaxToolkit:ModalPopupExtender>            
         <asp:Button ID="btnEspera" runat="server" Text="Button" style="display:none"/>
         <%--END Panel con el mensaje de espera--%>
-        <table border="0" cellpadding="0" cellspacing="0" style="width: 1120px; background-color: #4F81BD;">
+        <asp:UpdatePanel ID="udpAtrasAdelanteBotones" runat="server">
+        <ContentTemplate> 
+        <table border="0" style="width: 1120px; background-color: #4F81BD;">
             <tr valign="top" >                
-                <td>
-                    <img src="imagenes_predeterminadas/IMP_MiniLogo.jpg" height="90%" />
+                <td style="width:210px;">
+                    <asp:Image runat="server" ImageUrl="~/imagenes_predeterminadas/IMP_MiniLogo.jpg" />
                 </td>
-                <td> 
-                    <asp:UpdatePanel ID="udpAtrasAdelanteBotones" runat="server">
-                        <ContentTemplate>                               
-                            <div>
-                                <asp:ImageButton ID="btnAtras" runat="server" usesubmitbehavior="false" ImageUrl="~/imagenes/contenido/arrow_left.gif" meta:resourcekey="Btn_AnteriorRecursoKCG"/>
-                                <asp:ImageButton ID="btnAdelante" runat="server" usesubmitbehavior="false" ImageUrl="~/imagenes/contenido/arrow_right.gif" meta:resourcekey="Btn_SiguienteRecursoKCG"/>
-                            </div>
-                            <div class="barraEstado">
-                                <asp:Label ID="LabelError" runat="server" EnableViewState="False" Text="Barra de Estado"/>
-                            </div>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
+                <td>                              
+                    <asp:ImageButton ID="btnAtras" runat="server" usesubmitbehavior="false" ImageUrl="~/imagenes/contenido/arrow_left.gif" meta:resourcekey="Btn_AnteriorRecursoKCG"/>
+                    <asp:ImageButton ID="btnAdelante" runat="server" usesubmitbehavior="false" ImageUrl="~/imagenes/contenido/arrow_right.gif" meta:resourcekey="Btn_SiguienteRecursoKCG"/>
+                <div class="barraEstado">
+                    <asp:Label ID="LabelError" runat="server" EnableViewState="False" Text="Barra de Estado"/>
+                </div>
                 </td>
                 <td>
                     <div style="text-align: right;">
                         <uc2:SesionKCG ID="SesionKCG1" runat="server" />
                         <uc3:wucIdiomas ID="WucIdiomas1" runat="server" Visible="false" />
                         <asp:ImageButton ID="btnAyuda" runat="server" usesubmitbehavior="false" ImageUrl="~/imagenes/contenido/libro.gif" meta:resourcekey="Btn_AyudaRecursoKCG" Visible="false"/>
-                    </div>                            
-
+                    </div>
                 </td>
             </tr>
         </table>
+        </ContentTemplate>
+        </asp:UpdatePanel>
         <%--Nuevo Menu--%>
         <asp:Panel id="menu" runat="server" CssClass="EstiloMenu" >
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
