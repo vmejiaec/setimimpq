@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using FEL.META;
 using Koala.KoalaWebControls;
 
-public partial class DIC_DIC_MANTENIMIENTO_PAR_PAGINACION : Page
+public partial class DIC_DIC_MANTENIMIENTO_PAR_PAGINACION : PaginaBaseGridKCG
 {
     private readonly Color bien = Color.WhiteSmoke;
     private readonly Color mal = Color.Red;
@@ -298,5 +298,18 @@ public partial class DIC_DIC_MANTENIMIENTO_PAR_PAGINACION : Page
                 return true;
         }
         return false;
+    }
+
+    //
+
+
+    protected override KFiltro KftFiltro
+    {
+        get { return null; }
+    }
+
+    protected override GridView Gv
+    {
+        get { return GridView1; }
     }
 }

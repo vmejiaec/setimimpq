@@ -63,7 +63,7 @@ public partial class MenuKCG : System.Web.UI.UserControl
                 }
             }
         }
-        ImgBtn_Refrescar.Click += new ImageClickEventHandler(ImgBtn_Refrescar_Click);
+        //ImgBtn_Refrescar.Click += new ImageClickEventHandler(ImgBtn_Refrescar_Click);
     }
 
     void ImgBtn_Refrescar_Click(object sender, EventArgs e)

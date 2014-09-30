@@ -9,11 +9,7 @@
     TagPrefix="ajaxToolkit" %>
 
 
-<asp:LinkButton ID="LnkSesion" 
-runat="server" 
- CssClass="textoSession"
- TabIndex ="-1"
-OnClick="LnkSesion_Click"></asp:LinkButton>
+<asp:LinkButton ID="LnkSesion" runat="server" CssClass="textoSession" TabIndex ="-1" OnClick="LnkSesion_Click" />
 
 
 <ajaxToolkit:ConfirmButtonExtender ID="ConfirmButtonExtender2" runat="server" 
