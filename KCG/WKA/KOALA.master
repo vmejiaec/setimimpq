@@ -73,10 +73,11 @@
         <%--END Panel con el mensaje de espera--%>
         <table border="0" cellpadding="0" cellspacing="0" style="width: 1120px; background-color: #4F81BD;">
             <tr valign="top" >                
+                <td>
+                    <img src="imagenes_predeterminadas/IMP_MiniLogo.jpg" height="90%" />
+                </td>
                 <td> 
-                    <asp:UpdatePanel 
-                        ID="udpAtrasAdelanteBotones"
-                        runat="server">
+                    <asp:UpdatePanel ID="udpAtrasAdelanteBotones" runat="server">
                         <ContentTemplate>                               
                             <div>
                                 <asp:ImageButton ID="btnAtras" runat="server" usesubmitbehavior="false" ImageUrl="~/imagenes/contenido/arrow_left.gif" meta:resourcekey="Btn_AnteriorRecursoKCG"/>
@@ -99,7 +100,7 @@
             </tr>
         </table>
         <%--Nuevo Menu--%>
-        <asp:Panel id="menu" runat="server">
+        <asp:Panel id="menu" runat="server" CssClass="EstiloMenu" >
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
                     <uc1:MenuKCG ID="MenuKCG1" runat="server"/>
