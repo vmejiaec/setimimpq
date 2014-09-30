@@ -152,9 +152,16 @@
 	
 }
 
+.EstiloMenu
+{
+    width: 1120px;
+    border-bottom-style: ridge;
+    border-top-style: ridge;
+}
+
 .textoSession
 {
-	color:White;
+    color: White;    
 }
 
 .controlIdioma
