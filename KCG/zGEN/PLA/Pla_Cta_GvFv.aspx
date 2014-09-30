@@ -31,8 +31,10 @@ Inherits="PLA_Pla_Cta_GvFv" %>
     <asp:Panel runat="server" GroupingText="Registros">
     <asp:GridView ID="gvPla_Cta" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Cta" 
-        SelectedRowStyle-CssClass="selectedrowstyle" AlternatingRowStyle-CssClass="alternatingrowstyle" 
-        HeaderStyle-CssClass="headerstyle" PagerStyle-CssClass="pagerstyle" 
+        SelectedRowStyle-CssClass="selectedrowstyle" 
+		AlternatingRowStyle-CssClass="alternatingrowstyle" 
+        HeaderStyle-CssClass="headerstyle" 
+		PagerStyle-CssClass="pagerstyle" 
             onselectedindexchanged="gvPla_Cta_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
@@ -55,7 +57,8 @@ Inherits="PLA_Pla_Cta_GvFv" %>
             oniteminserting="fvPla_Cta_ItemInserting" 
             onitemdeleted="fvPla_Cta_ItemDeleted" 
             oniteminserted="fvPla_Cta_ItemInserted" 
-            onitemupdated="fvPla_Cta_ItemUpdated">
+            onitemupdated="fvPla_Cta_ItemUpdated"
+			ondatabound="fvPla_Cta_DataBound">
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
 			<table>

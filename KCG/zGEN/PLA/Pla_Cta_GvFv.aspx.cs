@@ -49,7 +49,6 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
         {
             case "Todos":
                 Gv.DataSourceID = odsGv.ID;
-                tbFiltro.Text = "";
                 break;
 			case "Codigo":
                 Gv.DataSourceID = "odsgvPla_Cta_GetByAnioLikeCodigo";
@@ -93,10 +92,8 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
         else
         {
             tbFiltroId.Text = (string)e.NewValues["Id"];
-            Gv.DataSourceID = odsGvById.ID;
+            SeleccionarFilaEnGV(Gv, tbFiltroId.Text);
             Gv.DataBind();
-            Gv.SelectedIndex = 0;
-            tbFiltro.Text = "";
         }
     }
     protected void fvPla_Cta_ItemDeleted(object sender, FormViewDeletedEventArgs e)
@@ -121,10 +118,8 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
         }
         else
         {
-            Gv.DataSourceID = odsGvById.ID;
+            SeleccionarFilaEnGV(Gv, tbFiltroId.Text);
             Gv.DataBind();
-            Gv.SelectedIndex = 0;
-            tbFiltro.Text = "";
         }
     }
     #endregion
@@ -193,5 +188,31 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
     {
         lbFvMsgError.Text = ":";
         lbFvMsgInfo.Text = ">";
+    }
+	// Si no hay filas en el GridView entonces el FormView cambia a modo Insert
+    protected void fvPla_Cta_DataBound(object sender, EventArgs e)
+    {
+        if (Gv.Rows.Count == 0)
+            Fv.ChangeMode(FormViewMode.Insert);
+    }
+	// Busca y selecciona la fila indicada en el GridView
+    protected void SeleccionarFilaEnGV(GridView gv, string txtId)
+    {
+        int noPagina = 0;
+        int noFila = 0;
+        if (!String.IsNullOrEmpty(txtId))
+        {
+            int nFiltroId = Convert.ToInt32(txtId);
+            var ods = (ObjectDataSource)gv.DataSourceObject;
+            List<Pla_Cta> lista = (List<Pla_Cta>)ods.Select();
+            int pos = lista.FindIndex(o => o.Id == nFiltroId);
+            if (pos >= 0)
+            {
+                noPagina = pos / Gv.PageSize;
+                noFila = pos - noPagina * Gv.PageSize;
+            }
+        }
+        Gv.PageIndex = noPagina;
+        Gv.SelectedIndex = noFila;
     }
 }
