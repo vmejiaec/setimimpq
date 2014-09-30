@@ -15,10 +15,10 @@ Inherits="PLA_Pla_Cta_GvFv" %>
     <asp:Panel runat="server" ID="pcabAnio" GroupingText="Año">
         <asp:Label ID="lbFiltroAnio" runat="server" Text="Seleccionar el año:"></asp:Label>
         <asp:DropDownList ID="ddlFiltroAnio" runat="server" AutoPostBack="true">
-<%--            <asp:ListItem>2014</asp:ListItem>
+            <asp:ListItem>2014</asp:ListItem>
             <asp:ListItem>2015</asp:ListItem>
             <asp:ListItem>2016</asp:ListItem>
-            <asp:ListItem>2017</asp:ListItem>--%>
+            <asp:ListItem>2017</asp:ListItem>
         </asp:DropDownList>
     </asp:Panel>
     <asp:Panel runat = "server" ID="pgvPla_Cta" GroupingText="Listado de Cuentas">

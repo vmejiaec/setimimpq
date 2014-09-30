@@ -11,10 +11,10 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
     protected void Page_Load(object sender, EventArgs e)
     {
         // Inicializa los controles de cabecera
-        ddlFiltroAnio.Items.Add(new ListItem("2014"));
-        ddlFiltroAnio.Items.Add(new ListItem("2015"));
-        ddlFiltroAnio.Items.Add(new ListItem("2016"));
-        ddlFiltroAnio.Items.Add(new ListItem("2017"));
+        //ddlFiltroAnio.Items.Add(new ListItem("2014"));
+        //ddlFiltroAnio.Items.Add(new ListItem("2015"));
+        //ddlFiltroAnio.Items.Add(new ListItem("2016"));
+        //ddlFiltroAnio.Items.Add(new ListItem("2017"));
     }
 
     // Referencias a los objetos de pantalla
