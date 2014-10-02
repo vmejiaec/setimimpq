@@ -38,13 +38,16 @@ public partial class PAS_PAR_ACCESO : System.Web.UI.Page
         Lab_Cmb_Rol.Text = GetLocalResourceObject("Cmb_RolRecursoKCG.Text").ToString();
         Cmb_Rol.ToolTip = GetLocalResourceObject("Cmb_RolRecursoKCG.ToolTip").ToString();
 
-        Rec_Usuario.GroupingText = "" + 
-            GetLocalResourceObject("Rec_UsuarioRecursoKCG.GroupingText").ToString() +
-            "";
+        //Rec_Usuario.GroupingText = "" + 
+        //    GetLocalResourceObject("Rec_UsuarioRecursoKCG.GroupingText").ToString() +
+        //    "";
 
         Rec_Sesion.GroupingText = "" + 
             GetLocalResourceObject("Rec_SesionRecursoKCG.GroupingText").ToString() +
             "";
+
+        Rec_Usuario.GroupingText = "*";
+
 
         Btn_Conectarse.Text = GetLocalResourceObject("Btn_ConectarseRecursoKCG.Text").ToString();
         Btn_Conectarse.ToolTip = GetLocalResourceObject("Btn_ConectarseRecursoKCG.ToolTip").ToString();
@@ -289,9 +292,11 @@ public partial class PAS_PAR_ACCESO : System.Web.UI.Page
         HttpCookie autenticacionCookie = CrearCookieAutenticacion(Txt_Usuario.Text, Cmb_Rol.SelectedItem.Text, 60);
         Response.Cookies.Add(autenticacionCookie);
         string redire = FormsAuthentication.GetRedirectUrl(Txt_Usuario.Text, false);
-      //  redire = FormsAuthentication.DefaultUrl;
-        ScriptManager.RegisterStartupScript(this, this.GetType(), "redirecionar",
-                                            "window.open('" + redire + "','_blank','height='+ (screen.height-55)+' ,width='+ (screen.width-10) + ',resizable=no,scrollbars=no,status=no,toolbar=no,menubar=no,location=no,status=1,left=0,top=0')", true);
+        //  redire = FormsAuthentication.DefaultUrl;  /WKA/Default.aspx
+        Response.Redirect(redire);
+
+        //ScriptManager.RegisterStartupScript(this, this.GetType(), "redirecionar",
+        //                                    "window.open('" + redire + "','_blank','height='+ (screen.height-55)+' ,width='+ (screen.width-10) + ',resizable=no,scrollbars=no,status=no,toolbar=no,menubar=no,location=no,status=1,left=0,top=0')", true);
     }
 
     private void GrabarSeleccionDeUsuario()

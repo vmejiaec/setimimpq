@@ -209,7 +209,7 @@ public partial class SEG_SEG_MENU : PaginaBaseKCG
         Scope s = (Scope)HttpContext.Current.Session["Scope"];
 
         FEL.SEG.BO_Seg_Rol boOpcionesOrigen = new FEL.SEG.BO_Seg_Rol();
-        List<Seg_Rol> litOpciones = boOpcionesOrigen.GetByUsuarioLikeNombre("Nombre", s, prefixText + "%");
+        List<Seg_Rol> litOpciones = boOpcionesOrigen.GetByLikeNombre("Nombre", s, prefixText + "%");
         List<string> opciones = new List<string>();
 
         for (int i = 0; i < litOpciones.Count && i < count; i++)
@@ -289,4 +289,5 @@ public partial class SEG_SEG_MENU : PaginaBaseKCG
         }
         return opciones.ToArray();
     }
+
 }

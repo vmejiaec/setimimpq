@@ -1,20 +1,18 @@
-﻿using System;
+﻿// NUEVO aumentar plantilla nuevos usings
+using System;
 using FEL.PLA;
 using System.Web.UI.WebControls;
 using System.Web.Services.Protocols;
 using System.Data;
 using System.Collections.Generic;
+using System.Web;
 
 public partial class PLA_Pla_Cta_GvFv : PaginaBase
 {
     // Carga inicial
     protected void Page_Load(object sender, EventArgs e)
     {
-        // Inicializa los controles de cabecera
-        //ddlFiltroAnio.Items.Add(new ListItem("2014"));
-        //ddlFiltroAnio.Items.Add(new ListItem("2015"));
-        //ddlFiltroAnio.Items.Add(new ListItem("2016"));
-        //ddlFiltroAnio.Items.Add(new ListItem("2017"));
+        
     }
 
     // Referencias a los objetos de pantalla
@@ -232,4 +230,15 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
                 break;
         }
     }
+
+    // NUEVO inicializar controles aumentar a la plantilla
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        // Inicializa el control de Años
+        FEL.DIC.BO_Dic_Dominio adpDom = new FEL.DIC.BO_Dic_Dominio();
+        var anios = adpDom.GetByObjetoCampo("Nombre", Scope, "Pla_Cta", "Anio");
+        foreach (var anio in anios)
+            ddlFiltroAnio.Items.Add(new ListItem(anio.Nombre));
+    }
+
 }

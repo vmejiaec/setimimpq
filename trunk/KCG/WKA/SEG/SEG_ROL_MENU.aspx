@@ -368,7 +368,8 @@
                                         runat="server" 
                                         CommandArgument="RutaDestino: ~/DIC/DIC_PANTALLA.aspx; Filtro: Dic_Pantalla_Nombre; Obtener: Dic_Pantalla_Id|Id,Pantalla_Ver_Etiqueta_nombre|Nombre"
                                         CommandName="Zoom" 
-                                        Text="..." />  
+                                        Text="..." />
+                                    <asp:Label runat="server" ID="lbNota01" ForeColor ="BlueViolet">La raiz en la barra del menú</asp:Label>
                                 </td>
                             </tr>
                             <tr>
@@ -893,6 +894,7 @@
                                         CommandArgument="RutaDestino: ~/DIC/DIC_PANTALLA.aspx; Filtro: Pantalla_Ver_Etiqueta_nombre; Obtener: Dic_Pantalla_Id|Id,Pantalla_Ver_Etiqueta_nombre|Nombre"
                                         CommandName="Zoom" 
                                         Text="..." />
+                                    <asp:Label runat="server" ID="lbNota01" ForeColor ="BlueViolet">La raiz en la barra del menú</asp:Label>
                                 </td>
                             </tr>
                             <tr>
@@ -1368,6 +1370,7 @@
                                         CommandName="Zoom"
                                         Enabled="false"
                                         Text="..." />  
+                                    <asp:Label runat="server" ID="lbNota01" ForeColor ="BlueViolet">La raiz en la barra del menú</asp:Label>
                                 </td>
                             </tr>
                             <tr>

@@ -13,12 +13,10 @@ TagPrefix="cc1" %>
     ContentPlaceHolderID="ContentPlaceHolder1" 
     Runat="Server">
     
-    <div style="width:100%" align="center">
+    <div style="width:300px; margin: 0 auto;" align="center">
     
-    <table width="781" border="0" cellpadding="0" cellspacing="0">
+    <table border="0" cellpadding="0" cellspacing="0">
         <tr>
-            <td >
-            </td>
             <td >
                  <table height="258" border="0" cellpadding="0" cellspacing="0">
                     <tr height="120" valign="middle" align="center">
@@ -33,11 +31,8 @@ TagPrefix="cc1" %>
                                     <td>
                                         <asp:UpdatePanel ID="UpdatePanel1"
                                             runat="server" UpdateMode="Conditional">
-                                            <ContentTemplate>
-                                                <asp:Panel ID="Rec_Usuario"
-                                                runat="server" 
-                                                Width="300px" 
-                                                Wrap="False">
+                                            <ContentTemplate> 
+                                                <asp:Panel ID="Rec_Usuario" runat="server" Width="300px" Wrap="False">
                                                 <table>
                                                     <tr>
                                                         <td align="left">
@@ -117,11 +112,7 @@ TagPrefix="cc1" %>
                                     <td>
                                     <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
                                         <ContentTemplate>
-                                        <asp:Panel ID="Rec_Sesion" runat="server" 
-                                            Width="300px" 
-                                            Wrap="False" 
-                                            Enabled="False" 
-                                            Visible="False" >
+                                        <asp:Panel ID="Rec_Sesion" runat="server" Width="300px" Wrap="False" Enabled="False" Visible="False" DefaultButton="Btn_Aceptar" >
                                             <table>
                                                 <tr>
                                                     <td align="left">
@@ -174,19 +165,7 @@ TagPrefix="cc1" %>
                     </tr>
                  </table>
             </td>
-            <td >
-                </td>
-        </tr>
-       
-        <tr>
-            <td>
-                </td>
-            <td>
-                </td>
-            <td>
-                </td>
-        </tr>
-        
+        </tr>       
         <tr>
             <td colspan="3">
                 </td>

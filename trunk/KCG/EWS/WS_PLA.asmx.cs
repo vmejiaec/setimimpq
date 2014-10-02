@@ -187,6 +187,11 @@ namespace EWS
         {
             return Pla_Tarea.GetByPla_Cta_Id(s,  p_Pla_Cta_Id);
         }
+		[WebMethod]
+		public List<Pla_Tarea> Pla_Tarea_GetByPla_Cta_IdLikeNombre(Scope s , Int32 p_Pla_Cta_Id, string p_Nombre)
+        {
+            return Pla_Tarea.GetByPla_Cta_IdLikeNombre(s,  p_Pla_Cta_Id, p_Nombre);
+        }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
 		#endregion
