@@ -83,6 +83,14 @@
   {
       return EntidadDT.GetDT(Adapter.Seg_Rol_GetByUsuarioLikeNombre(s, Nombre));
   }
+
+  [DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+  public List<Seg_Rol> GetByLikeNombre(string sortExpression, Scope s, string Nombre)
+  {
+      List<Seg_Rol> lista = new List<Seg_Rol>(Adapter.Seg_Rol_GetByLikeNombre(s, Nombre));
+      lista.Sort(new Seg_Rol_Comparar(sortExpression));
+      return lista;
+  }
   #endregion
   #region Operacion entre datos
   // Actualiza

@@ -16,32 +16,32 @@
 {
     font-family: Arial;
     background-color: #FFFFCC;
-    width: 250px;
-    height:80px;
+    width: 400px;
+    height:40px;
 }
 
 .txtItemNombreLargo
 {
     font-family: Arial;
     background-color: White;
-    width: 250px;
-    height:80px;
+    width: 400px;
+    height:40px;
 }
 
 .txtEditDescripcion
 {
     font-family: Arial;
     background-color: #FFFFCC;
-    width: 250px;
-    height:80px;
+    width: 400px;
+    height:40px;
 }
 
 .txtItemDescripcion
 {
     font-family: Arial;
     background-color: White;
-    width: 250px;
-    height:80px;
+    width: 400px;
+    height:40px;
 }
 
 /* Victor: Estilos para el grid view */
@@ -156,7 +156,6 @@
 {
     width: 1120px;
     border-bottom-style: ridge;
-    border-top-style: ridge;
 }
 
 .textoSession

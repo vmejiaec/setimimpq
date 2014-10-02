@@ -30,7 +30,36 @@
         runat="server" 
         UpdateMode="Conditional">
             <ContentTemplate>
-                       
+
+<%--INICIO Javascript para manegar los campos de autocompletar --%>
+<script type="text/javascript" >
+    function acxDic_Objeto_Nombre_Click(source, eventArgs) {
+        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+        var params = new Array();
+        params = eventArgs.get_value().split('||');
+        // 0 Id
+        var xId = document.getElementById('<%= ((TextBox)fvDicDominio.FindControl("Dic_Objeto_Id")).ClientID %>');
+        xId.value = params[0];
+        // 1 Codigo
+        var xCodigo = document.getElementById('<%= ((TextBox)fvDicDominio.FindControl("Dic_Objeto_Codigo")).ClientID %>');
+        xCodigo.value = params[1];
+        // coloca el id del maestro en el detalle mediante el contextKey
+        $find('acxBID_Dic_Campo_Nombre').set_contextKey(xId.value);
+    }
+    function acxDic_Campo_Nombre_Click(source, eventArgs) {
+        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+        var params = new Array();
+        params = eventArgs.get_value().split('||');
+        // 0 Id
+        var xId = document.getElementById('<%= ((TextBox)fvDicDominio.FindControl("Dic_Campo_Id")).ClientID %>');
+        xId.value = params[0];
+        // 1 Codigo
+        var xCodigo = document.getElementById('<%= ((TextBox)fvDicDominio.FindControl("Dic_Campo_Codigo")).ClientID %>');
+        xCodigo.value = params[1];
+    }
+</script>
+<%--FIN Javascript para manegar los campos de autocompletar --%>
+
             <br />
                 <asp:Panel 
                     runat="server" 
@@ -145,6 +174,28 @@
                                                             ID="Dic_Objeto_Nombre" 
                                                             runat="server" 
                                                             Text='<%# Bind("Dic_Objeto_Nombre") %>' CssClass="TEXTO_EDICION_KCG"></asp:TextBox>
+                                                        <%--Autocompletar--%>
+<AjaxControlToolkit:AutoCompleteExtender 
+    runat="server" ID="acxDic_Objeto_Nombre"
+    TargetControlID="Dic_Objeto_Nombre" 
+    ServiceMethod="acxDic_Objeto_Nombre_GetList" 
+    UseContextKey="True" 
+    ContextKey=""
+    CompletionInterval="0"
+    OnClientItemSelected="acxDic_Objeto_Nombre_Click"
+    />
+<AjaxControlToolkit:AutoCompleteExtender 
+    runat="server" ID="acxDic_Campo_Nombre"
+    BehaviorID="acxBID_Dic_Campo_Nombre"
+    TargetControlID="Dic_Campo_Nombre"
+    ServiceMethod="acxDic_Campo_Nombre_GetList"
+    UseContextKey="True" 
+    ContextKey=""
+    CompletionInterval="0"
+    MinimumPrefixLength="0"
+    OnClientItemSelected="acxDic_Campo_Nombre_Click" 
+    />
+                                                        <%--Fin Autocompletar--%>
                                                         <asp:Button 
                                                             ID="Button4" 
                                                             runat="server" 
@@ -190,6 +241,9 @@
                                                             ID="Dic_Campo_Nombre" 
                                                             runat="server" 
                                                             Text='<%# Bind("Dic_Campo_Nombre") %>' CssClass="TEXTO_EDICION_KCG"></asp:TextBox>
+                                                        <%--Autocompletar--%>
+
+                                                        <%--Fin Autocompletar--%>
                                                          <asp:Button 
                                                             ID="Button5" 
                                                             runat="server" 
@@ -402,6 +456,28 @@
                                                             ID="Dic_Objeto_Nombre" 
                                                             runat="server" 
                                                             Text='<%# Bind("Dic_Objeto_Nombre") %>' CssClass="TEXTO_EDICION_KCG"></asp:TextBox>
+                                                        <%--Autocompletar--%>
+<AjaxControlToolkit:AutoCompleteExtender 
+    runat="server" ID="acxDic_Objeto_Nombre"
+    TargetControlID="Dic_Objeto_Nombre" 
+    ServiceMethod="acxDic_Objeto_Nombre_GetList" 
+    UseContextKey="True" 
+    ContextKey=""
+    CompletionInterval="0"
+    OnClientItemSelected="acxDic_Objeto_Nombre_Click"
+    />
+<AjaxControlToolkit:AutoCompleteExtender 
+    runat="server" ID="acxDic_Campo_Nombre"
+    BehaviorID="acxBID_Dic_Campo_Nombre"
+    TargetControlID="Dic_Campo_Nombre"
+    ServiceMethod="acxDic_Campo_Nombre_GetList"
+    UseContextKey="True" 
+    ContextKey=""
+    CompletionInterval="0"
+    MinimumPrefixLength="0"
+    OnClientItemSelected="acxDic_Campo_Nombre_Click" 
+    />
+                                                        <%--Fin Autocompletar--%>
                                                          <asp:Button 
                                                             ID="Button4" 
                                                             runat="server" 
@@ -447,6 +523,9 @@
                                                             ID="Dic_Campo_Nombre" 
                                                             runat="server" 
                                                             Text='<%# Bind("Dic_Campo_Nombre") %>' CssClass="TEXTO_EDICION_KCG"></asp:TextBox>
+                                                        <%--Autocompletar--%>
+
+                                                        <%--Fin Autocompletar--%>
                                                         <asp:Button 
                                                             ID="Button5" 
                                                             runat="server" 

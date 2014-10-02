@@ -70,7 +70,24 @@
   {
   return EntidadDT.GetDT(Adapter.Dic_Dominio_GetById(s,  Id));
   }
+
+
+// Método para obtener los dominios de un objeto y su campo
+  [DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+  public List<Dic_Dominio> GetByObjetoCampo(string sortExpression, Scope s, string Objeto_Nombre, string Campo_Nombre)
+  {
+      List<Dic_Dominio> lista = new List<Dic_Dominio>(Adapter.Dic_Dominio_GetByObjetoCampo(s, Objeto_Nombre, Campo_Nombre));
+      lista.Sort(new Dic_Dominio_Comparar(sortExpression));
+      return lista;
+  }
+  [DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+  public DataTable GetByObjetoCampo(Scope s, string Objeto_Nombre, string Campo_Nombre)
+  {
+      return EntidadDT.GetDT(Adapter.Dic_Dominio_GetByObjetoCampo(s, Objeto_Nombre, Campo_Nombre));
+  }
   
+
+
   [DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
   public List<Dic_Dominio>GetByMantenimiento(string sortExpression, Scope s )
   {

@@ -66,6 +66,12 @@ namespace EWS
       {
           return Seg_Rol.GetByUsuarioLikeNombre(s, Nombre);
       }
+
+      [WebMethod]
+      public List<Seg_Rol> Seg_Rol_GetByLikeNombre(Scope s, string Nombre)
+      {
+          return Seg_Rol.GetByLikeNombre(s, Nombre);
+      }
     #endregion
     #region  Operaciones con datos de la tabla Seg_Rol
     /// <summary>
@@ -567,6 +573,13 @@ namespace EWS
     {
         return Seg_Menu.GetByRolUsuario(s, Seg_Rol_Id, Int_Usuario_Id, par_servidor_id);
     }
+
+    [WebMethod]
+    public List<Seg_Menu> Seg_Menu_GetByRolId(Scope s, string Seg_Rol_Id, string par_servidor_id)
+    {
+        return Seg_Menu.GetByRolId(s, Seg_Rol_Id, par_servidor_id);
+    }
+
       [WebMethod]
       public List<Seg_Menu> Seg_Menu_GetByRolElemento(Scope s, string Seg_Rol_Id, string Dic_Con_Elemento_Id, string par_servidor_id)
       {

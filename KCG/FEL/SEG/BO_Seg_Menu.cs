@@ -71,6 +71,7 @@ namespace FEL.SEG
             return EntidadDT.GetDT(Adapter.Seg_Menu_GetById(s, Id, par_servidor_id));
         }
 
+
         [DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
         public List<Seg_Menu> GetByRolUsuario(string sortExpression, Scope s, string Seg_Rol_Id, string Int_Usuario_Id, string par_servidor_id)
         {
@@ -82,6 +83,19 @@ namespace FEL.SEG
         public DataTable GetByRolUsuario(Scope s, string Seg_Rol_Id, string Int_Usuario_Id, string par_servidor_id)
         {
             return EntidadDT.GetDT(Adapter.Seg_Menu_GetByRolUsuario(s, Seg_Rol_Id, Int_Usuario_Id, par_servidor_id));
+        }
+
+        [DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+        public List<Seg_Menu> GetByRolId(string sortExpression, Scope s, string Seg_Rol_Id, string par_servidor_id)
+        {
+            List<Seg_Menu> lista = new List<Seg_Menu>(Adapter.Seg_Menu_GetByRolId(s, Seg_Rol_Id, par_servidor_id));
+            lista.Sort(new Seg_Menu_Comparar(sortExpression));
+            return lista;
+        }
+        [DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+        public DataTable GetByRolId(Scope s, string Seg_Rol_Id, string par_servidor_id)
+        {
+            return EntidadDT.GetDT(Adapter.Seg_Menu_GetByRolId(s, Seg_Rol_Id, par_servidor_id));
         }
 
         [DataObjectMethodAttribute(DataObjectMethodType.Select, false)]

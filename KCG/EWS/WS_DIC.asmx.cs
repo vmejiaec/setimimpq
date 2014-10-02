@@ -796,11 +796,19 @@ namespace EWS
         {
             return Dic_Dominio.GetByCodigo(s, Codigo);
         }
+        
         [WebMethod]
         public List<Dic_Dominio> Dic_Dominio_GetById(Scope s, string Id)
         {
             return Dic_Dominio.GetById(s, Id);
         }
+
+        [WebMethod]
+        public List<Dic_Dominio> Dic_Dominio_GetByObjetoCampo(Scope s, string Objeto_Nombre, string Campo_Nombre)
+        {
+            return Dic_Dominio.GetByObjetoCampo(s, Objeto_Nombre, Campo_Nombre);
+        }
+
         [WebMethod]
         public List<Dic_Dominio> Dic_Dominio_GetByMantenimiento(Scope s)
         {

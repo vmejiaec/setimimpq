@@ -1593,11 +1593,14 @@ ID="Content1"
         ID="pnlListado" 
         runat="server"
         meta:resourcekey="Rec_Seg_Menu_ListadoRecursoKCG">
+    
+<%--    odsMenusPorRol   DataSourceID="odsGvSegMenu" --%>
+    
     <koala:KGrid 
         ID="GvSegMenu" 
         runat="server" 
         AutoGenerateColumns="False" 
-        DataSourceID="odsGvSegMenu"
+        DataSourceID="odsMenusPorRol"
         AllowSorting="True"
         AllowPaging="True"
         DataKeyNames="Id"
@@ -1747,7 +1750,7 @@ ID="Content1"
         ID="odsGvSegMenu" 
         runat="server" 
         SelectMethod="GetByRolUsuario" 
-        TypeName="FEL.SEG.BO_Seg_Menu">
+        TypeName="FEL.SEG.BO_Seg_Menu"  >
         <SelectParameters>
             <asp:SessionParameter 
                 Name="s" 
@@ -1759,13 +1762,22 @@ ID="Content1"
                 PropertyName="Text" 
                 Type="String" />
             <asp:Parameter 
-                Name="Int_Usuario_Id" 
-                Type="String" />
-            <asp:Parameter 
                 Name="par_servidor_id" 
-                Type="String" />
+                Type="String" DefaultValue="1" />
         </SelectParameters>
     </asp:ObjectDataSource>
+    <%--Otro grid--%>
+            <asp:ObjectDataSource ID="odsMenusPorRol" runat="server" 
+                OldValuesParameterFormatString="original_{0}" SelectMethod="GetByRolId" 
+                TypeName="FEL.SEG.BO_Seg_Menu">
+                <SelectParameters>                    
+                    <asp:SessionParameter DefaultValue="" Name="s" SessionField="Scope" 
+                        Type="Object" />
+                    <asp:ControlParameter ControlID="Seg_Rol_Id" Name="Seg_Rol_Id" 
+                        PropertyName="Text" Type="String" />
+                    <asp:Parameter DefaultValue="1" Name="par_servidor_id" Type="String" />
+                </SelectParameters>
+            </asp:ObjectDataSource>
     </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

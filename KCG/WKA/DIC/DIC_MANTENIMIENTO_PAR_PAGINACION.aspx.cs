@@ -312,4 +312,5 @@ public partial class DIC_DIC_MANTENIMIENTO_PAR_PAGINACION : PaginaBaseGridKCG
     {
         get { return GridView1; }
     }
+
 }

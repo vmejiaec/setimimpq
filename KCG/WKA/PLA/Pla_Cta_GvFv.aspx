@@ -4,24 +4,25 @@ AutoEventWireup="true"
 CodeFile="Pla_Cta_GvFv.aspx.cs" 
 Inherits="PLA_Pla_Cta_GvFv" %>
 
-  <%@ Register tagprefix="koala" 
-    assembly="KoalaWebControls" 
-    namespace="Koala.KoalaWebControls" %>
+<%@ Register tagprefix="koala" 
+assembly="KoalaWebControls" 
+namespace="Koala.KoalaWebControls" %>
+
+<%--NEUVO Añadir a la plantilla--%>
+<%@ Register Assembly="AjaxControlToolkit" 
+Namespace="AjaxControlToolkit" 
+TagPrefix="ajax" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:UpdatePanel runat="server" ID="udp">
+<asp:UpdatePanel runat="server" ID="udp">
 <ContentTemplate>
-    <div class="panCol3">
+
+    <%--Cabecera--%>
     <asp:Panel runat="server" ID="pcabAnio" GroupingText="Año">
         <asp:Label ID="lbFiltroAnio" runat="server" Text="Seleccionar el año:"></asp:Label>
-        <asp:DropDownList ID="ddlFiltroAnio" runat="server" AutoPostBack="true">
-            <asp:ListItem>2014</asp:ListItem>
-            <asp:ListItem>2015</asp:ListItem>
-            <asp:ListItem>2016</asp:ListItem>
-            <asp:ListItem>2017</asp:ListItem>
-        </asp:DropDownList>
-    </asp:Panel>
-    <asp:Panel runat = "server" ID="pgvPla_Cta" GroupingText="Listado de Cuentas">
+        <asp:DropDownList ID="ddlFiltroAnio" runat="server" AutoPostBack="true" >
+        </asp:DropDownList>        
+    </asp:Panel>        
     <%--Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
         <asp:Label ID="lbFiltro" runat="server" Text="Filtro"></asp:Label>
@@ -55,10 +56,7 @@ Inherits="PLA_Pla_Cta_GvFv" %>
 			</Columns>
     </asp:GridView>
     </asp:Panel>
-    </asp:Panel>
-    </div>
     <%--FormView--%>
-    <div class = "panCol2">
     <asp:Panel runat="server" ID="pfvPla_Cta" GroupingText="Crear, Editar o Borar un Registro">
     <koala:FormViewSetim ID="fvPla_Cta" runat="server" DataSourceID="odsfvPla_Cta"
             oniteminserting="fvPla_Cta_ItemInserting" 
@@ -78,11 +76,8 @@ Inherits="PLA_Pla_Cta_GvFv" %>
 			<tr >
                 <td> Anio </td>
                 <td>
-                <asp:DropDownList ID="ddlAnio" runat="server" SelectedValue='<%# Bind("Anio") %>' >
-                    <asp:ListItem>2014</asp:ListItem>
-                    <asp:ListItem>2015</asp:ListItem>
-                    <asp:ListItem>2016</asp:ListItem>
-                    <asp:ListItem>2017</asp:ListItem>
+                <asp:DropDownList ID="ddlAnio" runat="server" SelectedValue='<%# Bind("Anio") %>' 
+                        DataSourceID="odsDominioAnio" DataTextField="Nombre" DataValueField="Nombre" >
                 </asp:DropDownList>
 				</td>
             </tr>
@@ -98,12 +93,12 @@ Inherits="PLA_Pla_Cta_GvFv" %>
             </tr>
 			<tr >
                 <td> Nivel </td>
-                <td><asp:TextBox ID="NivelTextBox" runat="server" Text='<%# Bind("Nivel") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqNivel" runat="server" 
-                    ControlToValidate="NivelTextBox"
-                    ErrorMessage="El campo Nivel es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                <td>
+                <asp:DropDownList ID="ddlNivel" runat="server" DataSourceID="odsDominioNivel" CssClass="txtEdit" 
+                        DataTextField="Nombre" 
+                        DataValueField="Dominio" 
+                        SelectedValue='<%# Bind("Nivel") %>'>
+                </asp:DropDownList>
 				</td>
             </tr>
 			<tr >
@@ -142,13 +137,9 @@ Inherits="PLA_Pla_Cta_GvFv" %>
             </tr>
 			<tr >
                 <td> Anio </td>
-                <td><asp:TextBox ID="AnioTextBox" runat="server" Text='<%# Bind("Anio") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqAnio" runat="server" 
-                    ControlToValidate="AnioTextBox"
-                    ErrorMessage="El campo Anio es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-				</td>
+                <td>
+                    <asp:TextBox ID="AnioTextBox" runat="server" Text='<%# Bind("Anio") %>'  ></asp:TextBox>
+                </td>
             </tr>
 			<tr >
                 <td> Codigo </td>
@@ -162,12 +153,12 @@ Inherits="PLA_Pla_Cta_GvFv" %>
             </tr>
 			<tr >
                 <td> Nivel </td>
-                <td><asp:TextBox ID="NivelTextBox" runat="server" Text='<%# Bind("Nivel") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqNivel" runat="server" 
-                    ControlToValidate="NivelTextBox"
-                    ErrorMessage="El campo Nivel es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                <td>
+                <asp:DropDownList ID="ddlNivel" runat="server" DataSourceID="odsDominioNivel" CssClass="txtEdit" 
+                        DataTextField="Nombre" 
+                        DataValueField="Dominio" 
+                        SelectedValue='<%# Bind("Nivel") %>'>
+                </asp:DropDownList>
 				</td>
             </tr>
 			<tr >
@@ -213,7 +204,13 @@ Inherits="PLA_Pla_Cta_GvFv" %>
             </tr>
 			<tr >
                 <td> Nivel </td>
-                <td><asp:TextBox ID="NivelTextBox" runat="server" Text='<%# Bind("Nivel") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+                <td>                
+                <asp:DropDownList ID="ddlNivel" runat="server" DataSourceID="odsDominioNivel"  Enabled="false"
+                        DataTextField="Nombre" 
+                        DataValueField="Dominio" 
+                        SelectedValue='<%# Bind("Nivel") %>'>
+                </asp:DropDownList>
+                </td>
             </tr>
 			<tr >
                 <td> Nombre </td>
@@ -240,7 +237,7 @@ Inherits="PLA_Pla_Cta_GvFv" %>
         <asp:Label ID="lbFvMsgInfo" runat="server" Text=">" CssClass="FvMensajeInfo"></asp:Label>
         <asp:ValidationSummary ID="vsErrorResumen" runat="server"/>
     </asp:Panel>
-    </div>
+
     <%--Fuente de datos para el GridView --%>
     <asp:ObjectDataSource ID="odsgvPla_Cta" runat="server" 
         SelectMethod="Get" 
@@ -300,6 +297,27 @@ Inherits="PLA_Pla_Cta_GvFv" %>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="tbFiltro" Name="p_Nombre" PropertyName="Text" Type="string" />
 		</SelectParameters>
+    </asp:ObjectDataSource>
+    <%--Objetos de datos para los dominios de las listas desplegables--%>
+    <asp:ObjectDataSource ID="odsDominioAnio" runat="server" 
+        SelectMethod="GetByObjetoCampo" 
+        TypeName="FEL.DIC.BO_Dic_Dominio">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="Nombre" Name="sortExpression" Type="String" />
+            <asp:SessionParameter DefaultValue="" Name="s" SessionField="Scope" Type="Object" />
+            <asp:Parameter DefaultValue="Pla_Cta" Name="Objeto_Nombre" Type="String" />
+            <asp:Parameter DefaultValue="Anio" Name="Campo_Nombre" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="odsDominioNivel" runat="server" 
+        SelectMethod="GetByObjetoCampo" 
+        TypeName="FEL.DIC.BO_Dic_Dominio">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="Nombre" Name="sortExpression" Type="String" />
+            <asp:SessionParameter DefaultValue="" Name="s" SessionField="Scope" Type="Object" />
+            <asp:Parameter DefaultValue="Pla_Cta" Name="Objeto_Nombre" Type="String" />
+            <asp:Parameter DefaultValue="Nivel" Name="Campo_Nombre" Type="String" />
+        </SelectParameters>
     </asp:ObjectDataSource>
     <%--Objetos de Datos para el FormView --%>
     <asp:ObjectDataSource ID="odsfvPla_Cta" runat="server" 
