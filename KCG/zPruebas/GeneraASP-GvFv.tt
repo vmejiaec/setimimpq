@@ -9,7 +9,7 @@
 	//Parámetros 
 	string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Planificacion.xsd";
 	string Iniciales = "PLA";
-	string TablaBase = "Pla_Cta";
+	string TablaBase = "Pla_Tarea";
 	//Proceso
 	var manager = TemplateFileManager.Create(this);
 	ExtraeMetaDatos datos = new ExtraeMetaDatos(PathXSD);	
@@ -35,15 +35,25 @@ AutoEventWireup="true"
 CodeFile="<#= tabla.Nombre #>_GvFv.aspx.cs" 
 Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
 
-  <%@ Register tagprefix="koala" 
-    assembly="KoalaWebControls" 
-    namespace="Koala.KoalaWebControls" %>
+<%@ Register tagprefix="koala" 
+assembly="KoalaWebControls" 
+namespace="Koala.KoalaWebControls" %>
+
+<%@ Register Assembly="AjaxControlToolkit" 
+Namespace="AjaxControlToolkit" 
+TagPrefix="ajax" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <asp:UpdatePanel runat="server" ID="udp">
 <ContentTemplate>
-    <div class="panCol3">
-    <asp:Panel runat = "server" ID="pgv<#= tabla.Nombre #>" GroupingText="Listado">
+
+    <%--Cabecera--%>
+    <asp:Panel runat="server" ID="pcabecera" GroupingText="Cabecera">
+        <asp:Label ID="lbFiltro" runat="server" Text="Seleccionar el ... :"></asp:Label>
+        <asp:DropDownList ID="ddlFiltro" runat="server" AutoPostBack="true" >
+        </asp:DropDownList>        
+    </asp:Panel>
+
     <%--Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
         <asp:Label ID="lbFiltro" runat="server" Text="Filtro"></asp:Label>
@@ -58,6 +68,7 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
 			<#+ }} 
         #></asp:DropDownList>
     </asp:Panel>
+
     <%--GridView--%>
     <asp:Panel runat="server" GroupingText="Registros">
     <asp:GridView ID="gv<#= tabla.Nombre #>" runat="server" AutoGenerateColumns="False" 
@@ -75,17 +86,16 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
 	#></Columns>
     </asp:GridView>
     </asp:Panel>
-    </asp:Panel>
-    </div>
+
     <%--FormView--%>
-    <div class = "panCol2">
     <asp:Panel runat="server" ID="pfv<#= tabla.Nombre #>" GroupingText="Crear, Editar o Borar un Registro">
     <koala:FormViewSetim ID="fv<#= tabla.Nombre #>" runat="server" DataSourceID="odsfv<#= tabla.Nombre #>" 
             oniteminserting="fv<#= tabla.Nombre #>_ItemInserting" 
             onitemdeleted="fv<#= tabla.Nombre #>_ItemDeleted" 
             oniteminserted="fv<#= tabla.Nombre #>_ItemInserted" 
             onitemupdated="fv<#= tabla.Nombre #>_ItemUpdated"
-			ondatabound="fv<#= tabla.Nombre #>_DataBound">
+			ondatabound="fv<#= tabla.Nombre #>_DataBound" 
+            onprerender="fv<#= tabla.Nombre #>_PreRender">
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
 			<#+ FV_Campos_Edit_Insert_Template(tabla); #>
@@ -117,7 +127,7 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
         <asp:Label ID="lbFvMsgInfo" runat="server" Text=">" CssClass="FvMensajeInfo"></asp:Label>
         <asp:ValidationSummary ID="vsErrorResumen" runat="server"/>
     </asp:Panel>
-    </div>
+
     <%--Fuente de datos para el GridView --%>
     <asp:ObjectDataSource ID="odsgv<#= tabla.Nombre #>" runat="server" 
         SelectMethod="Get" 
@@ -140,6 +150,17 @@ Inherits="<#= Iniciales #>_<#= tabla.Nombre #>_GvFv" %>
         #></SelectParameters>
     </asp:ObjectDataSource>
 <#+ } #>
+    <%--Objetos de Datos para obtener los dominios de un campo en un objeto --%>
+    <asp:ObjectDataSource ID="odsDominioAnio" runat="server" 
+        SelectMethod="GetByObjetoCampo" 
+        TypeName="FEL.DIC.BO_Dic_Dominio">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="Nombre" Name="sortExpression" Type="String" />
+            <asp:SessionParameter DefaultValue="" Name="s" SessionField="Scope" Type="Object" />
+            <asp:Parameter DefaultValue="TABLA" Name="Objeto_Nombre" Type="String" />
+            <asp:Parameter DefaultValue="CAMPO" Name="Campo_Nombre" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
     <%--Objetos de Datos para el FormView --%>
     <asp:ObjectDataSource ID="odsfv<#= tabla.Nombre #>" runat="server" 
         SelectMethod="GetById"         
@@ -442,6 +463,26 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         }
         Gv.PageIndex = noPagina;
         Gv.SelectedIndex = noFila;
+    }
+
+    // Inicializa los valores antes de que el FormView se dibuje en la página
+    protected void fvPla_Cta_PreRender(object sender, EventArgs e)
+    {
+        switch (Fv.CurrentMode)
+        {
+            case FormViewMode.Insert:
+                break;
+            case FormViewMode.Edit:
+                break;
+            case FormViewMode.ReadOnly:
+                break;
+        }
+    }
+
+    // Inicializar controles aumentar a la plantilla
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        // Inicializa el control 
     }
 }
 <#+} #>

@@ -8,7 +8,6 @@ Inherits="PLA_Pla_Cta_GvFv" %>
 assembly="KoalaWebControls" 
 namespace="Koala.KoalaWebControls" %>
 
-<%--NEUVO Añadir a la plantilla--%>
 <%@ Register Assembly="AjaxControlToolkit" 
 Namespace="AjaxControlToolkit" 
 TagPrefix="ajax" %>
@@ -22,7 +21,8 @@ TagPrefix="ajax" %>
         <asp:Label ID="lbFiltroAnio" runat="server" Text="Seleccionar el año:"></asp:Label>
         <asp:DropDownList ID="ddlFiltroAnio" runat="server" AutoPostBack="true" >
         </asp:DropDownList>        
-    </asp:Panel>        
+    </asp:Panel>
+
     <%--Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
         <asp:Label ID="lbFiltro" runat="server" Text="Filtro"></asp:Label>
@@ -35,6 +35,7 @@ TagPrefix="ajax" %>
 			<asp:ListItem Text = "Nombre" Value="Nombre" ></asp:ListItem>
 			</asp:DropDownList>
     </asp:Panel>
+
     <%--GridView--%>
     <asp:Panel runat="server" GroupingText="Registros">
     <asp:GridView ID="gvPla_Cta" runat="server" AutoGenerateColumns="False" 
@@ -56,6 +57,7 @@ TagPrefix="ajax" %>
 			</Columns>
     </asp:GridView>
     </asp:Panel>
+
     <%--FormView--%>
     <asp:Panel runat="server" ID="pfvPla_Cta" GroupingText="Crear, Editar o Borar un Registro">
     <koala:FormViewSetim ID="fvPla_Cta" runat="server" DataSourceID="odsfvPla_Cta"

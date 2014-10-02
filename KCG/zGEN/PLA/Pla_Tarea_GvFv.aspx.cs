@@ -1,13 +1,9 @@
-﻿// NUEVO aumentar plantilla nuevos usings
-using System;
+﻿using System;
 using FEL.PLA;
 using System.Web.UI.WebControls;
 using System.Web.Services.Protocols;
-using System.Data;
-using System.Collections.Generic;
-using System.Web;
 
-public partial class PLA_Pla_Cta_GvFv : PaginaBase
+public partial class PLA_Pla_Tarea_GvFv : PaginaBase
 {
     // Carga inicial
     protected void Page_Load(object sender, EventArgs e)
@@ -19,27 +15,27 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
     #region Referencias a los objetos de pantalla
     protected override string Contenedor
     {
-        get { return "PLA_Pla_Cta_GvFv"; }
+        get { return "PLA_Pla_Tarea_GvFv"; }
     }
     protected override GridView Gv
     {
-        get { return gvPla_Cta; }
+        get { return gvPla_Tarea; }
     }
     protected override FormView Fv
     {
-        get { return fvPla_Cta; }
+        get { return fvPla_Tarea; }
     }
     protected override ObjectDataSource odsGv
     {
-        get { return odsgvPla_Cta_GetByAnio; }
+        get { return odsgvPla_Tarea; }
     }
     protected override ObjectDataSource odsFv
     {
-        get { return odsfvPla_Cta; }
+        get { return odsfvPla_Tarea; }
     }
     protected override ObjectDataSource odsGvById
     {
-        get { return odsgvPla_Cta_GetById; }
+        get { return odsgvPla_Tarea_GetById; }
     }
     #endregion
 
@@ -54,11 +50,8 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
             case "Todos":
                 Gv.DataSourceID = odsGv.ID;
                 break;
-			case "Codigo":
-                Gv.DataSourceID = "odsgvPla_Cta_GetByAnioLikeCodigo";
-                break;
 			case "Nombre":
-                Gv.DataSourceID = "odsgvPla_Cta_GetByAnioLikeNombre";
+                Gv.DataSourceID = "odsgvPla_Tarea_GetByPla_Cta_IdLikeNombre";
                 break;
 			}
         Gv.DataBind();
@@ -78,7 +71,7 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
 
     // Eventos para despues de FormView
     #region Eventos para despues de FormView
-    protected void fvPla_Cta_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
+    protected void fvPla_Tarea_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
     {
         if (e.Exception != null)
         {
@@ -94,7 +87,7 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
             Gv.DataBind();
         }
     }
-    protected void fvPla_Cta_ItemDeleted(object sender, FormViewDeletedEventArgs e)
+    protected void fvPla_Tarea_ItemDeleted(object sender, FormViewDeletedEventArgs e)
     {
         if (e.Exception != null)
         {
@@ -105,7 +98,7 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
             Filtrar();
         }
     }
-    protected void fvPla_Cta_ItemInserted(object sender, FormViewInsertedEventArgs e)
+    protected void fvPla_Tarea_ItemInserted(object sender, FormViewInsertedEventArgs e)
     {
         if (e.Exception != null)
         {
@@ -123,7 +116,7 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
     #endregion
     // Eventos para despues del ObjectDataSource del FormView
     #region Eventos para despues del ObjectDataSource del FormView
-    protected void odsfvPla_Cta_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
+    protected void odsfvPla_Tarea_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
     {
         if (e.Exception != null)
         {
@@ -139,7 +132,7 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
             AsignarMensaje("Registro Insertado.",bien);
         }
     }
-    protected void odsfvPla_Cta_Updated(object sender, ObjectDataSourceStatusEventArgs e)
+    protected void odsfvPla_Tarea_Updated(object sender, ObjectDataSourceStatusEventArgs e)
     {
         if (e.Exception != null)
         {
@@ -154,7 +147,7 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
             AsignarMensaje("Registro Actualizado.", bien);
         }
     }
-    protected void odsfvPla_Cta_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
+    protected void odsfvPla_Tarea_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
     {
         if (e.Exception != null)
         {
@@ -173,7 +166,7 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
 
     // Valores por defecto antes de enviar a insertar, actualizar o borrar.
     #region Valores por defecto
-    protected void fvPla_Cta_ItemInserting(object sender, FormViewInsertEventArgs e)
+    protected void fvPla_Tarea_ItemInserting(object sender, FormViewInsertEventArgs e)
     {
         // Valor por defecto del Id y Estado
         e.Values["Id"] = -1;
@@ -182,18 +175,18 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
     #endregion
 
     // Evento cuando se selecciona una fila del Grid
-    protected void gvPla_Cta_SelectedIndexChanged(object sender, EventArgs e)
+    protected void gvPla_Tarea_SelectedIndexChanged(object sender, EventArgs e)
     {
         lbFvMsgError.Text = ":";
         lbFvMsgInfo.Text = ">";
     }
-    // Si no hay filas en el GridView entonces el FormView cambia a modo Insert
-    protected void fvPla_Cta_DataBound(object sender, EventArgs e)
+	// Si no hay filas en el GridView entonces el FormView cambia a modo Insert
+    protected void fvPla_Tarea_DataBound(object sender, EventArgs e)
     {
         if (Gv.Rows.Count == 0)
             Fv.ChangeMode(FormViewMode.Insert);
     }
-    // Busca y selecciona la fila indicada en el GridView
+	// Busca y selecciona la fila indicada en el GridView
     protected void SeleccionarFilaEnGV(GridView gv, string txtId)
     {
         int noPagina = 0;
@@ -202,7 +195,7 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
         {
             int nFiltroId = Convert.ToInt32(txtId);
             var ods = (ObjectDataSource)gv.DataSourceObject;
-            List<Pla_Cta> lista = (List<Pla_Cta>)ods.Select();
+            List<Pla_Tarea> lista = (List<Pla_Tarea>)ods.Select();
             int pos = lista.FindIndex(o => o.Id == nFiltroId);
             if (pos >= 0)
             {
@@ -220,9 +213,6 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
         switch (Fv.CurrentMode)
         {
             case FormViewMode.Insert:
-                TextBox anio = (TextBox)Fv.FindControl("AnioTextBox");
-                anio.Text = ddlFiltroAnio.SelectedValue;
-                anio.ReadOnly = true;
                 break;
             case FormViewMode.Edit:
                 break;
@@ -234,11 +224,6 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
     // Inicializar controles aumentar a la plantilla
     protected void Page_Init(object sender, EventArgs e)
     {
-        // Inicializa el control de Años
-        FEL.DIC.BO_Dic_Dominio adpDom = new FEL.DIC.BO_Dic_Dominio();
-        var anios = adpDom.GetByObjetoCampo("Nombre", Scope, "Pla_Cta", "Anio");
-        foreach (var anio in anios)
-            ddlFiltroAnio.Items.Add(new ListItem(anio.Nombre));
+        // Inicializa el control 
     }
-
 }
