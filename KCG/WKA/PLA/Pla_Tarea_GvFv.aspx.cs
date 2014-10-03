@@ -2,6 +2,9 @@
 using FEL.PLA;
 using System.Web.UI.WebControls;
 using System.Web.Services.Protocols;
+using System.Data;
+using System.Collections.Generic;
+using System.Web;
 
 public partial class PLA_Pla_Tarea_GvFv : PaginaBase
 {
@@ -51,7 +54,7 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
                 Gv.DataSourceID = odsGv.ID;
                 break;
 			case "Nombre":
-                Gv.DataSourceID = "odsgvPla_Tarea_GetByPla_Cta_IdLikeNombre";
+                Gv.DataSourceID = "odsgvPla_Tarea_GetByAnioLikeNombre";
                 break;
 			}
         Gv.DataBind();
@@ -208,7 +211,7 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
     }
 
     // Inicializa los valores antes de que el FormView se dibuje en la página
-    protected void fvPla_Cta_PreRender(object sender, EventArgs e)
+    protected void fvPla_Tarea_PreRender(object sender, EventArgs e)
     {
         switch (Fv.CurrentMode)
         {
@@ -224,6 +227,11 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
     // Inicializar controles aumentar a la plantilla
     protected void Page_Init(object sender, EventArgs e)
     {
-        // Inicializa el control 
+        // Inicializa el control del año en la cabecera
+        odsDominioAnio.DataBind();
+        var anios = odsDominioAnio.Select();
+        foreach (Dic_Dominio anio in anios)
+            ddlCabecera.Items.Add(new ListItem(anio.Nombre));
     }
 }
+    
