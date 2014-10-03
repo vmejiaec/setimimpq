@@ -49,8 +49,8 @@ TagPrefix="ajax" %>
 
     <%--Cabecera--%>
     <asp:Panel runat="server" ID="pcabecera" GroupingText="Cabecera">
-        <asp:Label ID="lbFiltro" runat="server" Text="Seleccionar el ... :"></asp:Label>
-        <asp:DropDownList ID="ddlFiltro" runat="server" AutoPostBack="true" >
+        <asp:Label ID="lbCabecera" runat="server" Text="Seleccionar el ... :"></asp:Label>
+        <asp:DropDownList ID="ddlCabecera" runat="server" AutoPostBack="true" >
         </asp:DropDownList>        
     </asp:Panel>
 
@@ -257,6 +257,9 @@ using System;
 using FEL.<#= Iniciales #>;
 using System.Web.UI.WebControls;
 using System.Web.Services.Protocols;
+using System.Data;
+using System.Collections.Generic;
+using System.Web;
 
 public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
 {
@@ -466,7 +469,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
     }
 
     // Inicializa los valores antes de que el FormView se dibuje en la página
-    protected void fvPla_Cta_PreRender(object sender, EventArgs e)
+    protected void fv<#= tabla.Nombre #>_PreRender(object sender, EventArgs e)
     {
         switch (Fv.CurrentMode)
         {

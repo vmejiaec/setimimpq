@@ -2,7 +2,7 @@
 MasterPageFile="~/KOALA.master" 
 AutoEventWireup="true" 
 CodeFile="Pla_Tarea_GvFv.aspx.cs" 
-Inherits="PLA_Pla_Tarea_GvFv" %>
+Inherits="PLA_Pla_Tarea_GvFv"%>
 
 <%@ Register tagprefix="koala" 
 assembly="KoalaWebControls" 
@@ -18,8 +18,8 @@ TagPrefix="ajax" %>
 
     <%--Cabecera--%>
     <asp:Panel runat="server" ID="pcabecera" GroupingText="Cabecera">
-        <asp:Label ID="lbFiltro" runat="server" Text="Seleccionar el ... :"></asp:Label>
-        <asp:DropDownList ID="ddlFiltro" runat="server" AutoPostBack="true" >
+        <asp:Label ID="lbCabecera" runat="server" Text="Seleccionar el año:"></asp:Label>
+        <asp:DropDownList ID="ddlCabecera" runat="server" AutoPostBack="True" >
         </asp:DropDownList>        
     </asp:Panel>
 
@@ -38,7 +38,7 @@ TagPrefix="ajax" %>
     <%--GridView--%>
     <asp:Panel runat="server" GroupingText="Registros">
     <asp:GridView ID="gvPla_Tarea" runat="server" AutoGenerateColumns="False" 
-        DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Tarea" 
+        DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Tarea_GetByAnio" 
         SelectedRowStyle-CssClass="selectedrowstyle" 
 		AlternatingRowStyle-CssClass="alternatingrowstyle" 
         HeaderStyle-CssClass="headerstyle" 
@@ -46,15 +46,15 @@ TagPrefix="ajax" %>
             onselectedindexchanged="gvPla_Tarea_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
-			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />
-			<asp:BoundField DataField="Codigo" HeaderText="Codigo"   />
-			<asp:BoundField DataField="Pla_Cta_Id" HeaderText="Pla_Cta_Id"   />
-			<asp:BoundField DataField="Pla_Cta_Codigo" HeaderText="Pla_Cta_Codigo"   />
-			<asp:BoundField DataField="Pla_Cta_Nombre" HeaderText="Pla_Cta_Nombre"   />
-			<asp:BoundField DataField="Pla_Cta_Nivel" HeaderText="Pla_Cta_Nivel"   />
+			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />			
+			<asp:BoundField DataField="Pla_Cta_Id" HeaderText="Pla_Cta_Id" Visible = "false"    />
+			<asp:BoundField DataField="Pla_Cta_Codigo" HeaderText="Cuenta"   />
+            <asp:BoundField DataField="Codigo" HeaderText="Codigo"   />
+			<asp:BoundField DataField="Pla_Cta_Nombre" HeaderText="Pla_Cta_Nombre" Visible = "false"    />
+			<asp:BoundField DataField="Pla_Cta_Nivel" HeaderText="Pla_Cta_Nivel"  Visible = "false" />
 			<asp:BoundField DataField="Nombre" HeaderText="Nombre"   />
-			<asp:BoundField DataField="Fecha_Ini" HeaderText="Fecha_Ini"   />
-			<asp:BoundField DataField="Fecha_Fin" HeaderText="Fecha_Fin"   />
+			<asp:BoundField DataField="Fecha_Ini" HeaderText="Fecha_Ini"  DataFormatString="{0:d}" />
+			<asp:BoundField DataField="Fecha_Fin" HeaderText="Fecha_Fin"  DataFormatString="{0:d}" />
 			<asp:BoundField DataField="Estado" HeaderText="Estado" Visible = "false"  />
 			</Columns>
     </asp:GridView>
@@ -139,7 +139,7 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Fecha_Ini </td>
-                <td><asp:TextBox ID="Fecha_IniTextBox" runat="server" Text='<%# Bind("Fecha_Ini") %>'  CssClass="txtEdit"  />
+                <td><asp:TextBox ID="Fecha_IniTextBox" runat="server" Text='<%# Bind("Fecha_Ini","{0:d}") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqFecha_Ini" runat="server" 
                     ControlToValidate="Fecha_IniTextBox"
@@ -149,7 +149,7 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Fecha_Fin </td>
-                <td><asp:TextBox ID="Fecha_FinTextBox" runat="server" Text='<%# Bind("Fecha_Fin") %>'  CssClass="txtEdit"  />
+                <td><asp:TextBox ID="Fecha_FinTextBox" runat="server" Text='<%# Bind("Fecha_Fin","{0:d}") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqFecha_Fin" runat="server" 
                     ControlToValidate="Fecha_FinTextBox"
@@ -238,7 +238,7 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Fecha_Ini </td>
-                <td><asp:TextBox ID="Fecha_IniTextBox" runat="server" Text='<%# Bind("Fecha_Ini") %>'  CssClass="txtEdit"  />
+                <td><asp:TextBox ID="Fecha_IniTextBox" runat="server" Text='<%# Bind("Fecha_Ini","{0:d}") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqFecha_Ini" runat="server" 
                     ControlToValidate="Fecha_IniTextBox"
@@ -248,7 +248,7 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Fecha_Fin </td>
-                <td><asp:TextBox ID="Fecha_FinTextBox" runat="server" Text='<%# Bind("Fecha_Fin") %>'  CssClass="txtEdit"  />
+                <td><asp:TextBox ID="Fecha_FinTextBox" runat="server" Text='<%# Bind("Fecha_Fin","{0:d}") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqFecha_Fin" runat="server" 
                     ControlToValidate="Fecha_FinTextBox"
@@ -300,11 +300,11 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Fecha_Ini </td>
-                <td><asp:TextBox ID="Fecha_IniTextBox" runat="server" Text='<%# Bind("Fecha_Ini") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+                <td><asp:TextBox ID="Fecha_IniTextBox" runat="server" Text='<%# Bind("Fecha_Ini","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
 			<tr >
                 <td> Fecha_Fin </td>
-                <td><asp:TextBox ID="Fecha_FinTextBox" runat="server" Text='<%# Bind("Fecha_Fin") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+                <td><asp:TextBox ID="Fecha_FinTextBox" runat="server" Text='<%# Bind("Fecha_Fin","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
 			<tr style="display:none">
                 <td> Estado </td>
@@ -324,6 +324,9 @@ TagPrefix="ajax" %>
         <asp:ValidationSummary ID="vsErrorResumen" runat="server"/>
     </asp:Panel>
 
+    <%--GridView con el detalle--%>
+
+
     <%--Fuente de datos para el GridView --%>
     <asp:ObjectDataSource ID="odsgvPla_Tarea" runat="server" 
         SelectMethod="Get" 
@@ -333,6 +336,14 @@ TagPrefix="ajax" %>
         </SelectParameters>
     </asp:ObjectDataSource>
 	<%--Fuente de datos para los procesos genéricos --%>
+    <asp:ObjectDataSource ID="odsgvPla_Tarea_GetByAnio" runat="server" 
+        SelectMethod="GetByAnio" 
+        TypeName="FEL.PLA.BO_Pla_Tarea">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+			<asp:ControlParameter ControlID="ddlCabecera" Name="p_Anio" PropertyName="SelectedValue" Type="string" />
+		</SelectParameters>
+    </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Tarea_GetById" runat="server" 
         SelectMethod="GetById" 
         TypeName="FEL.PLA.BO_Pla_Tarea">
@@ -358,8 +369,27 @@ TagPrefix="ajax" %>
 		<asp:ControlParameter ControlID="tbFiltro" Name="p_Nombre" PropertyName="Text" Type="string" />
 		</SelectParameters>
     </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsgvPla_Tarea_GetByAnioLikeNombre" runat="server" 
+        SelectMethod="GetByAnioLikeNombre" 
+        TypeName="FEL.PLA.BO_Pla_Tarea">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />			
+		    <asp:ControlParameter ControlID="ddlCabecera" Name="p_Anio" PropertyName="SelectedValue" Type="string" />
+		    <asp:ControlParameter ControlID="tbFiltro" Name="p_Nombre" PropertyName="Text" Type="string" />
+		</SelectParameters>
+    </asp:ObjectDataSource>
     <%--Objetos de Datos para obtener los dominios de un campo en un objeto --%>
     <asp:ObjectDataSource ID="odsDominioAnio" runat="server" 
+        SelectMethod="GetByObjetoCampo" 
+        TypeName="FEL.DIC.BO_Dic_Dominio">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="Nombre" Name="sortExpression" Type="String" />
+            <asp:SessionParameter DefaultValue="" Name="s" SessionField="Scope" Type="Object" />
+            <asp:Parameter DefaultValue="Pla_Cta" Name="Objeto_Nombre" Type="String" />
+            <asp:Parameter DefaultValue="Anio" Name="Campo_Nombre" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
         SelectMethod="GetByObjetoCampo" 
         TypeName="FEL.DIC.BO_Dic_Dominio">
         <SelectParameters>
@@ -391,6 +421,8 @@ TagPrefix="ajax" %>
             <asp:Parameter Name="n" Type="Object" />
         </UpdateParameters>
     </asp:ObjectDataSource>
+
+
 </ContentTemplate>
 </asp:UpdatePanel>
 </asp:Content>
