@@ -94,8 +94,13 @@ TagPrefix="ajax" %>
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
 			<#+ foreach(var campo in tabla.Campos){ 
+				if (campo.Nombre.StartsWith("Fecha")) { 
+				#><asp:BoundField DataField="<#= campo.Nombre #>" HeaderText="<#= campo.Nombre #>" <#= (campo.Nombre =="Id" || campo.Nombre =="Estado")? "Visible = \"false\"":"" #>  DataFormatString="{0:d}" />
+				<#+ } else if (campo.Nombre.StartsWith("Valor")) {
+				#><asp:BoundField DataField="<#= campo.Nombre #>" HeaderText="<#= campo.Nombre #>" <#= (campo.Nombre =="Id" || campo.Nombre =="Estado")? "Visible = \"false\"":"" #>   DataFormatString="{0:N2}"/>
+				<#+ } else {
 				#><asp:BoundField DataField="<#= campo.Nombre #>" HeaderText="<#= campo.Nombre #>" <#= (campo.Nombre =="Id" || campo.Nombre =="Estado")? "Visible = \"false\"":"" #>  />
-			<#+ }
+			<#+ }}
 	#></Columns>
     </asp:GridView>
     </asp:Panel>
@@ -220,10 +225,12 @@ TagPrefix="ajax" %>
 				#><td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>","{0:d}") %>' <#+ CssCampoEdit(campo.Nombre); #> />
 				<asp:Button runat="server" ID="btcex<#= campo.Nombre #>" Text="."/>
 				<ajax:CalendarExtender runat="server" ID="cex<#= campo.Nombre #>" TargetControlID="<#= campo.Nombre #>TextBox" PopupButtonID="btcex<#= campo.Nombre #>" />
-				<#+ }  else { 
-				#><td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>' <#+ CssCampoEdit(campo.Nombre); #> />
-				<#+ }
-				if ( !constantes.CamposNoValidar.Any(c => c == campo.Nombre) ) {
+				<#+ }  else if (campo.Nombre.StartsWith("Valor")) { 
+				#><td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>","0:N2") %>' <#+ CssCampoEdit(campo.Nombre); #> />
+				<#+ } else {
+			    #><td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>' <#+ CssCampoEdit(campo.Nombre); #> />
+				<#+}
+				if ( !constantes.CamposNoValidar.Any(c => c == campo.Nombre) || campo.Nombre.EndsWith("_Id") ) {
 				#><%--Validador--%>
                     <asp:RequiredFieldValidator ID="rq<#= campo.Nombre #>" runat="server" 
                     ControlToValidate="<#= campo.Nombre #>TextBox"
@@ -260,8 +267,14 @@ TagPrefix="ajax" %>
 			<#+ foreach(var campo in tabla.Campos){  
             #><tr <#= (campo.Nombre == "Id"||campo.Nombre == "Estado")? "style=\"display:none\"":"" #>>
                 <td> <#= campo.Nombre #> </td>
-                <td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>'  ReadOnly="true" <#+ CssCampoItem(campo.Nombre); #>/></td>
-            </tr>
+				<#+ if (campo.Nombre.StartsWith("Fecha")) { 
+                #><td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>","{0:d}") %>'  ReadOnly="true" <#+ CssCampoItem(campo.Nombre); #>/></td>
+				<#+ } else if (campo.Nombre.StartsWith("Valor")) {
+			    #><td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>","{0:N2}") %>'  ReadOnly="true" <#+ CssCampoItem(campo.Nombre); #>/></td>
+				<#+ } else {
+				#><td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>'  ReadOnly="true" <#+ CssCampoItem(campo.Nombre); #>/></td>
+				<#+ } #>
+			</tr>
 			<#+ } #></table>
 <#+ } #>
 

@@ -273,9 +273,6 @@
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Planificacion.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Planificacion.xss">
-      <DependentUpon>Planificacion.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

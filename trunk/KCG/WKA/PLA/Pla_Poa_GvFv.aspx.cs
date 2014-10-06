@@ -152,10 +152,8 @@ public partial class PLA_Pla_Poa_GvFv : PaginaBase
     protected void fvPla_Poa_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
         // Controla el cambio del formato de las fechas
-        e.NewValues["Valor_Inicial"] = Decimal.Parse((string)e.NewValues["Valor_Inicial"]);
-        e.NewValues["Valor_Suma"] = Decimal.Parse((string)e.NewValues["Valor_Suma"]);
-        e.OldValues["Valor_Inicial"] = Decimal.Parse((string)e.OldValues["Valor_Inicial"]);
-        e.OldValues["Valor_Suma"] = Decimal.Parse((string)e.OldValues["Valor_Suma"]);
+        // e.NewValues["Fecha_Ini"] = DateTime.Parse((string)e.NewValues["Fecha_Ini"]);
+        // e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);        
     }
 
     #endregion
@@ -211,12 +209,5 @@ public partial class PLA_Pla_Poa_GvFv : PaginaBase
     protected void Page_Init(object sender, EventArgs e)
     {
         // Inicializa el control 
-    }
-    protected void odsfvPla_Poa_Updating(object sender, ObjectDataSourceMethodEventArgs e)
-    {
-        var param = e.InputParameters;
-        var values = param.Values;
-        foreach (var v in values)
-            ;
     }
 }

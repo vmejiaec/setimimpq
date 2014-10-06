@@ -70,9 +70,9 @@ TagPrefix="ajax" %>
 			<asp:BoundField DataField="Pla_Cta_Nombre" HeaderText="Pla_Cta_Nombre"   />
 			<asp:BoundField DataField="Pla_Partida_Codigo" HeaderText="Pla_Partida_Codigo"   />
 			<asp:BoundField DataField="Pla_Partida_Nombre" HeaderText="Pla_Partida_Nombre"   />
-			<asp:BoundField DataField="Valor_Inicial" HeaderText="Valor_Inicial"   />
-			<asp:BoundField DataField="Valor_Suma" HeaderText="Valor_Suma"   />
-			</Columns>
+			<asp:BoundField DataField="Valor_Inicial" HeaderText="Valor_Inicial"    DataFormatString="{0:N2}"/>
+				<asp:BoundField DataField="Valor_Suma" HeaderText="Valor_Suma"    DataFormatString="{0:N2}"/>
+				</Columns>
     </asp:GridView>
     </asp:Panel>
 	<%--[X] GridView--%>
@@ -202,7 +202,7 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Valor_Inicial </td>                
-				<td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text='<%# Bind("Valor_Inicial") %>'  CssClass="txtEdit"  />
+				<td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text='<%# Bind("Valor_Inicial","0:N2") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqValor_Inicial" runat="server" 
                     ControlToValidate="Valor_InicialTextBox"
@@ -212,7 +212,7 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Valor_Suma </td>                
-				<td><asp:TextBox ID="Valor_SumaTextBox" runat="server" Text='<%# Bind("Valor_Suma") %>'  CssClass="txtEdit"  />
+				<td><asp:TextBox ID="Valor_SumaTextBox" runat="server" Text='<%# Bind("Valor_Suma","0:N2") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqValor_Suma" runat="server" 
                     ControlToValidate="Valor_SumaTextBox"
@@ -341,7 +341,7 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Valor_Inicial </td>                
-				<td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text='<%# Bind("Valor_Inicial") %>'  CssClass="txtEdit"  />
+				<td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text='<%# Bind("Valor_Inicial","0:N2") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqValor_Inicial" runat="server" 
                     ControlToValidate="Valor_InicialTextBox"
@@ -351,7 +351,7 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Valor_Suma </td>                
-				<td><asp:TextBox ID="Valor_SumaTextBox" runat="server" Text='<%# Bind("Valor_Suma") %>'  CssClass="txtEdit"  />
+				<td><asp:TextBox ID="Valor_SumaTextBox" runat="server" Text='<%# Bind("Valor_Suma","0:N2") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqValor_Suma" runat="server" 
                     ControlToValidate="Valor_SumaTextBox"
@@ -370,60 +370,60 @@ TagPrefix="ajax" %>
             <table>
 			<tr style="display:none">
                 <td> Id </td>
-                <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
+				<td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
 			<tr >
                 <td> Codigo </td>
-                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
+				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
 			<tr >
                 <td> Pla_Tarea_Id </td>
-                <td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
+				<td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
 			<tr >
                 <td> Pla_Partida_Id </td>
-                <td><asp:TextBox ID="Pla_Partida_IdTextBox" runat="server" Text='<%# Bind("Pla_Partida_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
+				<td><asp:TextBox ID="Pla_Partida_IdTextBox" runat="server" Text='<%# Bind("Pla_Partida_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
 			<tr style="display:none">
                 <td> Estado </td>
-                <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
+				<td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
 			<tr >
                 <td> Pla_Tarea_Codigo </td>
-                <td><asp:TextBox ID="Pla_Tarea_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
+				<td><asp:TextBox ID="Pla_Tarea_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
 			<tr >
                 <td> Pla_Tarea_Nombre </td>
-                <td><asp:TextBox ID="Pla_Tarea_NombreTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Nombre") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
+				<td><asp:TextBox ID="Pla_Tarea_NombreTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Nombre") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
 			<tr >
                 <td> Pla_Cta_Id </td>
-                <td><asp:TextBox ID="Pla_Cta_IdTextBox" runat="server" Text='<%# Bind("Pla_Cta_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
+				<td><asp:TextBox ID="Pla_Cta_IdTextBox" runat="server" Text='<%# Bind("Pla_Cta_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
 			<tr >
                 <td> Pla_Cta_Codigo </td>
-                <td><asp:TextBox ID="Pla_Cta_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Cta_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
+				<td><asp:TextBox ID="Pla_Cta_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Cta_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
 			<tr >
                 <td> Pla_Cta_Nombre </td>
-                <td><asp:TextBox ID="Pla_Cta_NombreTextBox" runat="server" Text='<%# Bind("Pla_Cta_Nombre") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
+				<td><asp:TextBox ID="Pla_Cta_NombreTextBox" runat="server" Text='<%# Bind("Pla_Cta_Nombre") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
 			<tr >
                 <td> Pla_Partida_Codigo </td>
-                <td><asp:TextBox ID="Pla_Partida_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Partida_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
+				<td><asp:TextBox ID="Pla_Partida_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Partida_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
 			<tr >
                 <td> Pla_Partida_Nombre </td>
-                <td><asp:TextBox ID="Pla_Partida_NombreTextBox" runat="server" Text='<%# Bind("Pla_Partida_Nombre") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
+				<td><asp:TextBox ID="Pla_Partida_NombreTextBox" runat="server" Text='<%# Bind("Pla_Partida_Nombre") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
 			<tr >
                 <td> Valor_Inicial </td>
-                <td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text='<%# Bind("Valor_Inicial") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
+				<td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text='<%# Bind("Valor_Inicial","{0:N2}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
 			<tr >
                 <td> Valor_Suma </td>
-                <td><asp:TextBox ID="Valor_SumaTextBox" runat="server" Text='<%# Bind("Valor_Suma") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
+				<td><asp:TextBox ID="Valor_SumaTextBox" runat="server" Text='<%# Bind("Valor_Suma","{0:N2}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
 			</table>
             <asp:Button ID="EditButton" RunAt="server"  CausesValidation="False" CommandName="Edit" Text="Editar" />
             &nbsp;
