@@ -79,7 +79,8 @@ TagPrefix="ajax" %>
             onitemupdated="fvPla_Poa_ItemUpdated"
 			ondatabound="fvPla_Poa_DataBound" 
             onprerender="fvPla_Poa_PreRender"
-			onitemupdating="fvPla_Poa_ItemUpdating">
+			onitemupdating="fvPla_Poa_ItemUpdating" 
+            onitemdeleting="fvPla_Poa_ItemDeleting">
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
 			<table>
@@ -88,11 +89,11 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  CssClass="txtEdit"  />
 				</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Codigo </td>                
 				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  CssClass="txtEdit"  /></td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Pla_Tarea_Id </td>                
 				<td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  CssClass="txtEdit"  /></td>
             </tr>
@@ -139,13 +140,13 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  CssClass="txtEdit"  />
 				</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Codigo </td>                
-				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  CssClass="txtEdit"  />
+				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  CssClass="txtEdit" />
 				</td>
             </tr>
 			<tr >
-                <td> Pla_Tarea_Id </td>                
+                <td> Pla_Tarea_Id  </td>                
 				<td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  CssClass="txtEdit"  />
 				</td>
             </tr>
@@ -192,15 +193,15 @@ TagPrefix="ajax" %>
                 <td> Id </td>
                 <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
-			<tr >
+			<tr style="display:none" >
                 <td> Codigo </td>
                 <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
-			<tr >
+			<tr  style="display:none" >
                 <td> Pla_Tarea_Id </td>
                 <td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
-			<tr >
+			<tr  style="display:none" >
                 <td> Pla_Partida_Id </td>
                 <td><asp:TextBox ID="Pla_Partida_IdTextBox" runat="server" Text='<%# Bind("Pla_Partida_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>

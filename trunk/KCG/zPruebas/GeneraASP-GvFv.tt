@@ -82,7 +82,7 @@ TagPrefix="ajax" %>
     </asp:Panel>
 	<%--[X] Filtro--%>
 
-    <%--[O] GridView--%>
+    <%--[O] GridView de <#= tabla.Nombre #> --%>
     <asp:Panel runat="server" GroupingText="Registros">
     <asp:GridView ID="gv<#= tabla.Nombre #>" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgv<#= tabla.Nombre #>" 
@@ -104,9 +104,9 @@ TagPrefix="ajax" %>
 	#></Columns>
     </asp:GridView>
     </asp:Panel>
-	<%--[X] GridView--%>
+	<%--[X] GridView de <#= tabla.Nombre #> --%>
 
-    <%--[O] FormView--%>
+    <%--[O] FormView de <#= tabla.Nombre #> --%>
     <asp:Panel runat="server" ID="pfv<#= tabla.Nombre #>" GroupingText="Crear, Editar o Borar un Registro">
     <koala:FormViewSetim ID="fv<#= tabla.Nombre #>" runat="server" DataSourceID="odsfv<#= tabla.Nombre #>" 
             oniteminserting="fv<#= tabla.Nombre #>_ItemInserting" 
@@ -115,7 +115,9 @@ TagPrefix="ajax" %>
             onitemupdated="fv<#= tabla.Nombre #>_ItemUpdated"
 			ondatabound="fv<#= tabla.Nombre #>_DataBound" 
             onprerender="fv<#= tabla.Nombre #>_PreRender"
-			onitemupdating="fv<#= tabla.Nombre #>_ItemUpdating">
+			onitemupdating="fv<#= tabla.Nombre #>_ItemUpdating"
+			onitemupdating="fv<#= tabla.Nombre #>_ItemDeleting"
+			>
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
 			<#+ FV_Campos_Edit_Insert_Template(tabla); #>
@@ -147,12 +149,12 @@ TagPrefix="ajax" %>
         <asp:Label ID="lbFvMsgInfo" runat="server" Text=">" CssClass="FvMensajeInfo"></asp:Label>
         <asp:ValidationSummary ID="vsErrorResumen" runat="server"/>
     </asp:Panel>
-	<%--[X] FormView--%>
+	<%--[X] FormView de <#= tabla.Nombre #> --%>
 
 </ContentTemplate>
 </asp:UpdatePanel>
 
-<%--[O]INICIO Fuentes de datos--%>
+<%--[O]INICIO Fuentes de datos de <#= tabla.Nombre #> --%>
 <div>
     <%--Fuente de datos para el GridView --%>
     <asp:ObjectDataSource ID="odsgv<#= tabla.Nombre #>" runat="server" 
@@ -210,7 +212,7 @@ TagPrefix="ajax" %>
         </UpdateParameters>
     </asp:ObjectDataSource>
 </div>
-<%--[X] FIN Fuentes de datos--%>
+<%--[X] FIN Fuentes de datos de <#= tabla.Nombre #> --%>
 </asp:Content>
 <#+ 
   }
@@ -308,15 +310,20 @@ using System.Web;
 
 public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
 {
-    // Carga inicial
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        
-    }
     // Nombre del contenedor
     protected override string Contenedor
     {
         get { return "PLA_<#= tabla.Nombre #>_GvFv"; }
+    }
+	// Inicializar controles al arranque de la página
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        // Inicializa el control 
+    }
+    // Carga inicial
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        
     }
     // Controles para el Filtrar
     #region Controles para el Filtrar
@@ -351,8 +358,36 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
     }
     #endregion
 
-    // Eventos para despues de FormView
-    #region Eventos para despues de FormView
+	#region Eventos del GridView de <#= tabla.Nombre #>
+    // Evento se dispara cuando se selecciona una fila del GridView
+    protected void gv<#= tabla.Nombre #>_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        lbFvMsgError.Text = ":";
+        lbFvMsgInfo.Text = ">";
+    }
+	// Busca y selecciona la fila indicada en el GridView
+    protected void SeleccionarFilaEnGV<#= tabla.Nombre #>(GridView gv, string txtId)
+    {
+        int noPagina = 0;
+        int noFila = 0;
+        if (!String.IsNullOrEmpty(txtId))
+        {
+            int nFiltroId = Convert.ToInt32(txtId);
+            var ods = (ObjectDataSource)gv<#= tabla.Nombre #>.DataSourceObject;
+            List<<#= tabla.Nombre #>> lista = (List<<#= tabla.Nombre #>>)ods.Select();
+            int pos = lista.FindIndex(o => o.Id == nFiltroId);
+            if (pos >= 0)
+            {
+                noPagina = pos / gv<#= tabla.Nombre #>.PageSize;
+                noFila = pos - noPagina * gv<#= tabla.Nombre #>.PageSize;
+            }
+        }
+        gv<#= tabla.Nombre #>.PageIndex = noPagina;
+        gv<#= tabla.Nombre #>.SelectedIndex = noFila;
+    }
+	#endregion
+	// Eventos para el FormView de <#= tabla.Nombre #>
+    #region Eventos el FormView de <#= tabla.Nombre #>
     protected void fv<#= tabla.Nombre #>_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
     {
         if (e.Exception != null)
@@ -394,9 +429,50 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
             gv<#= tabla.Nombre #>.DataBind();
         }
     }
-    #endregion
-    // Eventos para despues del ObjectDataSource del FormView
-    #region Eventos para despues del ObjectDataSource del FormView
+    protected void fv<#= tabla.Nombre #>_ItemInserting(object sender, FormViewInsertEventArgs e)
+    {
+        // Valor por defecto del Id y Estado
+        e.Values["Id"] = -1;
+        if (String.IsNullOrWhiteSpace((string)e.Values["Estado"])) e.Values["Estado"] = "PEN";
+		// Cambio del formato de los campos de fechas
+		// e.Values["Fecha_Ini"] = DateTime.Parse((string)e.Values["Fecha_Ini"]);
+    }	
+    protected void fv<#= tabla.Nombre #>_ItemUpdating(object sender, FormViewUpdateEventArgs e)
+    {
+        // Controla el cambio del formato de las fechas
+        // e.NewValues["Fecha_Ini"] = DateTime.Parse((string)e.NewValues["Fecha_Ini"]);
+        // e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);        
+    }
+    protected void fv<#= tabla.Nombre #>_ItemDeleting(object sender, FormViewDeleteEventArgs e)
+    {
+        // Control de valores antes del borrado como fechas y números
+        // e.Values["Valor_Inicial"] = "0";
+        //e.Values["Valor_Suma"] = "0";
+    }
+	// Inicializa los valores antes de que el FormView se dibuje en la página
+    protected void fv<#= tabla.Nombre #>_PreRender(object sender, EventArgs e)
+    {
+        switch (fv<#= tabla.Nombre #>.CurrentMode)
+        {
+            case FormViewMode.Insert:			
+                //((TextBox)fvPla_Poa.FindControl("CodigoTextBox")).Text = "1";
+                //((TextBox)fvPla_Poa.FindControl("EstadoTextBox")).Text = "PEN";
+                break;
+            case FormViewMode.Edit:
+                break;
+            case FormViewMode.ReadOnly:
+                break;
+        }
+    }
+	// Si no hay filas en el GridView entonces el FormView cambia a modo Insert
+    protected void fv<#= tabla.Nombre #>_DataBound(object sender, EventArgs e)
+    {
+        if (gv<#= tabla.Nombre #>.Rows.Count == 0)
+            fv<#= tabla.Nombre #>.ChangeMode(FormViewMode.Insert);
+    }
+	#endregion
+	// Eventos para el ObjectDataSource
+    #region Eventos para el ObjectDataSource
     protected void odsfv<#= tabla.Nombre #>_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
     {
         if (e.Exception != null)
@@ -442,79 +518,14 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
             lbFvMsgInfo.Text = "Registro Borrado.";
             AsignarMensaje("Registro Borrado.", bien);
         }
-    }
-    #endregion
-
-    // Valores por defecto antes de enviar a insertar, actualizar o borrar.
-    #region Valores por defecto
-    protected void fv<#= tabla.Nombre #>_ItemInserting(object sender, FormViewInsertEventArgs e)
-    {
-        // Valor por defecto del Id y Estado
-        e.Values["Id"] = -1;
-        if (String.IsNullOrWhiteSpace((string)e.Values["Estado"])) e.Values["Estado"] = "PEN";
-		// Cambio del formato de los campos de fechas
-		// e.Values["Fecha_Ini"] = DateTime.Parse((string)e.Values["Fecha_Ini"]);
     }	
-    protected void fv<#= tabla.Nombre #>_ItemUpdating(object sender, FormViewUpdateEventArgs e)
-    {
-        // Controla el cambio del formato de las fechas
-        // e.NewValues["Fecha_Ini"] = DateTime.Parse((string)e.NewValues["Fecha_Ini"]);
-        // e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);        
-    }
+	#endregion
+	
+	
+	
+	// -----------------------------------------------------------------------------------------------------------------------
 
-    #endregion
 
-    // Evento cuando se selecciona una fila del Grid
-    protected void gv<#= tabla.Nombre #>_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        lbFvMsgError.Text = ":";
-        lbFvMsgInfo.Text = ">";
-    }
-	// Si no hay filas en el GridView entonces el FormView cambia a modo Insert
-    protected void fv<#= tabla.Nombre #>_DataBound(object sender, EventArgs e)
-    {
-        if (gv<#= tabla.Nombre #>.Rows.Count == 0)
-            fv<#= tabla.Nombre #>.ChangeMode(FormViewMode.Insert);
-    }
-	// Busca y selecciona la fila indicada en el GridView
-    protected void SeleccionarFilaEnGV<#= tabla.Nombre #>(GridView gv, string txtId)
-    {
-        int noPagina = 0;
-        int noFila = 0;
-        if (!String.IsNullOrEmpty(txtId))
-        {
-            int nFiltroId = Convert.ToInt32(txtId);
-            var ods = (ObjectDataSource)gv<#= tabla.Nombre #>.DataSourceObject;
-            List<<#= tabla.Nombre #>> lista = (List<<#= tabla.Nombre #>>)ods.Select();
-            int pos = lista.FindIndex(o => o.Id == nFiltroId);
-            if (pos >= 0)
-            {
-                noPagina = pos / gv<#= tabla.Nombre #>.PageSize;
-                noFila = pos - noPagina * gv<#= tabla.Nombre #>.PageSize;
-            }
-        }
-        gv<#= tabla.Nombre #>.PageIndex = noPagina;
-        gv<#= tabla.Nombre #>.SelectedIndex = noFila;
-    }
 
-    // Inicializa los valores antes de que el FormView se dibuje en la página
-    protected void fv<#= tabla.Nombre #>_PreRender(object sender, EventArgs e)
-    {
-        switch (fv<#= tabla.Nombre #>.CurrentMode)
-        {
-            case FormViewMode.Insert:
-                break;
-            case FormViewMode.Edit:
-                break;
-            case FormViewMode.ReadOnly:
-                break;
-        }
-    }
-
-    // Inicializar controles aumentar a la plantilla
-    protected void Page_Init(object sender, EventArgs e)
-    {
-        // Inicializa el control 
-    }
 }
 <#+} #>
