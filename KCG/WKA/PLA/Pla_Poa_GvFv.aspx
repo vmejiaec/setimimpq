@@ -13,41 +13,29 @@ Namespace="AjaxControlToolkit"
 TagPrefix="ajax" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-
-<%--Funcion para poner el formato numérico a los campos del FV--%>
-<script type="text/javascript">
+    <%--Funcion para poner el formato numérico a los campos del FV--%>
+<%--<script type="text/javascript">
     function PonerFormatoNumericoACamposFV() {
-        //alert(" Key : " + '<%= TextBox1.ClientID %>');
         $('#ctl00_ContentPlaceHolder1_fvPla_Poa_Valor_InicialTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
         $('#ctl00_ContentPlaceHolder1_fvPla_Poa_Valor_SumaTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
     }
-</script>
-
+</script>--%>
 <asp:UpdatePanel runat="server" ID="udp">
 <ContentTemplate>
-
 <%--Ejecuta la función antes de presentar los objetos en pantalla mediante PageRequestManager--%>
-<script type="text/javascript">
+<%--<script type="text/javascript">
     Sys.WebForms.PageRequestManager.getInstance().add_endRequest(PonerFormatoNumericoACamposFV);
 </script>
-
-    <%--Cabecera--%>
+--%>
+    <%--[O] Cabecera--%>
     <asp:Panel runat="server" ID="pcabecera" GroupingText="Cabecera">
         <asp:Label ID="lbCabecera" runat="server" Text="Seleccionar el ... :"></asp:Label>
         <asp:DropDownList ID="ddlCabecera" runat="server" AutoPostBack="true" >
-        </asp:DropDownList>  
-         
-            
-        <asp:TextBox runat ="server" ID="TextBox1" Text="1,23" ></asp:TextBox>
-<script type="text/javascript">
-    //alert(" Key : " + '<%= TextBox1.ClientID %>');
-    $('#ctl00_ContentPlaceHolder1_TextBox1').autoNumeric('init', { aSep: '.', aDec: ',' });
-</script> 
-
-
+        </asp:DropDownList>        
     </asp:Panel>
+	<%--[X] Cabecera--%>
 
-    <%--Filtro--%>
+    <%--[O] Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
         <asp:Label ID="lbFiltro" runat="server" Text="Filtro"></asp:Label>
         <asp:TextBox ID="tbFiltro" runat="server"></asp:TextBox>
@@ -57,8 +45,9 @@ TagPrefix="ajax" %>
             <asp:ListItem Text = "Todos" Value="Todos" ></asp:ListItem>
 			</asp:DropDownList>
     </asp:Panel>
+	<%--[X] Filtro--%>
 
-    <%--GridView--%>
+    <%--[O] GridView--%>
     <asp:Panel runat="server" GroupingText="Registros">
     <asp:GridView ID="gvPla_Poa" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Poa" 
@@ -69,25 +58,19 @@ TagPrefix="ajax" %>
             onselectedindexchanged="gvPla_Poa_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
-			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />
-			<asp:BoundField DataField="Codigo" HeaderText="Codigo"  Visible = "false"  />
+			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />			
 			<asp:BoundField DataField="Pla_Tarea_Id" HeaderText="Pla_Tarea_Id"  Visible = "false" />
 			<asp:BoundField DataField="Pla_Partida_Id" HeaderText="Pla_Partida_Id"   Visible = "false"/>
-			<asp:BoundField DataField="Estado" HeaderText="Estado" Visible = "false"  />
-			<asp:BoundField DataField="Pla_Tarea_Codigo" HeaderText="Tarea Codigo"  />
-			<asp:BoundField DataField="Pla_Tarea_Nombre" HeaderText="Tarea Nombre"  />
-			<asp:BoundField DataField="Pla_Cta_Id" HeaderText="Pla_Cta_Id"  Visible = "false" />
-			<asp:BoundField DataField="Pla_Cta_Codigo" HeaderText="Pla_Cta_Codigo"  Visible = "false"  />
-			<asp:BoundField DataField="Pla_Cta_Nombre" HeaderText="Pla_Cta_Nombre"  Visible = "false"  />
-			<asp:BoundField DataField="Pla_Partida_Codigo" HeaderText="Partida Codigo"   />
-			<asp:BoundField DataField="Pla_Partida_Nombre" HeaderText="Partida Nombre"   />
-			<asp:BoundField DataField="Valor_Inicial" HeaderText="Valor_Inicial"   />
-			<asp:BoundField DataField="Valor_Suma" HeaderText="Valor_Suma"   />
+			<asp:BoundField DataField="Pla_Partida_Codigo" HeaderText="Partida_Codigo"   />
+			<asp:BoundField DataField="Pla_Partida_Nombre" HeaderText="Partida_Nombre"   />
+			<asp:BoundField DataField="Valor_Inicial" HeaderText="Valor_Inicial" DataFormatString="{0:N2}" />
+			<asp:BoundField DataField="Valor_Suma" HeaderText="Valor_Suma" DataFormatString="{0:N2}" />
 			</Columns>
     </asp:GridView>
     </asp:Panel>
+	<%--[X] GridView--%>
 
-    <%--FormView--%>
+    <%--[O] FormView--%>
     <asp:Panel runat="server" ID="pfvPla_Poa" GroupingText="Crear, Editar o Borar un Registro">
     <koala:FormViewSetim ID="fvPla_Poa" runat="server" DataSourceID="odsfvPla_Poa" 
             oniteminserting="fvPla_Poa_ItemInserting" 
@@ -107,88 +90,20 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Codigo </td>                
-				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqCodigo" runat="server" 
-                    ControlToValidate="CodigoTextBox"
-                    ErrorMessage="El campo Codigo es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
+				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  CssClass="txtEdit"  /></td>
             </tr>
 			<tr >
                 <td> Pla_Tarea_Id </td>                
-				<td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Tarea_Id" runat="server" 
-                    ControlToValidate="Pla_Tarea_IdTextBox"
-                    ErrorMessage="El campo Pla_Tarea_Id es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
+				<td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  CssClass="txtEdit"  /></td>
             </tr>
 			<tr >
                 <td> Pla_Partida_Id </td>                
-				<td><asp:TextBox ID="Pla_Partida_IdTextBox" runat="server" Text='<%# Bind("Pla_Partida_Id") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Partida_Id" runat="server" 
-                    ControlToValidate="Pla_Partida_IdTextBox"
-                    ErrorMessage="El campo Pla_Partida_Id es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
+				<td><asp:TextBox ID="Pla_Partida_IdTextBox" runat="server" Text='<%# Bind("Pla_Partida_Id") %>'  CssClass="txtEdit"  /></td>
             </tr>
 			<tr style="display:none">
                 <td> Estado </td>                
 				<td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  CssClass="txtEdit"  />
 				</td>
-            </tr>
-			<tr >
-                <td> Pla_Tarea_Codigo </td>                
-				<td><asp:TextBox ID="Pla_Tarea_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Codigo") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Tarea_Codigo" runat="server" 
-                    ControlToValidate="Pla_Tarea_CodigoTextBox"
-                    ErrorMessage="El campo Pla_Tarea_Codigo es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
-            </tr>
-			<tr >
-                <td> Pla_Tarea_Nombre </td>                
-				<td><asp:TextBox ID="Pla_Tarea_NombreTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Nombre") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Tarea_Nombre" runat="server" 
-                    ControlToValidate="Pla_Tarea_NombreTextBox"
-                    ErrorMessage="El campo Pla_Tarea_Nombre es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
-            </tr>
-			<tr >
-                <td> Pla_Cta_Id </td>                
-				<td><asp:TextBox ID="Pla_Cta_IdTextBox" runat="server" Text='<%# Bind("Pla_Cta_Id") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Cta_Id" runat="server" 
-                    ControlToValidate="Pla_Cta_IdTextBox"
-                    ErrorMessage="El campo Pla_Cta_Id es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
-            </tr>
-			<tr >
-                <td> Pla_Cta_Codigo </td>                
-				<td><asp:TextBox ID="Pla_Cta_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Cta_Codigo") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Cta_Codigo" runat="server" 
-                    ControlToValidate="Pla_Cta_CodigoTextBox"
-                    ErrorMessage="El campo Pla_Cta_Codigo es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
-            </tr>
-			<tr >
-                <td> Pla_Cta_Nombre </td>                
-				<td><asp:TextBox ID="Pla_Cta_NombreTextBox" runat="server" Text='<%# Bind("Pla_Cta_Nombre") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Cta_Nombre" runat="server" 
-                    ControlToValidate="Pla_Cta_NombreTextBox"
-                    ErrorMessage="El campo Pla_Cta_Nombre es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
             </tr>
 			<tr >
                 <td> Pla_Partida_Codigo </td>                
@@ -207,30 +122,6 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Nombre" runat="server" 
                     ControlToValidate="Pla_Partida_NombreTextBox"
                     ErrorMessage="El campo Pla_Partida_Nombre es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
-            </tr>
-			<tr >
-                <td> Valor_Inicial </td>                
-				<td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text='<%# Bind("Valor_Inicial","{0:N2}") %>'  CssClass="txtEdit"  />
-
-<input type="button"  id="botonn" value ="..." onclick="$('#ctl00_ContentPlaceHolder1_fvPla_Poa_Valor_InicialTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });"/>
-
-
-                <%--Validador--%>
-                <asp:RequiredFieldValidator ID="rqValor_Inicial" runat="server" 
-                    ControlToValidate="Valor_InicialTextBox"
-                    ErrorMessage="El campo Valor_Inicial es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-				</td>
-            </tr>
-			<tr >
-                <td> Valor_Suma </td>                
-				<td><asp:TextBox ID="Valor_SumaTextBox" runat="server" Text='<%# Bind("Valor_Suma","{0:N2}") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqValor_Suma" runat="server" 
-                    ControlToValidate="Valor_SumaTextBox"
-                    ErrorMessage="El campo Valor_Suma es obligatorio" 
                     Text="X" Display="Dynamic"/>
 					</td>
             </tr>
@@ -251,87 +142,22 @@ TagPrefix="ajax" %>
 			<tr >
                 <td> Codigo </td>                
 				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqCodigo" runat="server" 
-                    ControlToValidate="CodigoTextBox"
-                    ErrorMessage="El campo Codigo es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
+				</td>
             </tr>
 			<tr >
                 <td> Pla_Tarea_Id </td>                
 				<td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Tarea_Id" runat="server" 
-                    ControlToValidate="Pla_Tarea_IdTextBox"
-                    ErrorMessage="El campo Pla_Tarea_Id es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
+				</td>
             </tr>
 			<tr >
                 <td> Pla_Partida_Id </td>                
 				<td><asp:TextBox ID="Pla_Partida_IdTextBox" runat="server" Text='<%# Bind("Pla_Partida_Id") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Partida_Id" runat="server" 
-                    ControlToValidate="Pla_Partida_IdTextBox"
-                    ErrorMessage="El campo Pla_Partida_Id es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
+				</td>
             </tr>
 			<tr style="display:none">
                 <td> Estado </td>                
 				<td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  CssClass="txtEdit"  />
 				</td>
-            </tr>
-			<tr >
-                <td> Pla_Tarea_Codigo </td>                
-				<td><asp:TextBox ID="Pla_Tarea_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Codigo") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Tarea_Codigo" runat="server" 
-                    ControlToValidate="Pla_Tarea_CodigoTextBox"
-                    ErrorMessage="El campo Pla_Tarea_Codigo es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
-            </tr>
-			<tr >
-                <td> Pla_Tarea_Nombre </td>                
-				<td><asp:TextBox ID="Pla_Tarea_NombreTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Nombre") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Tarea_Nombre" runat="server" 
-                    ControlToValidate="Pla_Tarea_NombreTextBox"
-                    ErrorMessage="El campo Pla_Tarea_Nombre es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
-            </tr>
-			<tr >
-                <td> Pla_Cta_Id </td>                
-				<td><asp:TextBox ID="Pla_Cta_IdTextBox" runat="server" Text='<%# Bind("Pla_Cta_Id") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Cta_Id" runat="server" 
-                    ControlToValidate="Pla_Cta_IdTextBox"
-                    ErrorMessage="El campo Pla_Cta_Id es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
-            </tr>
-			<tr >
-                <td> Pla_Cta_Codigo </td>                
-				<td><asp:TextBox ID="Pla_Cta_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Cta_Codigo") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Cta_Codigo" runat="server" 
-                    ControlToValidate="Pla_Cta_CodigoTextBox"
-                    ErrorMessage="El campo Pla_Cta_Codigo es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
-            </tr>
-			<tr >
-                <td> Pla_Cta_Nombre </td>                
-				<td><asp:TextBox ID="Pla_Cta_NombreTextBox" runat="server" Text='<%# Bind("Pla_Cta_Nombre") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Cta_Nombre" runat="server" 
-                    ControlToValidate="Pla_Cta_NombreTextBox"
-                    ErrorMessage="El campo Pla_Cta_Nombre es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
             </tr>
 			<tr >
                 <td> Pla_Partida_Codigo </td>                
@@ -350,26 +176,6 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Nombre" runat="server" 
                     ControlToValidate="Pla_Partida_NombreTextBox"
                     ErrorMessage="El campo Pla_Partida_Nombre es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
-            </tr>
-			<tr >
-                <td> Valor_Inicial </td>                
-				<td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text='<%# Bind("Valor_Inicial","{0:N2}") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqValor_Inicial" runat="server" 
-                    ControlToValidate="Valor_InicialTextBox"
-                    ErrorMessage="El campo Valor_Inicial es obligatorio" 
-                    Text="X" Display="Dynamic"/>
-					</td>
-            </tr>
-			<tr >
-                <td> Valor_Suma </td>                
-				<td><asp:TextBox ID="Valor_SumaTextBox" runat="server" Text='<%# Bind("Valor_Suma","{0:N2}") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqValor_Suma" runat="server" 
-                    ControlToValidate="Valor_SumaTextBox"
-                    ErrorMessage="El campo Valor_Suma es obligatorio" 
                     Text="X" Display="Dynamic"/>
 					</td>
             </tr>
@@ -403,26 +209,6 @@ TagPrefix="ajax" %>
                 <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
 			<tr >
-                <td> Pla_Tarea_Codigo </td>
-                <td><asp:TextBox ID="Pla_Tarea_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
-			<tr >
-                <td> Pla_Tarea_Nombre </td>
-                <td><asp:TextBox ID="Pla_Tarea_NombreTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Nombre") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
-			<tr >
-                <td> Pla_Cta_Id </td>
-                <td><asp:TextBox ID="Pla_Cta_IdTextBox" runat="server" Text='<%# Bind("Pla_Cta_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
-			<tr >
-                <td> Pla_Cta_Codigo </td>
-                <td><asp:TextBox ID="Pla_Cta_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Cta_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
-			<tr >
-                <td> Pla_Cta_Nombre </td>
-                <td><asp:TextBox ID="Pla_Cta_NombreTextBox" runat="server" Text='<%# Bind("Pla_Cta_Nombre") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-            </tr>
-			<tr >
                 <td> Pla_Partida_Codigo </td>
                 <td><asp:TextBox ID="Pla_Partida_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Partida_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
@@ -451,7 +237,13 @@ TagPrefix="ajax" %>
         <asp:Label ID="lbFvMsgInfo" runat="server" Text=">" CssClass="FvMensajeInfo"></asp:Label>
         <asp:ValidationSummary ID="vsErrorResumen" runat="server"/>
     </asp:Panel>
+	<%--[X] FormView--%>
 
+</ContentTemplate>
+</asp:UpdatePanel>
+
+<%--[O]INICIO Fuentes de datos--%>
+<div>
     <%--Fuente de datos para el GridView --%>
     <asp:ObjectDataSource ID="odsgvPla_Poa" runat="server" 
         SelectMethod="Get" 
@@ -508,7 +300,7 @@ TagPrefix="ajax" %>
         OldValuesParameterFormatString="o"
         oninserted="odsfvPla_Poa_Inserted" 
         onupdated="odsfvPla_Poa_Updated" 
-		ondeleted="odsfvPla_Poa_Deleted" onupdating="odsfvPla_Poa_Updating">
+		ondeleted="odsfvPla_Poa_Deleted">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
             <asp:ControlParameter ControlID="gvPla_Poa" Name="p_Id" PropertyName="SelectedValue" Type="Int32" />
@@ -518,6 +310,6 @@ TagPrefix="ajax" %>
             <asp:Parameter Name="n" Type="Object" />
         </UpdateParameters>
     </asp:ObjectDataSource>
-</ContentTemplate>
-</asp:UpdatePanel>
+</div>
+<%--[X] FIN Fuentes de datos--%>
 </asp:Content>
