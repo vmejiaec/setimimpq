@@ -637,6 +637,8 @@
               <Mapping SourceColumn="Pla_Cta_Nombre" DataSetColumn="Pla_Cta_Nombre" />
               <Mapping SourceColumn="Pla_Partida_Codigo" DataSetColumn="Pla_Partida_Codigo" />
               <Mapping SourceColumn="Pla_Partida_Nombre" DataSetColumn="Pla_Partida_Nombre" />
+              <Mapping SourceColumn="Valor_Inicial" DataSetColumn="Valor_Inicial" />
+              <Mapping SourceColumn="Valor_Suma" DataSetColumn="Valor_Suma" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="KCG_DataConnectionString (Settings)" DbObjectName="IMPQ.dbo.Pla_Poa_SelById" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillById" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetById" GeneratorSourceName="FillById" GetMethodModifier="Public" GetMethodName="GetById" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetById" UserSourceName="FillById">
@@ -789,7 +791,7 @@
   <xs:element name="Planificacion" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Planificacion" msprop:Generator_UserDSName="Planificacion">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Pla_Cta" msprop:Generator_TableClassName="Pla_CtaDataTable" msprop:Generator_TableVarName="tablePla_Cta" msprop:Generator_TablePropName="Pla_Cta" msprop:Generator_RowDeletingName="Pla_CtaRowDeleting" msprop:Generator_RowChangingName="Pla_CtaRowChanging" msprop:Generator_RowEvHandlerName="Pla_CtaRowChangeEventHandler" msprop:Generator_RowDeletedName="Pla_CtaRowDeleted" msprop:Generator_UserTableName="Pla_Cta" msprop:Generator_RowChangedName="Pla_CtaRowChanged" msprop:Generator_RowEvArgName="Pla_CtaRowChangeEvent" msprop:Generator_RowClassName="Pla_CtaRow">
+        <xs:element name="Pla_Cta" msprop:Generator_TableClassName="Pla_CtaDataTable" msprop:Generator_TableVarName="tablePla_Cta" msprop:Generator_RowChangedName="Pla_CtaRowChanged" msprop:Generator_TablePropName="Pla_Cta" msprop:Generator_RowDeletingName="Pla_CtaRowDeleting" msprop:Generator_RowChangingName="Pla_CtaRowChanging" msprop:Generator_RowEvHandlerName="Pla_CtaRowChangeEventHandler" msprop:Generator_RowDeletedName="Pla_CtaRowDeleted" msprop:Generator_RowClassName="Pla_CtaRow" msprop:Generator_UserTableName="Pla_Cta" msprop:Generator_RowEvArgName="Pla_CtaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -838,7 +840,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Pla_Doc" msprop:Generator_TableClassName="Pla_DocDataTable" msprop:Generator_TableVarName="tablePla_Doc" msprop:Generator_TablePropName="Pla_Doc" msprop:Generator_RowDeletingName="Pla_DocRowDeleting" msprop:Generator_RowChangingName="Pla_DocRowChanging" msprop:Generator_RowEvHandlerName="Pla_DocRowChangeEventHandler" msprop:Generator_RowDeletedName="Pla_DocRowDeleted" msprop:Generator_UserTableName="Pla_Doc" msprop:Generator_RowChangedName="Pla_DocRowChanged" msprop:Generator_RowEvArgName="Pla_DocRowChangeEvent" msprop:Generator_RowClassName="Pla_DocRow">
+        <xs:element name="Pla_Doc" msprop:Generator_TableClassName="Pla_DocDataTable" msprop:Generator_TableVarName="tablePla_Doc" msprop:Generator_RowChangedName="Pla_DocRowChanged" msprop:Generator_TablePropName="Pla_Doc" msprop:Generator_RowDeletingName="Pla_DocRowDeleting" msprop:Generator_RowChangingName="Pla_DocRowChanging" msprop:Generator_RowEvHandlerName="Pla_DocRowChangeEventHandler" msprop:Generator_RowDeletedName="Pla_DocRowDeleted" msprop:Generator_RowClassName="Pla_DocRow" msprop:Generator_UserTableName="Pla_Doc" msprop:Generator_RowEvArgName="Pla_DocRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -902,7 +904,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Pla_Tarea" msprop:Generator_TableClassName="Pla_TareaDataTable" msprop:Generator_TableVarName="tablePla_Tarea" msprop:Generator_TablePropName="Pla_Tarea" msprop:Generator_RowDeletingName="Pla_TareaRowDeleting" msprop:Generator_RowChangingName="Pla_TareaRowChanging" msprop:Generator_RowEvHandlerName="Pla_TareaRowChangeEventHandler" msprop:Generator_RowDeletedName="Pla_TareaRowDeleted" msprop:Generator_UserTableName="Pla_Tarea" msprop:Generator_RowChangedName="Pla_TareaRowChanged" msprop:Generator_RowEvArgName="Pla_TareaRowChangeEvent" msprop:Generator_RowClassName="Pla_TareaRow">
+        <xs:element name="Pla_Tarea" msprop:Generator_TableClassName="Pla_TareaDataTable" msprop:Generator_TableVarName="tablePla_Tarea" msprop:Generator_RowChangedName="Pla_TareaRowChanged" msprop:Generator_TablePropName="Pla_Tarea" msprop:Generator_RowDeletingName="Pla_TareaRowDeleting" msprop:Generator_RowChangingName="Pla_TareaRowChanging" msprop:Generator_RowEvHandlerName="Pla_TareaRowChangeEventHandler" msprop:Generator_RowDeletedName="Pla_TareaRowDeleted" msprop:Generator_RowClassName="Pla_TareaRow" msprop:Generator_UserTableName="Pla_Tarea" msprop:Generator_RowEvArgName="Pla_TareaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -954,7 +956,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Pla_Mov" msprop:Generator_TableClassName="Pla_MovDataTable" msprop:Generator_TableVarName="tablePla_Mov" msprop:Generator_TablePropName="Pla_Mov" msprop:Generator_RowDeletingName="Pla_MovRowDeleting" msprop:Generator_RowChangingName="Pla_MovRowChanging" msprop:Generator_RowEvHandlerName="Pla_MovRowChangeEventHandler" msprop:Generator_RowDeletedName="Pla_MovRowDeleted" msprop:Generator_UserTableName="Pla_Mov" msprop:Generator_RowChangedName="Pla_MovRowChanged" msprop:Generator_RowEvArgName="Pla_MovRowChangeEvent" msprop:Generator_RowClassName="Pla_MovRow">
+        <xs:element name="Pla_Mov" msprop:Generator_TableClassName="Pla_MovDataTable" msprop:Generator_TableVarName="tablePla_Mov" msprop:Generator_RowChangedName="Pla_MovRowChanged" msprop:Generator_TablePropName="Pla_Mov" msprop:Generator_RowDeletingName="Pla_MovRowDeleting" msprop:Generator_RowChangingName="Pla_MovRowChanging" msprop:Generator_RowEvHandlerName="Pla_MovRowChangeEventHandler" msprop:Generator_RowDeletedName="Pla_MovRowDeleted" msprop:Generator_RowClassName="Pla_MovRow" msprop:Generator_UserTableName="Pla_Mov" msprop:Generator_RowEvArgName="Pla_MovRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1010,7 +1012,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Pla_Poa" msprop:Generator_TableClassName="Pla_PoaDataTable" msprop:Generator_TableVarName="tablePla_Poa" msprop:Generator_TablePropName="Pla_Poa" msprop:Generator_RowDeletingName="Pla_PoaRowDeleting" msprop:Generator_RowChangingName="Pla_PoaRowChanging" msprop:Generator_RowEvHandlerName="Pla_PoaRowChangeEventHandler" msprop:Generator_RowDeletedName="Pla_PoaRowDeleted" msprop:Generator_UserTableName="Pla_Poa" msprop:Generator_RowChangedName="Pla_PoaRowChanged" msprop:Generator_RowEvArgName="Pla_PoaRowChangeEvent" msprop:Generator_RowClassName="Pla_PoaRow">
+        <xs:element name="Pla_Poa" msprop:Generator_TableClassName="Pla_PoaDataTable" msprop:Generator_TableVarName="tablePla_Poa" msprop:Generator_RowChangedName="Pla_PoaRowChanged" msprop:Generator_TablePropName="Pla_Poa" msprop:Generator_RowDeletingName="Pla_PoaRowDeleting" msprop:Generator_RowChangingName="Pla_PoaRowChanging" msprop:Generator_RowEvHandlerName="Pla_PoaRowChangeEventHandler" msprop:Generator_RowDeletedName="Pla_PoaRowDeleted" msprop:Generator_RowClassName="Pla_PoaRow" msprop:Generator_UserTableName="Pla_Poa" msprop:Generator_RowEvArgName="Pla_PoaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1073,10 +1075,12 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Valor_Inicial" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnValor_Inicial" msprop:Generator_ColumnPropNameInRow="Valor_Inicial" msprop:Generator_ColumnPropNameInTable="Valor_InicialColumn" msprop:Generator_UserColumnName="Valor_Inicial" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Valor_Suma" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnValor_Suma" msprop:Generator_ColumnPropNameInRow="Valor_Suma" msprop:Generator_ColumnPropNameInTable="Valor_SumaColumn" msprop:Generator_UserColumnName="Valor_Suma" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Pla_Partida" msprop:Generator_TableClassName="Pla_PartidaDataTable" msprop:Generator_TableVarName="tablePla_Partida" msprop:Generator_TablePropName="Pla_Partida" msprop:Generator_RowDeletingName="Pla_PartidaRowDeleting" msprop:Generator_RowChangingName="Pla_PartidaRowChanging" msprop:Generator_RowEvHandlerName="Pla_PartidaRowChangeEventHandler" msprop:Generator_RowDeletedName="Pla_PartidaRowDeleted" msprop:Generator_UserTableName="Pla_Partida" msprop:Generator_RowChangedName="Pla_PartidaRowChanged" msprop:Generator_RowEvArgName="Pla_PartidaRowChangeEvent" msprop:Generator_RowClassName="Pla_PartidaRow">
+        <xs:element name="Pla_Partida" msprop:Generator_TableClassName="Pla_PartidaDataTable" msprop:Generator_TableVarName="tablePla_Partida" msprop:Generator_RowChangedName="Pla_PartidaRowChanged" msprop:Generator_TablePropName="Pla_Partida" msprop:Generator_RowDeletingName="Pla_PartidaRowDeleting" msprop:Generator_RowChangingName="Pla_PartidaRowChanging" msprop:Generator_RowEvHandlerName="Pla_PartidaRowChangeEventHandler" msprop:Generator_RowDeletedName="Pla_PartidaRowDeleted" msprop:Generator_RowClassName="Pla_PartidaRow" msprop:Generator_UserTableName="Pla_Partida" msprop:Generator_RowEvArgName="Pla_PartidaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />

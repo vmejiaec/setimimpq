@@ -178,6 +178,16 @@ namespace EWS
 		#endregion
 		#region Métodos Get
 		[WebMethod]
+		public List<Pla_Tarea> Pla_Tarea_GetByAnio(Scope s , string p_Anio)
+        {
+            return Pla_Tarea.GetByAnio(s,  p_Anio);
+        }
+		[WebMethod]
+		public List<Pla_Tarea> Pla_Tarea_GetByAnioLikeNombre(Scope s , string p_Anio, string p_Nombre)
+        {
+            return Pla_Tarea.GetByAnioLikeNombre(s,  p_Anio, p_Nombre);
+        }
+		[WebMethod]
 		public List<Pla_Tarea> Pla_Tarea_GetById(Scope s , Int32 p_Id)
         {
             return Pla_Tarea.GetById(s,  p_Id);
@@ -194,6 +204,11 @@ namespace EWS
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+        public int Pla_Tarea_InsertINT(Pla_Tarea n)
+        {
+            return Pla_Tarea.InsertINT(n);
+        }
 		#endregion
 		#endregion
 	    #region Servicios para Pla_Mov

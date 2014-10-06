@@ -17,26 +17,6 @@ public partial class PLA_Pla_Cta_Lista : PaginaBase
     {
         get { return "Pla_Cta_Partida"; }
     }
-    protected override GridView Gv
-    {
-        get { return gvPla_Partida; }
-    }
-    protected override FormView Fv
-    {
-        get { return fvPla_Pardida; }
-    }
-    protected override ObjectDataSource odsGv
-    {
-        get { return odsgvPla_Partida; }
-    }
-    protected override ObjectDataSource odsFv
-    {
-        get { return odsfvPla_Partida; }
-    }
-    protected override ObjectDataSource odsGvById
-    {
-        get { return odsgvPla_Partida_ById; }
-    }
     #endregion
 
     // Controles para el Filtrar
@@ -48,17 +28,17 @@ public partial class PLA_Pla_Cta_Lista : PaginaBase
         switch (campo)
         {
             case "Todos":
-                Gv.DataSourceID = odsGv.ID;
+                gvPla_Partida.DataSourceID = odsgvPla_Partida_ById.ID;
                 tbFiltro.Text = "";
                 break;
             case "Codigo":
-                Gv.DataSourceID = "odsgvPla_Partida_ByCodigo";
+                gvPla_Partida.DataSourceID = "odsgvPla_Partida_ByCodigo";
                 break;
             case "Nombre":
-                Gv.DataSourceID = "odsgvPla_Partida_ByNombre";
+                gvPla_Partida.DataSourceID = "odsgvPla_Partida_ByNombre";
                 break;
         }
-        Gv.DataBind();
+        gvPla_Partida.DataBind();
         // Si existe algún error en el FormView lo borra
         lbFvMsgError.Text = ":";
         lbFvMsgInfo.Text = ">";
@@ -79,17 +59,15 @@ public partial class PLA_Pla_Cta_Lista : PaginaBase
     {
         if (e.Exception != null)
         {
-            var fvs = (Koala.KoalaWebControls.FormViewSetim)sender;
-            fvs.HayErrorInsUpd = true;
             e.ExceptionHandled = true;
             e.KeepInEditMode = true;
         }
         else
         {
             tbFiltroId.Text = (string)e.NewValues["Id"];
-            Gv.DataSourceID = odsGvById.ID;
-            Gv.DataBind();
-            Gv.SelectedIndex = 0;
+            gvPla_Partida.DataSourceID = odsgvPla_Partida_ById.ID;
+            gvPla_Partida.DataBind();
+            gvPla_Partida.SelectedIndex = 0;
             tbFiltro.Text = "";
         }
     }
@@ -108,16 +86,14 @@ public partial class PLA_Pla_Cta_Lista : PaginaBase
     {
         if (e.Exception != null)
         {
-            var fvs = (Koala.KoalaWebControls.FormViewSetim)sender;
-            fvs.HayErrorInsUpd = true;
             e.ExceptionHandled = true;
             e.KeepInInsertMode = true;
         }
         else
         {
-            Gv.DataSourceID = odsGvById.ID;
-            Gv.DataBind();
-            Gv.SelectedIndex = 0;
+            gvPla_Partida.DataSourceID = odsgvPla_Partida_ById.ID;
+            gvPla_Partida.DataBind();
+            gvPla_Partida.SelectedIndex = 0;
             tbFiltro.Text = "";
         }
     }
