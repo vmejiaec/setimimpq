@@ -33,7 +33,9 @@ fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
 fila.Pla_Cta_Nombre,
 fila.Pla_Partida_Codigo,
-fila.Pla_Partida_Nombre
+fila.Pla_Partida_Nombre,
+fila.Valor_Inicial,
+fila.Valor_Suma
 			));
         }
         return lista;
@@ -113,7 +115,9 @@ fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
 fila.Pla_Cta_Nombre,
 fila.Pla_Partida_Codigo,
-fila.Pla_Partida_Nombre
+fila.Pla_Partida_Nombre,
+fila.Valor_Inicial,
+fila.Valor_Suma
 				));
 			}
 			return lista;
@@ -137,7 +141,9 @@ fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
 fila.Pla_Cta_Nombre,
 fila.Pla_Partida_Codigo,
-fila.Pla_Partida_Nombre
+fila.Pla_Partida_Nombre,
+fila.Valor_Inicial,
+fila.Valor_Suma
 				));
 			}
 			return lista;
@@ -161,7 +167,9 @@ fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
 fila.Pla_Cta_Nombre,
 fila.Pla_Partida_Codigo,
-fila.Pla_Partida_Nombre
+fila.Pla_Partida_Nombre,
+fila.Valor_Inicial,
+fila.Valor_Suma
 				));
 			}
 			return lista;
