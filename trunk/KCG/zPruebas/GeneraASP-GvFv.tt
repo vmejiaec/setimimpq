@@ -9,7 +9,7 @@
 	//Parámetros 
 	string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Planificacion.xsd";
 	string Iniciales = "PLA";
-	string TablaBase = "Pla_Tarea";
+	string TablaBase = "Pla_Poa";
 	//Proceso
 	var manager = TemplateFileManager.Create(this);
 	ExtraeMetaDatos datos = new ExtraeMetaDatos(PathXSD);	
@@ -44,17 +44,29 @@ Namespace="AjaxControlToolkit"
 TagPrefix="ajax" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<%--Funcion para poner el formato numérico a los campos del FV--%>
+<%--<script type="text/javascript">
+    function PonerFormatoNumericoACamposFV() {
+        $('#ctl00_ContentPlaceHolder1_fvPla_Poa_Valor_InicialTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
+        $('#ctl00_ContentPlaceHolder1_fvPla_Poa_Valor_SumaTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
+    }
+</script>--%>
 <asp:UpdatePanel runat="server" ID="udp">
 <ContentTemplate>
-
-    <%--Cabecera--%>
+<%--Ejecuta la función antes de presentar los objetos en pantalla mediante PageRequestManager--%>
+<%--<script type="text/javascript">
+    Sys.WebForms.PageRequestManager.getInstance().add_endRequest(PonerFormatoNumericoACamposFV);
+</script>
+--%>
+    <%--[O] Cabecera--%>
     <asp:Panel runat="server" ID="pcabecera" GroupingText="Cabecera">
         <asp:Label ID="lbCabecera" runat="server" Text="Seleccionar el ... :"></asp:Label>
         <asp:DropDownList ID="ddlCabecera" runat="server" AutoPostBack="true" >
         </asp:DropDownList>        
     </asp:Panel>
+	<%--[X] Cabecera--%>
 
-    <%--Filtro--%>
+    <%--[O] Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
         <asp:Label ID="lbFiltro" runat="server" Text="Filtro"></asp:Label>
         <asp:TextBox ID="tbFiltro" runat="server"></asp:TextBox>
@@ -68,8 +80,9 @@ TagPrefix="ajax" %>
 			<#+ }} 
         #></asp:DropDownList>
     </asp:Panel>
+	<%--[X] Filtro--%>
 
-    <%--GridView--%>
+    <%--[O] GridView--%>
     <asp:Panel runat="server" GroupingText="Registros">
     <asp:GridView ID="gv<#= tabla.Nombre #>" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgv<#= tabla.Nombre #>" 
@@ -86,8 +99,9 @@ TagPrefix="ajax" %>
 	#></Columns>
     </asp:GridView>
     </asp:Panel>
+	<%--[X] GridView--%>
 
-    <%--FormView--%>
+    <%--[O] FormView--%>
     <asp:Panel runat="server" ID="pfv<#= tabla.Nombre #>" GroupingText="Crear, Editar o Borar un Registro">
     <koala:FormViewSetim ID="fv<#= tabla.Nombre #>" runat="server" DataSourceID="odsfv<#= tabla.Nombre #>" 
             oniteminserting="fv<#= tabla.Nombre #>_ItemInserting" 
@@ -95,7 +109,8 @@ TagPrefix="ajax" %>
             oniteminserted="fv<#= tabla.Nombre #>_ItemInserted" 
             onitemupdated="fv<#= tabla.Nombre #>_ItemUpdated"
 			ondatabound="fv<#= tabla.Nombre #>_DataBound" 
-            onprerender="fv<#= tabla.Nombre #>_PreRender">
+            onprerender="fv<#= tabla.Nombre #>_PreRender"
+			onitemupdating="fv<#= tabla.Nombre #>_ItemUpdating">
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
 			<#+ FV_Campos_Edit_Insert_Template(tabla); #>
@@ -127,7 +142,13 @@ TagPrefix="ajax" %>
         <asp:Label ID="lbFvMsgInfo" runat="server" Text=">" CssClass="FvMensajeInfo"></asp:Label>
         <asp:ValidationSummary ID="vsErrorResumen" runat="server"/>
     </asp:Panel>
+	<%--[X] FormView--%>
 
+</ContentTemplate>
+</asp:UpdatePanel>
+
+<%--[O]INICIO Fuentes de datos--%>
+<div>
     <%--Fuente de datos para el GridView --%>
     <asp:ObjectDataSource ID="odsgv<#= tabla.Nombre #>" runat="server" 
         SelectMethod="Get" 
@@ -183,8 +204,8 @@ TagPrefix="ajax" %>
             <asp:Parameter Name="n" Type="Object" />
         </UpdateParameters>
     </asp:ObjectDataSource>
-</ContentTemplate>
-</asp:UpdatePanel>
+</div>
+<%--[X] FIN Fuentes de datos--%>
 </asp:Content>
 <#+ 
   }
@@ -194,15 +215,26 @@ TagPrefix="ajax" %>
             #><table>
 			<#+ foreach(var campo in tabla.Campos){  
             #><tr <#= (campo.Nombre == "Id" ||campo.Nombre == "Estado")? "style=\"display:none\"":"" #>>
-                <td> <#= campo.Nombre #> </td>
-                <td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>' <#+ CssCampoEdit(campo.Nombre); #> />
-				<#+ if ( !constantes.CamposNoValidar.Any(c => c == campo.Nombre) ) {
-					#><%--Validador--%>
+                <td> <#= campo.Nombre #> </td>                
+				<#+  if (campo.Nombre.StartsWith("Fecha")) { 
+				#><td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>","{0:d}") %>' <#+ CssCampoEdit(campo.Nombre); #> />
+				<asp:Button runat="server" ID="btcex<#= campo.Nombre #>" Text="."/>
+				<ajax:CalendarExtender runat="server" ID="cex<#= campo.Nombre #>" TargetControlID="<#= campo.Nombre #>TextBox" PopupButtonID="btcex<#= campo.Nombre #>" />
+				<#+ }  else { 
+				#><td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>' <#+ CssCampoEdit(campo.Nombre); #> />
+				<#+ }
+				if ( !constantes.CamposNoValidar.Any(c => c == campo.Nombre) ) {
+				#><%--Validador--%>
                     <asp:RequiredFieldValidator ID="rq<#= campo.Nombre #>" runat="server" 
                     ControlToValidate="<#= campo.Nombre #>TextBox"
                     ErrorMessage="El campo <#= campo.Nombre #> es obligatorio" 
                     Text="X" Display="Dynamic"/>
-				<#+ } #></td>
+					<#+ if(campo.Nombre.StartsWith("Fecha")) { 
+					#><asp:RangeValidator ID="rv<#= campo.Nombre #>" runat="server" 
+                    ErrorMessage="El campo <#= campo.Nombre #> no contiene una fecha válida" 
+                    ControlToValidate="<#= campo.Nombre #>TextBox" 
+                    Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" />
+				<#+ } } #></td>
             </tr>
 			<#+ } #></table>
 <#+ } #>
@@ -268,35 +300,11 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
     {
         
     }
-
-    // Referencias a los objetos de pantalla
-    #region Referencias a los objetos de pantalla
+    // Nombre del contenedor
     protected override string Contenedor
     {
-        get { return "<#= Iniciales #>_<#= tabla.Nombre #>_GvFv"; }
+        get { return "PLA_<#= tabla.Nombre #>_GvFv"; }
     }
-    protected override GridView Gv
-    {
-        get { return gv<#= tabla.Nombre #>; }
-    }
-    protected override FormView Fv
-    {
-        get { return fv<#= tabla.Nombre #>; }
-    }
-    protected override ObjectDataSource odsGv
-    {
-        get { return odsgv<#= tabla.Nombre #>; }
-    }
-    protected override ObjectDataSource odsFv
-    {
-        get { return odsfv<#= tabla.Nombre #>; }
-    }
-    protected override ObjectDataSource odsGvById
-    {
-        get { return odsgv<#= tabla.Nombre #>_GetById; }
-    }
-    #endregion
-
     // Controles para el Filtrar
     #region Controles para el Filtrar
     protected void Filtrar()
@@ -306,16 +314,16 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         switch (campo)
         {
             case "Todos":
-                Gv.DataSourceID = odsGv.ID;
+                gv<#= tabla.Nombre #>.DataSourceID = odsgv<#= tabla.Nombre #>.ID;
                 break;
 			<#+ foreach(var pg in tabla.ProcGenericos){ 
 				if (!string.IsNullOrEmpty(pg.ProcNombreFiltro)) {
             #>case "<#= pg.ProcNombreFiltro #>":
-                Gv.DataSourceID = "odsgv<#= tabla.Nombre #>_<#= pg.ProcNombre #>";
+                gv<#= tabla.Nombre #>DataSourceID = "odsgv<#= tabla.Nombre #>_<#= pg.ProcNombre #>";
                 break;
 			<#+ }} 
         #>}
-        Gv.DataBind();
+        gv<#= tabla.Nombre #>.DataBind();
         // Si existe algún error en el FormView lo borra
         lbFvMsgError.Text = ":";
         lbFvMsgInfo.Text = ">";
@@ -336,16 +344,15 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
     {
         if (e.Exception != null)
         {
-            var fvs = (Koala.KoalaWebControls.FormViewSetim)sender;
-            fvs.HayErrorInsUpd = true;
             e.ExceptionHandled = true;
             e.KeepInEditMode = true;
+			if (lbFvMsgError.Text == ":") lbFvMsgError.Text = e.Exception.Message;
         }
         else
         {
             tbFiltroId.Text = (string)e.NewValues["Id"];
-            SeleccionarFilaEnGV(Gv, tbFiltroId.Text);
-            Gv.DataBind();
+            SeleccionarFilaEnGV<#= tabla.Nombre #>(gv<#= tabla.Nombre #>, tbFiltroId.Text);
+            gv<#= tabla.Nombre #>.DataBind();
         }
     }
     protected void fv<#= tabla.Nombre #>_ItemDeleted(object sender, FormViewDeletedEventArgs e)
@@ -353,6 +360,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         if (e.Exception != null)
         {
             e.ExceptionHandled = true;
+			if (lbFvMsgError.Text == ":") lbFvMsgError.Text = e.Exception.Message;
         }
         else
         {
@@ -363,15 +371,14 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
     {
         if (e.Exception != null)
         {
-            var fvs = (Koala.KoalaWebControls.FormViewSetim)sender;
-            fvs.HayErrorInsUpd = true;
             e.ExceptionHandled = true;
             e.KeepInInsertMode = true;
+			if (lbFvMsgError.Text == ":") lbFvMsgError.Text = e.Exception.Message;
         }
         else
         {
-            SeleccionarFilaEnGV(Gv, tbFiltroId.Text);
-            Gv.DataBind();
+            SeleccionarFilaEnGV<#= tabla.Nombre #>(gv<#= tabla.Nombre #>, tbFiltroId.Text);
+            gv<#= tabla.Nombre #>.DataBind();
         }
     }
     #endregion
@@ -432,7 +439,16 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         // Valor por defecto del Id y Estado
         e.Values["Id"] = -1;
         if (String.IsNullOrWhiteSpace((string)e.Values["Estado"])) e.Values["Estado"] = "PEN";
+		// Cambio del formato de los campos de fechas
+		// e.Values["Fecha_Ini"] = DateTime.Parse((string)e.Values["Fecha_Ini"]);
+    }	
+    protected void fv<#= tabla.Nombre #>_ItemUpdating(object sender, FormViewUpdateEventArgs e)
+    {
+        // Controla el cambio del formato de las fechas
+        // e.NewValues["Fecha_Ini"] = DateTime.Parse((string)e.NewValues["Fecha_Ini"]);
+        // e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);        
     }
+
     #endregion
 
     // Evento cuando se selecciona una fila del Grid
@@ -444,34 +460,34 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
 	// Si no hay filas en el GridView entonces el FormView cambia a modo Insert
     protected void fv<#= tabla.Nombre #>_DataBound(object sender, EventArgs e)
     {
-        if (Gv.Rows.Count == 0)
-            Fv.ChangeMode(FormViewMode.Insert);
+        if (gv<#= tabla.Nombre #>.Rows.Count == 0)
+            fv<#= tabla.Nombre #>.ChangeMode(FormViewMode.Insert);
     }
 	// Busca y selecciona la fila indicada en el GridView
-    protected void SeleccionarFilaEnGV(GridView gv, string txtId)
+    protected void SeleccionarFilaEnGV<#= tabla.Nombre #>(GridView gv, string txtId)
     {
         int noPagina = 0;
         int noFila = 0;
         if (!String.IsNullOrEmpty(txtId))
         {
             int nFiltroId = Convert.ToInt32(txtId);
-            var ods = (ObjectDataSource)gv.DataSourceObject;
+            var ods = (ObjectDataSource)gv<#= tabla.Nombre #>.DataSourceObject;
             List<<#= tabla.Nombre #>> lista = (List<<#= tabla.Nombre #>>)ods.Select();
             int pos = lista.FindIndex(o => o.Id == nFiltroId);
             if (pos >= 0)
             {
-                noPagina = pos / Gv.PageSize;
-                noFila = pos - noPagina * Gv.PageSize;
+                noPagina = pos / gv<#= tabla.Nombre #>.PageSize;
+                noFila = pos - noPagina * gv<#= tabla.Nombre #>.PageSize;
             }
         }
-        Gv.PageIndex = noPagina;
-        Gv.SelectedIndex = noFila;
+        gv<#= tabla.Nombre #>.PageIndex = noPagina;
+        gv<#= tabla.Nombre #>.SelectedIndex = noFila;
     }
 
     // Inicializa los valores antes de que el FormView se dibuje en la página
     protected void fv<#= tabla.Nombre #>_PreRender(object sender, EventArgs e)
     {
-        switch (Fv.CurrentMode)
+        switch (fv<#= tabla.Nombre #>.CurrentMode)
         {
             case FormViewMode.Insert:
                 break;

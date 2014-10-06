@@ -20,26 +20,6 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
     {
         get { return "PLA_Pla_Cta_GvFv"; }
     }
-    protected override GridView Gv
-    {
-        get { return gvPla_Cta; }
-    }
-    protected override FormView Fv
-    {
-        get { return fvPla_Cta; }
-    }
-    protected override ObjectDataSource odsGv
-    {
-        get { return odsgvPla_Cta_GetByAnio; }
-    }
-    protected override ObjectDataSource odsFv
-    {
-        get { return odsfvPla_Cta; }
-    }
-    protected override ObjectDataSource odsGvById
-    {
-        get { return odsgvPla_Cta_GetById; }
-    }
     #endregion
 
     // Controles para el Filtrar
@@ -51,16 +31,16 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
         switch (campo)
         {
             case "Todos":
-                Gv.DataSourceID = odsGv.ID;
+                gvPla_Cta.DataSourceID = odsgvPla_Cta.ID;
                 break;
 			case "Codigo":
-                Gv.DataSourceID = "odsgvPla_Cta_GetByAnioLikeCodigo";
+                gvPla_Cta.DataSourceID = "odsgvPla_Cta_GetByAnioLikeCodigo";
                 break;
 			case "Nombre":
-                Gv.DataSourceID = "odsgvPla_Cta_GetByAnioLikeNombre";
+                gvPla_Cta.DataSourceID = "odsgvPla_Cta_GetByAnioLikeNombre";
                 break;
 			}
-        Gv.DataBind();
+        gvPla_Cta.DataBind();
         // Si existe algún error en el FormView lo borra
         lbFvMsgError.Text = ":";
         lbFvMsgInfo.Text = ">";
@@ -81,16 +61,14 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
     {
         if (e.Exception != null)
         {
-            var fvs = (Koala.KoalaWebControls.FormViewSetim)sender;
-            fvs.HayErrorInsUpd = true;
             e.ExceptionHandled = true;
             e.KeepInEditMode = true;
         }
         else
         {
             tbFiltroId.Text = (string)e.NewValues["Id"];
-            SeleccionarFilaEnGV(Gv, tbFiltroId.Text);
-            Gv.DataBind();
+            SeleccionarFilaEnGV(gvPla_Cta, tbFiltroId.Text);
+            gvPla_Cta.DataBind();
         }
     }
     protected void fvPla_Cta_ItemDeleted(object sender, FormViewDeletedEventArgs e)
@@ -108,15 +86,13 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
     {
         if (e.Exception != null)
         {
-            var fvs = (Koala.KoalaWebControls.FormViewSetim)sender;
-            fvs.HayErrorInsUpd = true;
             e.ExceptionHandled = true;
             e.KeepInInsertMode = true;
         }
         else
         {
-            SeleccionarFilaEnGV(Gv, tbFiltroId.Text);
-            Gv.DataBind();
+            SeleccionarFilaEnGV(gvPla_Cta, tbFiltroId.Text);
+            gvPla_Cta.DataBind();
         }
     }
     #endregion
@@ -189,8 +165,8 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
     // Si no hay filas en el GridView entonces el FormView cambia a modo Insert
     protected void fvPla_Cta_DataBound(object sender, EventArgs e)
     {
-        if (Gv.Rows.Count == 0)
-            Fv.ChangeMode(FormViewMode.Insert);
+        if (gvPla_Cta.Rows.Count == 0)
+            fvPla_Cta.ChangeMode(FormViewMode.Insert);
     }
     // Busca y selecciona la fila indicada en el GridView
     protected void SeleccionarFilaEnGV(GridView gv, string txtId)
@@ -205,21 +181,21 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
             int pos = lista.FindIndex(o => o.Id == nFiltroId);
             if (pos >= 0)
             {
-                noPagina = pos / Gv.PageSize;
-                noFila = pos - noPagina * Gv.PageSize;
+                noPagina = pos / gvPla_Cta.PageSize;
+                noFila = pos - noPagina * gvPla_Cta.PageSize;
             }
         }
-        Gv.PageIndex = noPagina;
-        Gv.SelectedIndex = noFila;
+        gvPla_Cta.PageIndex = noPagina;
+        gvPla_Cta.SelectedIndex = noFila;
     }
 
     // Inicializa los valores antes de que el FormView se dibuje en la página
     protected void fvPla_Cta_PreRender(object sender, EventArgs e)
     {
-        switch (Fv.CurrentMode)
+        switch (fvPla_Cta.CurrentMode)
         {
             case FormViewMode.Insert:
-                TextBox anio = (TextBox)Fv.FindControl("AnioTextBox");
+                TextBox anio = (TextBox)fvPla_Cta.FindControl("AnioTextBox");
                 anio.Text = ddlFiltroAnio.SelectedValue;
                 anio.ReadOnly = true;
                 break;

@@ -186,7 +186,10 @@
     <Compile Include="PLA\Pla_Doc.cs" />
     <Compile Include="PLA\Pla_Mov.cs" />
     <Compile Include="PLA\Pla_Partida.cs" />
-    <Compile Include="PLA\Pla_Poa.cs" />
+    <Compile Include="PLA\Pla_Poa.cs">
+      <SubType>
+      </SubType>
+    </Compile>
     <Compile Include="PLA\Pla_Tarea.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SEG\Seg_Menu.cs" />

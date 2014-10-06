@@ -12,14 +12,8 @@ using System.Collections;
 
 public abstract class PaginaBase: KPagina
 {
-    //Atributos abstractos
-    protected abstract GridView Gv { get; }
-    protected abstract FormView Fv { get; }
-    protected abstract ObjectDataSource odsGv { get; }
-    protected abstract ObjectDataSource odsFv { get; }
-    protected abstract ObjectDataSource odsGvById { get; }    
-    protected abstract string Contenedor { get; }
     //Atributos
+    protected abstract string Contenedor { get; }
 	protected Color bien = Color.WhiteSmoke;
     protected Color mal = Color.Red;
     //Propiedades
@@ -55,7 +49,6 @@ public abstract class PaginaBase: KPagina
         pre_mensaje = string.Format(pre_mensaje, MensajeError);
         return pre_mensaje;
     }
-
     //Inicializa la página
     protected override void OnLoad(EventArgs e) //Page_Load(object sender, EventArgs e)
     {

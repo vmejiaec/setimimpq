@@ -52,6 +52,20 @@ namespace FEL.PLA
 		// Procedimientos Get
 		#region Métodos Get
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Pla_Tarea> GetByAnio(Scope s , string p_Anio)
+        {
+			List<Pla_Tarea> lista = new List<Pla_Tarea>(
+				Adapter.Pla_Tarea_GetByAnio(s,  p_Anio));
+            return lista;
+        }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Pla_Tarea> GetByAnioLikeNombre(Scope s , string p_Anio, string p_Nombre)
+        {
+			List<Pla_Tarea> lista = new List<Pla_Tarea>(
+				Adapter.Pla_Tarea_GetByAnioLikeNombre(s,  p_Anio, p_Nombre));
+            return lista;
+        }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
 		public List<Pla_Tarea> GetById(Scope s , Int32 p_Id)
         {
 			List<Pla_Tarea> lista = new List<Pla_Tarea>(
@@ -65,8 +79,21 @@ namespace FEL.PLA
 				Adapter.Pla_Tarea_GetByPla_Cta_Id(s,  p_Pla_Cta_Id));
             return lista;
         }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Pla_Tarea> GetByPla_Cta_IdLikeNombre(Scope s , Int32 p_Pla_Cta_Id, string p_Nombre)
+        {
+			List<Pla_Tarea> lista = new List<Pla_Tarea>(
+				Adapter.Pla_Tarea_GetByPla_Cta_IdLikeNombre(s,  p_Pla_Cta_Id, p_Nombre));
+            return lista;
+        }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+		 // InsertINT
+		[DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
+		public int InsertINT(Pla_Tarea n)
+        {            
+            return Adapter.Pla_Tarea_InsertINT(n);
+        }
 		#endregion
 		#endregion
     }

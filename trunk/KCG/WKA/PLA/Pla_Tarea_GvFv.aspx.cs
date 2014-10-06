@@ -20,26 +20,6 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
     {
         get { return "PLA_Pla_Tarea_GvFv"; }
     }
-    protected override GridView Gv
-    {
-        get { return gvPla_Tarea; }
-    }
-    protected override FormView Fv
-    {
-        get { return fvPla_Tarea; }
-    }
-    protected override ObjectDataSource odsGv
-    {
-        get { return odsgvPla_Tarea; }
-    }
-    protected override ObjectDataSource odsFv
-    {
-        get { return odsfvPla_Tarea; }
-    }
-    protected override ObjectDataSource odsGvById
-    {
-        get { return odsgvPla_Tarea_GetById; }
-    }
     #endregion
 
     // Controles para el Filtrar
@@ -51,13 +31,13 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         switch (campo)
         {
             case "Todos":
-                Gv.DataSourceID = odsGv.ID;
+                gvPla_Tarea.DataSourceID = odsgvPla_Tarea.ID;
                 break;
 			case "Nombre":
-                Gv.DataSourceID = "odsgvPla_Tarea_GetByAnioLikeNombre";
+                gvPla_Tarea.DataSourceID = "odsgvPla_Tarea_GetByAnioLikeNombre";
                 break;
 			}
-        Gv.DataBind();
+        gvPla_Tarea.DataBind();
         // Si existe algún error en el FormView lo borra
         lbFvMsgError.Text = ":";
         lbFvMsgInfo.Text = ">";
@@ -78,16 +58,14 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
     {
         if (e.Exception != null)
         {
-            var fvs = (Koala.KoalaWebControls.FormViewSetim)sender;
-            fvs.HayErrorInsUpd = true;
             e.ExceptionHandled = true;
             e.KeepInEditMode = true;
         }
         else
         {
             tbFiltroId.Text = (string)e.NewValues["Id"];
-            SeleccionarFilaEnGV(Gv, tbFiltroId.Text);
-            Gv.DataBind();
+            SeleccionarFilaEnGV(gvPla_Tarea, tbFiltroId.Text);
+            gvPla_Tarea.DataBind();
         }
     }
     protected void fvPla_Tarea_ItemDeleted(object sender, FormViewDeletedEventArgs e)
@@ -105,15 +83,13 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
     {
         if (e.Exception != null)
         {
-            var fvs = (Koala.KoalaWebControls.FormViewSetim)sender;
-            fvs.HayErrorInsUpd = true;
             e.ExceptionHandled = true;
             e.KeepInInsertMode = true;
         }
         else
         {
-            SeleccionarFilaEnGV(Gv, tbFiltroId.Text);
-            Gv.DataBind();
+            SeleccionarFilaEnGV(gvPla_Tarea, tbFiltroId.Text);
+            gvPla_Tarea.DataBind();
         }
     }
     #endregion
@@ -174,7 +150,25 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         // Valor por defecto del Id y Estado
         e.Values["Id"] = -1;
         if (String.IsNullOrWhiteSpace((string)e.Values["Estado"])) e.Values["Estado"] = "PEN";
+        // Cambio del formato de las fechas
+        e.Values["Fecha_Ini"] = DateTime.Parse((string)e.Values["Fecha_Ini"]);
+        e.Values["Fecha_Fin"] = DateTime.Parse((string)e.Values["Fecha_Fin"]);
     }
+    protected void fvPla_Tarea_ItemUpdating(object sender, FormViewUpdateEventArgs e)
+    {
+        // Controla el cambio del formato de las fechas
+        e.NewValues["Fecha_Ini"] = DateTime.Parse((string)e.NewValues["Fecha_Ini"]);
+        e.NewValues["Fecha_Fin"] = DateTime.Parse((string)e.NewValues["Fecha_Fin"]);
+        e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);
+        e.OldValues["Fecha_Fin"] = DateTime.Parse((string)e.OldValues["Fecha_Fin"]);
+    }
+    protected void fvPla_Tarea_ItemDeleting(object sender, FormViewDeleteEventArgs e)
+    {
+        // Cambio del formato de las fechas
+        e.Values["Fecha_Ini"] = DateTime.Parse((string)e.Values["Fecha_Ini"]);
+        e.Values["Fecha_Fin"] = DateTime.Parse((string)e.Values["Fecha_Fin"]);
+    }
+
     #endregion
 
     // Evento cuando se selecciona una fila del Grid
@@ -186,8 +180,8 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
 	// Si no hay filas en el GridView entonces el FormView cambia a modo Insert
     protected void fvPla_Tarea_DataBound(object sender, EventArgs e)
     {
-        if (Gv.Rows.Count == 0)
-            Fv.ChangeMode(FormViewMode.Insert);
+        if (gvPla_Tarea.Rows.Count == 0)
+            fvPla_Tarea.ChangeMode(FormViewMode.Insert);
     }
 	// Busca y selecciona la fila indicada en el GridView
     protected void SeleccionarFilaEnGV(GridView gv, string txtId)
@@ -202,20 +196,25 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
             int pos = lista.FindIndex(o => o.Id == nFiltroId);
             if (pos >= 0)
             {
-                noPagina = pos / Gv.PageSize;
-                noFila = pos - noPagina * Gv.PageSize;
+                noPagina = pos / gv.PageSize;
+                noFila = pos - noPagina * gv.PageSize;
             }
         }
-        Gv.PageIndex = noPagina;
-        Gv.SelectedIndex = noFila;
+        gv.PageIndex = noPagina;
+        gv.SelectedIndex = noFila;
     }
 
     // Inicializa los valores antes de que el FormView se dibuje en la página
     protected void fvPla_Tarea_PreRender(object sender, EventArgs e)
     {
-        switch (Fv.CurrentMode)
+        FormView fvSender = (FormView) sender;
+        switch (fvPla_Tarea.CurrentMode)
         {
             case FormViewMode.Insert:
+                TextBox tbFecha_Ini = (TextBox) fvSender.FindControl("Fecha_IniTextBox");
+                TextBox tbFecha_Fin = (TextBox)fvSender.FindControl("Fecha_FinTextBox");
+                tbFecha_Ini.Text = DateTime.Today.ToShortDateString();
+                tbFecha_Fin.Text = tbFecha_Ini.Text;
                 break;
             case FormViewMode.Edit:
                 break;
@@ -233,5 +232,6 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         foreach (Dic_Dominio anio in anios)
             ddlCabecera.Items.Add(new ListItem(anio.Nombre));
     }
+
 }
     

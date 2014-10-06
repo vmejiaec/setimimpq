@@ -100,7 +100,51 @@ n.Id
         { throw (new Exception(e.Message)); }
         return res;
     } // xxx Fin de Update
-	// GetById
+	// GetByAnio
+		public List<Pla_Tarea> GetByAnio (Scope s , string p_Anio)
+		{
+			List<Pla_Tarea> lista = new List<Pla_Tarea>();
+			var tabla = Adapter.GetByAnio( p_Anio);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new Pla_Tarea(
+				fila.Id,
+fila.Codigo,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Cta_Nivel,
+fila.Nombre,
+fila.Fecha_Ini,
+fila.Fecha_Fin,
+fila.Estado
+				));
+			}
+			return lista;
+		}
+		// GetByAnioLikeNombre
+		public List<Pla_Tarea> GetByAnioLikeNombre (Scope s , string p_Anio, string p_Nombre)
+		{
+			List<Pla_Tarea> lista = new List<Pla_Tarea>();
+			var tabla = Adapter.GetByAnioLikeNombre( p_Anio, p_Nombre);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new Pla_Tarea(
+				fila.Id,
+fila.Codigo,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Cta_Nivel,
+fila.Nombre,
+fila.Fecha_Ini,
+fila.Fecha_Fin,
+fila.Estado
+				));
+			}
+			return lista;
+		}
+		// GetById
 		public List<Pla_Tarea> GetById (Scope s , Int32 p_Id)
 		{
 			List<Pla_Tarea> lista = new List<Pla_Tarea>();
@@ -144,5 +188,45 @@ fila.Estado
 			}
 			return lista;
 		}
+		// GetByPla_Cta_IdLikeNombre
+		public List<Pla_Tarea> GetByPla_Cta_IdLikeNombre (Scope s , Int32 p_Pla_Cta_Id, string p_Nombre)
+		{
+			List<Pla_Tarea> lista = new List<Pla_Tarea>();
+			var tabla = Adapter.GetByPla_Cta_IdLikeNombre( p_Pla_Cta_Id, p_Nombre);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new Pla_Tarea(
+				fila.Id,
+fila.Codigo,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Cta_Nivel,
+fila.Nombre,
+fila.Fecha_Ini,
+fila.Fecha_Fin,
+fila.Estado
+				));
+			}
+			return lista;
+		}
+		// InsertINT
+		public int InsertINT(Pla_Tarea n)
+    {
+        int res;
+        try {
+            res = Convert.ToInt16( Adapter.InsertINT(
+				n.Codigo,
+n.Pla_Cta_Id,
+n.Nombre,
+n.Fecha_Ini,
+n.Fecha_Fin,
+n.Estado
+			));
+        }
+        catch (SqlException e)
+        { throw (new Exception( e.Message)); }
+        return res;
+    }
 	}
 }
