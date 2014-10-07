@@ -11,7 +11,7 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
     // Carga inicial
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
     }
 
     // Referencias a los objetos de pantalla
@@ -31,13 +31,17 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         switch (campo)
         {
             case "Todos":
-                gvPla_Tarea.DataSourceID = odsgvPla_Tarea.ID;
+                gvPla_Tarea.DataSourceID = odsgvPla_Tarea_GetByAnio.ID;
                 break;
 			case "Nombre":
                 gvPla_Tarea.DataSourceID = "odsgvPla_Tarea_GetByAnioLikeNombre";
                 break;
+            case "Codigo":
+                gvPla_Tarea.DataSourceID = "odsgvPla_Tarea_GetByAnioLikePla_Cta_Codigo";
+                break;
 			}
         gvPla_Tarea.DataBind();
+        gvPla_Tarea.SelectedIndex = 0;
         // Si existe algún error en el FormView lo borra
         lbFvMsgError.Text = ":";
         lbFvMsgInfo.Text = ">";
@@ -399,5 +403,10 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
     }
     #endregion
 
+    protected void odsPla_Cta_Arbol_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
+    {
+        var o = e.InputParameters;
+        o["p_Pla_Cta_Codigo"] = gvPla_Tarea.SelectedRow.Cells[3].Text; //"2.1.1.1.";                
+    }
 }
     
