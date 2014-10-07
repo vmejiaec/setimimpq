@@ -121,7 +121,7 @@ TagPrefix="ajax" %>
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
 			<#+ FV_Campos_Edit_Insert_Template(tabla); #>
-            <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
+            <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" ValidationGroup="vg<#= tabla.Nombre #>"/>
             &nbsp;
             <asp:Button ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
             </asp:Panel>
@@ -129,7 +129,7 @@ TagPrefix="ajax" %>
         <InsertItemTemplate>
             <asp:Panel runat="server" ID = "panelInsertTemplate" DefaultButton="InsertButton">
 			<#+ FV_Campos_Edit_Insert_Template(tabla); #>
-            <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
+            <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" ValidationGroup="vg<#= tabla.Nombre #>"/>
             &nbsp;
             <asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
             </asp:Panel>
@@ -147,7 +147,7 @@ TagPrefix="ajax" %>
     </koala:FormViewSetim>
         <asp:Label ID="lbFvMsgError" runat="server" Text=":" CssClass="FvMensajeError"></asp:Label>
         <asp:Label ID="lbFvMsgInfo" runat="server" Text=">" CssClass="FvMensajeInfo"></asp:Label>
-        <asp:ValidationSummary ID="vsErrorResumen" runat="server"/>
+        <asp:ValidationSummary ID="vsErrorResumen" runat="server" ValidationGroup="vg<#= tabla.Nombre #>"/>
     </asp:Panel>
 	<%--[X] FormView de <#= tabla.Nombre #> --%>
 
@@ -237,12 +237,12 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rq<#= campo.Nombre #>" runat="server" 
                     ControlToValidate="<#= campo.Nombre #>TextBox"
                     ErrorMessage="El campo <#= campo.Nombre #> es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vg<#= tabla.Nombre #>"/>
 					<#+ if(campo.Nombre.StartsWith("Fecha")) { 
 					#><asp:RangeValidator ID="rv<#= campo.Nombre #>" runat="server" 
                     ErrorMessage="El campo <#= campo.Nombre #> no contiene una fecha válida" 
                     ControlToValidate="<#= campo.Nombre #>TextBox" 
-                    Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" />
+                    Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vg<#= tabla.Nombre #>"/>
 				<#+ } } #></td>
             </tr>
 			<#+ } #></table>
