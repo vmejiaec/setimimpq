@@ -111,8 +111,8 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         else
         {
             tbFiltroId.Text = e.ReturnValue.ToString();
-            lbFvMsgInfoTarea.Text = "Tarea Registro Insertado." + this.MemoriaRegistroActual;
-            AsignarMensaje("Registro Insertado." + this.MemoriaRegistroActual, bien);
+            lbFvMsgInfoTarea.Text = "Tarea Registro Insertado. " + this.MemoriaRegistroActual;
+            AsignarMensaje("Registro Insertado. " + this.MemoriaRegistroActual, bien);
         }
     }
     protected void odsfvPla_Tarea_Updated(object sender, ObjectDataSourceStatusEventArgs e)
@@ -126,8 +126,8 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         }
         else
         {
-            lbFvMsgInfoTarea.Text = "Tarea Registro Actualizado." + this.MemoriaRegistroActual;
-            AsignarMensaje("Registro Actualizado." + this.MemoriaRegistroActual, bien);
+            lbFvMsgInfoTarea.Text = "Tarea Registro Actualizado. " + this.MemoriaRegistroActual;
+            AsignarMensaje("Registro Actualizado. " + this.MemoriaRegistroActual, bien);
         }
     }
     protected void odsfvPla_Tarea_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
