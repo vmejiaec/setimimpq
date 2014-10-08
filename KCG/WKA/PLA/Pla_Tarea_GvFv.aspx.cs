@@ -36,15 +36,15 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
 			case "Nombre":
                 gvPla_Tarea.DataSourceID = "odsgvPla_Tarea_GetByAnioLikeNombre";
                 break;
-            case "Codigo":
+            case "Cuenta":
                 gvPla_Tarea.DataSourceID = "odsgvPla_Tarea_GetByAnioLikePla_Cta_Codigo";
                 break;
 			}
         gvPla_Tarea.DataBind();
         gvPla_Tarea.SelectedIndex = 0;
         // Si existe algún error en el FormView lo borra
-        lbFvMsgError.Text = ":";
-        lbFvMsgInfo.Text = ">";
+        lbFvMsgErrorTarea.Text = ":";
+        lbFvMsgInfoTarea.Text = ">Filtrado";
     }
     protected void ddlFiltro_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -105,14 +105,14 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         {
             SoapException ex = (SoapException)e.Exception.InnerException;
             string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgError.Text = errorResumen;
+            lbFvMsgErrorTarea.Text = errorResumen;
             AsignarMensaje(ex.Message, mal);
         }
         else
         {
             tbFiltroId.Text = e.ReturnValue.ToString();
-            lbFvMsgInfo.Text = "Registro Insertado.";
-            AsignarMensaje("Registro Insertado.",bien);
+            lbFvMsgInfoTarea.Text = "Tarea Registro Insertado." + this.MemoriaRegistroActual;
+            AsignarMensaje("Registro Insertado." + this.MemoriaRegistroActual, bien);
         }
     }
     protected void odsfvPla_Tarea_Updated(object sender, ObjectDataSourceStatusEventArgs e)
@@ -121,13 +121,13 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         {
             SoapException ex = (SoapException)e.Exception.InnerException;
             string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgError.Text = errorResumen;
+            lbFvMsgErrorTarea.Text = errorResumen;
             AsignarMensaje(ex.Message, mal);
         }
         else
         {
-            lbFvMsgInfo.Text = "Registro Actualizado.";
-            AsignarMensaje("Registro Actualizado.", bien);
+            lbFvMsgInfoTarea.Text = "Tarea Registro Actualizado." + this.MemoriaRegistroActual;
+            AsignarMensaje("Registro Actualizado." + this.MemoriaRegistroActual, bien);
         }
     }
     protected void odsfvPla_Tarea_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
@@ -136,27 +136,67 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         {
             SoapException ex = (SoapException)e.Exception.InnerException;
             string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgError.Text = errorResumen;
+            lbFvMsgErrorTarea.Text = errorResumen;
             AsignarMensaje(ex.Message, mal);
         }
         else
         {
-            lbFvMsgInfo.Text = "Registro Borrado.";
-            AsignarMensaje("Registro Borrado.", bien);
+            lbFvMsgInfoTarea.Text = "Tarea Registro Borrado. " + this.MemoriaRegistroActual;
+            AsignarMensaje("Registro Borrado. " + this.MemoriaRegistroActual, bien);
         }
     }
     #endregion
+
+    // WebServices para autocompletar campos del FormView de Tareas
+    #region WebServices para autocompletar
+    [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
+    public static string[] acxPla_Cta_GetByAnioLikeCodigo_List(string prefixText, int count, string contextKey)
+    {
+        Scope s = (Scope)HttpContext.Current.Session["Scope"];
+        FEL.PLA.BO_Pla_Cta adp = new BO_Pla_Cta();
+        var lista = adp.GetByAnioLikeCodigo(s, contextKey, prefixText);
+        //
+        List<string> items = new List<string>();
+        foreach (var fila in lista)
+            items.Add(
+                AjaxControlToolkit.AutoCompleteExtender.
+                    CreateAutoCompleteItem(
+                        fila.Codigo, fila.Id + "||" + fila.Codigo + "||" + fila.Nombre + "||" + fila.Nivel  // 0 1 2 3
+                    ));
+        return items.ToArray();
+    }
+    [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
+    public static string[] acxPla_Cta_GetByAnioLikeNombre_List(string prefixText, int count, string contextKey)
+    {
+        Scope s = (Scope)HttpContext.Current.Session["Scope"];
+        FEL.PLA.BO_Pla_Cta adp = new BO_Pla_Cta();
+        var lista = adp.GetByAnioLikeNombre(s, contextKey, prefixText);
+        //
+        List<string> items = new List<string>();
+        foreach (var fila in lista)
+            items.Add(
+                AjaxControlToolkit.AutoCompleteExtender.
+                    CreateAutoCompleteItem(
+                        fila.Nombre, fila.Id + "||" + fila.Codigo + "||" + fila.Nombre + "||" + fila.Nivel  // 0 1 2 3
+                    ));
+        return items.ToArray();
+    }
+    #endregion WebServices para autocompletar
 
     // Valores por defecto antes de enviar a insertar, actualizar o borrar.
     #region Valores por defecto
     protected void fvPla_Tarea_ItemInserting(object sender, FormViewInsertEventArgs e)
     {
-        // Valor por defecto del Id y Estado
+        // Valor por defecto del Id, Estado y Código
         e.Values["Id"] = -1;
         if (String.IsNullOrWhiteSpace((string)e.Values["Estado"])) e.Values["Estado"] = "PEN";
+        e.Values ["Codigo"] = "0";
         // Cambio del formato de las fechas
         e.Values["Fecha_Ini"] = DateTime.Parse((string)e.Values["Fecha_Ini"]);
         e.Values["Fecha_Fin"] = DateTime.Parse((string)e.Values["Fecha_Fin"]);
+        // Guarda los datos del registro a borrar en memoria
+        this.MemoriaRegistroActual = "Cuenta: " + (string)e.Values["Pla_Cta_Codigo"] + " * " +
+                                     "Nombre: " + (string)e.Values["Nombre"];
     }
     protected void fvPla_Tarea_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
@@ -165,21 +205,27 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         e.NewValues["Fecha_Fin"] = DateTime.Parse((string)e.NewValues["Fecha_Fin"]);
         e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);
         e.OldValues["Fecha_Fin"] = DateTime.Parse((string)e.OldValues["Fecha_Fin"]);
+        // Guarda los datos del registro a borrar en memoria
+        this.MemoriaRegistroActual = "Cuenta: " + (string)e.NewValues["Pla_Cta_Codigo"] + " * " +
+                                     "Nombre: " + (string)e.NewValues["Nombre"];
     }
     protected void fvPla_Tarea_ItemDeleting(object sender, FormViewDeleteEventArgs e)
     {
         // Cambio del formato de las fechas
         e.Values["Fecha_Ini"] = DateTime.Parse((string)e.Values["Fecha_Ini"]);
         e.Values["Fecha_Fin"] = DateTime.Parse((string)e.Values["Fecha_Fin"]);
+        // Guarda los datos del registro a borrar en memoria
+        this.MemoriaRegistroActual = "Codigo: " + (string)e.Values["Codigo"] + " * "+
+                                     "Nombre: " + (string)e.Values["Nombre"];
     }
-
     #endregion
 
     // Evento cuando se selecciona una fila del Grid
     protected void gvPla_Tarea_SelectedIndexChanged(object sender, EventArgs e)
     {
-        lbFvMsgError.Text = ":";
-        lbFvMsgInfo.Text = ">";
+        lbFvMsgErrorTarea.Text = ":";
+        lbFvMsgInfoTarea.Text = "> Tarea Seleccionado";
+        //fvPla_Tarea.ChangeMode(FormViewMode.ReadOnly);
     }
 	// Si no hay filas en el GridView entonces el FormView cambia a modo Insert
     protected void fvPla_Tarea_DataBound(object sender, EventArgs e)
@@ -212,15 +258,31 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
     protected void fvPla_Tarea_PreRender(object sender, EventArgs e)
     {
         FormView fvSender = (FormView) sender;
+        AjaxControlToolkit.AutoCompleteExtender acxPla_Cta_CodigoTextBox = new AjaxControlToolkit.AutoCompleteExtender();
+        AjaxControlToolkit.AutoCompleteExtender acxPla_Cta_NombreTextBox = new AjaxControlToolkit.AutoCompleteExtender();
         switch (fvPla_Tarea.CurrentMode)
         {
             case FormViewMode.Insert:
-                TextBox tbFecha_Ini = (TextBox) fvSender.FindControl("Fecha_IniTextBox");
+                // Inicializa el campo código
+                TextBox tbCodigo = (TextBox)fvSender.FindControl("CodigoTextBox");
+                tbCodigo.Text = "0";
+                // Inicializa las fechas con la fecha de hoy
+                TextBox tbFecha_Ini = (TextBox)fvSender.FindControl("Fecha_IniTextBox");
                 TextBox tbFecha_Fin = (TextBox)fvSender.FindControl("Fecha_FinTextBox");
                 tbFecha_Ini.Text = DateTime.Today.ToShortDateString();
                 tbFecha_Fin.Text = tbFecha_Ini.Text;
+                // Pone el año en el autocompletar
+                acxPla_Cta_CodigoTextBox = (AjaxControlToolkit.AutoCompleteExtender)fvSender.FindControl("acxPla_Cta_CodigoTextBox");
+                acxPla_Cta_CodigoTextBox.ContextKey = ddlCabecera.SelectedValue;
+                acxPla_Cta_NombreTextBox = (AjaxControlToolkit.AutoCompleteExtender)fvSender.FindControl("acxPla_Cta_NombreTextBox");
+                acxPla_Cta_NombreTextBox.ContextKey = ddlCabecera.SelectedValue;
                 break;
             case FormViewMode.Edit:
+                // Pone el año en el autocompletar
+                acxPla_Cta_CodigoTextBox = (AjaxControlToolkit.AutoCompleteExtender) fvSender.FindControl("acxPla_Cta_CodigoTextBox");
+                acxPla_Cta_CodigoTextBox.ContextKey = ddlCabecera.SelectedValue;
+                acxPla_Cta_NombreTextBox = (AjaxControlToolkit.AutoCompleteExtender)fvSender.FindControl("acxPla_Cta_NombreTextBox");
+                acxPla_Cta_NombreTextBox.ContextKey = ddlCabecera.SelectedValue;
                 break;
             case FormViewMode.ReadOnly:
                 break;
@@ -242,8 +304,8 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
     // Evento cuando se selecciona una fila del Grid
     protected void gvPla_Poa_SelectedIndexChanged(object sender, EventArgs e)
     {
-        lbFvMsgError.Text = ":";
-        lbFvMsgInfo.Text = ">";
+        lbFvMsgErrorPOA.Text = ":";
+        lbFvMsgInfoPOA.Text = "> POA Seleccionado";
     }
     // Busca y selecciona la fila indicada en el GridView
     protected void SeleccionarFilaEnGVPla_Poa(GridView gv, string txtId)
@@ -275,7 +337,7 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         {
             e.ExceptionHandled = true;
             e.KeepInEditMode = true;
-            if (lbFvMsgError.Text == ":") lbFvMsgError.Text = e.Exception.Message;
+            if (lbFvMsgErrorPOA.Text == ":") lbFvMsgErrorPOA.Text = e.Exception.Message;
         }
         else
         {
@@ -289,7 +351,7 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         if (e.Exception != null)
         {
             e.ExceptionHandled = true;
-            if (lbFvMsgError.Text == ":") lbFvMsgError.Text = e.Exception.Message;
+            if (lbFvMsgErrorPOA.Text == ":") lbFvMsgErrorPOA.Text = e.Exception.Message;
         }
         else
         {
@@ -302,7 +364,7 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         {
             e.ExceptionHandled = true;
             e.KeepInInsertMode = true;
-            if (lbFvMsgError.Text == ":") lbFvMsgError.Text = e.Exception.Message;
+            if (lbFvMsgErrorPOA.Text == ":") lbFvMsgErrorPOA.Text = e.Exception.Message;
         }
         else
         {
@@ -361,13 +423,13 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         {
             SoapException ex = (SoapException)e.Exception.InnerException;
             string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgError.Text = errorResumen;
+            lbFvMsgErrorPOA.Text = errorResumen;
             AsignarMensaje(ex.Message, mal);
         }
         else
         {
             tbFiltroId.Text = e.ReturnValue.ToString();
-            lbFvMsgInfo.Text = "Registro Insertado.";
+            lbFvMsgInfoPOA.Text = "Registro POA Insertado.";
             AsignarMensaje("Registro Insertado.", bien);
         }
     }
@@ -377,12 +439,12 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         {
             SoapException ex = (SoapException)e.Exception.InnerException;
             string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgError.Text = errorResumen;
+            lbFvMsgErrorPOA.Text = errorResumen;
             AsignarMensaje(ex.Message, mal);
         }
         else
         {
-            lbFvMsgInfo.Text = "Registro Actualizado.";
+            lbFvMsgInfoPOA.Text = "Registro POA Actualizado.";
             AsignarMensaje("Registro Actualizado.", bien);
         }
     }
@@ -392,12 +454,12 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         {
             SoapException ex = (SoapException)e.Exception.InnerException;
             string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgError.Text = errorResumen;
+            lbFvMsgErrorPOA.Text = errorResumen;
             AsignarMensaje(ex.Message, mal);
         }
         else
         {
-            lbFvMsgInfo.Text = "Registro Borrado.";
+            lbFvMsgInfoPOA.Text = "Registro POA Borrado.";
             AsignarMensaje("Registro Borrado.", bien);
         }
     }

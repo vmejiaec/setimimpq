@@ -25,6 +25,16 @@ public abstract class PaginaBase: KPagina
             return (Scope)Session["Scope"];
         }
     }
+    protected string MemoriaRegistroActual
+    {
+        get {
+            if (Session["MemoriaRegistroActual"] == null) Session["MemoriaRegistroActual"] = "*";
+            return (string)Session["MemoriaRegistroActual"];
+        }
+        set {
+            Session["MemoriaRegistroActual"] = value;
+        }
+    }
     //Métodos
     // Coloca el mensaje en la barra inferior
     protected void AsignarMensaje(string mensaje, Color color)
