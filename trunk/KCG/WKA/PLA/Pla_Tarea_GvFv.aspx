@@ -48,6 +48,11 @@ TagPrefix="ajax" %>
         var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Tarea_Pla_Cta_NivelTextBox');
         xNivel.value = params[3];
     }
+
+    //ctl00_ContentPlaceHolder1_fvPla_Poa_Pla_Partida_IdTextBox
+    //ctl00_ContentPlaceHolder1_fvPla_Poa_Pla_Partida_CodigoTextBox
+    //ctl00_ContentPlaceHolder1_fvPla_Poa_Pla_Partida_NombreTextBox
+
 </script>
 <%--[X]FIN Javascript para manegar los campos de autocompletar --%>
 
