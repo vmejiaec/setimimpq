@@ -356,6 +356,7 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         else
         {
             Filtrar();
+            SeleccionarFilaEnGV(gvPla_Tarea, (string) e.Values["Pla_Tarea_Id"]) ;
         }
     }
     protected void fvPla_Poa_ItemInserted(object sender, FormViewInsertedEventArgs e)
@@ -377,16 +378,19 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         // Valor por defecto del Id y Estado
         e.Values["Id"] = -1;
         // Cambio del formato de los campos de fechas y números
-        e.Values["Valor_Inicial"] = "0";
-        e.Values["Valor_Suma"] = "0";
+        e.Values["Valor_Inicial"] = Decimal.Parse((string)e.Values["Valor_Inicial"]);
+        e.Values["Valor_Suma"] = Decimal.Parse((string)e.Values["Valor_Suma"]);
         // Coloca el Id de la tarea del formview Cabecera
         e.Values["Pla_Tarea_Id"] = (int)fvPla_Tarea.SelectedValue;
     }
     protected void fvPla_Poa_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
-        // Controla el cambio del formato de las fechas
-        // e.NewValues["Fecha_Ini"] = DateTime.Parse((string)e.NewValues["Fecha_Ini"]);
-        // e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);        
+        // Controla el cambio del formato de los valores
+        e.NewValues["Valor_Inicial"] = Decimal.Parse((string)e.NewValues["Valor_Inicial"]);
+        e.OldValues["Valor_Inicial"] = Decimal.Parse((string)e.OldValues["Valor_Inicial"]);
+
+        e.NewValues["Valor_Suma"] = Decimal.Parse((string)e.NewValues["Valor_Suma"]);
+        e.OldValues["Valor_Suma"] = Decimal.Parse((string)e.OldValues["Valor_Suma"]);
     }
     protected void fvPla_Poa_ItemDeleting(object sender, FormViewDeleteEventArgs e)
     {
@@ -402,6 +406,8 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
             case FormViewMode.Insert:
                 ((TextBox)fvPla_Poa.FindControl("CodigoTextBox")).Text = "1";
                 ((TextBox)fvPla_Poa.FindControl("EstadoTextBox")).Text = "PEN";
+                ((TextBox)fvPla_Poa.FindControl("Valor_SumaTextBox")).Text = "0,00";
+                ((TextBox)fvPla_Poa.FindControl("Valor_InicialTextBox")).Text = "0,00";
                 if (fvPla_Tarea.SelectedValue != null)
                     ((TextBox)fvPla_Poa.FindControl("Pla_Tarea_IdTextBox")).Text = (fvPla_Tarea.SelectedValue).ToString();
                 break;
@@ -468,6 +474,42 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         }
     }
     #endregion
+
+    // WebServices para autocompletar campos del FormView de POA
+    #region WebServices para autocompletar
+    [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
+    public static string[] acxPla_Partida_GetByLikeCodigo_List(string prefixText, int count, string contextKey)
+    {
+        Scope s = (Scope)HttpContext.Current.Session["Scope"];
+        FEL.PLA.BO_Pla_Partida adp = new BO_Pla_Partida();
+        var lista = adp.GetByLikeCodigo(s, prefixText);
+        //
+        List<string> items = new List<string>();
+        foreach (var fila in lista)
+            items.Add(
+                AjaxControlToolkit.AutoCompleteExtender.
+                    CreateAutoCompleteItem(
+                        fila.Codigo, fila.Id + "||" + fila.Codigo + "||" + fila.Nombre + "||" // 0 1 2
+                    ));
+        return items.ToArray();
+    }
+    [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
+    public static string[] acxPla_Partida_GetByLikeNombre_List(string prefixText, int count, string contextKey)
+    {
+        Scope s = (Scope)HttpContext.Current.Session["Scope"];
+        FEL.PLA.BO_Pla_Partida adp = new BO_Pla_Partida();
+        var lista = adp.GetByLikeNombre(s, prefixText);
+        //
+        List<string> items = new List<string>();
+        foreach (var fila in lista)
+            items.Add(
+                AjaxControlToolkit.AutoCompleteExtender.
+                    CreateAutoCompleteItem(
+                        fila.Nombre, fila.Id + "||" + fila.Codigo + "||" + fila.Nombre + "||" // 0 1 2
+                    ));
+        return items.ToArray();
+    }
+    #endregion WebServices para autocompletar
 
     // Evantos para el ObjectDataSource del arbol de Cuentas
     protected void odsPla_Cta_Arbol_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)

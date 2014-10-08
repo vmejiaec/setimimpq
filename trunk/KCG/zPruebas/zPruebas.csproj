@@ -97,6 +97,10 @@
       <Parameters>&lt;%3fxml version="1.0" encoding="utf-16"%3f&gt;
 &lt;ArrayOfParameterStorage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Parameters>
     </None>
+    <None Include="AutoCompletar2Campos.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AutoCompletar2Campos.aspx</LastGenOutput>
+    </None>
     <None Include="TemplateFilemanager.ttinclude" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +113,12 @@
     <Folder Include="FEL\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AutoCompletar2Campos.aspx">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoCompletar2Campos.tt</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
     <Content Include="GeneraASP-GvFv.txt">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -1,0 +1,154 @@
+﻿<#@ template debug="true" hostSpecific="true" language="C#" #>
+<#@ output extension=".aspx" #>
+
+<#   
+	// Parámetros
+	string Contenedor ="ctl00_ContentPlaceHolder1";
+	string FormView = "fvPla_Poa";
+	string Tabla = "Pla_Partida";
+
+	// Métodos
+	string GetLikeCodigo = "GetByLikeCodigo";
+	string GetLikeNombre = "GetByLikeNombre";
+
+	// Campos de tabla, del FormView y del Cliente
+	string Columna_Id		= Tabla + "_Id";
+	string Columna_Codigo	= Tabla + "_Codigo";
+	string Columna_Nombre	= Tabla + "_Nombre";
+
+	string CampoTB_Id		= Columna_Id		+ "TextBox";
+	string CampoTB_Codigo	= Columna_Codigo	+ "TextBox";
+	string CampoTB_Nombre	= Columna_Nombre	+ "TextBox";
+
+	string CampoWeb_Id		= Contenedor + "_" + FormView + "_" + CampoTB_Id;
+	string CampoWeb_Codigo	= Contenedor + "_" + FormView + "_" + CampoTB_Codigo;
+	string CampoWeb_Nombre	= Contenedor + "_" + FormView + "_" + CampoTB_Nombre ;
+
+	// Funciones de JavaScript
+	string jsFuncion_Codigo = "acx" + CampoTB_Codigo + "_Click";
+	string jsFuncion_Nombre = "acx" + CampoTB_Nombre + "_Click";
+
+	// Identificadores de los AJAX AutoCompete
+	string acx_ID_Codigo	= "acx" + CampoTB_Codigo;
+	string acx_ID_Nombre	= "acx" + CampoTB_Nombre;
+	string acx_BID_Codigo	= "acxBID" + CampoTB_Codigo;
+	string acx_BID_Nombre	= "acxBID" + CampoTB_Nombre;
+
+	string WS_metodo_Codigo = "acx" + Tabla + "_" + GetLikeCodigo + "_List";
+	string WS_metodo_Nombre = "acx" + Tabla + "_" + GetLikeNombre + "_List";
+	
+#>
+
+<%--[0]INICIO Javascript para manegar los campos de autocompletar --%>
+<script type="text/javascript" >
+    function <#= jsFuncion_Codigo #> (source, eventArgs) {
+        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+        var params = new Array();
+        params = eventArgs.get_value().split('||');
+        // 0 Id
+        var xId = document.getElementById('<#= CampoWeb_Id #>');
+        xId.value = params[0];
+        // 2 Nombre
+        var xNombre = document.getElementById('<#= CampoWeb_Nombre #>');
+        xNombre.value = params[2];
+    }
+    function <#= jsFuncion_Nombre #> (source, eventArgs) {
+        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+        var params = new Array();
+        params = eventArgs.get_value().split('||');
+        // 0 Id
+        var xId = document.getElementById('<#= CampoWeb_Id #>');
+        xId.value = params[0];
+        // 1 Codigo
+        var xCodigo = document.getElementById('<#= CampoWeb_Codigo #>');
+        xCodigo.value = params[1];
+    }
+</script>
+<%--[X]FIN Javascript para manegar los campos de autocompletar --%>
+
+<%--[O]INICIO Control Ajax para pegar cerca de los Campos --%>
+<ajax:AutoCompleteExtender 
+    runat="server" ID= "<#= acx_ID_Codigo #>"
+    BehaviorID= "<#= acx_BID_Codigo #>"
+    TargetControlID= "<#= CampoTB_Codigo #>"
+    ServiceMethod= "<#= WS_metodo_Codigo #>"
+    UseContextKey="True" 
+    ContextKey=""
+    CompletionInterval="0"
+    OnClientItemSelected= "<#= jsFuncion_Codigo #>"
+    />
+<ajax:AutoCompleteExtender 
+    runat="server" ID= "<#= acx_ID_Nombre #>"
+    BehaviorID= "<#= acx_BID_Nombre #>"
+    TargetControlID= "<#= CampoTB_Nombre #>"
+    ServiceMethod= "<#= WS_metodo_Nombre #>"
+    UseContextKey="True" 
+    ContextKey=""
+    CompletionInterval="0"
+    MinimumPrefixLength="0"
+    OnClientItemSelected= <#= jsFuncion_Nombre #>
+    />
+<%--[X]FIN Control Ajax para pegar cerca de los Campos --%>
+
+// WebServices para autocompletar campos del FormView de <#= Tabla #>
+#region WebServices para autocompletar
+[System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
+public static string[] <#= WS_metodo_Codigo #> (string prefixText, int count, string contextKey)
+{
+    Scope s = (Scope)HttpContext.Current.Session["Scope"];
+    FEL.PLA.BO_<#= Tabla #> adp = new BO_<#= Tabla #>();
+    var lista = adp.<#= GetLikeCodigo #>(s, contextKey, prefixText);
+    //
+    List<string> items = new List<string>();
+    foreach (var fila in lista)
+        items.Add(
+            AjaxControlToolkit.AutoCompleteExtender.
+                CreateAutoCompleteItem(
+                    fila.Codigo, fila.Id + "||" + fila.Codigo + "||" + fila.Nombre  // 0 1 2
+                ));
+    return items.ToArray();
+}
+[System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
+public static string[] <#= WS_metodo_Nombre #> (string prefixText, int count, string contextKey)
+{
+    Scope s = (Scope)HttpContext.Current.Session["Scope"];
+    FEL.PLA.BO_<#= Tabla #> adp = new BO_<#= Tabla #>();
+    var lista = adp.<#= GetLikeNombre #>(s, contextKey, prefixText);
+    //
+    List<string> items = new List<string>();
+    foreach (var fila in lista)
+        items.Add(
+            AjaxControlToolkit.AutoCompleteExtender.
+                CreateAutoCompleteItem(
+                    fila.Nombre, fila.Id + "||" + fila.Codigo + "||" + fila.Nombre // 0 1 2
+                ));
+    return items.ToArray();
+}
+#endregion WebServices para autocompletar
+
+// Eventos para Inicializar los ContextKey antes de dibujar el FormView
+protected void fvPla_Tarea_PreRender(object sender, EventArgs e)
+{
+    FormView fvSender = (FormView) sender;
+    AjaxControlToolkit.AutoCompleteExtender <#= acx_ID_Codigo #> = new AjaxControlToolkit.AutoCompleteExtender();
+    AjaxControlToolkit.AutoCompleteExtender <#= acx_ID_Nombre #>  = new AjaxControlToolkit.AutoCompleteExtender();
+    switch (fvPla_Tarea.CurrentMode)
+    {
+        case FormViewMode.Insert:
+            // Pone el año en el autocompletar
+            <#= acx_ID_Codigo #> = (AjaxControlToolkit.AutoCompleteExtender)fvSender.FindControl(<#= acx_ID_Codigo #>);
+            <#= acx_ID_Codigo #>.ContextKey = ddlCabecera.SelectedValue;
+            <#= acx_ID_Nombre #> = (AjaxControlToolkit.AutoCompleteExtender)fvSender.FindControl(<#= acx_ID_Nombre #>);
+            <#= acx_ID_Nombre #>.ContextKey = ddlCabecera.SelectedValue;
+            break;
+        case FormViewMode.Edit:
+            // Pone el año en el autocompletar
+            <#= acx_ID_Codigo #> = (AjaxControlToolkit.AutoCompleteExtender) fvSender.FindControl(<#= acx_ID_Codigo #>);
+            <#= acx_ID_Codigo #>.ContextKey = ddlCabecera.SelectedValue;
+            <#= acx_ID_Nombre #> = (AjaxControlToolkit.AutoCompleteExtender)fvSender.FindControl(<#= acx_ID_Nombre #>);
+            <#= acx_ID_Nombre #>.ContextKey = ddlCabecera.SelectedValue;
+            break;
+        case FormViewMode.ReadOnly:
+            break;
+    }
+}
