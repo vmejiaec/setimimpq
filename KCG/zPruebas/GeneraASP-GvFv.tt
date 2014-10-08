@@ -179,8 +179,8 @@ TagPrefix="ajax" %>
             </asp:Panel>
         </ItemTemplate>
     </koala:FormViewSetim>
-        <asp:Label ID="lbFvMsgError" runat="server" Text=":" CssClass="FvMensajeError"></asp:Label>
-        <asp:Label ID="lbFvMsgInfo" runat="server" Text=">" CssClass="FvMensajeInfo"></asp:Label>
+        <asp:Label ID="lbFvMsgError<#= tabla.Nombre #>" runat="server" Text=":" CssClass="FvMensajeError"></asp:Label>
+        <asp:Label ID="lbFvMsgInfo<#= tabla.Nombre #>" runat="server" Text=">" CssClass="FvMensajeInfo"></asp:Label>
         <asp:ValidationSummary ID="vsErrorResumen" runat="server" ValidationGroup="vg<#= tabla.Nombre #>"/>
     </asp:Panel>
 	<%--[X] FormView de <#= tabla.Nombre #> --%>
@@ -379,8 +379,8 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         #>}
         gv<#= tabla.Nombre #>.DataBind();
         // Si existe algún error en el FormView lo borra
-        lbFvMsgError.Text = ":";
-        lbFvMsgInfo.Text = ">";
+        lbFvMsgError<#= tabla.Nombre #>.Text = ":";
+        lbFvMsgInfo<#= tabla.Nombre #>.Text = "> Filtrado";
     }
     protected void ddlFiltro_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -396,8 +396,8 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
     // Evento se dispara cuando se selecciona una fila del GridView
     protected void gv<#= tabla.Nombre #>_SelectedIndexChanged(object sender, EventArgs e)
     {
-        lbFvMsgError.Text = ":";
-        lbFvMsgInfo.Text = ">";
+        lbFvMsgError<#= tabla.Nombre #>.Text = ":";
+        lbFvMsgInfo<#= tabla.Nombre #>.Text = "> <#= tabla.Nombre #> Seleccionado";
     }
 	// Busca y selecciona la fila indicada en el GridView
     protected void SeleccionarFilaEnGV<#= tabla.Nombre #>(GridView gv, string txtId)
@@ -428,7 +428,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         {
             e.ExceptionHandled = true;
             e.KeepInEditMode = true;
-			if (lbFvMsgError.Text == ":") lbFvMsgError.Text = e.Exception.Message;
+			if (lbFvMsgError<#= tabla.Nombre #>.Text == ":") lbFvMsgError<#= tabla.Nombre #>.Text = e.Exception.Message;
         }
         else
         {
@@ -442,7 +442,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         if (e.Exception != null)
         {
             e.ExceptionHandled = true;
-			if (lbFvMsgError.Text == ":") lbFvMsgError.Text = e.Exception.Message;
+			if (lbFvMsgError<#= tabla.Nombre #>.Text == ":") lbFvMsgError<#= tabla.Nombre #>.Text = e.Exception.Message;
         }
         else
         {
@@ -455,7 +455,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         {
             e.ExceptionHandled = true;
             e.KeepInInsertMode = true;
-			if (lbFvMsgError.Text == ":") lbFvMsgError.Text = e.Exception.Message;
+			if (lbFvMsgError<#= tabla.Nombre #>.Text == ":") lbFvMsgError<#= tabla.Nombre #>.Text = e.Exception.Message;
         }
         else
         {
@@ -470,18 +470,33 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         if (String.IsNullOrWhiteSpace((string)e.Values["Estado"])) e.Values["Estado"] = "PEN";
 		// Cambio del formato de los campos de fechas
 		// e.Values["Fecha_Ini"] = DateTime.Parse((string)e.Values["Fecha_Ini"]);
+		
+		// Guarda los datos del registro a borrar en memoria
+        this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
+									 "Codigo: " + (string)e.Values["Codigo"] + " * " +
+                                     "Nombre: " + (string)e.Values["Nombre"];
     }	
     protected void fv<#= tabla.Nombre #>_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
         // Controla el cambio del formato de las fechas
         // e.NewValues["Fecha_Ini"] = DateTime.Parse((string)e.NewValues["Fecha_Ini"]);
-        // e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);        
+        // e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);
+		
+		// Guarda los datos del registro a borrar en memoria
+        this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
+									 "Codigo: " + (string)e.Values["Codigo"] + " * " +
+                                     "Nombre: " + (string)e.Values["Nombre"];
     }
     protected void fv<#= tabla.Nombre #>_ItemDeleting(object sender, FormViewDeleteEventArgs e)
     {
         // Control de valores antes del borrado como fechas y números
         // e.Values["Valor_Inicial"] = "0";
         //e.Values["Valor_Suma"] = "0";
+		
+		// Guarda los datos del registro a borrar en memoria
+        this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
+									 "Codigo: " + (string)e.Values["Codigo"] + " * " +
+                                     "Nombre: " + (string)e.Values["Nombre"];
     }
 	// Inicializa los valores antes de que el FormView se dibuje en la página
     protected void fv<#= tabla.Nombre #>_PreRender(object sender, EventArgs e)
@@ -513,14 +528,14 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         {
             SoapException ex = (SoapException)e.Exception.InnerException;
             string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgError.Text = errorResumen;
+            lbFvMsgError<#= tabla.Nombre #>.Text = errorResumen;
             AsignarMensaje(ex.Message, mal);
         }
         else
         {
             tbFiltroId.Text = e.ReturnValue.ToString();
-            lbFvMsgInfo.Text = "Registro Insertado.";
-            AsignarMensaje("Registro Insertado.",bien);
+            lbFvMsgInfo<#= tabla.Nombre #>.Text = <#= tabla.Nombre #> + " Registro Insertado. " + this.MemoriaRegistroActual;
+            AsignarMensaje("Registro Insertado. " + this.MemoriaRegistroActual, bien);
         }
     }
     protected void odsfv<#= tabla.Nombre #>_Updated(object sender, ObjectDataSourceStatusEventArgs e)
@@ -529,13 +544,13 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         {
             SoapException ex = (SoapException)e.Exception.InnerException;
             string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgError.Text = errorResumen;
+            lbFvMsgError<#= tabla.Nombre #>.Text = errorResumen;
             AsignarMensaje(ex.Message, mal);
         }
         else
         {
-            lbFvMsgInfo.Text = "Registro Actualizado.";
-            AsignarMensaje("Registro Actualizado.", bien);
+            lbFvMsgInfo<#= tabla.Nombre #>.Text = <#= tabla.Nombre #> + " Registro Actualizado. " + this.MemoriaRegistroActual;
+            AsignarMensaje("Registro Actualizado. " + this.MemoriaRegistroActual, bien);
         }
     }
     protected void odsfv<#= tabla.Nombre #>_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
@@ -544,13 +559,13 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         {
             SoapException ex = (SoapException)e.Exception.InnerException;
             string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgError.Text = errorResumen;
+            lbFvMsgError<#= tabla.Nombre #>.Text = errorResumen;
             AsignarMensaje(ex.Message, mal);
         }
         else
         {
-            lbFvMsgInfo.Text = "Registro Borrado.";
-            AsignarMensaje("Registro Borrado.", bien);
+            lbFvMsgInfo<#= tabla.Nombre #>.Text = <#= tabla.Nombre #> + " Registro Borrado. " + this.MemoriaRegistroActual;
+            AsignarMensaje("Registro Borrado. " + this.MemoriaRegistroActual, bien);
         }
     }	
 	#endregion
