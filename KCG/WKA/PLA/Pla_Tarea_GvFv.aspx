@@ -13,11 +13,25 @@ Namespace="AjaxControlToolkit"
 TagPrefix="ajax" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+<%--[O]INICIO Funcion para poner el formato numérico a los campos del FV--%>
+<script type="text/javascript">
+    function PonerFormatoNumericoACampo_fvPla_Poa_Valor_Inicial() {
+        $('#ctl00_ContentPlaceHolder1_fvPla_Poa_Valor_InicialTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
+    }
+</script>
+
 <asp:UpdatePanel runat="server" ID="udpGridView">
 <ContentTemplate>
 
+<%--Ejecuta la función antes de presentar los objetos en pantalla mediante PageRequestManager--%>
+<script type="text/javascript">
+    Sys.WebForms.PageRequestManager.getInstance().add_endRequest(PonerFormatoNumericoACampo_fvPla_Poa_Valor_Inicial);
+</script>
+
 <%--[0]INICIO Javascript para manegar los campos de autocompletar --%>
 <script type="text/javascript" >
+// Autocompletar en Tareas
     function acxPla_Cta_CodigoTextBox_Click(source, eventArgs) {
         //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
         var params = new Array();
@@ -48,11 +62,29 @@ TagPrefix="ajax" %>
         var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Tarea_Pla_Cta_NivelTextBox');
         xNivel.value = params[3];
     }
-
-    //ctl00_ContentPlaceHolder1_fvPla_Poa_Pla_Partida_IdTextBox
-    //ctl00_ContentPlaceHolder1_fvPla_Poa_Pla_Partida_CodigoTextBox
-    //ctl00_ContentPlaceHolder1_fvPla_Poa_Pla_Partida_NombreTextBox
-
+// Autocompletar en POA
+    function acxPla_Partida_CodigoTextBox_Click (source, eventArgs) {
+        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+        var params = new Array();
+        params = eventArgs.get_value().split('||');
+        // 0 Id                            
+        var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Poa_Pla_Partida_IdTextBox');
+        xId.value = params[0];
+        // 2 Nombre
+        var xNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Poa_Pla_Partida_NombreTextBox');
+        xNombre.value = params[2];
+    }
+    function acxPla_Partida_NombreTextBox_Click (source, eventArgs) {
+        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+        var params = new Array();
+        params = eventArgs.get_value().split('||');
+        // 0 Id
+        var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Poa_Pla_Partida_IdTextBox');
+        xId.value = params[0];
+        // 1 Codigo
+        var xCodigo = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Poa_Pla_Partida_CodigoTextBox');
+        xCodigo.value = params[1];
+    }
 </script>
 <%--[X]FIN Javascript para manegar los campos de autocompletar --%>
 
@@ -102,7 +134,7 @@ TagPrefix="ajax" %>
     </asp:Panel>
 
     <%--FormView Tarea --%>
-    <asp:Panel runat="server" ID="pfvPla_Tarea" GroupingText="Crear, Editar o Borar Tareas" CssClass="panCol2">
+    <asp:Panel runat="server" ID="pfvPla_Tarea" GroupingText="Editar la Tarea seleccionada" CssClass="panCol2">
     <asp:FormView ID="fvPla_Tarea" runat="server" DataSourceID="odsfvPla_Tarea" 
             oniteminserting="fvPla_Tarea_ItemInserting" 
             onitemdeleted="fvPla_Tarea_ItemDeleted" 
@@ -423,8 +455,10 @@ TagPrefix="ajax" %>
     </asp:Panel>
 
     <%--[O] INICIO GridView y FormView del Detalle POA --%>    
-    <asp:Panel ID="Panel1" runat="server" GroupingText="POA"  CssClass="panCol2">
-    
+    <asp:Panel ID="Panel1" runat="server" GroupingText="Asignación de Partidas a la Tarea"  CssClass="panCol2">
+    <div style="height:30px">
+
+    </div>
     <%----[O] GridView POA --%>
     <asp:GridView ID="gvPla_Poa" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Poa_GetByPla_Tarea_Id" 
@@ -471,35 +505,70 @@ TagPrefix="ajax" %>
 			<tr style="display:none">
                 <td> Pla_Tarea_Id </td>                
 				<td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  CssClass="txtEdit"  /></td>
-            </tr>
-			<tr >
-                <td> Pla_Partida_Id </td>                
-				<td><asp:TextBox ID="Pla_Partida_IdTextBox" runat="server" Text='<%# Bind("Pla_Partida_Id") %>'  CssClass="txtEdit"  /></td>
-            </tr>
+            </tr>			
 			<tr style="display:none">
                 <td> Estado </td>                
 				<td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  CssClass="txtEdit"  />
 				</td>
             </tr>
+            <tr  style="display:none" >
+                <td> Pla_Partida_Id </td>                
+				<td><asp:TextBox ID="Pla_Partida_IdTextBox" runat="server" Text='<%# Bind("Pla_Partida_Id") %>'  CssClass="txtEdit"  /></td>
+            </tr>
 			<tr >
                 <td> Pla_Partida_Codigo </td>                
 				<td><asp:TextBox ID="Pla_Partida_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Partida_Codigo") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Partida_Codigo" runat="server" 
+                <asp:RequiredFieldValidator ID="rqPla_Partida_Codigo" runat="server" 
                     ControlToValidate="Pla_Partida_CodigoTextBox"
                     ErrorMessage="El campo Pla_Partida_Codigo es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
-					</td>
+                <ajax:AutoCompleteExtender 
+                    runat="server" ID= "acxPla_Partida_CodigoTextBox"
+                    BehaviorID= "acxBIDPla_Partida_CodigoTextBox"
+                    TargetControlID= "Pla_Partida_CodigoTextBox"
+                    ServiceMethod= "acxPla_Partida_GetByLikeCodigo_List"
+                    UseContextKey="True" 
+                    ContextKey=""
+                    CompletionInterval="0"
+                    OnClientItemSelected= "acxPla_Partida_CodigoTextBox_Click"
+                    />
+				</td>
             </tr>
 			<tr >
                 <td> Pla_Partida_Nombre </td>                
 				<td><asp:TextBox ID="Pla_Partida_NombreTextBox" runat="server" Text='<%# Bind("Pla_Partida_Nombre") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Partida_Nombre" runat="server" 
+                <asp:RequiredFieldValidator ID="rqPla_Partida_Nombre" runat="server" 
                     ControlToValidate="Pla_Partida_NombreTextBox"
                     ErrorMessage="El campo Pla_Partida_Nombre es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
-					</td>
+                <ajax:AutoCompleteExtender 
+                    runat="server" ID= "acxPla_Partida_NombreTextBox"
+                    BehaviorID= "acxBIDPla_Partida_NombreTextBox"
+                    TargetControlID= "Pla_Partida_NombreTextBox"
+                    ServiceMethod= "acxPla_Partida_GetByLikeNombre_List"
+                    UseContextKey="True" 
+                    ContextKey=""
+                    CompletionInterval="0"
+                    MinimumPrefixLength="0"
+                    OnClientItemSelected= "acxPla_Partida_NombreTextBox_Click"
+                    />
+				</td>
+            </tr>
+            <tr >
+                <td> Valor_Inicial </td>
+                <td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text='<%# Bind("Valor_Inicial","{0:N2}") %>'   CssClass="txtEdit"   />
+                    <%--Validador--%>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                    ControlToValidate="Valor_InicialTextBox"
+                    ErrorMessage="El campo Valor_Inicial es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
+                </td>
+            </tr>
+			<tr >
+                <td> Valor_Suma </td>
+                <td><asp:TextBox ID="Valor_SumaTextBox" runat="server" Text='<%# Bind("Valor_Suma","{0:N2}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
 			</table>
             <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" ValidationGroup="vgPla_Poa"/>
@@ -520,12 +589,12 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  CssClass="txtEdit" />
 				</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Pla_Tarea_Id  </td>                
 				<td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  CssClass="txtEdit"  />
 				</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Pla_Partida_Id </td>                
 				<td><asp:TextBox ID="Pla_Partida_IdTextBox" runat="server" Text='<%# Bind("Pla_Partida_Id") %>'  CssClass="txtEdit"  />
 				</td>
@@ -543,7 +612,17 @@ TagPrefix="ajax" %>
                     ControlToValidate="Pla_Partida_CodigoTextBox"
                     ErrorMessage="El campo Pla_Partida_Codigo es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
-					</td>
+                <ajax:AutoCompleteExtender 
+                    runat="server" ID= "acxPla_Partida_CodigoTextBox"
+                    BehaviorID= "acxBIDPla_Partida_CodigoTextBox"
+                    TargetControlID= "Pla_Partida_CodigoTextBox"
+                    ServiceMethod= "acxPla_Partida_GetByLikeCodigo_List"
+                    UseContextKey="True" 
+                    ContextKey=""
+                    CompletionInterval="0"
+                    OnClientItemSelected= "acxPla_Partida_CodigoTextBox_Click"
+                    />
+				</td>
             </tr>
 			<tr >
                 <td> Pla_Partida_Nombre </td>                
@@ -553,7 +632,32 @@ TagPrefix="ajax" %>
                     ControlToValidate="Pla_Partida_NombreTextBox"
                     ErrorMessage="El campo Pla_Partida_Nombre es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
-					</td>
+                <ajax:AutoCompleteExtender 
+                    runat="server" ID= "acxPla_Partida_NombreTextBox"
+                    BehaviorID= "acxBIDPla_Partida_NombreTextBox"
+                    TargetControlID= "Pla_Partida_NombreTextBox"
+                    ServiceMethod= "acxPla_Partida_GetByLikeNombre_List"
+                    UseContextKey="True" 
+                    ContextKey=""
+                    CompletionInterval="0"
+                    MinimumPrefixLength="0"
+                    OnClientItemSelected= "acxPla_Partida_NombreTextBox_Click"
+                    />
+                </td>
+            </tr>
+            <tr >
+                <td> Valor_Inicial </td>
+                <td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text='<%# Bind("Valor_Inicial","{0:N2}") %>'   CssClass="txtEdit"  />
+                <%--Validador--%>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                    ControlToValidate="Valor_InicialTextBox"
+                    ErrorMessage="El campo Valor_Inicial es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
+                </td>
+            </tr>
+			<tr >
+                <td> Valor_Suma </td>
+                <td><asp:TextBox ID="Valor_SumaTextBox" runat="server" Text='<%# Bind("Valor_Suma","{0:N2}") %>' CssClass="txtItem" /></td>
             </tr>
 			</table>
             <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar"  ValidationGroup="vgPla_Poa"/>
@@ -575,6 +679,10 @@ TagPrefix="ajax" %>
 			<tr  style="display:none" >
                 <td> Pla_Tarea_Id </td>
                 <td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+            </tr>
+            <tr  style="display:none">
+                <td> Tarea_Codigo </td>
+                <td><asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Pla_Tarea_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
 			<tr  style="display:none" >
                 <td> Pla_Partida_Id </td>
