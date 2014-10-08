@@ -379,6 +379,8 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         // Cambio del formato de los campos de fechas y números
         e.Values["Valor_Inicial"] = "0";
         e.Values["Valor_Suma"] = "0";
+        // Coloca el Id de la tarea del formview Cabecera
+        e.Values["Pla_Tarea_Id"] = (int)fvPla_Tarea.SelectedValue;
     }
     protected void fvPla_Poa_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
@@ -400,6 +402,8 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
             case FormViewMode.Insert:
                 ((TextBox)fvPla_Poa.FindControl("CodigoTextBox")).Text = "1";
                 ((TextBox)fvPla_Poa.FindControl("EstadoTextBox")).Text = "PEN";
+                if (fvPla_Tarea.SelectedValue != null)
+                    ((TextBox)fvPla_Poa.FindControl("Pla_Tarea_IdTextBox")).Text = (fvPla_Tarea.SelectedValue).ToString();
                 break;
             case FormViewMode.Edit:
                 break;
@@ -465,6 +469,7 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
     }
     #endregion
 
+    // Evantos para el ObjectDataSource del arbol de Cuentas
     protected void odsPla_Cta_Arbol_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
     {
         var o = e.InputParameters;
