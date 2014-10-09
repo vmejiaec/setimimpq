@@ -14,7 +14,8 @@ namespace FEL.PLA
         {
             Scope s = new Scope();
             int res =
-                Adapter.Pla_Poa_Insert_Con_Pla_Mov_SaldoInicialINT(s, n.Codigo, n.Pla_Tarea_Id, n.Pla_Partida_Id, n.Valor_Inicial, n.Estado);
+                Adapter.Pla_Poa_Insert_Con_Pla_Mov_SaldoInicialINT
+                    (s, n.Codigo, n.Pla_Tarea_Id, n.Pla_Partida_Id, n.Valor_Inicial, n.Estado);
             return res;
         }
     }

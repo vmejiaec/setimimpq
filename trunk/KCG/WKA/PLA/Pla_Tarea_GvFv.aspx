@@ -100,6 +100,7 @@ TagPrefix="ajax" %>
         <asp:Label ID="lbFiltro" runat="server" Text="Filtro"></asp:Label>
         <asp:TextBox ID="tbFiltro" runat="server"></asp:TextBox>
         <asp:TextBox ID="tbFiltroId" runat="server" CssClass="filtroID"></asp:TextBox>
+        <asp:TextBox ID="tbFiltroId_Poa" runat="server" CssClass="filtroID"></asp:TextBox>
         <asp:Button runat="server" ID="btFiltrar" Text="..." Visible="true" onclick="btFiltrar_Click" style="display:none" />
         <asp:DropDownList ID="ddlFiltro" runat="server" AutoPostBack="true" onselectedindexchanged="ddlFiltro_SelectedIndexChanged">
             <asp:ListItem Text = "Todos" Value="Todos" ></asp:ListItem>
@@ -455,7 +456,7 @@ TagPrefix="ajax" %>
     </asp:Panel>
 
     <%--[O] INICIO GridView y FormView del Detalle POA --%>    
-    <asp:Panel ID="Panel1" runat="server" GroupingText="Asignación de Partidas a la Tarea"  CssClass="panCol2">
+    <asp:Panel ID="Panel1" runat="server" GroupingText="Asignación de Partidas a la Tarea" CssClass="panCol2" >
     <div style="height:30px">
 
     </div>
