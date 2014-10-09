@@ -45,7 +45,7 @@ using HER;
 namespace FEL.<#= xsdNombreIniciales #>
 {
     [DataObject]
-    public class BO_<#= tabla.Nombre #>
+    public partial class BO_<#= tabla.Nombre #>
     {
         #region Adaptador
         private WS_<#= xsdNombreIniciales #> _Adapter;

@@ -341,8 +341,8 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         }
         else
         {
-            tbFiltroId.Text = (string)e.NewValues["Id"];
-            SeleccionarFilaEnGVPla_Poa(gvPla_Poa, tbFiltroId.Text);
+            tbFiltroId_Poa.Text = (string)e.NewValues["Id"];
+            SeleccionarFilaEnGVPla_Poa(gvPla_Poa, tbFiltroId_Poa.Text);
             gvPla_Poa.DataBind();
         }
     }
@@ -369,7 +369,7 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         }
         else
         {
-            SeleccionarFilaEnGVPla_Poa(gvPla_Poa, tbFiltroId.Text);
+            SeleccionarFilaEnGVPla_Poa(gvPla_Poa, tbFiltroId_Poa.Text);
             gvPla_Poa.DataBind();
         }
     }
@@ -438,7 +438,7 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         }
         else
         {
-            tbFiltroId.Text = e.ReturnValue.ToString();
+            tbFiltroId_Poa.Text = e.ReturnValue.ToString();
             lbFvMsgInfoPOA.Text = "Registro POA Insertado.";
             AsignarMensaje("Registro Insertado.", bien);
         }
