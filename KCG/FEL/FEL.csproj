@@ -179,6 +179,7 @@
     <Compile Include="PAR\BO_Par_Filtro.cs" />
     <Compile Include="PAR\BO_Par_Tipo_Identificacion.cs" />
     <Compile Include="PER\BO_Per_Personal.cs" />
+    <Compile Include="PLA\aPla_Parcial.cs" />
     <Compile Include="PLA\BO_Pla_Cta.cs">
       <DependentUpon>generaCEL.txt4</DependentUpon>
     </Compile>

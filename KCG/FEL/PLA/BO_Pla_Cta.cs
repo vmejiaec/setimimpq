@@ -59,6 +59,13 @@ namespace FEL.PLA
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Pla_Cta> GetByAnioArbolPla_Cta_Codigo(Scope s , string p_Anio, string p_Pla_Cta_Codigo)
+        {
+			List<Pla_Cta> lista = new List<Pla_Cta>(
+				Adapter.Pla_Cta_GetByAnioArbolPla_Cta_Codigo(s,  p_Anio, p_Pla_Cta_Codigo));
+            return lista;
+        }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
 		public List<Pla_Cta> GetByAnioLikeCodigo(Scope s , string p_Anio, string p_Codigo)
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(

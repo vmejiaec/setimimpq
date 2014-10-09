@@ -74,6 +74,12 @@ namespace FEL.PLA
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+		 // InsertINT
+		[DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
+		public int InsertINT(Pla_Mov n)
+        {            
+            return Adapter.Pla_Mov_InsertINT(n);
+        }
 		#endregion
 		#endregion
     }
