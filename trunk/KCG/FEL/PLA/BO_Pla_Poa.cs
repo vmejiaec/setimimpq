@@ -8,7 +8,7 @@ using HER;
 namespace FEL.PLA
 {
     [DataObject]
-    public class BO_Pla_Poa
+    public partial class BO_Pla_Poa
     {
         #region Adaptador
         private WS_PLA _Adapter;
@@ -74,6 +74,19 @@ namespace FEL.PLA
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+		 // Insert_Con_Pla_Mov_SaldoInicialINT
+				public int Pla_Poa_Insert_Con_Pla_Mov_SaldoInicialINT(Scope s , string Codigo, Int32 Pla_Tarea_Id, Int32 Pla_Partida_Id, Decimal Valor_Inicial, string Estado)
+        {
+			int res = 
+				Adapter.Pla_Poa_Insert_Con_Pla_Mov_SaldoInicialINT(s,  Codigo, Pla_Tarea_Id, Pla_Partida_Id, Valor_Inicial, Estado);
+            return res;
+        }
+		 // InsertINT
+		[DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
+		public int InsertINT(Pla_Poa n)
+        {            
+            return Adapter.Pla_Poa_InsertINT(n);
+        }
 		#endregion
 		#endregion
     }

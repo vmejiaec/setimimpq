@@ -850,7 +850,7 @@ TagPrefix="ajax" %>
     <asp:ObjectDataSource ID="odsfvPla_Poa" runat="server" 
         SelectMethod="GetById"         
         DeleteMethod="Delete" 
-        InsertMethod="InsertINT" 
+        InsertMethod="Insert_Con_Pla_Mov_SaldoInicialINT" 
         UpdateMethod="Update"
         TypeName="FEL.PLA.BO_Pla_Poa"
         DataObjectTypeName="Pla_Poa"
