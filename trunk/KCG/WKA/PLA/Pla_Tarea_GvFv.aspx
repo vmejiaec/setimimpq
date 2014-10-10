@@ -456,9 +456,9 @@ TagPrefix="ajax" %>
     </asp:Panel>
 
     <%--[O] INICIO GridView y FormView del Detalle POA --%>    
-    <asp:Panel ID="Panel1" runat="server" GroupingText="Asignación de Partidas a la Tarea" CssClass="panCol2" >
-    <div style="height:30px">
-
+    <asp:Panel ID="Panel1" runat="server" GroupingText="Asignación de Partidas a la Tarea" CssClass="panCol2"  DefaultButton="Button1">
+    <div style="height:33px">
+    <asp:Button ID="Button1" runat="server" Text="."></asp:Button>
     </div>
     <%----[O] GridView POA --%>
     <asp:GridView ID="gvPla_Poa" runat="server" AutoGenerateColumns="False" 
@@ -559,7 +559,7 @@ TagPrefix="ajax" %>
             </tr>
             <tr >
                 <td> Valor_Inicial </td>
-                <td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text='<%# Bind("Valor_Inicial","{0:N2}") %>'   CssClass="txtEdit"   />
+                <td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text='<%# Bind("Valor_Inicial") %>'   CssClass="txtEdit"   />
                     <%--Validador--%>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                     ControlToValidate="Valor_InicialTextBox"
@@ -648,7 +648,7 @@ TagPrefix="ajax" %>
             </tr>
             <tr >
                 <td> Valor_Inicial </td>
-                <td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text='<%# Bind("Valor_Inicial","{0:N2}") %>'   CssClass="txtEdit"  />
+                <td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text='<%# Bind("Valor_Inicial") %>'   CssClass="txtEdit"  />
                 <%--Validador--%>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                     ControlToValidate="Valor_InicialTextBox"
@@ -703,7 +703,7 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Valor_Inicial </td>
-                <td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text='<%# Bind("Valor_Inicial","{0:N2}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+                <td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text='<%# Bind("Valor_Inicial") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
 			<tr >
                 <td> Valor_Suma </td>
@@ -852,7 +852,7 @@ TagPrefix="ajax" %>
         SelectMethod="GetById"         
         DeleteMethod="Delete" 
         InsertMethod="Insert_Con_Pla_Mov_SaldoInicialINT" 
-        UpdateMethod="Update"
+        UpdateMethod="Update_Con_Pla_Mov_SaldoInicialINT"
         TypeName="FEL.PLA.BO_Pla_Poa"
         DataObjectTypeName="Pla_Poa"
         ConflictDetection = "CompareAllValues"

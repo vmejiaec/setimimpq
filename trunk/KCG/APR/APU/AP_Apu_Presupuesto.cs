@@ -205,7 +205,7 @@ namespace APR
                     {
                         resultado_del = DEL.APU.DO_Apu_Presupuesto.Delete_Presupuesto_Reajuste(s, p_Objeto_, PTransaction, "PRE");
 
-                        if (resultado_del = true)
+                        if (resultado_del )
                         {
                             Apu_Presupuesto p_Objeto_Nuevo = new Apu_Presupuesto(p_Objeto_);
                             p_Objeto_Nuevo.Estado = p_Proceso;

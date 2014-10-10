@@ -87,6 +87,13 @@ namespace FEL.PLA
         {            
             return Adapter.Pla_Poa_InsertINT(n);
         }
+		 // Update_Con_Pla_Mov_SaldoInicialINT
+				public int Pla_Poa_Update_Con_Pla_Mov_SaldoInicialINT(Scope s , string Codigo, Int32 Pla_Tarea_Id, Int32 Pla_Partida_Id, string Estado, Int32 Original_Id, string Original_Codigo, Int32 Original_Pla_Tarea_Id, Int32 Original_Pla_Partida_Id, string Original_Estado, Int32 Id, Decimal Valor_Inicial)
+        {
+			int res = 
+				Adapter.Pla_Poa_Update_Con_Pla_Mov_SaldoInicialINT(s,  Codigo, Pla_Tarea_Id, Pla_Partida_Id, Estado, Original_Id, Original_Codigo, Original_Pla_Tarea_Id, Original_Pla_Partida_Id, Original_Estado, Id, Valor_Inicial);
+            return res;
+        }
 		#endregion
 		#endregion
     }
