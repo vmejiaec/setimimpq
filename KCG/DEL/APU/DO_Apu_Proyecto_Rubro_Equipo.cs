@@ -233,7 +233,7 @@ namespace DEL.APU
             {
                 //adpApu_Proyecto_Rubro_Equipo.Adapter.BeginTransaction();
                 //adpApu_Proyecto_Equipo.Adapter.Transaction = adpApu_Proyecto_Rubro_Equipo.Adapter.Transaction;
-                int existeEquipo_Indice;
+                //int existeEquipo_Indice;
                 resultado = adpApu_Proyecto_Rubro_Equipo.
                     Delete(s, oApu_Proyecto_Rubro_Equipo);
                 // Consulta si existe el equipo 
@@ -288,7 +288,7 @@ namespace DEL.APU
                 adpApu_Proyecto_Equipo_Indice.Adapter.Transaction = PTransaccion;
                 adpApu_Proyecto.Adapter.Transaction = PTransaccion;
                 
-                int existeEquipo_Indice;
+                //int existeEquipo_Indice;
                 resultado = adpApu_Proyecto_Rubro_Equipo.
                     Delete(s, oApu_Proyecto_Rubro_Equipo);
                 // Consulta si existe el equipo 
