@@ -54,12 +54,18 @@ namespace AEL.PLA
         // Comentario
         private string _Pla_Partida_Nombre;
         
+        // Comentario
+        private decimal _Valor_Inicial;
+        
+        // Comentario
+        private decimal _Valor_Suma;
+        
         public Pla_Poa()
         {
         }
         
-        public Pla_Poa(int id, string codigo, int pla_Tarea_Id, int pla_Partida_Id, string estado, string pla_Tarea_Codigo, string pla_Tarea_Nombre, int pla_Cta_Id, string pla_Cta_Codigo, string pla_Cta_Nombre, string pla_Partida_Codigo, string pla_Partida_Nombre)
-        {
+        public Pla_Poa(int id, string codigo, int pla_Tarea_Id, int pla_Partida_Id, string estado, string pla_Tarea_Codigo, string pla_Tarea_Nombre, int pla_Cta_Id, string pla_Cta_Codigo, string pla_Cta_Nombre, string pla_Partida_Codigo, string pla_Partida_Nombre, decimal valor_Inicial, decimal valor_Suma)
+        { 
             this.Id = id;
             this.Codigo = codigo;
             this.Pla_Tarea_Id = pla_Tarea_Id;
@@ -72,6 +78,8 @@ namespace AEL.PLA
             this.Pla_Cta_Nombre = pla_Cta_Nombre;
             this.Pla_Partida_Codigo = pla_Partida_Codigo;
             this.Pla_Partida_Nombre = pla_Partida_Nombre;
+            this.Valor_Inicial = valor_Inicial;
+            this.Valor_Suma = valor_Suma;
         }
         
         public Pla_Poa(Pla_Poa o)
@@ -88,6 +96,8 @@ namespace AEL.PLA
             this.Pla_Cta_Nombre = o.Pla_Cta_Nombre;
             this.Pla_Partida_Codigo = o.Pla_Partida_Codigo;
             this.Pla_Partida_Nombre = o.Pla_Partida_Nombre;
+            this.Valor_Inicial = o.Valor_Inicial;
+            this.Valor_Suma = o.Valor_Suma;
         }
         
         // Comentario
@@ -243,6 +253,32 @@ namespace AEL.PLA
             set
             {
                 this._Pla_Partida_Nombre = value;
+            }
+        }
+        
+        // Comentario
+        public decimal Valor_Inicial
+        {
+            get
+            {
+                return this._Valor_Inicial;
+            }
+            set
+            {
+                this._Valor_Inicial = value;
+            }
+        }
+        
+        // Comentario
+        public decimal Valor_Suma
+        {
+            get
+            {
+                return this._Valor_Suma;
+            }
+            set
+            {
+                this._Valor_Suma = value;
             }
         }
     }
