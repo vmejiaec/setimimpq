@@ -69,14 +69,28 @@ public partial class VAR_VAR_Lista_Funcionarios_FaltanCrear : PaginaBase
             string res = adp.Insert(Scope, oFuncionario);
             // Publico los Ids resultados
             string[] lista = res.Split('-');
-            tbRazonId.Text = (lista[0].Split(':'))[1];
-            tbPersonaId.Text = (lista[1].Split(':'))[1];
-            tbUsuarioId.Text = (lista[2].Split(':'))[1];
-            lbMensame.Text = "El funcionario ha sido creado en el sistema";
+            string[] sublista = lista[0].Split(':');
+            tbRazonId.Text = lista[0];
+            tbPersonaId.Text = lista[1];
+            tbUsuarioId.Text = lista[2];
+            lbMensame.Text = "El funcionario: " + oFuncionario.Persona_Nombre +
+                " ha sido creado en el sistema con el usuario: " + oFuncionario.Persona_Usuario;
         }
         else
         {
             lbMensame.Text = "Ya existe un usuario con esa cédula en el sistema: " + cedula;
         }
+    }
+    protected void btIrAPantallaRazonSocial_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/PAR/PAR_RAZON_SOCIAL.aspx");
+    }
+    protected void btIrAPantallaPersona_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/PER/PER_PERSONAL.aspx");
+    }
+    protected void btIrAPantallaUsuario_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/INT/INT_USUARIO_PERSONAL.aspx");
     }
 }

@@ -97,17 +97,20 @@ TagPrefix="ajax" %>
         <tr>
         <td>Razón Social Id:</td>
         <td><asp:TextBox ID="tbRazonId" runat="server"></asp:TextBox> </td>
-        <td><asp:Button ID="btIrAPantallaRazonSocial" runat="server" Text="Consultar" /></td>
+        <td><asp:Button ID="btIrAPantallaRazonSocial" runat="server" Text="Consultar" 
+                onclick="btIrAPantallaRazonSocial_Click" /></td>
         </tr>
         <tr>
         <td>Persona Id:</td>
         <td><asp:TextBox ID="tbPersonaId" runat="server"></asp:TextBox></td>
-        <td><asp:Button ID="btIrAPantallaPersona" runat="server" Text="Consultar" /></td>
+        <td><asp:Button ID="btIrAPantallaPersona" runat="server" Text="Consultar" 
+                onclick="btIrAPantallaPersona_Click" /></td>
         </tr>
         <tr>
         <td>Usuario Id:</td>
         <td><asp:TextBox ID="tbUsuarioId" runat="server"></asp:TextBox></td>
-        <td><asp:Button ID="btIrAPantallaUsuario" runat="server" Text="Consultar" /></td>
+        <td><asp:Button ID="btIrAPantallaUsuario" runat="server" Text="Consultar" 
+                onclick="btIrAPantallaUsuario_Click" /></td>
         </tr>
         </table>
         <asp:Label ID="lbMensame" runat="server" Text=">"></asp:Label>
