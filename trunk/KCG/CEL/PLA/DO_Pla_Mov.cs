@@ -182,5 +182,23 @@ fila.Pla_Doc_Fecha
 			}
 			return lista;
 		}
+		// InsertINT
+		public int InsertINT(Pla_Mov n)
+    {
+        int res;
+        try {
+            res = Convert.ToInt16( Adapter.InsertINT(
+				n.Codigo,
+n.Pla_Poa_Id,
+n.Pla_Doc_Id,
+n.Orden,
+n.Valor,
+n.Estado
+			));
+        }
+        catch (SqlException e)
+        { throw (new Exception( e.Message)); }
+        return res;
+    }
 	}
 }

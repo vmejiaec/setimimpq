@@ -159,6 +159,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Tesoreria.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Varios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Varios.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Version.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -301,6 +306,17 @@
     </None>
     <None Include="Tesoreria.xss">
       <DependentUpon>Tesoreria.xsd</DependentUpon>
+    </None>
+    <None Include="Varios.xsc">
+      <DependentUpon>Varios.xsd</DependentUpon>
+    </None>
+    <None Include="Varios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Varios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Varios.xss">
+      <DependentUpon>Varios.xsd</DependentUpon>
     </None>
     <None Include="Version.xsc">
       <DependentUpon>Version.xsd</DependentUpon>

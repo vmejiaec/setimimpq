@@ -116,6 +116,25 @@ fila.Estado
 			}
 			return lista;
 		}
+		// GetByAnioArbolPla_Cta_Codigo
+		public List<Pla_Cta> GetByAnioArbolPla_Cta_Codigo (Scope s , string p_Anio, string p_Pla_Cta_Codigo)
+		{
+			List<Pla_Cta> lista = new List<Pla_Cta>();
+			var tabla = Adapter.GetByAnioArbolPla_Cta_Codigo( p_Anio, p_Pla_Cta_Codigo);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new Pla_Cta(
+				fila.Id,
+fila.Anio,
+fila.Codigo,
+fila.Nivel,
+fila.Nombre,
+fila.Descripcion,
+fila.Estado
+				));
+			}
+			return lista;
+		}
 		// GetByAnioLikeCodigo
 		public List<Pla_Cta> GetByAnioLikeCodigo (Scope s , string p_Anio, string p_Codigo)
 		{

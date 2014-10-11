@@ -77,6 +77,7 @@
     <Content Include="WS_PER.asmx" />
     <Content Include="WS_PLA.asmx" />
     <Content Include="WS_SEG.asmx" />
+    <Content Include="WS_VAR.asmx" />
     <Content Include="WS_VER.asmx" />
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +136,10 @@
     </Compile>
     <Compile Include="WS_SEG.asmx.cs">
       <DependentUpon>WS_SEG.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_VAR.asmx.cs">
+      <DependentUpon>WS_VAR.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_VER.asmx.cs">
