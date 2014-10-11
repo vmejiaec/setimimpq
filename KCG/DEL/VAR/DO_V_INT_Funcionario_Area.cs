@@ -94,7 +94,7 @@ namespace DEL.VAR
             sUsuario_Id = adpInt_Usuario.Insert(s, oUsuario);
 
             // Se retorna los valores creados en el proceso
-            res = "sRazonSocial_Id:" + sRazonSocial_Id + "-sPersonal_Id:" + sPersonal_Id + "-sUsuario_Id" + sUsuario_Id;
+            res = "sRazonSocial_Id:" + sRazonSocial_Id + "-sPersonal_Id:" + sPersonal_Id + "-sUsuario_Id:" + sUsuario_Id;
             return res;
         }
         #endregion
