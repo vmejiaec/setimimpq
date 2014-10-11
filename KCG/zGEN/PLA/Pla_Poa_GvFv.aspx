@@ -47,7 +47,7 @@ TagPrefix="ajax" %>
     </asp:Panel>
 	<%--[X] Filtro--%>
 
-    <%--[O] GridView--%>
+    <%--[O] GridView de Pla_Poa --%>
     <asp:Panel runat="server" GroupingText="Registros">
     <asp:GridView ID="gvPla_Poa" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Poa" 
@@ -75,9 +75,43 @@ TagPrefix="ajax" %>
 				</Columns>
     </asp:GridView>
     </asp:Panel>
-	<%--[X] GridView--%>
+	<%--[X] GridView de Pla_Poa --%>
 
-    <%--[O] FormView--%>
+<%--Autocompletar del FormView de Pla_Poa --%>
+<%--[0]INICIO Javascript para manegar los campos de autocompletar --%>
+<div>
+<%--<script type="text/javascript" >
+    function acxCabecera_Nombre_Click(source, eventArgs) {
+        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+        var params = new Array();
+        params = eventArgs.get_value().split('||');
+        // 0 Id
+        var xId = document.getElementById('<%= ((TextBox)fv.FindControl("Cabecera_Id")).ClientID %>');
+        xId.value = params[0];
+        // 1 Codigo
+        var xCodigo = document.getElementById('<%= ((TextBox)fv.FindControl("Cabecera_Codigo")).ClientID %>');
+        xCodigo.value = params[1];
+        // coloca el id del maestro en el detalle mediante el contextKey
+        $find('acxBID_Detalle_Nombre').set_contextKey(xId.value);
+    }
+    function acxDetalle_Nombre_Click(source, eventArgs) {
+        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+        var params = new Array();
+        params = eventArgs.get_value().split('||');
+        // 0 Id
+        var xId = document.getElementById('<%= ((TextBox)fv.FindControl("Detalle_Id")).ClientID %>');
+        xId.value = params[0];
+        // 1 Codigo
+        var xCodigo = document.getElementById('<%= ((TextBox)fv.FindControl("Detalle_Codigo")).ClientID %>');
+        xCodigo.value = params[1];
+    }
+</script>--%>
+</div>
+<%--[X]FIN Javascript para manegar los campos de autocompletar --%>
+
+
+
+    <%--[O] FormView de Pla_Poa --%>
     <asp:Panel runat="server" ID="pfvPla_Poa" GroupingText="Crear, Editar o Borar un Registro">
     <koala:FormViewSetim ID="fvPla_Poa" runat="server" DataSourceID="odsfvPla_Poa" 
             oniteminserting="fvPla_Poa_ItemInserting" 
@@ -86,7 +120,9 @@ TagPrefix="ajax" %>
             onitemupdated="fvPla_Poa_ItemUpdated"
 			ondatabound="fvPla_Poa_DataBound" 
             onprerender="fvPla_Poa_PreRender"
-			onitemupdating="fvPla_Poa_ItemUpdating">
+			onitemupdating="fvPla_Poa_ItemUpdating"
+			onitemupdating="fvPla_Poa_ItemDeleting"
+			>
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
 			<table>
@@ -102,7 +138,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqCodigo" runat="server" 
                     ControlToValidate="CodigoTextBox"
                     ErrorMessage="El campo Codigo es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -112,7 +148,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Tarea_Id" runat="server" 
                     ControlToValidate="Pla_Tarea_IdTextBox"
                     ErrorMessage="El campo Pla_Tarea_Id es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -122,7 +158,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Id" runat="server" 
                     ControlToValidate="Pla_Partida_IdTextBox"
                     ErrorMessage="El campo Pla_Partida_Id es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr style="display:none">
@@ -137,7 +173,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Tarea_Codigo" runat="server" 
                     ControlToValidate="Pla_Tarea_CodigoTextBox"
                     ErrorMessage="El campo Pla_Tarea_Codigo es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -147,7 +183,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Tarea_Nombre" runat="server" 
                     ControlToValidate="Pla_Tarea_NombreTextBox"
                     ErrorMessage="El campo Pla_Tarea_Nombre es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -157,7 +193,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Cta_Id" runat="server" 
                     ControlToValidate="Pla_Cta_IdTextBox"
                     ErrorMessage="El campo Pla_Cta_Id es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -167,7 +203,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Cta_Codigo" runat="server" 
                     ControlToValidate="Pla_Cta_CodigoTextBox"
                     ErrorMessage="El campo Pla_Cta_Codigo es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -177,7 +213,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Cta_Nombre" runat="server" 
                     ControlToValidate="Pla_Cta_NombreTextBox"
                     ErrorMessage="El campo Pla_Cta_Nombre es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -187,7 +223,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Codigo" runat="server" 
                     ControlToValidate="Pla_Partida_CodigoTextBox"
                     ErrorMessage="El campo Pla_Partida_Codigo es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -197,7 +233,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Nombre" runat="server" 
                     ControlToValidate="Pla_Partida_NombreTextBox"
                     ErrorMessage="El campo Pla_Partida_Nombre es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -207,7 +243,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqValor_Inicial" runat="server" 
                     ControlToValidate="Valor_InicialTextBox"
                     ErrorMessage="El campo Valor_Inicial es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -217,11 +253,11 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqValor_Suma" runat="server" 
                     ControlToValidate="Valor_SumaTextBox"
                     ErrorMessage="El campo Valor_Suma es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			</table>
-            <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
+            <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" ValidationGroup="vgPla_Poa"/>
             &nbsp;
             <asp:Button ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
             </asp:Panel>
@@ -241,7 +277,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqCodigo" runat="server" 
                     ControlToValidate="CodigoTextBox"
                     ErrorMessage="El campo Codigo es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -251,7 +287,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Tarea_Id" runat="server" 
                     ControlToValidate="Pla_Tarea_IdTextBox"
                     ErrorMessage="El campo Pla_Tarea_Id es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -261,7 +297,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Id" runat="server" 
                     ControlToValidate="Pla_Partida_IdTextBox"
                     ErrorMessage="El campo Pla_Partida_Id es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr style="display:none">
@@ -276,7 +312,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Tarea_Codigo" runat="server" 
                     ControlToValidate="Pla_Tarea_CodigoTextBox"
                     ErrorMessage="El campo Pla_Tarea_Codigo es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -286,7 +322,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Tarea_Nombre" runat="server" 
                     ControlToValidate="Pla_Tarea_NombreTextBox"
                     ErrorMessage="El campo Pla_Tarea_Nombre es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -296,7 +332,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Cta_Id" runat="server" 
                     ControlToValidate="Pla_Cta_IdTextBox"
                     ErrorMessage="El campo Pla_Cta_Id es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -306,7 +342,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Cta_Codigo" runat="server" 
                     ControlToValidate="Pla_Cta_CodigoTextBox"
                     ErrorMessage="El campo Pla_Cta_Codigo es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -316,7 +352,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Cta_Nombre" runat="server" 
                     ControlToValidate="Pla_Cta_NombreTextBox"
                     ErrorMessage="El campo Pla_Cta_Nombre es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -326,7 +362,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Codigo" runat="server" 
                     ControlToValidate="Pla_Partida_CodigoTextBox"
                     ErrorMessage="El campo Pla_Partida_Codigo es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -336,7 +372,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Nombre" runat="server" 
                     ControlToValidate="Pla_Partida_NombreTextBox"
                     ErrorMessage="El campo Pla_Partida_Nombre es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -346,7 +382,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqValor_Inicial" runat="server" 
                     ControlToValidate="Valor_InicialTextBox"
                     ErrorMessage="El campo Valor_Inicial es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			<tr >
@@ -356,11 +392,11 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqValor_Suma" runat="server" 
                     ControlToValidate="Valor_SumaTextBox"
                     ErrorMessage="El campo Valor_Suma es obligatorio" 
-                    Text="X" Display="Dynamic"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
 					</td>
             </tr>
 			</table>
-            <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
+            <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" ValidationGroup="vgPla_Poa"/>
             &nbsp;
             <asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
             </asp:Panel>
@@ -433,16 +469,16 @@ TagPrefix="ajax" %>
             </asp:Panel>
         </ItemTemplate>
     </koala:FormViewSetim>
-        <asp:Label ID="lbFvMsgError" runat="server" Text=":" CssClass="FvMensajeError"></asp:Label>
-        <asp:Label ID="lbFvMsgInfo" runat="server" Text=">" CssClass="FvMensajeInfo"></asp:Label>
-        <asp:ValidationSummary ID="vsErrorResumen" runat="server"/>
+        <asp:Label ID="lbFvMsgErrorPla_Poa" runat="server" Text=":" CssClass="FvMensajeError"></asp:Label>
+        <asp:Label ID="lbFvMsgInfoPla_Poa" runat="server" Text=">" CssClass="FvMensajeInfo"></asp:Label>
+        <asp:ValidationSummary ID="vsErrorResumen" runat="server" ValidationGroup="vgPla_Poa"/>
     </asp:Panel>
-	<%--[X] FormView--%>
+	<%--[X] FormView de Pla_Poa --%>
 
 </ContentTemplate>
 </asp:UpdatePanel>
 
-<%--[O]INICIO Fuentes de datos--%>
+<%--[O]INICIO Fuentes de datos de Pla_Poa --%>
 <div>
     <%--Fuente de datos para el GridView --%>
     <asp:ObjectDataSource ID="odsgvPla_Poa" runat="server" 
@@ -511,5 +547,5 @@ TagPrefix="ajax" %>
         </UpdateParameters>
     </asp:ObjectDataSource>
 </div>
-<%--[X] FIN Fuentes de datos--%>
+<%--[X] FIN Fuentes de datos de Pla_Poa --%>
 </asp:Content>

@@ -55,6 +55,11 @@ namespace EWS
             return Pla_Cta.GetByAnio(s,  p_Anio);
         }
 		[WebMethod]
+		public List<Pla_Cta> Pla_Cta_GetByAnioArbolPla_Cta_Codigo(Scope s , string p_Anio, string p_Pla_Cta_Codigo)
+        {
+            return Pla_Cta.GetByAnioArbolPla_Cta_Codigo(s,  p_Anio, p_Pla_Cta_Codigo);
+        }
+		[WebMethod]
 		public List<Pla_Cta> Pla_Cta_GetByAnioLikeCodigo(Scope s , string p_Anio, string p_Codigo)
         {
             return Pla_Cta.GetByAnioLikeCodigo(s,  p_Anio, p_Codigo);
@@ -140,6 +145,11 @@ namespace EWS
 		#region Métodos Get
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+        public int Pla_Doc_InsertINT(Pla_Doc n)
+        {
+            return Pla_Doc.InsertINT(n);
+        }
 		#endregion
 		#endregion
 	    #region Servicios para Pla_Tarea
@@ -186,6 +196,11 @@ namespace EWS
 		public List<Pla_Tarea> Pla_Tarea_GetByAnioLikeNombre(Scope s , string p_Anio, string p_Nombre)
         {
             return Pla_Tarea.GetByAnioLikeNombre(s,  p_Anio, p_Nombre);
+        }
+		[WebMethod]
+		public List<Pla_Tarea> Pla_Tarea_GetByAnioLikePla_Cta_Codigo(Scope s , string p_Anio, string p_Pla_Cta_Codigo)
+        {
+            return Pla_Tarea.GetByAnioLikePla_Cta_Codigo(s,  p_Anio, p_Pla_Cta_Codigo);
         }
 		[WebMethod]
 		public List<Pla_Tarea> Pla_Tarea_GetById(Scope s , Int32 p_Id)
@@ -263,6 +278,11 @@ namespace EWS
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+        public int Pla_Mov_InsertINT(Pla_Mov n)
+        {
+            return Pla_Mov.InsertINT(n);
+        }
 		#endregion
 		#endregion
 	    #region Servicios para Pla_Poa
@@ -317,6 +337,21 @@ namespace EWS
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+		public int Pla_Poa_Insert_Con_Pla_Mov_SaldoInicialINT(Scope s , string Codigo, Int32 Pla_Tarea_Id, Int32 Pla_Partida_Id, Decimal Valor_Inicial, string Estado)
+        {
+            return Pla_Poa.Insert_Con_Pla_Mov_SaldoInicialINT(s,  Codigo, Pla_Tarea_Id, Pla_Partida_Id, Valor_Inicial, Estado);
+        }
+				[WebMethod]
+        public int Pla_Poa_InsertINT(Pla_Poa n)
+        {
+            return Pla_Poa.InsertINT(n);
+        }
+				[WebMethod]
+		public int Pla_Poa_Update_Con_Pla_Mov_SaldoInicialINT(Scope s , string Codigo, Int32 Pla_Tarea_Id, Int32 Pla_Partida_Id, string Estado, Int32 Original_Id, string Original_Codigo, Int32 Original_Pla_Tarea_Id, Int32 Original_Pla_Partida_Id, string Original_Estado, Int32 Id, Decimal Valor_Inicial)
+        {
+            return Pla_Poa.Update_Con_Pla_Mov_SaldoInicialINT(s,  Codigo, Pla_Tarea_Id, Pla_Partida_Id, Estado, Original_Id, Original_Codigo, Original_Pla_Tarea_Id, Original_Pla_Partida_Id, Original_Estado, Id, Valor_Inicial);
+        }
 		#endregion
 		#endregion
 	    #region Servicios para Pla_Partida

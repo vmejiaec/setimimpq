@@ -8,15 +8,20 @@ using System.Web;
 
 public partial class PLA_Pla_Poa_GvFv : PaginaBase
 {
-    // Carga inicial
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        
-    }
     // Nombre del contenedor
     protected override string Contenedor
     {
         get { return "PLA_Pla_Poa_GvFv"; }
+    }
+	// Inicializar controles al arranque de la página
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        // Inicializa el control 
+    }
+    // Carga inicial
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        
     }
     // Controles para el Filtrar
     #region Controles para el Filtrar
@@ -32,8 +37,8 @@ public partial class PLA_Pla_Poa_GvFv : PaginaBase
 			}
         gvPla_Poa.DataBind();
         // Si existe algún error en el FormView lo borra
-        lbFvMsgError.Text = ":";
-        lbFvMsgInfo.Text = ">";
+        lbFvMsgErrorPla_Poa.Text = ":";
+        lbFvMsgInfoPla_Poa.Text = "> Filtrado";
     }
     protected void ddlFiltro_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -45,130 +50,12 @@ public partial class PLA_Pla_Poa_GvFv : PaginaBase
     }
     #endregion
 
-    // Eventos para despues de FormView
-    #region Eventos para despues de FormView
-    protected void fvPla_Poa_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
-    {
-        if (e.Exception != null)
-        {
-            e.ExceptionHandled = true;
-            e.KeepInEditMode = true;
-			if (lbFvMsgError.Text == ":") lbFvMsgError.Text = e.Exception.Message;
-        }
-        else
-        {
-            tbFiltroId.Text = (string)e.NewValues["Id"];
-            SeleccionarFilaEnGVPla_Poa(gvPla_Poa, tbFiltroId.Text);
-            gvPla_Poa.DataBind();
-        }
-    }
-    protected void fvPla_Poa_ItemDeleted(object sender, FormViewDeletedEventArgs e)
-    {
-        if (e.Exception != null)
-        {
-            e.ExceptionHandled = true;
-			if (lbFvMsgError.Text == ":") lbFvMsgError.Text = e.Exception.Message;
-        }
-        else
-        {
-            Filtrar();
-        }
-    }
-    protected void fvPla_Poa_ItemInserted(object sender, FormViewInsertedEventArgs e)
-    {
-        if (e.Exception != null)
-        {
-            e.ExceptionHandled = true;
-            e.KeepInInsertMode = true;
-			if (lbFvMsgError.Text == ":") lbFvMsgError.Text = e.Exception.Message;
-        }
-        else
-        {
-            SeleccionarFilaEnGVPla_Poa(gvPla_Poa, tbFiltroId.Text);
-            gvPla_Poa.DataBind();
-        }
-    }
-    #endregion
-    // Eventos para despues del ObjectDataSource del FormView
-    #region Eventos para despues del ObjectDataSource del FormView
-    protected void odsfvPla_Poa_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
-    {
-        if (e.Exception != null)
-        {
-            SoapException ex = (SoapException)e.Exception.InnerException;
-            string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgError.Text = errorResumen;
-            AsignarMensaje(ex.Message, mal);
-        }
-        else
-        {
-            tbFiltroId.Text = e.ReturnValue.ToString();
-            lbFvMsgInfo.Text = "Registro Insertado.";
-            AsignarMensaje("Registro Insertado.",bien);
-        }
-    }
-    protected void odsfvPla_Poa_Updated(object sender, ObjectDataSourceStatusEventArgs e)
-    {
-        if (e.Exception != null)
-        {
-            SoapException ex = (SoapException)e.Exception.InnerException;
-            string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgError.Text = errorResumen;
-            AsignarMensaje(ex.Message, mal);
-        }
-        else
-        {
-            lbFvMsgInfo.Text = "Registro Actualizado.";
-            AsignarMensaje("Registro Actualizado.", bien);
-        }
-    }
-    protected void odsfvPla_Poa_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
-    {
-        if (e.Exception != null)
-        {
-            SoapException ex = (SoapException)e.Exception.InnerException;
-            string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgError.Text = errorResumen;
-            AsignarMensaje(ex.Message, mal);
-        }
-        else
-        {
-            lbFvMsgInfo.Text = "Registro Borrado.";
-            AsignarMensaje("Registro Borrado.", bien);
-        }
-    }
-    #endregion
-
-    // Valores por defecto antes de enviar a insertar, actualizar o borrar.
-    #region Valores por defecto
-    protected void fvPla_Poa_ItemInserting(object sender, FormViewInsertEventArgs e)
-    {
-        // Valor por defecto del Id y Estado
-        e.Values["Id"] = -1;
-        if (String.IsNullOrWhiteSpace((string)e.Values["Estado"])) e.Values["Estado"] = "PEN";
-		// Cambio del formato de los campos de fechas
-		// e.Values["Fecha_Ini"] = DateTime.Parse((string)e.Values["Fecha_Ini"]);
-    }	
-    protected void fvPla_Poa_ItemUpdating(object sender, FormViewUpdateEventArgs e)
-    {
-        // Controla el cambio del formato de las fechas
-        // e.NewValues["Fecha_Ini"] = DateTime.Parse((string)e.NewValues["Fecha_Ini"]);
-        // e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);        
-    }
-
-    #endregion
-
-    // Evento cuando se selecciona una fila del Grid
+	#region Eventos del GridView de Pla_Poa
+    // Evento se dispara cuando se selecciona una fila del GridView
     protected void gvPla_Poa_SelectedIndexChanged(object sender, EventArgs e)
     {
-        lbFvMsgError.Text = ":";
-        lbFvMsgInfo.Text = ">";
-    }
-	// Si no hay filas en el GridView entonces el FormView cambia a modo Insert
-    protected void fvPla_Poa_DataBound(object sender, EventArgs e)
-    {
-        if (gvPla_Poa.Rows.Count == 0)
-            fvPla_Poa.ChangeMode(FormViewMode.Insert);
+        lbFvMsgErrorPla_Poa.Text = ":";
+        lbFvMsgInfoPla_Poa.Text = "> Pla_Poa Seleccionado";
     }
 	// Busca y selecciona la fila indicada en el GridView
     protected void SeleccionarFilaEnGVPla_Poa(GridView gv, string txtId)
@@ -190,13 +77,93 @@ public partial class PLA_Pla_Poa_GvFv : PaginaBase
         gvPla_Poa.PageIndex = noPagina;
         gvPla_Poa.SelectedIndex = noFila;
     }
-
-    // Inicializa los valores antes de que el FormView se dibuje en la página
+	#endregion
+	// Eventos para el FormView de Pla_Poa
+    #region Eventos el FormView de Pla_Poa
+    protected void fvPla_Poa_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
+    {
+        if (e.Exception != null)
+        {
+            e.ExceptionHandled = true;
+            e.KeepInEditMode = true;
+			if (lbFvMsgErrorPla_Poa.Text == ":") lbFvMsgErrorPla_Poa.Text = e.Exception.Message;
+        }
+        else
+        {
+            tbFiltroId.Text = (string)e.NewValues["Id"];
+            SeleccionarFilaEnGVPla_Poa(gvPla_Poa, tbFiltroId.Text);
+            gvPla_Poa.DataBind();
+        }
+    }
+    protected void fvPla_Poa_ItemDeleted(object sender, FormViewDeletedEventArgs e)
+    {
+        if (e.Exception != null)
+        {
+            e.ExceptionHandled = true;
+			if (lbFvMsgErrorPla_Poa.Text == ":") lbFvMsgErrorPla_Poa.Text = e.Exception.Message;
+        }
+        else
+        {
+            Filtrar();
+        }
+    }
+    protected void fvPla_Poa_ItemInserted(object sender, FormViewInsertedEventArgs e)
+    {
+        if (e.Exception != null)
+        {
+            e.ExceptionHandled = true;
+            e.KeepInInsertMode = true;
+			if (lbFvMsgErrorPla_Poa.Text == ":") lbFvMsgErrorPla_Poa.Text = e.Exception.Message;
+        }
+        else
+        {
+            SeleccionarFilaEnGVPla_Poa(gvPla_Poa, tbFiltroId.Text);
+            gvPla_Poa.DataBind();
+        }
+    }
+    protected void fvPla_Poa_ItemInserting(object sender, FormViewInsertEventArgs e)
+    {
+        // Valor por defecto del Id y Estado
+        e.Values["Id"] = -1;
+        if (String.IsNullOrWhiteSpace((string)e.Values["Estado"])) e.Values["Estado"] = "PEN";
+		// Cambio del formato de los campos de fechas
+		// e.Values["Fecha_Ini"] = DateTime.Parse((string)e.Values["Fecha_Ini"]);
+		
+		// Guarda los datos del registro a borrar en memoria
+        this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
+									 "Codigo: " + (string)e.Values["Codigo"] + " * " +
+                                     "Nombre: " + (string)e.Values["Nombre"];
+    }	
+    protected void fvPla_Poa_ItemUpdating(object sender, FormViewUpdateEventArgs e)
+    {
+        // Controla el cambio del formato de las fechas
+        // e.NewValues["Fecha_Ini"] = DateTime.Parse((string)e.NewValues["Fecha_Ini"]);
+        // e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);
+		
+		// Guarda los datos del registro a borrar en memoria
+        this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
+									 "Codigo: " + (string)e.Values["Codigo"] + " * " +
+                                     "Nombre: " + (string)e.Values["Nombre"];
+    }
+    protected void fvPla_Poa_ItemDeleting(object sender, FormViewDeleteEventArgs e)
+    {
+        // Control de valores antes del borrado como fechas y números
+        // e.Values["Valor_Inicial"] = "0";
+        //e.Values["Valor_Suma"] = "0";
+		
+		// Guarda los datos del registro a borrar en memoria
+        this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
+									 "Codigo: " + (string)e.Values["Codigo"] + " * " +
+                                     "Nombre: " + (string)e.Values["Nombre"];
+    }
+	// Inicializa los valores antes de que el FormView se dibuje en la página
     protected void fvPla_Poa_PreRender(object sender, EventArgs e)
     {
         switch (fvPla_Poa.CurrentMode)
         {
-            case FormViewMode.Insert:
+            case FormViewMode.Insert:			
+                //((TextBox)fvPla_Poa.FindControl("CodigoTextBox")).Text = "1";
+                //((TextBox)fvPla_Poa.FindControl("EstadoTextBox")).Text = "PEN";
                 break;
             case FormViewMode.Edit:
                 break;
@@ -204,10 +171,67 @@ public partial class PLA_Pla_Poa_GvFv : PaginaBase
                 break;
         }
     }
-
-    // Inicializar controles aumentar a la plantilla
-    protected void Page_Init(object sender, EventArgs e)
+	// Si no hay filas en el GridView entonces el FormView cambia a modo Insert
+    protected void fvPla_Poa_DataBound(object sender, EventArgs e)
     {
-        // Inicializa el control 
+        if (gvPla_Poa.Rows.Count == 0)
+            fvPla_Poa.ChangeMode(FormViewMode.Insert);
     }
+	#endregion
+	// Eventos para el ObjectDataSource
+    #region Eventos para el ObjectDataSource
+    protected void odsfvPla_Poa_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
+    {
+        if (e.Exception != null)
+        {
+            SoapException ex = (SoapException)e.Exception.InnerException;
+            string errorResumen = ExtraeMensajeResumen(ex);
+            lbFvMsgErrorPla_Poa.Text = errorResumen;
+            AsignarMensaje(ex.Message, mal);
+        }
+        else
+        {
+            tbFiltroId.Text = e.ReturnValue.ToString();
+            lbFvMsgInfoPla_Poa.Text = Pla_Poa + " Registro Insertado. " + this.MemoriaRegistroActual;
+            AsignarMensaje("Registro Insertado. " + this.MemoriaRegistroActual, bien);
+        }
+    }
+    protected void odsfvPla_Poa_Updated(object sender, ObjectDataSourceStatusEventArgs e)
+    {
+        if (e.Exception != null)
+        {
+            SoapException ex = (SoapException)e.Exception.InnerException;
+            string errorResumen = ExtraeMensajeResumen(ex);
+            lbFvMsgErrorPla_Poa.Text = errorResumen;
+            AsignarMensaje(ex.Message, mal);
+        }
+        else
+        {
+            lbFvMsgInfoPla_Poa.Text = Pla_Poa + " Registro Actualizado. " + this.MemoriaRegistroActual;
+            AsignarMensaje("Registro Actualizado. " + this.MemoriaRegistroActual, bien);
+        }
+    }
+    protected void odsfvPla_Poa_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
+    {
+        if (e.Exception != null)
+        {
+            SoapException ex = (SoapException)e.Exception.InnerException;
+            string errorResumen = ExtraeMensajeResumen(ex);
+            lbFvMsgErrorPla_Poa.Text = errorResumen;
+            AsignarMensaje(ex.Message, mal);
+        }
+        else
+        {
+            lbFvMsgInfoPla_Poa.Text = Pla_Poa + " Registro Borrado. " + this.MemoriaRegistroActual;
+            AsignarMensaje("Registro Borrado. " + this.MemoriaRegistroActual, bien);
+        }
+    }	
+	#endregion
+	
+	
+	
+	// -----------------------------------------------------------------------------------------------------------------------
+
+
+
 }

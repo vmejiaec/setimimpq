@@ -770,7 +770,7 @@ TagPrefix="ajax" %>
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="tbFiltro" Name="p_Pla_Cta_Id" PropertyName="Text" Type="Int32" />
-		<asp:ControlParameter ControlID="tbFiltro" Name="p_Nombre" PropertyName="Text" Type="string" />
+		    <asp:ControlParameter ControlID="tbFiltro" Name="p_Nombre" PropertyName="Text" Type="string" />
 		</SelectParameters>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Tarea_GetByAnioLikeNombre" runat="server" 

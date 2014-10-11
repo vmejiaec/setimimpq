@@ -174,5 +174,45 @@ fila.Valor_Suma
 			}
 			return lista;
 		}
+		// Insert_Con_Pla_Mov_SaldoInicialINT
+			public int Insert_Con_Pla_Mov_SaldoInicialINT (Scope s , string Codigo, Int32 Pla_Tarea_Id, Int32 Pla_Partida_Id, Decimal Valor_Inicial, string Estado)
+		{
+            int res;
+            try
+            {
+				res = (int)Adapter.Insert_Con_Pla_Mov_SaldoInicialINT( Codigo, Pla_Tarea_Id, Pla_Partida_Id, Valor_Inicial, Estado);
+            }
+            catch (SqlException e)
+            { throw (new Exception(e.Message)); }
+            return res;
+		}
+		// InsertINT
+		public int InsertINT(Pla_Poa n)
+    {
+        int res;
+        try {
+            res = Convert.ToInt16( Adapter.InsertINT(
+				n.Codigo,
+n.Pla_Tarea_Id,
+n.Pla_Partida_Id,
+n.Estado
+			));
+        }
+        catch (SqlException e)
+        { throw (new Exception( e.Message)); }
+        return res;
+    }
+		// Update_Con_Pla_Mov_SaldoInicialINT
+			public int Update_Con_Pla_Mov_SaldoInicialINT (Scope s , string Codigo, Int32 Pla_Tarea_Id, Int32 Pla_Partida_Id, string Estado, Int32 Original_Id, string Original_Codigo, Int32 Original_Pla_Tarea_Id, Int32 Original_Pla_Partida_Id, string Original_Estado, Int32 Id, Decimal Valor_Inicial)
+		{
+            int res;
+            try
+            {
+				res = (int)Adapter.Update_Con_Pla_Mov_SaldoInicialINT( Codigo, Pla_Tarea_Id, Pla_Partida_Id, Estado, Original_Id, Original_Codigo, Original_Pla_Tarea_Id, Original_Pla_Partida_Id, Original_Estado, Id, Valor_Inicial);
+            }
+            catch (SqlException e)
+            { throw (new Exception(e.Message)); }
+            return res;
+		}
 	}
 }

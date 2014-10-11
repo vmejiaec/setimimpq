@@ -112,5 +112,26 @@ n.Id
         { throw (new Exception(e.Message)); }
         return res;
     } // xxx Fin de Update
-}
+	// InsertINT
+		public int InsertINT(Pla_Doc n)
+    {
+        int res;
+        try {
+            res = Convert.ToInt16( Adapter.InsertINT(
+				n.Codigo,
+n.Tipo,
+n.Fecha,
+n.Per_Personal_Id_Solicita,
+n.Area_Solicita,
+n.Descripcion,
+n.Estado,
+n.Per_Personal_Id_Crea,
+n.Per_Personal_Id_Modifica
+			));
+        }
+        catch (SqlException e)
+        { throw (new Exception( e.Message)); }
+        return res;
+    }
+	}
 }
