@@ -183,14 +183,20 @@
     <Compile Include="PAR\Par_Tipo_Identificacion.cs" />
     <Compile Include="PER\Per_Personal.cs" />
     <Compile Include="PLA\Pla_Cta.cs" />
-    <Compile Include="PLA\Pla_Doc.cs" />
+    <Compile Include="PLA\Pla_Doc.cs">
+      <SubType>
+      </SubType>
+    </Compile>
     <Compile Include="PLA\Pla_Mov.cs" />
     <Compile Include="PLA\Pla_Partida.cs" />
     <Compile Include="PLA\Pla_Poa.cs">
       <SubType>
       </SubType>
     </Compile>
-    <Compile Include="PLA\Pla_Tarea.cs" />
+    <Compile Include="PLA\Pla_Tarea.cs">
+      <SubType>
+      </SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SEG\Seg_Menu.cs" />
     <Compile Include="SEG\Seg_Rol.cs" />

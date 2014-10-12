@@ -28,13 +28,13 @@ namespace AEL.PLA
         private string _Tipo;
         
         // Comentario
-        private System.DateTime _Fecha;
+        private System.DateTime _Fecha_Solicita;
         
         // Comentario
         private string _Per_Personal_Id_Solicita;
         
         // Comentario
-        private string _Area_Solicita;
+        private string _Area_Codigo_Solicita;
         
         // Comentario
         private string _Descripcion;
@@ -48,22 +48,77 @@ namespace AEL.PLA
         // Comentario
         private string _Per_Personal_Id_Modifica;
         
+        // Comentario
+        private decimal _Valor_Solicita;
+        
+        // Comentario
+        private string _Per_Personal_Id_Planifica;
+        
+        // Comentario
+        private string _Esta_Planificada;
+        
+        // Comentario
+        private string _Per_Personal_Id_Contrata;
+        
+        // Comentario
+        private string _Esta_Contratada;
+        
+        // Comentario
+        private string _PAC_Linea;
+        
+        // Comentario
+        private string _CPC_Codigo;
+        
+        // Comentario
+        private System.DateTime _Fecha_Contrata;
+        
+        // Comentario
+        private System.DateTime _Fecha_Planifica;
+        
         public Pla_Doc()
         {
         }
         
-        public Pla_Doc(int id, string codigo, string tipo, System.DateTime fecha, string per_Personal_Id_Solicita, string area_Solicita, string descripcion, string estado, string per_Personal_Id_Crea, string per_Personal_Id_Modifica)
+        public Pla_Doc(
+                    int id, 
+                    string codigo, 
+                    string tipo, 
+                    System.DateTime fecha_Solicita, 
+                    string per_Personal_Id_Solicita, 
+                    string area_Codigo_Solicita, 
+                    string descripcion, 
+                    string estado, 
+                    string per_Personal_Id_Crea, 
+                    string per_Personal_Id_Modifica, 
+                    decimal valor_Solicita, 
+                    string per_Personal_Id_Planifica, 
+                    string esta_Planificada, 
+                    string per_Personal_Id_Contrata, 
+                    string esta_Contratada, 
+                    string pAC_Linea, 
+                    string cPC_Codigo, 
+                    System.DateTime fecha_Contrata, 
+                    System.DateTime fecha_Planifica)
         {
             this.Id = id;
             this.Codigo = codigo;
             this.Tipo = tipo;
-            this.Fecha = fecha;
+            this.Fecha_Solicita = fecha_Solicita;
             this.Per_Personal_Id_Solicita = per_Personal_Id_Solicita;
-            this.Area_Solicita = area_Solicita;
+            this.Area_Codigo_Solicita = area_Codigo_Solicita;
             this.Descripcion = descripcion;
             this.Estado = estado;
             this.Per_Personal_Id_Crea = per_Personal_Id_Crea;
             this.Per_Personal_Id_Modifica = per_Personal_Id_Modifica;
+            this.Valor_Solicita = valor_Solicita;
+            this.Per_Personal_Id_Planifica = per_Personal_Id_Planifica;
+            this.Esta_Planificada = esta_Planificada;
+            this.Per_Personal_Id_Contrata = per_Personal_Id_Contrata;
+            this.Esta_Contratada = esta_Contratada;
+            this.PAC_Linea = pAC_Linea;
+            this.CPC_Codigo = cPC_Codigo;
+            this.Fecha_Contrata = fecha_Contrata;
+            this.Fecha_Planifica = fecha_Planifica;
         }
         
         public Pla_Doc(Pla_Doc o)
@@ -71,13 +126,22 @@ namespace AEL.PLA
             this.Id = o.Id;
             this.Codigo = o.Codigo;
             this.Tipo = o.Tipo;
-            this.Fecha = o.Fecha;
+            this.Fecha_Solicita = o.Fecha_Solicita;
             this.Per_Personal_Id_Solicita = o.Per_Personal_Id_Solicita;
-            this.Area_Solicita = o.Area_Solicita;
+            this.Area_Codigo_Solicita = o.Area_Codigo_Solicita;
             this.Descripcion = o.Descripcion;
             this.Estado = o.Estado;
             this.Per_Personal_Id_Crea = o.Per_Personal_Id_Crea;
             this.Per_Personal_Id_Modifica = o.Per_Personal_Id_Modifica;
+            this.Valor_Solicita = o.Valor_Solicita;
+            this.Per_Personal_Id_Planifica = o.Per_Personal_Id_Planifica;
+            this.Esta_Planificada = o.Esta_Planificada;
+            this.Per_Personal_Id_Contrata = o.Per_Personal_Id_Contrata;
+            this.Esta_Contratada = o.Esta_Contratada;
+            this.PAC_Linea = o.PAC_Linea;
+            this.CPC_Codigo = o.CPC_Codigo;
+            this.Fecha_Contrata = o.Fecha_Contrata;
+            this.Fecha_Planifica = o.Fecha_Planifica;
         }
         
         // Comentario
@@ -120,15 +184,15 @@ namespace AEL.PLA
         }
         
         // Comentario
-        public System.DateTime Fecha
+        public System.DateTime Fecha_Solicita
         {
             get
             {
-                return this._Fecha;
+                return this._Fecha_Solicita;
             }
             set
             {
-                this._Fecha = value;
+                this._Fecha_Solicita = value;
             }
         }
         
@@ -146,15 +210,15 @@ namespace AEL.PLA
         }
         
         // Comentario
-        public string Area_Solicita
+        public string Area_Codigo_Solicita
         {
             get
             {
-                return this._Area_Solicita;
+                return this._Area_Codigo_Solicita;
             }
             set
             {
-                this._Area_Solicita = value;
+                this._Area_Codigo_Solicita = value;
             }
         }
         
@@ -207,6 +271,123 @@ namespace AEL.PLA
             set
             {
                 this._Per_Personal_Id_Modifica = value;
+            }
+        }
+        
+        // Comentario
+        public decimal Valor_Solicita
+        {
+            get
+            {
+                return this._Valor_Solicita;
+            }
+            set
+            {
+                this._Valor_Solicita = value;
+            }
+        }
+        
+        // Comentario
+        public string Per_Personal_Id_Planifica
+        {
+            get
+            {
+                return this._Per_Personal_Id_Planifica;
+            }
+            set
+            {
+                this._Per_Personal_Id_Planifica = value;
+            }
+        }
+        
+        // Comentario
+        public string Esta_Planificada
+        {
+            get
+            {
+                return this._Esta_Planificada;
+            }
+            set
+            {
+                this._Esta_Planificada = value;
+            }
+        }
+        
+        // Comentario
+        public string Per_Personal_Id_Contrata
+        {
+            get
+            {
+                return this._Per_Personal_Id_Contrata;
+            }
+            set
+            {
+                this._Per_Personal_Id_Contrata = value;
+            }
+        }
+        
+        // Comentario
+        public string Esta_Contratada
+        {
+            get
+            {
+                return this._Esta_Contratada;
+            }
+            set
+            {
+                this._Esta_Contratada = value;
+            }
+        }
+        
+        // Comentario
+        public string PAC_Linea
+        {
+            get
+            {
+                return this._PAC_Linea;
+            }
+            set
+            {
+                this._PAC_Linea = value;
+            }
+        }
+        
+        // Comentario
+        public string CPC_Codigo
+        {
+            get
+            {
+                return this._CPC_Codigo;
+            }
+            set
+            {
+                this._CPC_Codigo = value;
+            }
+        }
+        
+        // Comentario
+        public System.DateTime Fecha_Contrata
+        {
+            get
+            {
+                return this._Fecha_Contrata;
+            }
+            set
+            {
+                this._Fecha_Contrata = value;
+            }
+        }
+        
+        // Comentario
+        public System.DateTime Fecha_Planifica
+        {
+            get
+            {
+                return this._Fecha_Planifica;
+            }
+            set
+            {
+                this._Fecha_Planifica = value;
             }
         }
     }

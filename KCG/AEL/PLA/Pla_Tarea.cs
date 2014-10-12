@@ -11,7 +11,7 @@
 namespace AEL.PLA
 {
     using System;
-    using System.Collections.Generic;
+    using System.Collections.Generic; 
     using System.Text;
     
     
@@ -48,11 +48,17 @@ namespace AEL.PLA
         // Comentario
         private string _Estado;
         
+        // Comentario
+        private decimal _Valor_Inicial;
+        
+        // Comentario
+        private decimal _Valor_Suma;
+        
         public Pla_Tarea()
         {
         }
         
-        public Pla_Tarea(int id, string codigo, int pla_Cta_Id, string pla_Cta_Codigo, string pla_Cta_Nombre, string pla_Cta_Nivel, string nombre, System.DateTime fecha_Ini, System.DateTime fecha_Fin, string estado)
+        public Pla_Tarea(int id, string codigo, int pla_Cta_Id, string pla_Cta_Codigo, string pla_Cta_Nombre, string pla_Cta_Nivel, string nombre, System.DateTime fecha_Ini, System.DateTime fecha_Fin, string estado, decimal valor_Inicial, decimal valor_Suma)
         {
             this.Id = id;
             this.Codigo = codigo;
@@ -64,6 +70,8 @@ namespace AEL.PLA
             this.Fecha_Ini = fecha_Ini;
             this.Fecha_Fin = fecha_Fin;
             this.Estado = estado;
+            this.Valor_Inicial = valor_Inicial;
+            this.Valor_Suma = valor_Suma;
         }
         
         public Pla_Tarea(Pla_Tarea o)
@@ -78,6 +86,8 @@ namespace AEL.PLA
             this.Fecha_Ini = o.Fecha_Ini;
             this.Fecha_Fin = o.Fecha_Fin;
             this.Estado = o.Estado;
+            this.Valor_Inicial = o.Valor_Inicial;
+            this.Valor_Suma = o.Valor_Suma;
         }
         
         // Comentario
@@ -207,6 +217,32 @@ namespace AEL.PLA
             set
             {
                 this._Estado = value;
+            }
+        }
+        
+        // Comentario
+        public decimal Valor_Inicial
+        {
+            get
+            {
+                return this._Valor_Inicial;
+            }
+            set
+            {
+                this._Valor_Inicial = value;
+            }
+        }
+        
+        // Comentario
+        public decimal Valor_Suma
+        {
+            get
+            {
+                return this._Valor_Suma;
+            }
+            set
+            {
+                this._Valor_Suma = value;
             }
         }
     }

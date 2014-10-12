@@ -9,16 +9,16 @@
 	//Parámetros 
 	string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Planificacion.xsd";
 	string Iniciales = "PLA";
-	string TablaBase = "Pla_Poa";
+	string TablaBase = "Pla_Doc";
 	//Proceso
 	var manager = TemplateFileManager.Create(this);
 	ExtraeMetaDatos datos = new ExtraeMetaDatos(PathXSD);	
 	var tabla = datos.BaseDatos.Find(t => t.Nombre == TablaBase);
 	// Genera la página Web ASPX
-	manager.StartNewFile(projectName:"zGEN", folderName:Iniciales, name: tabla.Nombre +"_GvFv.aspx" );
+	manager.StartNewFile(projectName:"zGENaspx", folderName:Iniciales, name: tabla.Nombre +"_GvFv.aspx" );
 	PaginaWebGvFv(Iniciales, tabla);
 	// Genera la clase base 
-	manager.StartNewFile(projectName:"zGEN", folderName:Iniciales, name: tabla.Nombre +"_GvFv.aspx.cs" );
+	manager.StartNewFile(projectName:"zGENaspx", folderName:Iniciales, name: tabla.Nombre +"_GvFv.aspx.cs" );
 	ClaseBaseGvFv(Iniciales, tabla);
 	// Crea los arhivos 
 	manager.Process();	
@@ -150,7 +150,7 @@ TagPrefix="ajax" %>
 			ondatabound="fv<#= tabla.Nombre #>_DataBound" 
             onprerender="fv<#= tabla.Nombre #>_PreRender"
 			onitemupdating="fv<#= tabla.Nombre #>_ItemUpdating"
-			onitemupdating="fv<#= tabla.Nombre #>_ItemDeleting"
+			onitemdeleting="fv<#= tabla.Nombre #>_ItemDeleting"
 			>
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">

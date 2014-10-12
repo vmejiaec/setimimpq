@@ -31,7 +31,9 @@ fila.Pla_Cta_Nivel,
 fila.Nombre,
 fila.Fecha_Ini,
 fila.Fecha_Fin,
-fila.Estado
+fila.Estado,
+fila.Valor_Inicial,
+fila.Valor_Suma
 			));
         }
         return lista;
@@ -117,7 +119,9 @@ fila.Pla_Cta_Nivel,
 fila.Nombre,
 fila.Fecha_Ini,
 fila.Fecha_Fin,
-fila.Estado
+fila.Estado,
+fila.Valor_Inicial,
+fila.Valor_Suma
 				));
 			}
 			return lista;
@@ -139,7 +143,9 @@ fila.Pla_Cta_Nivel,
 fila.Nombre,
 fila.Fecha_Ini,
 fila.Fecha_Fin,
-fila.Estado
+fila.Estado,
+fila.Valor_Inicial,
+fila.Valor_Suma
 				));
 			}
 			return lista;
@@ -161,7 +167,9 @@ fila.Pla_Cta_Nivel,
 fila.Nombre,
 fila.Fecha_Ini,
 fila.Fecha_Fin,
-fila.Estado
+fila.Estado,
+fila.Valor_Inicial,
+fila.Valor_Suma
 				));
 			}
 			return lista;
@@ -183,7 +191,9 @@ fila.Pla_Cta_Nivel,
 fila.Nombre,
 fila.Fecha_Ini,
 fila.Fecha_Fin,
-fila.Estado
+fila.Estado,
+fila.Valor_Inicial,
+fila.Valor_Suma
 				));
 			}
 			return lista;
@@ -205,7 +215,9 @@ fila.Pla_Cta_Nivel,
 fila.Nombre,
 fila.Fecha_Ini,
 fila.Fecha_Fin,
-fila.Estado
+fila.Estado,
+fila.Valor_Inicial,
+fila.Valor_Suma
 				));
 			}
 			return lista;
@@ -227,7 +239,9 @@ fila.Pla_Cta_Nivel,
 fila.Nombre,
 fila.Fecha_Ini,
 fila.Fecha_Fin,
-fila.Estado
+fila.Estado,
+fila.Valor_Inicial,
+fila.Valor_Suma
 				));
 			}
 			return lista;
