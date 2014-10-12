@@ -129,6 +129,8 @@ TagPrefix="ajax" %>
 			<asp:BoundField DataField="Nombre" HeaderText="Nombre"   />
 			<asp:BoundField DataField="Fecha_Ini" HeaderText="Fecha_Ini"  DataFormatString="{0:d}" />
 			<asp:BoundField DataField="Fecha_Fin" HeaderText="Fecha_Fin"  DataFormatString="{0:d}" />
+            <asp:BoundField DataField="Valor_Inicial" HeaderText="Valor_Inicial"  DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
+            <asp:BoundField DataField="Valor_Suma" HeaderText="Valor_Suma"  DataFormatString="{0:N2}"  ItemStyle-HorizontalAlign="Right"/>
 			<asp:BoundField DataField="Estado" HeaderText="Estado" Visible = "false"  />
 			</Columns>
     </asp:GridView>
@@ -475,8 +477,8 @@ TagPrefix="ajax" %>
 			<asp:BoundField DataField="Pla_Partida_Id" HeaderText="Pla_Partida_Id"   Visible = "false"/>
 			<asp:BoundField DataField="Pla_Partida_Codigo" HeaderText="Partida_Codigo"   />
 			<asp:BoundField DataField="Pla_Partida_Nombre" HeaderText="Partida_Nombre"   />
-			<asp:BoundField DataField="Valor_Inicial" HeaderText="Valor_Inicial" DataFormatString="{0:N2}" />
-			<asp:BoundField DataField="Valor_Suma" HeaderText="Valor_Suma" DataFormatString="{0:N2}" />
+			<asp:BoundField DataField="Valor_Inicial" HeaderText="Valor_Inicial" DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
+			<asp:BoundField DataField="Valor_Suma" HeaderText="Valor_Suma" DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
 			</Columns>
     </asp:GridView>
     <%----[X] GridView POA--%>

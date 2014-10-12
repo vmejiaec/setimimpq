@@ -66,7 +66,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zGeneraClases", "GeneraClas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zTest", "zTest\zTest.csproj", "{E3F3A4A7-CFF6-4E9D-9B6F-47225F8CC434}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zGEN", "zGEN\zGEN.csproj", "{44719E8A-5D77-4FBD-81F2-612CF043422D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zGENaspx", "zGEN\zGENaspx.csproj", "{44719E8A-5D77-4FBD-81F2-612CF043422D}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
