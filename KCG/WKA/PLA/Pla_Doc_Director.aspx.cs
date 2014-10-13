@@ -179,8 +179,15 @@ public partial class PLA_Pla_Doc_Director : PaginaBase
         // Controla el cambio del formato de las fechas
         e.NewValues["Fecha_Solicita"] = DateTime.Parse((string)e.NewValues["Fecha_Solicita"]);
         e.OldValues["Fecha_Solicita"] = DateTime.Parse((string)e.OldValues["Fecha_Solicita"]);
+        e.NewValues["Fecha_Contrata"] = DateTime.Parse((string)e.NewValues["Fecha_Contrata"]);
+        e.OldValues["Fecha_Contrata"] = DateTime.Parse((string)e.OldValues["Fecha_Contrata"]);
+        e.NewValues["Fecha_Planifica"] = DateTime.Parse((string)e.NewValues["Fecha_Planifica"]);
+        e.OldValues["Fecha_Planifica"] = DateTime.Parse((string)e.OldValues["Fecha_Planifica"]);
         // Valores para los campos de personas
         e.NewValues["Per_Personal_Id_Modifica"] = Scope.Per_Personal_Id;
+        // Cambio del formato del campo Valor
+        e.NewValues["Valor_Solicita"] = Decimal.Parse((string)e.NewValues["Valor_Solicita"]);
+        e.OldValues["Valor_Solicita"] = Decimal.Parse((string)e.OldValues["Valor_Solicita"]);
 		// Guarda los datos del registro a borrar en memoria
         this.MemoriaRegistroActual = "Id: " + e.NewValues["Id"].ToString() + " * " +
 									 "Codigo: " + (string)e.NewValues["Codigo"] ;
