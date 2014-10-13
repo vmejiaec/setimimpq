@@ -108,124 +108,6 @@ namespace EWS
         }
 		#endregion
 		#endregion
-	    #region Servicios para Pla_Doc
-        private DO_Pla_Doc _Pla_Doc;
-        public DO_Pla_Doc Pla_Doc {
-            get {
-                if (_Pla_Doc == null)
-                    _Pla_Doc = new DO_Pla_Doc();
-                return _Pla_Doc;
-            }
-        }
-
-		#region Select
-		[WebMethod]
-        public List<Pla_Doc> Pla_Doc_Get(Scope s)
-        {
-            return Pla_Doc.Get(s);
-        }
-		#endregion
-		#region Insert, Delete, Update
-		[WebMethod]
-        public int Pla_Doc_Insert(Pla_Doc n)
-        {
-            return Pla_Doc.Insert(n);
-        }
-		[WebMethod]
-        public int Pla_Doc_Delete(Pla_Doc o)
-        {
-            return Pla_Doc.Delete(o);
-        }
-		[WebMethod]
-        public int Pla_Doc_Update(Pla_Doc o,Pla_Doc n)
-        {
-            return Pla_Doc.Update(o, n);
-        }
-		#endregion
-		#region Métodos Get
-		#endregion
-		#region Métodos Genéricos retornan un escalar
-				[WebMethod]
-        public int Pla_Doc_InsertINT(Pla_Doc n)
-        {
-            return Pla_Doc.InsertINT(n);
-        }
-		#endregion
-		#endregion
-	    #region Servicios para Pla_Tarea
-        private DO_Pla_Tarea _Pla_Tarea;
-        public DO_Pla_Tarea Pla_Tarea {
-            get {
-                if (_Pla_Tarea == null)
-                    _Pla_Tarea = new DO_Pla_Tarea();
-                return _Pla_Tarea;
-            }
-        }
-
-		#region Select
-		[WebMethod]
-        public List<Pla_Tarea> Pla_Tarea_Get(Scope s)
-        {
-            return Pla_Tarea.Get(s);
-        }
-		#endregion
-		#region Insert, Delete, Update
-		[WebMethod]
-        public int Pla_Tarea_Insert(Pla_Tarea n)
-        {
-            return Pla_Tarea.Insert(n);
-        }
-		[WebMethod]
-        public int Pla_Tarea_Delete(Pla_Tarea o)
-        {
-            return Pla_Tarea.Delete(o);
-        }
-		[WebMethod]
-        public int Pla_Tarea_Update(Pla_Tarea o,Pla_Tarea n)
-        {
-            return Pla_Tarea.Update(o, n);
-        }
-		#endregion
-		#region Métodos Get
-		[WebMethod]
-		public List<Pla_Tarea> Pla_Tarea_GetByAnio(Scope s , string p_Anio)
-        {
-            return Pla_Tarea.GetByAnio(s,  p_Anio);
-        }
-		[WebMethod]
-		public List<Pla_Tarea> Pla_Tarea_GetByAnioLikeNombre(Scope s , string p_Anio, string p_Nombre)
-        {
-            return Pla_Tarea.GetByAnioLikeNombre(s,  p_Anio, p_Nombre);
-        }
-		[WebMethod]
-		public List<Pla_Tarea> Pla_Tarea_GetByAnioLikePla_Cta_Codigo(Scope s , string p_Anio, string p_Pla_Cta_Codigo)
-        {
-            return Pla_Tarea.GetByAnioLikePla_Cta_Codigo(s,  p_Anio, p_Pla_Cta_Codigo);
-        }
-		[WebMethod]
-		public List<Pla_Tarea> Pla_Tarea_GetById(Scope s , Int32 p_Id)
-        {
-            return Pla_Tarea.GetById(s,  p_Id);
-        }
-		[WebMethod]
-		public List<Pla_Tarea> Pla_Tarea_GetByPla_Cta_Id(Scope s , Int32 p_Pla_Cta_Id)
-        {
-            return Pla_Tarea.GetByPla_Cta_Id(s,  p_Pla_Cta_Id);
-        }
-		[WebMethod]
-		public List<Pla_Tarea> Pla_Tarea_GetByPla_Cta_IdLikeNombre(Scope s , Int32 p_Pla_Cta_Id, string p_Nombre)
-        {
-            return Pla_Tarea.GetByPla_Cta_IdLikeNombre(s,  p_Pla_Cta_Id, p_Nombre);
-        }
-		#endregion
-		#region Métodos Genéricos retornan un escalar
-				[WebMethod]
-        public int Pla_Tarea_InsertINT(Pla_Tarea n)
-        {
-            return Pla_Tarea.InsertINT(n);
-        }
-		#endregion
-		#endregion
 	    #region Servicios para Pla_Mov
         private DO_Pla_Mov _Pla_Mov;
         public DO_Pla_Mov Pla_Mov {
@@ -411,6 +293,144 @@ namespace EWS
         {
             return Pla_Partida.InsertINT(n);
         }
+		#endregion
+		#endregion
+	    #region Servicios para Pla_Tarea
+        private DO_Pla_Tarea _Pla_Tarea;
+        public DO_Pla_Tarea Pla_Tarea {
+            get {
+                if (_Pla_Tarea == null)
+                    _Pla_Tarea = new DO_Pla_Tarea();
+                return _Pla_Tarea;
+            }
+        }
+
+		#region Select
+		[WebMethod]
+        public List<Pla_Tarea> Pla_Tarea_Get(Scope s)
+        {
+            return Pla_Tarea.Get(s);
+        }
+		#endregion
+		#region Insert, Delete, Update
+		[WebMethod]
+        public int Pla_Tarea_Insert(Pla_Tarea n)
+        {
+            return Pla_Tarea.Insert(n);
+        }
+		[WebMethod]
+        public int Pla_Tarea_Delete(Pla_Tarea o)
+        {
+            return Pla_Tarea.Delete(o);
+        }
+		[WebMethod]
+        public int Pla_Tarea_Update(Pla_Tarea o,Pla_Tarea n)
+        {
+            return Pla_Tarea.Update(o, n);
+        }
+		#endregion
+		#region Métodos Get
+		[WebMethod]
+		public List<Pla_Tarea> Pla_Tarea_GetByAnio(Scope s , string p_Anio)
+        {
+            return Pla_Tarea.GetByAnio(s,  p_Anio);
+        }
+		[WebMethod]
+		public List<Pla_Tarea> Pla_Tarea_GetByAnioLikeNombre(Scope s , string p_Anio, string p_Nombre)
+        {
+            return Pla_Tarea.GetByAnioLikeNombre(s,  p_Anio, p_Nombre);
+        }
+		[WebMethod]
+		public List<Pla_Tarea> Pla_Tarea_GetByAnioLikePla_Cta_Codigo(Scope s , string p_Anio, string p_Pla_Cta_Codigo)
+        {
+            return Pla_Tarea.GetByAnioLikePla_Cta_Codigo(s,  p_Anio, p_Pla_Cta_Codigo);
+        }
+		[WebMethod]
+		public List<Pla_Tarea> Pla_Tarea_GetById(Scope s , Int32 p_Id)
+        {
+            return Pla_Tarea.GetById(s,  p_Id);
+        }
+		[WebMethod]
+		public List<Pla_Tarea> Pla_Tarea_GetByPla_Cta_Id(Scope s , Int32 p_Pla_Cta_Id)
+        {
+            return Pla_Tarea.GetByPla_Cta_Id(s,  p_Pla_Cta_Id);
+        }
+		[WebMethod]
+		public List<Pla_Tarea> Pla_Tarea_GetByPla_Cta_IdLikeNombre(Scope s , Int32 p_Pla_Cta_Id, string p_Nombre)
+        {
+            return Pla_Tarea.GetByPla_Cta_IdLikeNombre(s,  p_Pla_Cta_Id, p_Nombre);
+        }
+		#endregion
+		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+        public int Pla_Tarea_InsertINT(Pla_Tarea n)
+        {
+            return Pla_Tarea.InsertINT(n);
+        }
+		#endregion
+		#endregion
+	    #region Servicios para Pla_Doc
+        private DO_Pla_Doc _Pla_Doc;
+        public DO_Pla_Doc Pla_Doc {
+            get {
+                if (_Pla_Doc == null)
+                    _Pla_Doc = new DO_Pla_Doc();
+                return _Pla_Doc;
+            }
+        }
+
+		#region Select
+		[WebMethod]
+        public List<Pla_Doc> Pla_Doc_Get(Scope s)
+        {
+            return Pla_Doc.Get(s);
+        }
+		#endregion
+		#region Insert, Delete, Update
+		[WebMethod]
+        public int Pla_Doc_Insert(Pla_Doc n)
+        {
+            return Pla_Doc.Insert(n);
+        }
+		[WebMethod]
+        public int Pla_Doc_Delete(Pla_Doc o)
+        {
+            return Pla_Doc.Delete(o);
+        }
+		[WebMethod]
+        public int Pla_Doc_Update(Pla_Doc o,Pla_Doc n)
+        {
+            return Pla_Doc.Update(o, n);
+        }
+		#endregion
+		#region Métodos Get
+		[WebMethod]
+		public List<Pla_Doc> Pla_Doc_GetByArea_Codigo_RangoFecha_Solicita(Scope s , string p_Area_Codigo, DateTime p_Fecha_Solicita_Ini, DateTime p_Fecha_Solicita_Fin)
+        {
+            return Pla_Doc.GetByArea_Codigo_RangoFecha_Solicita(s,  p_Area_Codigo, p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin);
+        }
+		[WebMethod]
+		public List<Pla_Doc> Pla_Doc_GetByCodigo(Scope s , string p_Codigo)
+        {
+            return Pla_Doc.GetByCodigo(s,  p_Codigo);
+        }
+		[WebMethod]
+		public List<Pla_Doc> Pla_Doc_GetById(Scope s , Int32 p_Id)
+        {
+            return Pla_Doc.GetById(s,  p_Id);
+        }
+		[WebMethod]
+		public List<Pla_Doc> Pla_Doc_GetByRangoFecha_Solicita(Scope s , DateTime p_Fecha_Solicita_Ini, DateTime p_Fecha_Solicita_Fin)
+        {
+            return Pla_Doc.GetByRangoFecha_Solicita(s,  p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin);
+        }
+		[WebMethod]
+		public List<Pla_Doc> Pla_Doc_GetByTipo_Area_Codigo_RangoFecha_Solicita(Scope s , string p_Tipo, string p_Area_Codigo, DateTime p_Fecha_Solicita_Ini, DateTime p_Fecha_Solicita_Fin)
+        {
+            return Pla_Doc.GetByTipo_Area_Codigo_RangoFecha_Solicita(s,  p_Tipo, p_Area_Codigo, p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin);
+        }
+		#endregion
+		#region Métodos Genéricos retornan un escalar
 		#endregion
 		#endregion
 		}
