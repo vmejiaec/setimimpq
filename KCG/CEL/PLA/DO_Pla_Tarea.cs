@@ -6,7 +6,7 @@ using System.Text;
 using ADL.PlanificacionTableAdapters;
 using AEL.PLA;
 using BEL;
-using System.Data.SqlClient; 
+using System.Data.SqlClient;
 
 namespace CEL.PLA
 {

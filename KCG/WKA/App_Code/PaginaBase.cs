@@ -71,9 +71,11 @@ public abstract class PaginaBase: KPagina
     protected string ExtraeMensajeResumen(Exception e)
     {
         string resumen = e.Message;
+        string sFinDeLinea = "\n";
+        int nFinDeLinea = e.Message.IndexOf(sFinDeLinea);
         resumen = resumen.Substring(
             resumen.IndexOf("--->") + 4,
-            resumen.IndexOf("The statement has been") - resumen.IndexOf("--->") - 4);
+            nFinDeLinea - resumen.IndexOf("--->") - 4 );
         return resumen;
     }
 }

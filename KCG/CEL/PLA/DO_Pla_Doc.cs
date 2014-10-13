@@ -422,35 +422,5 @@ fila.Fecha_Planifica
 			}
 			return lista;
 		}
-		// InsertINT
-		public int InsertINT(Pla_Doc n)
-    {
-        int res;
-        try {
-            res = Convert.ToInt16( Adapter.InsertINT(
-				n.Codigo,
-n.Tipo,
-n.Fecha_Solicita,
-n.Per_Personal_Id_Solicita,
-n.Area_Codigo_Solicita,
-n.Descripcion,
-n.Estado,
-n.Per_Personal_Id_Crea,
-n.Per_Personal_Id_Modifica,
-n.Valor_Solicita,
-n.Per_Personal_Id_Planifica,
-n.Esta_Planificada,
-n.Per_Personal_Id_Contrata,
-n.Esta_Contratada,
-n.PAC_Linea,
-n.CPC_Codigo,
-n.Fecha_Contrata,
-n.Fecha_Planifica
-			));
-        }
-        catch (SqlException e)
-        { throw (new Exception( e.Message)); }
-        return res;
-    }
 	}
 }
