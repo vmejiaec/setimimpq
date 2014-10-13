@@ -71,6 +71,7 @@ TagPrefix="ajax" %>
         <asp:DropDownList ID="ddlFiltro" runat="server" AutoPostBack="true" onselectedindexchanged="ddlFiltro_SelectedIndexChanged">
             <asp:ListItem Text = "Todos" Value="Todos" ></asp:ListItem>
             <asp:ListItem Text = "Descripcion" Value="Descripcion" ></asp:ListItem>
+            <asp:ListItem Text = "Codigo" Value="Codigo" ></asp:ListItem>
 		</asp:DropDownList>
         Rango de Fechas:
         <asp:TextBox ID="tbFechaIni" runat="server" Width="80px"></asp:TextBox> <ajax:CalendarExtender runat="server" ID="cextbFechaIni" TargetControlID="tbFechaIni"/>
@@ -155,7 +156,7 @@ TagPrefix="ajax" %>
 
 
     <%--[O] FormView de Pla_Doc --%>
-    <asp:Panel runat="server" ID="pfvPla_Doc" GroupingText="Crear, Editar o Borar un Registro">
+    <asp:Panel runat="server" ID="pfvPla_Doc" >
     <koala:FormViewSetim ID="fvPla_Doc" runat="server" DataSourceID="odsfvPla_Doc" 
             oniteminserting="fvPla_Doc_ItemInserting" 
             onitemdeleted="fvPla_Doc_ItemDeleted" 
@@ -167,7 +168,7 @@ TagPrefix="ajax" %>
 			onitemdeleting="fvPla_Doc_ItemDeleting"
 			>
         <EditItemTemplate>
-            <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
+            <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton" GroupingText="Solicitud">
 			<table>
 			<tr style="display:none">
                 <td> Id </td>                
@@ -184,6 +185,17 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  CssClass="txtItem"  />
 					</td>
             </tr>
+            <tr style="display:none">
+                <td> Per_Personal_Id_Solicita </td>                
+				<td><asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'   />
+			</td>
+            </tr>
+			<tr >
+                <td> Persona_Solicita </td>                
+				<td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  
+                    ReadOnly="true"  CssClass="txtItem" Width="380px"/>
+				</td>
+            </tr>
 			<tr >
                 <td> Fecha_Solicita </td>                
 				<td><asp:TextBox ID="Fecha_SolicitaTextBox" runat="server" Text='<%# Bind("Fecha_Solicita","{0:d}") %>'  CssClass="txtEdit"  />
@@ -199,16 +211,6 @@ TagPrefix="ajax" %>
                     ControlToValidate="Fecha_SolicitaTextBox" 
                     Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgPla_Doc"/>
 				</td>
-            </tr>
-			<tr style="display:none">
-                <td> Per_Personal_Id_Solicita </td>                
-				<td><asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'   />
-					</td>
-            </tr>
-			<tr style="display:none">
-                <td> Per_Personal_Nombre_Solicita </td>                
-				<td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  />
-					</td>
             </tr>
 			<tr style="display:none">
                 <td> Area_Codigo_Solicita </td>                
@@ -322,7 +324,7 @@ TagPrefix="ajax" %>
             </asp:Panel>
         </EditItemTemplate>
         <InsertItemTemplate>
-            <asp:Panel runat="server" ID = "panelInsertTemplate" DefaultButton="InsertButton">
+            <asp:Panel runat="server" ID = "panelInsertTemplate" DefaultButton="InsertButton" GroupingText="Solicitud">
 			<table>
 			<tr style="display:none">
                 <td> Id </td>                
@@ -339,6 +341,17 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  CssClass="txtItem"  />
 					</td>
             </tr>
+            <tr style="display:none">
+                <td> Per_Personal_Id_Solicita </td>                
+				<td><asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'   />
+					</td>
+            </tr>
+			<tr >
+                <td> Persona_Solicita </td>                
+				<td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  
+                    ReadOnly="true"  CssClass="txtItem" Width="380px"/>
+				</td>
+            </tr>
 			<tr >
                 <td> Fecha_Solicita </td>                
 				<td><asp:TextBox ID="Fecha_SolicitaTextBox" runat="server" Text='<%# Bind("Fecha_Solicita","{0:d}") %>'  CssClass="txtEdit"  />
@@ -354,16 +367,6 @@ TagPrefix="ajax" %>
                     ControlToValidate="Fecha_SolicitaTextBox" 
                     Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgPla_Doc"/>
 				</td>
-            </tr>
-			<tr style="display:none">
-                <td> Per_Personal_Id_Solicita </td>                
-				<td><asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'   />
-					</td>
-            </tr>
-			<tr style="display:none">
-                <td> Per_Personal_Nombre_Solicita </td>                
-				<td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  />
-					</td>
             </tr>
 			<tr style="display:none">
                 <td> Area_Codigo_Solicita </td>                
@@ -395,7 +398,7 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="Per_Personal_Id_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Crea") %>'  CssClass="txtEdit"  />
 					</td>
             </tr>
-			<tr  style="display:none">
+			<tr style="display:none">
                 <td> Per_Personal_Nombre_Crea </td>                
 				<td><asp:TextBox ID="Per_Personal_Nombre_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Crea") %>'   />
 					</td>
@@ -477,7 +480,7 @@ TagPrefix="ajax" %>
             </asp:Panel>
         </InsertItemTemplate>
         <ItemTemplate>
-            <asp:Panel runat="server" ID="panelItemTemplate" DefaultButton="EditButton"  CssClass="panCol2">
+            <asp:Panel runat="server" ID="panelItemTemplate" DefaultButton="EditButton"  CssClass="panCol2" GroupingText="Solicitud">
             <table>
 			<tr style="display:none">
                 <td> Id </td>
@@ -490,14 +493,23 @@ TagPrefix="ajax" %>
 			<tr style="display:none">
                 <td> Tipo </td>
 				<td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
+			</tr>
+            <tr style="display:none">
+                <td> Per_Personal_Id_Solicita </td>
+				<td><asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			</tr>
+			<tr >
+                <td> Persona_Solicita </td>
+				<td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  
+                    ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
+			</tr>
 			<tr >
                 <td> Fecha_Solicita </td>
 				<td><asp:TextBox ID="Fecha_SolicitaTextBox" runat="server" Text='<%# Bind("Fecha_Solicita","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
 			<tr >
                 <td> Descripcion </td>
-				<td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  ReadOnly="true"  CssClass="txtItemDescripcion" TextMode="MultiLine" /></td>
+				<td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  ReadOnly="true"  CssClass="txtItemDescripcion" TextMode="MultiLine"  Height="83px"/></td>
 							</tr>
 			<tr style="display:none">
                 <td> Estado </td>
@@ -532,16 +544,8 @@ TagPrefix="ajax" %>
             </asp:Panel>
 
             <asp:Panel runat="server" ID="panel2"  CssClass="panCol2">
-            <table >
-			<tr style="display:none">
-                <td> Per_Personal_Id_Solicita </td>
-				<td><asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Persona_Solicita </td>
-				<td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  
-                    ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
-			</tr>
+            <asp:Panel runat="server" ID="panel3"  GroupingText="Planificación">
+            <table  >
 			<tr style="display:none">
                 <td> Area_Nombre_Solicita </td>
 				<td><asp:TextBox ID="Area_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Nombre_Solicita") %>'  ReadOnly="true"  CssClass="txtItem"  />
@@ -565,8 +569,12 @@ TagPrefix="ajax" %>
             <tr >
                 <td> Fecha_Planifica </td>
 				<td><asp:TextBox ID="Fecha_PlanificaTextBox" runat="server" Text='<%# Bind("Fecha_Planifica","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr style="display:none">
+			</tr>
+			</table>
+            </asp:Panel>
+            <asp:Panel runat="server" ID="panel4"  GroupingText="Contratación">
+            <table>
+            <tr style="display:none">
                 <td> Per_Personal_Id_Contrata </td>
 				<td><asp:TextBox ID="Per_Personal_Id_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Contrata") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
@@ -585,13 +593,13 @@ TagPrefix="ajax" %>
 			</tr>
 			<tr >
                 <td> PAC_Linea </td>
-				<td><asp:TextBox ID="PAC_LineaTextBox" runat="server" Text='<%# Bind("PAC_Linea") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+				<td><asp:TextBox ID="PAC_LineaTextBox" runat="server" Text='<%# Bind("PAC_Linea") %>'  ReadOnly="true"  CssClass="txtItem" Width="130px" />
+                     CPC_Codigo
+                     <asp:TextBox ID="CPC_CodigoTextBox" runat="server" Text='<%# Bind("CPC_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" Width="130px" />
+                </td>
 			</tr>
-			<tr >
-                <td> CPC_Codigo </td>
-				<td><asp:TextBox ID="CPC_CodigoTextBox" runat="server" Text='<%# Bind("CPC_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-			</tr>			
             </table>
+            </asp:Panel>
             </asp:Panel>
         </ItemTemplate>
     </koala:FormViewSetim>
@@ -623,7 +631,7 @@ TagPrefix="ajax" %>
         TypeName="FEL.PLA.BO_Pla_Doc">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-			<asp:ControlParameter ControlID="tbFiltro" Name="p_Tipo" PropertyName="Text" Type="string" />
+			<asp:ControlParameter ControlID="lbCabecera_Tipo" Name="p_Tipo" PropertyName="Text" Type="string" />
 		<asp:ControlParameter ControlID="lbCabecera_Area_Codigo" Name="p_Area_Codigo" PropertyName="Text" Type="string" />
 		<asp:ControlParameter ControlID="tbFiltro" Name="p_Codigo" PropertyName="Text" Type="string" />
 		</SelectParameters>
@@ -633,7 +641,7 @@ TagPrefix="ajax" %>
         TypeName="FEL.PLA.BO_Pla_Doc">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-			<asp:ControlParameter ControlID="tbFiltro" Name="p_Tipo" PropertyName="Text" Type="string" />
+			<asp:ControlParameter ControlID="lbCabecera_Tipo" Name="p_Tipo" PropertyName="Text" Type="string" />
 		<asp:ControlParameter ControlID="lbCabecera_Area_Codigo" Name="p_Area_Codigo" PropertyName="Text" Type="string" />
 		<asp:ControlParameter ControlID="tbFiltro" Name="p_Descripcion" PropertyName="Text" Type="string" />
 		</SelectParameters>
