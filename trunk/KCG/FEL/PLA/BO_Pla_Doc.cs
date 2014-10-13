@@ -80,6 +80,20 @@ namespace FEL.PLA
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Pla_Doc> GetByTipo_Area_Codigo_Codigo(Scope s , string p_Tipo, string p_Area_Codigo, string p_Codigo)
+        {
+			List<Pla_Doc> lista = new List<Pla_Doc>(
+				Adapter.Pla_Doc_GetByTipo_Area_Codigo_Codigo(s,  p_Tipo, p_Area_Codigo, p_Codigo));
+            return lista;
+        }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Pla_Doc> GetByTipo_Area_Codigo_LikeDescripcion(Scope s , string p_Tipo, string p_Area_Codigo, string p_Descripcion)
+        {
+			List<Pla_Doc> lista = new List<Pla_Doc>(
+				Adapter.Pla_Doc_GetByTipo_Area_Codigo_LikeDescripcion(s,  p_Tipo, p_Area_Codigo, p_Descripcion));
+            return lista;
+        }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
 		public List<Pla_Doc> GetByTipo_Area_Codigo_RangoFecha_Solicita(Scope s , string p_Tipo, string p_Area_Codigo, DateTime p_Fecha_Solicita_Ini, DateTime p_Fecha_Solicita_Fin)
         {
 			List<Pla_Doc> lista = new List<Pla_Doc>(
@@ -88,6 +102,12 @@ namespace FEL.PLA
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+		 // InsertINT
+		[DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
+		public int InsertINT(Pla_Doc n)
+        {            
+            return Adapter.Pla_Doc_InsertINT(n);
+        }
 		#endregion
 		#endregion
     }

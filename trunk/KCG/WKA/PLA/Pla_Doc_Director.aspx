@@ -14,20 +14,21 @@ Namespace="AjaxControlToolkit"
 TagPrefix="ajax" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
 <%--Funcion para poner el formato numérico a los campos del FV--%>
-<%--<script type="text/javascript">
+<script type="text/javascript">
     function PonerFormatoNumericoACamposFV() {
-        $('#ctl00_ContentPlaceHolder1_fvPla_Poa_Valor_InicialTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
-        $('#ctl00_ContentPlaceHolder1_fvPla_Poa_Valor_SumaTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
+        $('#ctl00_ContentPlaceHolder1_fvPla_Doc_Valor_SolicitaTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
     }
-</script>--%>
+</script>
+
 <asp:UpdatePanel runat="server" ID="udp">
 <ContentTemplate>
 <%--Ejecuta la función antes de presentar los objetos en pantalla mediante PageRequestManager--%>
-<%--<script type="text/javascript">
+<script type="text/javascript">
     Sys.WebForms.PageRequestManager.getInstance().add_endRequest(PonerFormatoNumericoACamposFV);
 </script>
---%>
+
     <%--[O] Cabecera--%>
     <asp:Panel runat="server" ID="pcabecera" GroupingText="Solicitudes del Area">        
         <table>
@@ -81,7 +82,7 @@ TagPrefix="ajax" %>
     <%--[O] GridView de Pla_Doc --%>
     <asp:Panel ID="Panel1" runat="server" GroupingText="Registros">
     <asp:GridView ID="gvPla_Doc" runat="server" AutoGenerateColumns="False" 
-        DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Doc" 
+        DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Doc_GetByTipo_Area_Codigo_RangoFecha_Solicita" 
         SelectedRowStyle-CssClass="selectedrowstyle" 
 		AlternatingRowStyle-CssClass="alternatingrowstyle" 
         HeaderStyle-CssClass="headerstyle" 
@@ -97,13 +98,13 @@ TagPrefix="ajax" %>
 			<asp:BoundField DataField="Per_Personal_Nombre_Solicita" HeaderText="Persona_Solicita"   Visible = "false"/>
 			<asp:BoundField DataField="Area_Codigo_Solicita" HeaderText="Area_Codigo_Solicita"   Visible = "false" />
 			<asp:BoundField DataField="Area_Nombre_Solicita" HeaderText="Area_Nombre_Solicita"   Visible = "false" />
-			<asp:BoundField DataField="Descripcion" HeaderText="Descripcion"   />
+			<asp:BoundField DataField="Descripcion" HeaderText="Descripcion"  ItemStyle-Width="380px" />
 			<asp:BoundField DataField="Estado" HeaderText="Estado" Visible = "false"  />
 			<asp:BoundField DataField="Per_Personal_Id_Crea" HeaderText="Per_Personal_Id_Crea"   Visible = "false" />
 			<asp:BoundField DataField="Per_Personal_Nombre_Crea" HeaderText="Per_Personal_Nombre_Crea"    Visible = "false"/>
 			<asp:BoundField DataField="Per_Personal_Id_Modifica" HeaderText="Per_Personal_Id_Modifica"    Visible = "false"/>
 			<asp:BoundField DataField="Per_Personal_Nombre_Modifica" HeaderText="Per_Personal_Nombre_Modifica"   Visible = "false" />
-			<asp:BoundField DataField="Valor_Solicita" HeaderText="Valor_Solicita"    DataFormatString="{0:N2}"/>
+			<asp:BoundField DataField="Valor_Solicita" HeaderText="Valor_Solicita"    DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
 				<asp:BoundField DataField="Per_Personal_Id_Planifica" HeaderText="Per_Personal_Id_Planifica"   Visible = "false" />
 			<asp:BoundField DataField="Per_Personal_Nombre_Planifica" HeaderText="Persona_Planifica"  Visible = "false" />
 			<asp:BoundField DataField="Esta_Planificada" HeaderText="Esta_Planif"   />
@@ -175,22 +176,12 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Codigo </td>                
-				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqCodigo" runat="server" 
-                    ControlToValidate="CodigoTextBox"
-                    ErrorMessage="El campo Codigo es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  CssClass="txtItem"  />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Tipo </td>                
-				<td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqTipo" runat="server" 
-                    ControlToValidate="TipoTextBox"
-                    ErrorMessage="El campo Tipo es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  CssClass="txtItem"  />
 					</td>
             </tr>
 			<tr >
@@ -209,49 +200,34 @@ TagPrefix="ajax" %>
                     Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgPla_Doc"/>
 				</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Per_Personal_Id_Solicita </td>                
-				<td><asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Id_Solicita" runat="server" 
-                    ControlToValidate="Per_Personal_Id_SolicitaTextBox"
-                    ErrorMessage="El campo Per_Personal_Id_Solicita es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'   />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Per_Personal_Nombre_Solicita </td>                
-				<td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Nombre_Solicita" runat="server" 
-                    ControlToValidate="Per_Personal_Nombre_SolicitaTextBox"
-                    ErrorMessage="El campo Per_Personal_Nombre_Solicita es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Area_Codigo_Solicita </td>                
-				<td><asp:TextBox ID="Area_Codigo_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Codigo_Solicita") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqArea_Codigo_Solicita" runat="server" 
-                    ControlToValidate="Area_Codigo_SolicitaTextBox"
-                    ErrorMessage="El campo Area_Codigo_Solicita es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Area_Codigo_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Codigo_Solicita") %>'  />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Area_Nombre_Solicita </td>                
-				<td><asp:TextBox ID="Area_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Nombre_Solicita") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqArea_Nombre_Solicita" runat="server" 
-                    ControlToValidate="Area_Nombre_SolicitaTextBox"
-                    ErrorMessage="El campo Area_Nombre_Solicita es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Area_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Nombre_Solicita") %>'  />
 					</td>
             </tr>
 			<tr >
                 <td> Descripcion </td>                
 				<td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  CssClass="txtEditDescripcion" TextMode="MultiLine"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqDescripcionTextBox" runat="server" 
+                    ControlToValidate="DescripcionTextBox"
+                    ErrorMessage="El campo Descripcion es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
 				</td>
             </tr>
 			<tr style="display:none">
@@ -259,49 +235,29 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  CssClass="txtEdit"  />
 				</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Per_Personal_Id_Crea </td>                
 				<td><asp:TextBox ID="Per_Personal_Id_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Crea") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Id_Crea" runat="server" 
-                    ControlToValidate="Per_Personal_Id_CreaTextBox"
-                    ErrorMessage="El campo Per_Personal_Id_Crea es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
 					</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Per_Personal_Nombre_Crea </td>                
-				<td><asp:TextBox ID="Per_Personal_Nombre_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Crea") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Nombre_Crea" runat="server" 
-                    ControlToValidate="Per_Personal_Nombre_CreaTextBox"
-                    ErrorMessage="El campo Per_Personal_Nombre_Crea es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Per_Personal_Nombre_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Crea") %>'   />
 					</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Per_Personal_Id_Modifica </td>                
-				<td><asp:TextBox ID="Per_Personal_Id_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Modifica") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Id_Modifica" runat="server" 
-                    ControlToValidate="Per_Personal_Id_ModificaTextBox"
-                    ErrorMessage="El campo Per_Personal_Id_Modifica es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Per_Personal_Id_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Modifica") %>'  />
 					</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Per_Personal_Nombre_Modifica </td>                
-				<td><asp:TextBox ID="Per_Personal_Nombre_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Modifica") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Nombre_Modifica" runat="server" 
-                    ControlToValidate="Per_Personal_Nombre_ModificaTextBox"
-                    ErrorMessage="El campo Per_Personal_Nombre_Modifica es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Per_Personal_Nombre_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Modifica") %>'  />
 					</td>
             </tr>
 			<tr >
                 <td> Valor_Solicita </td>                
-				<td><asp:TextBox ID="Valor_SolicitaTextBox" runat="server" Text='<%# Bind("Valor_Solicita","0:N2") %>'  CssClass="txtEdit"  />
+				<td><asp:TextBox ID="Valor_SolicitaTextBox" runat="server" Text='<%# Bind("Valor_Solicita") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqValor_Solicita" runat="server" 
                     ControlToValidate="Valor_SolicitaTextBox"
@@ -309,116 +265,54 @@ TagPrefix="ajax" %>
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
 					</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Per_Personal_Id_Planifica </td>                
-				<td><asp:TextBox ID="Per_Personal_Id_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Planifica") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Id_Planifica" runat="server" 
-                    ControlToValidate="Per_Personal_Id_PlanificaTextBox"
-                    ErrorMessage="El campo Per_Personal_Id_Planifica es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Per_Personal_Id_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Planifica") %>'    />
 					</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Per_Personal_Nombre_Planifica </td>                
-				<td><asp:TextBox ID="Per_Personal_Nombre_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Planifica") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Nombre_Planifica" runat="server" 
-                    ControlToValidate="Per_Personal_Nombre_PlanificaTextBox"
-                    ErrorMessage="El campo Per_Personal_Nombre_Planifica es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Per_Personal_Nombre_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Planifica") %>'   />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Esta_Planificada </td>                
-				<td><asp:TextBox ID="Esta_PlanificadaTextBox" runat="server" Text='<%# Bind("Esta_Planificada") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqEsta_Planificada" runat="server" 
-                    ControlToValidate="Esta_PlanificadaTextBox"
-                    ErrorMessage="El campo Esta_Planificada es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Esta_PlanificadaTextBox" runat="server" Text='<%# Bind("Esta_Planificada") %>' />
 					</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Per_Personal_Id_Contrata </td>                
-				<td><asp:TextBox ID="Per_Personal_Id_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Contrata") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Id_Contrata" runat="server" 
-                    ControlToValidate="Per_Personal_Id_ContrataTextBox"
-                    ErrorMessage="El campo Per_Personal_Id_Contrata es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Per_Personal_Id_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Contrata") %>' />
 					</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Per_Personal_Nombre_Contrata </td>                
-				<td><asp:TextBox ID="Per_Personal_Nombre_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Contrata") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Nombre_Contrata" runat="server" 
-                    ControlToValidate="Per_Personal_Nombre_ContrataTextBox"
-                    ErrorMessage="El campo Per_Personal_Nombre_Contrata es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Per_Personal_Nombre_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Contrata") %>'  />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Esta_Contratada </td>                
-				<td><asp:TextBox ID="Esta_ContratadaTextBox" runat="server" Text='<%# Bind("Esta_Contratada") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqEsta_Contratada" runat="server" 
-                    ControlToValidate="Esta_ContratadaTextBox"
-                    ErrorMessage="El campo Esta_Contratada es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Esta_ContratadaTextBox" runat="server" Text='<%# Bind("Esta_Contratada") %>'  />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> PAC_Linea </td>                
-				<td><asp:TextBox ID="PAC_LineaTextBox" runat="server" Text='<%# Bind("PAC_Linea") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPAC_Linea" runat="server" 
-                    ControlToValidate="PAC_LineaTextBox"
-                    ErrorMessage="El campo PAC_Linea es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="PAC_LineaTextBox" runat="server" Text='<%# Bind("PAC_Linea") %>' />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> CPC_Codigo </td>                
-				<td><asp:TextBox ID="CPC_CodigoTextBox" runat="server" Text='<%# Bind("CPC_Codigo") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqCPC_Codigo" runat="server" 
-                    ControlToValidate="CPC_CodigoTextBox"
-                    ErrorMessage="El campo CPC_Codigo es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="CPC_CodigoTextBox" runat="server" Text='<%# Bind("CPC_Codigo") %>' />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Fecha_Contrata </td>                
-				<td><asp:TextBox ID="Fecha_ContrataTextBox" runat="server" Text='<%# Bind("Fecha_Contrata","{0:d}") %>'  CssClass="txtEdit"  />
-				<asp:Button runat="server" ID="btcexFecha_Contrata" Text="."/>
-				<ajax:CalendarExtender runat="server" ID="cexFecha_Contrata" TargetControlID="Fecha_ContrataTextBox" PopupButtonID="btcexFecha_Contrata" />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqFecha_Contrata" runat="server" 
-                    ControlToValidate="Fecha_ContrataTextBox"
-                    ErrorMessage="El campo Fecha_Contrata es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
-					<asp:RangeValidator ID="rvFecha_Contrata" runat="server" 
-                    ErrorMessage="El campo Fecha_Contrata no contiene una fecha válida" 
-                    ControlToValidate="Fecha_ContrataTextBox" 
-                    Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Fecha_ContrataTextBox" runat="server" Text='<%# Bind("Fecha_Contrata","{0:d}") %>'  />
 				</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Fecha_Planifica </td>                
-				<td><asp:TextBox ID="Fecha_PlanificaTextBox" runat="server" Text='<%# Bind("Fecha_Planifica","{0:d}") %>'  CssClass="txtEdit"  />
-				<asp:Button runat="server" ID="btcexFecha_Planifica" Text="."/>
-				<ajax:CalendarExtender runat="server" ID="cexFecha_Planifica" TargetControlID="Fecha_PlanificaTextBox" PopupButtonID="btcexFecha_Planifica" />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqFecha_Planifica" runat="server" 
-                    ControlToValidate="Fecha_PlanificaTextBox"
-                    ErrorMessage="El campo Fecha_Planifica es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
-					<asp:RangeValidator ID="rvFecha_Planifica" runat="server" 
-                    ErrorMessage="El campo Fecha_Planifica no contiene una fecha válida" 
-                    ControlToValidate="Fecha_PlanificaTextBox" 
-                    Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Fecha_PlanificaTextBox" runat="server" Text='<%# Bind("Fecha_Planifica","{0:d}") %>' />
 				</td>
             </tr>
 			</table>
@@ -437,22 +331,12 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Codigo </td>                
-				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqCodigo" runat="server" 
-                    ControlToValidate="CodigoTextBox"
-                    ErrorMessage="El campo Codigo es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  CssClass="txtItem"  />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Tipo </td>                
-				<td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqTipo" runat="server" 
-                    ControlToValidate="TipoTextBox"
-                    ErrorMessage="El campo Tipo es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  CssClass="txtItem"  />
 					</td>
             </tr>
 			<tr >
@@ -471,49 +355,34 @@ TagPrefix="ajax" %>
                     Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgPla_Doc"/>
 				</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Per_Personal_Id_Solicita </td>                
-				<td><asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Id_Solicita" runat="server" 
-                    ControlToValidate="Per_Personal_Id_SolicitaTextBox"
-                    ErrorMessage="El campo Per_Personal_Id_Solicita es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'   />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Per_Personal_Nombre_Solicita </td>                
-				<td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Nombre_Solicita" runat="server" 
-                    ControlToValidate="Per_Personal_Nombre_SolicitaTextBox"
-                    ErrorMessage="El campo Per_Personal_Nombre_Solicita es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Area_Codigo_Solicita </td>                
-				<td><asp:TextBox ID="Area_Codigo_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Codigo_Solicita") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqArea_Codigo_Solicita" runat="server" 
-                    ControlToValidate="Area_Codigo_SolicitaTextBox"
-                    ErrorMessage="El campo Area_Codigo_Solicita es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Area_Codigo_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Codigo_Solicita") %>'  />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Area_Nombre_Solicita </td>                
-				<td><asp:TextBox ID="Area_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Nombre_Solicita") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqArea_Nombre_Solicita" runat="server" 
-                    ControlToValidate="Area_Nombre_SolicitaTextBox"
-                    ErrorMessage="El campo Area_Nombre_Solicita es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Area_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Nombre_Solicita") %>'  />
 					</td>
             </tr>
 			<tr >
                 <td> Descripcion </td>                
 				<td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  CssClass="txtEditDescripcion" TextMode="MultiLine"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqDescripcionTextBox" runat="server" 
+                    ControlToValidate="DescripcionTextBox"
+                    ErrorMessage="El campo Descripcion es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
 				</td>
             </tr>
 			<tr style="display:none">
@@ -521,49 +390,29 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  CssClass="txtEdit"  />
 				</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Per_Personal_Id_Crea </td>                
 				<td><asp:TextBox ID="Per_Personal_Id_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Crea") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Id_Crea" runat="server" 
-                    ControlToValidate="Per_Personal_Id_CreaTextBox"
-                    ErrorMessage="El campo Per_Personal_Id_Crea es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
 					</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Per_Personal_Nombre_Crea </td>                
-				<td><asp:TextBox ID="Per_Personal_Nombre_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Crea") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Nombre_Crea" runat="server" 
-                    ControlToValidate="Per_Personal_Nombre_CreaTextBox"
-                    ErrorMessage="El campo Per_Personal_Nombre_Crea es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Per_Personal_Nombre_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Crea") %>'   />
 					</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Per_Personal_Id_Modifica </td>                
-				<td><asp:TextBox ID="Per_Personal_Id_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Modifica") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Id_Modifica" runat="server" 
-                    ControlToValidate="Per_Personal_Id_ModificaTextBox"
-                    ErrorMessage="El campo Per_Personal_Id_Modifica es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Per_Personal_Id_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Modifica") %>'  />
 					</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Per_Personal_Nombre_Modifica </td>                
-				<td><asp:TextBox ID="Per_Personal_Nombre_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Modifica") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Nombre_Modifica" runat="server" 
-                    ControlToValidate="Per_Personal_Nombre_ModificaTextBox"
-                    ErrorMessage="El campo Per_Personal_Nombre_Modifica es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Per_Personal_Nombre_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Modifica") %>'  />
 					</td>
             </tr>
 			<tr >
                 <td> Valor_Solicita </td>                
-				<td><asp:TextBox ID="Valor_SolicitaTextBox" runat="server" Text='<%# Bind("Valor_Solicita","0:N2") %>'  CssClass="txtEdit"  />
+				<td><asp:TextBox ID="Valor_SolicitaTextBox" runat="server" Text='<%# Bind("Valor_Solicita") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqValor_Solicita" runat="server" 
                     ControlToValidate="Valor_SolicitaTextBox"
@@ -571,116 +420,54 @@ TagPrefix="ajax" %>
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
 					</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Per_Personal_Id_Planifica </td>                
-				<td><asp:TextBox ID="Per_Personal_Id_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Planifica") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Id_Planifica" runat="server" 
-                    ControlToValidate="Per_Personal_Id_PlanificaTextBox"
-                    ErrorMessage="El campo Per_Personal_Id_Planifica es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Per_Personal_Id_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Planifica") %>'    />
 					</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Per_Personal_Nombre_Planifica </td>                
-				<td><asp:TextBox ID="Per_Personal_Nombre_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Planifica") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Nombre_Planifica" runat="server" 
-                    ControlToValidate="Per_Personal_Nombre_PlanificaTextBox"
-                    ErrorMessage="El campo Per_Personal_Nombre_Planifica es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Per_Personal_Nombre_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Planifica") %>'   />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Esta_Planificada </td>                
-				<td><asp:TextBox ID="Esta_PlanificadaTextBox" runat="server" Text='<%# Bind("Esta_Planificada") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqEsta_Planificada" runat="server" 
-                    ControlToValidate="Esta_PlanificadaTextBox"
-                    ErrorMessage="El campo Esta_Planificada es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Esta_PlanificadaTextBox" runat="server" Text='<%# Bind("Esta_Planificada") %>' />
 					</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Per_Personal_Id_Contrata </td>                
-				<td><asp:TextBox ID="Per_Personal_Id_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Contrata") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Id_Contrata" runat="server" 
-                    ControlToValidate="Per_Personal_Id_ContrataTextBox"
-                    ErrorMessage="El campo Per_Personal_Id_Contrata es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Per_Personal_Id_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Contrata") %>' />
 					</td>
             </tr>
-			<tr >
+			<tr  style="display:none">
                 <td> Per_Personal_Nombre_Contrata </td>                
-				<td><asp:TextBox ID="Per_Personal_Nombre_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Contrata") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPer_Personal_Nombre_Contrata" runat="server" 
-                    ControlToValidate="Per_Personal_Nombre_ContrataTextBox"
-                    ErrorMessage="El campo Per_Personal_Nombre_Contrata es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Per_Personal_Nombre_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Contrata") %>'  />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Esta_Contratada </td>                
-				<td><asp:TextBox ID="Esta_ContratadaTextBox" runat="server" Text='<%# Bind("Esta_Contratada") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqEsta_Contratada" runat="server" 
-                    ControlToValidate="Esta_ContratadaTextBox"
-                    ErrorMessage="El campo Esta_Contratada es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Esta_ContratadaTextBox" runat="server" Text='<%# Bind("Esta_Contratada") %>'  />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> PAC_Linea </td>                
-				<td><asp:TextBox ID="PAC_LineaTextBox" runat="server" Text='<%# Bind("PAC_Linea") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPAC_Linea" runat="server" 
-                    ControlToValidate="PAC_LineaTextBox"
-                    ErrorMessage="El campo PAC_Linea es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="PAC_LineaTextBox" runat="server" Text='<%# Bind("PAC_Linea") %>' />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> CPC_Codigo </td>                
-				<td><asp:TextBox ID="CPC_CodigoTextBox" runat="server" Text='<%# Bind("CPC_Codigo") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqCPC_Codigo" runat="server" 
-                    ControlToValidate="CPC_CodigoTextBox"
-                    ErrorMessage="El campo CPC_Codigo es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="CPC_CodigoTextBox" runat="server" Text='<%# Bind("CPC_Codigo") %>' />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Fecha_Contrata </td>                
-				<td><asp:TextBox ID="Fecha_ContrataTextBox" runat="server" Text='<%# Bind("Fecha_Contrata","{0:d}") %>'  CssClass="txtEdit"  />
-				<asp:Button runat="server" ID="btcexFecha_Contrata" Text="."/>
-				<ajax:CalendarExtender runat="server" ID="cexFecha_Contrata" TargetControlID="Fecha_ContrataTextBox" PopupButtonID="btcexFecha_Contrata" />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqFecha_Contrata" runat="server" 
-                    ControlToValidate="Fecha_ContrataTextBox"
-                    ErrorMessage="El campo Fecha_Contrata es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
-					<asp:RangeValidator ID="rvFecha_Contrata" runat="server" 
-                    ErrorMessage="El campo Fecha_Contrata no contiene una fecha válida" 
-                    ControlToValidate="Fecha_ContrataTextBox" 
-                    Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Fecha_ContrataTextBox" runat="server" Text='<%# Bind("Fecha_Contrata","{0:d}") %>'  />
 				</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Fecha_Planifica </td>                
-				<td><asp:TextBox ID="Fecha_PlanificaTextBox" runat="server" Text='<%# Bind("Fecha_Planifica","{0:d}") %>'  CssClass="txtEdit"  />
-				<asp:Button runat="server" ID="btcexFecha_Planifica" Text="."/>
-				<ajax:CalendarExtender runat="server" ID="cexFecha_Planifica" TargetControlID="Fecha_PlanificaTextBox" PopupButtonID="btcexFecha_Planifica" />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqFecha_Planifica" runat="server" 
-                    ControlToValidate="Fecha_PlanificaTextBox"
-                    ErrorMessage="El campo Fecha_Planifica es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
-					<asp:RangeValidator ID="rvFecha_Planifica" runat="server" 
-                    ErrorMessage="El campo Fecha_Planifica no contiene una fecha válida" 
-                    ControlToValidate="Fecha_PlanificaTextBox" 
-                    Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgPla_Doc"/>
+				<td><asp:TextBox ID="Fecha_PlanificaTextBox" runat="server" Text='<%# Bind("Fecha_Planifica","{0:d}") %>' />
 				</td>
             </tr>
 			</table>
@@ -690,7 +477,7 @@ TagPrefix="ajax" %>
             </asp:Panel>
         </InsertItemTemplate>
         <ItemTemplate>
-            <asp:Panel runat="server" ID="panelItemTemplate" DefaultButton="EditButton">
+            <asp:Panel runat="server" ID="panelItemTemplate" DefaultButton="EditButton"  CssClass="panCol2">
             <table>
 			<tr style="display:none">
                 <td> Id </td>
@@ -700,29 +487,13 @@ TagPrefix="ajax" %>
                 <td> Codigo </td>
 				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
-			<tr >
+			<tr style="display:none">
                 <td> Tipo </td>
 				<td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
 			<tr >
                 <td> Fecha_Solicita </td>
 				<td><asp:TextBox ID="Fecha_SolicitaTextBox" runat="server" Text='<%# Bind("Fecha_Solicita","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Per_Personal_Id_Solicita </td>
-				<td><asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Per_Personal_Nombre_Solicita </td>
-				<td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Area_Codigo_Solicita </td>
-				<td><asp:TextBox ID="Area_Codigo_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Codigo_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Area_Nombre_Solicita </td>
-				<td><asp:TextBox ID="Area_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Nombre_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
 			<tr >
                 <td> Descripcion </td>
@@ -732,72 +503,95 @@ TagPrefix="ajax" %>
                 <td> Estado </td>
 				<td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
-			<tr >
+			<tr style="display:none">
                 <td> Per_Personal_Id_Crea </td>
 				<td><asp:TextBox ID="Per_Personal_Id_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Crea") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
-			<tr >
+			<tr style="display:none">
                 <td> Per_Personal_Nombre_Crea </td>
 				<td><asp:TextBox ID="Per_Personal_Nombre_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Crea") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
-			<tr >
+			<tr style="display:none" >
                 <td> Per_Personal_Id_Modifica </td>
 				<td><asp:TextBox ID="Per_Personal_Id_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Modifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
-			<tr >
+			<tr style="display:none">
                 <td> Per_Personal_Nombre_Modifica </td>
 				<td><asp:TextBox ID="Per_Personal_Nombre_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Modifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
 			<tr >
                 <td> Valor_Solicita </td>
-				<td><asp:TextBox ID="Valor_SolicitaTextBox" runat="server" Text='<%# Bind("Valor_Solicita","{0:N2}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Per_Personal_Id_Planifica </td>
-				<td><asp:TextBox ID="Per_Personal_Id_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Planifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Per_Personal_Nombre_Planifica </td>
-				<td><asp:TextBox ID="Per_Personal_Nombre_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Planifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Esta_Planificada </td>
-				<td><asp:TextBox ID="Esta_PlanificadaTextBox" runat="server" Text='<%# Bind("Esta_Planificada") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Per_Personal_Id_Contrata </td>
-				<td><asp:TextBox ID="Per_Personal_Id_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Contrata") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Per_Personal_Nombre_Contrata </td>
-				<td><asp:TextBox ID="Per_Personal_Nombre_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Contrata") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Esta_Contratada </td>
-				<td><asp:TextBox ID="Esta_ContratadaTextBox" runat="server" Text='<%# Bind("Esta_Contratada") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> PAC_Linea </td>
-				<td><asp:TextBox ID="PAC_LineaTextBox" runat="server" Text='<%# Bind("PAC_Linea") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> CPC_Codigo </td>
-				<td><asp:TextBox ID="CPC_CodigoTextBox" runat="server" Text='<%# Bind("CPC_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Fecha_Contrata </td>
-				<td><asp:TextBox ID="Fecha_ContrataTextBox" runat="server" Text='<%# Bind("Fecha_Contrata","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Fecha_Planifica </td>
-				<td><asp:TextBox ID="Fecha_PlanificaTextBox" runat="server" Text='<%# Bind("Fecha_Planifica","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
+				<td><asp:TextBox ID="Valor_SolicitaTextBox" runat="server" Text='<%# Bind("Valor_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>			
 			</table>
             <asp:Button ID="EditButton" RunAt="server"  CausesValidation="False" CommandName="Edit" Text="Editar" />
             &nbsp;
             <asp:Button ID="DeleteButton" RunAt="server" CausesValidation="False" CommandName="Delete" Text="Borrar" />
             &nbsp;
             <asp:Button ID="NewButton" RunAt="server" CausesValidation="False" CommandName="New" Text="Nuevo" />
+            </asp:Panel>
+
+            <asp:Panel runat="server" ID="panel2"  CssClass="panCol2">
+            <table >
+			<tr style="display:none">
+                <td> Per_Personal_Id_Solicita </td>
+				<td><asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			<tr >
+                <td> Persona_Solicita </td>
+				<td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  
+                    ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
+			</tr>
+			<tr style="display:none">
+                <td> Area_Nombre_Solicita </td>
+				<td><asp:TextBox ID="Area_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Nombre_Solicita") %>'  ReadOnly="true"  CssClass="txtItem"  />
+                <asp:TextBox ID="Area_Codigo_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Codigo_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" Width ="60px"/>
+                </td>
+			</tr>
+
+            <tr style="display:none">
+                <td> Per_Personal_Id_Planifica </td>
+				<td><asp:TextBox ID="Per_Personal_Id_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Planifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			<tr >
+                <td> Persona_Planifica </td>
+				<td><asp:TextBox ID="Per_Personal_Nombre_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Planifica") %>'  
+                ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
+							</tr>
+			<tr >
+                <td> Esta_Planificada </td>
+				<td><asp:TextBox ID="Esta_PlanificadaTextBox" runat="server" Text='<%# Bind("Esta_Planificada") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+            <tr >
+                <td> Fecha_Planifica </td>
+				<td><asp:TextBox ID="Fecha_PlanificaTextBox" runat="server" Text='<%# Bind("Fecha_Planifica","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			<tr style="display:none">
+                <td> Per_Personal_Id_Contrata </td>
+				<td><asp:TextBox ID="Per_Personal_Id_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Contrata") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			<tr >
+                <td> Personal_Contrata </td>
+				<td><asp:TextBox ID="Per_Personal_Nombre_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Contrata") %>'  
+                ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
+							</tr>
+			<tr >
+                <td> Esta_Contratada </td>
+				<td><asp:TextBox ID="Esta_ContratadaTextBox" runat="server" Text='<%# Bind("Esta_Contratada") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			</tr>
+            <tr >
+                <td> Fecha_Contrata </td>
+				<td><asp:TextBox ID="Fecha_ContrataTextBox" runat="server" Text='<%# Bind("Fecha_Contrata","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			</tr>
+			<tr >
+                <td> PAC_Linea </td>
+				<td><asp:TextBox ID="PAC_LineaTextBox" runat="server" Text='<%# Bind("PAC_Linea") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			</tr>
+			<tr >
+                <td> CPC_Codigo </td>
+				<td><asp:TextBox ID="CPC_CodigoTextBox" runat="server" Text='<%# Bind("CPC_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			</tr>			
+            </table>
             </asp:Panel>
         </ItemTemplate>
     </koala:FormViewSetim>
@@ -813,58 +607,35 @@ TagPrefix="ajax" %>
 <%--[O]INICIO Fuentes de datos de Pla_Doc --%>
 <div>
     <%--Fuente de datos para el GridView --%>
-    <asp:ObjectDataSource ID="odsgvPla_Doc" runat="server" 
-        SelectMethod="Get" 
-        TypeName="FEL.PLA.BO_Pla_Doc">
-        <SelectParameters>
-            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-        </SelectParameters>
-    </asp:ObjectDataSource>
-	<%--Fuente de datos para los procesos genéricos --%>
-    <asp:ObjectDataSource ID="odsgvPla_Doc_GetByArea_Codigo_RangoFecha_Solicita" runat="server" 
-        SelectMethod="GetByArea_Codigo_RangoFecha_Solicita" 
-        TypeName="FEL.PLA.BO_Pla_Doc">
-        <SelectParameters>
-            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-			<asp:ControlParameter ControlID="tbFiltro" Name="p_Area_Codigo" PropertyName="Text" Type="string" />
-		<asp:ControlParameter ControlID="tbFiltro" Name="p_Fecha_Solicita_Ini" PropertyName="Text" Type="DateTime" />
-		<asp:ControlParameter ControlID="tbFiltro" Name="p_Fecha_Solicita_Fin" PropertyName="Text" Type="DateTime" />
-		</SelectParameters>
-    </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="odsgvPla_Doc_GetByCodigo" runat="server" 
-        SelectMethod="GetByCodigo" 
-        TypeName="FEL.PLA.BO_Pla_Doc">
-        <SelectParameters>
-            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-			<asp:ControlParameter ControlID="tbFiltro" Name="p_Codigo" PropertyName="Text" Type="string" />
-		</SelectParameters>
-    </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="odsgvPla_Doc_GetById" runat="server" 
-        SelectMethod="GetById" 
-        TypeName="FEL.PLA.BO_Pla_Doc">
-        <SelectParameters>
-            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-			<asp:ControlParameter ControlID="tbFiltroId" Name="p_Id" PropertyName="Text" Type="Int32" />
-		</SelectParameters>
-    </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="odsgvPla_Doc_GetByRangoFecha_Solicita" runat="server" 
-        SelectMethod="GetByRangoFecha_Solicita" 
-        TypeName="FEL.PLA.BO_Pla_Doc">
-        <SelectParameters>
-            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-			<asp:ControlParameter ControlID="tbFiltro" Name="p_Fecha_Solicita_Ini" PropertyName="Text" Type="DateTime" />
-		<asp:ControlParameter ControlID="tbFiltro" Name="p_Fecha_Solicita_Fin" PropertyName="Text" Type="DateTime" />
-		</SelectParameters>
-    </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Doc_GetByTipo_Area_Codigo_RangoFecha_Solicita" runat="server" 
         SelectMethod="GetByTipo_Area_Codigo_RangoFecha_Solicita" 
         TypeName="FEL.PLA.BO_Pla_Doc">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+			<asp:ControlParameter ControlID="lbCabecera_Tipo" Name="p_Tipo" PropertyName="Text" Type="string" />
+		<asp:ControlParameter ControlID="lbCabecera_Area_Codigo" Name="p_Area_Codigo" PropertyName="Text" Type="string" />
+		<asp:ControlParameter ControlID="tbFechaIni" Name="p_Fecha_Solicita_Ini" PropertyName="Text" Type="DateTime" />
+		<asp:ControlParameter ControlID="tbFechaFin" Name="p_Fecha_Solicita_Fin" PropertyName="Text" Type="DateTime" />
+		</SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsgvPla_Doc_GetByTipo_Area_Codigo_Codigo" runat="server" 
+        SelectMethod="GetByTipo_Area_Codigo_Codigo" 
+        TypeName="FEL.PLA.BO_Pla_Doc">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="tbFiltro" Name="p_Tipo" PropertyName="Text" Type="string" />
-		<asp:ControlParameter ControlID="tbFiltro" Name="p_Area_Codigo" PropertyName="Text" Type="string" />
-		<asp:ControlParameter ControlID="tbFiltro" Name="p_Fecha_Solicita_Ini" PropertyName="Text" Type="DateTime" />
-		<asp:ControlParameter ControlID="tbFiltro" Name="p_Fecha_Solicita_Fin" PropertyName="Text" Type="DateTime" />
+		<asp:ControlParameter ControlID="lbCabecera_Area_Codigo" Name="p_Area_Codigo" PropertyName="Text" Type="string" />
+		<asp:ControlParameter ControlID="tbFiltro" Name="p_Codigo" PropertyName="Text" Type="string" />
+		</SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsgvPla_Doc_GetByTipo_Area_Codigo_LikeDescripcion" runat="server" 
+        SelectMethod="GetByTipo_Area_Codigo_LikeDescripcion" 
+        TypeName="FEL.PLA.BO_Pla_Doc">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+			<asp:ControlParameter ControlID="tbFiltro" Name="p_Tipo" PropertyName="Text" Type="string" />
+		<asp:ControlParameter ControlID="lbCabecera_Area_Codigo" Name="p_Area_Codigo" PropertyName="Text" Type="string" />
+		<asp:ControlParameter ControlID="tbFiltro" Name="p_Descripcion" PropertyName="Text" Type="string" />
 		</SelectParameters>
     </asp:ObjectDataSource>
     <%--Objetos de Datos para obtener los dominios de un campo en un objeto --%>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Services;
 
-using CEL.PLA; // datos.xsdNombreIniciales
+using CEL.PLA; // datos.xsdNombreIniciales 
 using AEL.PLA;
 using BEL;
 
@@ -425,12 +425,27 @@ namespace EWS
             return Pla_Doc.GetByRangoFecha_Solicita(s,  p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin);
         }
 		[WebMethod]
+		public List<Pla_Doc> Pla_Doc_GetByTipo_Area_Codigo_Codigo(Scope s , string p_Tipo, string p_Area_Codigo, string p_Codigo)
+        {
+            return Pla_Doc.GetByTipo_Area_Codigo_Codigo(s,  p_Tipo, p_Area_Codigo, p_Codigo);
+        }
+		[WebMethod]
+		public List<Pla_Doc> Pla_Doc_GetByTipo_Area_Codigo_LikeDescripcion(Scope s , string p_Tipo, string p_Area_Codigo, string p_Descripcion)
+        {
+            return Pla_Doc.GetByTipo_Area_Codigo_LikeDescripcion(s,  p_Tipo, p_Area_Codigo, p_Descripcion);
+        }
+		[WebMethod]
 		public List<Pla_Doc> Pla_Doc_GetByTipo_Area_Codigo_RangoFecha_Solicita(Scope s , string p_Tipo, string p_Area_Codigo, DateTime p_Fecha_Solicita_Ini, DateTime p_Fecha_Solicita_Fin)
         {
             return Pla_Doc.GetByTipo_Area_Codigo_RangoFecha_Solicita(s,  p_Tipo, p_Area_Codigo, p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin);
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+        public int Pla_Doc_InsertINT(Pla_Doc n)
+        {
+            return Pla_Doc.InsertINT(n);
+        }
 		#endregion
 		#endregion
 		}
