@@ -171,6 +171,13 @@ public partial class PLA_Pla_Doc_Director : PaginaBase
         e.Values["Per_Personal_Id_Solicita"] = Scope.Per_Personal_Id;
         e.Values["Per_Personal_Id_Crea"] = Scope.Per_Personal_Id;
         e.Values["Per_Personal_Id_Modifica"] = Scope.Per_Personal_Id;
+        // La solicitud del director se crea con las personas de Planificación y Contratación
+        // en NULL para que sea coherente
+        e.Values["Per_Personal_Id_Planifica"] = null;
+        e.Values["Per_Personal_Id_Contrata"] = null;
+        // Los estados se ponen en PEN de pendiente
+        e.Values["Esta_Planificada"] = "PEN";
+        e.Values["Esta_Contratada"] = "PEN";
         // Cambio del formato del campo Valor
         e.Values["Valor_Solicita"] = Decimal.Parse((string)e.Values["Valor_Solicita"]);
     }	
@@ -185,6 +192,18 @@ public partial class PLA_Pla_Doc_Director : PaginaBase
         e.OldValues["Fecha_Planifica"] = DateTime.Parse((string)e.OldValues["Fecha_Planifica"]);
         // Valores para los campos de personas
         e.NewValues["Per_Personal_Id_Modifica"] = Scope.Per_Personal_Id;
+        // La solicitud del director se actualiza con las personas de Planificación y Contratación
+        // en NULL para que sea coherente con el proceso
+        if (String.IsNullOrEmpty((string)e.OldValues["Per_Personal_Id_Planifica"]))
+        {
+            e.OldValues["Per_Personal_Id_Planifica"] = null;
+            e.NewValues["Per_Personal_Id_Planifica"] = null;
+        }
+        if (String.IsNullOrEmpty((string)e.OldValues["Per_Personal_Id_Contrata"]))
+        {
+            e.OldValues["Per_Personal_Id_Contrata"] = null;
+            e.NewValues["Per_Personal_Id_Contrata"] = null;
+        }
         // Cambio del formato del campo Valor
         e.NewValues["Valor_Solicita"] = Decimal.Parse((string)e.NewValues["Valor_Solicita"]);
         e.OldValues["Valor_Solicita"] = Decimal.Parse((string)e.OldValues["Valor_Solicita"]);
@@ -194,10 +213,22 @@ public partial class PLA_Pla_Doc_Director : PaginaBase
     }
     protected void fvPla_Doc_ItemDeleting(object sender, FormViewDeleteEventArgs e)
     {
-        // Control de valores antes del borrado como fechas y números
-        // e.Values["Valor_Inicial"] = "0";
-        //e.Values["Valor_Suma"] = "0";
-		
+        // Cambio del formato de los campos de fechas
+        e.Values["Fecha_Solicita"] = DateTime.Parse((string)e.Values["Fecha_Solicita"]);
+        e.Values["Fecha_Contrata"] = DateTime.Parse((string)e.Values["Fecha_Contrata"]);
+        e.Values["Fecha_Planifica"] = DateTime.Parse((string)e.Values["Fecha_Planifica"]);
+        // Cambio del formato del campo Valor
+        e.Values["Valor_Solicita"] = Decimal.Parse((string)e.Values["Valor_Solicita"]);
+        // La solicitud del director se actualiza con las personas de Planificación y Contratación
+        // en NULL para que sea coherente con el proceso
+        if (String.IsNullOrEmpty((string)e.Values["Per_Personal_Id_Planifica"]))
+        {
+            e.Values["Per_Personal_Id_Planifica"] = null;
+        }
+        if (String.IsNullOrEmpty((string)e.Values["Per_Personal_Id_Contrata"]))
+        {
+            e.Values["Per_Personal_Id_Contrata"] = null;
+        }
 		// Guarda los datos del registro a borrar en memoria
         this.MemoriaRegistroActual = "Id: " + e.Values["Id"].ToString() + " * " +
 									 "Codigo: " + (string)e.Values["Codigo"] ;
@@ -214,6 +245,7 @@ public partial class PLA_Pla_Doc_Director : PaginaBase
                 var hoy = DateTime.Today.ToShortDateString();
                 ((TextBox)fvPla_Doc.FindControl("Fecha_SolicitaTextBox")).Text = hoy;
                 ((TextBox)fvPla_Doc.FindControl("Valor_SolicitaTextBox")).Text = "0";
+                ((TextBox)fvPla_Doc.FindControl("Per_Personal_Nombre_SolicitaTextBox")).Text = Scope.Per_Personal_Nombre;
                 break;
             case FormViewMode.Edit:
                 break;
