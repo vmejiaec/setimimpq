@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Services;
 
-using CEL.PLA; // datos.xsdNombreIniciales 
+using CEL.PLA; // datos.xsdNombreIniciales
 using AEL.PLA;
 using BEL;
 
@@ -441,11 +441,6 @@ namespace EWS
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
-				[WebMethod]
-        public int Pla_Doc_InsertINT(Pla_Doc n)
-        {
-            return Pla_Doc.InsertINT(n);
-        }
 		#endregion
 		#endregion
 		}
