@@ -473,8 +473,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
 		
 		// Guarda los datos del registro a borrar en memoria
         this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
-									 "Codigo: " + (string)e.Values["Codigo"] + " * " +
-                                     "Nombre: " + (string)e.Values["Nombre"];
+									 "Codigo: " + (string)e.Values["Codigo"] ;
     }	
     protected void fv<#= tabla.Nombre #>_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
@@ -483,9 +482,8 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         // e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);
 		
 		// Guarda los datos del registro a borrar en memoria
-        this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
-									 "Codigo: " + (string)e.Values["Codigo"] + " * " +
-                                     "Nombre: " + (string)e.Values["Nombre"];
+        this.MemoriaRegistroActual = "Id: " + (string)e.NewValues["Id"] + " * " +
+									 "Codigo: " + (string)e.NewValues["Codigo"] ;
     }
     protected void fv<#= tabla.Nombre #>_ItemDeleting(object sender, FormViewDeleteEventArgs e)
     {
@@ -495,8 +493,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
 		
 		// Guarda los datos del registro a borrar en memoria
         this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
-									 "Codigo: " + (string)e.Values["Codigo"] + " * " +
-                                     "Nombre: " + (string)e.Values["Nombre"];
+									 "Codigo: " + (string)e.Values["Codigo"] ;
     }
 	// Inicializa los valores antes de que el FormView se dibuje en la página
     protected void fv<#= tabla.Nombre #>_PreRender(object sender, EventArgs e)
@@ -534,7 +531,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         else
         {
             tbFiltroId.Text = e.ReturnValue.ToString();
-            lbFvMsgInfo<#= tabla.Nombre #>.Text = <#= tabla.Nombre #> + " Registro Insertado. " + this.MemoriaRegistroActual;
+            lbFvMsgInfo<#= tabla.Nombre #>.Text = "<#= tabla.Nombre #> Registro Insertado. " + this.MemoriaRegistroActual;
             AsignarMensaje("Registro Insertado. " + this.MemoriaRegistroActual, bien);
         }
     }
@@ -549,7 +546,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         }
         else
         {
-            lbFvMsgInfo<#= tabla.Nombre #>.Text = <#= tabla.Nombre #> + " Registro Actualizado. " + this.MemoriaRegistroActual;
+            lbFvMsgInfo<#= tabla.Nombre #>.Text = "<#= tabla.Nombre #> Registro Actualizado. " + this.MemoriaRegistroActual;
             AsignarMensaje("Registro Actualizado. " + this.MemoriaRegistroActual, bien);
         }
     }
@@ -564,7 +561,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
         }
         else
         {
-            lbFvMsgInfo<#= tabla.Nombre #>.Text = <#= tabla.Nombre #> + " Registro Borrado. " + this.MemoriaRegistroActual;
+            lbFvMsgInfo<#= tabla.Nombre #>.Text = "<#= tabla.Nombre #> Registro Borrado. " + this.MemoriaRegistroActual;
             AsignarMensaje("Registro Borrado. " + this.MemoriaRegistroActual, bien);
         }
     }	

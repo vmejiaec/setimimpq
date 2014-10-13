@@ -131,8 +131,7 @@ public partial class PLA_Pla_Doc_GvFv : PaginaBase
 		
 		// Guarda los datos del registro a borrar en memoria
         this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
-									 "Codigo: " + (string)e.Values["Codigo"] + " * " +
-                                     "Nombre: " + (string)e.Values["Nombre"];
+									 "Codigo: " + (string)e.Values["Codigo"] ;
     }	
     protected void fvPla_Doc_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
@@ -141,9 +140,8 @@ public partial class PLA_Pla_Doc_GvFv : PaginaBase
         // e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);
 		
 		// Guarda los datos del registro a borrar en memoria
-        this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
-									 "Codigo: " + (string)e.Values["Codigo"] + " * " +
-                                     "Nombre: " + (string)e.Values["Nombre"];
+        this.MemoriaRegistroActual = "Id: " + (string)e.NewValues["Id"] + " * " +
+									 "Codigo: " + (string)e.NewValues["Codigo"] ;
     }
     protected void fvPla_Doc_ItemDeleting(object sender, FormViewDeleteEventArgs e)
     {
@@ -153,8 +151,7 @@ public partial class PLA_Pla_Doc_GvFv : PaginaBase
 		
 		// Guarda los datos del registro a borrar en memoria
         this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
-									 "Codigo: " + (string)e.Values["Codigo"] + " * " +
-                                     "Nombre: " + (string)e.Values["Nombre"];
+									 "Codigo: " + (string)e.Values["Codigo"] ;
     }
 	// Inicializa los valores antes de que el FormView se dibuje en la página
     protected void fvPla_Doc_PreRender(object sender, EventArgs e)
@@ -192,7 +189,7 @@ public partial class PLA_Pla_Doc_GvFv : PaginaBase
         else
         {
             tbFiltroId.Text = e.ReturnValue.ToString();
-            lbFvMsgInfoPla_Doc.Text = Pla_Doc + " Registro Insertado. " + this.MemoriaRegistroActual;
+            lbFvMsgInfoPla_Doc.Text = "Pla_Doc Registro Insertado. " + this.MemoriaRegistroActual;
             AsignarMensaje("Registro Insertado. " + this.MemoriaRegistroActual, bien);
         }
     }
@@ -207,7 +204,7 @@ public partial class PLA_Pla_Doc_GvFv : PaginaBase
         }
         else
         {
-            lbFvMsgInfoPla_Doc.Text = Pla_Doc + " Registro Actualizado. " + this.MemoriaRegistroActual;
+            lbFvMsgInfoPla_Doc.Text = "Pla_Doc Registro Actualizado. " + this.MemoriaRegistroActual;
             AsignarMensaje("Registro Actualizado. " + this.MemoriaRegistroActual, bien);
         }
     }
@@ -222,7 +219,7 @@ public partial class PLA_Pla_Doc_GvFv : PaginaBase
         }
         else
         {
-            lbFvMsgInfoPla_Doc.Text = Pla_Doc + " Registro Borrado. " + this.MemoriaRegistroActual;
+            lbFvMsgInfoPla_Doc.Text = "Pla_Doc Registro Borrado. " + this.MemoriaRegistroActual;
             AsignarMensaje("Registro Borrado. " + this.MemoriaRegistroActual, bien);
         }
     }	
