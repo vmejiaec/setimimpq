@@ -56,7 +56,7 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
-    <Content Include="PLA\Pla_Poa_GvFv.aspx">
+    <Content Include="PLA\Pla_Doc_GvFv.aspx">
       <DependentUpon>GeneraASP-GvFv.txt4</DependentUpon>
     </Content>
     <Content Include="Styles\Site.css" />
@@ -131,8 +131,9 @@
       <DependentUpon>KOALA.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PLA\Pla_Poa_GvFv.aspx.cs">
+    <Compile Include="PLA\Pla_Doc_GvFv.aspx.cs">
       <DependentUpon>GeneraASP-GvFv.txt4</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

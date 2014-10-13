@@ -59,7 +59,13 @@ public partial class PLA_Pla_Doc_Director : PaginaBase
         switch (campo)
         {
             case "Todos":
-                gvPla_Doc.DataSourceID = odsgvPla_Doc.ID;
+                gvPla_Doc.DataSourceID = odsgvPla_Doc_GetByTipo_Area_Codigo_RangoFecha_Solicita.ID;
+                break;
+            case "Codigo":
+                gvPla_Doc.DataSourceID = odsgvPla_Doc_GetByTipo_Area_Codigo_Codigo.ID;
+                break;
+            case "Descripcion":
+                gvPla_Doc.DataSourceID = odsgvPla_Doc_GetByTipo_Area_Codigo_LikeDescripcion.ID;
                 break;
 			}
         gvPla_Doc.DataBind();
@@ -153,21 +159,30 @@ public partial class PLA_Pla_Doc_Director : PaginaBase
         // Valor por defecto del Id y Estado
         e.Values["Id"] = -1;
         if (String.IsNullOrWhiteSpace((string)e.Values["Estado"])) e.Values["Estado"] = "PEN";
+        // Valor del tipo de documento de GCP Certificado POA
+        e.Values["Tipo"] = "GCP";
+        // Valor para el área del usuario
+        e.Values["Area_Codigo_Solicita"] = lbCabecera_Area_Codigo.Text;
 		// Cambio del formato de los campos de fechas
-		// e.Values["Fecha_Ini"] = DateTime.Parse((string)e.Values["Fecha_Ini"]);
-		
-		// Guarda los datos del registro a borrar en memoria
-        this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
-									 "Codigo: " + (string)e.Values["Codigo"] ;
+        e.Values["Fecha_Solicita"] = DateTime.Parse((string)e.Values["Fecha_Solicita"]);
+        e.Values["Fecha_Contrata"] = e.Values["Fecha_Solicita"];
+        e.Values["Fecha_Planifica"] = e.Values["Fecha_Solicita"];
+        // Valores para los campos de personas
+        e.Values["Per_Personal_Id_Solicita"] = Scope.Per_Personal_Id;
+        e.Values["Per_Personal_Id_Crea"] = Scope.Per_Personal_Id;
+        e.Values["Per_Personal_Id_Modifica"] = Scope.Per_Personal_Id;
+        // Cambio del formato del campo Valor
+        e.Values["Valor_Solicita"] = Decimal.Parse((string)e.Values["Valor_Solicita"]);
     }	
     protected void fvPla_Doc_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
         // Controla el cambio del formato de las fechas
-        // e.NewValues["Fecha_Ini"] = DateTime.Parse((string)e.NewValues["Fecha_Ini"]);
-        // e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);
-		
+        e.NewValues["Fecha_Solicita"] = DateTime.Parse((string)e.NewValues["Fecha_Solicita"]);
+        e.OldValues["Fecha_Solicita"] = DateTime.Parse((string)e.OldValues["Fecha_Solicita"]);
+        // Valores para los campos de personas
+        e.NewValues["Per_Personal_Id_Modifica"] = Scope.Per_Personal_Id;
 		// Guarda los datos del registro a borrar en memoria
-        this.MemoriaRegistroActual = "Id: " + (string)e.NewValues["Id"] + " * " +
+        this.MemoriaRegistroActual = "Id: " + e.NewValues["Id"].ToString() + " * " +
 									 "Codigo: " + (string)e.NewValues["Codigo"] ;
     }
     protected void fvPla_Doc_ItemDeleting(object sender, FormViewDeleteEventArgs e)
@@ -177,7 +192,7 @@ public partial class PLA_Pla_Doc_Director : PaginaBase
         //e.Values["Valor_Suma"] = "0";
 		
 		// Guarda los datos del registro a borrar en memoria
-        this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
+        this.MemoriaRegistroActual = "Id: " + e.Values["Id"].ToString() + " * " +
 									 "Codigo: " + (string)e.Values["Codigo"] ;
     }
 	// Inicializa los valores antes de que el FormView se dibuje en la página
@@ -185,9 +200,13 @@ public partial class PLA_Pla_Doc_Director : PaginaBase
     {
         switch (fvPla_Doc.CurrentMode)
         {
-            case FormViewMode.Insert:			
-                //((TextBox)fvPla_Poa.FindControl("CodigoTextBox")).Text = "1";
-                //((TextBox)fvPla_Poa.FindControl("EstadoTextBox")).Text = "PEN";
+            case FormViewMode.Insert:
+                ((TextBox)fvPla_Doc.FindControl("IdTextBox")).Text = "-1";
+                ((TextBox)fvPla_Doc.FindControl("CodigoTextBox")).Text = "1";
+                ((TextBox)fvPla_Doc.FindControl("EstadoTextBox")).Text = "PEN";
+                var hoy = DateTime.Today.ToShortDateString();
+                ((TextBox)fvPla_Doc.FindControl("Fecha_SolicitaTextBox")).Text = hoy;
+                ((TextBox)fvPla_Doc.FindControl("Valor_SolicitaTextBox")).Text = "0";
                 break;
             case FormViewMode.Edit:
                 break;

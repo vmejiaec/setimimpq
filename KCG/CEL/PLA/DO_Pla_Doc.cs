@@ -311,6 +311,80 @@ fila.Fecha_Planifica
 			}
 			return lista;
 		}
+		// GetByTipo_Area_Codigo_Codigo
+		public List<Pla_Doc> GetByTipo_Area_Codigo_Codigo (Scope s , string p_Tipo, string p_Area_Codigo, string p_Codigo)
+		{
+			List<Pla_Doc> lista = new List<Pla_Doc>();
+			var tabla = Adapter.GetByTipo_Area_Codigo_Codigo( p_Tipo, p_Area_Codigo, p_Codigo);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new Pla_Doc(
+				fila.Id,
+fila.Codigo,
+fila.Tipo,
+fila.Fecha_Solicita,
+fila.Per_Personal_Id_Solicita,
+fila.Per_Personal_Nombre_Solicita,
+fila.Area_Codigo_Solicita,
+fila.Area_Nombre_Solicita,
+fila.Descripcion,
+fila.Estado,
+fila.Per_Personal_Id_Crea,
+fila.Per_Personal_Nombre_Crea,
+fila.Per_Personal_Id_Modifica,
+fila.Per_Personal_Nombre_Modifica,
+fila.Valor_Solicita,
+fila.Per_Personal_Id_Planifica,
+fila.Per_Personal_Nombre_Planifica,
+fila.Esta_Planificada,
+fila.Per_Personal_Id_Contrata,
+fila.Per_Personal_Nombre_Contrata,
+fila.Esta_Contratada,
+fila.PAC_Linea,
+fila.CPC_Codigo,
+fila.Fecha_Contrata,
+fila.Fecha_Planifica
+				));
+			}
+			return lista;
+		}
+		// GetByTipo_Area_Codigo_LikeDescripcion
+		public List<Pla_Doc> GetByTipo_Area_Codigo_LikeDescripcion (Scope s , string p_Tipo, string p_Area_Codigo, string p_Descripcion)
+		{
+			List<Pla_Doc> lista = new List<Pla_Doc>();
+			var tabla = Adapter.GetByTipo_Area_Codigo_LikeDescripcion( p_Tipo, p_Area_Codigo, p_Descripcion);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new Pla_Doc(
+				fila.Id,
+fila.Codigo,
+fila.Tipo,
+fila.Fecha_Solicita,
+fila.Per_Personal_Id_Solicita,
+fila.Per_Personal_Nombre_Solicita,
+fila.Area_Codigo_Solicita,
+fila.Area_Nombre_Solicita,
+fila.Descripcion,
+fila.Estado,
+fila.Per_Personal_Id_Crea,
+fila.Per_Personal_Nombre_Crea,
+fila.Per_Personal_Id_Modifica,
+fila.Per_Personal_Nombre_Modifica,
+fila.Valor_Solicita,
+fila.Per_Personal_Id_Planifica,
+fila.Per_Personal_Nombre_Planifica,
+fila.Esta_Planificada,
+fila.Per_Personal_Id_Contrata,
+fila.Per_Personal_Nombre_Contrata,
+fila.Esta_Contratada,
+fila.PAC_Linea,
+fila.CPC_Codigo,
+fila.Fecha_Contrata,
+fila.Fecha_Planifica
+				));
+			}
+			return lista;
+		}
 		// GetByTipo_Area_Codigo_RangoFecha_Solicita
 		public List<Pla_Doc> GetByTipo_Area_Codigo_RangoFecha_Solicita (Scope s , string p_Tipo, string p_Area_Codigo, DateTime p_Fecha_Solicita_Ini, DateTime p_Fecha_Solicita_Fin)
 		{
@@ -348,5 +422,35 @@ fila.Fecha_Planifica
 			}
 			return lista;
 		}
+		// InsertINT
+		public int InsertINT(Pla_Doc n)
+    {
+        int res;
+        try {
+            res = Convert.ToInt16( Adapter.InsertINT(
+				n.Codigo,
+n.Tipo,
+n.Fecha_Solicita,
+n.Per_Personal_Id_Solicita,
+n.Area_Codigo_Solicita,
+n.Descripcion,
+n.Estado,
+n.Per_Personal_Id_Crea,
+n.Per_Personal_Id_Modifica,
+n.Valor_Solicita,
+n.Per_Personal_Id_Planifica,
+n.Esta_Planificada,
+n.Per_Personal_Id_Contrata,
+n.Esta_Contratada,
+n.PAC_Linea,
+n.CPC_Codigo,
+n.Fecha_Contrata,
+n.Fecha_Planifica
+			));
+        }
+        catch (SqlException e)
+        { throw (new Exception( e.Message)); }
+        return res;
+    }
 	}
 }
