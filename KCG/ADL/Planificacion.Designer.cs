@@ -2532,6 +2532,8 @@ namespace ADL {
             
             private global::System.Data.DataColumn columnPer_Personal_Nombre_Contrata;
             
+            private global::System.Data.DataColumn columnValor_Suma_Movs;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Pla_DocDataTable() {
@@ -2767,6 +2769,14 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Valor_Suma_MovsColumn {
+                get {
+                    return this.columnValor_Suma_Movs;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2826,7 +2836,8 @@ namespace ADL {
                         string Per_Personal_Nombre_Crea, 
                         string Per_Personal_Nombre_Modifica, 
                         string Per_Personal_Nombre_Planifica, 
-                        string Per_Personal_Nombre_Contrata) {
+                        string Per_Personal_Nombre_Contrata, 
+                        decimal Valor_Suma_Movs) {
                 Pla_DocRow rowPla_DocRow = ((Pla_DocRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2853,7 +2864,8 @@ namespace ADL {
                         Per_Personal_Nombre_Crea,
                         Per_Personal_Nombre_Modifica,
                         Per_Personal_Nombre_Planifica,
-                        Per_Personal_Nombre_Contrata};
+                        Per_Personal_Nombre_Contrata,
+                        Valor_Suma_Movs};
                 rowPla_DocRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPla_DocRow);
                 return rowPla_DocRow;
@@ -2908,6 +2920,7 @@ namespace ADL {
                 this.columnPer_Personal_Nombre_Modifica = base.Columns["Per_Personal_Nombre_Modifica"];
                 this.columnPer_Personal_Nombre_Planifica = base.Columns["Per_Personal_Nombre_Planifica"];
                 this.columnPer_Personal_Nombre_Contrata = base.Columns["Per_Personal_Nombre_Contrata"];
+                this.columnValor_Suma_Movs = base.Columns["Valor_Suma_Movs"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2963,6 +2976,8 @@ namespace ADL {
                 base.Columns.Add(this.columnPer_Personal_Nombre_Planifica);
                 this.columnPer_Personal_Nombre_Contrata = new global::System.Data.DataColumn("Per_Personal_Nombre_Contrata", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPer_Personal_Nombre_Contrata);
+                this.columnValor_Suma_Movs = new global::System.Data.DataColumn("Valor_Suma_Movs", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnValor_Suma_Movs);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -3013,6 +3028,7 @@ namespace ADL {
                 this.columnPer_Personal_Nombre_Planifica.MaxLength = 500;
                 this.columnPer_Personal_Nombre_Contrata.ReadOnly = true;
                 this.columnPer_Personal_Nombre_Contrata.MaxLength = 500;
+                this.columnValor_Suma_Movs.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4484,6 +4500,22 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Valor_Suma_Movs {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablePla_Doc.Valor_Suma_MovsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Valor_Suma_Movs\' in table \'Pla_Doc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Valor_Suma_MovsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPer_Personal_Id_PlanificaNull() {
                 return this.IsNull(this.tablePla_Doc.Per_Personal_Id_PlanificaColumn);
             }
@@ -4576,6 +4608,18 @@ namespace ADL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPer_Personal_Nombre_ContrataNull() {
                 this[this.tablePla_Doc.Per_Personal_Nombre_ContrataColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsValor_Suma_MovsNull() {
+                return this.IsNull(this.tablePla_Doc.Valor_Suma_MovsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetValor_Suma_MovsNull() {
+                this[this.tablePla_Doc.Valor_Suma_MovsColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8844,6 +8888,7 @@ namespace ADL.PlanificacionTableAdapters {
             tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Modifica", "Per_Personal_Nombre_Modifica");
             tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Planifica", "Per_Personal_Nombre_Planifica");
             tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Contrata", "Per_Personal_Nombre_Contrata");
+            tableMapping.ColumnMappings.Add("Valor_Suma_Movs", "Valor_Suma_Movs");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;

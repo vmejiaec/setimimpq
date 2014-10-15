@@ -182,13 +182,22 @@
     <Compile Include="PAR\Par_Servidor_Det.cs" />
     <Compile Include="PAR\Par_Tipo_Identificacion.cs" />
     <Compile Include="PER\Per_Personal.cs" />
-    <Compile Include="PLA\Pla_Cta.cs" />
+    <Compile Include="PLA\Pla_Cta.cs">
+      <SubType>
+      </SubType>
+    </Compile>
     <Compile Include="PLA\Pla_Doc.cs">
       <SubType>
       </SubType>
     </Compile>
-    <Compile Include="PLA\Pla_Mov.cs" />
-    <Compile Include="PLA\Pla_Partida.cs" />
+    <Compile Include="PLA\Pla_Mov.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="PLA\Pla_Partida.cs">
+      <SubType>
+      </SubType>
+    </Compile>
     <Compile Include="PLA\Pla_Poa.cs">
       <SubType>
       </SubType>
