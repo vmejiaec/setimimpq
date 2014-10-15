@@ -34,13 +34,7 @@ namespace AEL.PLA
         private string _Per_Personal_Id_Solicita;
         
         // Comentario
-        private string _Per_Personal_Nombre_Solicita;
-        
-        // Comentario
         private string _Area_Codigo_Solicita;
-        
-        // Comentario
-        private string _Area_Nombre_Solicita;
         
         // Comentario
         private string _Descripcion;
@@ -52,13 +46,7 @@ namespace AEL.PLA
         private string _Per_Personal_Id_Crea;
         
         // Comentario
-        private string _Per_Personal_Nombre_Crea;
-        
-        // Comentario
         private string _Per_Personal_Id_Modifica;
-        
-        // Comentario
-        private string _Per_Personal_Nombre_Modifica;
         
         // Comentario
         private decimal _Valor_Solicita;
@@ -67,16 +55,10 @@ namespace AEL.PLA
         private string _Per_Personal_Id_Planifica;
         
         // Comentario
-        private string _Per_Personal_Nombre_Planifica;
-        
-        // Comentario
         private string _Esta_Planificada;
         
         // Comentario
         private string _Per_Personal_Id_Contrata;
-        
-        // Comentario
-        private string _Per_Personal_Nombre_Contrata;
         
         // Comentario
         private string _Esta_Contratada;
@@ -93,6 +75,27 @@ namespace AEL.PLA
         // Comentario
         private System.DateTime _Fecha_Planifica;
         
+        // Comentario
+        private string _Per_Personal_Nombre_Solicita;
+        
+        // Comentario
+        private string _Area_Nombre_Solicita;
+        
+        // Comentario
+        private string _Per_Personal_Nombre_Crea;
+        
+        // Comentario
+        private string _Per_Personal_Nombre_Modifica;
+        
+        // Comentario
+        private string _Per_Personal_Nombre_Planifica;
+        
+        // Comentario
+        private string _Per_Personal_Nombre_Contrata;
+        
+        // Comentario
+        private decimal _Valor_Suma_Movs;
+        
         public Pla_Doc()
         {
         }
@@ -103,52 +106,54 @@ namespace AEL.PLA
                     string tipo, 
                     System.DateTime fecha_Solicita, 
                     string per_Personal_Id_Solicita, 
-                    string per_Personal_Nombre_Solicita, 
                     string area_Codigo_Solicita, 
-                    string area_Nombre_Solicita, 
                     string descripcion, 
                     string estado, 
                     string per_Personal_Id_Crea, 
-                    string per_Personal_Nombre_Crea, 
                     string per_Personal_Id_Modifica, 
-                    string per_Personal_Nombre_Modifica, 
                     decimal valor_Solicita, 
                     string per_Personal_Id_Planifica, 
-                    string per_Personal_Nombre_Planifica, 
                     string esta_Planificada, 
                     string per_Personal_Id_Contrata, 
-                    string per_Personal_Nombre_Contrata, 
                     string esta_Contratada, 
                     string pAC_Linea, 
                     string cPC_Codigo, 
                     System.DateTime fecha_Contrata, 
-                    System.DateTime fecha_Planifica)
+                    System.DateTime fecha_Planifica, 
+                    string per_Personal_Nombre_Solicita, 
+                    string area_Nombre_Solicita, 
+                    string per_Personal_Nombre_Crea, 
+                    string per_Personal_Nombre_Modifica, 
+                    string per_Personal_Nombre_Planifica, 
+                    string per_Personal_Nombre_Contrata, 
+                    decimal valor_Suma_Movs)
         {
             this.Id = id;
             this.Codigo = codigo;
             this.Tipo = tipo;
             this.Fecha_Solicita = fecha_Solicita;
             this.Per_Personal_Id_Solicita = per_Personal_Id_Solicita;
-            this.Per_Personal_Nombre_Solicita = per_Personal_Nombre_Solicita;
             this.Area_Codigo_Solicita = area_Codigo_Solicita;
-            this.Area_Nombre_Solicita = area_Nombre_Solicita;
             this.Descripcion = descripcion;
             this.Estado = estado;
             this.Per_Personal_Id_Crea = per_Personal_Id_Crea;
-            this.Per_Personal_Nombre_Crea = per_Personal_Nombre_Crea;
             this.Per_Personal_Id_Modifica = per_Personal_Id_Modifica;
-            this.Per_Personal_Nombre_Modifica = per_Personal_Nombre_Modifica;
             this.Valor_Solicita = valor_Solicita;
             this.Per_Personal_Id_Planifica = per_Personal_Id_Planifica;
-            this.Per_Personal_Nombre_Planifica = per_Personal_Nombre_Planifica;
             this.Esta_Planificada = esta_Planificada;
             this.Per_Personal_Id_Contrata = per_Personal_Id_Contrata;
-            this.Per_Personal_Nombre_Contrata = per_Personal_Nombre_Contrata;
             this.Esta_Contratada = esta_Contratada;
             this.PAC_Linea = pAC_Linea;
             this.CPC_Codigo = cPC_Codigo;
             this.Fecha_Contrata = fecha_Contrata;
             this.Fecha_Planifica = fecha_Planifica;
+            this.Per_Personal_Nombre_Solicita = per_Personal_Nombre_Solicita;
+            this.Area_Nombre_Solicita = area_Nombre_Solicita;
+            this.Per_Personal_Nombre_Crea = per_Personal_Nombre_Crea;
+            this.Per_Personal_Nombre_Modifica = per_Personal_Nombre_Modifica;
+            this.Per_Personal_Nombre_Planifica = per_Personal_Nombre_Planifica;
+            this.Per_Personal_Nombre_Contrata = per_Personal_Nombre_Contrata;
+            this.Valor_Suma_Movs = valor_Suma_Movs;
         }
         
         public Pla_Doc(Pla_Doc o)
@@ -158,26 +163,27 @@ namespace AEL.PLA
             this.Tipo = o.Tipo;
             this.Fecha_Solicita = o.Fecha_Solicita;
             this.Per_Personal_Id_Solicita = o.Per_Personal_Id_Solicita;
-            this.Per_Personal_Nombre_Solicita = o.Per_Personal_Nombre_Solicita;
             this.Area_Codigo_Solicita = o.Area_Codigo_Solicita;
-            this.Area_Nombre_Solicita = o.Area_Nombre_Solicita;
             this.Descripcion = o.Descripcion;
             this.Estado = o.Estado;
             this.Per_Personal_Id_Crea = o.Per_Personal_Id_Crea;
-            this.Per_Personal_Nombre_Crea = o.Per_Personal_Nombre_Crea;
             this.Per_Personal_Id_Modifica = o.Per_Personal_Id_Modifica;
-            this.Per_Personal_Nombre_Modifica = o.Per_Personal_Nombre_Modifica;
             this.Valor_Solicita = o.Valor_Solicita;
             this.Per_Personal_Id_Planifica = o.Per_Personal_Id_Planifica;
-            this.Per_Personal_Nombre_Planifica = o.Per_Personal_Nombre_Planifica;
             this.Esta_Planificada = o.Esta_Planificada;
             this.Per_Personal_Id_Contrata = o.Per_Personal_Id_Contrata;
-            this.Per_Personal_Nombre_Contrata = o.Per_Personal_Nombre_Contrata;
             this.Esta_Contratada = o.Esta_Contratada;
             this.PAC_Linea = o.PAC_Linea;
             this.CPC_Codigo = o.CPC_Codigo;
             this.Fecha_Contrata = o.Fecha_Contrata;
             this.Fecha_Planifica = o.Fecha_Planifica;
+            this.Per_Personal_Nombre_Solicita = o.Per_Personal_Nombre_Solicita;
+            this.Area_Nombre_Solicita = o.Area_Nombre_Solicita;
+            this.Per_Personal_Nombre_Crea = o.Per_Personal_Nombre_Crea;
+            this.Per_Personal_Nombre_Modifica = o.Per_Personal_Nombre_Modifica;
+            this.Per_Personal_Nombre_Planifica = o.Per_Personal_Nombre_Planifica;
+            this.Per_Personal_Nombre_Contrata = o.Per_Personal_Nombre_Contrata;
+            this.Valor_Suma_Movs = o.Valor_Suma_Movs;
         }
         
         // Comentario
@@ -246,19 +252,6 @@ namespace AEL.PLA
         }
         
         // Comentario
-        public string Per_Personal_Nombre_Solicita
-        {
-            get
-            {
-                return this._Per_Personal_Nombre_Solicita;
-            }
-            set
-            {
-                this._Per_Personal_Nombre_Solicita = value;
-            }
-        }
-        
-        // Comentario
         public string Area_Codigo_Solicita
         {
             get
@@ -268,19 +261,6 @@ namespace AEL.PLA
             set
             {
                 this._Area_Codigo_Solicita = value;
-            }
-        }
-        
-        // Comentario
-        public string Area_Nombre_Solicita
-        {
-            get
-            {
-                return this._Area_Nombre_Solicita;
-            }
-            set
-            {
-                this._Area_Nombre_Solicita = value;
             }
         }
         
@@ -324,19 +304,6 @@ namespace AEL.PLA
         }
         
         // Comentario
-        public string Per_Personal_Nombre_Crea
-        {
-            get
-            {
-                return this._Per_Personal_Nombre_Crea;
-            }
-            set
-            {
-                this._Per_Personal_Nombre_Crea = value;
-            }
-        }
-        
-        // Comentario
         public string Per_Personal_Id_Modifica
         {
             get
@@ -346,19 +313,6 @@ namespace AEL.PLA
             set
             {
                 this._Per_Personal_Id_Modifica = value;
-            }
-        }
-        
-        // Comentario
-        public string Per_Personal_Nombre_Modifica
-        {
-            get
-            {
-                return this._Per_Personal_Nombre_Modifica;
-            }
-            set
-            {
-                this._Per_Personal_Nombre_Modifica = value;
             }
         }
         
@@ -389,19 +343,6 @@ namespace AEL.PLA
         }
         
         // Comentario
-        public string Per_Personal_Nombre_Planifica
-        {
-            get
-            {
-                return this._Per_Personal_Nombre_Planifica;
-            }
-            set
-            {
-                this._Per_Personal_Nombre_Planifica = value;
-            }
-        }
-        
-        // Comentario
         public string Esta_Planificada
         {
             get
@@ -424,19 +365,6 @@ namespace AEL.PLA
             set
             {
                 this._Per_Personal_Id_Contrata = value;
-            }
-        }
-        
-        // Comentario
-        public string Per_Personal_Nombre_Contrata
-        {
-            get
-            {
-                return this._Per_Personal_Nombre_Contrata;
-            }
-            set
-            {
-                this._Per_Personal_Nombre_Contrata = value;
             }
         }
         
@@ -502,6 +430,97 @@ namespace AEL.PLA
             set
             {
                 this._Fecha_Planifica = value;
+            }
+        }
+        
+        // Comentario
+        public string Per_Personal_Nombre_Solicita
+        {
+            get
+            {
+                return this._Per_Personal_Nombre_Solicita;
+            }
+            set
+            {
+                this._Per_Personal_Nombre_Solicita = value;
+            }
+        }
+        
+        // Comentario
+        public string Area_Nombre_Solicita
+        {
+            get
+            {
+                return this._Area_Nombre_Solicita;
+            }
+            set
+            {
+                this._Area_Nombre_Solicita = value;
+            }
+        }
+        
+        // Comentario
+        public string Per_Personal_Nombre_Crea
+        {
+            get
+            {
+                return this._Per_Personal_Nombre_Crea;
+            }
+            set
+            {
+                this._Per_Personal_Nombre_Crea = value;
+            }
+        }
+        
+        // Comentario
+        public string Per_Personal_Nombre_Modifica
+        {
+            get
+            {
+                return this._Per_Personal_Nombre_Modifica;
+            }
+            set
+            {
+                this._Per_Personal_Nombre_Modifica = value;
+            }
+        }
+        
+        // Comentario
+        public string Per_Personal_Nombre_Planifica
+        {
+            get
+            {
+                return this._Per_Personal_Nombre_Planifica;
+            }
+            set
+            {
+                this._Per_Personal_Nombre_Planifica = value;
+            }
+        }
+        
+        // Comentario
+        public string Per_Personal_Nombre_Contrata
+        {
+            get
+            {
+                return this._Per_Personal_Nombre_Contrata;
+            }
+            set
+            {
+                this._Per_Personal_Nombre_Contrata = value;
+            }
+        }
+        
+        // Comentario
+        public decimal Valor_Suma_Movs
+        {
+            get
+            {
+                return this._Valor_Suma_Movs;
+            }
+            set
+            {
+                this._Valor_Suma_Movs = value;
             }
         }
     }

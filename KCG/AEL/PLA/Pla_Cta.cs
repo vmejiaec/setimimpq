@@ -11,11 +11,11 @@
 namespace AEL.PLA
 {
     using System;
-    using System.Collections.Generic; 
+    using System.Collections.Generic;
     using System.Text;
     
     
-    public class Pla_Cta 
+    public class Pla_Cta
     {
         
         // Comentario
