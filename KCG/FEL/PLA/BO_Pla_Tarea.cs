@@ -5,7 +5,7 @@ using System.Text;
 using System.ComponentModel;
 using HER;
 
-namespace FEL.PLA
+namespace FEL.PLA 
 {
     [DataObject]
     public partial class BO_Pla_Tarea

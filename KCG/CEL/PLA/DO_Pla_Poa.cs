@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace CEL.PLA
 {
-    public class DO_Pla_Poa
+    public class DO_Pla_Poa 
     {
 	// adapter
     public Pla_PoaTableAdapter Adapter = new Pla_PoaTableAdapter();

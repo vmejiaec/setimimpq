@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 using HER;
-
+ 
 namespace FEL.PLA
-{
+{ 
     [DataObject]
     public partial class BO_Pla_Poa
     {
