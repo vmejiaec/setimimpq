@@ -597,7 +597,7 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Valor </td>                
-				<td><asp:TextBox ID="ValorTextBox" runat="server" Text='<%# Bind("Valor","0:N2") %>'  CssClass="txtEdit"  />
+				<td><asp:TextBox ID="ValorTextBox" runat="server" Text='<%# Bind("Valor") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqValor" runat="server" 
                     ControlToValidate="ValorTextBox"
@@ -908,7 +908,7 @@ TagPrefix="ajax" %>
 							</tr>
 			<tr >
                 <td> Valor </td>
-				<td><asp:TextBox ID="ValorTextBox" runat="server" Text='<%# Bind("Valor","{0:N2}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+				<td><asp:TextBox ID="ValorTextBox" runat="server" Text='<%# Bind("Valor") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
 			<tr style="display:none">
                 <td> Estado </td>
