@@ -11,7 +11,7 @@
 namespace AEL.PLA
 {
     using System;
-    using System.Collections.Generic; 
+    using System.Collections.Generic;
     using System.Text;
     
     
@@ -65,7 +65,7 @@ namespace AEL.PLA
         }
         
         public Pla_Poa(int id, string codigo, int pla_Tarea_Id, int pla_Partida_Id, string estado, string pla_Tarea_Codigo, string pla_Tarea_Nombre, int pla_Cta_Id, string pla_Cta_Codigo, string pla_Cta_Nombre, string pla_Partida_Codigo, string pla_Partida_Nombre, decimal valor_Inicial, decimal valor_Suma)
-        { 
+        {
             this.Id = id;
             this.Codigo = codigo;
             this.Pla_Tarea_Id = pla_Tarea_Id;
