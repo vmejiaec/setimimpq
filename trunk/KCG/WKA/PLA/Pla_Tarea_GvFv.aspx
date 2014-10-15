@@ -179,6 +179,7 @@ TagPrefix="ajax" %>
                         UseContextKey="True" 
                         ContextKey=""
                         CompletionInterval="0"
+                        MinimumPrefixLength="2"
                         OnClientItemSelected="acxPla_Cta_CodigoTextBox_Click"
                         />
 				</td>
@@ -201,7 +202,7 @@ TagPrefix="ajax" %>
                         UseContextKey="True" 
                         ContextKey=""
                         CompletionInterval="0"
-                        MinimumPrefixLength="0"
+                        MinimumPrefixLength="1"
                         OnClientItemSelected="acxPla_Cta_NombreTextBox_Click" 
                         />
 				</td>
@@ -296,6 +297,7 @@ TagPrefix="ajax" %>
                         UseContextKey="True" 
                         ContextKey=""
                         CompletionInterval="0"
+                        MinimumPrefixLength="2"
                         OnClientItemSelected="acxPla_Cta_CodigoTextBox_Click"
                     />
 				</td>
@@ -318,7 +320,7 @@ TagPrefix="ajax" %>
                         UseContextKey="True" 
                         ContextKey=""
                         CompletionInterval="0"
-                        MinimumPrefixLength="0"
+                        MinimumPrefixLength="1"
                         OnClientItemSelected="acxPla_Cta_NombreTextBox_Click" 
                     />
 				</td>

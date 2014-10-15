@@ -9,7 +9,7 @@
 	//Parámetros 
 	string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Planificacion.xsd";
 	string Iniciales = "PLA";
-	string TablaBase = "Pla_Doc";
+	string TablaBase = "Pla_Mov";
 	//Proceso
 	var manager = TemplateFileManager.Create(this);
 	ExtraeMetaDatos datos = new ExtraeMetaDatos(PathXSD);	
@@ -373,7 +373,7 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
 			<#+ foreach(var pg in tabla.ProcGenericos){ 
 				if (!string.IsNullOrEmpty(pg.ProcNombreFiltro)) {
             #>case "<#= pg.ProcNombreFiltro #>":
-                gv<#= tabla.Nombre #>DataSourceID = "odsgv<#= tabla.Nombre #>_<#= pg.ProcNombre #>";
+                gv<#= tabla.Nombre #>.DataSourceID = odsgv<#= tabla.Nombre #>_<#= pg.ProcNombre #>.ID;
                 break;
 			<#+ }} 
         #>}

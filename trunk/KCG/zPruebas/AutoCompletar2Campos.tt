@@ -4,12 +4,12 @@
 <#   
 	// Parámetros
 	string Contenedor ="ctl00_ContentPlaceHolder1";
-	string FormView = "fvPla_Poa";
-	string Tabla = "Pla_Partida";
+	string FormView = "fvPla_Mov";
+	string Tabla = "Pla_Tarea";
 
 	// Métodos
 	string GetLikeCodigo = "GetByLikeCodigo";
-	string GetLikeNombre = "GetByLikeNombre";
+	string GetLikeNombre = "GetByPla_Cta_IdLikeNombre";
 
 	// Campos de tabla, del FormView y del Cliente
 	string Columna_Id		= Tabla + "_Id";

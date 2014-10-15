@@ -205,6 +205,7 @@
     <Compile Include="SEG\Seg_Rol_Objeto.cs" />
     <Compile Include="SEG\Seg_Rol_Usuario.cs" />
     <Compile Include="SEG\Seg_Rol_Usuario_Det.cs" />
+    <Compile Include="VAR\V_INT_Area.cs" />
     <Compile Include="VAR\V_INT_Funcionario_Area.cs" />
     <Compile Include="VER\Ver_Documento.cs" />
     <Compile Include="VER\Ver_Doc_Estado.cs" />
