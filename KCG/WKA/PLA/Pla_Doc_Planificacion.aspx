@@ -58,7 +58,8 @@ TagPrefix="ajax" %>
 		AlternatingRowStyle-CssClass="alternatingrowstyle" 
         HeaderStyle-CssClass="headerstyle" 
 		PagerStyle-CssClass="pagerstyle" 
-            onselectedindexchanged="gvPla_Doc_SelectedIndexChanged">
+            onselectedindexchanged="gvPla_Doc_SelectedIndexChanged" 
+            ondatabound="gvPla_Doc_DataBound">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />			    
 			<asp:BoundField DataField="Codigo" HeaderText="Codigo"   />			    
@@ -210,6 +211,12 @@ TagPrefix="ajax" %>
         // 2 Nombre
         var xNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Partida_NombreTextBox');
         xNombre.value = params[2];
+        // 3 Valor Inicial
+        var xValor_Inicial = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Valor_InicialTextBox');
+        xValor_Inicial.value = params[3];
+        // 4 Valor Suma
+        var xValor_Suma = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Valor_SumaTextBox');
+        xValor_Suma.value = params[4];
     }
 </script>
 </div>
@@ -506,17 +513,17 @@ TagPrefix="ajax" %>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
 			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />
 			<asp:BoundField DataField="Codigo" HeaderText="Codigo"   />
-			<asp:BoundField DataField="Pla_Poa_Id" HeaderText="Pla_Poa_Id"   />
-			<asp:BoundField DataField="Pla_Doc_Id" HeaderText="Pla_Doc_Id"   />
+			<asp:BoundField DataField="Pla_Poa_Id" HeaderText="Pla_Poa_Id"  Visible = "false" />
+			<asp:BoundField DataField="Pla_Doc_Id" HeaderText="Pla_Doc_Id"  Visible = "false" />
 			<asp:BoundField DataField="Orden" HeaderText="Orden"   />
 			<asp:BoundField DataField="Valor" HeaderText="Valor"    DataFormatString="{0:N2}"/>
 				<asp:BoundField DataField="Estado" HeaderText="Estado" Visible = "false"  />
-			<asp:BoundField DataField="Pla_Tarea_Id" HeaderText="Pla_Tarea_Id"   />
+			<asp:BoundField DataField="Pla_Tarea_Id" HeaderText="Pla_Tarea_Id"  Visible = "false" />
 			<asp:BoundField DataField="Pla_Tarea_Nombre" HeaderText="Pla_Tarea_Nombre"   />
-			<asp:BoundField DataField="Pla_Partida_Id" HeaderText="Pla_Partida_Id"   />
+			<asp:BoundField DataField="Pla_Partida_Id" HeaderText="Pla_Partida_Id"   Visible = "false"/>
 			<asp:BoundField DataField="Pla_Partida_Codigo" HeaderText="Pla_Partida_Codigo"   />
 			<asp:BoundField DataField="Pla_Partida_Nombre" HeaderText="Pla_Partida_Nombre"   />
-			<asp:BoundField DataField="Pla_Doc_Tipo" HeaderText="Pla_Doc_Tipo"   />
+			<asp:BoundField DataField="Pla_Doc_Tipo" HeaderText="Pla_Doc_Tipo" />
 			<asp:BoundField DataField="Pla_Doc_Fecha" HeaderText="Pla_Doc_Fecha"   />
 			</Columns>
     </asp:GridView>
@@ -694,11 +701,11 @@ TagPrefix="ajax" %>
             </tr>
             <tr >
                 <td> Pla_Cta_Id </td>
-                <td><asp:TextBox ID="Pla_Cta_IdTextBox" runat="server" Text='<%# Bind("Pla_Cta_Id") %>'  /></td>
+                <td><asp:TextBox ID="Pla_Cta_IdTextBox" runat="server"   /></td>
             </tr>
 			<tr >
                 <td> Cuenta </td>
-                <td><asp:TextBox ID="Pla_Cta_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Cta_Codigo") %>'  CssClass="txtEdit"  />
+                <td><asp:TextBox ID="Pla_Cta_CodigoTextBox" runat="server" CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqPla_Cta_Codigo" runat="server" 
                     ControlToValidate="Pla_Cta_CodigoTextBox"
@@ -723,8 +730,8 @@ TagPrefix="ajax" %>
 			<tr >
                 <td> Cta_Nombre </td>
                 <td>
-                <asp:TextBox ID="Pla_Cta_NivelTextBox" runat="server" Text='<%# Bind("Pla_Cta_Nivel") %>'  Width="35px" />
-                <asp:TextBox ID="Pla_Cta_NombreTextBox" runat="server" Text='<%# Bind("Pla_Cta_Nombre") %>'  CssClass="txtEdit"   Width="610px"  />
+                <asp:TextBox ID="Pla_Cta_NivelTextBox" runat="server"  Width="35px" />
+                <asp:TextBox ID="Pla_Cta_NombreTextBox" runat="server" CssClass="txtEdit"   Width="610px"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqPla_Cta_Nombre" runat="server" 
                     ControlToValidate="Pla_Cta_NombreTextBox"
@@ -809,6 +816,16 @@ TagPrefix="ajax" %>
                     ErrorMessage="El campo Pla_Partida_Nombre es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
                 </td>
+            </tr>
+            <tr >
+                <td> Valor Inicial</td>                
+				<td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text="0"  CssClass="txtItemValor"  />
+				</td>
+            </tr>
+            <tr >
+                <td> Valor Suma</td>                
+				<td><asp:TextBox ID="Valor_SumaTextBox" runat="server" Text="0"  CssClass="txtItemValor"  />
+				</td>
             </tr>
 			<tr >
                 <td> Valor </td>                

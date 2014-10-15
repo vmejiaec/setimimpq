@@ -336,6 +336,7 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
     {
         if (e.Exception != null)
         {
+            fvPla_Mov.HayErrorInsUpd = true;
             e.ExceptionHandled = true;
             e.KeepInEditMode = true;
             if (lbFvMsgErrorPla_Mov.Text == ":") lbFvMsgErrorPla_Mov.Text = e.Exception.Message;
@@ -363,6 +364,7 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
     {
         if (e.Exception != null)
         {
+            fvPla_Mov.HayErrorInsUpd = true;
             e.ExceptionHandled = true;
             e.KeepInInsertMode = true;
             if (lbFvMsgErrorPla_Mov.Text == ":") lbFvMsgErrorPla_Mov.Text = e.Exception.Message;
@@ -375,15 +377,16 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
     }
     protected void fvPla_Mov_ItemInserting(object sender, FormViewInsertEventArgs e)
     {
-        // Valor por defecto del Id y Estado
+        // Valor por defecto del Id y Orden
         e.Values["Id"] = -1;
         if (String.IsNullOrWhiteSpace((string)e.Values["Estado"])) e.Values["Estado"] = "PEN";
-        // Cambio del formato de los campos de fechas
-        // e.Values["Fecha_Ini"] = DateTime.Parse((string)e.Values["Fecha_Ini"]);
+        e.Values["Orden"] = 0;
+        e.Values["Pla_Partida_Id"] = 0;
+        // Cambio del formato de los campos de Valor
+        e.Values["Valor"] = Decimal.Parse((string)e.Values["Valor"]);
 
         // Guarda los datos del registro a borrar en memoria
-        this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
-                                     "Codigo: " + (string)e.Values["Codigo"];
+        this.MemoriaRegistroActual = "Codigo: " + (string)e.Values["Codigo"];
     }
     protected void fvPla_Mov_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
@@ -568,4 +571,11 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
         return items.ToArray();
     }
     #endregion WebServices para autocompletar
+    protected void gvPla_Doc_DataBound(object sender, EventArgs e)
+    {
+        var index = gvPla_Doc.SelectedIndex;
+        if (index == -1)
+            if (gvPla_Doc.Rows.Count > 0)
+                gvPla_Doc.SelectedIndex = 0;
+    }
 }
