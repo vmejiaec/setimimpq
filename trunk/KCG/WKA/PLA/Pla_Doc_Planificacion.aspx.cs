@@ -428,6 +428,15 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
                 acxPla_Cta_CodigoTextBox.ContextKey = ((DropDownList) fvPla_Mov.FindControl("ddlAnio")).SelectedValue;
                 acxPla_Cta_NombreTextBox = (AjaxControlToolkit.AutoCompleteExtender)fvPla_Mov.FindControl("acxPla_Cta_NombreTextBox");
                 acxPla_Cta_NombreTextBox.ContextKey = ((DropDownList)fvPla_Mov.FindControl("ddlAnio")).SelectedValue;
+                // Si NO es la primera vez que se insertan registros el Grid estará con al menos una fila
+                if (gvPla_Mov.Rows.Count > 0)
+                { 
+                    // Ponemos por defecto los datos del registro anterior
+                    if (gvPla_Mov.SelectedIndex != -1)
+                    {
+                        // EN CONSTRUCCION.
+                    }
+                }
                 break;
             case FormViewMode.Edit:
                 // Pone el año en el autocompletar
@@ -571,11 +580,12 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
         return items.ToArray();
     }
     #endregion WebServices para autocompletar
+
     protected void gvPla_Doc_DataBound(object sender, EventArgs e)
     {
         var index = gvPla_Doc.SelectedIndex;
-        if (index == -1)
-            if (gvPla_Doc.Rows.Count > 0)
-                gvPla_Doc.SelectedIndex = 0;
+        //if (index == -1)
+        //    if (gvPla_Doc.Rows.Count > 0)
+        //        gvPla_Doc.SelectedIndex = 0;
     }
 }

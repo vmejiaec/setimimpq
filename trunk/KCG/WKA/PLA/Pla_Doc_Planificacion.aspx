@@ -294,7 +294,8 @@ TagPrefix="ajax" %>
                     ReadOnly="true"  CssClass="txtItemValor"  /></td>
 							    </tr>			
 			    </table>
-                <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" ValidationGroup="vgPla_Doc"/>
+                <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" 
+                Text="Actualizar" ValidationGroup="vgPla_Doc"/>
                 &nbsp;
                 <asp:Button ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
             </asp:Panel>
@@ -513,18 +514,19 @@ TagPrefix="ajax" %>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
 			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />
 			<asp:BoundField DataField="Codigo" HeaderText="Codigo"   />
-			<asp:BoundField DataField="Pla_Poa_Id" HeaderText="Pla_Poa_Id"  Visible = "false" />
-			<asp:BoundField DataField="Pla_Doc_Id" HeaderText="Pla_Doc_Id"  Visible = "false" />
 			<asp:BoundField DataField="Orden" HeaderText="Orden"   />
-			<asp:BoundField DataField="Valor" HeaderText="Valor"    DataFormatString="{0:N2}"/>
-				<asp:BoundField DataField="Estado" HeaderText="Estado" Visible = "false"  />
-			<asp:BoundField DataField="Pla_Tarea_Id" HeaderText="Pla_Tarea_Id"  Visible = "false" />
-			<asp:BoundField DataField="Pla_Tarea_Nombre" HeaderText="Pla_Tarea_Nombre"   />
-			<asp:BoundField DataField="Pla_Partida_Id" HeaderText="Pla_Partida_Id"   Visible = "false"/>
-			<asp:BoundField DataField="Pla_Partida_Codigo" HeaderText="Pla_Partida_Codigo"   />
-			<asp:BoundField DataField="Pla_Partida_Nombre" HeaderText="Pla_Partida_Nombre"   />
-			<asp:BoundField DataField="Pla_Doc_Tipo" HeaderText="Pla_Doc_Tipo" />
-			<asp:BoundField DataField="Pla_Doc_Fecha" HeaderText="Pla_Doc_Fecha"   />
+            <asp:BoundField DataField="Pla_Doc_Fecha" HeaderText="Fecha"  DataFormatString="{0:d}" />
+			<asp:BoundField DataField="Pla_Tarea_Nombre" HeaderText="Tarea_Nombre"   />
+			<asp:BoundField DataField="Pla_Partida_Codigo" HeaderText="Partida_Cod"   />
+			<asp:BoundField DataField="Pla_Partida_Nombre" HeaderText="Partida_Nombre"   />
+            <asp:BoundField DataField="Valor" HeaderText="Valor"    DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
+			<asp:BoundField DataField="Pla_Doc_Tipo" HeaderText="Tipo" />
+
+                <asp:BoundField DataField="Pla_Tarea_Id" HeaderText="Pla_Tarea_Id"  Visible = "false" />
+			    <asp:BoundField DataField="Estado" HeaderText="Estado" Visible = "false"  />
+                <asp:BoundField DataField="Pla_Poa_Id" HeaderText="Pla_Poa_Id"  Visible = "false" />
+			    <asp:BoundField DataField="Pla_Doc_Id" HeaderText="Pla_Doc_Id"  Visible = "false" />
+                <asp:BoundField DataField="Pla_Partida_Id" HeaderText="Pla_Partida_Id"   Visible = "false"/>
 			</Columns>
     </asp:GridView>
     </asp:Panel>
@@ -679,7 +681,8 @@ TagPrefix="ajax" %>
 					</td>
             </tr>
 			</table>
-            <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" ValidationGroup="vgPla_Mov"/>
+            <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" 
+            ValidationGroup="vgPla_Mov"/>
             &nbsp;
             <asp:Button ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
             </asp:Panel>
@@ -710,7 +713,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Cta_Codigo" runat="server" 
                     ControlToValidate="Pla_Cta_CodigoTextBox"
                     ErrorMessage="El campo Pla_Cta_Codigo es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Tarea"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
                     <ajax:AutoCompleteExtender 
                         runat="server" ID="acxPla_Cta_CodigoTextBox"
                         BehaviorID="acxBID_Pla_Cta_CodigoTextBox"
@@ -736,7 +739,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Cta_Nombre" runat="server" 
                     ControlToValidate="Pla_Cta_NombreTextBox"
                     ErrorMessage="El campo Pla_Cta_Nombre es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Tarea"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
                 <ajax:AutoCompleteExtender 
                     runat="server" ID="acxPla_Cta_NombreTextBox"
                     BehaviorID="acxBID_Pla_Cta_NombreTextBox"
@@ -785,14 +788,14 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="Pla_Poa_IdTextBox" runat="server" Text='<%# Bind("Pla_Poa_Id") %>'  CssClass="txtEdit"  />
 			    </td>
             </tr>
-            			<tr >
+            <tr >
                 <td> Pla_Partida_Codigo </td>                
 				<td><asp:TextBox ID="Pla_Partida_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Partida_Codigo") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Codigo" runat="server" 
                     ControlToValidate="Pla_Partida_CodigoTextBox"
                     ErrorMessage="El campo Pla_Partida_Codigo es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
                 <ajax:AutoCompleteExtender 
                     runat="server" ID= "acxPla_Partida_CodigoTextBox"
                     BehaviorID= "acxBIDPla_Partida_CodigoTextBox"
@@ -814,7 +817,7 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Nombre" runat="server" 
                     ControlToValidate="Pla_Partida_NombreTextBox"
                     ErrorMessage="El campo Pla_Partida_Nombre es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
                 </td>
             </tr>
             <tr >
@@ -874,7 +877,8 @@ TagPrefix="ajax" %>
 				</td>
             </tr>
 			</table>
-            <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" ValidationGroup="vgPla_Mov"/>
+            <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" 
+            Text="Insertar" ValidationGroup="vgPla_Mov"/>
             &nbsp;
             <asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
             </asp:Panel>
