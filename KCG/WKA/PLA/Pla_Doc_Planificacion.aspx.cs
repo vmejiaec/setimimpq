@@ -382,9 +382,11 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
         if (String.IsNullOrWhiteSpace((string)e.Values["Estado"])) e.Values["Estado"] = "PEN";
         e.Values["Orden"] = 0;
         e.Values["Pla_Partida_Id"] = 0;
-        // Cambio del formato de los campos de Valor
-        e.Values["Valor"] = Decimal.Parse((string)e.Values["Valor"]);
-
+        // Cambio del formato de los campos de Valor para asegurarse que siempre sea negativo
+        Decimal vValor = Decimal.Parse((string)e.Values["Valor"]);
+        if (vValor > 0)
+            vValor = -vValor;
+        e.Values["Valor"] = vValor;
         // Guarda los datos del registro a borrar en memoria
         this.MemoriaRegistroActual = "Codigo: " + (string)e.Values["Codigo"];
     }
@@ -393,7 +395,11 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
         // Controla el cambio del formato de las fechas
         // e.NewValues["Fecha_Ini"] = DateTime.Parse((string)e.NewValues["Fecha_Ini"]);
         // e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);
-
+        // Cambio del formato de los campos de Valor para asegurarse que siempre sea negativo
+        Decimal vValor = Decimal.Parse((string)e.NewValues["Valor"]);
+        if (vValor > 0)
+            vValor = -vValor;
+        e.NewValues["Valor"] = vValor;
         // Guarda los datos del registro a borrar en memoria
         this.MemoriaRegistroActual = "Id: " + (string)e.NewValues["Id"] + " * " +
                                      "Codigo: " + (string)e.NewValues["Codigo"];
