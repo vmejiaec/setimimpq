@@ -690,7 +690,7 @@ TagPrefix="ajax" %>
         <InsertItemTemplate>
             <asp:Panel runat="server" ID = "panelInsertTemplate" DefaultButton="InsertButton" >
 			<table>
-            <tr >
+            <tr style="display:none">
                 <td> Pla_Doc_Id </td>                
 				<td><asp:TextBox ID="Pla_Doc_IdTextBox" runat="server" Text='<%# Bind("Pla_Doc_Id") %>'  CssClass="txtEdit"  />
 				</td>
@@ -702,7 +702,7 @@ TagPrefix="ajax" %>
                     onchange="ddlAnio_OnChange();"
                     /></td>
             </tr>
-            <tr >
+            <tr style="display:none">
                 <td> Pla_Cta_Id </td>
                 <td><asp:TextBox ID="Pla_Cta_IdTextBox" runat="server"   /></td>
             </tr>
@@ -755,13 +755,13 @@ TagPrefix="ajax" %>
                     FirstRowSelected="true"/>
 				</td>
             </tr>
-            <tr >
+            <tr style="display:none">
                 <td> Pla_Tarea_Id </td>                
 				<td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  CssClass="txtEdit" />
 				</td>
             </tr>
 			<tr >
-                <td> Pla_Tarea_Nombre </td>                
+                <td> Tarea_Nombre </td>                
 				<td><asp:TextBox ID="Pla_Tarea_NombreTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Nombre") %>'  CssClass="txtEditNombreLargo" TextMode="MultiLine"  Width="650px" />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqPla_Tarea_Nombre" runat="server" 
@@ -783,13 +783,13 @@ TagPrefix="ajax" %>
                     FirstRowSelected="true"/>
 				</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Pla_Poa_Id </td>                
 				<td><asp:TextBox ID="Pla_Poa_IdTextBox" runat="server" Text='<%# Bind("Pla_Poa_Id") %>'  CssClass="txtEdit"  />
 			    </td>
             </tr>
             <tr >
-                <td> Pla_Partida_Codigo </td>                
+                <td> Partida </td>                
 				<td><asp:TextBox ID="Pla_Partida_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Partida_Codigo") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Codigo" runat="server" 
@@ -811,7 +811,7 @@ TagPrefix="ajax" %>
 				</td>
             </tr>
 			<tr >
-                <td> Pla_Partida_Nombre </td>                
+                <td> Partida_Nombre </td>                
 				<td><asp:TextBox ID="Pla_Partida_NombreTextBox" runat="server" Text='<%# Bind("Pla_Partida_Nombre") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Nombre" runat="server" 

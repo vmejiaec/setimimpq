@@ -308,6 +308,9 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
     {
         lbFvMsgErrorPla_Mov.Text = ":";
         lbFvMsgInfoPla_Mov.Text = "> Pla_Mov Seleccionado";
+        // Pone el formview en ReadOnly
+        if (gvPla_Mov.SelectedIndex != -1)
+            fvPla_Mov.ChangeMode(FormViewMode.ReadOnly);
     }
     // Busca y selecciona la fila indicada en el GridView
     protected void SeleccionarFilaEnGVPla_Mov(GridView gv, string txtId)
