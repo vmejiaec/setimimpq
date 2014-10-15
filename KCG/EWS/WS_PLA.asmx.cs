@@ -439,8 +439,23 @@ namespace EWS
         {
             return Pla_Doc.GetByTipo_Area_Codigo_RangoFecha_Solicita(s,  p_Tipo, p_Area_Codigo, p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin);
         }
+		[WebMethod]
+		public List<Pla_Doc> Pla_Doc_GetByTipo_RangoFecha_Solicita(Scope s , string p_Tipo, DateTime p_Fecha_Solicita_Ini, DateTime p_Fecha_Solicita_Fin)
+        {
+            return Pla_Doc.GetByTipo_RangoFecha_Solicita(s,  p_Tipo, p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin);
+        }
+		[WebMethod]
+		public List<Pla_Doc> Pla_Doc_GetByTipo_RangoFecha_Solicita_LikeDescripcion(Scope s , string p_Tipo, DateTime p_Fecha_Solicita_Ini, DateTime p_Fecha_Solicita_Fin, string p_Descripcion)
+        {
+            return Pla_Doc.GetByTipo_RangoFecha_Solicita_LikeDescripcion(s,  p_Tipo, p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin, p_Descripcion);
+        }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+        public int Pla_Doc_InsertINT(Pla_Doc n)
+        {
+            return Pla_Doc.InsertINT(n);
+        }
 		#endregion
 		#endregion
 		}

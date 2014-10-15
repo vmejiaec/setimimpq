@@ -542,7 +542,6 @@ TagPrefix="ajax" %>
             &nbsp;
             <asp:Button ID="NewButton" RunAt="server" CausesValidation="False" CommandName="New" Text="Nuevo" />
             </asp:Panel>
-
             <asp:Panel runat="server" ID="panel2"  CssClass="panCol2">
             <asp:Panel runat="server" ID="panel3"  GroupingText="Planificación">
             <table  >

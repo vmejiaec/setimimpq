@@ -56,5 +56,28 @@ namespace EWS
             return DEL.VAR.DO_V_INT_Funcionario_Area.Insert(s, n);
         }
         #endregion
+
+        #region V_INT_Area
+        private DO_V_INT_Area adpVAR_V_INT_Area;
+        public DO_V_INT_Area AdpVAR_V_INT_Area
+        {
+            get
+            {
+                if (adpVAR_V_INT_Area == null)
+                    adpVAR_V_INT_Area = new DO_V_INT_Area();
+                return adpVAR_V_INT_Area;
+            }
+        }
+        [WebMethod]
+        public List<V_INT_Area> V_INT_Area_Get(Scope s)
+        {
+            return AdpVAR_V_INT_Area.Get(s);
+        }
+        [WebMethod]
+        public List<V_INT_Area> V_INT_Area_GetByCodigo(Scope s, string Codigo)
+        {
+            return AdpVAR_V_INT_Area.GetByCodigo(s, Codigo);
+        }
+        #endregion
     }
 }

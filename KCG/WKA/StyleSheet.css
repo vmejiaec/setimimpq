@@ -1,9 +1,26 @@
 ﻿/*Victor: Estilos para los campos de texto*/
+.txtItem
+{
+    font-family: Arial;
+    text-align: right;
+}
+
+.txtItemValor
+{
+    font-family: Arial;
+}
 
 .txtEdit
 {
     font-family: Arial;
     background-color: #FFFFCC;
+}
+
+.txtEditValor
+{
+    font-family: Arial;
+    background-color: #FFFFCC;
+    text-align: right;
 }
 
 .txtEditNombre
