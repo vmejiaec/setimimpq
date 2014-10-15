@@ -6,7 +6,7 @@ using CEL.PLA; // datos.xsdNombreIniciales
 using AEL.PLA;
 using BEL;
 
-namespace EWS
+namespace EWS 
 {
     [WebService(Namespace = "http://koala.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
