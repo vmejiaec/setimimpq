@@ -8,7 +8,7 @@ using AEL.PLA;
 using BEL;
 using System.Data.SqlClient;
 
-namespace CEL.PLA 
+namespace CEL.PLA
 {
     public class DO_Pla_Cta
     {
@@ -121,6 +121,44 @@ fila.Estado
 		{
 			List<Pla_Cta> lista = new List<Pla_Cta>();
 			var tabla = Adapter.GetByAnioArbolPla_Cta_Codigo( p_Anio, p_Pla_Cta_Codigo);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new Pla_Cta(
+				fila.Id,
+fila.Anio,
+fila.Codigo,
+fila.Nivel,
+fila.Nombre,
+fila.Descripcion,
+fila.Estado
+				));
+			}
+			return lista;
+		}
+		// GetByAnioArbolPla_Cta_Id
+		public List<Pla_Cta> GetByAnioArbolPla_Cta_Id (Scope s , Int32 p_Pla_Cta_Id)
+		{
+			List<Pla_Cta> lista = new List<Pla_Cta>();
+			var tabla = Adapter.GetByAnioArbolPla_Cta_Id( p_Pla_Cta_Id);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new Pla_Cta(
+				fila.Id,
+fila.Anio,
+fila.Codigo,
+fila.Nivel,
+fila.Nombre,
+fila.Descripcion,
+fila.Estado
+				));
+			}
+			return lista;
+		}
+		// GetByAnioArbolPla_Tarea_Id
+		public List<Pla_Cta> GetByAnioArbolPla_Tarea_Id (Scope s , Int32 p_Pla_Tarea_Id)
+		{
+			List<Pla_Cta> lista = new List<Pla_Cta>();
+			var tabla = Adapter.GetByAnioArbolPla_Tarea_Id( p_Pla_Tarea_Id);
 			foreach (var fila in tabla)
 			{
 				lista.Add(new Pla_Cta(
