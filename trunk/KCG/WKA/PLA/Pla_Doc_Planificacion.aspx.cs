@@ -394,20 +394,21 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
     protected void fvPla_Mov_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
         // Controla el cambio del formato de las fechas
-        // e.NewValues["Fecha_Ini"] = DateTime.Parse((string)e.NewValues["Fecha_Ini"]);
-        // e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);
-        // Cambio del formato de los campos de Valor para asegurarse que siempre sea negativo
+        e.NewValues["Pla_Doc_Fecha"] = DateTime.Parse((string)e.NewValues["Pla_Doc_Fecha"]);
+        e.OldValues["Pla_Doc_Fecha"] = DateTime.Parse((string)e.OldValues["Pla_Doc_Fecha"]);
+        // Cambio del formato de los campos de Valor 
         e.NewValues["Valor"] = Decimal.Parse((string)e.NewValues["Valor"]);
+        e.OldValues["Valor"] = DateTime.Parse((string)e.OldValues["Valor"]);
         // Guarda los datos del registro a borrar en memoria
         this.MemoriaRegistroActual = "Id: " + (string)e.NewValues["Id"] + " * " +
                                      "Codigo: " + (string)e.NewValues["Codigo"];
     }
     protected void fvPla_Mov_ItemDeleting(object sender, FormViewDeleteEventArgs e)
     {
-        // Control de valores antes del borrado como fechas y números
-        // e.Values["Valor_Inicial"] = "0";
-        //e.Values["Valor_Suma"] = "0";
-
+        // Control de valores antes del borrado de fechas 
+        e.Values["Pla_Doc_Fecha"] = DateTime.Parse((string)e.Values["Pla_Doc_Fecha"]);
+        // Valores
+        e.Values["Valor"] = Decimal.Parse((string)e.Values["Valor"]);
         // Guarda los datos del registro a borrar en memoria
         this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
                                      "Codigo: " + (string)e.Values["Codigo"];
