@@ -897,11 +897,10 @@ TagPrefix="ajax" %>
 			</tr>
             <tr >
                 <td> Orden </td>
-				<td><asp:TextBox ID="OrdenTextBox" runat="server" Text='<%# Bind("Orden") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-			</tr>
-            <tr style="display:none">
-                <td> Pla_Doc_Fecha </td>
-				<td><asp:TextBox ID="Pla_Doc_FechaTextBox" runat="server" Text='<%# Bind("Pla_Doc_Fecha","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+				<td><asp:TextBox ID="OrdenTextBox" runat="server" Text='<%# Bind("Orden") %>'  ReadOnly="true"  CssClass="txtItem" />
+                    Fecha: 
+                    <asp:TextBox ID="Pla_Doc_FechaTextBox" runat="server" Text='<%# Bind("Pla_Doc_Fecha","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" />
+                </td>
 			</tr>
             <tr>
                 <td> Planificación </td>
@@ -967,7 +966,7 @@ TagPrefix="ajax" %>
 			<tr >
                 <td> Partida_Codigo </td>
 				<td><asp:TextBox ID="Pla_Partida_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Partida_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" />
-				    Partida_Nombre
+				    Partida_Nombre: 
 				    <asp:TextBox ID="Pla_Partida_NombreTextBox" runat="server" Text='<%# Bind("Pla_Partida_Nombre") %>'  ReadOnly="true"  CssClass="txtItem" />
                 </td>
             </tr>
