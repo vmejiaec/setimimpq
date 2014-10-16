@@ -308,16 +308,15 @@ TagPrefix="ajax" %>
                         <asp:TextBox ID="Area_Codigo_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Codigo_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" Width ="60px"/>
                         </td>
 			        </tr>
-
                     <tr style="display:none">
                         <td> Per_Personal_Id_Planifica </td>
 				        <td><asp:TextBox ID="Per_Personal_Id_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Planifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							        </tr>
+					</tr>
 			        <tr >
                         <td> Persona_Planifica </td>
 				        <td><asp:TextBox ID="Per_Personal_Nombre_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Planifica") %>'  
                         ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
-							        </tr>
+					</tr>
 			        <tr >
                         <td> Esta_Planificada </td>
 				        <td><asp:DropDownList ID="Esta_PlanificadaDropDownList" runat="server" 
@@ -462,6 +461,12 @@ TagPrefix="ajax" %>
                 <td> Fecha_Planifica </td>
 				<td><asp:TextBox ID="Fecha_PlanificaTextBox" runat="server" Text='<%# Bind("Fecha_Planifica","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 			</tr>
+            <tr >
+                <td> Valor_Planificado </td>
+				<td><asp:TextBox ID="Valor_Suma_MovsTextBox" runat="server" Text='<%# Bind("Valor_Suma_Movs","{0:N2}") %>'  
+                ReadOnly="true"  CssClass="txtItem" />
+                </td>
+			</tr>
 			</table>
             </asp:Panel>
                 <asp:Panel runat="server" ID="panel4"  GroupingText="Contratación">
@@ -512,16 +517,16 @@ TagPrefix="ajax" %>
             onselectedindexchanged="gvPla_Mov_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
-			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />
-			<asp:BoundField DataField="Codigo" HeaderText="Codigo"   />
+			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />			
 			<asp:BoundField DataField="Orden" HeaderText="Orden"   />
             <asp:BoundField DataField="Pla_Doc_Fecha" HeaderText="Fecha"  DataFormatString="{0:d}" />
 			<asp:BoundField DataField="Pla_Tarea_Nombre" HeaderText="Tarea_Nombre"   />
 			<asp:BoundField DataField="Pla_Partida_Codigo" HeaderText="Partida_Cod"   />
 			<asp:BoundField DataField="Pla_Partida_Nombre" HeaderText="Partida_Nombre"   />
             <asp:BoundField DataField="Valor" HeaderText="Valor"    DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
-			<asp:BoundField DataField="Pla_Doc_Tipo" HeaderText="Tipo" />
-
+			    
+                <asp:BoundField DataField="Pla_Doc_Tipo" HeaderText="Tipo" Visible = "false" />
+                <asp:BoundField DataField="Codigo" HeaderText="Codigo"  Visible = "false"  />
                 <asp:BoundField DataField="Pla_Tarea_Id" HeaderText="Pla_Tarea_Id"  Visible = "false" />
 			    <asp:BoundField DataField="Estado" HeaderText="Estado" Visible = "false"  />
                 <asp:BoundField DataField="Pla_Poa_Id" HeaderText="Pla_Poa_Id"  Visible = "false" />
@@ -543,7 +548,7 @@ TagPrefix="ajax" %>
             onprerender="fvPla_Mov_PreRender"
 			onitemupdating="fvPla_Mov_ItemUpdating"
 			onitemdeleting="fvPla_Mov_ItemDeleting"
-            DataKeyNames="Id"
+            DataKeyNames="Id" 
 			>
         <EmptyDataTemplate>Crear un primer movimiento: 
         </EmptyDataTemplate>
@@ -886,62 +891,96 @@ TagPrefix="ajax" %>
         <ItemTemplate>
             <asp:Panel runat="server" ID="panelItemTemplate" DefaultButton="EditButton">
             <table>
+            <tr style="display:none">
+                <td> Codigo </td>
+				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			</tr>
+            <tr >
+                <td> Orden </td>
+				<td><asp:TextBox ID="OrdenTextBox" runat="server" Text='<%# Bind("Orden") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			</tr>
+            <tr style="display:none">
+                <td> Pla_Doc_Fecha </td>
+				<td><asp:TextBox ID="Pla_Doc_FechaTextBox" runat="server" Text='<%# Bind("Pla_Doc_Fecha","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			</tr>
+            <tr>
+                <td> Planificación </td>
+                <td>
+                    <asp:GridView ID="gvPla_Cta_Arbol" runat="server" AutoGenerateColumns="False" 
+                        DataSourceID="odsPla_Cta_Arbol" Width="805px"
+                        AlternatingRowStyle-CssClass="alternatingrowstyle" HeaderStyle-CssClass="headerstyle" >
+                        <Columns>
+                            <asp:BoundField DataField="Id" HeaderText="Id"  Visible="False" />
+                            <asp:BoundField DataField="Anio" HeaderText="Anio"  Visible="False" />
+                            <asp:BoundField DataField="Codigo" HeaderText="Codigo" />
+                            <asp:BoundField DataField="Nivel" HeaderText="Nivel" />
+                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                            <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" Visible="False" />
+                            <asp:BoundField DataField="Estado" HeaderText="Estado"  Visible="False" />
+                        </Columns>
+                    </asp:GridView>
+
+                    <asp:ObjectDataSource ID="odsPla_Cta_Arbol" runat="server" 
+                        SelectMethod="GetByAnioArbolPla_Tarea_Id" TypeName="FEL.PLA.BO_Pla_Cta" 
+                        onselecting="odsPla_Cta_Arbol_Selecting">
+                        <SelectParameters>
+                            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+                            <asp:ControlParameter ControlID="Pla_Tarea_IdTextBox" Name="p_Pla_Tarea_Id" 
+                                PropertyName="Text" Type="Int32" />
+                        </SelectParameters>
+                    </asp:ObjectDataSource>
+
+                </td>
+            </tr>
+            <tr >
+                <td> Tarea_Nombre </td>
+				<td><asp:TextBox ID="Pla_Tarea_NombreTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Nombre") %>'  
+                    ReadOnly="true"  CssClass="txtItem" TextMode="MultiLine" Height="50px"  Width="800px"/></td>
+			</tr>
 			<tr style="display:none">
                 <td> Id </td>
 				<td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
-			<tr >
-                <td> Codigo </td>
-				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
+
+			<tr style="display:none">
                 <td> Pla_Poa_Id </td>
 				<td><asp:TextBox ID="Pla_Poa_IdTextBox" runat="server" Text='<%# Bind("Pla_Poa_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
-			<tr >
+			<tr style="display:none">
                 <td> Pla_Doc_Id </td>
 				<td><asp:TextBox ID="Pla_Doc_IdTextBox" runat="server" Text='<%# Bind("Pla_Doc_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Orden </td>
-				<td><asp:TextBox ID="OrdenTextBox" runat="server" Text='<%# Bind("Orden") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Valor </td>
-				<td><asp:TextBox ID="ValorTextBox" runat="server" Text='<%# Bind("Valor") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
+			</tr>
+			
 			<tr style="display:none">
                 <td> Estado </td>
 				<td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
-			<tr >
+			<tr style="display:none">
                 <td> Pla_Tarea_Id </td>
 				<td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
-			<tr >
-                <td> Pla_Tarea_Nombre </td>
-				<td><asp:TextBox ID="Pla_Tarea_NombreTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Nombre") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
+
+			<tr style="display:none">
                 <td> Pla_Partida_Id </td>
 				<td><asp:TextBox ID="Pla_Partida_IdTextBox" runat="server" Text='<%# Bind("Pla_Partida_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
 			<tr >
-                <td> Pla_Partida_Codigo </td>
-				<td><asp:TextBox ID="Pla_Partida_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Partida_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Pla_Partida_Nombre </td>
-				<td><asp:TextBox ID="Pla_Partida_NombreTextBox" runat="server" Text='<%# Bind("Pla_Partida_Nombre") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
+                <td> Partida_Codigo </td>
+				<td><asp:TextBox ID="Pla_Partida_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Partida_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" />
+				    Partida_Nombre
+				    <asp:TextBox ID="Pla_Partida_NombreTextBox" runat="server" Text='<%# Bind("Pla_Partida_Nombre") %>'  ReadOnly="true"  CssClass="txtItem" />
+                </td>
+            </tr>
+            <tr >
+                <td> Valor </td>
+				<td><asp:TextBox ID="ValorTextBox" runat="server" Text='<%# Bind("Valor") %>'  
+                ReadOnly="true"  CssClass="txtItemValor"  /></td>
+			</tr>
+			<tr style="display:none">
                 <td> Pla_Doc_Tipo </td>
 				<td><asp:TextBox ID="Pla_Doc_TipoTextBox" runat="server" Text='<%# Bind("Pla_Doc_Tipo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
-			<tr >
-                <td> Pla_Doc_Fecha </td>
-				<td><asp:TextBox ID="Pla_Doc_FechaTextBox" runat="server" Text='<%# Bind("Pla_Doc_Fecha") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
+
 			</table>
             <asp:Button ID="EditButton" RunAt="server"  CausesValidation="False" CommandName="Edit" Text="Editar" />
             &nbsp;

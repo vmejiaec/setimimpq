@@ -238,9 +238,10 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
             case FormViewMode.Edit:
                 ((TextBox)fvPla_Doc.FindControl("Per_Personal_Id_PlanificaTextBox")).Text = Scope.Per_Personal_Id;
                 ((TextBox)fvPla_Doc.FindControl("Per_Personal_Nombre_PlanificaTextBox")).Text = Scope.Per_Personal_Nombre;
-                ((TextBox)fvPla_Doc.FindControl("Fecha_PlanificaTextBox")).Text = DateTime.Today.ToShortDateString();
+                ((TextBox)fvPla_Doc.FindControl("Fecha_PlanificaTextBox")).Text = DateTime.Today.ToShortDateString();                
                 break;
             case FormViewMode.ReadOnly:
+                // 
                 break;
         }
     }
@@ -386,10 +387,7 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
         e.Values["Orden"] = 0;
         e.Values["Pla_Partida_Id"] = 0;
         // Cambio del formato de los campos de Valor para asegurarse que siempre sea negativo
-        Decimal vValor = Decimal.Parse((string)e.Values["Valor"]);
-        if (vValor > 0)
-            vValor = -vValor;
-        e.Values["Valor"] = vValor;
+        e.Values["Valor"] = Decimal.Parse((string)e.Values["Valor"]);
         // Guarda los datos del registro a borrar en memoria
         this.MemoriaRegistroActual = "Codigo: " + (string)e.Values["Codigo"];
     }
@@ -399,10 +397,7 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
         // e.NewValues["Fecha_Ini"] = DateTime.Parse((string)e.NewValues["Fecha_Ini"]);
         // e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);
         // Cambio del formato de los campos de Valor para asegurarse que siempre sea negativo
-        Decimal vValor = Decimal.Parse((string)e.NewValues["Valor"]);
-        if (vValor > 0)
-            vValor = -vValor;
-        e.NewValues["Valor"] = vValor;
+        e.NewValues["Valor"] = Decimal.Parse((string)e.NewValues["Valor"]);
         // Guarda los datos del registro a borrar en memoria
         this.MemoriaRegistroActual = "Id: " + (string)e.NewValues["Id"] + " * " +
                                      "Codigo: " + (string)e.NewValues["Codigo"];
@@ -596,5 +591,16 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
         //if (index == -1)
         //    if (gvPla_Doc.Rows.Count > 0)
         //        gvPla_Doc.SelectedIndex = 0;
+    }
+
+    // Evantos para el ObjectDataSource del arbol de Cuentas
+    protected void odsPla_Cta_Arbol_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
+    {
+        var o = e.InputParameters;        
+        // Obtiene el Pla_Tarea_Id
+        var xMovId = (int)gvPla_Mov.SelectedValue;
+        BO_Pla_Mov adpMov = new BO_Pla_Mov();
+        var oMov = (adpMov.GetById(Scope, xMovId))[0];
+        o["p_Pla_Tarea_Id"] = oMov.Pla_Tarea_Id;
     }
 }
