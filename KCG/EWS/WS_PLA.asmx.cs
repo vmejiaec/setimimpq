@@ -4,9 +4,9 @@ using System.Web.Services;
 
 using CEL.PLA; // datos.xsdNombreIniciales
 using AEL.PLA;
-using BEL;
+using BEL; 
 
-namespace EWS 
+namespace EWS
 {
     [WebService(Namespace = "http://koala.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
@@ -58,6 +58,16 @@ namespace EWS
 		public List<Pla_Cta> Pla_Cta_GetByAnioArbolPla_Cta_Codigo(Scope s , string p_Anio, string p_Pla_Cta_Codigo)
         {
             return Pla_Cta.GetByAnioArbolPla_Cta_Codigo(s,  p_Anio, p_Pla_Cta_Codigo);
+        }
+		[WebMethod]
+		public List<Pla_Cta> Pla_Cta_GetByAnioArbolPla_Cta_Id(Scope s , Int32 p_Pla_Cta_Id)
+        {
+            return Pla_Cta.GetByAnioArbolPla_Cta_Id(s,  p_Pla_Cta_Id);
+        }
+		[WebMethod]
+		public List<Pla_Cta> Pla_Cta_GetByAnioArbolPla_Tarea_Id(Scope s , Int32 p_Pla_Tarea_Id)
+        {
+            return Pla_Cta.GetByAnioArbolPla_Tarea_Id(s,  p_Pla_Tarea_Id);
         }
 		[WebMethod]
 		public List<Pla_Cta> Pla_Cta_GetByAnioLikeCodigo(Scope s , string p_Anio, string p_Codigo)

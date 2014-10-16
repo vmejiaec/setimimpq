@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 using HER;
- 
+
 namespace FEL.PLA
 {
     [DataObject]
@@ -63,6 +63,20 @@ namespace FEL.PLA
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetByAnioArbolPla_Cta_Codigo(s,  p_Anio, p_Pla_Cta_Codigo));
+            return lista;
+        }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Pla_Cta> GetByAnioArbolPla_Cta_Id(Scope s , Int32 p_Pla_Cta_Id)
+        {
+			List<Pla_Cta> lista = new List<Pla_Cta>(
+				Adapter.Pla_Cta_GetByAnioArbolPla_Cta_Id(s,  p_Pla_Cta_Id));
+            return lista;
+        }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Pla_Cta> GetByAnioArbolPla_Tarea_Id(Scope s , Int32 p_Pla_Tarea_Id)
+        {
+			List<Pla_Cta> lista = new List<Pla_Cta>(
+				Adapter.Pla_Cta_GetByAnioArbolPla_Tarea_Id(s,  p_Pla_Tarea_Id));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
