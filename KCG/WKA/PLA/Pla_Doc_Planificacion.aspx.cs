@@ -241,7 +241,14 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
                 ((TextBox)fvPla_Doc.FindControl("Fecha_PlanificaTextBox")).Text = DateTime.Today.ToShortDateString();                
                 break;
             case FormViewMode.ReadOnly:
-                // 
+                //  Inicializa la diferencia entre lo planificado y lo solicitado
+                var sesion = Session["Dif_Valor_Planificado_Solicitado"];
+                if (sesion != null)
+                {
+                    var textboxDif = (TextBox)fvPla_Doc.FindControl("Valor_Dif_Planif_Solicit");
+                    if (textboxDif != null)
+                        textboxDif.Text = string.Format("{0:N2}", sesion);
+                }
                 break;
         }
     }
@@ -298,6 +305,15 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
         {
             lbFvMsgInfoPla_Doc.Text = "Pla_Doc Registro Borrado. " + this.MemoriaRegistroActual;
             AsignarMensaje("Registro Borrado. " + this.MemoriaRegistroActual, bien);
+        }
+    }
+    protected void odsfvPla_Doc_Selected(object sender, ObjectDataSourceStatusEventArgs e)
+    {
+        var lista = (List<Pla_Doc>)e.ReturnValue;
+        if (lista.Count > 0)
+        {
+            var o = lista[0];
+            Session["Dif_Valor_Planificado_Solicitado"] = o.Valor_Suma_Movs - o.Valor_Solicita;
         }
     }
     #endregion
@@ -398,7 +414,7 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
         e.OldValues["Pla_Doc_Fecha"] = DateTime.Parse((string)e.OldValues["Pla_Doc_Fecha"]);
         // Cambio del formato de los campos de Valor 
         e.NewValues["Valor"] = Decimal.Parse((string)e.NewValues["Valor"]);
-        e.OldValues["Valor"] = DateTime.Parse((string)e.OldValues["Valor"]);
+        e.OldValues["Valor"] = Decimal.Parse((string)e.OldValues["Valor"]);
         // Guarda los datos del registro a borrar en memoria
         this.MemoriaRegistroActual = "Id: " + (string)e.NewValues["Id"] + " * " +
                                      "Codigo: " + (string)e.NewValues["Codigo"];
@@ -418,8 +434,9 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
     {
         AjaxControlToolkit.AutoCompleteExtender acxPla_Cta_CodigoTextBox = new AjaxControlToolkit.AutoCompleteExtender();
         AjaxControlToolkit.AutoCompleteExtender acxPla_Cta_NombreTextBox = new AjaxControlToolkit.AutoCompleteExtender();
+        string sPoaId;
         switch (fvPla_Mov.CurrentMode)
-        {            
+        {
             case FormViewMode.Insert:
                 // La orden será por defecto 0 pero en el SP se calcula el verdadero
                 ((TextBox)fvPla_Mov.FindControl("OrdenTextBox")).Text = "0";
@@ -449,8 +466,37 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
                 acxPla_Cta_CodigoTextBox.ContextKey = ((DropDownList)fvPla_Mov.FindControl("ddlAnio")).SelectedValue;
                 acxPla_Cta_NombreTextBox = (AjaxControlToolkit.AutoCompleteExtender)fvPla_Mov.FindControl("acxPla_Cta_NombreTextBox");
                 acxPla_Cta_NombreTextBox.ContextKey = ((DropDownList)fvPla_Mov.FindControl("ddlAnio")).SelectedValue;
+                // Poner los valores iniciales a los campos
+                sPoaId = ((TextBox)fvPla_Mov.FindControl("Pla_Poa_IdTextBox")).Text;
+                if (!String.IsNullOrEmpty(sPoaId))
+                {
+                    int xPoaId = Int32.Parse(sPoaId);
+                    BO_Pla_Poa adpPoa = new BO_Pla_Poa();
+                    var poa = adpPoa.GetById(Scope, xPoaId)[0];
+                    ((TextBox)fvPla_Mov.FindControl("Pla_Cta_CodigoTextBox")).Text = poa.Pla_Cta_Codigo;
+                    ((TextBox)fvPla_Mov.FindControl("Pla_Cta_NivelTextBox")).Text = "";
+                    ((TextBox)fvPla_Mov.FindControl("Pla_Cta_NombreTextBox")).Text = poa.Pla_Cta_Nombre;
+                    ((TextBox)fvPla_Mov.FindControl("Pla_Tarea_NombreTextBox")).Text = poa.Pla_Tarea_Nombre;
+                    ((TextBox)fvPla_Mov.FindControl("Pla_Partida_CodigoTextBox")).Text = poa.Pla_Partida_Codigo;
+                    ((TextBox)fvPla_Mov.FindControl("Pla_Partida_NombreTextBox")).Text = poa.Pla_Partida_Nombre;
+                    ((TextBox)fvPla_Mov.FindControl("Valor_InicialTextBox")).Text = string.Format("{0:N2}", poa.Valor_Inicial);
+                    ((TextBox)fvPla_Mov.FindControl("Valor_SumaTextBox")).Text = string.Format("{0:N2}", poa.Valor_Suma);
+                }
                 break;
             case FormViewMode.ReadOnly:
+                // Poner los valores iniciales a los campos
+                if (fvPla_Mov.FindControl("Pla_Poa_IdTextBox") != null)
+                {
+                    sPoaId = ((TextBox)fvPla_Mov.FindControl("Pla_Poa_IdTextBox")).Text;
+                    if (!String.IsNullOrEmpty(sPoaId))
+                    {
+                        int xPoaId = Int32.Parse(sPoaId);
+                        BO_Pla_Poa adpPoa = new BO_Pla_Poa();
+                        var poa = adpPoa.GetById(Scope, xPoaId)[0];
+                        ((TextBox)fvPla_Mov.FindControl("Valor_InicialTextBox")).Text = string.Format("{0:N2}", poa.Valor_Inicial);
+                        ((TextBox)fvPla_Mov.FindControl("Valor_SumaTextBox")).Text = string.Format("{0:N2}", poa.Valor_Suma);
+                    }
+                }
                 break;
         }
     }
@@ -604,4 +650,6 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
         var oMov = (adpMov.GetById(Scope, xMovId))[0];
         o["p_Pla_Tarea_Id"] = oMov.Pla_Tarea_Id;
     }
+
+
 }

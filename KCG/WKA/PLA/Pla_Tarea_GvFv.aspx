@@ -202,7 +202,7 @@ TagPrefix="ajax" %>
                         UseContextKey="True" 
                         ContextKey=""
                         CompletionInterval="0"
-                        MinimumPrefixLength="1"
+                        MinimumPrefixLength="2"
                         OnClientItemSelected="acxPla_Cta_NombreTextBox_Click" 
                         />
 				</td>
@@ -320,7 +320,7 @@ TagPrefix="ajax" %>
                         UseContextKey="True" 
                         ContextKey=""
                         CompletionInterval="0"
-                        MinimumPrefixLength="1"
+                        MinimumPrefixLength="2"
                         OnClientItemSelected="acxPla_Cta_NombreTextBox_Click" 
                     />
 				</td>
@@ -535,6 +535,7 @@ TagPrefix="ajax" %>
                     ServiceMethod= "acxPla_Partida_GetByLikeCodigo_List"
                     UseContextKey="True" 
                     ContextKey=""
+                    MinimumPrefixLength="1"
                     CompletionInterval="0"
                     OnClientItemSelected= "acxPla_Partida_CodigoTextBox_Click"
                     />
@@ -555,8 +556,8 @@ TagPrefix="ajax" %>
                     ServiceMethod= "acxPla_Partida_GetByLikeNombre_List"
                     UseContextKey="True" 
                     ContextKey=""
+                    MinimumPrefixLength="1"
                     CompletionInterval="0"
-                    MinimumPrefixLength="0"
                     OnClientItemSelected= "acxPla_Partida_NombreTextBox_Click"
                     />
 				</td>
@@ -624,6 +625,7 @@ TagPrefix="ajax" %>
                     ServiceMethod= "acxPla_Partida_GetByLikeCodigo_List"
                     UseContextKey="True" 
                     ContextKey=""
+                    MinimumPrefixLength="1"
                     CompletionInterval="0"
                     OnClientItemSelected= "acxPla_Partida_CodigoTextBox_Click"
                     />
@@ -644,8 +646,8 @@ TagPrefix="ajax" %>
                     ServiceMethod= "acxPla_Partida_GetByLikeNombre_List"
                     UseContextKey="True" 
                     ContextKey=""
+                    MinimumPrefixLength="1"
                     CompletionInterval="0"
-                    MinimumPrefixLength="0"
                     OnClientItemSelected= "acxPla_Partida_NombreTextBox_Click"
                     />
                 </td>

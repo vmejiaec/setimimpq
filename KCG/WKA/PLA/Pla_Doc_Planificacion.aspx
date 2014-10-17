@@ -464,7 +464,12 @@ TagPrefix="ajax" %>
             <tr >
                 <td> Valor_Planificado </td>
 				<td><asp:TextBox ID="Valor_Suma_MovsTextBox" runat="server" Text='<%# Bind("Valor_Suma_Movs","{0:N2}") %>'  
-                ReadOnly="true"  CssClass="txtItem" />
+                ReadOnly="true"  CssClass="txtItemValor" />
+                </td>
+			</tr>
+            <tr >
+                <td> Planif - Solicit </td>
+				<td><asp:TextBox ID="Valor_Dif_Planif_Solicit" runat="server" ReadOnly="true"  CssClass="txtItemValor" />
                 </td>
 			</tr>
 			</table>
@@ -654,7 +659,7 @@ TagPrefix="ajax" %>
 			    </td>
             </tr>
             <tr >
-                <td> Partida </td>                
+                <td> Partida_Codigo </td>                
 				<td><asp:TextBox ID="Pla_Partida_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Partida_Codigo") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Codigo" runat="server" 
@@ -673,17 +678,14 @@ TagPrefix="ajax" %>
                     EnableCaching="false"
                     OnClientItemSelected= "acxPla_Partida_CodigoTextBox_Click"
                     />
-				</td>
-            </tr>
-			<tr >
-                <td> Partida_Nombre </td>                
-				<td><asp:TextBox ID="Pla_Partida_NombreTextBox" runat="server" Text='<%# Bind("Pla_Partida_Nombre") %>'  CssClass="txtEdit"  />
+                Partida_Nombre: 
+                <asp:TextBox ID="Pla_Partida_NombreTextBox" runat="server" Text='<%# Bind("Pla_Partida_Nombre") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Nombre" runat="server" 
                     ControlToValidate="Pla_Partida_NombreTextBox"
                     ErrorMessage="El campo Pla_Partida_Nombre es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
-                </td>
+				</td>
             </tr>
             <tr >
                 <td> Valor Inicial</td>                
@@ -869,11 +871,8 @@ TagPrefix="ajax" %>
                     EnableCaching="false"
                     OnClientItemSelected= "acxPla_Partida_CodigoTextBox_Click"
                     />
-				</td>
-            </tr>
-			<tr >
-                <td> Partida_Nombre </td>                
-				<td><asp:TextBox ID="Pla_Partida_NombreTextBox" runat="server" Text='<%# Bind("Pla_Partida_Nombre") %>'  CssClass="txtEdit"  />
+				Partida_Nombre: 
+                <asp:TextBox ID="Pla_Partida_NombreTextBox" runat="server" Text='<%# Bind("Pla_Partida_Nombre") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Nombre" runat="server" 
                     ControlToValidate="Pla_Partida_NombreTextBox"
@@ -1027,6 +1026,16 @@ TagPrefix="ajax" %>
                 </td>
             </tr>
             <tr >
+                <td> Valor Inicial</td>                
+				<td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text="0"  CssClass="txtItemValor"  />
+				</td>
+            </tr>
+            <tr >
+                <td> Valor Suma</td>                
+				<td><asp:TextBox ID="Valor_SumaTextBox" runat="server" Text="0"  CssClass="txtItemValor"  />
+				</td>
+            </tr>
+            <tr >
                 <td> Valor </td>
 				<td><asp:TextBox ID="ValorTextBox" runat="server" Text='<%# Bind("Valor") %>'  
                 ReadOnly="true"  CssClass="txtItemValor"  /></td>
@@ -1175,7 +1184,7 @@ TagPrefix="ajax" %>
         OldValuesParameterFormatString="o"
         oninserted="odsfvPla_Doc_Inserted" 
         onupdated="odsfvPla_Doc_Updated" 
-		ondeleted="odsfvPla_Doc_Deleted">
+		ondeleted="odsfvPla_Doc_Deleted" onselected="odsfvPla_Doc_Selected">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
             <asp:ControlParameter ControlID="gvPla_Doc" Name="p_Id" PropertyName="SelectedValue" Type="Int32" />

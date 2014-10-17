@@ -306,6 +306,9 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
     {
         lbFvMsgErrorPOA.Text = ":";
         lbFvMsgInfoPOA.Text = "> POA Seleccionado";
+        // Pone el formview en ReadOnly
+        if (gvPla_Poa.SelectedIndex != -1)
+            fvPla_Poa.ChangeMode(FormViewMode.ReadOnly);
     }
     // Busca y selecciona la fila indicada en el GridView
     protected void SeleccionarFilaEnGVPla_Poa(GridView gv, string txtId)
