@@ -31,7 +31,7 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
         switch (campo)
         {
             case "Todos":
-                gvPla_Cta.DataSourceID = odsgvPla_Cta.ID;
+                gvPla_Cta.DataSourceID = odsgvPla_Cta_GetByAnio.ID;
                 break;
 			case "Codigo":
                 gvPla_Cta.DataSourceID = "odsgvPla_Cta_GetByAnioLikeCodigo";
