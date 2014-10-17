@@ -2,6 +2,7 @@
 using FEL.PLA;
 using System.Web.UI.WebControls;
 using System.Web.Services.Protocols;
+using System.Collections.Generic;
 
 public partial class PLA_Pla_Partida : PaginaBase
 {
@@ -28,7 +29,7 @@ public partial class PLA_Pla_Partida : PaginaBase
         switch (campo)
         {
             case "Todos":
-                gvPla_Partida.DataSourceID = odsgvPla_Partida_ById.ID;
+                gvPla_Partida.DataSourceID = odsgvPla_Partida.ID;
                 tbFiltro.Text = "";
                 break;
             case "Codigo":
@@ -53,6 +54,27 @@ public partial class PLA_Pla_Partida : PaginaBase
     }
     #endregion
 
+    // Busca y selecciona la fila indicada en el GridView
+    protected void SeleccionarFilaEnGVPla_Doc(GridView gv, string txtId)
+    {
+        int noPagina = 0;
+        int noFila = 0;
+        if (!String.IsNullOrEmpty(txtId))
+        {
+            int nFiltroId = Convert.ToInt32(txtId);
+            var ods = (ObjectDataSource)gvPla_Partida.DataSourceObject;
+            List<Pla_Partida> lista = (List<Pla_Partida>)ods.Select();
+            int pos = lista.FindIndex(o => o.Id == nFiltroId);
+            if (pos >= 0)
+            {
+                noPagina = pos / gvPla_Partida.PageSize;
+                noFila = pos - noPagina * gvPla_Partida.PageSize;
+            }
+        }
+        gvPla_Partida.PageIndex = noPagina;
+        gvPla_Partida.SelectedIndex = noFila;
+    }
+
     // Eventos para despues de FormView
     #region Eventos para despues de FormView
     protected void fvPla_Pardida_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
@@ -65,10 +87,8 @@ public partial class PLA_Pla_Partida : PaginaBase
         else
         {
             tbFiltroId.Text = (string)e.NewValues["Id"];
-            gvPla_Partida.DataSourceID = odsgvPla_Partida_ById.ID;
+            SeleccionarFilaEnGVPla_Doc(gvPla_Partida, tbFiltroId.Text);
             gvPla_Partida.DataBind();
-            gvPla_Partida.SelectedIndex = 0;
-            tbFiltro.Text = "";
         }
     }
     protected void fvPla_Pardida_ItemDeleted(object sender, FormViewDeletedEventArgs e)
@@ -91,10 +111,8 @@ public partial class PLA_Pla_Partida : PaginaBase
         }
         else
         {
-            gvPla_Partida.DataSourceID = odsgvPla_Partida_ById.ID;
+            SeleccionarFilaEnGVPla_Doc(gvPla_Partida, tbFiltroId.Text);
             gvPla_Partida.DataBind();
-            gvPla_Partida.SelectedIndex = 0;
-            tbFiltro.Text = "";
         }
     }
     #endregion
