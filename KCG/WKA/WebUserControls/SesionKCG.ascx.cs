@@ -41,6 +41,8 @@ public partial class WebUserControls_SesionKCG : System.Web.UI.UserControl
     protected void LnkSesion_Click(object sender, EventArgs e)
     {
         FormsAuthentication.SignOut();
-        FormsAuthentication.RedirectToLoginPage();
+        // Victor: para evitar el return URL
+        Response.Redirect("~/PAS/PAR_ACCESO.aspx");
+        //FormsAuthentication.RedirectToLoginPage();
     }
 }

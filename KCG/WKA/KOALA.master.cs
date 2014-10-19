@@ -25,7 +25,7 @@ public partial class KOALA : System.Web.UI.MasterPage
             VersionarBotones();
         }
         btnAtras.Click += new ImageClickEventHandler(btnAtras_Click);
-        btnAdelante.Click += new ImageClickEventHandler(btnAdelante_Click);
+        btnAdelante.Click += new ImageClickEventHandler(btnAdelante_Click);        
     }
 
     void btnAdelante_Click(object sender, ImageClickEventArgs e)

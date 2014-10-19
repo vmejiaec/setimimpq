@@ -11,7 +11,7 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
     // Nombre del contenedor
     protected override string Contenedor
     {
-        get { return "PLA_Pla_Doc_Planificacion"; }
+        get { return "Solicitudes Plan."; }
     }
     // Inicializar controles al arranque de la página
     protected void Page_Init(object sender, EventArgs e)
@@ -58,6 +58,7 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
                     gvPla_Doc.DataSourceID = odsgvPla_Doc_GetByTipo_RangoFecha_Solicita_LikeDescripcion.ID;
                     break;
                 case "Codigo":
+                    if (filtro.StartsWith("-20")) tbFiltro.Text = "";
                     gvPla_Doc.DataSourceID = odsgvPla_Doc_GetByCodigo.ID;
                     break;
             }
@@ -404,6 +405,22 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
         e.Values["Pla_Partida_Id"] = 0;
         // Cambio del formato de los campos de Valor para asegurarse que siempre sea negativo
         e.Values["Valor"] = Decimal.Parse((string)e.Values["Valor"]);
+        // Pone el Tipo del Movimiento en DEB
+        e.Values["Tipo"] = "DEB";
+        // VALIDA si el valor ingresado supera el saldo permitido
+        string sValor_Suma = ((TextBox) fvPla_Mov.FindControl("Valor_SumaTextBox")).Text;
+        Decimal dValor_Suma = Decimal.Parse(sValor_Suma);
+        Decimal dValor_f = (Decimal)e.Values["Valor"];
+        if (dValor_f > dValor_Suma)
+        {
+            e.Cancel = true;
+            fvPla_Mov.HayErrorInsUpd = true;
+            lbFvMsgErrorPla_Mov.Text = String.Format("El valor {0:N2} no puede superar al saldo.", dValor_f);
+        }
+        else
+        {
+            lbFvMsgErrorPla_Mov.Text = "";
+        }
         // Guarda los datos del registro a borrar en memoria
         this.MemoriaRegistroActual = "Codigo: " + (string)e.Values["Codigo"];
     }
@@ -415,6 +432,24 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
         // Cambio del formato de los campos de Valor 
         e.NewValues["Valor"] = Decimal.Parse((string)e.NewValues["Valor"]);
         e.OldValues["Valor"] = Decimal.Parse((string)e.OldValues["Valor"]);
+        // Pone el Tipo del Movimiento en DEB
+        e.NewValues["Tipo"] = "DEB";
+        e.OldValues["Tipo"] = "DEB";
+        // VALIDA si el valor ingresado supera el saldo permitido
+        string sValor_Suma = ((TextBox)fvPla_Mov.FindControl("Valor_SumaTextBox")).Text;
+        Decimal dValor_Suma = Decimal.Parse(sValor_Suma);
+        Decimal dValor_o = (Decimal) e.OldValues["Valor"];
+        Decimal dValor_f = (Decimal)e.NewValues["Valor"];
+        if (dValor_f > dValor_o + dValor_Suma )
+        {
+            e.Cancel = true;
+            fvPla_Mov.HayErrorInsUpd = true;
+            lbFvMsgErrorPla_Mov.Text = String.Format( "El valor de {0:N2} causará un saldo negativo.", dValor_f);
+        }
+        else
+        {
+            lbFvMsgErrorPla_Mov.Text = "";
+        }
         // Guarda los datos del registro a borrar en memoria
         this.MemoriaRegistroActual = "Id: " + (string)e.NewValues["Id"] + " * " +
                                      "Codigo: " + (string)e.NewValues["Codigo"];
@@ -425,6 +460,8 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
         e.Values["Pla_Doc_Fecha"] = DateTime.Parse((string)e.Values["Pla_Doc_Fecha"]);
         // Valores
         e.Values["Valor"] = Decimal.Parse((string)e.Values["Valor"]);
+        // Pone el Tipo del Movimiento en DEB
+        e.Values["Tipo"] = "DEB";
         // Guarda los datos del registro a borrar en memoria
         this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
                                      "Codigo: " + (string)e.Values["Codigo"];

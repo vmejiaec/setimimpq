@@ -26,8 +26,6 @@ namespace ADL {
         
         private Pla_CtaDataTable tablePla_Cta;
         
-        private Pla_MovDataTable tablePla_Mov;
-        
         private Pla_PoaDataTable tablePla_Poa;
         
         private Pla_PartidaDataTable tablePla_Partida;
@@ -35,6 +33,8 @@ namespace ADL {
         private Pla_TareaDataTable tablePla_Tarea;
         
         private Pla_DocDataTable tablePla_Doc;
+        
+        private Pla_MovDataTable tablePla_Mov;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -67,9 +67,6 @@ namespace ADL {
                 if ((ds.Tables["Pla_Cta"] != null)) {
                     base.Tables.Add(new Pla_CtaDataTable(ds.Tables["Pla_Cta"]));
                 }
-                if ((ds.Tables["Pla_Mov"] != null)) {
-                    base.Tables.Add(new Pla_MovDataTable(ds.Tables["Pla_Mov"]));
-                }
                 if ((ds.Tables["Pla_Poa"] != null)) {
                     base.Tables.Add(new Pla_PoaDataTable(ds.Tables["Pla_Poa"]));
                 }
@@ -81,6 +78,9 @@ namespace ADL {
                 }
                 if ((ds.Tables["Pla_Doc"] != null)) {
                     base.Tables.Add(new Pla_DocDataTable(ds.Tables["Pla_Doc"]));
+                }
+                if ((ds.Tables["Pla_Mov"] != null)) {
+                    base.Tables.Add(new Pla_MovDataTable(ds.Tables["Pla_Mov"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -107,16 +107,6 @@ namespace ADL {
         public Pla_CtaDataTable Pla_Cta {
             get {
                 return this.tablePla_Cta;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Pla_MovDataTable Pla_Mov {
-            get {
-                return this.tablePla_Mov;
             }
         }
         
@@ -157,6 +147,16 @@ namespace ADL {
         public Pla_DocDataTable Pla_Doc {
             get {
                 return this.tablePla_Doc;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Pla_MovDataTable Pla_Mov {
+            get {
+                return this.tablePla_Mov;
             }
         }
         
@@ -230,9 +230,6 @@ namespace ADL {
                 if ((ds.Tables["Pla_Cta"] != null)) {
                     base.Tables.Add(new Pla_CtaDataTable(ds.Tables["Pla_Cta"]));
                 }
-                if ((ds.Tables["Pla_Mov"] != null)) {
-                    base.Tables.Add(new Pla_MovDataTable(ds.Tables["Pla_Mov"]));
-                }
                 if ((ds.Tables["Pla_Poa"] != null)) {
                     base.Tables.Add(new Pla_PoaDataTable(ds.Tables["Pla_Poa"]));
                 }
@@ -244,6 +241,9 @@ namespace ADL {
                 }
                 if ((ds.Tables["Pla_Doc"] != null)) {
                     base.Tables.Add(new Pla_DocDataTable(ds.Tables["Pla_Doc"]));
+                }
+                if ((ds.Tables["Pla_Mov"] != null)) {
+                    base.Tables.Add(new Pla_MovDataTable(ds.Tables["Pla_Mov"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -284,12 +284,6 @@ namespace ADL {
                     this.tablePla_Cta.InitVars();
                 }
             }
-            this.tablePla_Mov = ((Pla_MovDataTable)(base.Tables["Pla_Mov"]));
-            if ((initTable == true)) {
-                if ((this.tablePla_Mov != null)) {
-                    this.tablePla_Mov.InitVars();
-                }
-            }
             this.tablePla_Poa = ((Pla_PoaDataTable)(base.Tables["Pla_Poa"]));
             if ((initTable == true)) {
                 if ((this.tablePla_Poa != null)) {
@@ -314,6 +308,12 @@ namespace ADL {
                     this.tablePla_Doc.InitVars();
                 }
             }
+            this.tablePla_Mov = ((Pla_MovDataTable)(base.Tables["Pla_Mov"]));
+            if ((initTable == true)) {
+                if ((this.tablePla_Mov != null)) {
+                    this.tablePla_Mov.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -326,8 +326,6 @@ namespace ADL {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tablePla_Cta = new Pla_CtaDataTable();
             base.Tables.Add(this.tablePla_Cta);
-            this.tablePla_Mov = new Pla_MovDataTable();
-            base.Tables.Add(this.tablePla_Mov);
             this.tablePla_Poa = new Pla_PoaDataTable();
             base.Tables.Add(this.tablePla_Poa);
             this.tablePla_Partida = new Pla_PartidaDataTable();
@@ -336,17 +334,13 @@ namespace ADL {
             base.Tables.Add(this.tablePla_Tarea);
             this.tablePla_Doc = new Pla_DocDataTable();
             base.Tables.Add(this.tablePla_Doc);
+            this.tablePla_Mov = new Pla_MovDataTable();
+            base.Tables.Add(this.tablePla_Mov);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializePla_Cta() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializePla_Mov() {
             return false;
         }
         
@@ -371,6 +365,12 @@ namespace ADL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializePla_Doc() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializePla_Mov() {
             return false;
         }
         
@@ -433,9 +433,6 @@ namespace ADL {
         public delegate void Pla_CtaRowChangeEventHandler(object sender, Pla_CtaRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void Pla_MovRowChangeEventHandler(object sender, Pla_MovRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void Pla_PoaRowChangeEventHandler(object sender, Pla_PoaRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -446,6 +443,9 @@ namespace ADL {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void Pla_DocRowChangeEventHandler(object sender, Pla_DocRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void Pla_MovRowChangeEventHandler(object sender, Pla_MovRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -764,469 +764,6 @@ namespace ADL {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "Pla_CtaDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Pla_MovDataTable : global::System.Data.TypedTableBase<Pla_MovRow> {
-            
-            private global::System.Data.DataColumn columnId;
-            
-            private global::System.Data.DataColumn columnCodigo;
-            
-            private global::System.Data.DataColumn columnPla_Poa_Id;
-            
-            private global::System.Data.DataColumn columnPla_Doc_Id;
-            
-            private global::System.Data.DataColumn columnOrden;
-            
-            private global::System.Data.DataColumn columnValor;
-            
-            private global::System.Data.DataColumn columnEstado;
-            
-            private global::System.Data.DataColumn columnPla_Tarea_Id;
-            
-            private global::System.Data.DataColumn columnPla_Tarea_Nombre;
-            
-            private global::System.Data.DataColumn columnPla_Partida_Id;
-            
-            private global::System.Data.DataColumn columnPla_Partida_Codigo;
-            
-            private global::System.Data.DataColumn columnPla_Partida_Nombre;
-            
-            private global::System.Data.DataColumn columnPla_Doc_Tipo;
-            
-            private global::System.Data.DataColumn columnPla_Doc_Fecha;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Pla_MovDataTable() {
-                this.TableName = "Pla_Mov";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal Pla_MovDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected Pla_MovDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IdColumn {
-                get {
-                    return this.columnId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CodigoColumn {
-                get {
-                    return this.columnCodigo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Poa_IdColumn {
-                get {
-                    return this.columnPla_Poa_Id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Doc_IdColumn {
-                get {
-                    return this.columnPla_Doc_Id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn OrdenColumn {
-                get {
-                    return this.columnOrden;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ValorColumn {
-                get {
-                    return this.columnValor;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn EstadoColumn {
-                get {
-                    return this.columnEstado;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Tarea_IdColumn {
-                get {
-                    return this.columnPla_Tarea_Id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Tarea_NombreColumn {
-                get {
-                    return this.columnPla_Tarea_Nombre;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Partida_IdColumn {
-                get {
-                    return this.columnPla_Partida_Id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Partida_CodigoColumn {
-                get {
-                    return this.columnPla_Partida_Codigo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Partida_NombreColumn {
-                get {
-                    return this.columnPla_Partida_Nombre;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Doc_TipoColumn {
-                get {
-                    return this.columnPla_Doc_Tipo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Doc_FechaColumn {
-                get {
-                    return this.columnPla_Doc_Fecha;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Pla_MovRow this[int index] {
-                get {
-                    return ((Pla_MovRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Pla_MovRowChangeEventHandler Pla_MovRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Pla_MovRowChangeEventHandler Pla_MovRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Pla_MovRowChangeEventHandler Pla_MovRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Pla_MovRowChangeEventHandler Pla_MovRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddPla_MovRow(Pla_MovRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Pla_MovRow AddPla_MovRow(string Codigo, int Pla_Poa_Id, int Pla_Doc_Id, int Orden, decimal Valor, string Estado, int Pla_Tarea_Id, string Pla_Tarea_Nombre, int Pla_Partida_Id, string Pla_Partida_Codigo, string Pla_Partida_Nombre, string Pla_Doc_Tipo, System.DateTime Pla_Doc_Fecha) {
-                Pla_MovRow rowPla_MovRow = ((Pla_MovRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        Codigo,
-                        Pla_Poa_Id,
-                        Pla_Doc_Id,
-                        Orden,
-                        Valor,
-                        Estado,
-                        Pla_Tarea_Id,
-                        Pla_Tarea_Nombre,
-                        Pla_Partida_Id,
-                        Pla_Partida_Codigo,
-                        Pla_Partida_Nombre,
-                        Pla_Doc_Tipo,
-                        Pla_Doc_Fecha};
-                rowPla_MovRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowPla_MovRow);
-                return rowPla_MovRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Pla_MovRow FindById(int Id) {
-                return ((Pla_MovRow)(this.Rows.Find(new object[] {
-                            Id})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                Pla_MovDataTable cln = ((Pla_MovDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new Pla_MovDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnId = base.Columns["Id"];
-                this.columnCodigo = base.Columns["Codigo"];
-                this.columnPla_Poa_Id = base.Columns["Pla_Poa_Id"];
-                this.columnPla_Doc_Id = base.Columns["Pla_Doc_Id"];
-                this.columnOrden = base.Columns["Orden"];
-                this.columnValor = base.Columns["Valor"];
-                this.columnEstado = base.Columns["Estado"];
-                this.columnPla_Tarea_Id = base.Columns["Pla_Tarea_Id"];
-                this.columnPla_Tarea_Nombre = base.Columns["Pla_Tarea_Nombre"];
-                this.columnPla_Partida_Id = base.Columns["Pla_Partida_Id"];
-                this.columnPla_Partida_Codigo = base.Columns["Pla_Partida_Codigo"];
-                this.columnPla_Partida_Nombre = base.Columns["Pla_Partida_Nombre"];
-                this.columnPla_Doc_Tipo = base.Columns["Pla_Doc_Tipo"];
-                this.columnPla_Doc_Fecha = base.Columns["Pla_Doc_Fecha"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnId);
-                this.columnCodigo = new global::System.Data.DataColumn("Codigo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCodigo);
-                this.columnPla_Poa_Id = new global::System.Data.DataColumn("Pla_Poa_Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Poa_Id);
-                this.columnPla_Doc_Id = new global::System.Data.DataColumn("Pla_Doc_Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Doc_Id);
-                this.columnOrden = new global::System.Data.DataColumn("Orden", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOrden);
-                this.columnValor = new global::System.Data.DataColumn("Valor", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnValor);
-                this.columnEstado = new global::System.Data.DataColumn("Estado", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEstado);
-                this.columnPla_Tarea_Id = new global::System.Data.DataColumn("Pla_Tarea_Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Tarea_Id);
-                this.columnPla_Tarea_Nombre = new global::System.Data.DataColumn("Pla_Tarea_Nombre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Tarea_Nombre);
-                this.columnPla_Partida_Id = new global::System.Data.DataColumn("Pla_Partida_Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Partida_Id);
-                this.columnPla_Partida_Codigo = new global::System.Data.DataColumn("Pla_Partida_Codigo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Partida_Codigo);
-                this.columnPla_Partida_Nombre = new global::System.Data.DataColumn("Pla_Partida_Nombre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Partida_Nombre);
-                this.columnPla_Doc_Tipo = new global::System.Data.DataColumn("Pla_Doc_Tipo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Doc_Tipo);
-                this.columnPla_Doc_Fecha = new global::System.Data.DataColumn("Pla_Doc_Fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Doc_Fecha);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnId}, true));
-                this.columnId.AutoIncrement = true;
-                this.columnId.AutoIncrementSeed = -1;
-                this.columnId.AutoIncrementStep = -1;
-                this.columnId.AllowDBNull = false;
-                this.columnId.ReadOnly = true;
-                this.columnId.Unique = true;
-                this.columnCodigo.AllowDBNull = false;
-                this.columnCodigo.MaxLength = 200;
-                this.columnPla_Poa_Id.AllowDBNull = false;
-                this.columnPla_Doc_Id.AllowDBNull = false;
-                this.columnOrden.AllowDBNull = false;
-                this.columnValor.AllowDBNull = false;
-                this.columnEstado.AllowDBNull = false;
-                this.columnEstado.MaxLength = 3;
-                this.columnPla_Tarea_Id.ReadOnly = true;
-                this.columnPla_Tarea_Nombre.ReadOnly = true;
-                this.columnPla_Tarea_Nombre.MaxLength = 500;
-                this.columnPla_Partida_Id.ReadOnly = true;
-                this.columnPla_Partida_Codigo.ReadOnly = true;
-                this.columnPla_Partida_Codigo.MaxLength = 200;
-                this.columnPla_Partida_Nombre.ReadOnly = true;
-                this.columnPla_Partida_Nombre.MaxLength = 500;
-                this.columnPla_Doc_Tipo.ReadOnly = true;
-                this.columnPla_Doc_Tipo.MaxLength = 3;
-                this.columnPla_Doc_Fecha.ReadOnly = true;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Pla_MovRow NewPla_MovRow() {
-                return ((Pla_MovRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Pla_MovRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(Pla_MovRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.Pla_MovRowChanged != null)) {
-                    this.Pla_MovRowChanged(this, new Pla_MovRowChangeEvent(((Pla_MovRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.Pla_MovRowChanging != null)) {
-                    this.Pla_MovRowChanging(this, new Pla_MovRowChangeEvent(((Pla_MovRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.Pla_MovRowDeleted != null)) {
-                    this.Pla_MovRowDeleted(this, new Pla_MovRowChangeEvent(((Pla_MovRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.Pla_MovRowDeleting != null)) {
-                    this.Pla_MovRowDeleting(this, new Pla_MovRowChangeEvent(((Pla_MovRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemovePla_MovRow(Pla_MovRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Planificacion ds = new Planificacion();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Pla_MovDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -3156,6 +2693,501 @@ namespace ADL {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Pla_MovDataTable : global::System.Data.TypedTableBase<Pla_MovRow> {
+            
+            private global::System.Data.DataColumn columnId;
+            
+            private global::System.Data.DataColumn columnCodigo;
+            
+            private global::System.Data.DataColumn columnPla_Poa_Id;
+            
+            private global::System.Data.DataColumn columnPla_Doc_Id;
+            
+            private global::System.Data.DataColumn columnOrden;
+            
+            private global::System.Data.DataColumn columnValor;
+            
+            private global::System.Data.DataColumn columnEstado;
+            
+            private global::System.Data.DataColumn columnTipo;
+            
+            private global::System.Data.DataColumn columnPla_Tarea_Id;
+            
+            private global::System.Data.DataColumn columnPla_Tarea_Nombre;
+            
+            private global::System.Data.DataColumn columnPla_Partida_Id;
+            
+            private global::System.Data.DataColumn columnPla_Partida_Codigo;
+            
+            private global::System.Data.DataColumn columnPla_Partida_Nombre;
+            
+            private global::System.Data.DataColumn columnPla_Doc_Tipo;
+            
+            private global::System.Data.DataColumn columnPla_Doc_Fecha;
+            
+            private global::System.Data.DataColumn columnPla_Doc_Codigo;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Pla_MovDataTable() {
+                this.TableName = "Pla_Mov";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Pla_MovDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected Pla_MovDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CodigoColumn {
+                get {
+                    return this.columnCodigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Poa_IdColumn {
+                get {
+                    return this.columnPla_Poa_Id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Doc_IdColumn {
+                get {
+                    return this.columnPla_Doc_Id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OrdenColumn {
+                get {
+                    return this.columnOrden;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ValorColumn {
+                get {
+                    return this.columnValor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EstadoColumn {
+                get {
+                    return this.columnEstado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TipoColumn {
+                get {
+                    return this.columnTipo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Tarea_IdColumn {
+                get {
+                    return this.columnPla_Tarea_Id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Tarea_NombreColumn {
+                get {
+                    return this.columnPla_Tarea_Nombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Partida_IdColumn {
+                get {
+                    return this.columnPla_Partida_Id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Partida_CodigoColumn {
+                get {
+                    return this.columnPla_Partida_Codigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Partida_NombreColumn {
+                get {
+                    return this.columnPla_Partida_Nombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Doc_TipoColumn {
+                get {
+                    return this.columnPla_Doc_Tipo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Doc_FechaColumn {
+                get {
+                    return this.columnPla_Doc_Fecha;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Doc_CodigoColumn {
+                get {
+                    return this.columnPla_Doc_Codigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Pla_MovRow this[int index] {
+                get {
+                    return ((Pla_MovRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Pla_MovRowChangeEventHandler Pla_MovRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Pla_MovRowChangeEventHandler Pla_MovRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Pla_MovRowChangeEventHandler Pla_MovRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Pla_MovRowChangeEventHandler Pla_MovRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddPla_MovRow(Pla_MovRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Pla_MovRow AddPla_MovRow(string Codigo, int Pla_Poa_Id, int Pla_Doc_Id, int Orden, decimal Valor, string Estado, string Tipo, int Pla_Tarea_Id, string Pla_Tarea_Nombre, int Pla_Partida_Id, string Pla_Partida_Codigo, string Pla_Partida_Nombre, string Pla_Doc_Tipo, System.DateTime Pla_Doc_Fecha, string Pla_Doc_Codigo) {
+                Pla_MovRow rowPla_MovRow = ((Pla_MovRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Codigo,
+                        Pla_Poa_Id,
+                        Pla_Doc_Id,
+                        Orden,
+                        Valor,
+                        Estado,
+                        Tipo,
+                        Pla_Tarea_Id,
+                        Pla_Tarea_Nombre,
+                        Pla_Partida_Id,
+                        Pla_Partida_Codigo,
+                        Pla_Partida_Nombre,
+                        Pla_Doc_Tipo,
+                        Pla_Doc_Fecha,
+                        Pla_Doc_Codigo};
+                rowPla_MovRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPla_MovRow);
+                return rowPla_MovRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Pla_MovRow FindById(int Id) {
+                return ((Pla_MovRow)(this.Rows.Find(new object[] {
+                            Id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Pla_MovDataTable cln = ((Pla_MovDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Pla_MovDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnId = base.Columns["Id"];
+                this.columnCodigo = base.Columns["Codigo"];
+                this.columnPla_Poa_Id = base.Columns["Pla_Poa_Id"];
+                this.columnPla_Doc_Id = base.Columns["Pla_Doc_Id"];
+                this.columnOrden = base.Columns["Orden"];
+                this.columnValor = base.Columns["Valor"];
+                this.columnEstado = base.Columns["Estado"];
+                this.columnTipo = base.Columns["Tipo"];
+                this.columnPla_Tarea_Id = base.Columns["Pla_Tarea_Id"];
+                this.columnPla_Tarea_Nombre = base.Columns["Pla_Tarea_Nombre"];
+                this.columnPla_Partida_Id = base.Columns["Pla_Partida_Id"];
+                this.columnPla_Partida_Codigo = base.Columns["Pla_Partida_Codigo"];
+                this.columnPla_Partida_Nombre = base.Columns["Pla_Partida_Nombre"];
+                this.columnPla_Doc_Tipo = base.Columns["Pla_Doc_Tipo"];
+                this.columnPla_Doc_Fecha = base.Columns["Pla_Doc_Fecha"];
+                this.columnPla_Doc_Codigo = base.Columns["Pla_Doc_Codigo"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columnCodigo = new global::System.Data.DataColumn("Codigo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCodigo);
+                this.columnPla_Poa_Id = new global::System.Data.DataColumn("Pla_Poa_Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Poa_Id);
+                this.columnPla_Doc_Id = new global::System.Data.DataColumn("Pla_Doc_Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Doc_Id);
+                this.columnOrden = new global::System.Data.DataColumn("Orden", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrden);
+                this.columnValor = new global::System.Data.DataColumn("Valor", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnValor);
+                this.columnEstado = new global::System.Data.DataColumn("Estado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstado);
+                this.columnTipo = new global::System.Data.DataColumn("Tipo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTipo);
+                this.columnPla_Tarea_Id = new global::System.Data.DataColumn("Pla_Tarea_Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Tarea_Id);
+                this.columnPla_Tarea_Nombre = new global::System.Data.DataColumn("Pla_Tarea_Nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Tarea_Nombre);
+                this.columnPla_Partida_Id = new global::System.Data.DataColumn("Pla_Partida_Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Partida_Id);
+                this.columnPla_Partida_Codigo = new global::System.Data.DataColumn("Pla_Partida_Codigo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Partida_Codigo);
+                this.columnPla_Partida_Nombre = new global::System.Data.DataColumn("Pla_Partida_Nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Partida_Nombre);
+                this.columnPla_Doc_Tipo = new global::System.Data.DataColumn("Pla_Doc_Tipo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Doc_Tipo);
+                this.columnPla_Doc_Fecha = new global::System.Data.DataColumn("Pla_Doc_Fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Doc_Fecha);
+                this.columnPla_Doc_Codigo = new global::System.Data.DataColumn("Pla_Doc_Codigo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Doc_Codigo);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
+                this.columnId.AllowDBNull = false;
+                this.columnId.ReadOnly = true;
+                this.columnId.Unique = true;
+                this.columnCodigo.AllowDBNull = false;
+                this.columnCodigo.MaxLength = 200;
+                this.columnPla_Poa_Id.AllowDBNull = false;
+                this.columnPla_Doc_Id.AllowDBNull = false;
+                this.columnOrden.AllowDBNull = false;
+                this.columnValor.AllowDBNull = false;
+                this.columnEstado.AllowDBNull = false;
+                this.columnEstado.MaxLength = 3;
+                this.columnTipo.AllowDBNull = false;
+                this.columnTipo.MaxLength = 3;
+                this.columnPla_Tarea_Id.ReadOnly = true;
+                this.columnPla_Tarea_Nombre.ReadOnly = true;
+                this.columnPla_Tarea_Nombre.MaxLength = 500;
+                this.columnPla_Partida_Id.ReadOnly = true;
+                this.columnPla_Partida_Codigo.ReadOnly = true;
+                this.columnPla_Partida_Codigo.MaxLength = 200;
+                this.columnPla_Partida_Nombre.ReadOnly = true;
+                this.columnPla_Partida_Nombre.MaxLength = 500;
+                this.columnPla_Doc_Tipo.ReadOnly = true;
+                this.columnPla_Doc_Tipo.MaxLength = 3;
+                this.columnPla_Doc_Fecha.ReadOnly = true;
+                this.columnPla_Doc_Codigo.ReadOnly = true;
+                this.columnPla_Doc_Codigo.MaxLength = 200;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Pla_MovRow NewPla_MovRow() {
+                return ((Pla_MovRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Pla_MovRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Pla_MovRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Pla_MovRowChanged != null)) {
+                    this.Pla_MovRowChanged(this, new Pla_MovRowChangeEvent(((Pla_MovRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Pla_MovRowChanging != null)) {
+                    this.Pla_MovRowChanging(this, new Pla_MovRowChangeEvent(((Pla_MovRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Pla_MovRowDeleted != null)) {
+                    this.Pla_MovRowDeleted(this, new Pla_MovRowChangeEvent(((Pla_MovRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Pla_MovRowDeleting != null)) {
+                    this.Pla_MovRowDeleting(this, new Pla_MovRowChangeEvent(((Pla_MovRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemovePla_MovRow(Pla_MovRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                Planificacion ds = new Planificacion();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Pla_MovDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class Pla_CtaRow : global::System.Data.DataRow {
@@ -3261,294 +3293,6 @@ namespace ADL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDescripcionNull() {
                 this[this.tablePla_Cta.DescripcionColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class Pla_MovRow : global::System.Data.DataRow {
-            
-            private Pla_MovDataTable tablePla_Mov;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal Pla_MovRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablePla_Mov = ((Pla_MovDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Id {
-                get {
-                    return ((int)(this[this.tablePla_Mov.IdColumn]));
-                }
-                set {
-                    this[this.tablePla_Mov.IdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Codigo {
-                get {
-                    return ((string)(this[this.tablePla_Mov.CodigoColumn]));
-                }
-                set {
-                    this[this.tablePla_Mov.CodigoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Pla_Poa_Id {
-                get {
-                    return ((int)(this[this.tablePla_Mov.Pla_Poa_IdColumn]));
-                }
-                set {
-                    this[this.tablePla_Mov.Pla_Poa_IdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Pla_Doc_Id {
-                get {
-                    return ((int)(this[this.tablePla_Mov.Pla_Doc_IdColumn]));
-                }
-                set {
-                    this[this.tablePla_Mov.Pla_Doc_IdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Orden {
-                get {
-                    return ((int)(this[this.tablePla_Mov.OrdenColumn]));
-                }
-                set {
-                    this[this.tablePla_Mov.OrdenColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Valor {
-                get {
-                    return ((decimal)(this[this.tablePla_Mov.ValorColumn]));
-                }
-                set {
-                    this[this.tablePla_Mov.ValorColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Estado {
-                get {
-                    return ((string)(this[this.tablePla_Mov.EstadoColumn]));
-                }
-                set {
-                    this[this.tablePla_Mov.EstadoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Pla_Tarea_Id {
-                get {
-                    try {
-                        return ((int)(this[this.tablePla_Mov.Pla_Tarea_IdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Tarea_Id\' in table \'Pla_Mov\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Mov.Pla_Tarea_IdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Pla_Tarea_Nombre {
-                get {
-                    try {
-                        return ((string)(this[this.tablePla_Mov.Pla_Tarea_NombreColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Tarea_Nombre\' in table \'Pla_Mov\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Mov.Pla_Tarea_NombreColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Pla_Partida_Id {
-                get {
-                    try {
-                        return ((int)(this[this.tablePla_Mov.Pla_Partida_IdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Partida_Id\' in table \'Pla_Mov\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Mov.Pla_Partida_IdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Pla_Partida_Codigo {
-                get {
-                    try {
-                        return ((string)(this[this.tablePla_Mov.Pla_Partida_CodigoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Partida_Codigo\' in table \'Pla_Mov\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Mov.Pla_Partida_CodigoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Pla_Partida_Nombre {
-                get {
-                    try {
-                        return ((string)(this[this.tablePla_Mov.Pla_Partida_NombreColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Partida_Nombre\' in table \'Pla_Mov\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Mov.Pla_Partida_NombreColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Pla_Doc_Tipo {
-                get {
-                    try {
-                        return ((string)(this[this.tablePla_Mov.Pla_Doc_TipoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Doc_Tipo\' in table \'Pla_Mov\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Mov.Pla_Doc_TipoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Pla_Doc_Fecha {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tablePla_Mov.Pla_Doc_FechaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Doc_Fecha\' in table \'Pla_Mov\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Mov.Pla_Doc_FechaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPla_Tarea_IdNull() {
-                return this.IsNull(this.tablePla_Mov.Pla_Tarea_IdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPla_Tarea_IdNull() {
-                this[this.tablePla_Mov.Pla_Tarea_IdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPla_Tarea_NombreNull() {
-                return this.IsNull(this.tablePla_Mov.Pla_Tarea_NombreColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPla_Tarea_NombreNull() {
-                this[this.tablePla_Mov.Pla_Tarea_NombreColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPla_Partida_IdNull() {
-                return this.IsNull(this.tablePla_Mov.Pla_Partida_IdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPla_Partida_IdNull() {
-                this[this.tablePla_Mov.Pla_Partida_IdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPla_Partida_CodigoNull() {
-                return this.IsNull(this.tablePla_Mov.Pla_Partida_CodigoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPla_Partida_CodigoNull() {
-                this[this.tablePla_Mov.Pla_Partida_CodigoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPla_Partida_NombreNull() {
-                return this.IsNull(this.tablePla_Mov.Pla_Partida_NombreColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPla_Partida_NombreNull() {
-                this[this.tablePla_Mov.Pla_Partida_NombreColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPla_Doc_TipoNull() {
-                return this.IsNull(this.tablePla_Mov.Pla_Doc_TipoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPla_Doc_TipoNull() {
-                this[this.tablePla_Mov.Pla_Doc_TipoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPla_Doc_FechaNull() {
-                return this.IsNull(this.tablePla_Mov.Pla_Doc_FechaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPla_Doc_FechaNull() {
-                this[this.tablePla_Mov.Pla_Doc_FechaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4624,6 +4368,333 @@ namespace ADL {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Pla_MovRow : global::System.Data.DataRow {
+            
+            private Pla_MovDataTable tablePla_Mov;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Pla_MovRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablePla_Mov = ((Pla_MovDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Id {
+                get {
+                    return ((int)(this[this.tablePla_Mov.IdColumn]));
+                }
+                set {
+                    this[this.tablePla_Mov.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Codigo {
+                get {
+                    return ((string)(this[this.tablePla_Mov.CodigoColumn]));
+                }
+                set {
+                    this[this.tablePla_Mov.CodigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Pla_Poa_Id {
+                get {
+                    return ((int)(this[this.tablePla_Mov.Pla_Poa_IdColumn]));
+                }
+                set {
+                    this[this.tablePla_Mov.Pla_Poa_IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Pla_Doc_Id {
+                get {
+                    return ((int)(this[this.tablePla_Mov.Pla_Doc_IdColumn]));
+                }
+                set {
+                    this[this.tablePla_Mov.Pla_Doc_IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Orden {
+                get {
+                    return ((int)(this[this.tablePla_Mov.OrdenColumn]));
+                }
+                set {
+                    this[this.tablePla_Mov.OrdenColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Valor {
+                get {
+                    return ((decimal)(this[this.tablePla_Mov.ValorColumn]));
+                }
+                set {
+                    this[this.tablePla_Mov.ValorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Estado {
+                get {
+                    return ((string)(this[this.tablePla_Mov.EstadoColumn]));
+                }
+                set {
+                    this[this.tablePla_Mov.EstadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Tipo {
+                get {
+                    return ((string)(this[this.tablePla_Mov.TipoColumn]));
+                }
+                set {
+                    this[this.tablePla_Mov.TipoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Pla_Tarea_Id {
+                get {
+                    try {
+                        return ((int)(this[this.tablePla_Mov.Pla_Tarea_IdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Tarea_Id\' in table \'Pla_Mov\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Mov.Pla_Tarea_IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Pla_Tarea_Nombre {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Mov.Pla_Tarea_NombreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Tarea_Nombre\' in table \'Pla_Mov\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Mov.Pla_Tarea_NombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Pla_Partida_Id {
+                get {
+                    try {
+                        return ((int)(this[this.tablePla_Mov.Pla_Partida_IdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Partida_Id\' in table \'Pla_Mov\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Mov.Pla_Partida_IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Pla_Partida_Codigo {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Mov.Pla_Partida_CodigoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Partida_Codigo\' in table \'Pla_Mov\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Mov.Pla_Partida_CodigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Pla_Partida_Nombre {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Mov.Pla_Partida_NombreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Partida_Nombre\' in table \'Pla_Mov\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Mov.Pla_Partida_NombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Pla_Doc_Tipo {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Mov.Pla_Doc_TipoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Doc_Tipo\' in table \'Pla_Mov\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Mov.Pla_Doc_TipoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Pla_Doc_Fecha {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablePla_Mov.Pla_Doc_FechaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Doc_Fecha\' in table \'Pla_Mov\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Mov.Pla_Doc_FechaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Pla_Doc_Codigo {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Mov.Pla_Doc_CodigoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Doc_Codigo\' in table \'Pla_Mov\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Mov.Pla_Doc_CodigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPla_Tarea_IdNull() {
+                return this.IsNull(this.tablePla_Mov.Pla_Tarea_IdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPla_Tarea_IdNull() {
+                this[this.tablePla_Mov.Pla_Tarea_IdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPla_Tarea_NombreNull() {
+                return this.IsNull(this.tablePla_Mov.Pla_Tarea_NombreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPla_Tarea_NombreNull() {
+                this[this.tablePla_Mov.Pla_Tarea_NombreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPla_Partida_IdNull() {
+                return this.IsNull(this.tablePla_Mov.Pla_Partida_IdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPla_Partida_IdNull() {
+                this[this.tablePla_Mov.Pla_Partida_IdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPla_Partida_CodigoNull() {
+                return this.IsNull(this.tablePla_Mov.Pla_Partida_CodigoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPla_Partida_CodigoNull() {
+                this[this.tablePla_Mov.Pla_Partida_CodigoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPla_Partida_NombreNull() {
+                return this.IsNull(this.tablePla_Mov.Pla_Partida_NombreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPla_Partida_NombreNull() {
+                this[this.tablePla_Mov.Pla_Partida_NombreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPla_Doc_TipoNull() {
+                return this.IsNull(this.tablePla_Mov.Pla_Doc_TipoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPla_Doc_TipoNull() {
+                this[this.tablePla_Mov.Pla_Doc_TipoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPla_Doc_FechaNull() {
+                return this.IsNull(this.tablePla_Mov.Pla_Doc_FechaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPla_Doc_FechaNull() {
+                this[this.tablePla_Mov.Pla_Doc_FechaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPla_Doc_CodigoNull() {
+                return this.IsNull(this.tablePla_Mov.Pla_Doc_CodigoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPla_Doc_CodigoNull() {
+                this[this.tablePla_Mov.Pla_Doc_CodigoColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -4643,40 +4714,6 @@ namespace ADL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Pla_CtaRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class Pla_MovRowChangeEvent : global::System.EventArgs {
-            
-            private Pla_MovRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Pla_MovRowChangeEvent(Pla_MovRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Pla_MovRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4813,6 +4850,40 @@ namespace ADL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Pla_DocRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class Pla_MovRowChangeEvent : global::System.EventArgs {
+            
+            private Pla_MovRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Pla_MovRowChangeEvent(Pla_MovRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Pla_MovRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5901,692 +5972,6 @@ namespace ADL.PlanificacionTableAdapters {
             }
             else {
                 command.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            object returnValue;
-            try {
-                returnValue = command.ExecuteScalar();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return null;
-            }
-            else {
-                return ((object)(returnValue));
-            }
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Pla_MovTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public Pla_MovTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Pla_Mov";
-            tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("Codigo", "Codigo");
-            tableMapping.ColumnMappings.Add("Pla_Poa_Id", "Pla_Poa_Id");
-            tableMapping.ColumnMappings.Add("Pla_Doc_Id", "Pla_Doc_Id");
-            tableMapping.ColumnMappings.Add("Orden", "Orden");
-            tableMapping.ColumnMappings.Add("Valor", "Valor");
-            tableMapping.ColumnMappings.Add("Estado", "Estado");
-            tableMapping.ColumnMappings.Add("Pla_Tarea_Id", "Pla_Tarea_Id");
-            tableMapping.ColumnMappings.Add("Pla_Tarea_Nombre", "Pla_Tarea_Nombre");
-            tableMapping.ColumnMappings.Add("Pla_Partida_Id", "Pla_Partida_Id");
-            tableMapping.ColumnMappings.Add("Pla_Partida_Codigo", "Pla_Partida_Codigo");
-            tableMapping.ColumnMappings.Add("Pla_Partida_Nombre", "Pla_Partida_Nombre");
-            tableMapping.ColumnMappings.Add("Pla_Doc_Tipo", "Pla_Doc_Tipo");
-            tableMapping.ColumnMappings.Add("Pla_Doc_Fecha", "Pla_Doc_Fecha");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "dbo.Pla_Mov_Del";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Poa_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Poa_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Doc_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Orden", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Orden", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Valor", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "dbo.Pla_Mov_Ins";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Poa_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Poa_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Doc_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Orden", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Orden", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Valor", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "dbo.Pla_Mov_Upd";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Poa_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Poa_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Doc_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Orden", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Orden", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Valor", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Poa_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Poa_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Doc_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Orden", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Orden", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Valor", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ADL.Properties.Settings.Default.KCG_DataConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.Pla_Mov_Sel";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "dbo.Pla_Mov_SelById";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "dbo.Pla_Mov_SelByPla_Doc_Id";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Pla_Doc_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "dbo.Pla_Mov_SelByPla_Poa_Id";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Pla_Poa_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "dbo.Pla_Mov_Ins";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Poa_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Doc_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Orden", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Valor", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Planificacion.Pla_MovDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Planificacion.Pla_MovDataTable Get() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            Planificacion.Pla_MovDataTable dataTable = new Planificacion.Pla_MovDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillById(Planificacion.Pla_MovDataTable dataTable, global::System.Nullable<int> p_Id) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((p_Id.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(p_Id.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual Planificacion.Pla_MovDataTable GetById(global::System.Nullable<int> p_Id) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((p_Id.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(p_Id.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            Planificacion.Pla_MovDataTable dataTable = new Planificacion.Pla_MovDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByPla_Doc_Id(Planificacion.Pla_MovDataTable dataTable, global::System.Nullable<int> p_Pla_Doc_Id) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((p_Pla_Doc_Id.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(p_Pla_Doc_Id.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual Planificacion.Pla_MovDataTable GetByPla_Doc_Id(global::System.Nullable<int> p_Pla_Doc_Id) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((p_Pla_Doc_Id.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(p_Pla_Doc_Id.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            Planificacion.Pla_MovDataTable dataTable = new Planificacion.Pla_MovDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByPla_Poa_Id(Planificacion.Pla_MovDataTable dataTable, global::System.Nullable<int> p_Pla_Poa_Id) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((p_Pla_Poa_Id.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(p_Pla_Poa_Id.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual Planificacion.Pla_MovDataTable GetByPla_Poa_Id(global::System.Nullable<int> p_Pla_Poa_Id) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((p_Pla_Poa_Id.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(p_Pla_Poa_Id.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            Planificacion.Pla_MovDataTable dataTable = new Planificacion.Pla_MovDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Planificacion.Pla_MovDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Planificacion dataSet) {
-            return this.Adapter.Update(dataSet, "Pla_Mov");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(global::System.Nullable<int> Original_Id, string Original_Codigo, global::System.Nullable<int> Original_Pla_Poa_Id, global::System.Nullable<int> Original_Pla_Doc_Id, global::System.Nullable<int> Original_Orden, global::System.Nullable<decimal> Original_Valor, string Original_Estado) {
-            if ((Original_Id.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Id.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Codigo == null)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Codigo));
-            }
-            if ((Original_Pla_Poa_Id.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_Pla_Poa_Id.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Pla_Doc_Id.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Pla_Doc_Id.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Orden.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_Orden.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Valor.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_Valor.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Estado == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Estado));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Codigo, global::System.Nullable<int> Pla_Poa_Id, global::System.Nullable<int> Pla_Doc_Id, global::System.Nullable<int> Orden, global::System.Nullable<decimal> Valor, string Estado) {
-            if ((Codigo == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Codigo));
-            }
-            if ((Pla_Poa_Id.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Pla_Poa_Id.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Pla_Doc_Id.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Pla_Doc_Id.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Orden.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Orden.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Valor.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Valor.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Estado == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Estado));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Codigo, global::System.Nullable<int> Pla_Poa_Id, global::System.Nullable<int> Pla_Doc_Id, global::System.Nullable<int> Orden, global::System.Nullable<decimal> Valor, string Estado, global::System.Nullable<int> Original_Id, string Original_Codigo, global::System.Nullable<int> Original_Pla_Poa_Id, global::System.Nullable<int> Original_Pla_Doc_Id, global::System.Nullable<int> Original_Orden, global::System.Nullable<decimal> Original_Valor, string Original_Estado, global::System.Nullable<int> Id) {
-            if ((Codigo == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Codigo));
-            }
-            if ((Pla_Poa_Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Pla_Poa_Id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Pla_Doc_Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Pla_Doc_Id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Orden.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Orden.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Valor.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Valor.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Estado == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Estado));
-            }
-            if ((Original_Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Codigo == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Codigo));
-            }
-            if ((Original_Pla_Poa_Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Pla_Poa_Id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Pla_Doc_Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Pla_Doc_Id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Orden.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_Orden.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Valor.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(Original_Valor.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Estado == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Estado));
-            }
-            if ((Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Codigo, global::System.Nullable<int> Pla_Poa_Id, global::System.Nullable<int> Pla_Doc_Id, global::System.Nullable<int> Orden, global::System.Nullable<decimal> Valor, string Estado, global::System.Nullable<int> Original_Id, string Original_Codigo, global::System.Nullable<int> Original_Pla_Poa_Id, global::System.Nullable<int> Original_Pla_Doc_Id, global::System.Nullable<int> Original_Orden, global::System.Nullable<decimal> Original_Valor, string Original_Estado) {
-            return this.Update(Codigo, Pla_Poa_Id, Pla_Doc_Id, Orden, Valor, Estado, Original_Id, Original_Codigo, Original_Pla_Poa_Id, Original_Pla_Doc_Id, Original_Orden, Original_Valor, Original_Estado, Original_Id);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object InsertINT(string Codigo, global::System.Nullable<int> Pla_Poa_Id, global::System.Nullable<int> Pla_Doc_Id, global::System.Nullable<int> Orden, global::System.Nullable<decimal> Valor, string Estado) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
-            if ((Codigo == null)) {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[1].Value = ((string)(Codigo));
-            }
-            if ((Pla_Poa_Id.HasValue == true)) {
-                command.Parameters[2].Value = ((int)(Pla_Poa_Id.Value));
-            }
-            else {
-                command.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Pla_Doc_Id.HasValue == true)) {
-                command.Parameters[3].Value = ((int)(Pla_Doc_Id.Value));
-            }
-            else {
-                command.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Orden.HasValue == true)) {
-                command.Parameters[4].Value = ((int)(Orden.Value));
-            }
-            else {
-                command.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Valor.HasValue == true)) {
-                command.Parameters[5].Value = ((decimal)(Valor.Value));
-            }
-            else {
-                command.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Estado == null)) {
-                command.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[6].Value = ((string)(Estado));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10534,6 +9919,745 @@ namespace ADL.PlanificacionTableAdapters {
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class Pla_MovTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public Pla_MovTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Pla_Mov";
+            tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("Codigo", "Codigo");
+            tableMapping.ColumnMappings.Add("Pla_Poa_Id", "Pla_Poa_Id");
+            tableMapping.ColumnMappings.Add("Pla_Doc_Id", "Pla_Doc_Id");
+            tableMapping.ColumnMappings.Add("Orden", "Orden");
+            tableMapping.ColumnMappings.Add("Valor", "Valor");
+            tableMapping.ColumnMappings.Add("Estado", "Estado");
+            tableMapping.ColumnMappings.Add("Tipo", "Tipo");
+            tableMapping.ColumnMappings.Add("Pla_Tarea_Id", "Pla_Tarea_Id");
+            tableMapping.ColumnMappings.Add("Pla_Tarea_Nombre", "Pla_Tarea_Nombre");
+            tableMapping.ColumnMappings.Add("Pla_Partida_Id", "Pla_Partida_Id");
+            tableMapping.ColumnMappings.Add("Pla_Partida_Codigo", "Pla_Partida_Codigo");
+            tableMapping.ColumnMappings.Add("Pla_Partida_Nombre", "Pla_Partida_Nombre");
+            tableMapping.ColumnMappings.Add("Pla_Doc_Tipo", "Pla_Doc_Tipo");
+            tableMapping.ColumnMappings.Add("Pla_Doc_Fecha", "Pla_Doc_Fecha");
+            tableMapping.ColumnMappings.Add("Pla_Doc_Codigo", "Pla_Doc_Codigo");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "dbo.Pla_Mov_Del";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Poa_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Poa_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Doc_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Orden", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Orden", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Valor", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "dbo.Pla_Mov_Ins";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Poa_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Poa_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Doc_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Orden", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Orden", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Valor", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "dbo.Pla_Mov_Upd";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Poa_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Poa_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Doc_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Orden", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Orden", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Valor", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Poa_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Poa_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Doc_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Orden", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Orden", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Valor", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::ADL.Properties.Settings.Default.KCG_DataConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.Pla_Mov_Sel";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "dbo.Pla_Mov_SelById";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "dbo.Pla_Mov_SelByPla_Doc_Id";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Pla_Doc_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "dbo.Pla_Mov_SelByPla_Poa_Id";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Pla_Poa_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "dbo.Pla_Mov_Ins";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Poa_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Doc_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Orden", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Valor", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(Planificacion.Pla_MovDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual Planificacion.Pla_MovDataTable Get() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            Planificacion.Pla_MovDataTable dataTable = new Planificacion.Pla_MovDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillById(Planificacion.Pla_MovDataTable dataTable, global::System.Nullable<int> p_Id) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((p_Id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(p_Id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Planificacion.Pla_MovDataTable GetById(global::System.Nullable<int> p_Id) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((p_Id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(p_Id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            Planificacion.Pla_MovDataTable dataTable = new Planificacion.Pla_MovDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPla_Doc_Id(Planificacion.Pla_MovDataTable dataTable, global::System.Nullable<int> p_Pla_Doc_Id) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((p_Pla_Doc_Id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(p_Pla_Doc_Id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Planificacion.Pla_MovDataTable GetByPla_Doc_Id(global::System.Nullable<int> p_Pla_Doc_Id) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((p_Pla_Doc_Id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(p_Pla_Doc_Id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            Planificacion.Pla_MovDataTable dataTable = new Planificacion.Pla_MovDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPla_Poa_Id(Planificacion.Pla_MovDataTable dataTable, global::System.Nullable<int> p_Pla_Poa_Id) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((p_Pla_Poa_Id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(p_Pla_Poa_Id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Planificacion.Pla_MovDataTable GetByPla_Poa_Id(global::System.Nullable<int> p_Pla_Poa_Id) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((p_Pla_Poa_Id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(p_Pla_Poa_Id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            Planificacion.Pla_MovDataTable dataTable = new Planificacion.Pla_MovDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(Planificacion.Pla_MovDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(Planificacion dataSet) {
+            return this.Adapter.Update(dataSet, "Pla_Mov");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(global::System.Nullable<int> Original_Id, string Original_Codigo, global::System.Nullable<int> Original_Pla_Poa_Id, global::System.Nullable<int> Original_Pla_Doc_Id, global::System.Nullable<int> Original_Orden, global::System.Nullable<decimal> Original_Valor, string Original_Estado, string Original_Tipo) {
+            if ((Original_Id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Codigo == null)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Codigo));
+            }
+            if ((Original_Pla_Poa_Id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_Pla_Poa_Id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Pla_Doc_Id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Pla_Doc_Id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Orden.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_Orden.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Valor.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_Valor.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Estado == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Estado));
+            }
+            if ((Original_Tipo == null)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Tipo));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string Codigo, global::System.Nullable<int> Pla_Poa_Id, global::System.Nullable<int> Pla_Doc_Id, global::System.Nullable<int> Orden, global::System.Nullable<decimal> Valor, string Estado, string Tipo) {
+            if ((Codigo == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Codigo));
+            }
+            if ((Pla_Poa_Id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Pla_Poa_Id.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Pla_Doc_Id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Pla_Doc_Id.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Orden.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Orden.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Valor.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Valor.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Estado == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Estado));
+            }
+            if ((Tipo == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Tipo));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string Codigo, 
+                    global::System.Nullable<int> Pla_Poa_Id, 
+                    global::System.Nullable<int> Pla_Doc_Id, 
+                    global::System.Nullable<int> Orden, 
+                    global::System.Nullable<decimal> Valor, 
+                    string Estado, 
+                    string Tipo, 
+                    global::System.Nullable<int> Original_Id, 
+                    string Original_Codigo, 
+                    global::System.Nullable<int> Original_Pla_Poa_Id, 
+                    global::System.Nullable<int> Original_Pla_Doc_Id, 
+                    global::System.Nullable<int> Original_Orden, 
+                    global::System.Nullable<decimal> Original_Valor, 
+                    string Original_Estado, 
+                    string Original_Tipo, 
+                    global::System.Nullable<int> Id) {
+            if ((Codigo == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Codigo));
+            }
+            if ((Pla_Poa_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Pla_Poa_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Pla_Doc_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Pla_Doc_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Orden.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Orden.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Valor.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Valor.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Estado == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Estado));
+            }
+            if ((Tipo == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Tipo));
+            }
+            if ((Original_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Codigo == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Codigo));
+            }
+            if ((Original_Pla_Poa_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Pla_Poa_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Pla_Doc_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_Pla_Doc_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Orden.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_Orden.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Valor.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Original_Valor.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Estado == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Estado));
+            }
+            if ((Original_Tipo == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Tipo));
+            }
+            if ((Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string Codigo, global::System.Nullable<int> Pla_Poa_Id, global::System.Nullable<int> Pla_Doc_Id, global::System.Nullable<int> Orden, global::System.Nullable<decimal> Valor, string Estado, string Tipo, global::System.Nullable<int> Original_Id, string Original_Codigo, global::System.Nullable<int> Original_Pla_Poa_Id, global::System.Nullable<int> Original_Pla_Doc_Id, global::System.Nullable<int> Original_Orden, global::System.Nullable<decimal> Original_Valor, string Original_Estado, string Original_Tipo) {
+            return this.Update(Codigo, Pla_Poa_Id, Pla_Doc_Id, Orden, Valor, Estado, Tipo, Original_Id, Original_Codigo, Original_Pla_Poa_Id, Original_Pla_Doc_Id, Original_Orden, Original_Valor, Original_Estado, Original_Tipo, Original_Id);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object InsertINT(string Codigo, global::System.Nullable<int> Pla_Poa_Id, global::System.Nullable<int> Pla_Doc_Id, global::System.Nullable<int> Orden, global::System.Nullable<decimal> Valor, string Estado, string Tipo) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            if ((Codigo == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Codigo));
+            }
+            if ((Pla_Poa_Id.HasValue == true)) {
+                command.Parameters[2].Value = ((int)(Pla_Poa_Id.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Pla_Doc_Id.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(Pla_Doc_Id.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Orden.HasValue == true)) {
+                command.Parameters[4].Value = ((int)(Orden.Value));
+            }
+            else {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Valor.HasValue == true)) {
+                command.Parameters[5].Value = ((decimal)(Valor.Value));
+            }
+            else {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Estado == null)) {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[6].Value = ((string)(Estado));
+            }
+            if ((Tipo == null)) {
+                command.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[7].Value = ((string)(Tipo));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10547,8 +10671,6 @@ namespace ADL.PlanificacionTableAdapters {
         
         private Pla_CtaTableAdapter _pla_CtaTableAdapter;
         
-        private Pla_MovTableAdapter _pla_MovTableAdapter;
-        
         private Pla_PoaTableAdapter _pla_PoaTableAdapter;
         
         private Pla_PartidaTableAdapter _pla_PartidaTableAdapter;
@@ -10556,6 +10678,8 @@ namespace ADL.PlanificacionTableAdapters {
         private Pla_TareaTableAdapter _pla_TareaTableAdapter;
         
         private Pla_DocTableAdapter _pla_DocTableAdapter;
+        
+        private Pla_MovTableAdapter _pla_MovTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -10583,20 +10707,6 @@ namespace ADL.PlanificacionTableAdapters {
             }
             set {
                 this._pla_CtaTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public Pla_MovTableAdapter Pla_MovTableAdapter {
-            get {
-                return this._pla_MovTableAdapter;
-            }
-            set {
-                this._pla_MovTableAdapter = value;
             }
         }
         
@@ -10658,6 +10768,20 @@ namespace ADL.PlanificacionTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public Pla_MovTableAdapter Pla_MovTableAdapter {
+            get {
+                return this._pla_MovTableAdapter;
+            }
+            set {
+                this._pla_MovTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -10679,10 +10803,6 @@ namespace ADL.PlanificacionTableAdapters {
                             && (this._pla_CtaTableAdapter.Connection != null))) {
                     return this._pla_CtaTableAdapter.Connection;
                 }
-                if (((this._pla_MovTableAdapter != null) 
-                            && (this._pla_MovTableAdapter.Connection != null))) {
-                    return this._pla_MovTableAdapter.Connection;
-                }
                 if (((this._pla_PoaTableAdapter != null) 
                             && (this._pla_PoaTableAdapter.Connection != null))) {
                     return this._pla_PoaTableAdapter.Connection;
@@ -10698,6 +10818,10 @@ namespace ADL.PlanificacionTableAdapters {
                 if (((this._pla_DocTableAdapter != null) 
                             && (this._pla_DocTableAdapter.Connection != null))) {
                     return this._pla_DocTableAdapter.Connection;
+                }
+                if (((this._pla_MovTableAdapter != null) 
+                            && (this._pla_MovTableAdapter.Connection != null))) {
+                    return this._pla_MovTableAdapter.Connection;
                 }
                 return null;
             }
@@ -10715,9 +10839,6 @@ namespace ADL.PlanificacionTableAdapters {
                 if ((this._pla_CtaTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._pla_MovTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._pla_PoaTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -10728,6 +10849,9 @@ namespace ADL.PlanificacionTableAdapters {
                     count = (count + 1);
                 }
                 if ((this._pla_DocTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._pla_MovTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -10741,15 +10865,6 @@ namespace ADL.PlanificacionTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(Planificacion dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._pla_PartidaTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Pla_Partida.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._pla_PartidaTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._pla_TareaTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Pla_Tarea.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -10768,15 +10883,6 @@ namespace ADL.PlanificacionTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._pla_CtaTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Pla_Cta.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._pla_CtaTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._pla_MovTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Pla_Mov.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -10786,12 +10892,30 @@ namespace ADL.PlanificacionTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._pla_CtaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Pla_Cta.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._pla_CtaTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._pla_PoaTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Pla_Poa.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._pla_PoaTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._pla_PartidaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Pla_Partida.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._pla_PartidaTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -10805,14 +10929,6 @@ namespace ADL.PlanificacionTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(Planificacion dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._pla_PartidaTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Pla_Partida.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._pla_PartidaTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._pla_TareaTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Pla_Tarea.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -10829,14 +10945,6 @@ namespace ADL.PlanificacionTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._pla_CtaTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Pla_Cta.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._pla_CtaTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._pla_MovTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Pla_Mov.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -10845,11 +10953,27 @@ namespace ADL.PlanificacionTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._pla_CtaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Pla_Cta.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._pla_CtaTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._pla_PoaTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Pla_Poa.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._pla_PoaTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._pla_PartidaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Pla_Partida.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._pla_PartidaTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -10863,6 +10987,14 @@ namespace ADL.PlanificacionTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(Planificacion dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._pla_PartidaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Pla_Partida.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._pla_PartidaTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._pla_PoaTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Pla_Poa.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -10871,19 +11003,19 @@ namespace ADL.PlanificacionTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._pla_MovTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Pla_Mov.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._pla_MovTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._pla_CtaTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Pla_Cta.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._pla_CtaTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._pla_MovTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Pla_Mov.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._pla_MovTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -10900,14 +11032,6 @@ namespace ADL.PlanificacionTableAdapters {
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._pla_TareaTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._pla_PartidaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Pla_Partida.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._pla_PartidaTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -10955,11 +11079,6 @@ namespace ADL.PlanificacionTableAdapters {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._pla_MovTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._pla_MovTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             if (((this._pla_PoaTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._pla_PoaTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
@@ -10977,6 +11096,11 @@ namespace ADL.PlanificacionTableAdapters {
             }
             if (((this._pla_DocTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._pla_DocTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._pla_MovTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._pla_MovTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -11021,15 +11145,6 @@ namespace ADL.PlanificacionTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this._pla_CtaTableAdapter.Adapter);
                     }
                 }
-                if ((this._pla_MovTableAdapter != null)) {
-                    revertConnections.Add(this._pla_MovTableAdapter, this._pla_MovTableAdapter.Connection);
-                    this._pla_MovTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._pla_MovTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._pla_MovTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._pla_MovTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._pla_MovTableAdapter.Adapter);
-                    }
-                }
                 if ((this._pla_PoaTableAdapter != null)) {
                     revertConnections.Add(this._pla_PoaTableAdapter, this._pla_PoaTableAdapter.Connection);
                     this._pla_PoaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -11064,6 +11179,15 @@ namespace ADL.PlanificacionTableAdapters {
                     if (this._pla_DocTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._pla_DocTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._pla_DocTableAdapter.Adapter);
+                    }
+                }
+                if ((this._pla_MovTableAdapter != null)) {
+                    revertConnections.Add(this._pla_MovTableAdapter, this._pla_MovTableAdapter.Connection);
+                    this._pla_MovTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._pla_MovTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._pla_MovTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._pla_MovTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._pla_MovTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -11128,10 +11252,6 @@ namespace ADL.PlanificacionTableAdapters {
                     this._pla_CtaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._pla_CtaTableAdapter]));
                     this._pla_CtaTableAdapter.Transaction = null;
                 }
-                if ((this._pla_MovTableAdapter != null)) {
-                    this._pla_MovTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._pla_MovTableAdapter]));
-                    this._pla_MovTableAdapter.Transaction = null;
-                }
                 if ((this._pla_PoaTableAdapter != null)) {
                     this._pla_PoaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._pla_PoaTableAdapter]));
                     this._pla_PoaTableAdapter.Transaction = null;
@@ -11147,6 +11267,10 @@ namespace ADL.PlanificacionTableAdapters {
                 if ((this._pla_DocTableAdapter != null)) {
                     this._pla_DocTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._pla_DocTableAdapter]));
                     this._pla_DocTableAdapter.Transaction = null;
+                }
+                if ((this._pla_MovTableAdapter != null)) {
+                    this._pla_MovTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._pla_MovTableAdapter]));
+                    this._pla_MovTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

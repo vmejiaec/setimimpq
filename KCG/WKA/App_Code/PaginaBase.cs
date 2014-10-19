@@ -65,6 +65,8 @@ public abstract class PaginaBase: KPagina
         if (!IsPostBack)
         {
             Scope.Dic_Contenedor_Nombre = Contenedor;
+            // Victor: Añade el título a la página
+            Page.Header.Title = this.Contenedor;
         }
     }
     // Extrae del mensaje el resumen del error

@@ -18,7 +18,7 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
     #region Referencias a los objetos de pantalla
     protected override string Contenedor
     {
-        get { return "PLA_Pla_Tarea_GvFv"; }
+        get { return "Tareas y POA"; }
     }
     #endregion
 
@@ -338,6 +338,7 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
     {
         if (e.Exception != null)
         {
+            fvPla_Poa.HayErrorInsUpd = true;
             e.ExceptionHandled = true;
             e.KeepInEditMode = true;
             if (lbFvMsgErrorPOA.Text == ":") lbFvMsgErrorPOA.Text = e.Exception.Message;
@@ -366,6 +367,7 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
     {
         if (e.Exception != null)
         {
+            fvPla_Poa.HayErrorInsUpd = true;
             e.ExceptionHandled = true;
             e.KeepInInsertMode = true;
             if (lbFvMsgErrorPOA.Text == ":") lbFvMsgErrorPOA.Text = e.Exception.Message;

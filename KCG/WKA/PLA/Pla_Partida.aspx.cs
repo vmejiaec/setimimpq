@@ -16,7 +16,7 @@ public partial class PLA_Pla_Partida : PaginaBase
     #region Referencias a los objetos de pantalla
     protected override string Contenedor
     {
-        get { return "Pla_Cta_Partida"; }
+        get { return "Partidas Presup."; }
     }
     #endregion
 
@@ -81,8 +81,10 @@ public partial class PLA_Pla_Partida : PaginaBase
     {
         if (e.Exception != null)
         {
+            fvPla_Pardida.HayErrorInsUpd = true;
             e.ExceptionHandled = true;
             e.KeepInEditMode = true;
+            if (lbFvMsgError.Text == ":") lbFiltro.Text = e.Exception.Message;
         }
         else
         {
@@ -96,6 +98,7 @@ public partial class PLA_Pla_Partida : PaginaBase
         if (e.Exception != null)
         {
             e.ExceptionHandled = true;
+            if (lbFvMsgError.Text == ":") lbFiltro.Text = e.Exception.Message;
         }
         else
         {
@@ -106,8 +109,10 @@ public partial class PLA_Pla_Partida : PaginaBase
     {
         if (e.Exception != null)
         {
+            fvPla_Pardida.HayErrorInsUpd = true;
             e.ExceptionHandled = true;
             e.KeepInInsertMode = true;
+            if (lbFvMsgError.Text == ":") lbFiltro.Text = e.Exception.Message;
         }
         else
         {
