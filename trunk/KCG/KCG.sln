@@ -68,6 +68,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zTest", "zTest\zTest.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zGENaspx", "zGEN\zGENaspx.csproj", "{44719E8A-5D77-4FBD-81F2-612CF043422D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zRespaldoBD", "zRespaldoBD\zRespaldoBD.csproj", "{C4A42AB8-89EA-4304-ADF7-C41901D872D2}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -312,6 +314,18 @@ Global
 		{44719E8A-5D77-4FBD-81F2-612CF043422D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{44719E8A-5D77-4FBD-81F2-612CF043422D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{44719E8A-5D77-4FBD-81F2-612CF043422D}.Release|x86.ActiveCfg = Release|Any CPU
+		{C4A42AB8-89EA-4304-ADF7-C41901D872D2}.Debug|.NET.ActiveCfg = Debug|x86
+		{C4A42AB8-89EA-4304-ADF7-C41901D872D2}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{C4A42AB8-89EA-4304-ADF7-C41901D872D2}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{C4A42AB8-89EA-4304-ADF7-C41901D872D2}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{C4A42AB8-89EA-4304-ADF7-C41901D872D2}.Debug|x86.ActiveCfg = Debug|x86
+		{C4A42AB8-89EA-4304-ADF7-C41901D872D2}.Debug|x86.Build.0 = Debug|x86
+		{C4A42AB8-89EA-4304-ADF7-C41901D872D2}.Release|.NET.ActiveCfg = Release|x86
+		{C4A42AB8-89EA-4304-ADF7-C41901D872D2}.Release|Any CPU.ActiveCfg = Release|x86
+		{C4A42AB8-89EA-4304-ADF7-C41901D872D2}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{C4A42AB8-89EA-4304-ADF7-C41901D872D2}.Release|Mixed Platforms.Build.0 = Release|x86
+		{C4A42AB8-89EA-4304-ADF7-C41901D872D2}.Release|x86.ActiveCfg = Release|x86
+		{C4A42AB8-89EA-4304-ADF7-C41901D872D2}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
