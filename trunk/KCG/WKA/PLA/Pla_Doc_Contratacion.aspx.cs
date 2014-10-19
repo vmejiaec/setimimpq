@@ -14,6 +14,6 @@ public partial class PLA_Pla_Doc_Contratacion : PaginaBase
 
     protected override string Contenedor
     {
-        get { return "PLA_Pla_Doc_Contratacion"; }
+        get { return "Solicitudes Contratación"; }
     }
 }

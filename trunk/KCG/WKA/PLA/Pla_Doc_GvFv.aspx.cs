@@ -37,9 +37,6 @@ public partial class PLA_Pla_Doc_GvFv : PaginaBase
 			case "Descripcion":
                 gvPla_Doc.DataSourceID = odsgvPla_Doc_GetByTipo_Area_Codigo_LikeDescripcion.ID;
                 break;
-			case "Descripcion":
-                gvPla_Doc.DataSourceID = odsgvPla_Doc_GetByTipo_RangoFecha_Solicita_LikeDescripcion.ID;
-                break;
 			}
         gvPla_Doc.DataBind();
         // Si existe algún error en el FormView lo borra

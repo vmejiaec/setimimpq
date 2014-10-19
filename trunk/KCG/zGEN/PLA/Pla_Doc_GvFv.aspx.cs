@@ -6,49 +6,22 @@ using System.Data;
 using System.Collections.Generic;
 using System.Web;
 
-
-public partial class PLA_Pla_Doc_Director : PaginaBase
+public partial class PLA_Pla_Doc_GvFv : PaginaBase
 {
     // Nombre del contenedor
     protected override string Contenedor
     {
-        get { return "Solicitudes Director"; }
+        get { return "PLA_Pla_Doc_GvFv"; }
     }
 	// Inicializar controles al arranque de la página
     protected void Page_Init(object sender, EventArgs e)
     {
-        if (!IsPostBack)
-        {
-            // Obtengo el número de cédula de la persona, su área de trabajo
-            FEL.PER.BO_Per_Personal adpPER = new FEL.PER.BO_Per_Personal();
-            var perLista = adpPER.GetById("Nombre", Scope, Scope.Per_Personal_Id);
-            string cedula = perLista[0].Par_Razon_Social_Numero;
-            FEL.VAR.BO_V_INT_Funcionario_Area adpFun = new FEL.VAR.BO_V_INT_Funcionario_Area();
-            var funLista = adpFun.GetByPersona_Codigo(Scope, cedula);
-            if (funLista.Count > 0)
-            {
-                var funcionario = funLista[0];
-                // Asigno a la cabecera
-                lbCabecera_Area_Nombre.Text = funcionario.Area_Nombre;
-                lbCabecera_Area_Codigo.Text = funcionario.Area_Codigo;
-                lbCabecera_Persona_Nombre.Text = Scope.Per_Personal_Nombre;
-                lbCabecera_Persona_Cargo.Text = funcionario.Persona_Cargo;
-            }
-            else
-                lbCabecera_Area_Nombre.Text = "El usuario no tiene relacionado un funcionario";
-            // Poner los valores iniciales al filtro de rango de fechas desde el inicio del mes hasta hoy
-            var hoy = DateTime.Today;
-            var mes = hoy.Month;
-            var anio = hoy.Year;
-            var primeroDelMes = new DateTime(anio,mes,1);
-            tbFechaIni.Text = primeroDelMes.ToShortDateString();
-            tbFechaFin.Text = hoy.ToShortDateString();
-        }
+        // Inicializa el control 
     }
     // Carga inicial
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
     }
     // Controles para el Filtrar
     #region Controles para el Filtrar
@@ -59,13 +32,13 @@ public partial class PLA_Pla_Doc_Director : PaginaBase
         switch (campo)
         {
             case "Todos":
-                gvPla_Doc.DataSourceID = odsgvPla_Doc_GetByTipo_Area_Codigo_RangoFecha_Solicita.ID;
+                gvPla_Doc.DataSourceID = odsgvPla_Doc.ID;
                 break;
-            case "Codigo":
-                gvPla_Doc.DataSourceID = odsgvPla_Doc_GetByTipo_Area_Codigo_Codigo.ID;
-                break;
-            case "Descripcion":
+			case "Descripcion":
                 gvPla_Doc.DataSourceID = odsgvPla_Doc_GetByTipo_Area_Codigo_LikeDescripcion.ID;
+                break;
+			case "Descripcion":
+                gvPla_Doc.DataSourceID = odsgvPla_Doc_GetByTipo_RangoFecha_Solicita_LikeDescripcion.ID;
                 break;
 			}
         gvPla_Doc.DataBind();
@@ -159,78 +132,31 @@ public partial class PLA_Pla_Doc_Director : PaginaBase
         // Valor por defecto del Id y Estado
         e.Values["Id"] = -1;
         if (String.IsNullOrWhiteSpace((string)e.Values["Estado"])) e.Values["Estado"] = "PEN";
-        // Valor del tipo de documento de GCP Certificado POA
-        e.Values["Tipo"] = "GCP";
-        // Valor para el área del usuario
-        e.Values["Area_Codigo_Solicita"] = lbCabecera_Area_Codigo.Text;
 		// Cambio del formato de los campos de fechas
-        e.Values["Fecha_Solicita"] = DateTime.Parse((string)e.Values["Fecha_Solicita"]);
-        e.Values["Fecha_Contrata"] = e.Values["Fecha_Solicita"];
-        e.Values["Fecha_Planifica"] = e.Values["Fecha_Solicita"];
-        // Valores para los campos de personas
-        e.Values["Per_Personal_Id_Solicita"] = Scope.Per_Personal_Id;
-        e.Values["Per_Personal_Id_Crea"] = Scope.Per_Personal_Id;
-        e.Values["Per_Personal_Id_Modifica"] = Scope.Per_Personal_Id;
-        // La solicitud del director se crea con las personas de Planificación y Contratación
-        // en NULL para que sea coherente
-        e.Values["Per_Personal_Id_Planifica"] = null;
-        e.Values["Per_Personal_Id_Contrata"] = null;
-        // Los estados se ponen en PEN de pendiente
-        e.Values["Esta_Planificada"] = "PEN";
-        e.Values["Esta_Contratada"] = "PEN";
-        // Cambio del formato del campo Valor
-        e.Values["Valor_Solicita"] = Decimal.Parse((string)e.Values["Valor_Solicita"]);
+		// e.Values["Fecha_Ini"] = DateTime.Parse((string)e.Values["Fecha_Ini"]);
+		
+		// Guarda los datos del registro a borrar en memoria
+        this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
+									 "Codigo: " + (string)e.Values["Codigo"] ;
     }	
     protected void fvPla_Doc_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
         // Controla el cambio del formato de las fechas
-        e.NewValues["Fecha_Solicita"] = DateTime.Parse((string)e.NewValues["Fecha_Solicita"]);
-        e.OldValues["Fecha_Solicita"] = DateTime.Parse((string)e.OldValues["Fecha_Solicita"]);
-        e.NewValues["Fecha_Contrata"] = DateTime.Parse((string)e.NewValues["Fecha_Contrata"]);
-        e.OldValues["Fecha_Contrata"] = DateTime.Parse((string)e.OldValues["Fecha_Contrata"]);
-        e.NewValues["Fecha_Planifica"] = DateTime.Parse((string)e.NewValues["Fecha_Planifica"]);
-        e.OldValues["Fecha_Planifica"] = DateTime.Parse((string)e.OldValues["Fecha_Planifica"]);
-        // Valores para los campos de personas
-        e.NewValues["Per_Personal_Id_Modifica"] = Scope.Per_Personal_Id;
-        // La solicitud del director se actualiza con las personas de Planificación y Contratación
-        // en NULL para que sea coherente con el proceso
-        if (String.IsNullOrEmpty((string)e.OldValues["Per_Personal_Id_Planifica"]))
-        {
-            e.OldValues["Per_Personal_Id_Planifica"] = null;
-            e.NewValues["Per_Personal_Id_Planifica"] = null;
-        }
-        if (String.IsNullOrEmpty((string)e.OldValues["Per_Personal_Id_Contrata"]))
-        {
-            e.OldValues["Per_Personal_Id_Contrata"] = null;
-            e.NewValues["Per_Personal_Id_Contrata"] = null;
-        }
-        // Cambio del formato del campo Valor
-        e.NewValues["Valor_Solicita"] = Decimal.Parse((string)e.NewValues["Valor_Solicita"]);
-        e.OldValues["Valor_Solicita"] = Decimal.Parse((string)e.OldValues["Valor_Solicita"]);
+        // e.NewValues["Fecha_Ini"] = DateTime.Parse((string)e.NewValues["Fecha_Ini"]);
+        // e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);
+		
 		// Guarda los datos del registro a borrar en memoria
-        this.MemoriaRegistroActual = "Id: " + e.NewValues["Id"].ToString() + " * " +
+        this.MemoriaRegistroActual = "Id: " + (string)e.NewValues["Id"] + " * " +
 									 "Codigo: " + (string)e.NewValues["Codigo"] ;
     }
     protected void fvPla_Doc_ItemDeleting(object sender, FormViewDeleteEventArgs e)
     {
-        // Cambio del formato de los campos de fechas
-        e.Values["Fecha_Solicita"] = DateTime.Parse((string)e.Values["Fecha_Solicita"]);
-        e.Values["Fecha_Contrata"] = DateTime.Parse((string)e.Values["Fecha_Contrata"]);
-        e.Values["Fecha_Planifica"] = DateTime.Parse((string)e.Values["Fecha_Planifica"]);
-        // Cambio del formato del campo Valor
-        e.Values["Valor_Solicita"] = Decimal.Parse((string)e.Values["Valor_Solicita"]);
-        // La solicitud del director se actualiza con las personas de Planificación y Contratación
-        // en NULL para que sea coherente con el proceso
-        if (String.IsNullOrEmpty((string)e.Values["Per_Personal_Id_Planifica"]))
-        {
-            e.Values["Per_Personal_Id_Planifica"] = null;
-        }
-        if (String.IsNullOrEmpty((string)e.Values["Per_Personal_Id_Contrata"]))
-        {
-            e.Values["Per_Personal_Id_Contrata"] = null;
-        }
+        // Control de valores antes del borrado como fechas y números
+        // e.Values["Valor_Inicial"] = "0";
+        //e.Values["Valor_Suma"] = "0";
+		
 		// Guarda los datos del registro a borrar en memoria
-        this.MemoriaRegistroActual = "Id: " + e.Values["Id"].ToString() + " * " +
+        this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
 									 "Codigo: " + (string)e.Values["Codigo"] ;
     }
 	// Inicializa los valores antes de que el FormView se dibuje en la página
@@ -238,14 +164,9 @@ public partial class PLA_Pla_Doc_Director : PaginaBase
     {
         switch (fvPla_Doc.CurrentMode)
         {
-            case FormViewMode.Insert:
-                ((TextBox)fvPla_Doc.FindControl("IdTextBox")).Text = "-1";
-                ((TextBox)fvPla_Doc.FindControl("CodigoTextBox")).Text = "1";
-                ((TextBox)fvPla_Doc.FindControl("EstadoTextBox")).Text = "PEN";
-                var hoy = DateTime.Today.ToShortDateString();
-                ((TextBox)fvPla_Doc.FindControl("Fecha_SolicitaTextBox")).Text = hoy;
-                ((TextBox)fvPla_Doc.FindControl("Valor_SolicitaTextBox")).Text = "0";
-                ((TextBox)fvPla_Doc.FindControl("Per_Personal_Nombre_SolicitaTextBox")).Text = Scope.Per_Personal_Nombre;
+            case FormViewMode.Insert:			
+                //((TextBox)fvPla_Poa.FindControl("CodigoTextBox")).Text = "1";
+                //((TextBox)fvPla_Poa.FindControl("EstadoTextBox")).Text = "PEN";
                 break;
             case FormViewMode.Edit:
                 break;
@@ -309,4 +230,11 @@ public partial class PLA_Pla_Doc_Director : PaginaBase
         }
     }	
 	#endregion
+	
+	
+	
+	// -----------------------------------------------------------------------------------------------------------------------
+
+
+
 }

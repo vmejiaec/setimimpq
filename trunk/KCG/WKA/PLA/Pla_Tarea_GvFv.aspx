@@ -130,7 +130,7 @@ TagPrefix="ajax" %>
 			<asp:BoundField DataField="Fecha_Ini" HeaderText="Fecha_Ini"  DataFormatString="{0:d}" />
 			<asp:BoundField DataField="Fecha_Fin" HeaderText="Fecha_Fin"  DataFormatString="{0:d}" />
             <asp:BoundField DataField="Valor_Inicial" HeaderText="Valor_Inicial"  DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
-            <asp:BoundField DataField="Valor_Suma" HeaderText="Valor_Suma"  DataFormatString="{0:N2}"  ItemStyle-HorizontalAlign="Right"/>
+            <asp:BoundField DataField="Valor_Suma" HeaderText="Saldo"  DataFormatString="{0:N2}"  ItemStyle-HorizontalAlign="Right"/>
 			<asp:BoundField DataField="Estado" HeaderText="Estado" Visible = "false"  />
 			</Columns>
     </asp:GridView>
@@ -171,7 +171,7 @@ TagPrefix="ajax" %>
                     ControlToValidate="Pla_Cta_CodigoTextBox"
                     ErrorMessage="El campo Pla_Cta_Codigo es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Tarea"/>
-                    <ajax:AutoCompleteExtender 
+                    ...<ajax:AutoCompleteExtender 
                         runat="server" ID="acxPla_Cta_CodigoTextBox"
                         BehaviorID="acxBID_Pla_Cta_CodigoTextBox"
                         TargetControlID="Pla_Cta_CodigoTextBox" 
@@ -194,7 +194,7 @@ TagPrefix="ajax" %>
                     ControlToValidate="Pla_Cta_NombreTextBox"
                     ErrorMessage="El campo Pla_Cta_Nombre es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Tarea"/>
-                    <ajax:AutoCompleteExtender 
+                    ...<ajax:AutoCompleteExtender 
                         runat="server" ID="acxPla_Cta_NombreTextBox"
                         BehaviorID="acxBID_Pla_Cta_NombreTextBox"
                         TargetControlID="Pla_Cta_NombreTextBox"
@@ -289,7 +289,7 @@ TagPrefix="ajax" %>
                     ControlToValidate="Pla_Cta_CodigoTextBox"
                     ErrorMessage="El campo Pla_Cta_Codigo es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Tarea"/>
-                    <ajax:AutoCompleteExtender 
+                    ...<ajax:AutoCompleteExtender 
                         runat="server" ID="acxPla_Cta_CodigoTextBox"
                         BehaviorID="acxBID_Pla_Cta_CodigoTextBox"
                         TargetControlID="Pla_Cta_CodigoTextBox" 
@@ -312,7 +312,7 @@ TagPrefix="ajax" %>
                     ControlToValidate="Pla_Cta_NombreTextBox"
                     ErrorMessage="El campo Pla_Cta_Nombre es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Tarea"/>
-                    <ajax:AutoCompleteExtender 
+                    ...<ajax:AutoCompleteExtender 
                         runat="server" ID="acxPla_Cta_NombreTextBox"
                         BehaviorID="acxBID_Pla_Cta_NombreTextBox"
                         TargetControlID="Pla_Cta_NombreTextBox"
@@ -480,7 +480,7 @@ TagPrefix="ajax" %>
 			<asp:BoundField DataField="Pla_Partida_Codigo" HeaderText="Partida_Codigo"   />
 			<asp:BoundField DataField="Pla_Partida_Nombre" HeaderText="Partida_Nombre"   />
 			<asp:BoundField DataField="Valor_Inicial" HeaderText="Valor_Inicial" DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
-			<asp:BoundField DataField="Valor_Suma" HeaderText="Valor_Suma" DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
+			<asp:BoundField DataField="Valor_Suma" HeaderText="Saldo" DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
 			</Columns>
     </asp:GridView>
     <%----[X] GridView POA--%>
@@ -494,7 +494,8 @@ TagPrefix="ajax" %>
 			ondatabound="fvPla_Poa_DataBound" 
             onprerender="fvPla_Poa_PreRender"
 			onitemupdating="fvPla_Poa_ItemUpdating" 
-            onitemdeleting="fvPla_Poa_ItemDeleting">
+            onitemdeleting="fvPla_Poa_ItemDeleting"
+            DataKeyNames="Id">
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
 			<table>
@@ -528,7 +529,7 @@ TagPrefix="ajax" %>
                     ControlToValidate="Pla_Partida_CodigoTextBox"
                     ErrorMessage="El campo Pla_Partida_Codigo es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
-                <ajax:AutoCompleteExtender 
+                ...<ajax:AutoCompleteExtender 
                     runat="server" ID= "acxPla_Partida_CodigoTextBox"
                     BehaviorID= "acxBIDPla_Partida_CodigoTextBox"
                     TargetControlID= "Pla_Partida_CodigoTextBox"
@@ -549,7 +550,7 @@ TagPrefix="ajax" %>
                     ControlToValidate="Pla_Partida_NombreTextBox"
                     ErrorMessage="El campo Pla_Partida_Nombre es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
-                <ajax:AutoCompleteExtender 
+                ...<ajax:AutoCompleteExtender 
                     runat="server" ID= "acxPla_Partida_NombreTextBox"
                     BehaviorID= "acxBIDPla_Partida_NombreTextBox"
                     TargetControlID= "Pla_Partida_NombreTextBox"
@@ -573,7 +574,7 @@ TagPrefix="ajax" %>
                 </td>
             </tr>
 			<tr >
-                <td> Valor_Suma </td>
+                <td> Saldo </td>
                 <td><asp:TextBox ID="Valor_SumaTextBox" runat="server" Text='<%# Bind("Valor_Suma","{0:N2}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
 			</table>
@@ -618,7 +619,7 @@ TagPrefix="ajax" %>
                     ControlToValidate="Pla_Partida_CodigoTextBox"
                     ErrorMessage="El campo Pla_Partida_Codigo es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
-                <ajax:AutoCompleteExtender 
+                ...<ajax:AutoCompleteExtender 
                     runat="server" ID= "acxPla_Partida_CodigoTextBox"
                     BehaviorID= "acxBIDPla_Partida_CodigoTextBox"
                     TargetControlID= "Pla_Partida_CodigoTextBox"
@@ -639,7 +640,7 @@ TagPrefix="ajax" %>
                     ControlToValidate="Pla_Partida_NombreTextBox"
                     ErrorMessage="El campo Pla_Partida_Nombre es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Poa"/>
-                <ajax:AutoCompleteExtender 
+                ...<ajax:AutoCompleteExtender 
                     runat="server" ID= "acxPla_Partida_NombreTextBox"
                     BehaviorID= "acxBIDPla_Partida_NombreTextBox"
                     TargetControlID= "Pla_Partida_NombreTextBox"
@@ -663,7 +664,7 @@ TagPrefix="ajax" %>
                 </td>
             </tr>
 			<tr >
-                <td> Valor_Suma </td>
+                <td> Saldo </td>
                 <td><asp:TextBox ID="Valor_SumaTextBox" runat="server" Text='<%# Bind("Valor_Suma","{0:N2}") %>' CssClass="txtItem" /></td>
             </tr>
 			</table>
@@ -712,7 +713,7 @@ TagPrefix="ajax" %>
                 <td><asp:TextBox ID="Valor_InicialTextBox" runat="server" Text='<%# Bind("Valor_Inicial") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
 			<tr >
-                <td> Valor_Suma </td>
+                <td> Saldo </td>
                 <td><asp:TextBox ID="Valor_SumaTextBox" runat="server" Text='<%# Bind("Valor_Suma","{0:N2}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
 			</table>
@@ -732,6 +733,28 @@ TagPrefix="ajax" %>
     </asp:Panel>
     <%--[X] FIN GridView y FormView del Detalle --%>
 
+    <%--[O] GridView de Pla_Mov --%>
+    <asp:Panel ID="Panel2" runat="server" GroupingText="Movimientos">
+    <asp:GridView ID="gvPla_Mov" runat="server" AutoGenerateColumns="False" 
+        DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Mov_GetByPla_Poa_Id" 
+		AlternatingRowStyle-CssClass="alternatingrowstyle" 
+        HeaderStyle-CssClass="headerstyle" 
+		PagerStyle-CssClass="pagerstyle" >
+        <Columns>
+            <asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />
+			<asp:BoundField DataField="Codigo" HeaderText="Codigo"   Visible = "false" />
+			<asp:BoundField DataField="Pla_Poa_Id" HeaderText="Pla_Poa_Id"  Visible = "false"  />
+			<asp:BoundField DataField="Pla_Doc_Id" HeaderText="Pla_Doc_Id"  Visible = "false"  />
+			<asp:BoundField DataField="Pla_Doc_Codigo" HeaderText="Doc_Codigo"   />
+            <asp:BoundField DataField="Pla_Doc_Fecha" HeaderText="Doc_Fecha"   DataFormatString="{0:d}"/>
+            <asp:BoundField DataField="Pla_Doc_Tipo" HeaderText="Doc_Tipo"   />
+            <asp:BoundField DataField="Orden" HeaderText="Orden"   />
+			<asp:BoundField DataField="Valor" HeaderText="Valor"    DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
+			<asp:BoundField DataField="Tipo" HeaderText="Tipo"   />
+			</Columns>
+    </asp:GridView>
+    </asp:Panel>
+	<%--[X] GridView de Pla_Mov --%>
 </ContentTemplate>
 </asp:UpdatePanel>
 
@@ -874,5 +897,15 @@ TagPrefix="ajax" %>
             <asp:Parameter Name="o" Type="Object" />
             <asp:Parameter Name="n" Type="Object" />
         </UpdateParameters>
+    </asp:ObjectDataSource>
+
+    <%--Fuente de datos para los Movimientos--%>
+    <asp:ObjectDataSource ID="odsgvPla_Mov_GetByPla_Poa_Id" runat="server" 
+        SelectMethod="GetByPla_Poa_Id" 
+        TypeName="FEL.PLA.BO_Pla_Mov">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+			<asp:ControlParameter ControlID="fvPla_Poa" Name="p_Pla_Poa_Id" PropertyName="SelectedValue" Type="Int32" />
+		</SelectParameters>
     </asp:ObjectDataSource>
 </asp:Content>

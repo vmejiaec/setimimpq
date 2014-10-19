@@ -51,7 +51,8 @@ TagPrefix="ajax" %>
 	<%--[X] Filtro--%>
 
     <%--[O] GridView de Pla_Doc --%>
-    <asp:Panel ID="Panel1" runat="server" GroupingText="Registros">
+    <asp:Panel ID="Panel1" runat="server" GroupingText="Solicitudes">
+    <asp:Label runat="server" ID="lbHelp_gvPla_Doc" ForeColor="DarkBlue">Seleccione una solicitud para asignarlo al POA</asp:Label>
     <asp:GridView ID="gvPla_Doc" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Doc_GetByTipo_RangoFecha_Solicita" 
         SelectedRowStyle-CssClass="selectedrowstyle" 
@@ -94,133 +95,132 @@ TagPrefix="ajax" %>
     </asp:Panel>
 	<%--[X] GridView de Pla_Doc --%>
 
-<%--Autocompletar del FormView de Pla_Doc --%>
-<%--[0]INICIO Javascript para manegar los campos de autocompletar --%>
-<div>
-<script type="text/javascript" >
-    // Autocompletar en Movimiento
-    function acxPla_Cta_CodigoTextBox_Click(source, eventArgs) {
-        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
-        var params = new Array();
-        params = eventArgs.get_value().split('||');
-        // 0 Id 
-        var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_IdTextBox');
-        xId.value = params[0];
-        // 2 Nombre
-        var xNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NombreTextBox');
-        xNombre.value = params[2];
-        // 3 Nivel
-        var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NivelTextBox');
-        xNivel.value = params[3];
-        // coloca el id del maestro en el detalle mediante el contextKey
-        $find('acxBIDPla_Tarea_NombreTextBox').set_contextKey(xId.value);
-    }
-    function acxPla_Cta_NombreTextBox_Click(source, eventArgs) {
-        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
-        var params = new Array();
-        params = eventArgs.get_value().split('||');
-        // 0 Id
-        var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_IdTextBox');
-        xId.value = params[0];
-        // 1 Codigo
-        var xCodigo = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_CodigoTextBox');
-        xCodigo.value = params[1];
-        // 3 Nivel
-        var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NivelTextBox');
-        xNivel.value = params[3];
-        // coloca el id del maestro en el detalle mediante el contextKey
-        $find('acxBIDPla_Tarea_NombreTextBox').set_contextKey(xId.value);
-    }
-    // Evento que encera los campos cuando se vuelve a seleccionar los autocomplex
-    function acxPla_Cta_CodigoTextBox_Populating(source, eventArgs) {
-        // 0 Id 
-        var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_IdTextBox');
-        xId.value = '';
-        // 2 Nombre
-        var xNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NombreTextBox');
-        xNombre.value = '';
-        // 3 Nivel
-        var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NivelTextBox');
-        xNivel.value = '';
-    }
-    function acxPla_Cta_NombreTextBox_Populating(source, eventArgs) {
-        // 0 Id
-        var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_IdTextBox');
-        xId.value = '';
-        // 1 Codigo
-        var xCodigo = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_CodigoTextBox');
-        xCodigo.value = '';
-        // 3 Nivel
-        var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NivelTextBox');
-        xNivel.value = '';
-    }
-    // Evento para poner el Anio del ddl en el contextKey
-    function ddlAnio_OnChange() {
-        var xddlAnio = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_ddlAnio');
-        //Codigo
-        $find('acxBID_Pla_Cta_CodigoTextBox').set_contextKey(xddlAnio.value);
-        //Nombre
-        $find('acxBID_Pla_Cta_NombreTextBox').set_contextKey(xddlAnio.value);
-        // Encera los campos
-        // 0 Id
-        var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_IdTextBox');
-        xId.value = '';
-        // 1 Codigo
-        var xCodigo = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_CodigoTextBox');
-        xCodigo.value = '';
-        // 2 Nombre
-        var xNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NombreTextBox');
-        xNombre.value = '';
-        // 3 Nivel
-        var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NivelTextBox');
-        xNivel.value = '';
-    }
-    // Autocompletar del Nombre de la tarea
-    function acxPla_Tarea_NombreTextBox_Click(source, eventArgs) {
-        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
-        var params = new Array();
-        params = eventArgs.get_value().split('||');
-        // 0 Id                            
-        var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Tarea_IdTextBox');
-        xId.value = params[0];
-        // Coloca el valor del campo Nombre para correguir al autocompletar
-        var acxBIDAutoCompletar = $find("acxBIDPla_Tarea_NombreTextBox");
-        var selInd = acxBIDAutoCompletar._selectIndex;
-        if (selInd != -1)
-            acxBIDAutoCompletar.get_element().value = params[2];
-        // Pone el contextKey en el autocompletar de la partida POA
-        $find('acxBIDPla_Partida_CodigoTextBox').set_contextKey(xId.value);        
-    }
-    // Un tuco para las listas desplegables con imagen incluida
-    function OnClientPopulatedTarea(sender, eventArgs) {
-        //Find the autocompleteextender list
-        var autoList = $find("acxBIDPla_Tarea_NombreTextBox").get_completionList();
-        for (i = 0; i < autoList.childNodes.length; i++) {
-            var text = autoList.childNodes[i].firstChild.nodeValue;
-            autoList.childNodes[i].innerHTML = '<img src="../images/Punto.png" /> ' + text;
+    <%--[0]INICIO Javascript para manegar los campos de autocompletar --%>
+    <div>
+    <script type="text/javascript" >
+        // Autocompletar en Movimiento
+        function acxPla_Cta_CodigoTextBox_Click(source, eventArgs) {
+            //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+            var params = new Array();
+            params = eventArgs.get_value().split('||');
+            // 0 Id 
+            var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_IdTextBox');
+            xId.value = params[0];
+            // 2 Nombre
+            var xNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NombreTextBox');
+            xNombre.value = params[2];
+            // 3 Nivel
+            var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NivelTextBox');
+            xNivel.value = params[3];
+            // coloca el id del maestro en el detalle mediante el contextKey
+            $find('acxBIDPla_Tarea_NombreTextBox').set_contextKey(xId.value);
         }
-    }
-    // Autocompletar en POA
-    function acxPla_Partida_CodigoTextBox_Click(source, eventArgs) {
-        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
-        var params = new Array();
-        params = eventArgs.get_value().split('||');
-        // 0 Id                            
-        var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Poa_IdTextBox');
-        xId.value = params[0];
-        // 2 Nombre
-        var xNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Partida_NombreTextBox');
-        xNombre.value = params[2];
-        // 3 Valor Inicial
-        var xValor_Inicial = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Valor_InicialTextBox');
-        xValor_Inicial.value = params[3];
-        // 4 Valor Suma
-        var xValor_Suma = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Valor_SumaTextBox');
-        xValor_Suma.value = params[4];
-    }
-</script>
-</div>
-<%--[X]FIN Javascript para manegar los campos de autocompletar --%>
+        function acxPla_Cta_NombreTextBox_Click(source, eventArgs) {
+            //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+            var params = new Array();
+            params = eventArgs.get_value().split('||');
+            // 0 Id
+            var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_IdTextBox');
+            xId.value = params[0];
+            // 1 Codigo
+            var xCodigo = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_CodigoTextBox');
+            xCodigo.value = params[1];
+            // 3 Nivel
+            var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NivelTextBox');
+            xNivel.value = params[3];
+            // coloca el id del maestro en el detalle mediante el contextKey
+            $find('acxBIDPla_Tarea_NombreTextBox').set_contextKey(xId.value);
+        }
+        // Evento que encera los campos cuando se vuelve a seleccionar los autocomplex
+        function acxPla_Cta_CodigoTextBox_Populating(source, eventArgs) {
+            // 0 Id 
+            var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_IdTextBox');
+            xId.value = '';
+            // 2 Nombre
+            var xNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NombreTextBox');
+            xNombre.value = '';
+            // 3 Nivel
+            var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NivelTextBox');
+            xNivel.value = '';
+        }
+        function acxPla_Cta_NombreTextBox_Populating(source, eventArgs) {
+            // 0 Id
+            var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_IdTextBox');
+            xId.value = '';
+            // 1 Codigo
+            var xCodigo = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_CodigoTextBox');
+            xCodigo.value = '';
+            // 3 Nivel
+            var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NivelTextBox');
+            xNivel.value = '';
+        }
+        // Evento para poner el Anio del ddl en el contextKey
+        function ddlAnio_OnChange() {
+            var xddlAnio = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_ddlAnio');
+            //Codigo
+            $find('acxBID_Pla_Cta_CodigoTextBox').set_contextKey(xddlAnio.value);
+            //Nombre
+            $find('acxBID_Pla_Cta_NombreTextBox').set_contextKey(xddlAnio.value);
+            // Encera los campos
+            // 0 Id
+            var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_IdTextBox');
+            xId.value = '';
+            // 1 Codigo
+            var xCodigo = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_CodigoTextBox');
+            xCodigo.value = '';
+            // 2 Nombre
+            var xNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NombreTextBox');
+            xNombre.value = '';
+            // 3 Nivel
+            var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NivelTextBox');
+            xNivel.value = '';
+        }
+        // Autocompletar del Nombre de la tarea
+        function acxPla_Tarea_NombreTextBox_Click(source, eventArgs) {
+            //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+            var params = new Array();
+            params = eventArgs.get_value().split('||');
+            // 0 Id                            
+            var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Tarea_IdTextBox');
+            xId.value = params[0];
+            // Coloca el valor del campo Nombre para correguir al autocompletar
+            var acxBIDAutoCompletar = $find("acxBIDPla_Tarea_NombreTextBox");
+            var selInd = acxBIDAutoCompletar._selectIndex;
+            if (selInd != -1)
+                acxBIDAutoCompletar.get_element().value = params[2];
+            // Pone el contextKey en el autocompletar de la partida POA
+            $find('acxBIDPla_Partida_CodigoTextBox').set_contextKey(xId.value);        
+        }
+        // Un tuco para las listas desplegables con imagen incluida
+        function OnClientPopulatedTarea(sender, eventArgs) {
+            //Find the autocompleteextender list
+            var autoList = $find("acxBIDPla_Tarea_NombreTextBox").get_completionList();
+            for (i = 0; i < autoList.childNodes.length; i++) {
+                var text = autoList.childNodes[i].firstChild.nodeValue;
+                autoList.childNodes[i].innerHTML = '<img src="../images/Punto.png" /> ' + text;
+            }
+        }
+        // Autocompletar en POA
+        function acxPla_Partida_CodigoTextBox_Click(source, eventArgs) {
+            //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+            var params = new Array();
+            params = eventArgs.get_value().split('||');
+            // 0 Id                            
+            var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Poa_IdTextBox');
+            xId.value = params[0];
+            // 2 Nombre
+            var xNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Partida_NombreTextBox');
+            xNombre.value = params[2];
+            // 3 Valor Inicial
+            var xValor_Inicial = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Valor_InicialTextBox');
+            xValor_Inicial.value = params[3];
+            // 4 Valor Suma
+            var xValor_Suma = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Valor_SumaTextBox');
+            xValor_Suma.value = params[4];
+        }
+    </script>
+    </div>
+    <%--[X]FIN Javascript para manegar los campos de autocompletar --%>
 
     <%--[O] FormView de Pla_Doc --%>
     <asp:Panel runat="server" ID="pfvPla_Doc" GroupingText="*">
@@ -584,7 +584,7 @@ TagPrefix="ajax" %>
                     ControlToValidate="Pla_Cta_CodigoTextBox"
                     ErrorMessage="El campo Pla_Cta_Codigo es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
-                    <ajax:AutoCompleteExtender 
+                    ...<ajax:AutoCompleteExtender 
                         runat="server" ID="acxPla_Cta_CodigoTextBox"
                         BehaviorID="acxBID_Pla_Cta_CodigoTextBox"
                         TargetControlID="Pla_Cta_CodigoTextBox" 
@@ -610,7 +610,7 @@ TagPrefix="ajax" %>
                     ControlToValidate="Pla_Cta_NombreTextBox"
                     ErrorMessage="El campo Pla_Cta_Nombre es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
-                <ajax:AutoCompleteExtender 
+                ...<ajax:AutoCompleteExtender 
                     runat="server" ID="acxPla_Cta_NombreTextBox"
                     BehaviorID="acxBID_Pla_Cta_NombreTextBox"
                     TargetControlID="Pla_Cta_NombreTextBox"
@@ -638,7 +638,7 @@ TagPrefix="ajax" %>
                     ControlToValidate="Pla_Tarea_NombreTextBox"
                     ErrorMessage="El campo Pla_Tarea_Nombre es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
-                <ajax:AutoCompleteExtender 
+                ...<ajax:AutoCompleteExtender 
                     runat="server" ID= "acxPla_Tarea_NombreTextBox"
                     BehaviorID= "acxBIDPla_Tarea_NombreTextBox"
                     TargetControlID= "Pla_Tarea_NombreTextBox"
@@ -666,7 +666,7 @@ TagPrefix="ajax" %>
                     ControlToValidate="Pla_Partida_CodigoTextBox"
                     ErrorMessage="El campo Pla_Partida_Codigo es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
-                <ajax:AutoCompleteExtender 
+                ...<ajax:AutoCompleteExtender 
                     runat="server" ID= "acxPla_Partida_CodigoTextBox"
                     BehaviorID= "acxBIDPla_Partida_CodigoTextBox"
                     TargetControlID= "Pla_Partida_CodigoTextBox"
@@ -693,7 +693,7 @@ TagPrefix="ajax" %>
 				</td>
             </tr>
             <tr >
-                <td> Valor Suma</td>                
+                <td> Saldo </td>                
 				<td><asp:TextBox ID="Valor_SumaTextBox" runat="server" Text="0"  CssClass="txtItemValor"  />
 				</td>
             </tr>
@@ -705,7 +705,7 @@ TagPrefix="ajax" %>
                     ControlToValidate="ValorTextBox"
                     ErrorMessage="El campo Valor es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
-					</td>
+				</td>
             </tr>
             <%--Campos ocultos--%>
             <tr style="display:none">
@@ -777,7 +777,7 @@ TagPrefix="ajax" %>
                     ControlToValidate="Pla_Cta_CodigoTextBox"
                     ErrorMessage="El campo Pla_Cta_Codigo es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
-                    <ajax:AutoCompleteExtender 
+                    ...<ajax:AutoCompleteExtender 
                         runat="server" ID="acxPla_Cta_CodigoTextBox"
                         BehaviorID="acxBID_Pla_Cta_CodigoTextBox"
                         TargetControlID="Pla_Cta_CodigoTextBox" 
@@ -803,7 +803,7 @@ TagPrefix="ajax" %>
                     ControlToValidate="Pla_Cta_NombreTextBox"
                     ErrorMessage="El campo Pla_Cta_Nombre es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
-                <ajax:AutoCompleteExtender 
+                ...<ajax:AutoCompleteExtender 
                     runat="server" ID="acxPla_Cta_NombreTextBox"
                     BehaviorID="acxBID_Pla_Cta_NombreTextBox"
                     TargetControlID="Pla_Cta_NombreTextBox"
@@ -831,7 +831,7 @@ TagPrefix="ajax" %>
                     ControlToValidate="Pla_Tarea_NombreTextBox"
                     ErrorMessage="El campo Pla_Tarea_Nombre es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
-                <ajax:AutoCompleteExtender 
+                ...<ajax:AutoCompleteExtender 
                     runat="server" ID= "acxPla_Tarea_NombreTextBox"
                     BehaviorID= "acxBIDPla_Tarea_NombreTextBox"
                     TargetControlID= "Pla_Tarea_NombreTextBox"
@@ -859,7 +859,7 @@ TagPrefix="ajax" %>
                     ControlToValidate="Pla_Partida_CodigoTextBox"
                     ErrorMessage="El campo Pla_Partida_Codigo es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
-                <ajax:AutoCompleteExtender 
+                ...<ajax:AutoCompleteExtender 
                     runat="server" ID= "acxPla_Partida_CodigoTextBox"
                     BehaviorID= "acxBIDPla_Partida_CodigoTextBox"
                     TargetControlID= "Pla_Partida_CodigoTextBox"
@@ -886,7 +886,7 @@ TagPrefix="ajax" %>
 				</td>
             </tr>
             <tr >
-                <td> Valor Suma</td>                
+                <td> Saldo</td>                
 				<td><asp:TextBox ID="Valor_SumaTextBox" runat="server" Text="0"  CssClass="txtItemValor"  />
 				</td>
             </tr>
@@ -898,12 +898,18 @@ TagPrefix="ajax" %>
                     ControlToValidate="ValorTextBox"
                     ErrorMessage="El campo Valor es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
-					</td>
+
+				</td>
             </tr>
             <%--Campos ocultos--%>
             <tr style="display:none">
                 <td> Orden </td>                
 				<td><asp:TextBox ID="OrdenTextBox" runat="server" Text='<%# Bind("Orden") %>'  CssClass="txtEdit"  />
+                </td>
+            </tr>
+            <tr style="display:none">
+                <td> Tipo </td>                
+				<td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  CssClass="txtEdit"  />
                 </td>
             </tr>
 			<tr  style="display:none">
@@ -1031,7 +1037,7 @@ TagPrefix="ajax" %>
 				</td>
             </tr>
             <tr >
-                <td> Valor Suma</td>                
+                <td> Saldo</td>                
 				<td><asp:TextBox ID="Valor_SumaTextBox" runat="server" Text="0"  CssClass="txtItemValor"  />
 				</td>
             </tr>

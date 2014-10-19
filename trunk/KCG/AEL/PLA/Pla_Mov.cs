@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AEL.PLA 
+namespace AEL.PLA
 {
     using System;
     using System.Collections.Generic;
@@ -40,6 +40,9 @@ namespace AEL.PLA
         private string _Estado;
         
         // Comentario
+        private string _Tipo;
+        
+        // Comentario
         private int _Pla_Tarea_Id;
         
         // Comentario
@@ -60,11 +63,30 @@ namespace AEL.PLA
         // Comentario
         private System.DateTime _Pla_Doc_Fecha;
         
+        // Comentario
+        private string _Pla_Doc_Codigo;
+        
         public Pla_Mov()
         {
         }
         
-        public Pla_Mov(int id, string codigo, int pla_Poa_Id, int pla_Doc_Id, int orden, decimal valor, string estado, int pla_Tarea_Id, string pla_Tarea_Nombre, int pla_Partida_Id, string pla_Partida_Codigo, string pla_Partida_Nombre, string pla_Doc_Tipo, System.DateTime pla_Doc_Fecha)
+        public Pla_Mov(
+                    int id, 
+                    string codigo, 
+                    int pla_Poa_Id, 
+                    int pla_Doc_Id, 
+                    int orden, 
+                    decimal valor, 
+                    string estado, 
+                    string tipo, 
+                    int pla_Tarea_Id, 
+                    string pla_Tarea_Nombre, 
+                    int pla_Partida_Id, 
+                    string pla_Partida_Codigo, 
+                    string pla_Partida_Nombre, 
+                    string pla_Doc_Tipo, 
+                    System.DateTime pla_Doc_Fecha, 
+                    string pla_Doc_Codigo)
         {
             this.Id = id;
             this.Codigo = codigo;
@@ -73,6 +95,7 @@ namespace AEL.PLA
             this.Orden = orden;
             this.Valor = valor;
             this.Estado = estado;
+            this.Tipo = tipo;
             this.Pla_Tarea_Id = pla_Tarea_Id;
             this.Pla_Tarea_Nombre = pla_Tarea_Nombre;
             this.Pla_Partida_Id = pla_Partida_Id;
@@ -80,6 +103,7 @@ namespace AEL.PLA
             this.Pla_Partida_Nombre = pla_Partida_Nombre;
             this.Pla_Doc_Tipo = pla_Doc_Tipo;
             this.Pla_Doc_Fecha = pla_Doc_Fecha;
+            this.Pla_Doc_Codigo = pla_Doc_Codigo;
         }
         
         public Pla_Mov(Pla_Mov o)
@@ -91,6 +115,7 @@ namespace AEL.PLA
             this.Orden = o.Orden;
             this.Valor = o.Valor;
             this.Estado = o.Estado;
+            this.Tipo = o.Tipo;
             this.Pla_Tarea_Id = o.Pla_Tarea_Id;
             this.Pla_Tarea_Nombre = o.Pla_Tarea_Nombre;
             this.Pla_Partida_Id = o.Pla_Partida_Id;
@@ -98,6 +123,7 @@ namespace AEL.PLA
             this.Pla_Partida_Nombre = o.Pla_Partida_Nombre;
             this.Pla_Doc_Tipo = o.Pla_Doc_Tipo;
             this.Pla_Doc_Fecha = o.Pla_Doc_Fecha;
+            this.Pla_Doc_Codigo = o.Pla_Doc_Codigo;
         }
         
         // Comentario
@@ -192,6 +218,19 @@ namespace AEL.PLA
         }
         
         // Comentario
+        public string Tipo
+        {
+            get
+            {
+                return this._Tipo;
+            }
+            set
+            {
+                this._Tipo = value;
+            }
+        }
+        
+        // Comentario
         public int Pla_Tarea_Id
         {
             get
@@ -279,6 +318,19 @@ namespace AEL.PLA
             set
             {
                 this._Pla_Doc_Fecha = value;
+            }
+        }
+        
+        // Comentario
+        public string Pla_Doc_Codigo
+        {
+            get
+            {
+                return this._Pla_Doc_Codigo;
+            }
+            set
+            {
+                this._Pla_Doc_Codigo = value;
             }
         }
     }

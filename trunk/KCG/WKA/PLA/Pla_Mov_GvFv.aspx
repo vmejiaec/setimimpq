@@ -59,23 +59,16 @@ TagPrefix="ajax" %>
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
 			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />
-			
-            <asp:BoundField DataField="Codigo" HeaderText="Codigo"   />
-			<asp:BoundField DataField="Pla_Doc_Fecha" HeaderText="Pla_Doc_Fecha"   />
-			<asp:BoundField DataField="Orden" HeaderText="Orden"   />
-			<asp:BoundField DataField="Pla_Doc_Tipo" HeaderText="Pla_Doc_Tipo"   />
-            <asp:BoundField DataField="Valor" HeaderText="Valor"    DataFormatString="{0:N2}"/>			
-			<asp:BoundField DataField="Pla_Tarea_Nombre" HeaderText="Pla_Tarea_Nombre"   />			
-			<asp:BoundField DataField="Pla_Partida_Codigo" HeaderText="Pla_Partida_Codigo"   />
-			<asp:BoundField DataField="Pla_Partida_Nombre" HeaderText="Pla_Partida_Nombre"   />
-			
-			
-            <asp:BoundField DataField="Estado"          HeaderText="Estado"         Visible = "false"  />
-            <asp:BoundField DataField="Pla_Tarea_Id"    HeaderText="Pla_Tarea_Id"   Visible = "false"/>
-            <asp:BoundField DataField="Pla_Partida_Id"  HeaderText="Pla_Partida_Id" Visible = "false" />
-			<asp:BoundField DataField="Pla_Poa_Id"      HeaderText="Pla_Poa_Id"     Visible = "false" />
-			<asp:BoundField DataField="Pla_Doc_Id"      HeaderText="Pla_Doc_Id"     Visible = "false" />
-            </Columns>
+			<asp:BoundField DataField="Codigo" HeaderText="Codigo"   Visible = "false" />
+			<asp:BoundField DataField="Pla_Poa_Id" HeaderText="Pla_Poa_Id"  Visible = "false"  />
+			<asp:BoundField DataField="Pla_Doc_Id" HeaderText="Pla_Doc_Id"  Visible = "false"  />
+			<asp:BoundField DataField="Pla_Doc_Codigo" HeaderText="Doc_Codigo"   />
+            <asp:BoundField DataField="Pla_Doc_Fecha" HeaderText="Doc_Fecha"   DataFormatString="{0:d}"/>
+            <asp:BoundField DataField="Pla_Doc_Tipo" HeaderText="Doc_Tipo"   />
+            <asp:BoundField DataField="Orden" HeaderText="Orden"   />
+			<asp:BoundField DataField="Valor" HeaderText="Valor"    DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
+			<asp:BoundField DataField="Tipo" HeaderText="Tipo"   />
+			</Columns>
     </asp:GridView>
     </asp:Panel>
 	<%--[X] GridView de Pla_Mov --%>
@@ -190,6 +183,16 @@ TagPrefix="ajax" %>
 				</td>
             </tr>
 			<tr >
+                <td> Tipo </td>                
+				<td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqTipo" runat="server" 
+                    ControlToValidate="TipoTextBox"
+                    ErrorMessage="El campo Tipo es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
+					</td>
+            </tr>
+			<tr >
                 <td> Pla_Tarea_Id </td>                
 				<td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
@@ -256,6 +259,16 @@ TagPrefix="ajax" %>
                     <asp:RequiredFieldValidator ID="rqPla_Doc_Fecha" runat="server" 
                     ControlToValidate="Pla_Doc_FechaTextBox"
                     ErrorMessage="El campo Pla_Doc_Fecha es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Pla_Doc_Codigo </td>                
+				<td><asp:TextBox ID="Pla_Doc_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Doc_Codigo") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqPla_Doc_Codigo" runat="server" 
+                    ControlToValidate="Pla_Doc_CodigoTextBox"
+                    ErrorMessage="El campo Pla_Doc_Codigo es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
 					</td>
             </tr>
@@ -329,6 +342,16 @@ TagPrefix="ajax" %>
 				</td>
             </tr>
 			<tr >
+                <td> Tipo </td>                
+				<td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqTipo" runat="server" 
+                    ControlToValidate="TipoTextBox"
+                    ErrorMessage="El campo Tipo es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
+					</td>
+            </tr>
+			<tr >
                 <td> Pla_Tarea_Id </td>                
 				<td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
@@ -398,6 +421,16 @@ TagPrefix="ajax" %>
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
 					</td>
             </tr>
+			<tr >
+                <td> Pla_Doc_Codigo </td>                
+				<td><asp:TextBox ID="Pla_Doc_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Doc_Codigo") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqPla_Doc_Codigo" runat="server" 
+                    ControlToValidate="Pla_Doc_CodigoTextBox"
+                    ErrorMessage="El campo Pla_Doc_Codigo es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
+					</td>
+            </tr>
 			</table>
             <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" ValidationGroup="vgPla_Mov"/>
             &nbsp;
@@ -436,6 +469,10 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
 			<tr >
+                <td> Tipo </td>
+				<td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			<tr >
                 <td> Pla_Tarea_Id </td>
 				<td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
@@ -462,6 +499,10 @@ TagPrefix="ajax" %>
 			<tr >
                 <td> Pla_Doc_Fecha </td>
 				<td><asp:TextBox ID="Pla_Doc_FechaTextBox" runat="server" Text='<%# Bind("Pla_Doc_Fecha") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			<tr >
+                <td> Pla_Doc_Codigo </td>
+				<td><asp:TextBox ID="Pla_Doc_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Doc_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
 			</table>
             <asp:Button ID="EditButton" RunAt="server"  CausesValidation="False" CommandName="Edit" Text="Editar" />

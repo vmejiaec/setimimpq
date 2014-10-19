@@ -18,7 +18,7 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
     #region Referencias a los objetos de pantalla
     protected override string Contenedor
     {
-        get { return "PLA_Pla_Cta_GvFv"; }
+        get { return "Cuentas POA"; }
     }
     #endregion
 
