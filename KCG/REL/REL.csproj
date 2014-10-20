@@ -109,6 +109,8 @@
     <Compile Include="FIS\RO_Fis_Planilla_Resumen.cs" />
     <Compile Include="INT\RO_Int_Empresa.cs" />
     <Compile Include="PER\RO_Per_Personal.cs" />
+    <Compile Include="PLA\REL_Pla_Doc.cs" />
+    <Compile Include="PLA\RO_PLa_Doc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +154,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
