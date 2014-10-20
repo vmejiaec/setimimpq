@@ -114,6 +114,22 @@ TagPrefix="ajax" %>
             xNivel.value = params[3];
             // coloca el id del maestro en el detalle mediante el contextKey
             $find('acxBIDPla_Tarea_NombreTextBox').set_contextKey(xId.value);
+            // Encera los campos en cascada
+            // Tarea Id
+            var xTareaId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Tarea_IdTextBox');
+            xTareaId.value = '';
+            // Tarea Nombre
+            var xTareaNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Tarea_NombreTextBox');
+            xTareaNombre.value = '';
+            // Partida Id
+            var xPartidaId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Partida_IdTextBox');
+            xPartidaId.value = '';
+            // Partida Codigo
+            var xPartidaCodigo = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Partida_CodigoTextBox');
+            xPartidaCodigo.value = '';
+            // Partida Nombre
+            var xPartidaNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Partida_NombreTextBox');
+            xPartidaNombre.value = '';
         }
         function acxPla_Cta_NombreTextBox_Click(source, eventArgs) {
             //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
@@ -189,7 +205,16 @@ TagPrefix="ajax" %>
             if (selInd != -1)
                 acxBIDAutoCompletar.get_element().value = params[2];
             // Pone el contextKey en el autocompletar de la partida POA
-            $find('acxBIDPla_Partida_CodigoTextBox').set_contextKey(xId.value);        
+            $find('acxBIDPla_Partida_CodigoTextBox').set_contextKey(xId.value);
+            // Partida Id
+            var xPartidaId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Partida_IdTextBox');
+            xPartidaId.value = '';
+            // Partida Codigo
+            var xPartidaCodigo = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Partida_CodigoTextBox');
+            xPartidaCodigo.value = '';
+            // Partida Nombre
+            var xPartidaNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Partida_NombreTextBox');
+            xPartidaNombre.value = '';
         }
         // Un tuco para las listas desplegables con imagen incluida
         function OnClientPopulatedTarea(sender, eventArgs) {
@@ -319,7 +344,7 @@ TagPrefix="ajax" %>
 					</tr>
 			        <tr >
                         <td> Esta_Planificada </td>
-				        <td><asp:DropDownList ID="Esta_PlanificadaDropDownList" runat="server" 
+				        <td><asp:DropDownList ID="Esta_PlanificadaDropDownList" runat="server"  CssClass="txtEdit"
                             SelectedValue='<%# Bind("Esta_Planificada") %>' >
                                 <asp:ListItem Text="Pendiente" Value="PEN"></asp:ListItem>
                                 <asp:ListItem Text="SI" Value="SIP"></asp:ListItem>
@@ -553,7 +578,7 @@ TagPrefix="ajax" %>
             onprerender="fvPla_Mov_PreRender"
 			onitemupdating="fvPla_Mov_ItemUpdating"
 			onitemdeleting="fvPla_Mov_ItemDeleting"
-            DataKeyNames="Id" 
+            DataKeyNames="Id"
 			>
         <EmptyDataTemplate>Crear un primer movimiento: 
         </EmptyDataTemplate>

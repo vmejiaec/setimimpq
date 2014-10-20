@@ -183,55 +183,79 @@ public partial class PLA_Pla_Doc_Director : PaginaBase
     }	
     protected void fvPla_Doc_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
-        // Controla el cambio del formato de las fechas
-        e.NewValues["Fecha_Solicita"] = DateTime.Parse((string)e.NewValues["Fecha_Solicita"]);
-        e.OldValues["Fecha_Solicita"] = DateTime.Parse((string)e.OldValues["Fecha_Solicita"]);
-        e.NewValues["Fecha_Contrata"] = DateTime.Parse((string)e.NewValues["Fecha_Contrata"]);
-        e.OldValues["Fecha_Contrata"] = DateTime.Parse((string)e.OldValues["Fecha_Contrata"]);
-        e.NewValues["Fecha_Planifica"] = DateTime.Parse((string)e.NewValues["Fecha_Planifica"]);
-        e.OldValues["Fecha_Planifica"] = DateTime.Parse((string)e.OldValues["Fecha_Planifica"]);
-        // Valores para los campos de personas
-        e.NewValues["Per_Personal_Id_Modifica"] = Scope.Per_Personal_Id;
-        // La solicitud del director se actualiza con las personas de Planificación y Contratación
-        // en NULL para que sea coherente con el proceso
-        if (String.IsNullOrEmpty((string)e.OldValues["Per_Personal_Id_Planifica"]))
+        // Validar que el DOC seleccionado tenga el estado Planifica = "PEN"
+        var xEsta_Planificada = fvPla_Doc.FindControl("Esta_PlanificadaTextBox");
+        string sEsta_Planificada = ((TextBox)xEsta_Planificada).Text;
+        if (sEsta_Planificada == "PEN")
         {
-            e.OldValues["Per_Personal_Id_Planifica"] = null;
-            e.NewValues["Per_Personal_Id_Planifica"] = null;
+            // Controla el cambio del formato de las fechas
+            e.NewValues["Fecha_Solicita"] = DateTime.Parse((string)e.NewValues["Fecha_Solicita"]);
+            e.OldValues["Fecha_Solicita"] = DateTime.Parse((string)e.OldValues["Fecha_Solicita"]);
+            e.NewValues["Fecha_Contrata"] = DateTime.Parse((string)e.NewValues["Fecha_Contrata"]);
+            e.OldValues["Fecha_Contrata"] = DateTime.Parse((string)e.OldValues["Fecha_Contrata"]);
+            e.NewValues["Fecha_Planifica"] = DateTime.Parse((string)e.NewValues["Fecha_Planifica"]);
+            e.OldValues["Fecha_Planifica"] = DateTime.Parse((string)e.OldValues["Fecha_Planifica"]);
+            // Valores para los campos de personas
+            e.NewValues["Per_Personal_Id_Modifica"] = Scope.Per_Personal_Id;
+            // La solicitud del director se actualiza con las personas de Planificación y Contratación
+            // en NULL para que sea coherente con el proceso
+            if (String.IsNullOrEmpty((string)e.OldValues["Per_Personal_Id_Planifica"]))
+            {
+                e.OldValues["Per_Personal_Id_Planifica"] = null;
+                e.NewValues["Per_Personal_Id_Planifica"] = null;
+            }
+            if (String.IsNullOrEmpty((string)e.OldValues["Per_Personal_Id_Contrata"]))
+            {
+                e.OldValues["Per_Personal_Id_Contrata"] = null;
+                e.NewValues["Per_Personal_Id_Contrata"] = null;
+            }
+            // Cambio del formato del campo Valor
+            e.NewValues["Valor_Solicita"] = Decimal.Parse((string)e.NewValues["Valor_Solicita"]);
+            e.OldValues["Valor_Solicita"] = Decimal.Parse((string)e.OldValues["Valor_Solicita"]);
+            // Guarda los datos del registro a borrar en memoria
+            this.MemoriaRegistroActual = "Id: " + e.NewValues["Id"].ToString() + " * " +
+                                         "Codigo: " + (string)e.NewValues["Codigo"];
         }
-        if (String.IsNullOrEmpty((string)e.OldValues["Per_Personal_Id_Contrata"]))
+        else // Si el estado de planificación es igual a PEN no puede hacer nada
         {
-            e.OldValues["Per_Personal_Id_Contrata"] = null;
-            e.NewValues["Per_Personal_Id_Contrata"] = null;
+            e.Cancel = true;
+            fvPla_Doc.HayErrorInsUpd = true;
+            lbFvMsgErrorPla_Doc.Text = String.Format("Error, el campo Esta_Planifica debe ser diferente a PEN.");
         }
-        // Cambio del formato del campo Valor
-        e.NewValues["Valor_Solicita"] = Decimal.Parse((string)e.NewValues["Valor_Solicita"]);
-        e.OldValues["Valor_Solicita"] = Decimal.Parse((string)e.OldValues["Valor_Solicita"]);
-		// Guarda los datos del registro a borrar en memoria
-        this.MemoriaRegistroActual = "Id: " + e.NewValues["Id"].ToString() + " * " +
-									 "Codigo: " + (string)e.NewValues["Codigo"] ;
     }
     protected void fvPla_Doc_ItemDeleting(object sender, FormViewDeleteEventArgs e)
     {
-        // Cambio del formato de los campos de fechas
-        e.Values["Fecha_Solicita"] = DateTime.Parse((string)e.Values["Fecha_Solicita"]);
-        e.Values["Fecha_Contrata"] = DateTime.Parse((string)e.Values["Fecha_Contrata"]);
-        e.Values["Fecha_Planifica"] = DateTime.Parse((string)e.Values["Fecha_Planifica"]);
-        // Cambio del formato del campo Valor
-        e.Values["Valor_Solicita"] = Decimal.Parse((string)e.Values["Valor_Solicita"]);
-        // La solicitud del director se actualiza con las personas de Planificación y Contratación
-        // en NULL para que sea coherente con el proceso
-        if (String.IsNullOrEmpty((string)e.Values["Per_Personal_Id_Planifica"]))
+        // Validar que el DOC seleccionado tenga el estado Planifica = "PEN"
+        var xEsta_Planificada = fvPla_Doc.FindControl("Esta_PlanificadaTextBox");
+        string sEsta_Planificada = ((TextBox)xEsta_Planificada).Text;
+        if (sEsta_Planificada == "PEN")
         {
-            e.Values["Per_Personal_Id_Planifica"] = null;
+            // Cambio del formato de los campos de fechas
+            e.Values["Fecha_Solicita"] = DateTime.Parse((string)e.Values["Fecha_Solicita"]);
+            e.Values["Fecha_Contrata"] = DateTime.Parse((string)e.Values["Fecha_Contrata"]);
+            e.Values["Fecha_Planifica"] = DateTime.Parse((string)e.Values["Fecha_Planifica"]);
+            // Cambio del formato del campo Valor
+            e.Values["Valor_Solicita"] = Decimal.Parse((string)e.Values["Valor_Solicita"]);
+            // La solicitud del director se actualiza con las personas de Planificación y Contratación
+            // en NULL para que sea coherente con el proceso
+            if (String.IsNullOrEmpty((string)e.Values["Per_Personal_Id_Planifica"]))
+            {
+                e.Values["Per_Personal_Id_Planifica"] = null;
+            }
+            if (String.IsNullOrEmpty((string)e.Values["Per_Personal_Id_Contrata"]))
+            {
+                e.Values["Per_Personal_Id_Contrata"] = null;
+            }
+            // Guarda los datos del registro a borrar en memoria
+            this.MemoriaRegistroActual = "Id: " + e.Values["Id"].ToString() + " * " +
+                                         "Codigo: " + (string)e.Values["Codigo"];
         }
-        if (String.IsNullOrEmpty((string)e.Values["Per_Personal_Id_Contrata"]))
+        else // Si el estado de planificación es igual a PEN no puede hacer nada
         {
-            e.Values["Per_Personal_Id_Contrata"] = null;
+            e.Cancel = true;
+            fvPla_Doc.HayErrorInsUpd = true;
+            lbFvMsgErrorPla_Doc.Text = String.Format("Error, el campo Esta_Planifica debe ser diferente a PEN.");
         }
-		// Guarda los datos del registro a borrar en memoria
-        this.MemoriaRegistroActual = "Id: " + e.Values["Id"].ToString() + " * " +
-									 "Codigo: " + (string)e.Values["Codigo"] ;
     }
 	// Inicializa los valores antes de que el FormView se dibuje en la página
     protected void fvPla_Doc_PreRender(object sender, EventArgs e)
