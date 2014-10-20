@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 using ADL.PlanificacionTableAdapters;
-using AEL.PLA; 
+using AEL.PLA;
 using BEL;
 using System.Data.SqlClient;
 
@@ -29,13 +29,15 @@ fila.Pla_Doc_Id,
 fila.Orden,
 fila.Valor,
 fila.Estado,
+fila.Tipo,
 fila.Pla_Tarea_Id,
 fila.Pla_Tarea_Nombre,
 fila.Pla_Partida_Id,
 fila.Pla_Partida_Codigo,
 fila.Pla_Partida_Nombre,
 fila.Pla_Doc_Tipo,
-fila.Pla_Doc_Fecha
+fila.Pla_Doc_Fecha,
+fila.Pla_Doc_Codigo
 			));
         }
         return lista;
@@ -51,7 +53,8 @@ n.Pla_Poa_Id,
 n.Pla_Doc_Id,
 n.Orden,
 n.Valor,
-n.Estado
+n.Estado,
+n.Tipo
 			);
         }
         catch (SqlException e)
@@ -70,7 +73,8 @@ o.Pla_Poa_Id,
 o.Pla_Doc_Id,
 o.Orden,
 o.Valor,
-o.Estado
+o.Estado,
+o.Tipo
 			);
         }
         catch (SqlException e)
@@ -90,6 +94,7 @@ n.Pla_Doc_Id,
 n.Orden,
 n.Valor,
 n.Estado,
+n.Tipo,
 o.Id,
 o.Codigo,
 o.Pla_Poa_Id,
@@ -97,6 +102,7 @@ o.Pla_Doc_Id,
 o.Orden,
 o.Valor,
 o.Estado,
+o.Tipo,
 n.Id
 			);
         }
@@ -119,13 +125,15 @@ fila.Pla_Doc_Id,
 fila.Orden,
 fila.Valor,
 fila.Estado,
+fila.Tipo,
 fila.Pla_Tarea_Id,
 fila.Pla_Tarea_Nombre,
 fila.Pla_Partida_Id,
 fila.Pla_Partida_Codigo,
 fila.Pla_Partida_Nombre,
 fila.Pla_Doc_Tipo,
-fila.Pla_Doc_Fecha
+fila.Pla_Doc_Fecha,
+fila.Pla_Doc_Codigo
 				));
 			}
 			return lista;
@@ -145,13 +153,15 @@ fila.Pla_Doc_Id,
 fila.Orden,
 fila.Valor,
 fila.Estado,
+fila.Tipo,
 fila.Pla_Tarea_Id,
 fila.Pla_Tarea_Nombre,
 fila.Pla_Partida_Id,
 fila.Pla_Partida_Codigo,
 fila.Pla_Partida_Nombre,
 fila.Pla_Doc_Tipo,
-fila.Pla_Doc_Fecha
+fila.Pla_Doc_Fecha,
+fila.Pla_Doc_Codigo
 				));
 			}
 			return lista;
@@ -171,13 +181,15 @@ fila.Pla_Doc_Id,
 fila.Orden,
 fila.Valor,
 fila.Estado,
+fila.Tipo,
 fila.Pla_Tarea_Id,
 fila.Pla_Tarea_Nombre,
 fila.Pla_Partida_Id,
 fila.Pla_Partida_Codigo,
 fila.Pla_Partida_Nombre,
 fila.Pla_Doc_Tipo,
-fila.Pla_Doc_Fecha
+fila.Pla_Doc_Fecha,
+fila.Pla_Doc_Codigo
 				));
 			}
 			return lista;
@@ -193,7 +205,8 @@ n.Pla_Poa_Id,
 n.Pla_Doc_Id,
 n.Orden,
 n.Valor,
-n.Estado
+n.Estado,
+n.Tipo
 			));
         }
         catch (SqlException e)

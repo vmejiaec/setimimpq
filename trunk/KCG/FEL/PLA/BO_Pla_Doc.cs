@@ -7,7 +7,7 @@ using HER;
 
 namespace FEL.PLA
 {
-    [DataObject] 
+    [DataObject]
     public partial class BO_Pla_Doc
     {
         #region Adaptador

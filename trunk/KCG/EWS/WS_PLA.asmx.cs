@@ -4,7 +4,7 @@ using System.Web.Services;
 
 using CEL.PLA; // datos.xsdNombreIniciales
 using AEL.PLA;
-using BEL; 
+using BEL;
 
 namespace EWS
 {
@@ -115,65 +115,6 @@ namespace EWS
 		public string Pla_Cta_SelTareasSTR(Scope s , string p_Anio, Int32 p_Pla_Cta_Id, DateTime p_Fecha)
         {
             return Pla_Cta.SelTareasSTR(s,  p_Anio, p_Pla_Cta_Id, p_Fecha);
-        }
-		#endregion
-		#endregion
-	    #region Servicios para Pla_Mov
-        private DO_Pla_Mov _Pla_Mov;
-        public DO_Pla_Mov Pla_Mov {
-            get {
-                if (_Pla_Mov == null)
-                    _Pla_Mov = new DO_Pla_Mov();
-                return _Pla_Mov;
-            }
-        }
-
-		#region Select
-		[WebMethod]
-        public List<Pla_Mov> Pla_Mov_Get(Scope s)
-        {
-            return Pla_Mov.Get(s);
-        }
-		#endregion
-		#region Insert, Delete, Update
-		[WebMethod]
-        public int Pla_Mov_Insert(Pla_Mov n)
-        {
-            return Pla_Mov.Insert(n);
-        }
-		[WebMethod]
-        public int Pla_Mov_Delete(Pla_Mov o)
-        {
-            return Pla_Mov.Delete(o);
-        }
-		[WebMethod]
-        public int Pla_Mov_Update(Pla_Mov o,Pla_Mov n)
-        {
-            return Pla_Mov.Update(o, n);
-        }
-		#endregion
-		#region Métodos Get
-		[WebMethod]
-		public List<Pla_Mov> Pla_Mov_GetById(Scope s , Int32 p_Id)
-        {
-            return Pla_Mov.GetById(s,  p_Id);
-        }
-		[WebMethod]
-		public List<Pla_Mov> Pla_Mov_GetByPla_Doc_Id(Scope s , Int32 p_Pla_Doc_Id)
-        {
-            return Pla_Mov.GetByPla_Doc_Id(s,  p_Pla_Doc_Id);
-        }
-		[WebMethod]
-		public List<Pla_Mov> Pla_Mov_GetByPla_Poa_Id(Scope s , Int32 p_Pla_Poa_Id)
-        {
-            return Pla_Mov.GetByPla_Poa_Id(s,  p_Pla_Poa_Id);
-        }
-		#endregion
-		#region Métodos Genéricos retornan un escalar
-				[WebMethod]
-        public int Pla_Mov_InsertINT(Pla_Mov n)
-        {
-            return Pla_Mov.InsertINT(n);
         }
 		#endregion
 		#endregion
@@ -465,6 +406,65 @@ namespace EWS
         public int Pla_Doc_InsertINT(Pla_Doc n)
         {
             return Pla_Doc.InsertINT(n);
+        }
+		#endregion
+		#endregion
+	    #region Servicios para Pla_Mov
+        private DO_Pla_Mov _Pla_Mov;
+        public DO_Pla_Mov Pla_Mov {
+            get {
+                if (_Pla_Mov == null)
+                    _Pla_Mov = new DO_Pla_Mov();
+                return _Pla_Mov;
+            }
+        }
+
+		#region Select
+		[WebMethod]
+        public List<Pla_Mov> Pla_Mov_Get(Scope s)
+        {
+            return Pla_Mov.Get(s);
+        }
+		#endregion
+		#region Insert, Delete, Update
+		[WebMethod]
+        public int Pla_Mov_Insert(Pla_Mov n)
+        {
+            return Pla_Mov.Insert(n);
+        }
+		[WebMethod]
+        public int Pla_Mov_Delete(Pla_Mov o)
+        {
+            return Pla_Mov.Delete(o);
+        }
+		[WebMethod]
+        public int Pla_Mov_Update(Pla_Mov o,Pla_Mov n)
+        {
+            return Pla_Mov.Update(o, n);
+        }
+		#endregion
+		#region Métodos Get
+		[WebMethod]
+		public List<Pla_Mov> Pla_Mov_GetById(Scope s , Int32 p_Id)
+        {
+            return Pla_Mov.GetById(s,  p_Id);
+        }
+		[WebMethod]
+		public List<Pla_Mov> Pla_Mov_GetByPla_Doc_Id(Scope s , Int32 p_Pla_Doc_Id)
+        {
+            return Pla_Mov.GetByPla_Doc_Id(s,  p_Pla_Doc_Id);
+        }
+		[WebMethod]
+		public List<Pla_Mov> Pla_Mov_GetByPla_Poa_Id(Scope s , Int32 p_Pla_Poa_Id)
+        {
+            return Pla_Mov.GetByPla_Poa_Id(s,  p_Pla_Poa_Id);
+        }
+		#endregion
+		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+        public int Pla_Mov_InsertINT(Pla_Mov n)
+        {
+            return Pla_Mov.InsertINT(n);
         }
 		#endregion
 		#endregion
