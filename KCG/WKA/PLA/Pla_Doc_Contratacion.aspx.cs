@@ -5,6 +5,7 @@ using System.Web.Services.Protocols;
 using System.Data;
 using System.Collections.Generic;
 using System.Web;
+using System.Configuration;
 
 public partial class PLA_Pla_Doc_Contratacion : PaginaBase
 {
@@ -374,4 +375,21 @@ public partial class PLA_Pla_Doc_Contratacion : PaginaBase
         o["p_Pla_Tarea_Id"] = oMov.Pla_Tarea_Id;
     }
 
+    // Reporte del Formulario de Inicio de proceso
+    protected void btReporteFormulario_Click(object sender, EventArgs e)
+    {
+        // Tomo el Id seleccionado de la lista
+        if (gvPla_Doc.SelectedValue != null)
+        {
+            int xPla_Doc_Id = (int)gvPla_Doc.SelectedValue;
+            if (Session["Scope"] == null) Response.Redirect("~/PAS/PAR_ACCESO.aspx");
+            Scope s = (Scope)Session["Scope"];
+            string servidor_reporte = ConfigurationManager.AppSettings["URL_Servidor_Reportes"];
+            HER.ResponseHelper.Redirect(servidor_reporte
+                                    + "PLA/PLA_Formulario_Inicio_Proceso.aspx"
+                                    + Scope_Factory.Get_QueryString(s)
+                                    + string.Format("&v_Pla_Doc_Id={0}", xPla_Doc_Id),
+                                    "_blank", "scrollbars=yes, resizable=yes");
+        }
+    }
 }
