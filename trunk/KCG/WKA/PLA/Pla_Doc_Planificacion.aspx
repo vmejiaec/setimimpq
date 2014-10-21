@@ -748,7 +748,7 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="Pla_Doc_FechaTextBox" runat="server" Text='<%# Bind("Pla_Doc_Fecha") %>'  CssClass="txtEdit"  />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Pla_Partida_Id </td>                
 				<td><asp:TextBox ID="Pla_Partida_IdTextBox" runat="server" Text='<%# Bind("Pla_Partida_Id") %>'  CssClass="txtEdit"  />
 					</td>
@@ -947,7 +947,7 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="Pla_Doc_FechaTextBox" runat="server" Text='<%# Bind("Pla_Doc_Fecha") %>'  CssClass="txtEdit"  />
 					</td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Pla_Partida_Id </td>                
 				<td><asp:TextBox ID="Pla_Partida_IdTextBox" runat="server" Text='<%# Bind("Pla_Partida_Id") %>'  CssClass="txtEdit"  />
 					</td>
