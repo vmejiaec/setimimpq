@@ -74,6 +74,7 @@
     <Content Include="APU\APU_RUBRO_REPORTE.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Imagenes\fonsal.JPG" />
+    <Content Include="Imagenes\LogoReporteIMPQ_Small.jpg" />
     <Content Include="PLA\PLA_Formulario_Inicio_Proceso.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

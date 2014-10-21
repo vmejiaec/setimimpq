@@ -225,7 +225,7 @@ namespace REL.PLA
             //
             string Plantilla =
                 "Yo, {0} en mi calidad de Responsable de la Unidad de Contratación,  certifico que " +
-                "la contratación requerida por la Dirección de {1}, {2}se encuentra contemplada en " +
+                "la contratación requerida por la Dirección de {1}, {2} se encuentra contemplada en " +
                 "el PAC,  línea N° {3} y Código CPC: {4}";
             string TextoLleno = String.Format(Plantilla,
                 this.Per_Personal_Nombre_Contrata.ToUpper(),

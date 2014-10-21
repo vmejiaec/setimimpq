@@ -982,7 +982,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.89854in</Height>
+              <Height>1.05781in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2451,7 +2451,7 @@
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>=Sum(Fields!Partida_Valor_1.Value)</Value>
+                                            <Value>= IIf(Fields!Partida_Valor_1.Value = 0,"",Fields!Partida_Valor_1.Value)</Value>
                                             <Style>
                                               <Format>0.00;(0.00)</Format>
                                             </Style>
@@ -2825,7 +2825,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.70363in</Height>
+              <Height>1.03696in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -3962,7 +3962,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.90994in</Height>
+              <Height>0.89952in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -4135,7 +4135,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.18414in</Height>
+              <Height>0.09039in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -4302,7 +4302,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Height>25.95575cm</Height>
+        <Height>26.94236cm</Height>
         <Width>16.87137cm</Width>
         <Style>
           <Border>
@@ -4311,7 +4311,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>11.04474in</Height>
+    <Height>10.89891in</Height>
     <Style />
   </Body>
   <ReportParameters>
@@ -4330,6 +4330,31 @@
   </ReportParameters>
   <Width>6.64227in</Width>
   <Page>
+    <PageHeader>
+      <Height>0.83007cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Image Name="Logo">
+          <Source>External</Source>
+          <Value>=Parameters!pr_Logo_Imagen.Value</Value>
+          <Sizing>FitProportional</Sizing>
+          <Left>15.28188cm</Left>
+          <Height>0.75917cm</Height>
+          <Width>1.55292cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
     <PageFooter>
       <Height>2.54cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
@@ -4371,7 +4396,9 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>="Reporte del formulario previo al inicio del proceso de contratación. " + Globals!ExecutionTime</Value>
+                  <Value>="Reporte del formulario previo al inicio del proceso de contratación. "
++ ": " + Parameters!pr_Usuario_Nombre.Value 
++ " - " + Globals!ExecutionTime</Value>
                   <Style>
                     <FontSize>8pt</FontSize>
                     <Color>DimGray</Color>
