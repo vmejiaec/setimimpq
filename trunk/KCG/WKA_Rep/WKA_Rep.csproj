@@ -51,11 +51,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Reportes\DLL\ConvertCantidad.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\Microsoft.ReportViewer.WebForms\8.0.0.0__b03f5f7f11d50a3a\Microsoft.ReportViewer.WebForms.dll</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -77,6 +74,7 @@
     <Content Include="APU\APU_RUBRO_REPORTE.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Imagenes\fonsal.JPG" />
+    <Content Include="PLA\PLA_Formulario_Inicio_Proceso.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -319,6 +317,13 @@
     <Compile Include="PER\R_PER_PERSONAL.aspx.designer.cs">
       <DependentUpon>R_PER_PERSONAL.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PLA\PLA_Formulario_Inicio_Proceso.aspx.cs">
+      <DependentUpon>PLA_Formulario_Inicio_Proceso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PLA\PLA_Formulario_Inicio_Proceso.aspx.designer.cs">
+      <DependentUpon>PLA_Formulario_Inicio_Proceso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App_Code\ResponseHelper.cs" />
     <Compile Include="App_Code\Scope_Factory.cs" />
@@ -468,6 +473,7 @@
     <EmbeddedResource Include="FIS\SR_FIS_PLANILLA_REAJ_REA_FOR.rdlc" />
     <EmbeddedResource Include="FIS\SR_FIS_PLANILLA_REAJ_REA_FORMULA.rdlc" />
     <EmbeddedResource Include="PER\R_PER_PERSONAL.rdlc" />
+    <EmbeddedResource Include="PLA\Rep_PLA_FormularioInicioProceso.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\KReporte\reporte.css" />
@@ -533,9 +539,7 @@
       <DependentUpon>APU_REP.xsd</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PLA\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

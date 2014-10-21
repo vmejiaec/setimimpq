@@ -109,7 +109,7 @@ namespace WKA_Rep.APU
                                             Apu_Oferta_Codigo_A, Apu_Oferta_Codigo_B);
                 // Carga los datos al reporte
                 ReportDataSource rptDatos = new ReportDataSource("DataSet1_Apu_Proyecto_Oferta_Rubro_ByPryOfr",
-                                                                 dtPryOfr);
+                                                                (DataTable) dtPryOfr);
                 rptRubro.LocalReport.DataSources.Clear();
                 rptRubro.LocalReport.DataSources.Add(rptDatos);
                 //Llama al reporte

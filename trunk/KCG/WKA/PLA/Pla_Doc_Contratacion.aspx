@@ -520,6 +520,13 @@ TagPrefix="ajax" %>
     </asp:Panel>
 	<%--[X] FormView de Pla_Doc --%>
 
+    <%--[O] Barras del Reporte --%>
+    <asp:Panel runat="server" ID="pReportes" GroupingText="Reportes">
+        <asp:Button ID="btReporteFormulario" runat="server" 
+            Text="Formulario de Inicio de Proceso" onclick="btReporteFormulario_Click" />
+    </asp:Panel>
+    <%--[X] Barras del Reporte --%>
+
     <%--[O] GridView de Pla_Mov --%>
     <asp:Panel ID="Panel5" runat="server" GroupingText="Partidas">
     <asp:GridView ID="gvPla_Mov" runat="server" AutoGenerateColumns="False" 
