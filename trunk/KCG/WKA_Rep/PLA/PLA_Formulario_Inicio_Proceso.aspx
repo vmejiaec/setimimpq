@@ -13,8 +13,10 @@ tagprefix="rsweb" %>
     
         <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" 
             Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
-            WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
-            <LocalReport ReportPath="PLA\Rep_PLA_FormularioInicioProceso.rdlc">
+            WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt"
+            SizeToReportContent="true" >
+            <LocalReport ReportPath="PLA\Rep_PLA_FormularioInicioProceso.rdlc" 
+                EnableExternalImages="true">
                 <DataSources>
                     <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DataSet1" />
                 </DataSources>

@@ -13,13 +13,12 @@ namespace WKA_Rep.PLA
         protected void Page_Load(object sender, EventArgs e)
         {
             Scope = Scope_Factory.Get(Request.QueryString);
-            int v_Pla_Doc_Id = Int32.Parse(Request.QueryString.Get("v_Pla_Doc_Id"));
-            
+                        
             ReportParameter[] parametros = new ReportParameter[2];
             if (!IsPostBack)
             {
-                parametros[0] = new ReportParameter("pr_Usuario_Nombre", Scope.Per_Personal_Nombre);
-                parametros[1] = new ReportParameter("pr_Logo_Imagen", ObtenerUrlCompleta(Empresa.Imagen));
+                parametros[0] = new ReportParameter("pr_Usuario_Nombre", Scope.Int_Usuario_Nombre);
+                parametros[1] = new ReportParameter("pr_Logo_Imagen", ObtenerUrlCompleta(@"~\Imagenes\LogoReporteIMPQ_Small.jpg"));
                 ReportViewer1.LocalReport.SetParameters(parametros);
             }
         }

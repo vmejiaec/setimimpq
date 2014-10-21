@@ -437,7 +437,7 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
                 }
                 else
                 {
-                    lbFvMsgErrorPla_Mov.Text = "";
+                    lbFvMsgErrorPla_Mov.Text = ":";
                 }
                 // Guarda los datos del registro a borrar en memoria
                 this.MemoriaRegistroActual = "Codigo: " + (string)e.Values["Codigo"];
@@ -488,7 +488,7 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
                 }
                 else
                 {
-                    lbFvMsgErrorPla_Mov.Text = "";
+                    lbFvMsgErrorPla_Mov.Text = ":";
                 }
                 // Guarda los datos del registro a borrar en memoria
                 this.MemoriaRegistroActual = "Id: " + (string)e.NewValues["Id"] + " * " +

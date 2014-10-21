@@ -227,10 +227,10 @@ TagPrefix="ajax" %>
         }
         // Autocompletar en POA
         function acxPla_Partida_CodigoTextBox_Click(source, eventArgs) {
-            //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+            alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
             var params = new Array();
             params = eventArgs.get_value().split('||');
-            // 0 Id                            
+            // 0 Id                            ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Partida_IdTextBox
             var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Poa_IdTextBox');
             xId.value = params[0];
             // 2 Nombre
@@ -748,7 +748,7 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="Pla_Doc_FechaTextBox" runat="server" Text='<%# Bind("Pla_Doc_Fecha") %>'  CssClass="txtEdit"  />
 					</td>
             </tr>
-			<tr style="display:none">
+			<tr >
                 <td> Pla_Partida_Id </td>                
 				<td><asp:TextBox ID="Pla_Partida_IdTextBox" runat="server" Text='<%# Bind("Pla_Partida_Id") %>'  CssClass="txtEdit"  />
 					</td>
@@ -947,7 +947,7 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="Pla_Doc_FechaTextBox" runat="server" Text='<%# Bind("Pla_Doc_Fecha") %>'  CssClass="txtEdit"  />
 					</td>
             </tr>
-			<tr style="display:none">
+			<tr >
                 <td> Pla_Partida_Id </td>                
 				<td><asp:TextBox ID="Pla_Partida_IdTextBox" runat="server" Text='<%# Bind("Pla_Partida_Id") %>'  CssClass="txtEdit"  />
 					</td>
@@ -975,7 +975,7 @@ TagPrefix="ajax" %>
             </asp:Panel>
         </InsertItemTemplate>
         <ItemTemplate>
-            <asp:Panel runat="server" ID="panelItemTemplate" DefaultButton="EditButton">
+            <asp:Panel runat="server" ID="panelItemTemplate" DefaultButton="NewButton">
             <table>
             <tr style="display:none">
                 <td> Codigo </td>
@@ -1077,7 +1077,7 @@ TagPrefix="ajax" %>
 							</tr>
 
 			</table>
-            <asp:Button ID="EditButton" RunAt="server"  CausesValidation="False" CommandName="Edit" Text="Editar" />
+            <%--<asp:Button ID="EditButton" RunAt="server"  CausesValidation="False" CommandName="Edit" Text="Editar" />--%>
             &nbsp;
             <asp:Button ID="DeleteButton" RunAt="server" CausesValidation="False" CommandName="Delete" Text="Borrar" />
             &nbsp;
