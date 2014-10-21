@@ -227,7 +227,7 @@ TagPrefix="ajax" %>
         }
         // Autocompletar en POA
         function acxPla_Partida_CodigoTextBox_Click(source, eventArgs) {
-            alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+            //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
             var params = new Array();
             params = eventArgs.get_value().split('||');
             // 0 Id                            ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Partida_IdTextBox
