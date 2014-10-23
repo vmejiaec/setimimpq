@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="IMPQ_2014-10-21_08-21.rar" />
+    <None Include="IMPQ_2014-10-23_13-01.rar" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

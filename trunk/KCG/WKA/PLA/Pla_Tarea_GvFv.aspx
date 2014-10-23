@@ -751,8 +751,24 @@ TagPrefix="ajax" %>
             <asp:BoundField DataField="Orden" HeaderText="Orden"   />
 			<asp:BoundField DataField="Valor" HeaderText="Valor"    DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
 			<asp:BoundField DataField="Tipo" HeaderText="Tipo"   />
-			</Columns>
+		</Columns>
+        
     </asp:GridView>
+    <br />
+    <div>
+    <b>Doc Tipos.</b>
+    <table>
+    <tr>
+    <td>ASI</td><td>Asiento inicial del POA.</td>
+    </tr>
+    <tr>
+    <td>GCP</td><td>Certificados POA.</td>
+    </tr>
+    <tr>
+    <td>REP</td><td>Reprogramación POA.</td>
+    </tr>
+    </table>
+    </div>
     </asp:Panel>
 	<%--[X] GridView de Pla_Mov --%>
 </ContentTemplate>
