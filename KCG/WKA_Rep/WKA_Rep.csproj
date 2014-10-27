@@ -76,6 +76,8 @@
     <Content Include="Imagenes\fonsal.JPG" />
     <Content Include="Imagenes\LogoReporteIMPQ_Small.jpg" />
     <Content Include="PLA\PLA_Formulario_Inicio_Proceso.aspx" />
+    <Content Include="PLA\PLA_Tareas.aspx" />
+    <Content Include="VAR\Pla_Cta_Rep_Niveles.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -325,9 +327,23 @@
     <Compile Include="PLA\PLA_Formulario_Inicio_Proceso.aspx.designer.cs">
       <DependentUpon>PLA_Formulario_Inicio_Proceso.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PLA\PLA_Tareas.aspx.cs">
+      <DependentUpon>PLA_Tareas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PLA\PLA_Tareas.aspx.designer.cs">
+      <DependentUpon>PLA_Tareas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App_Code\ResponseHelper.cs" />
     <Compile Include="App_Code\Scope_Factory.cs" />
+    <Compile Include="VAR\Pla_Cta_Rep_Niveles.aspx.cs">
+      <DependentUpon>Pla_Cta_Rep_Niveles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VAR\Pla_Cta_Rep_Niveles.aspx.designer.cs">
+      <DependentUpon>Pla_Cta_Rep_Niveles.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AEL\AEL.csproj">
@@ -475,6 +491,8 @@
     <EmbeddedResource Include="FIS\SR_FIS_PLANILLA_REAJ_REA_FORMULA.rdlc" />
     <EmbeddedResource Include="PER\R_PER_PERSONAL.rdlc" />
     <EmbeddedResource Include="PLA\Rep_PLA_FormularioInicioProceso.rdlc" />
+    <EmbeddedResource Include="PLA\Rep_PLA_Tareas.rdlc" />
+    <EmbeddedResource Include="VAR\Rep_Pla_Cta_Rep_Niveles.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\KReporte\reporte.css" />

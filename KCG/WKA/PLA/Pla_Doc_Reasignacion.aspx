@@ -29,7 +29,7 @@ TagPrefix="ajax" %>
 </script>
 
     <%--[O] Cabecera--%>
-    <asp:Panel runat="server" ID="pcabecera" GroupingText="Reasignación POA" style="display:none">        
+    <asp:Panel runat="server" ID="pcabecera" GroupingText="Reasignación POA" style="display:none">
         <table>
             <tr style="display:none">
                 <td> Tipo
@@ -63,8 +63,22 @@ TagPrefix="ajax" %>
 
     <%--[O] Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
+    <p class="pTextoPagina">
+    Para filtrar los datos de la lista de reasignaciones, seleccione un rango de fechas y pulse el botón ENTER del teclado. 
+    Si desea filtrar por un área específica, seleccione un área de la lista desplegable en la parte derecha. La sección 
+    Buscar permite ingresar un criterio de búsqueda tanto por Código como por Descripción.
+    </p>
+    <table>
+    <td>
+        Rango de Fechas:
+        <asp:TextBox ID="tbFechaIni" runat="server" Width="80px"></asp:TextBox> <ajax:CalendarExtender runat="server" ID="cextbFechaIni" TargetControlID="tbFechaIni"/>
+        - hasta -
+        <asp:TextBox ID="tbFechaFin" runat="server" Width="80px"></asp:TextBox> <ajax:CalendarExtender runat="server" ID="cextbFechaFin" TargetControlID="tbFechaFin"/>
+    </td>
+    <tr>
+    <td>
         <asp:TextBox ID="tbFiltroId" runat="server" CssClass="filtroID"></asp:TextBox>
-        Filtro:
+        Criterio:
         <asp:TextBox ID="tbFiltro" runat="server"></asp:TextBox>        
         <asp:Button runat="server" ID="btFiltrar" Text="..." Visible="true" onclick="btFiltrar_Click" style="display:none" />
         <asp:DropDownList ID="ddlFiltro" runat="server" AutoPostBack="true" onselectedindexchanged="ddlFiltro_SelectedIndexChanged">
@@ -72,17 +86,23 @@ TagPrefix="ajax" %>
             <asp:ListItem Text = "Descripcion" Value="Descripcion" ></asp:ListItem>
             <asp:ListItem Text = "Codigo" Value="Codigo" ></asp:ListItem>
 		</asp:DropDownList>
-        Rango de Fechas:
-        <asp:TextBox ID="tbFechaIni" runat="server" Width="80px"></asp:TextBox> <ajax:CalendarExtender runat="server" ID="cextbFechaIni" TargetControlID="tbFechaIni"/>
-        - hasta -
-        <asp:TextBox ID="tbFechaFin" runat="server" Width="80px"></asp:TextBox> <ajax:CalendarExtender runat="server" ID="cextbFechaFin" TargetControlID="tbFechaFin"/>
+    </td>
+    </tr>
+    <tr>
+    </tr>
+    </table>
     </asp:Panel>
 	<%--[X] Filtro--%>
 
 <%--Maestro de documentos--%>
 
     <%--[O] GridView de Pla_Doc --%>
-    <asp:Panel ID="Panel1" runat="server" GroupingText="Registros">
+    <asp:Panel ID="Panel1" runat="server" GroupingText="Reasignaciones del POA">
+    <p class="pTextoPagina">
+    Listado de reasignaciones del POA junto con la suma de todos los movimientos tanto de crédito como débito
+    generados por el usuario. Para ingresar una nueva reasignación, elija una de la lista mediante el botón [...] y
+    el sistema le presentará los detalles en la formulario de la sección inferior izquierda.
+    </p>
     <asp:GridView ID="gvPla_Doc" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Doc_GetByTipo_Area_Codigo_RangoFecha_Solicita" 
         SelectedRowStyle-CssClass="selectedrowstyle" 
@@ -95,10 +115,9 @@ TagPrefix="ajax" %>
 			<asp:BoundField DataField="Codigo" HeaderText="Codigo"   />			
 			<asp:BoundField DataField="Fecha_Solicita" HeaderText="Fecha"   DataFormatString="{0:d}" />
 			<asp:BoundField DataField="Descripcion" HeaderText="Descripcion"  ItemStyle-Width="480px" />
-            <asp:BoundField DataField="Esta_Planificada" HeaderText="Esta_Planif"  Visible = "false" />
-            
-            <asp:BoundField DataField="Valor_Solicita" HeaderText="Valor_Solicita"    DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"  Visible = "false"/>
-                
+            <asp:BoundField DataField="Valor_Suma_Movs" HeaderText="Valor_Suma_Movs" DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right" />
+
+                <asp:BoundField DataField="Esta_Planificada" HeaderText="Esta_Planif"  Visible = "false" />                
                 <asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />
             	<asp:BoundField DataField="Per_Personal_Id_Solicita" HeaderText="Per_Personal_Id_Solicita"   Visible = "false" />
 			    <asp:BoundField DataField="Tipo" HeaderText="Tipo"  Visible = "false"  />
@@ -125,7 +144,12 @@ TagPrefix="ajax" %>
 	<%--[X] GridView de Pla_Doc --%>
 
     <%--[O] FormView de Pla_Doc --%>
-    <asp:Panel runat="server" ID="pfvPla_Doc" >
+    <asp:Panel runat="server" ID="pfvPla_Doc" GroupingText="Formulario de Reasignación">
+    <p class="pTextoPagina">
+    Formulario para la creación y modificación de la cabecera de la reasignación POA. Presenta los detalles
+    de la fila seleccionada en el listado superior y permite crear, modificar o borrar. Los movimientos
+    de crédito o débido relacionados a la presente reasignación se presentan en la lista inferior.
+    </p>
     <koala:FormViewSetim ID="fvPla_Doc" runat="server" DataSourceID="odsfvPla_Doc" 
             oniteminserting="fvPla_Doc_ItemInserting" 
             onitemdeleted="fvPla_Doc_ItemDeleted" 
@@ -138,7 +162,7 @@ TagPrefix="ajax" %>
             DataKeyNames="Id"
 			>
         <EditItemTemplate>
-            <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton" GroupingText="Replanificación">
+            <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton" GroupingText="Reasignación">
 			<table>
 			<tr style="display:none">
                 <td> Id </td>                
@@ -294,7 +318,7 @@ TagPrefix="ajax" %>
             </asp:Panel>
         </EditItemTemplate>
         <InsertItemTemplate>
-            <asp:Panel runat="server" ID = "panelInsertTemplate" DefaultButton="InsertButton" GroupingText="Replanificación">
+            <asp:Panel runat="server" ID = "panelInsertTemplate" DefaultButton="InsertButton" GroupingText="Reasignación">
 			<table>
 			<tr style="display:none">
                 <td> Id </td>                
@@ -450,7 +474,7 @@ TagPrefix="ajax" %>
             </asp:Panel>
         </InsertItemTemplate>
         <ItemTemplate>
-            <asp:Panel runat="server" ID="panelItemTemplate" DefaultButton="EditButton"  CssClass="panCol2" GroupingText="Replanificación">
+            <asp:Panel runat="server" ID="panelItemTemplate" DefaultButton="EditButton"  CssClass="panCol2" GroupingText="Reasignación">
             <table>
 			<tr style="display:none">
                 <td> Id </td>
@@ -718,7 +742,13 @@ TagPrefix="ajax" %>
     <%--[X]FIN Javascript para manegar los campos de autocompletar --%>
 
     <%--[O] GridView de Pla_Mov --%>
-    <asp:Panel ID="Panel5" runat="server" GroupingText="Movimientos">
+    <asp:Panel ID="Panel5" runat="server" GroupingText="Movimientos entre Tareas y Partidas Presupuestarias">
+    <p class="pTextoPagina">
+    Listado de movimientos de la reasignación POA seleccionada en la lista de reasignación de la 
+    sección superior. Los movimientos de reasignación pueden ser de tipo Crédito o Débito, y la suma 
+    total de sus valores debe ser cero para garantizar que el total del POA no cambia. Para ver los
+    detalles de un movimiento elija una fila por medio del botón [...]
+    </p>
     <asp:GridView ID="gvPla_Mov" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Mov_GetByPla_Doc_Id" 
         SelectedRowStyle-CssClass="selectedrowstyle" 
@@ -728,15 +758,15 @@ TagPrefix="ajax" %>
             onselectedindexchanged="gvPla_Mov_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
-			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />			
-			<asp:BoundField DataField="Orden" HeaderText="Orden"   />
-            <asp:BoundField DataField="Pla_Doc_Fecha" HeaderText="Fecha"  DataFormatString="{0:d}" />
-			<asp:BoundField DataField="Pla_Tarea_Nombre" HeaderText="Tarea_Nombre"   />
+			<asp:BoundField DataField="Pla_Tarea_Nombre" HeaderText="Tarea_Nombre" ItemStyle-Width="550px"  />
 			<asp:BoundField DataField="Pla_Partida_Codigo" HeaderText="Partida_Cod"   />
 			<asp:BoundField DataField="Pla_Partida_Nombre" HeaderText="Partida_Nombre"   />
             <asp:BoundField DataField="Valor" HeaderText="Valor"    DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
 			<asp:BoundField DataField="Tipo" HeaderText="Tipo"   />
-                
+            
+                <asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />			
+			    <asp:BoundField DataField="Orden" HeaderText="Orden"   Visible = "false"  />
+                <asp:BoundField DataField="Pla_Doc_Fecha" HeaderText="Fecha"  DataFormatString="{0:d}" Visible = "false"   />    
                 <asp:BoundField DataField="Pla_Doc_Tipo" HeaderText="Tipo" Visible = "false" />
                 <asp:BoundField DataField="Codigo" HeaderText="Codigo"  Visible = "false"  />
                 <asp:BoundField DataField="Pla_Tarea_Id" HeaderText="Pla_Tarea_Id"  Visible = "false" />
@@ -751,6 +781,12 @@ TagPrefix="ajax" %>
 
     <%--[O] FormView de Pla_Mov --%>
     <asp:Panel runat="server" ID="pfvPla_Mov" GroupingText="Movimiento">
+    <p class="pTextoPagina">
+    Formulario de detalle del movimiento de Tarea X Partida Presupuestaria seleccionado en la lista
+    de movimientos de la sección superior. Mediante el formulario se pueden crear o borrar los 
+    movimientos asociados a una reasignación. Al crear un nuevo movimiento, el sistema validará que 
+    el saldo de la Tarea X Partida nunca sea menor que cero.
+    </p>
     <koala:FormViewSetim ID="fvPla_Mov" runat="server" DataSourceID="odsfvPla_Mov" 
             oniteminserting="fvPla_Mov_ItemInserting" 
             onitemdeleted="fvPla_Mov_ItemDeleted" 

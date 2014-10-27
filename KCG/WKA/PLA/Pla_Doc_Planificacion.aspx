@@ -24,6 +24,11 @@ TagPrefix="ajax" %>
 
     <%--[O] Cabecera--%>
     <asp:Panel runat="server" ID="pcabecera" GroupingText="Cabecera" DefaultButton="btCabeceraFiltrar">
+    <p class="pTextoPagina">
+    Para filtrar los datos de la lista de solicitudes, seleccione un rango de fechas y pulse el botón ENTER del teclado. 
+    Si desea filtrar por un área específica, seleccione un área de la lista desplegable en la parte derecha. La sección 
+    Buscar permite ingresar un criterio de búsqueda tanto por Código como por Descripción.
+    </p>
         <asp:Button runat="server" ID="btCabeceraFiltrar" Text="..." Visible="true" onclick="btFiltrar_Click" style="display:none" />
         <asp:Label runat="server" ID="lbCabeceraTipo" Text="GCP" style="display:none" ></asp:Label>
         Seleccionar el rango de fechas: 
@@ -38,7 +43,7 @@ TagPrefix="ajax" %>
 
     <%--[O] Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
-        <asp:Label ID="lbFiltro" runat="server" Text="Filtro"></asp:Label>
+        <asp:Label ID="lbFiltro" runat="server" Text="Criterio"></asp:Label>
         <asp:TextBox ID="tbFiltro" runat="server"></asp:TextBox>
         <asp:TextBox ID="tbFiltroId" runat="server" CssClass="filtroID"></asp:TextBox>
         <asp:Button runat="server" ID="btFiltrar" Text="..." Visible="true" onclick="btFiltrar_Click" style="display:none" />
@@ -52,7 +57,11 @@ TagPrefix="ajax" %>
 
     <%--[O] GridView de Pla_Doc --%>
     <asp:Panel ID="Panel1" runat="server" GroupingText="Solicitudes">
-    <asp:Label runat="server" ID="lbHelp_gvPla_Doc" ForeColor="DarkBlue">Seleccione una solicitud para asignarlo al POA</asp:Label>
+    <p class="pTextoPagina">
+    Seleccione una solicitud de la lista mediante el botón [...] y el sistema le presentará 
+    los detalles en el formulario de la sección inferior izquierda. El formulario le permite consultar la información
+    ingresada por el resto de áreas, y, editar la solicitud para añadir los datos específicos del área de Planificación.
+    </p>
     <asp:GridView ID="gvPla_Doc" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Doc_GetByTipo_RangoFecha_Solicita" 
         SelectedRowStyle-CssClass="selectedrowstyle" 
@@ -248,7 +257,12 @@ TagPrefix="ajax" %>
     <%--[X]FIN Javascript para manegar los campos de autocompletar --%>
 
     <%--[O] FormView de Pla_Doc --%>
-    <asp:Panel runat="server" ID="pfvPla_Doc" GroupingText="*">
+    <asp:Panel runat="server" ID="pfvPla_Doc" GroupingText="Formulario de detalle.">
+    <p class="pTextoPagina">
+    El formulario en detalle permite visualizar la información de una solicitud seleccionada en
+    la lista superior, consultar los datos ingresados por el área requirente, así como ingresar 
+    los campos correspondientes al área de Planificación.
+    </p>
     <koala:FormViewSetim ID="fvPla_Doc" runat="server" DataSourceID="odsfvPla_Doc" 
             oniteminserting="fvPla_Doc_ItemInserting" 
             onitemdeleted="fvPla_Doc_ItemDeleted" 
@@ -488,7 +502,7 @@ TagPrefix="ajax" %>
 			</tr>
             <tr >
                 <td> Valor_Planificado </td>
-				<td><asp:TextBox ID="Valor_Suma_MovsTextBox" runat="server" Text='<%# Bind("Valor_Suma_Movs","{0:N2}") %>'  
+				<td><asp:TextBox ID="Valor_Suma_MovsTextBox" runat="server" Text='<%# Bind("Valor_Suma_Movs","{0:#,###,###.00;#,###,###.00}") %>'  
                 ReadOnly="true"  CssClass="txtItemValor" />
                 </td>
 			</tr>
@@ -537,7 +551,12 @@ TagPrefix="ajax" %>
 	<%--[X] FormView de Pla_Doc --%>
 
     <%--[O] GridView de Pla_Mov --%>
-    <asp:Panel ID="Panel5" runat="server" GroupingText="Movimientos">
+    <asp:Panel ID="Panel5" runat="server" GroupingText="Tarea y partidas presupuestarias">
+    <p class="pTextoPagina">
+    Lista de tareas y partidas presupuestarias junto con sus respectivos valores asignados a 
+    la tarea seleccionada en la lista superior. Seleccione una fila de la lista para eliminarla 
+    o ingresar una nueva.
+    </p>
     <asp:GridView ID="gvPla_Mov" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Mov_GetByPla_Doc_Id" 
         SelectedRowStyle-CssClass="selectedrowstyle" 
@@ -548,13 +567,14 @@ TagPrefix="ajax" %>
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
 			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />			
-			<asp:BoundField DataField="Orden" HeaderText="Orden"   />
-            <asp:BoundField DataField="Pla_Doc_Fecha" HeaderText="Fecha"  DataFormatString="{0:d}" />
-			<asp:BoundField DataField="Pla_Tarea_Nombre" HeaderText="Tarea_Nombre"   />
+			
+			<asp:BoundField DataField="Pla_Tarea_Nombre" HeaderText="Tarea_Nombre"  ItemStyle-Width="650px"  />
 			<asp:BoundField DataField="Pla_Partida_Codigo" HeaderText="Partida_Cod"   />
-			<asp:BoundField DataField="Pla_Partida_Nombre" HeaderText="Partida_Nombre"   />
+			<asp:BoundField DataField="Pla_Partida_Nombre" HeaderText="Partida_Nombre"  />
             <asp:BoundField DataField="Valor" HeaderText="Valor"    DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
-			    
+			
+                <asp:BoundField DataField="Orden" HeaderText="Orden"  Visible = "false" />
+                <asp:BoundField DataField="Pla_Doc_Fecha" HeaderText="Fecha"  DataFormatString="{0:d}" Visible = "false"/>    
                 <asp:BoundField DataField="Pla_Doc_Tipo" HeaderText="Tipo" Visible = "false" />
                 <asp:BoundField DataField="Codigo" HeaderText="Codigo"  Visible = "false"  />
                 <asp:BoundField DataField="Pla_Tarea_Id" HeaderText="Pla_Tarea_Id"  Visible = "false" />

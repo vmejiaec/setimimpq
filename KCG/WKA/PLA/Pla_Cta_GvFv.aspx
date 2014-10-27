@@ -18,6 +18,11 @@ TagPrefix="ajax" %>
 
     <%--Cabecera--%>
     <asp:Panel runat="server" ID="pcabAnio" GroupingText="Año">
+    <p class="pTextoPagina">
+    Para filtrar las cuentas del POA de un determinado año, elija el año deseado de la lista desplegable. 
+    Para realizar una búsqueda, ingrese el criterio y luego elija el campo sobre el cual se aplicará: 
+    por Código o por Nombre.
+    </p>
         <asp:Label ID="lbFiltroAnio" runat="server" Text="Seleccionar el año:"></asp:Label>
         <asp:DropDownList ID="ddlFiltroAnio" runat="server" AutoPostBack="true" >
         </asp:DropDownList>        
@@ -25,7 +30,7 @@ TagPrefix="ajax" %>
 
     <%--Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
-        <asp:Label ID="lbFiltro" runat="server" Text="Filtro"></asp:Label>
+        <asp:Label ID="lbFiltro" runat="server" Text="Criterio"></asp:Label>
         <asp:TextBox ID="tbFiltro" runat="server"></asp:TextBox>
         <asp:TextBox ID="tbFiltroId" runat="server" CssClass="filtroID"></asp:TextBox>
         <asp:Button runat="server" ID="btFiltrar" Text="..." Visible="true" onclick="btFiltrar_Click" style="display:none" />
@@ -37,7 +42,12 @@ TagPrefix="ajax" %>
     </asp:Panel>
 
     <%--GridView--%>
-    <asp:Panel runat="server" GroupingText="Registros">
+    <asp:Panel runat="server" GroupingText="Cuentas del POA">
+    <p class="pTextoPagina">
+    Listado de cuentas que organizan el POA, con su codificación, niveles y organizadas por años. Para modificar o crear una nueva
+    cuenta de POA, seleccione una fila mediante el botón [...] y el sistema le presentará los datos de detalle en el formulario 
+    de la sección inferior izquierda.
+    </p>
     <asp:GridView ID="gvPla_Cta" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Cta_GetByAnio" 
         SelectedRowStyle-CssClass="selectedrowstyle" 
@@ -60,6 +70,12 @@ TagPrefix="ajax" %>
 
     <%--FormView--%>
     <asp:Panel runat="server" ID="pfvPla_Cta" GroupingText="Crear, Editar o Borar un Registro">
+    <p class="pTextoPagina">
+    El formulario presenta el detalle de la cuenta POA seleccionada en el listado superior, y 
+    permite al usuario modificar dicha información. Para crear una nueva cuenta POA, el sistema
+    sugiere automáticamente la codificación consecutiva dependiendo del tipo del nivel que se elija 
+    en la lista desplegable Nivel.
+    </p>
     <koala:FormViewSetim ID="fvPla_Cta" runat="server" DataSourceID="odsfvPla_Cta"
             oniteminserting="fvPla_Cta_ItemInserting" 
             onitemdeleted="fvPla_Cta_ItemDeleted" 
@@ -67,6 +83,7 @@ TagPrefix="ajax" %>
             onitemupdated="fvPla_Cta_ItemUpdated" 
             ondatabound="fvPla_Cta_DataBound" 
             onprerender="fvPla_Cta_PreRender">
+        <EmptyDataTemplate>Elija una fila de la lista anterior con el botón [...]</EmptyDataTemplate>
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
 			<table>
