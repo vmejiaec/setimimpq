@@ -95,14 +95,12 @@ TagPrefix="ajax" %>
 			<tr >
                 <td> Anio </td>
                 <td>
-                <asp:DropDownList ID="ddlAnio" runat="server" SelectedValue='<%# Bind("Anio") %>' 
-                        DataSourceID="odsDominioAnio" DataTextField="Nombre" DataValueField="Nombre" >
-                </asp:DropDownList>
-				</td>
+                    <asp:TextBox ID="AnioTextBox" runat="server" Text='<%# Bind("Anio") %>'  ReadOnly="true"  CssClass="txtItem" />
+                </td>
             </tr>
 			<tr >
                 <td> Codigo </td>
-                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  CssClass="txtEdit"  />
+                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  CssClass="txtItem" ReadOnly="true" />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqCodigo" runat="server" 
                     ControlToValidate="CodigoTextBox"
@@ -113,7 +111,7 @@ TagPrefix="ajax" %>
 			<tr >
                 <td> Nivel </td>
                 <td>
-                <asp:DropDownList ID="ddlNivel" runat="server" DataSourceID="odsDominioNivel" CssClass="txtEdit" 
+                <asp:DropDownList ID="ddlNivel" runat="server" DataSourceID="odsDominioNivel" CssClass="txtItem" Enabled="false"
                         DataTextField="Nombre" 
                         DataValueField="Dominio" 
                         SelectedValue='<%# Bind("Nivel") %>'>
@@ -161,14 +159,14 @@ TagPrefix="ajax" %>
                 </td>
             </tr>
             <tr >
-                <td> Codigo Next </td>
+                <td> Codigo </td>
                 <td>
                     <asp:DropDownList ID="ddlCodigo" runat="server" Width="173px" 
                         CssClass="txtEdit" SelectedValue='<%# Bind("Codigo") %>' >
                     </asp:DropDownList>
                 </td>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Codigo </td>
                 <%--<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  CssClass="txtEdit"  />
 				<asp:RequiredFieldValidator ID="rqCodigo" runat="server" 
@@ -177,7 +175,7 @@ TagPrefix="ajax" %>
                     Text="X" Display="Dynamic"/>
 				</td>--%>
             </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Nivel </td>
                 <td>
                 <asp:TextBox ID="NivelTextBox" runat="server" Text='<%# Bind("Nivel") %>'  CssClass="txtEdit"  />

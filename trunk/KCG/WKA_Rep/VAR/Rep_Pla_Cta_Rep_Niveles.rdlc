@@ -811,7 +811,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>0.84883in</Size>
+                            <Size>1.04675in</Size>
                             <CellContents>
                               <Textbox Name="Textbox7">
                                 <CanGrow>true</CanGrow>
@@ -928,7 +928,7 @@
                                   <TablixMembers>
                                     <TablixMember>
                                       <TablixHeader>
-                                        <Size>4.30717in</Size>
+                                        <Size>4.10925in</Size>
                                         <CellContents>
                                           <Textbox Name="Textbox44">
                                             <CanGrow>true</CanGrow>
@@ -1038,7 +1038,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>3.00992in</Size>
+                    <Size>3.20784in</Size>
                     <CellContents>
                       <Textbox Name="Nivel01_Pla_Cta_Nombre">
                         <CanGrow>true</CanGrow>
@@ -1116,7 +1116,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>4.30717in</Size>
+                            <Size>4.10925in</Size>
                             <CellContents>
                               <Textbox Name="Textbox45">
                                 <CanGrow>true</CanGrow>
@@ -1211,7 +1211,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>2.44233in</Size>
+                        <Size>2.64025in</Size>
                         <CellContents>
                           <Textbox Name="Nivel02_Pla_Cta_Nombre">
                             <CanGrow>true</CanGrow>
@@ -1289,7 +1289,7 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>4.30717in</Size>
+                                <Size>4.10925in</Size>
                                 <CellContents>
                                   <Textbox Name="Textbox46">
                                     <CanGrow>true</CanGrow>
@@ -1434,7 +1434,7 @@
                             </SortExpression>
                           </SortExpressions>
                           <TablixHeader>
-                            <Size>0.84883in</Size>
+                            <Size>1.04675in</Size>
                             <CellContents>
                               <Textbox Name="Nivel04_Pla_Cta_Codigo">
                                 <CanGrow>true</CanGrow>
@@ -1475,7 +1475,7 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>5.51525in</Size>
+                                <Size>5.31733in</Size>
                                 <CellContents>
                                   <Textbox Name="Nivel04_Pla_Cta_Nombre">
                                     <CanGrow>true</CanGrow>
@@ -1605,7 +1605,7 @@
                                   <TablixMembers>
                                     <TablixMember>
                                       <TablixHeader>
-                                        <Size>4.30717in</Size>
+                                        <Size>4.10925in</Size>
                                         <CellContents>
                                           <Textbox Name="Nombre">
                                             <CanGrow>true</CanGrow>
@@ -1788,7 +1788,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>0.84883in</Size>
+                            <Size>1.04675in</Size>
                             <CellContents>
                               <Textbox Name="Textbox18">
                                 <CanGrow>true</CanGrow>
@@ -1905,7 +1905,7 @@
                                   <TablixMembers>
                                     <TablixMember>
                                       <TablixHeader>
-                                        <Size>4.30717in</Size>
+                                        <Size>4.10925in</Size>
                                         <CellContents>
                                           <Textbox Name="Textbox50">
                                             <CanGrow>true</CanGrow>
