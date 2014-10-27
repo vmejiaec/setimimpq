@@ -382,6 +382,12 @@ TagPrefix="ajax" %>
                             Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgPla_Doc"/>
 				        </td>
                     </tr>
+                    <tr >
+                        <td> Cedula_Prsp_Codigo </td>                
+				        <td>
+                            <asp:TextBox ID="Cedula_Presup_CodigoTextBox" runat="server" Text='<%# Bind("Cedula_Presup_Codigo") %>'  CssClass="txtEditNombre" Width="380px" />
+				        </td>
+                    </tr>
 			        </table>
                 </asp:Panel>
                 <asp:Panel runat="server" ID="panel4"  GroupingText="Contratación">
@@ -410,6 +416,12 @@ TagPrefix="ajax" %>
                      <asp:TextBox ID="CPC_CodigoTextBox" runat="server" Text='<%# Bind("CPC_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" Width="130px" />
                 </td>
 			</tr>
+            <tr >
+                <td> Contrata_Desc </td>                
+				<td>
+                    <asp:TextBox ID="Contrata_DescTextBox" runat="server" Text='<%# Bind("Contrata_Desc") %>'  CssClass="txtItemDescripcion" TextMode="MultiLine" ReadOnly="true" />
+				</td>
+            </tr>
             </table>
                 </asp:Panel>
             </asp:Panel>
@@ -511,6 +523,12 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="Valor_Dif_Planif_Solicit" runat="server" ReadOnly="true"  CssClass="txtItemValor" />
                 </td>
 			</tr>
+            <tr >
+                <td> Cedula_Prsp_Codigo </td>                
+				<td>
+                    <asp:TextBox ID="Cedula_Presup_CodigoTextBox" runat="server" Text='<%# Bind("Cedula_Presup_Codigo") %>'  CssClass="txtItem" Width="380px" ReadOnly="true"  />
+				</td>
+            </tr>
 			</table>
             </asp:Panel>
                 <asp:Panel runat="server" ID="panel4"  GroupingText="Contratación">
@@ -520,7 +538,7 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="Per_Personal_Id_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Contrata") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
 			<tr >
-                <td> Personal_Contrata </td>
+                <td  style="width:146px;"> Personal_Contrata </td>
 				<td><asp:TextBox ID="Per_Personal_Nombre_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Contrata") %>'  
                 ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
 							</tr>
@@ -539,6 +557,12 @@ TagPrefix="ajax" %>
                      <asp:TextBox ID="CPC_CodigoTextBox" runat="server" Text='<%# Bind("CPC_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" Width="130px" />
                 </td>
 			</tr>
+            <tr >
+                <td> Contrata_Desc </td>                
+				<td>
+                    <asp:TextBox ID="Contrata_DescTextBox" runat="server" Text='<%# Bind("Contrata_Desc") %>'  CssClass="txtItemDescripcion" ReadOnly="true" TextMode="MultiLine" />
+				</td>
+            </tr>
             </table>
                 </asp:Panel>
             </asp:Panel>

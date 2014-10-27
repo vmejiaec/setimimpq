@@ -365,16 +365,22 @@ TagPrefix="ajax" %>
                         ReadOnly="true"  CssClass="txtItemValor" />
                         </td>
 		            </tr>
+                    <tr >
+                        <td> Cedula_Prsp_Codigo </td>                
+				        <td>
+                            <asp:TextBox ID="Cedula_Presup_CodigoTextBox" runat="server" Text='<%# Bind("Cedula_Presup_Codigo") %>'  CssClass="txtItem" Width="380px"  ReadOnly="true" />
+				        </td>
+                    </tr>
 			        </table>
                 </asp:Panel>
                 <asp:Panel runat="server" ID="panel4"  GroupingText="Contratación">
                     <table>
-            <tr >
+            <tr style="display:none">
                 <td> Per_Personal_Id_Contrata </td>
 				<td><asp:TextBox ID="Per_Personal_Id_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Contrata") %>'  CssClass="txtItem" /></td>
 							</tr>
 			<tr >
-                <td> Personal_Contrata </td>
+                <td style="width:146px;"> Personal_Contrata </td>
 				<td><asp:TextBox ID="Per_Personal_Nombre_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Contrata") %>'  
                 ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
 							</tr>
@@ -412,6 +418,12 @@ TagPrefix="ajax" %>
                      <asp:TextBox ID="CPC_CodigoTextBox" runat="server" Text='<%# Bind("CPC_Codigo") %>'  CssClass="txtEdit" Width="130px" />
                 </td>
 			</tr>
+            <tr >
+                <td> Contrata_Desc </td>                
+				<td>
+                    <asp:TextBox ID="Contrata_DescTextBox" runat="server" Text='<%# Bind("Contrata_Desc") %>'  CssClass="txtEditDescripcion" TextMode="MultiLine" />
+				</td>
+            </tr>
             </table>
                 </asp:Panel>
             </asp:Panel>
@@ -504,7 +516,7 @@ TagPrefix="ajax" %>
 			</tr>
             <tr >
                 <td> Valor_Planificado </td>
-				<td><asp:TextBox ID="Valor_Suma_MovsTextBox" runat="server" Text='<%# Bind("Valor_Suma_Movs","{0:N2}") %>'  
+				<td><asp:TextBox ID="Valor_Suma_MovsTextBox" runat="server" Text='<%# Bind("Valor_Suma_Movs","{0:###,###,##0.00;###,###,##0.00}") %>'  
                 ReadOnly="true"  CssClass="txtItemValor" />
                 </td>
 			</tr>
@@ -513,6 +525,12 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="Valor_Dif_Planif_Solicit" runat="server" ReadOnly="true"  CssClass="txtItemValor" />
                 </td>
 			</tr>
+            <tr >
+                <td> Cedula_Prsp_Codigo </td>                
+				<td>
+                    <asp:TextBox ID="Cedula_Presup_CodigoTextBox" runat="server" Text='<%# Bind("Cedula_Presup_Codigo") %>'  CssClass="txtItem" Width="380px" ReadOnly="true"  />
+				</td>
+            </tr>
 			</table>
             </asp:Panel>
                 <asp:Panel runat="server" ID="panel4"  GroupingText="Contratación">
@@ -522,7 +540,7 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="Per_Personal_Id_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Contrata") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
 			<tr >
-                <td> Personal_Contrata </td>
+                <td style="width:146px;"> Personal_Contrata </td>
 				<td><asp:TextBox ID="Per_Personal_Nombre_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Contrata") %>'  
                 ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
 							</tr>
@@ -541,6 +559,12 @@ TagPrefix="ajax" %>
                      <asp:TextBox ID="CPC_CodigoTextBox" runat="server" Text='<%# Bind("CPC_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" Width="130px" />
                 </td>
 			</tr>
+            <tr >
+                <td> Contrata_Desc </td>                
+				<td>
+                    <asp:TextBox ID="Contrata_DescTextBox" runat="server" Text='<%# Bind("Contrata_Desc") %>'  CssClass="txtItemDescripcion" ReadOnly="true" TextMode="MultiLine" />
+				</td>
+            </tr>
             </table>
                 </asp:Panel>
             </asp:Panel>

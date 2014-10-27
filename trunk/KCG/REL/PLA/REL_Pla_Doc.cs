@@ -266,6 +266,8 @@ namespace REL.PLA
             this.Per_Personal_Nombre_Planifica = o.Per_Personal_Nombre_Planifica;
             this.Per_Personal_Nombre_Contrata = o.Per_Personal_Nombre_Contrata;
             this.Valor_Suma_Movs = o.Valor_Suma_Movs;
+            this.Cedula_Presup_Codigo = o.Cedula_Presup_Codigo;
+            this.Contrata_Desc = o.Contrata_Desc;
             // Consulta el resto de datos para el reporte
             Consulta_Datos();
         }

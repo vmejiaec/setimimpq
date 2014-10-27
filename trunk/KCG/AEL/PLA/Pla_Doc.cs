@@ -96,6 +96,12 @@ namespace AEL.PLA
         // Comentario
         private decimal _Valor_Suma_Movs;
         
+        // Comentario
+        private string _Cedula_Presup_Codigo;
+        
+        // Comentario
+        private string _Contrata_Desc; 
+        
         public Pla_Doc()
         {
         }
@@ -126,7 +132,9 @@ namespace AEL.PLA
                     string per_Personal_Nombre_Modifica, 
                     string per_Personal_Nombre_Planifica, 
                     string per_Personal_Nombre_Contrata, 
-                    decimal valor_Suma_Movs)
+                    decimal valor_Suma_Movs, 
+                    string cedula_Presup_Codigo, 
+                    string contrata_Desc)
         {
             this.Id = id;
             this.Codigo = codigo;
@@ -154,6 +162,8 @@ namespace AEL.PLA
             this.Per_Personal_Nombre_Planifica = per_Personal_Nombre_Planifica;
             this.Per_Personal_Nombre_Contrata = per_Personal_Nombre_Contrata;
             this.Valor_Suma_Movs = valor_Suma_Movs;
+            this.Cedula_Presup_Codigo = cedula_Presup_Codigo;
+            this.Contrata_Desc = contrata_Desc;
         }
         
         public Pla_Doc(Pla_Doc o)
@@ -184,6 +194,8 @@ namespace AEL.PLA
             this.Per_Personal_Nombre_Planifica = o.Per_Personal_Nombre_Planifica;
             this.Per_Personal_Nombre_Contrata = o.Per_Personal_Nombre_Contrata;
             this.Valor_Suma_Movs = o.Valor_Suma_Movs;
+            this.Cedula_Presup_Codigo = o.Cedula_Presup_Codigo;
+            this.Contrata_Desc = o.Contrata_Desc;
         }
         
         // Comentario
@@ -521,6 +533,32 @@ namespace AEL.PLA
             set
             {
                 this._Valor_Suma_Movs = value;
+            }
+        }
+        
+        // Comentario
+        public string Cedula_Presup_Codigo
+        {
+            get
+            {
+                return this._Cedula_Presup_Codigo;
+            }
+            set
+            {
+                this._Cedula_Presup_Codigo = value;
+            }
+        }
+        
+        // Comentario
+        public string Contrata_Desc
+        {
+            get
+            {
+                return this._Contrata_Desc;
+            }
+            set
+            {
+                this._Contrata_Desc = value;
             }
         }
     }
