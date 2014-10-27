@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Generic; 
 using System.Linq;
 using System.Text;
 
@@ -47,7 +47,9 @@ fila.Per_Personal_Nombre_Crea,
 fila.Per_Personal_Nombre_Modifica,
 fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
-fila.Valor_Suma_Movs
+fila.Valor_Suma_Movs,
+fila.Cedula_Presup_Codigo,
+fila.Contrata_Desc
 			));
         }
         return lista;
@@ -75,7 +77,9 @@ n.Esta_Contratada,
 n.PAC_Linea,
 n.CPC_Codigo,
 n.Fecha_Contrata,
-n.Fecha_Planifica
+n.Fecha_Planifica,
+n.Cedula_Presup_Codigo,
+n.Contrata_Desc
 			);
         }
         catch (SqlException e)
@@ -106,7 +110,9 @@ o.Esta_Contratada,
 o.PAC_Linea,
 o.CPC_Codigo,
 o.Fecha_Contrata,
-o.Fecha_Planifica
+o.Fecha_Planifica,
+o.Cedula_Presup_Codigo,
+o.Contrata_Desc
 			);
         }
         catch (SqlException e)
@@ -138,6 +144,8 @@ n.PAC_Linea,
 n.CPC_Codigo,
 n.Fecha_Contrata,
 n.Fecha_Planifica,
+n.Cedula_Presup_Codigo,
+n.Contrata_Desc,
 o.Id,
 o.Codigo,
 o.Tipo,
@@ -157,6 +165,8 @@ o.PAC_Linea,
 o.CPC_Codigo,
 o.Fecha_Contrata,
 o.Fecha_Planifica,
+o.Cedula_Presup_Codigo,
+o.Contrata_Desc,
 n.Id
 			);
         }
@@ -197,7 +207,9 @@ fila.Per_Personal_Nombre_Crea,
 fila.Per_Personal_Nombre_Modifica,
 fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
-fila.Valor_Suma_Movs
+fila.Valor_Suma_Movs,
+fila.Cedula_Presup_Codigo,
+fila.Contrata_Desc
 				));
 			}
 			return lista;
@@ -235,7 +247,9 @@ fila.Per_Personal_Nombre_Crea,
 fila.Per_Personal_Nombre_Modifica,
 fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
-fila.Valor_Suma_Movs
+fila.Valor_Suma_Movs,
+fila.Cedula_Presup_Codigo,
+fila.Contrata_Desc
 				));
 			}
 			return lista;
@@ -273,7 +287,9 @@ fila.Per_Personal_Nombre_Crea,
 fila.Per_Personal_Nombre_Modifica,
 fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
-fila.Valor_Suma_Movs
+fila.Valor_Suma_Movs,
+fila.Cedula_Presup_Codigo,
+fila.Contrata_Desc
 				));
 			}
 			return lista;
@@ -311,7 +327,9 @@ fila.Per_Personal_Nombre_Crea,
 fila.Per_Personal_Nombre_Modifica,
 fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
-fila.Valor_Suma_Movs
+fila.Valor_Suma_Movs,
+fila.Cedula_Presup_Codigo,
+fila.Contrata_Desc
 				));
 			}
 			return lista;
@@ -349,7 +367,9 @@ fila.Per_Personal_Nombre_Crea,
 fila.Per_Personal_Nombre_Modifica,
 fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
-fila.Valor_Suma_Movs
+fila.Valor_Suma_Movs,
+fila.Cedula_Presup_Codigo,
+fila.Contrata_Desc
 				));
 			}
 			return lista;
@@ -387,7 +407,9 @@ fila.Per_Personal_Nombre_Crea,
 fila.Per_Personal_Nombre_Modifica,
 fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
-fila.Valor_Suma_Movs
+fila.Valor_Suma_Movs,
+fila.Cedula_Presup_Codigo,
+fila.Contrata_Desc
 				));
 			}
 			return lista;
@@ -425,7 +447,9 @@ fila.Per_Personal_Nombre_Crea,
 fila.Per_Personal_Nombre_Modifica,
 fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
-fila.Valor_Suma_Movs
+fila.Valor_Suma_Movs,
+fila.Cedula_Presup_Codigo,
+fila.Contrata_Desc
 				));
 			}
 			return lista;
@@ -463,7 +487,9 @@ fila.Per_Personal_Nombre_Crea,
 fila.Per_Personal_Nombre_Modifica,
 fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
-fila.Valor_Suma_Movs
+fila.Valor_Suma_Movs,
+fila.Cedula_Presup_Codigo,
+fila.Contrata_Desc
 				));
 			}
 			return lista;
@@ -501,7 +527,9 @@ fila.Per_Personal_Nombre_Crea,
 fila.Per_Personal_Nombre_Modifica,
 fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
-fila.Valor_Suma_Movs
+fila.Valor_Suma_Movs,
+fila.Cedula_Presup_Codigo,
+fila.Contrata_Desc
 				));
 			}
 			return lista;
@@ -529,7 +557,9 @@ n.Esta_Contratada,
 n.PAC_Linea,
 n.CPC_Codigo,
 n.Fecha_Contrata,
-n.Fecha_Planifica
+n.Fecha_Planifica,
+n.Cedula_Presup_Codigo,
+n.Contrata_Desc
 			));
         }
         catch (SqlException e)

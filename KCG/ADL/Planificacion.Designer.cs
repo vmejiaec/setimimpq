@@ -2071,6 +2071,10 @@ namespace ADL {
             
             private global::System.Data.DataColumn columnValor_Suma_Movs;
             
+            private global::System.Data.DataColumn columnCedula_Presup_Codigo;
+            
+            private global::System.Data.DataColumn columnContrata_Desc;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Pla_DocDataTable() {
@@ -2314,6 +2318,22 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cedula_Presup_CodigoColumn {
+                get {
+                    return this.columnCedula_Presup_Codigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Contrata_DescColumn {
+                get {
+                    return this.columnContrata_Desc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2374,7 +2394,9 @@ namespace ADL {
                         string Per_Personal_Nombre_Modifica, 
                         string Per_Personal_Nombre_Planifica, 
                         string Per_Personal_Nombre_Contrata, 
-                        decimal Valor_Suma_Movs) {
+                        decimal Valor_Suma_Movs, 
+                        string Cedula_Presup_Codigo, 
+                        string Contrata_Desc) {
                 Pla_DocRow rowPla_DocRow = ((Pla_DocRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2402,7 +2424,9 @@ namespace ADL {
                         Per_Personal_Nombre_Modifica,
                         Per_Personal_Nombre_Planifica,
                         Per_Personal_Nombre_Contrata,
-                        Valor_Suma_Movs};
+                        Valor_Suma_Movs,
+                        Cedula_Presup_Codigo,
+                        Contrata_Desc};
                 rowPla_DocRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPla_DocRow);
                 return rowPla_DocRow;
@@ -2458,6 +2482,8 @@ namespace ADL {
                 this.columnPer_Personal_Nombre_Planifica = base.Columns["Per_Personal_Nombre_Planifica"];
                 this.columnPer_Personal_Nombre_Contrata = base.Columns["Per_Personal_Nombre_Contrata"];
                 this.columnValor_Suma_Movs = base.Columns["Valor_Suma_Movs"];
+                this.columnCedula_Presup_Codigo = base.Columns["Cedula_Presup_Codigo"];
+                this.columnContrata_Desc = base.Columns["Contrata_Desc"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2515,6 +2541,10 @@ namespace ADL {
                 base.Columns.Add(this.columnPer_Personal_Nombre_Contrata);
                 this.columnValor_Suma_Movs = new global::System.Data.DataColumn("Valor_Suma_Movs", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnValor_Suma_Movs);
+                this.columnCedula_Presup_Codigo = new global::System.Data.DataColumn("Cedula_Presup_Codigo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCedula_Presup_Codigo);
+                this.columnContrata_Desc = new global::System.Data.DataColumn("Contrata_Desc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnContrata_Desc);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -2566,6 +2596,10 @@ namespace ADL {
                 this.columnPer_Personal_Nombre_Contrata.ReadOnly = true;
                 this.columnPer_Personal_Nombre_Contrata.MaxLength = 500;
                 this.columnValor_Suma_Movs.ReadOnly = true;
+                this.columnCedula_Presup_Codigo.AllowDBNull = false;
+                this.columnCedula_Presup_Codigo.MaxLength = 100;
+                this.columnContrata_Desc.AllowDBNull = false;
+                this.columnContrata_Desc.MaxLength = 200;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4255,6 +4289,28 @@ namespace ADL {
                 }
                 set {
                     this[this.tablePla_Doc.Valor_Suma_MovsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cedula_Presup_Codigo {
+                get {
+                    return ((string)(this[this.tablePla_Doc.Cedula_Presup_CodigoColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.Cedula_Presup_CodigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Contrata_Desc {
+                get {
+                    return ((string)(this[this.tablePla_Doc.Contrata_DescColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.Contrata_DescColumn] = value;
                 }
             }
             
@@ -8358,6 +8414,8 @@ namespace ADL.PlanificacionTableAdapters {
             tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Planifica", "Per_Personal_Nombre_Planifica");
             tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Contrata", "Per_Personal_Nombre_Contrata");
             tableMapping.ColumnMappings.Add("Valor_Suma_Movs", "Valor_Suma_Movs");
+            tableMapping.ColumnMappings.Add("Cedula_Presup_Codigo", "Cedula_Presup_Codigo");
+            tableMapping.ColumnMappings.Add("Contrata_Desc", "Contrata_Desc");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -8385,6 +8443,8 @@ namespace ADL.PlanificacionTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CPC_Codigo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CPC_Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Contrata", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Contrata", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Planifica", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Planifica", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cedula_Presup_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Presup_Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Contrata_Desc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Contrata_Desc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "dbo.Pla_Doc_Ins";
@@ -8408,6 +8468,8 @@ namespace ADL.PlanificacionTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CPC_Codigo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CPC_Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Contrata", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Contrata", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Planifica", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Planifica", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula_Presup_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Presup_Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contrata_Desc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Contrata_Desc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "dbo.Pla_Doc_Upd";
@@ -8431,6 +8493,8 @@ namespace ADL.PlanificacionTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CPC_Codigo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CPC_Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Contrata", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Contrata", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Planifica", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Planifica", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula_Presup_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Presup_Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contrata_Desc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Contrata_Desc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -8452,6 +8516,8 @@ namespace ADL.PlanificacionTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CPC_Codigo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CPC_Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Contrata", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Contrata", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Planifica", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Planifica", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cedula_Presup_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Presup_Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Contrata_Desc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Contrata_Desc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -8563,6 +8629,8 @@ namespace ADL.PlanificacionTableAdapters {
             this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CPC_Codigo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Contrata", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Planifica", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula_Presup_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contrata_Desc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9145,7 +9213,9 @@ namespace ADL.PlanificacionTableAdapters {
                     string Original_PAC_Linea, 
                     string Original_CPC_Codigo, 
                     global::System.Nullable<global::System.DateTime> Original_Fecha_Contrata, 
-                    global::System.Nullable<global::System.DateTime> Original_Fecha_Planifica) {
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Planifica, 
+                    string Original_Cedula_Presup_Codigo, 
+                    string Original_Contrata_Desc) {
             if ((Original_Id.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Id.Value));
             }
@@ -9264,6 +9334,18 @@ namespace ADL.PlanificacionTableAdapters {
             else {
                 this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
+            if ((Original_Cedula_Presup_Codigo == null)) {
+                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_Cedula_Presup_Codigo));
+            }
+            if ((Original_Contrata_Desc == null)) {
+                this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_Contrata_Desc));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9302,7 +9384,9 @@ namespace ADL.PlanificacionTableAdapters {
                     string PAC_Linea, 
                     string CPC_Codigo, 
                     global::System.Nullable<global::System.DateTime> Fecha_Contrata, 
-                    global::System.Nullable<global::System.DateTime> Fecha_Planifica) {
+                    global::System.Nullable<global::System.DateTime> Fecha_Planifica, 
+                    string Cedula_Presup_Codigo, 
+                    string Contrata_Desc) {
             if ((Codigo == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -9411,6 +9495,18 @@ namespace ADL.PlanificacionTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
+            if ((Cedula_Presup_Codigo == null)) {
+                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(Cedula_Presup_Codigo));
+            }
+            if ((Contrata_Desc == null)) {
+                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[20].Value = ((string)(Contrata_Desc));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9450,6 +9546,8 @@ namespace ADL.PlanificacionTableAdapters {
                     string CPC_Codigo, 
                     global::System.Nullable<global::System.DateTime> Fecha_Contrata, 
                     global::System.Nullable<global::System.DateTime> Fecha_Planifica, 
+                    string Cedula_Presup_Codigo, 
+                    string Contrata_Desc, 
                     global::System.Nullable<int> Original_Id, 
                     string Original_Codigo, 
                     string Original_Tipo, 
@@ -9469,6 +9567,8 @@ namespace ADL.PlanificacionTableAdapters {
                     string Original_CPC_Codigo, 
                     global::System.Nullable<global::System.DateTime> Original_Fecha_Contrata, 
                     global::System.Nullable<global::System.DateTime> Original_Fecha_Planifica, 
+                    string Original_Cedula_Presup_Codigo, 
+                    string Original_Contrata_Desc, 
                     global::System.Nullable<int> Id) {
             if ((Codigo == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -9578,129 +9678,153 @@ namespace ADL.PlanificacionTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            if ((Original_Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_Id.Value));
-            }
-            else {
+            if ((Cedula_Presup_Codigo == null)) {
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
-            if ((Original_Codigo == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Cedula_Presup_Codigo));
+            }
+            if ((Contrata_Desc == null)) {
                 this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Codigo));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Contrata_Desc));
             }
-            if ((Original_Tipo == null)) {
+            if ((Original_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_Id.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Tipo));
-            }
-            if ((Original_Fecha_Solicita.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(Original_Fecha_Solicita.Value));
-            }
-            else {
+            if ((Original_Codigo == null)) {
                 this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
-            if ((Original_Per_Personal_Id_Solicita == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_Codigo));
+            }
+            if ((Original_Tipo == null)) {
                 this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Per_Personal_Id_Solicita));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Tipo));
             }
-            if ((Original_Area_Codigo_Solicita == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            if ((Original_Fecha_Solicita.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((System.DateTime)(Original_Fecha_Solicita.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_Area_Codigo_Solicita));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
-            if ((Original_Descripcion == null)) {
+            if ((Original_Per_Personal_Id_Solicita == null)) {
                 this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_Descripcion));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_Per_Personal_Id_Solicita));
             }
-            if ((Original_Estado == null)) {
+            if ((Original_Area_Codigo_Solicita == null)) {
                 this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_Estado));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_Area_Codigo_Solicita));
             }
-            if ((Original_Per_Personal_Id_Crea == null)) {
+            if ((Original_Descripcion == null)) {
                 this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_Per_Personal_Id_Crea));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_Descripcion));
             }
-            if ((Original_Per_Personal_Id_Modifica == null)) {
+            if ((Original_Estado == null)) {
                 this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_Per_Personal_Id_Modifica));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_Estado));
             }
-            if ((Original_Valor_Solicita.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((decimal)(Original_Valor_Solicita.Value));
-            }
-            else {
+            if ((Original_Per_Personal_Id_Crea == null)) {
                 this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
-            if ((Original_Per_Personal_Id_Planifica == null)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_Per_Personal_Id_Crea));
+            }
+            if ((Original_Per_Personal_Id_Modifica == null)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_Per_Personal_Id_Modifica));
+            }
+            if ((Original_Valor_Solicita.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((decimal)(Original_Valor_Solicita.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
+            if ((Original_Per_Personal_Id_Planifica == null)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
             else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_Per_Personal_Id_Planifica));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_Per_Personal_Id_Planifica));
             }
             if ((Original_Esta_Planificada == null)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_Esta_Planificada));
-            }
-            if ((Original_Per_Personal_Id_Contrata == null)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_Per_Personal_Id_Contrata));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_Esta_Planificada));
             }
-            if ((Original_Esta_Contratada == null)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_Esta_Contratada));
-            }
-            if ((Original_PAC_Linea == null)) {
+            if ((Original_Per_Personal_Id_Contrata == null)) {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_PAC_Linea));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_Per_Personal_Id_Contrata));
             }
-            if ((Original_CPC_Codigo == null)) {
+            if ((Original_Esta_Contratada == null)) {
                 this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_CPC_Codigo));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_Esta_Contratada));
             }
-            if ((Original_Fecha_Contrata.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((System.DateTime)(Original_Fecha_Contrata.Value));
-            }
-            else {
+            if ((Original_PAC_Linea == null)) {
                 this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
-            if ((Original_Fecha_Planifica.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((System.DateTime)(Original_Fecha_Planifica.Value));
-            }
             else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_PAC_Linea));
+            }
+            if ((Original_CPC_Codigo == null)) {
                 this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
             }
-            if ((Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((int)(Id.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_CPC_Codigo));
+            }
+            if ((Original_Fecha_Contrata.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((System.DateTime)(Original_Fecha_Contrata.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fecha_Planifica.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((System.DateTime)(Original_Fecha_Planifica.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Cedula_Presup_Codigo == null)) {
+                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_Cedula_Presup_Codigo));
+            }
+            if ((Original_Contrata_Desc == null)) {
+                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_Contrata_Desc));
+            }
+            if ((Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((int)(Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9741,6 +9865,8 @@ namespace ADL.PlanificacionTableAdapters {
                     string CPC_Codigo, 
                     global::System.Nullable<global::System.DateTime> Fecha_Contrata, 
                     global::System.Nullable<global::System.DateTime> Fecha_Planifica, 
+                    string Cedula_Presup_Codigo, 
+                    string Contrata_Desc, 
                     global::System.Nullable<int> Original_Id, 
                     string Original_Codigo, 
                     string Original_Tipo, 
@@ -9759,8 +9885,10 @@ namespace ADL.PlanificacionTableAdapters {
                     string Original_PAC_Linea, 
                     string Original_CPC_Codigo, 
                     global::System.Nullable<global::System.DateTime> Original_Fecha_Contrata, 
-                    global::System.Nullable<global::System.DateTime> Original_Fecha_Planifica) {
-            return this.Update(Codigo, Tipo, Fecha_Solicita, Per_Personal_Id_Solicita, Area_Codigo_Solicita, Descripcion, Estado, Per_Personal_Id_Crea, Per_Personal_Id_Modifica, Valor_Solicita, Per_Personal_Id_Planifica, Esta_Planificada, Per_Personal_Id_Contrata, Esta_Contratada, PAC_Linea, CPC_Codigo, Fecha_Contrata, Fecha_Planifica, Original_Id, Original_Codigo, Original_Tipo, Original_Fecha_Solicita, Original_Per_Personal_Id_Solicita, Original_Area_Codigo_Solicita, Original_Descripcion, Original_Estado, Original_Per_Personal_Id_Crea, Original_Per_Personal_Id_Modifica, Original_Valor_Solicita, Original_Per_Personal_Id_Planifica, Original_Esta_Planificada, Original_Per_Personal_Id_Contrata, Original_Esta_Contratada, Original_PAC_Linea, Original_CPC_Codigo, Original_Fecha_Contrata, Original_Fecha_Planifica, Original_Id);
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Planifica, 
+                    string Original_Cedula_Presup_Codigo, 
+                    string Original_Contrata_Desc) {
+            return this.Update(Codigo, Tipo, Fecha_Solicita, Per_Personal_Id_Solicita, Area_Codigo_Solicita, Descripcion, Estado, Per_Personal_Id_Crea, Per_Personal_Id_Modifica, Valor_Solicita, Per_Personal_Id_Planifica, Esta_Planificada, Per_Personal_Id_Contrata, Esta_Contratada, PAC_Linea, CPC_Codigo, Fecha_Contrata, Fecha_Planifica, Cedula_Presup_Codigo, Contrata_Desc, Original_Id, Original_Codigo, Original_Tipo, Original_Fecha_Solicita, Original_Per_Personal_Id_Solicita, Original_Area_Codigo_Solicita, Original_Descripcion, Original_Estado, Original_Per_Personal_Id_Crea, Original_Per_Personal_Id_Modifica, Original_Valor_Solicita, Original_Per_Personal_Id_Planifica, Original_Esta_Planificada, Original_Per_Personal_Id_Contrata, Original_Esta_Contratada, Original_PAC_Linea, Original_CPC_Codigo, Original_Fecha_Contrata, Original_Fecha_Planifica, Original_Cedula_Presup_Codigo, Original_Contrata_Desc, Original_Id);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9784,7 +9912,9 @@ namespace ADL.PlanificacionTableAdapters {
                     string PAC_Linea, 
                     string CPC_Codigo, 
                     global::System.Nullable<global::System.DateTime> Fecha_Contrata, 
-                    global::System.Nullable<global::System.DateTime> Fecha_Planifica) {
+                    global::System.Nullable<global::System.DateTime> Fecha_Planifica, 
+                    string Cedula_Presup_Codigo, 
+                    string Contrata_Desc) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[10];
             if ((Codigo == null)) {
                 command.Parameters[1].Value = global::System.DBNull.Value;
@@ -9893,6 +10023,18 @@ namespace ADL.PlanificacionTableAdapters {
             }
             else {
                 command.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((Cedula_Presup_Codigo == null)) {
+                command.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[19].Value = ((string)(Cedula_Presup_Codigo));
+            }
+            if ((Contrata_Desc == null)) {
+                command.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[20].Value = ((string)(Contrata_Desc));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
