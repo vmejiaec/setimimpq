@@ -109,8 +109,15 @@
     <Compile Include="FIS\RO_Fis_Planilla_Resumen.cs" />
     <Compile Include="INT\RO_Int_Empresa.cs" />
     <Compile Include="PER\RO_Per_Personal.cs" />
+    <Compile Include="PLA\REL_Pla_Cta.cs" />
+    <Compile Include="VAR\REL_Pla_Cta_Niveles.cs" />
     <Compile Include="PLA\REL_Pla_Doc.cs" />
+    <Compile Include="PLA\REL_Pla_Mov.cs" />
+    <Compile Include="PLA\REL_Pla_Tarea.cs" />
+    <Compile Include="VAR\RO_Pla_Cta_Niveles.cs" />
     <Compile Include="PLA\RO_PLa_Doc.cs" />
+    <Compile Include="PLA\RO_Pla_Mov.cs" />
+    <Compile Include="PLA\RO_Pla_Tarea.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -5,6 +5,7 @@ using System.Web.Services.Protocols;
 using System.Data;
 using System.Collections.Generic;
 using System.Web;
+using System.Configuration;
 
 public partial class PLA_Pla_Doc_Planificacion : PaginaBase
 {
@@ -324,7 +325,7 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
         if (lista.Count > 0)
         {
             var o = lista[0];
-            Session["Dif_Valor_Planificado_Solicitado"] = o.Valor_Suma_Movs - o.Valor_Solicita;
+            Session["Dif_Valor_Planificado_Solicitado"] = -o.Valor_Suma_Movs - o.Valor_Solicita;
         }
     }
     #endregion
@@ -763,5 +764,4 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
         var oMov = (adpMov.GetById(Scope, xMovId))[0];
         o["p_Pla_Tarea_Id"] = oMov.Pla_Tarea_Id;
     }
-
 }

@@ -7,11 +7,14 @@ namespace="Koala.KoalaWebControls" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <asp:UpdatePanel runat="server" ID="udp">
 <ContentTemplate>
-    <div class="panCol3">
     <asp:Panel runat = "server" ID="pgvPla_Partida" GroupingText="Listado de Partidas">
     <%--Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
-        <asp:Label ID="lbFiltro" runat="server" Text="Filtro"></asp:Label>
+    <p class="pTextoPagina">
+    Para buscar una determinada partida presupuestaria, ingrese el criterio de búsqueda en el campo
+    de la sección Buscar y seleccione el tipo de búsqueda que desea: por Código o por Nombre.
+    </p>
+        <asp:Label ID="lbFiltro" runat="server" Text="Criterio"></asp:Label>
         <asp:TextBox ID="tbFiltro" runat="server"></asp:TextBox>
         <asp:TextBox ID="tbFiltroId" runat="server" CssClass="filtroID"></asp:TextBox>
         <asp:Button runat="server" ID="btFiltrar" Text="..." Visible="true" onclick="btFiltrar_Click" style="display:none" />
@@ -23,10 +26,15 @@ namespace="Koala.KoalaWebControls" %>
     </asp:Panel>
     <%--GridView--%>
     <asp:Panel ID="Panel1" runat="server" GroupingText="Partidas">
+    <p class="pTextoPagina">
+    Listado de partidas presupuestarias que se utilizarán para asignar valores monetarios a la tareas del POA.
+    </p>
     <asp:GridView ID="gvPla_Partida" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Partida" 
-        SelectedRowStyle-CssClass="selectedrowstyle" AlternatingRowStyle-CssClass="alternatingrowstyle" 
-        HeaderStyle-CssClass="headerstyle" PagerStyle-CssClass="pagerstyle" 
+        SelectedRowStyle-CssClass="selectedrowstyle" 
+        AlternatingRowStyle-CssClass="alternatingrowstyle" 
+        HeaderStyle-CssClass="headerstyle" 
+        PagerStyle-CssClass="pagerstyle" 
             onselectedindexchanged="gvPla_Partida_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
@@ -38,10 +46,12 @@ namespace="Koala.KoalaWebControls" %>
     </asp:GridView>
     </asp:Panel>
     </asp:Panel>
-    </div>
+
     <%--FormView--%>
-    <div class = "panCol2">
     <asp:Panel runat="server" ID="pfvPla_Partida" GroupingText="Crear, Editar o Borar una Partida">
+    <p class="pTextoPagina">
+    Para modificar una partida presupuestaria, primera elija la fila correspondiente dando un click en el botón [...]
+    </p>
     <koala:FormViewSetim ID="fvPla_Pardida" runat="server" DataSourceID="odsfvPla_Partida" 
             oniteminserting="fvPla_Pardida_ItemInserting" 
             onitemdeleted="fvPla_Pardida_ItemDeleted" 
@@ -56,11 +66,11 @@ namespace="Koala.KoalaWebControls" %>
             </tr>
             <tr>
                 <td>Codigo:</td>
-                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>' CssClass="txtEdicion" /></td>
+                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>' CssClass="txtEdit" /></td>
             </tr>
             <tr>
                 <td>Nombre:</td>
-                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' CssClass="txtEdicion" /></td>
+                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' CssClass="txtEditNombre" Width="350px"/></td>
             </tr>
             <tr style="display:none" >
                 <td>Estado:</td>
@@ -77,26 +87,21 @@ namespace="Koala.KoalaWebControls" %>
             <table>
             <tr style="display:none" >
                 <td>Id:</td>
-                <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' CssClass="txtEdicion" /></td>
+                <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' /></td>
             </tr>
             <tr>
                 <td>Código:</td>
-                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>' CssClass="txtEdicion" />
+                <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>' CssClass="txtEdit" />
                     <%--Validadores--%>
                     <asp:RequiredFieldValidator ID="rqCodigo" runat="server" 
                     ControlToValidate="CodigoTextBox"
                     ErrorMessage="El campo Código es obligatorio" 
                     Text="X" Display="Dynamic"/>                    
-                    <%--<asp:RegularExpressionValidator ID="revCodigo" runat="server" 
-                    ControlToValidate="CodigoTextBox"
-                    ErrorMessage="El código debe ser de 8 dígitos"
-                    Text="X" Display="Dynamic" 
-                    ValidationExpression="\d{8}"/>--%>
                 </td>
             </tr>
             <tr>
                 <td>Nombre:</td>
-                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' CssClass="txtEdicion" /></td>
+                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' CssClass="txtEditNombre" Width="350px"/></td>
                     <%--Validadores--%>
                     <asp:RequiredFieldValidator ID="rqNombre" runat="server" 
                     ControlToValidate="NombreTextBox"
@@ -126,7 +131,7 @@ namespace="Koala.KoalaWebControls" %>
             </tr>
             <tr>
                 <td>Nombre:</td>
-                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' ReadOnly="true" /></td>
+                <td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' ReadOnly="true"  CssClass="txtItemNombre" Width="350px"/></td>
             </tr>
             <tr style="display:none" >
                 <td>Estado:</td>
@@ -145,7 +150,7 @@ namespace="Koala.KoalaWebControls" %>
         <asp:Label ID="lbFvMsgInfo" runat="server" Text=">" CssClass="FvMensajeInfo"></asp:Label>
         <asp:ValidationSummary ID="vsErrorResumen" runat="server"/>
     </asp:Panel>
-    </div>
+   
     <%--Objetos de Datos para el GridView --%>
     <asp:ObjectDataSource ID="odsgvPla_Partida" runat="server" 
         SelectMethod="Get" 

@@ -5,6 +5,7 @@ using System.Web.Services.Protocols;
 using System.Data;
 using System.Collections.Generic;
 using System.Web;
+using System.Configuration;
 
 public partial class PLA_Pla_Tarea_GvFv : PaginaBase
 {
@@ -522,5 +523,27 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         var o = e.InputParameters;
         o["p_Pla_Cta_Codigo"] = gvPla_Tarea.SelectedRow.Cells[3].Text; //"2.1.1.1.";                
     }
+    protected void btReporteTareasNiveles_Click(object sender, EventArgs e)
+    {
+        // Tomo el año de la cabecera
+        string v_Anio = ddlCabecera.SelectedValue;
+        if (Session["Scope"] == null) Response.Redirect("~/PAS/PAR_ACCESO.aspx");
+        Scope s = (Scope)Session["Scope"];
+        string servidor_reporte = ConfigurationManager.AppSettings["URL_Servidor_Reportes"];
+        HER.ResponseHelper.Redirect(servidor_reporte
+                                + "VAR/Pla_Cta_Rep_Niveles.aspx"
+                                + Scope_Factory.Get_QueryString(s)
+                                + string.Format("&v_Anio={0}", v_Anio),
+                                "_blank", "scrollbars=yes, resizable=yes");
+        
+    }
+    protected void gvPla_Tarea_DataBound(object sender, EventArgs e)
+    {
+        //var index = gvPla_Tarea.SelectedIndex;
+        //if (index == -1)
+        //    if (gvPla_Tarea.Rows.Count > 0)
+        //        gvPla_Tarea.SelectedIndex = 0;
+    }
+
 }
     

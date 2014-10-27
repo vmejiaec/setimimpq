@@ -90,6 +90,11 @@ TagPrefix="ajax" %>
 
     <%--Cabecera--%>
     <asp:Panel runat="server" ID="pcabecera" GroupingText="Cabecera">
+    <p class="pTextoPagina">
+    Para filtrar los datos de la lista de tareas, seleccione un año específico de la lista desplegable. 
+    Si desea buscar por una cuenta específica, ingrese el criterio de búsqueda y elija sobre
+    cuál de los dos campos se va a aplicar. Para listar todas las tareas solo elija la opción Todos.
+    </p>
         <asp:Label ID="lbCabecera" runat="server" Text="Seleccionar el año:"></asp:Label>
         <asp:DropDownList ID="ddlCabecera" runat="server" AutoPostBack="True" >
         </asp:DropDownList>        
@@ -97,7 +102,7 @@ TagPrefix="ajax" %>
 
     <%--Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
-        <asp:Label ID="lbFiltro" runat="server" Text="Filtro"></asp:Label>
+        <asp:Label ID="lbFiltro" runat="server" Text="Criterio"></asp:Label>
         <asp:TextBox ID="tbFiltro" runat="server"></asp:TextBox>
         <asp:TextBox ID="tbFiltroId" runat="server" CssClass="filtroID"></asp:TextBox>
         <asp:TextBox ID="tbFiltroId_Poa" runat="server" CssClass="filtroID"></asp:TextBox>
@@ -111,13 +116,19 @@ TagPrefix="ajax" %>
 
     <%--GridView de Tareas--%>
     <asp:Panel runat="server" GroupingText="Listado de Tareas">
+    <p class="pTextoPagina">
+    Listado de tareas ordenado según la columna Cuenta y la columna Código. Para modificar o crear
+    una nueva tarea, elija el registro deseado pulsando en el botón [...] y el sistema le presentará
+    la información de la tarea en el formulario inferior.
+    </p>
     <asp:GridView ID="gvPla_Tarea" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Tarea_GetByAnio" 
         SelectedRowStyle-CssClass="selectedrowstyle" 
 		AlternatingRowStyle-CssClass="alternatingrowstyle" 
         HeaderStyle-CssClass="headerstyle" 
 		PagerStyle-CssClass="pagerstyle" 
-            onselectedindexchanged="gvPla_Tarea_SelectedIndexChanged">
+            onselectedindexchanged="gvPla_Tarea_SelectedIndexChanged" 
+            ondatabound="gvPla_Tarea_DataBound">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
 			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />			
@@ -136,8 +147,31 @@ TagPrefix="ajax" %>
     </asp:GridView>
     </asp:Panel>
 
+    <%--[O] Barras del Reporte --%>
+    <asp:Panel runat="server" ID="pReportes" GroupingText="Reportes">
+        <table>
+        <tr>
+            <td><asp:Button ID="btReporteTareasNiveles" runat="server" 
+                    Text="Cuentas y Tareas por Niveles" 
+                    onclick="btReporteTareasNiveles_Click" /></td>
+            <td>
+                <p class="pTextoPagina">
+                Listado de cuentas del POA con cada uno de sus niveles hasta el detalle de las tareas, incluye los
+                valores iniciales y el saldo hasta la fecha actual. Los valores se totalizan por niveles.
+                </p>
+            </td>
+        </tr>
+        </table>
+    </asp:Panel>
+    <%--[X] Barras del Reporte --%>
+
     <%--FormView Tarea --%>
     <asp:Panel runat="server" ID="pfvPla_Tarea" GroupingText="Editar la Tarea seleccionada" CssClass="panCol2">
+    <p class="pTextoPagina">
+    Elija una tarea del listado superior y el sistema presentará en el siguiente formulario los datos
+    relacionados con dicha tarea, así como también el árbol de cuentas por niveles a la que pertenece la tarea 
+    seleccionada.
+    </p>
     <asp:FormView ID="fvPla_Tarea" runat="server" DataSourceID="odsfvPla_Tarea" 
             oniteminserting="fvPla_Tarea_ItemInserting" 
             onitemdeleted="fvPla_Tarea_ItemDeleted" 
@@ -146,7 +180,8 @@ TagPrefix="ajax" %>
 			ondatabound="fvPla_Tarea_DataBound" 
             onprerender="fvPla_Tarea_PreRender" 
             onitemupdating="fvPla_Tarea_ItemUpdating" 
-            onitemdeleting="fvPla_Tarea_ItemDeleting" DataKeyNames="Id">
+            onitemdeleting="fvPla_Tarea_ItemDeleting" DataKeyNames="Id" 
+            >
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
 			<table>
@@ -460,10 +495,11 @@ TagPrefix="ajax" %>
     </asp:Panel>
 
     <%--[O] INICIO GridView y FormView del Detalle POA --%>    
-    <asp:Panel ID="Panel1" runat="server" GroupingText="Asignación de Partidas a la Tarea" CssClass="panCol2"  DefaultButton="Button1">
-    <div style="height:33px">
-    <asp:Button ID="Button1" runat="server" Text="."></asp:Button>
-    </div>
+    <asp:Panel ID="Panel1" runat="server" GroupingText="Asignación de Partidas a la Tarea" CssClass="panCol2" >
+    <p class="pTextoPagina">
+    Para relacionar una tarea con una partida presupuestaria, elija el código de la partida deseada
+    de la lista desplegada en el campo Partida_Codigo, luego ingrese el valor inicial.
+    </p>
     <%----[O] GridView POA --%>
     <asp:GridView ID="gvPla_Poa" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Poa_GetByPla_Tarea_Id" 
@@ -522,7 +558,7 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="Pla_Partida_IdTextBox" runat="server" Text='<%# Bind("Pla_Partida_Id") %>'  CssClass="txtEdit"  /></td>
             </tr>
 			<tr >
-                <td> Pla_Partida_Codigo </td>                
+                <td> Partida_Codigo </td>                
 				<td><asp:TextBox ID="Pla_Partida_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Partida_Codigo") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                 <asp:RequiredFieldValidator ID="rqPla_Partida_Codigo" runat="server" 
@@ -536,14 +572,14 @@ TagPrefix="ajax" %>
                     ServiceMethod= "acxPla_Partida_GetByLikeCodigo_List"
                     UseContextKey="True" 
                     ContextKey=""
-                    MinimumPrefixLength="1"
+                    MinimumPrefixLength="0"
                     CompletionInterval="0"
                     OnClientItemSelected= "acxPla_Partida_CodigoTextBox_Click"
                     />
 				</td>
             </tr>
 			<tr >
-                <td> Pla_Partida_Nombre </td>                
+                <td> Partida_Nombre </td>                
 				<td><asp:TextBox ID="Pla_Partida_NombreTextBox" runat="server" Text='<%# Bind("Pla_Partida_Nombre") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                 <asp:RequiredFieldValidator ID="rqPla_Partida_Nombre" runat="server" 
@@ -557,7 +593,7 @@ TagPrefix="ajax" %>
                     ServiceMethod= "acxPla_Partida_GetByLikeNombre_List"
                     UseContextKey="True" 
                     ContextKey=""
-                    MinimumPrefixLength="1"
+                    MinimumPrefixLength="0"
                     CompletionInterval="0"
                     OnClientItemSelected= "acxPla_Partida_NombreTextBox_Click"
                     />
@@ -612,7 +648,7 @@ TagPrefix="ajax" %>
 				</td>
             </tr>
 			<tr >
-                <td> Pla_Partida_Codigo </td>                
+                <td> Partida_Codigo </td>                
 				<td><asp:TextBox ID="Pla_Partida_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Partida_Codigo") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Codigo" runat="server" 
@@ -626,14 +662,14 @@ TagPrefix="ajax" %>
                     ServiceMethod= "acxPla_Partida_GetByLikeCodigo_List"
                     UseContextKey="True" 
                     ContextKey=""
-                    MinimumPrefixLength="1"
-                    CompletionInterval="0"
+                    MinimumPrefixLength="0"
+                    CompletionInterval="100"
                     OnClientItemSelected= "acxPla_Partida_CodigoTextBox_Click"
                     />
 				</td>
             </tr>
 			<tr >
-                <td> Pla_Partida_Nombre </td>                
+                <td> Partida_Nombre </td>                
 				<td><asp:TextBox ID="Pla_Partida_NombreTextBox" runat="server" Text='<%# Bind("Pla_Partida_Nombre") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Nombre" runat="server" 
@@ -646,9 +682,9 @@ TagPrefix="ajax" %>
                     TargetControlID= "Pla_Partida_NombreTextBox"
                     ServiceMethod= "acxPla_Partida_GetByLikeNombre_List"
                     UseContextKey="True" 
-                    ContextKey=""
-                    MinimumPrefixLength="1"
-                    CompletionInterval="0"
+                    ContextKey="" 
+                    MinimumPrefixLength="0"
+                    CompletionInterval="100"
                     OnClientItemSelected= "acxPla_Partida_NombreTextBox_Click"
                     />
                 </td>
@@ -701,11 +737,11 @@ TagPrefix="ajax" %>
                 <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
 			<tr >
-                <td> Pla_Partida_Codigo </td>
+                <td> Partida_Codigo </td>
                 <td><asp:TextBox ID="Pla_Partida_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Partida_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
 			<tr >
-                <td> Pla_Partida_Nombre </td>
+                <td> Partida_Nombre </td>
                 <td><asp:TextBox ID="Pla_Partida_NombreTextBox" runat="server" Text='<%# Bind("Pla_Partida_Nombre") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
             </tr>
 			<tr >
@@ -735,6 +771,22 @@ TagPrefix="ajax" %>
 
     <%--[O] GridView de Pla_Mov --%>
     <asp:Panel ID="Panel2" runat="server" GroupingText="Movimientos">
+    <p class="pTextoPagina">
+    <div>
+    <b>Doc Tipos.</b>
+    <table>
+    <tr>
+    <td>ASI</td><td>Asiento inicial del POA.</td>
+    </tr>
+    <tr>
+    <td>GCP</td><td>Certificados POA.</td>
+    </tr>
+    <tr>
+    <td>REP</td><td>Reprogramación POA.</td>
+    </tr>
+    </table>
+    </div>
+    </p>
     <asp:GridView ID="gvPla_Mov" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvPla_Mov_GetByPla_Poa_Id" 
 		AlternatingRowStyle-CssClass="alternatingrowstyle" 
@@ -755,20 +807,7 @@ TagPrefix="ajax" %>
         
     </asp:GridView>
     <br />
-    <div>
-    <b>Doc Tipos.</b>
-    <table>
-    <tr>
-    <td>ASI</td><td>Asiento inicial del POA.</td>
-    </tr>
-    <tr>
-    <td>GCP</td><td>Certificados POA.</td>
-    </tr>
-    <tr>
-    <td>REP</td><td>Reprogramación POA.</td>
-    </tr>
-    </table>
-    </div>
+
     </asp:Panel>
 	<%--[X] GridView de Pla_Mov --%>
 </ContentTemplate>

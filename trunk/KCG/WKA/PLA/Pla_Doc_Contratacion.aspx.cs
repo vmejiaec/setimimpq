@@ -275,7 +275,7 @@ public partial class PLA_Pla_Doc_Contratacion : PaginaBase
         if (lista.Count > 0)
         {
             var o = lista[0];
-            Session["Dif_Valor_Planificado_Solicitado"] = o.Valor_Suma_Movs - o.Valor_Solicita;
+            Session["Dif_Valor_Planificado_Solicitado"] = - o.Valor_Suma_Movs - o.Valor_Solicita;
         }
     }
     #endregion

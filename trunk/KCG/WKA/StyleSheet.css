@@ -1,4 +1,12 @@
 ﻿/*Victor: Estilos para los campos de texto*/
+.pTextoPagina
+{
+    color:GrayText;
+    font-style:italic;
+    margin-bottom:5px;
+    margin-top:0px;
+}
+
 .txtItem
 {
     font-family: Arial;
