@@ -5,7 +5,7 @@ using System.Web.Services;
 using CEL.PLA; // datos.xsdNombreIniciales
 using AEL.PLA;
 using BEL; 
-
+ 
 namespace EWS
 {
     [WebService(Namespace = "http://koala.org/")]
