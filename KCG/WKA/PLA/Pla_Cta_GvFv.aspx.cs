@@ -153,6 +153,17 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
         // Valor por defecto del Id y Estado
         e.Values["Id"] = -1;
         if (String.IsNullOrWhiteSpace((string)e.Values["Estado"])) e.Values["Estado"] = "PEN";
+        // Coloca el nivel correspondiente a la cuenta seleccionada
+        string sCodigoNext = (string) e.Values["Codigo"];
+        string sNivel = "";
+        switch (sCodigoNext.Length)
+        {
+            case 3 : sNivel = "PRG"; break;
+            case 6 : sNivel = "PRY"; break;
+            case 9 : sNivel = "PRD"; break;
+            case 12: sNivel = "ACT"; break;
+        }
+        e.Values["Nivel"] = sNivel;
     }
     #endregion
 
@@ -198,6 +209,18 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
                 TextBox anio = (TextBox)fvPla_Cta.FindControl("AnioTextBox");
                 anio.Text = ddlFiltroAnio.SelectedValue;
                 anio.ReadOnly = true;
+                // Preparo la lista desplegable con los códigos generados auto 
+                int iPla_Cta_Id = (int)gvPla_Cta.SelectedValue;
+                FEL.VAR.BO_Pla_Cta_Codigo_Next adpCodigoNext = new FEL.VAR.BO_Pla_Cta_Codigo_Next();
+                var lista = adpCodigoNext.GetByAnio_Cta_Id(Scope, anio.Text, iPla_Cta_Id);
+                if (lista.Count > 0)
+                {
+                    var fila = lista[0];
+                    DropDownList ddlCodigoNext = (DropDownList) fvPla_Cta.FindControl("ddlCodigo");
+                    ddlCodigoNext.Items.Add(new ListItem(fila.Cta_Bro_Next));
+                    if (!string.IsNullOrEmpty(fila.Cta_Son_Next))
+                        ddlCodigoNext.Items.Add(new ListItem(fila.Cta_Son_Next));
+                }
                 break;
             case FormViewMode.Edit:
                 break;

@@ -57,7 +57,7 @@ namespace EWS
         }
         #endregion
 
-        #region V_INT_Area
+        #region Servicios para  V_INT_Area
         private DO_V_INT_Area adpVAR_V_INT_Area;
         public DO_V_INT_Area AdpVAR_V_INT_Area
         {
@@ -77,6 +77,16 @@ namespace EWS
         public List<V_INT_Area> V_INT_Area_GetByCodigo(Scope s, string Codigo)
         {
             return AdpVAR_V_INT_Area.GetByCodigo(s, Codigo);
+        }
+        #endregion
+
+        #region Servicios para Pla_Cta_Codigo_Next
+        [WebMethod]
+        public List<Pla_Cta_Codigo_Next> Pla_Cta_Codigo_Next_GetByAnio_Cta_Id(Scope s, string p_Anio, int p_Pla_Cta_Id)
+        {            
+            CEL.VAR.DO_Pla_Cta_Codigo_Next adp = new DO_Pla_Cta_Codigo_Next();
+            List<Pla_Cta_Codigo_Next> res = adp.GetByAnio_Cta_Id(p_Anio, p_Pla_Cta_Id);
+            return res;
         }
         #endregion
     }
