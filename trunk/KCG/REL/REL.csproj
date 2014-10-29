@@ -110,6 +110,8 @@
     <Compile Include="INT\RO_Int_Empresa.cs" />
     <Compile Include="PER\RO_Per_Personal.cs" />
     <Compile Include="PLA\REL_Pla_Cta.cs" />
+    <Compile Include="PLA\REL_Pla_Poa.cs" />
+    <Compile Include="PLA\RO_Pla_Poa.cs" />
     <Compile Include="VAR\REL_Pla_Cta_Niveles.cs" />
     <Compile Include="PLA\REL_Pla_Doc.cs" />
     <Compile Include="PLA\REL_Pla_Mov.cs" />

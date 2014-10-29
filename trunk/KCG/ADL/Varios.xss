@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:V_INT_Funcionario_Area" ZOrder="4" X="24" Y="22" Height="267" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
     <Shape ID="DesignTable:V_INT_Area" ZOrder="3" X="337" Y="23" Height="134" Width="258" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
-    <Shape ID="DesignTable:Pla_Cta_Rep_Niveles" ZOrder="2" X="58" Y="306" Height="305" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:Pla_Cta_Rep_Niveles" ZOrder="2" X="58" Y="306" Height="305" Width="261" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:Pla_Cta_Codigo_Next" ZOrder="1" X="394" Y="315" Height="172" Width="289" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
   </Shapes>
   <Connectors />

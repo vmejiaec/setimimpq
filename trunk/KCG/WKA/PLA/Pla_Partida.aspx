@@ -47,6 +47,39 @@ namespace="Koala.KoalaWebControls" %>
     </asp:Panel>
     </asp:Panel>
 
+    <%--[O] Barras del Reporte --%>
+    <asp:Panel runat="server" ID="pReportes" GroupingText="Reportes">
+        <table>
+        <tr>
+            <td>
+                <asp:DropDownList ID="ddlFiltroAnio" runat="server" 
+                    DataSourceID="odsDominioAnio" DataTextField="Nombre" DataValueField="Nombre" >
+                </asp:DropDownList>
+                    <asp:ObjectDataSource ID="odsDominioAnio" runat="server" 
+                        SelectMethod="GetByObjetoCampo" 
+                        TypeName="FEL.DIC.BO_Dic_Dominio">
+                        <SelectParameters>
+                            <asp:Parameter DefaultValue="Nombre" Name="sortExpression" Type="String" />
+                            <asp:SessionParameter DefaultValue="" Name="s" SessionField="Scope" Type="Object" />
+                            <asp:Parameter DefaultValue="Pla_Cta" Name="Objeto_Nombre" Type="String" />
+                            <asp:Parameter DefaultValue="Anio" Name="Campo_Nombre" Type="String" />
+                        </SelectParameters>
+                    </asp:ObjectDataSource>
+            </td>
+            <td><asp:Button ID="btReporte" runat="server" Text="Listad de uso de Partidas" 
+                    onclick="btReporte_Click" /></td>
+            <td>
+                <p class="pTextoPagina">
+                El listado de Partidas Presupuestarias contiene las cuentas, tareas con sus respectivos
+                valores iniciales, reasignados y saldos actuales hasta la fecha. Debe seleccionar el año
+                y pulsar el botón de Reporte.
+                </p>
+            </td>
+        </tr>
+        </table>
+    </asp:Panel>
+    <%--[X] Barras del Reporte --%>
+
     <%--FormView--%>
     <asp:Panel runat="server" ID="pfvPla_Partida" GroupingText="Crear, Editar o Borar una Partida">
     <p class="pTextoPagina">

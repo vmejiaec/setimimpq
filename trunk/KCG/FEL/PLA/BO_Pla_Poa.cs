@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel;
-using HER; 
+using HER;
 
 namespace FEL.PLA
 {
@@ -52,6 +52,13 @@ namespace FEL.PLA
 		// Procedimientos Get
 		#region Métodos Get
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Pla_Poa> GetByAnio(Scope s , string p_Anio)
+        {
+			List<Pla_Poa> lista = new List<Pla_Poa>(
+				Adapter.Pla_Poa_GetByAnio(s,  p_Anio));
+            return lista;
+        }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
 		public List<Pla_Poa> GetById(Scope s , Int32 p_Id)
         {
 			List<Pla_Poa> lista = new List<Pla_Poa>(
@@ -74,6 +81,13 @@ namespace FEL.PLA
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+		 // Delete_Con_Pla_Mov_y_Pla_DocINT
+				public int Pla_Poa_Delete_Con_Pla_Mov_y_Pla_DocINT(Scope s , Int32 Original_Id, string Original_Codigo, Int32 Original_Pla_Tarea_Id, Int32 Original_Pla_Partida_Id, string Original_Estado)
+        {
+			int res = 
+				Adapter.Pla_Poa_Delete_Con_Pla_Mov_y_Pla_DocINT(s,  Original_Id, Original_Codigo, Original_Pla_Tarea_Id, Original_Pla_Partida_Id, Original_Estado);
+            return res;
+        }
 		 // Insert_Con_Pla_Mov_SaldoInicialINT
 				public int Pla_Poa_Insert_Con_Pla_Mov_SaldoInicialINT(Scope s , string Codigo, Int32 Pla_Tarea_Id, Int32 Pla_Partida_Id, Decimal Valor_Inicial, string Estado)
         {

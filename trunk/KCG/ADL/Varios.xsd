@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="KCG_DataConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="KCG_DataConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ADL.Properties.Settings.GlobalReference.Default.KCG_DataConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="KCG_DataConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="KCG_DataConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ADL.Properties.Settings.GlobalReference.Default.KCG_DataConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_INT_Funcionario_AreaTableAdapter" GeneratorDataComponentClassName="V_INT_Funcionario_AreaTableAdapter" Name="V_INT_Funcionario_Area" UserDataComponentName="V_INT_Funcionario_AreaTableAdapter">
@@ -97,7 +97,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Pla_Cta_Rep_NivelesTableAdapter" GeneratorDataComponentClassName="Pla_Cta_Rep_NivelesTableAdapter" Name="Pla_Cta_Rep_Niveles" UserDataComponentName="Pla_Cta_Rep_NivelesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="KCG_DataConnectionString (Settings)" DbObjectName="IMPQ.dbo.Pla_Cta_Rep_NivelesByAnio" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="Get" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="Get" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="Get" UserSourceName="Fill">
+              <DbSource ConnectionRef="KCG_DataConnectionString (Settings)" DbObjectName="IMPQ.dbo.Pla_Cta_Rep_NivelesByAnio" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="Get" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="Get" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="Get" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.Pla_Cta_Rep_NivelesByAnio</CommandText>
@@ -122,6 +122,7 @@
               <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
               <Mapping SourceColumn="Valor_Inicial" DataSetColumn="Valor_Inicial" />
               <Mapping SourceColumn="Valor_Suma" DataSetColumn="Valor_Suma" />
+              <Mapping SourceColumn="Valor_Suma_Movs_Reasignacion" DataSetColumn="Valor_Suma_Movs_Reasignacion" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -180,7 +181,7 @@
   <xs:element name="Varios" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Varios" msprop:Generator_UserDSName="Varios">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="V_INT_Funcionario_Area" msprop:Generator_TableClassName="V_INT_Funcionario_AreaDataTable" msprop:Generator_TableVarName="tableV_INT_Funcionario_Area" msprop:Generator_TablePropName="V_INT_Funcionario_Area" msprop:Generator_RowDeletingName="V_INT_Funcionario_AreaRowDeleting" msprop:Generator_RowChangingName="V_INT_Funcionario_AreaRowChanging" msprop:Generator_RowEvHandlerName="V_INT_Funcionario_AreaRowChangeEventHandler" msprop:Generator_RowDeletedName="V_INT_Funcionario_AreaRowDeleted" msprop:Generator_UserTableName="V_INT_Funcionario_Area" msprop:Generator_RowChangedName="V_INT_Funcionario_AreaRowChanged" msprop:Generator_RowEvArgName="V_INT_Funcionario_AreaRowChangeEvent" msprop:Generator_RowClassName="V_INT_Funcionario_AreaRow">
+        <xs:element name="V_INT_Funcionario_Area" msprop:Generator_TableClassName="V_INT_Funcionario_AreaDataTable" msprop:Generator_TableVarName="tableV_INT_Funcionario_Area" msprop:Generator_RowChangedName="V_INT_Funcionario_AreaRowChanged" msprop:Generator_TablePropName="V_INT_Funcionario_Area" msprop:Generator_RowDeletingName="V_INT_Funcionario_AreaRowDeleting" msprop:Generator_RowChangingName="V_INT_Funcionario_AreaRowChanging" msprop:Generator_RowEvHandlerName="V_INT_Funcionario_AreaRowChangeEventHandler" msprop:Generator_RowDeletedName="V_INT_Funcionario_AreaRowDeleted" msprop:Generator_RowClassName="V_INT_Funcionario_AreaRow" msprop:Generator_UserTableName="V_INT_Funcionario_Area" msprop:Generator_RowEvArgName="V_INT_Funcionario_AreaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Area_Codigo" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="Area_Codigo" msprop:Generator_ColumnVarNameInTable="columnArea_Codigo" msprop:Generator_ColumnPropNameInTable="Area_CodigoColumn" msprop:Generator_UserColumnName="Area_Codigo" minOccurs="0">
@@ -235,7 +236,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="V_INT_Area" msprop:Generator_TableClassName="V_INT_AreaDataTable" msprop:Generator_TableVarName="tableV_INT_Area" msprop:Generator_TablePropName="V_INT_Area" msprop:Generator_RowDeletingName="V_INT_AreaRowDeleting" msprop:Generator_RowChangingName="V_INT_AreaRowChanging" msprop:Generator_RowEvHandlerName="V_INT_AreaRowChangeEventHandler" msprop:Generator_RowDeletedName="V_INT_AreaRowDeleted" msprop:Generator_UserTableName="V_INT_Area" msprop:Generator_RowChangedName="V_INT_AreaRowChanged" msprop:Generator_RowEvArgName="V_INT_AreaRowChangeEvent" msprop:Generator_RowClassName="V_INT_AreaRow">
+        <xs:element name="V_INT_Area" msprop:Generator_TableClassName="V_INT_AreaDataTable" msprop:Generator_TableVarName="tableV_INT_Area" msprop:Generator_RowChangedName="V_INT_AreaRowChanged" msprop:Generator_TablePropName="V_INT_Area" msprop:Generator_RowDeletingName="V_INT_AreaRowDeleting" msprop:Generator_RowChangingName="V_INT_AreaRowChanging" msprop:Generator_RowEvHandlerName="V_INT_AreaRowChangeEventHandler" msprop:Generator_RowDeletedName="V_INT_AreaRowDeleted" msprop:Generator_RowClassName="V_INT_AreaRow" msprop:Generator_UserTableName="V_INT_Area" msprop:Generator_RowEvArgName="V_INT_AreaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo">
@@ -255,7 +256,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Pla_Cta_Rep_Niveles" msprop:Generator_TableClassName="Pla_Cta_Rep_NivelesDataTable" msprop:Generator_TableVarName="tablePla_Cta_Rep_Niveles" msprop:Generator_RowChangedName="Pla_Cta_Rep_NivelesRowChanged" msprop:Generator_TablePropName="Pla_Cta_Rep_Niveles" msprop:Generator_RowDeletingName="Pla_Cta_Rep_NivelesRowDeleting" msprop:Generator_RowChangingName="Pla_Cta_Rep_NivelesRowChanging" msprop:Generator_RowEvHandlerName="Pla_Cta_Rep_NivelesRowChangeEventHandler" msprop:Generator_RowDeletedName="Pla_Cta_Rep_NivelesRowDeleted" msprop:Generator_RowClassName="Pla_Cta_Rep_NivelesRow" msprop:Generator_UserTableName="Pla_Cta_Rep_Niveles" msprop:Generator_RowEvArgName="Pla_Cta_Rep_NivelesRowChangeEvent">
+        <xs:element name="Pla_Cta_Rep_Niveles" msprop:Generator_TableClassName="Pla_Cta_Rep_NivelesDataTable" msprop:Generator_TableVarName="tablePla_Cta_Rep_Niveles" msprop:Generator_TablePropName="Pla_Cta_Rep_Niveles" msprop:Generator_RowDeletingName="Pla_Cta_Rep_NivelesRowDeleting" msprop:Generator_RowChangingName="Pla_Cta_Rep_NivelesRowChanging" msprop:Generator_RowEvHandlerName="Pla_Cta_Rep_NivelesRowChangeEventHandler" msprop:Generator_RowDeletedName="Pla_Cta_Rep_NivelesRowDeleted" msprop:Generator_UserTableName="Pla_Cta_Rep_Niveles" msprop:Generator_RowChangedName="Pla_Cta_Rep_NivelesRowChanged" msprop:Generator_RowEvArgName="Pla_Cta_Rep_NivelesRowChangeEvent" msprop:Generator_RowClassName="Pla_Cta_Rep_NivelesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -312,10 +313,11 @@
               </xs:element>
               <xs:element name="Valor_Inicial" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnValor_Inicial" msprop:Generator_ColumnPropNameInRow="Valor_Inicial" msprop:Generator_ColumnPropNameInTable="Valor_InicialColumn" msprop:Generator_UserColumnName="Valor_Inicial" type="xs:decimal" minOccurs="0" />
               <xs:element name="Valor_Suma" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnValor_Suma" msprop:Generator_ColumnPropNameInRow="Valor_Suma" msprop:Generator_ColumnPropNameInTable="Valor_SumaColumn" msprop:Generator_UserColumnName="Valor_Suma" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Valor_Suma_Movs_Reasignacion" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnValor_Suma_Movs_Reasignacion" msprop:Generator_ColumnPropNameInRow="Valor_Suma_Movs_Reasignacion" msprop:Generator_ColumnPropNameInTable="Valor_Suma_Movs_ReasignacionColumn" msprop:Generator_UserColumnName="Valor_Suma_Movs_Reasignacion" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Pla_Cta_Codigo_Next" msprop:Generator_TableClassName="Pla_Cta_Codigo_NextDataTable" msprop:Generator_TableVarName="tablePla_Cta_Codigo_Next" msprop:Generator_TablePropName="Pla_Cta_Codigo_Next" msprop:Generator_RowDeletingName="Pla_Cta_Codigo_NextRowDeleting" msprop:Generator_RowChangingName="Pla_Cta_Codigo_NextRowChanging" msprop:Generator_RowEvHandlerName="Pla_Cta_Codigo_NextRowChangeEventHandler" msprop:Generator_RowDeletedName="Pla_Cta_Codigo_NextRowDeleted" msprop:Generator_UserTableName="Pla_Cta_Codigo_Next" msprop:Generator_RowChangedName="Pla_Cta_Codigo_NextRowChanged" msprop:Generator_RowEvArgName="Pla_Cta_Codigo_NextRowChangeEvent" msprop:Generator_RowClassName="Pla_Cta_Codigo_NextRow">
+        <xs:element name="Pla_Cta_Codigo_Next" msprop:Generator_TableClassName="Pla_Cta_Codigo_NextDataTable" msprop:Generator_TableVarName="tablePla_Cta_Codigo_Next" msprop:Generator_RowChangedName="Pla_Cta_Codigo_NextRowChanged" msprop:Generator_TablePropName="Pla_Cta_Codigo_Next" msprop:Generator_RowDeletingName="Pla_Cta_Codigo_NextRowDeleting" msprop:Generator_RowChangingName="Pla_Cta_Codigo_NextRowChanging" msprop:Generator_RowEvHandlerName="Pla_Cta_Codigo_NextRowChangeEventHandler" msprop:Generator_RowDeletedName="Pla_Cta_Codigo_NextRowDeleted" msprop:Generator_RowClassName="Pla_Cta_Codigo_NextRow" msprop:Generator_UserTableName="Pla_Cta_Codigo_Next" msprop:Generator_RowEvArgName="Pla_Cta_Codigo_NextRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo">

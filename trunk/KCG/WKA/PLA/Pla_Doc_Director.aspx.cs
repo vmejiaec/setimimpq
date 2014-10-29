@@ -5,6 +5,7 @@ using System.Web.Services.Protocols;
 using System.Data;
 using System.Collections.Generic;
 using System.Web;
+using System.Configuration;
 
 
 public partial class PLA_Pla_Doc_Director : PaginaBase
@@ -159,8 +160,8 @@ public partial class PLA_Pla_Doc_Director : PaginaBase
         // Valor por defecto del Id y Estado
         e.Values["Id"] = -1;
         if (String.IsNullOrWhiteSpace((string)e.Values["Estado"])) e.Values["Estado"] = "PEN";
-        // Valor del tipo de documento de GCP Certificado POA
-        e.Values["Tipo"] = "GCP";
+        // Valor del tipo de documento de CER Certificado POA
+        e.Values["Tipo"] = "CER";
         // Valor para el área del usuario
         e.Values["Area_Codigo_Solicita"] = lbCabecera_Area_Codigo.Text;
 		// Cambio del formato de los campos de fechas
@@ -333,4 +334,38 @@ public partial class PLA_Pla_Doc_Director : PaginaBase
         }
     }	
 	#endregion
+
+    // Reporte del Formulario de Inicio de proceso
+    protected void btReporteFormulario_Click(object sender, EventArgs e)
+    {
+        // Tomo el Id seleccionado de la lista
+        if (gvPla_Doc.SelectedValue != null)
+        {
+            int xPla_Doc_Id = (int)gvPla_Doc.SelectedValue;
+            if (Session["Scope"] == null) Response.Redirect("~/PAS/PAR_ACCESO.aspx");
+            Scope s = (Scope)Session["Scope"];
+            string servidor_reporte = ConfigurationManager.AppSettings["URL_Servidor_Reportes"];
+            HER.ResponseHelper.Redirect(servidor_reporte
+                                    + "PLA/PLA_Formulario_Inicio_Proceso.aspx"
+                                    + Scope_Factory.Get_QueryString(s)
+                                    + string.Format("&v_Pla_Doc_Id={0}", xPla_Doc_Id),
+                                    "_blank", "scrollbars=yes, resizable=yes");
+        }
+    }
+    protected void btReporteMemo_Click(object sender, EventArgs e)
+    {
+        // Tomo el Id seleccionado de la lista
+        if (gvPla_Doc.SelectedValue != null)
+        {
+            int xPla_Doc_Id = (int)gvPla_Doc.SelectedValue;
+            if (Session["Scope"] == null) Response.Redirect("~/PAS/PAR_ACCESO.aspx");
+            Scope s = (Scope)Session["Scope"];
+            string servidor_reporte = ConfigurationManager.AppSettings["URL_Servidor_Reportes"];
+            HER.ResponseHelper.Redirect(servidor_reporte
+                                    + "PLA/PLA_FormatoMemoAutorizacion.aspx"
+                                    + Scope_Factory.Get_QueryString(s)
+                                    + string.Format("&v_Pla_Doc_Id={0}", xPla_Doc_Id),
+                                    "_blank", "scrollbars=yes, resizable=yes");
+        }
+    }
 }

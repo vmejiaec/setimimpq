@@ -35,7 +35,7 @@ TagPrefix="ajax" %>
             <tr style="display:none">
                 <td> Tipo
                 </td>
-                <td><asp:TextBox ID="lbCabecera_Tipo" runat="server" Text="GCP" ReadOnly="true"></asp:TextBox>
+                <td><asp:TextBox ID="lbCabecera_Tipo" runat="server" Text="CER" ReadOnly="true"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -120,6 +120,32 @@ TagPrefix="ajax" %>
     </asp:GridView>
     </asp:Panel>
 	<%--[X] GridView de Pla_Doc --%>
+
+    <%--[O] Barras del Reporte --%>
+    <asp:Panel runat="server" ID="pReportes" GroupingText="Reportes">
+        <table>
+        <tr>
+            <td><asp:Button ID="btReporteFormulario" runat="server" Text="Formulario de Inicio de Proceso" onclick="btReporteFormulario_Click" /></td>
+            <td>
+                <p class="pTextoPagina">
+                Para imprimir el formulario estándar de inicio del proceso de compra 
+                primero busque en la lista superior, luego seleccione pulsando el botón [...] y revise que contenga 
+                la información requerida.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td><asp:Button ID="btReporteMemo" runat="server" Text="Formato Memo Autorización" 
+                    onclick="btReporteMemo_Click" /></td>
+            <td>
+                <p class="pTextoPagina">
+                El Formato de Memo para solicitar la Autorización a la dirección del proceso de compra.
+                </p>
+            </td>
+        </tr>
+        </table>
+    </asp:Panel>
+    <%--[X] Barras del Reporte --%>
 
 <%--Autocompletar del FormView de Pla_Doc --%>
 <%--[0]INICIO Javascript para manegar los campos de autocompletar --%>

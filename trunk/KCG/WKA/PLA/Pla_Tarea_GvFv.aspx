@@ -130,19 +130,21 @@ TagPrefix="ajax" %>
             onselectedindexchanged="gvPla_Tarea_SelectedIndexChanged" 
             ondatabound="gvPla_Tarea_DataBound">
         <Columns>
-            <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
-			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />			
-			<asp:BoundField DataField="Pla_Cta_Id" HeaderText="Pla_Cta_Id" Visible = "false"    />
+            <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />			
 			<asp:BoundField DataField="Pla_Cta_Codigo" HeaderText="Cuenta"   />
             <asp:BoundField DataField="Codigo" HeaderText="Codigo"   />
 			<asp:BoundField DataField="Pla_Cta_Nombre" HeaderText="Pla_Cta_Nombre" Visible = "false"    />
 			<asp:BoundField DataField="Pla_Cta_Nivel" HeaderText="Pla_Cta_Nivel"  Visible = "false" />
-			<asp:BoundField DataField="Nombre" HeaderText="Nombre"   />
+			<asp:BoundField DataField="Nombre" HeaderText="Nombre"   />            
 			<asp:BoundField DataField="Fecha_Ini" HeaderText="Fecha_Ini"  DataFormatString="{0:d}" />
 			<asp:BoundField DataField="Fecha_Fin" HeaderText="Fecha_Fin"  DataFormatString="{0:d}" />
             <asp:BoundField DataField="Valor_Inicial" HeaderText="Valor_Inicial"  DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
+            <asp:BoundField DataField="Valor_Suma_Movs_Reasignacion" HeaderText="Reasign."  DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
             <asp:BoundField DataField="Valor_Suma" HeaderText="Saldo"  DataFormatString="{0:N2}"  ItemStyle-HorizontalAlign="Right"/>
-			<asp:BoundField DataField="Estado" HeaderText="Estado" Visible = "false"  />
+                
+                <asp:BoundField DataField="Pla_Cta_Id" HeaderText="Pla_Cta_Id" Visible = "false"    />
+			    <asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />			
+                <asp:BoundField DataField="Estado" HeaderText="Estado" Visible = "false"  />
 			</Columns>
     </asp:GridView>
     </asp:Panel>
@@ -510,13 +512,14 @@ TagPrefix="ajax" %>
             onselectedindexchanged="gvPla_Poa_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
-			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />			
-			<asp:BoundField DataField="Pla_Tarea_Id" HeaderText="Pla_Tarea_Id"  Visible = "false" />
-			<asp:BoundField DataField="Pla_Partida_Id" HeaderText="Pla_Partida_Id"   Visible = "false"/>
-			<asp:BoundField DataField="Pla_Partida_Codigo" HeaderText="Partida_Codigo"   />
+            <asp:BoundField DataField="Pla_Partida_Codigo" HeaderText="Partida"   />
 			<asp:BoundField DataField="Pla_Partida_Nombre" HeaderText="Partida_Nombre"   />
 			<asp:BoundField DataField="Valor_Inicial" HeaderText="Valor_Inicial" DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
 			<asp:BoundField DataField="Valor_Suma" HeaderText="Saldo" DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
+
+                <asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />
+                <asp:BoundField DataField="Pla_Tarea_Id" HeaderText="Pla_Tarea_Id"  Visible = "false" />
+			    <asp:BoundField DataField="Pla_Partida_Id" HeaderText="Pla_Partida_Id"   Visible = "false"/>
 			</Columns>
     </asp:GridView>
     <%----[X] GridView POA--%>
@@ -779,7 +782,7 @@ TagPrefix="ajax" %>
     <td>ASI</td><td>Asiento inicial del POA.</td>
     </tr>
     <tr>
-    <td>GCP</td><td>Certificados POA.</td>
+    <td>CER</td><td>Certificados POA.</td>
     </tr>
     <tr>
     <td>REP</td><td>Reprogramación POA.</td>
@@ -934,7 +937,7 @@ TagPrefix="ajax" %>
     <%--Objetos de Datos para el FormView POA --%>
     <asp:ObjectDataSource ID="odsfvPla_Poa" runat="server" 
         SelectMethod="GetById"         
-        DeleteMethod="Delete" 
+        DeleteMethod="Delete_Con_Pla_Mov_y_Pla_DocINT" 
         InsertMethod="Insert_Con_Pla_Mov_SaldoInicialINT" 
         UpdateMethod="Update_Con_Pla_Mov_SaldoInicialINT"
         TypeName="FEL.PLA.BO_Pla_Poa"
