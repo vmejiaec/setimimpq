@@ -19,6 +19,13 @@ namespace AEL.VAR
         string _Estado;
         decimal _Valor_Inicial;
         decimal _Valor_Suma;
+        decimal _Valor_Suma_Movs_Reasignacion;
+
+        public decimal Valor_Suma_Movs_Reasignacion
+        {
+            get { return _Valor_Suma_Movs_Reasignacion; }
+            set { _Valor_Suma_Movs_Reasignacion = value; }
+        }
         
         // Constructor
         public Pla_Cta_Rep_Niveles()
@@ -36,7 +43,8 @@ namespace AEL.VAR
             DateTime p_Fecha_Fin,
             string p_Estado,
             decimal p_Valor_Inicial,
-            decimal p_Valor_Suma
+            decimal p_Valor_Suma,
+            decimal p_Valor_Suma_Movs_Reasignacion
             )
         {
             this.Id = p_Id;
@@ -51,6 +59,7 @@ namespace AEL.VAR
             this.Estado = p_Estado;
             this.Valor_Inicial = p_Valor_Inicial;
             this.Valor_Suma = p_Valor_Suma;
+            this.Valor_Suma_Movs_Reasignacion = p_Valor_Suma_Movs_Reasignacion;
         }
 
         //

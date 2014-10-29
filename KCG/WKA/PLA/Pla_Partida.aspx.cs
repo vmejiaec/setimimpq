@@ -3,6 +3,7 @@ using FEL.PLA;
 using System.Web.UI.WebControls;
 using System.Web.Services.Protocols;
 using System.Collections.Generic;
+using System.Configuration;
 
 public partial class PLA_Pla_Partida : PaginaBase
 {
@@ -186,5 +187,17 @@ public partial class PLA_Pla_Partida : PaginaBase
     {
         lbFvMsgError.Text = ":";
         lbFvMsgInfo.Text = ">";
+    }
+    protected void btReporte_Click(object sender, EventArgs e)
+    {
+        string sAnio = ddlFiltroAnio.SelectedValue;
+        if (Session["Scope"] == null) Response.Redirect("~/PAS/PAR_ACCESO.aspx");
+        Scope s = (Scope)Session["Scope"];
+        string servidor_reporte = ConfigurationManager.AppSettings["URL_Servidor_Reportes"];
+        HER.ResponseHelper.Redirect(servidor_reporte
+                                + "PLA/PLA_Poa_Partidas.aspx"
+                                + Scope_Factory.Get_QueryString(s)
+                                + string.Format("&v_Anio={0}", sAnio),
+                                "_blank", "scrollbars=yes, resizable=yes");      
     }
 }

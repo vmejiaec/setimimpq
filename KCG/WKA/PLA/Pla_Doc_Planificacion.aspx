@@ -30,7 +30,7 @@ TagPrefix="ajax" %>
     Buscar permite ingresar un criterio de búsqueda tanto por Código como por Descripción.
     </p>
         <asp:Button runat="server" ID="btCabeceraFiltrar" Text="..." Visible="true" onclick="btFiltrar_Click" style="display:none" />
-        <asp:Label runat="server" ID="lbCabeceraTipo" Text="GCP" style="display:none" ></asp:Label>
+        <asp:Label runat="server" ID="lbCabeceraTipo" Text="CER" style="display:none" ></asp:Label>
         Seleccionar el rango de fechas: 
         <asp:TextBox ID="tbFechaIni" runat="server" Width="80px"></asp:TextBox> <ajax:CalendarExtender runat="server" ID="cextbFechaIni" TargetControlID="tbFechaIni"/>
         - hasta -
@@ -72,11 +72,12 @@ TagPrefix="ajax" %>
             ondatabound="gvPla_Doc_DataBound">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />			    
-			<asp:BoundField DataField="Codigo" HeaderText="Codigo"   />			    
+			
             <asp:BoundField DataField="Area_Nombre_Solicita" HeaderText="Area_Solicita" ItemStyle-Width="160px"  />
             <asp:BoundField DataField="Per_Personal_Nombre_Solicita" HeaderText="Persona_Solicita"   ItemStyle-Width="160px"/>	
 			<asp:BoundField DataField="Fecha_Solicita" HeaderText="F_Solicita"   DataFormatString="{0:d}" />				
-			<asp:BoundField DataField="Descripcion" HeaderText="Descripcion"   ItemStyle-Width="310px"/>
+			<asp:BoundField DataField="Codigo" HeaderText="Codigo"  ItemStyle-HorizontalAlign="Center" />
+            <asp:BoundField DataField="Descripcion" HeaderText="Descripcion"   ItemStyle-Width="310px"/>
 			<asp:BoundField DataField="Valor_Solicita" HeaderText="Valor_Solicita"    DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>				
 			<asp:BoundField DataField="Esta_Planificada" HeaderText="Es_Planif."   />
 
@@ -590,13 +591,15 @@ TagPrefix="ajax" %>
             onselectedindexchanged="gvPla_Mov_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
-			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />			
-			
-			<asp:BoundField DataField="Pla_Tarea_Nombre" HeaderText="Tarea_Nombre"  ItemStyle-Width="650px"  />
+						
+			<asp:BoundField DataField="Pla_Cta_Codigo" HeaderText="Cta"   />
+            <asp:BoundField DataField="Pla_Tarea_Codigo" HeaderText="Tarea"   />
+			<asp:BoundField DataField="Pla_Tarea_Nombre" HeaderText="Tarea_Nombre"  ItemStyle-Width="400px"  />
 			<asp:BoundField DataField="Pla_Partida_Codigo" HeaderText="Partida_Cod"   />
 			<asp:BoundField DataField="Pla_Partida_Nombre" HeaderText="Partida_Nombre"  />
             <asp:BoundField DataField="Valor" HeaderText="Valor"    DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
-			
+
+			    <asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />
                 <asp:BoundField DataField="Orden" HeaderText="Orden"  Visible = "false" />
                 <asp:BoundField DataField="Pla_Doc_Fecha" HeaderText="Fecha"  DataFormatString="{0:d}" Visible = "false"/>    
                 <asp:BoundField DataField="Pla_Doc_Tipo" HeaderText="Tipo" Visible = "false" />
@@ -1041,9 +1044,9 @@ TagPrefix="ajax" %>
                         <Columns>
                             <asp:BoundField DataField="Id" HeaderText="Id"  Visible="False" />
                             <asp:BoundField DataField="Anio" HeaderText="Anio"  Visible="False" />
-                            <asp:BoundField DataField="Codigo" HeaderText="Codigo" />
-                            <asp:BoundField DataField="Nivel" HeaderText="Nivel" />
-                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                            <asp:BoundField DataField="Codigo" HeaderText="Cta Codigo" />
+                            <asp:BoundField DataField="Nivel" HeaderText="Cta Nivel" />
+                            <asp:BoundField DataField="Nombre" HeaderText="Cta Nombre" ItemStyle-Width="600px" />
                             <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" Visible="False" />
                             <asp:BoundField DataField="Estado" HeaderText="Estado"  Visible="False" />
                         </Columns>

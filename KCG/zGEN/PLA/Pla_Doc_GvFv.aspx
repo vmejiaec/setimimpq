@@ -86,7 +86,9 @@ TagPrefix="ajax" %>
 			<asp:BoundField DataField="Per_Personal_Nombre_Planifica" HeaderText="Per_Personal_Nombre_Planifica"   />
 			<asp:BoundField DataField="Per_Personal_Nombre_Contrata" HeaderText="Per_Personal_Nombre_Contrata"   />
 			<asp:BoundField DataField="Valor_Suma_Movs" HeaderText="Valor_Suma_Movs"    DataFormatString="{0:N2}"/>
-				</Columns>
+				<asp:BoundField DataField="Cedula_Presup_Codigo" HeaderText="Cedula_Presup_Codigo"   />
+			<asp:BoundField DataField="Contrata_Desc" HeaderText="Contrata_Desc"   />
+			</Columns>
     </asp:GridView>
     </asp:Panel>
 	<%--[X] GridView de Pla_Doc --%>
@@ -403,6 +405,26 @@ TagPrefix="ajax" %>
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
 					</td>
             </tr>
+			<tr >
+                <td> Cedula_Presup_Codigo </td>                
+				<td><asp:TextBox ID="Cedula_Presup_CodigoTextBox" runat="server" Text='<%# Bind("Cedula_Presup_Codigo") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqCedula_Presup_Codigo" runat="server" 
+                    ControlToValidate="Cedula_Presup_CodigoTextBox"
+                    ErrorMessage="El campo Cedula_Presup_Codigo es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Contrata_Desc </td>                
+				<td><asp:TextBox ID="Contrata_DescTextBox" runat="server" Text='<%# Bind("Contrata_Desc") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqContrata_Desc" runat="server" 
+                    ControlToValidate="Contrata_DescTextBox"
+                    ErrorMessage="El campo Contrata_Desc es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+					</td>
+            </tr>
 			</table>
             <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" ValidationGroup="vgPla_Doc"/>
             &nbsp;
@@ -675,6 +697,26 @@ TagPrefix="ajax" %>
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
 					</td>
             </tr>
+			<tr >
+                <td> Cedula_Presup_Codigo </td>                
+				<td><asp:TextBox ID="Cedula_Presup_CodigoTextBox" runat="server" Text='<%# Bind("Cedula_Presup_Codigo") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqCedula_Presup_Codigo" runat="server" 
+                    ControlToValidate="Cedula_Presup_CodigoTextBox"
+                    ErrorMessage="El campo Cedula_Presup_Codigo es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Contrata_Desc </td>                
+				<td><asp:TextBox ID="Contrata_DescTextBox" runat="server" Text='<%# Bind("Contrata_Desc") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqContrata_Desc" runat="server" 
+                    ControlToValidate="Contrata_DescTextBox"
+                    ErrorMessage="El campo Contrata_Desc es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+					</td>
+            </tr>
 			</table>
             <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" ValidationGroup="vgPla_Doc"/>
             &nbsp;
@@ -787,6 +829,14 @@ TagPrefix="ajax" %>
 			<tr >
                 <td> Valor_Suma_Movs </td>
 				<td><asp:TextBox ID="Valor_Suma_MovsTextBox" runat="server" Text='<%# Bind("Valor_Suma_Movs","{0:N2}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			<tr >
+                <td> Cedula_Presup_Codigo </td>
+				<td><asp:TextBox ID="Cedula_Presup_CodigoTextBox" runat="server" Text='<%# Bind("Cedula_Presup_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			<tr >
+                <td> Contrata_Desc </td>
+				<td><asp:TextBox ID="Contrata_DescTextBox" runat="server" Text='<%# Bind("Contrata_Desc") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
 			</table>
             <asp:Button ID="EditButton" RunAt="server"  CausesValidation="False" CommandName="Edit" Text="Editar" />

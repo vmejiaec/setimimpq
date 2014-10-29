@@ -141,34 +141,37 @@ namespace REL.PLA
             // Consulto los movimientos
             CEL.PLA.DO_Pla_Mov adpMov = new DO_Pla_Mov();
             var listaMov = adpMov.GetByPla_Doc_Id(s, this.Id);
-            // Obtengo la tarea del primer movimiento bajo el supuesto que 
-            // todos los movimientos de este POA son de la misma tares
-            var filaMov = listaMov[0];
-            p_Pla_Tarea_Id = filaMov.Pla_Tarea_Id;
-            this.Tarea = filaMov.Pla_Tarea_Nombre;
-            // Obtengo el arbol
-            CEL.PLA.DO_Pla_Cta adpCta = new DO_Pla_Cta();
-            var listaArbol = adpCta.GetByAnioArbolPla_Tarea_Id(s,p_Pla_Tarea_Id);
-            // Pongo los datos de programa, proyecto, producto y actividad
-            this.Programa = listaArbol[0].Nombre;
-            this.Proyecto = listaArbol[1].Nombre;
-            this.Producto = listaArbol[2].Nombre;
-            this.Actividad = listaArbol[3].Nombre;
-            // Pongo los datos de partidas 
-            this.Partida_Codigo_0 = listaMov[0].Pla_Partida_Codigo;
-            this.Partida_Nombre_0 = listaMov[0].Pla_Partida_Nombre;
-            this.Partida_Valor_0 = listaMov[0].Valor;
-            if (listaMov.Count() > 1)
+            if (listaMov.Count > 0)
             {
-                this.Partida_Codigo_1 = listaMov[1].Pla_Partida_Codigo;
-                this.Partida_Nombre_1 = listaMov[1].Pla_Partida_Nombre;
-                this.Partida_Valor_1 = listaMov[1].Valor;
-            }
-            if (listaMov.Count() > 2)
-            {
-                this.Partida_Codigo_2 = listaMov[2].Pla_Partida_Codigo;
-                this.Partida_Nombre_2 = listaMov[2].Pla_Partida_Nombre;
-                this.Partida_Valor_2 = listaMov[2].Valor;
+                // Obtengo la tarea del primer movimiento bajo el supuesto que 
+                // todos los movimientos de este POA son de la misma tares
+                var filaMov = listaMov[0];
+                p_Pla_Tarea_Id = filaMov.Pla_Tarea_Id;
+                this.Tarea = filaMov.Pla_Tarea_Nombre;
+                // Obtengo el arbol
+                CEL.PLA.DO_Pla_Cta adpCta = new DO_Pla_Cta();
+                var listaArbol = adpCta.GetByAnioArbolPla_Tarea_Id(s, p_Pla_Tarea_Id);
+                // Pongo los datos de programa, proyecto, producto y actividad
+                this.Programa = listaArbol[0].Nombre;
+                this.Proyecto = listaArbol[1].Nombre;
+                this.Producto = listaArbol[2].Nombre;
+                this.Actividad = listaArbol[3].Nombre;
+                // Pongo los datos de partidas 
+                this.Partida_Codigo_0 = listaMov[0].Pla_Partida_Codigo;
+                this.Partida_Nombre_0 = listaMov[0].Pla_Partida_Nombre;
+                this.Partida_Valor_0 = listaMov[0].Valor;
+                if (listaMov.Count() > 1)
+                {
+                    this.Partida_Codigo_1 = listaMov[1].Pla_Partida_Codigo;
+                    this.Partida_Nombre_1 = listaMov[1].Pla_Partida_Nombre;
+                    this.Partida_Valor_1 = listaMov[1].Valor;
+                }
+                if (listaMov.Count() > 2)
+                {
+                    this.Partida_Codigo_2 = listaMov[2].Pla_Partida_Codigo;
+                    this.Partida_Nombre_2 = listaMov[2].Pla_Partida_Nombre;
+                    this.Partida_Valor_2 = listaMov[2].Valor;
+                }
             }
         }
 

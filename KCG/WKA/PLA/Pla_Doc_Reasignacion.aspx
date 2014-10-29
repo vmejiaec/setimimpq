@@ -500,7 +500,7 @@ TagPrefix="ajax" %>
         <ItemTemplate>
             <asp:Panel runat="server" ID="panelItemTemplate" DefaultButton="EditButton"  CssClass="panCol2" GroupingText="Reasignación">
             <table>
-			<tr style="display:none">
+			<tr >
                 <td> Id </td>
 				<td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
@@ -794,6 +794,8 @@ TagPrefix="ajax" %>
             onselectedindexchanged="gvPla_Mov_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
+            <asp:BoundField DataField="Pla_Cta_Codigo" HeaderText="Cta" />
+            <asp:BoundField DataField="Pla_Tarea_Codigo" HeaderText="Tarea" />
 			<asp:BoundField DataField="Pla_Tarea_Nombre" HeaderText="Tarea_Nombre" ItemStyle-Width="550px"  />
 			<asp:BoundField DataField="Pla_Partida_Codigo" HeaderText="Partida_Cod"   />
 			<asp:BoundField DataField="Pla_Partida_Nombre" HeaderText="Partida_Nombre"   />
@@ -1274,8 +1276,7 @@ TagPrefix="ajax" %>
 			<tr style="display:none">
                 <td> Id </td>
 				<td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-
+			</tr>
 			<tr style="display:none">
                 <td> Pla_Poa_Id </td>
 				<td><asp:TextBox ID="Pla_Poa_IdTextBox" runat="server" Text='<%# Bind("Pla_Poa_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>

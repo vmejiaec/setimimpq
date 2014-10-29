@@ -12,7 +12,7 @@ public partial class PLA_Pla_Doc_Reasignacion : PaginaBase
     // Nombre del contenedor
     protected override string Contenedor
     {
-        get { return "Solicitudes Director"; }
+        get { return "Rasignación POA"; }
     }
     // Inicializar controles al arranque de la página
     protected void Page_Init(object sender, EventArgs e)
@@ -235,7 +235,8 @@ public partial class PLA_Pla_Doc_Reasignacion : PaginaBase
             e.Values["Fecha_Contrata"] = DateTime.Parse((string)e.Values["Fecha_Contrata"]);
             e.Values["Fecha_Planifica"] = DateTime.Parse((string)e.Values["Fecha_Planifica"]);
             // Cambio del formato del campo Valor
-            e.Values["Valor_Solicita"] = Decimal.Parse((string)e.Values["Valor_Solicita"]);
+            e.Values["Valor_Solicita"] = Decimal.Parse("0");
+            e.Values["Valor_Suma_Movs"] = Decimal.Parse( (string) e.Values["Valor_Suma_Movs"]);
             // La solicitud del director se actualiza con las personas de Planificación y Contratación
             // en NULL para que sea coherente con el proceso
             if (String.IsNullOrEmpty((string)e.Values["Per_Personal_Id_Planifica"]))
@@ -247,7 +248,7 @@ public partial class PLA_Pla_Doc_Reasignacion : PaginaBase
                 e.Values["Per_Personal_Id_Contrata"] = null;
             }
             // Guarda los datos del registro a borrar en memoria
-            this.MemoriaRegistroActual = "Id: " + e.Values["Id"].ToString() + " * " +
+            this.MemoriaRegistroActual = //"Id: " + e.Values["Id"].ToString() + " * " +
                                          "Codigo: " + (string)e.Values["Codigo"];
         }
         else // Si el estado de planificación es igual a PEN no puede hacer nada
@@ -431,10 +432,11 @@ public partial class PLA_Pla_Doc_Reasignacion : PaginaBase
                 // Pone el Tipo del Movimiento en DEB
                 //e.Values["Tipo"] = "DEB";
                 // VALIDA si el valor ingresado supera el saldo permitido
+                string sTipoMov = (string) e.Values["Tipo"];
                 string sValor_Suma = ((TextBox)fvPla_Mov.FindControl("Valor_SumaTextBox")).Text;
                 Decimal dValor_Suma = Decimal.Parse(sValor_Suma);
                 Decimal dValor_f = (Decimal)e.Values["Valor"];
-                if (dValor_f > dValor_Suma)
+                if (dValor_f > dValor_Suma && sTipoMov == "DEB")
                 {
                     e.Cancel = true;
                     fvPla_Mov.HayErrorInsUpd = true;
@@ -515,6 +517,11 @@ public partial class PLA_Pla_Doc_Reasignacion : PaginaBase
     }
     protected void fvPla_Mov_ItemDeleting(object sender, FormViewDeleteEventArgs e)
     {
+        // Control de valores antes del borrado de fechas 
+        e.Values["Pla_Doc_Fecha"] = DateTime.Parse((string)e.Values["Pla_Doc_Fecha"]);
+        // Valores
+        e.Values["Valor"] = Decimal.Parse((string)e.Values["Valor"]);
+        // Guarda los datos del registro a borrar en memoria
         // Valida si ha seleccionado una fila en DOC
         var xEsta_ContratadaTextBox = fvPla_Doc.FindControl("Esta_ContratadaTextBox");
         if (xEsta_ContratadaTextBox != null)
@@ -523,13 +530,22 @@ public partial class PLA_Pla_Doc_Reasignacion : PaginaBase
             string sEsta_Contratada = ((TextBox)xEsta_ContratadaTextBox).Text;
             if (sEsta_Contratada == "PEN")
             {
-                // Control de valores antes del borrado de fechas 
-                e.Values["Pla_Doc_Fecha"] = DateTime.Parse((string)e.Values["Pla_Doc_Fecha"]);
-                // Valores
-                e.Values["Valor"] = Decimal.Parse((string)e.Values["Valor"]);
-                // Guarda los datos del registro a borrar en memoria
-                this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
-                                             "Codigo: " + (string)e.Values["Codigo"];
+                // VALIDA si el valor ingresado supera el saldo permitido
+                string sTipoMov = (string)e.Values["Tipo"];
+                string sValor_Suma = ((TextBox)fvPla_Mov.FindControl("Valor_SumaTextBox")).Text;
+                Decimal dValor_Suma = Decimal.Parse(sValor_Suma);
+                Decimal dValor_f = (Decimal)e.Values["Valor"];
+                if (dValor_f > dValor_Suma && sTipoMov == "CRE")
+                {
+                    e.Cancel = true;
+                    fvPla_Mov.HayErrorInsUpd = true;
+                    lbFvMsgErrorPla_Mov.Text = String.Format("El valor {0:N2} no puede superar al saldo.", dValor_f);
+                }
+                else
+                {
+                    this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
+                                                 "Codigo: " + (string)e.Values["Codigo"];
+                }
             }
             else // Si el Estado_Contrata es diferente de PEN
             {
