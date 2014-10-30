@@ -14,13 +14,18 @@ tagprefix="rsweb" %>
         <table>
         <tr>
             <td>
+                Memorando Nro :
+            </td>
+            <td>
+                <asp:TextBox ID="tbMemorandoNo" runat="server" Width="450px" CssClass="edicion" Text = "123 - USIST - 2014"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Director(a):
             </td>
             <td>
-                <asp:TextBox ID="tbPersona_Autoriza_Nombre" runat="server" Width="450px" CssClass="edicion"
-                    Text = "ARQ. DORA ARIZAGA GUZMÁN"
-                >
-                </asp:TextBox>
+                <asp:TextBox ID="tbPersona_Autoriza_Nombre" runat="server" Width="450px" CssClass="edicion" Text = "ARQ. DORA ARIZAGA GUZMÁN"/>
             </td>
         </tr>
         <tr>
@@ -28,10 +33,7 @@ tagprefix="rsweb" %>
                 Cargo:
             </td>
             <td>
-                <asp:TextBox ID="tbPersona_Autoriza_Cargo" runat="server" Width="450px" CssClass="edicion"
-                    Text = "DIRECTORA EJECUTIVA"
-                >
-                </asp:TextBox>
+                <asp:TextBox ID="tbPersona_Autoriza_Cargo" runat="server" Width="450px" CssClass="edicion" Text = "DIRECTORA EJECUTIVA"/>
             </td>
         </tr>
         <tr>
@@ -39,10 +41,10 @@ tagprefix="rsweb" %>
                 Procedimiento:
             </td>
             <td>
-                <asp:TextBox ID="tbProcedimiento" runat="server" Width="450px" CssClass="edicion"
-                    Text = "BIENES Y SERVICIOS NO NORMALIZADOS / COTIZACIÓN"
-                >
-                </asp:TextBox>
+                <asp:TextBox ID="tbProcedimiento" runat="server" Width="450px" CssClass="edicion" Text = "BIENES NORMALIZADOS"/>
+            </td>
+            <td>
+                <asp:Button ID="btActualizarReporte" runat="server" Text="Actualizar" onclick="btActualizarReporte_Click" />
             </td>
         </tr>
         </table>
