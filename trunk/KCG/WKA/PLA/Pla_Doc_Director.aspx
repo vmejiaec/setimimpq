@@ -136,7 +136,7 @@ TagPrefix="ajax" %>
         </tr>
         <tr>
             <td><asp:Button ID="btReporteMemo" runat="server" Text="Formato Memo Autorización" 
-                    onclick="btReporteMemo_Click" /></td>
+                    onclick="btReporteMemo_Click" Width="204px" /></td>
             <td>
                 <p class="pTextoPagina">
                 El Formato de Memo para solicitar la Autorización a la dirección del proceso de compra.

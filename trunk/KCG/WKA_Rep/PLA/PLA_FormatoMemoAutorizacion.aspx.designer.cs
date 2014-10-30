@@ -22,6 +22,15 @@ namespace WKA_Rep.PLA {
         protected global::System.Web.UI.WebControls.Panel pnParametros;
         
         /// <summary>
+        /// tbMemorandoNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbMemorandoNo;
+        
+        /// <summary>
         /// tbPersona_Autoriza_Nombre control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace WKA_Rep.PLA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbProcedimiento;
+        
+        /// <summary>
+        /// btActualizarReporte control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btActualizarReporte;
         
         /// <summary>
         /// ReportViewer1 control.
