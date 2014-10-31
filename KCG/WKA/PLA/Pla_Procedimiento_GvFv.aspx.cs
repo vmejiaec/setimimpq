@@ -6,12 +6,12 @@ using System.Data;
 using System.Collections.Generic;
 using System.Web;
 
-public partial class PLA_Pla_PersonalDatos_GvFv : PaginaBase
+public partial class PLA_Pla_Procedimiento_GvFv : PaginaBase
 {
     // Nombre del contenedor
     protected override string Contenedor
     {
-        get { return "PLA_Pla_PersonalDatos_GvFv"; }
+        get { return "PLA_Pla_Procedimiento_GvFv"; }
     }
 	// Inicializar controles al arranque de la página
     protected void Page_Init(object sender, EventArgs e)
@@ -32,16 +32,16 @@ public partial class PLA_Pla_PersonalDatos_GvFv : PaginaBase
         switch (campo)
         {
             case "Todos":
-                gvPla_PersonalDatos.DataSourceID = odsgvPla_PersonalDatos.ID;
+                gvPla_Procedimiento.DataSourceID = odsgvPla_Procedimiento.ID;
                 break;
-			case "Per_Personal_Nombre":
-                gvPla_PersonalDatos.DataSourceID = odsgvPla_PersonalDatos_GetByLikePer_Personal_Nombre.ID;
+			case "Nombre":
+                gvPla_Procedimiento.DataSourceID = odsgvPla_Procedimiento_GetByLikeNombre.ID;
                 break;
 			}
-        gvPla_PersonalDatos.DataBind();
+        gvPla_Procedimiento.DataBind();
         // Si existe algún error en el FormView lo borra
-        lbFvMsgErrorPla_PersonalDatos.Text = ":";
-        lbFvMsgInfoPla_PersonalDatos.Text = "> Filtrado";
+        lbFvMsgErrorPla_Procedimiento.Text = ":";
+        lbFvMsgInfoPla_Procedimiento.Text = "> Filtrado";
     }
     protected void ddlFiltro_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -53,78 +53,78 @@ public partial class PLA_Pla_PersonalDatos_GvFv : PaginaBase
     }
     #endregion
 
-	#region Eventos del GridView de Pla_PersonalDatos
+	#region Eventos del GridView de Pla_Procedimiento
     // Evento se dispara cuando se selecciona una fila del GridView
-    protected void gvPla_PersonalDatos_SelectedIndexChanged(object sender, EventArgs e)
+    protected void gvPla_Procedimiento_SelectedIndexChanged(object sender, EventArgs e)
     {
-        lbFvMsgErrorPla_PersonalDatos.Text = ":";
-        lbFvMsgInfoPla_PersonalDatos.Text = "> Pla_PersonalDatos Seleccionado";
+        lbFvMsgErrorPla_Procedimiento.Text = ":";
+        lbFvMsgInfoPla_Procedimiento.Text = "> Pla_Procedimiento Seleccionado";
     }
 	// Busca y selecciona la fila indicada en el GridView
-    protected void SeleccionarFilaEnGVPla_PersonalDatos(GridView gv, string txtId)
+    protected void SeleccionarFilaEnGVPla_Procedimiento(GridView gv, string txtId)
     {
         int noPagina = 0;
         int noFila = 0;
         if (!String.IsNullOrEmpty(txtId))
         {
             int nFiltroId = Convert.ToInt32(txtId);
-            var ods = (ObjectDataSource)gvPla_PersonalDatos.DataSourceObject;
-            List<Pla_PersonalDatos> lista = (List<Pla_PersonalDatos>)ods.Select();
+            var ods = (ObjectDataSource)gvPla_Procedimiento.DataSourceObject;
+            List<Pla_Procedimiento> lista = (List<Pla_Procedimiento>)ods.Select();
             int pos = lista.FindIndex(o => o.Id == nFiltroId);
             if (pos >= 0)
             {
-                noPagina = pos / gvPla_PersonalDatos.PageSize;
-                noFila = pos - noPagina * gvPla_PersonalDatos.PageSize;
+                noPagina = pos / gvPla_Procedimiento.PageSize;
+                noFila = pos - noPagina * gvPla_Procedimiento.PageSize;
             }
         }
-        gvPla_PersonalDatos.PageIndex = noPagina;
-        gvPla_PersonalDatos.SelectedIndex = noFila;
+        gvPla_Procedimiento.PageIndex = noPagina;
+        gvPla_Procedimiento.SelectedIndex = noFila;
     }
 	#endregion
-	// Eventos para el FormView de Pla_PersonalDatos
-    #region Eventos el FormView de Pla_PersonalDatos
-    protected void fvPla_PersonalDatos_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
+	// Eventos para el FormView de Pla_Procedimiento
+    #region Eventos el FormView de Pla_Procedimiento
+    protected void fvPla_Procedimiento_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
     {
         if (e.Exception != null)
         {
             e.ExceptionHandled = true;
             e.KeepInEditMode = true;
-			if (lbFvMsgErrorPla_PersonalDatos.Text == ":") lbFvMsgErrorPla_PersonalDatos.Text = e.Exception.Message;
+			if (lbFvMsgErrorPla_Procedimiento.Text == ":") lbFvMsgErrorPla_Procedimiento.Text = e.Exception.Message;
         }
         else
         {
             tbFiltroId.Text = (string)e.NewValues["Id"];
-            SeleccionarFilaEnGVPla_PersonalDatos(gvPla_PersonalDatos, tbFiltroId.Text);
-            gvPla_PersonalDatos.DataBind();
+            SeleccionarFilaEnGVPla_Procedimiento(gvPla_Procedimiento, tbFiltroId.Text);
+            gvPla_Procedimiento.DataBind();
         }
     }
-    protected void fvPla_PersonalDatos_ItemDeleted(object sender, FormViewDeletedEventArgs e)
+    protected void fvPla_Procedimiento_ItemDeleted(object sender, FormViewDeletedEventArgs e)
     {
         if (e.Exception != null)
         {
             e.ExceptionHandled = true;
-			if (lbFvMsgErrorPla_PersonalDatos.Text == ":") lbFvMsgErrorPla_PersonalDatos.Text = e.Exception.Message;
+			if (lbFvMsgErrorPla_Procedimiento.Text == ":") lbFvMsgErrorPla_Procedimiento.Text = e.Exception.Message;
         }
         else
         {
             Filtrar();
         }
     }
-    protected void fvPla_PersonalDatos_ItemInserted(object sender, FormViewInsertedEventArgs e)
+    protected void fvPla_Procedimiento_ItemInserted(object sender, FormViewInsertedEventArgs e)
     {
         if (e.Exception != null)
         {
             e.ExceptionHandled = true;
             e.KeepInInsertMode = true;
-			if (lbFvMsgErrorPla_PersonalDatos.Text == ":") lbFvMsgErrorPla_PersonalDatos.Text = e.Exception.Message;
+			if (lbFvMsgErrorPla_Procedimiento.Text == ":") lbFvMsgErrorPla_Procedimiento.Text = e.Exception.Message;
         }
         else
         {
-            SeleccionarFilaEnGVPla_PersonalDatos(gvPla_PersonalDatos, tbFiltroId.Text);
-            gvPla_PersonalDatos.DataBind();
+            SeleccionarFilaEnGVPla_Procedimiento(gvPla_Procedimiento, tbFiltroId.Text);
+            gvPla_Procedimiento.DataBind();
         }
     }
-    protected void fvPla_PersonalDatos_ItemInserting(object sender, FormViewInsertEventArgs e)
+    protected void fvPla_Procedimiento_ItemInserting(object sender, FormViewInsertEventArgs e)
     {
         // Valor por defecto del Id y Estado
         e.Values["Id"] = -1;
@@ -136,7 +136,7 @@ public partial class PLA_Pla_PersonalDatos_GvFv : PaginaBase
         this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
 									 "Codigo: " + (string)e.Values["Codigo"] ;
     }	
-    protected void fvPla_PersonalDatos_ItemUpdating(object sender, FormViewUpdateEventArgs e)
+    protected void fvPla_Procedimiento_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
         // Controla el cambio del formato de las fechas
         // e.NewValues["Fecha_Ini"] = DateTime.Parse((string)e.NewValues["Fecha_Ini"]);
@@ -146,7 +146,7 @@ public partial class PLA_Pla_PersonalDatos_GvFv : PaginaBase
         this.MemoriaRegistroActual = "Id: " + (string)e.NewValues["Id"] + " * " +
 									 "Codigo: " + (string)e.NewValues["Codigo"] ;
     }
-    protected void fvPla_PersonalDatos_ItemDeleting(object sender, FormViewDeleteEventArgs e)
+    protected void fvPla_Procedimiento_ItemDeleting(object sender, FormViewDeleteEventArgs e)
     {
         // Control de valores antes del borrado como fechas y números
         // e.Values["Valor_Inicial"] = "0";
@@ -157,9 +157,9 @@ public partial class PLA_Pla_PersonalDatos_GvFv : PaginaBase
 									 "Codigo: " + (string)e.Values["Codigo"] ;
     }
 	// Inicializa los valores antes de que el FormView se dibuje en la página
-    protected void fvPla_PersonalDatos_PreRender(object sender, EventArgs e)
+    protected void fvPla_Procedimiento_PreRender(object sender, EventArgs e)
     {
-        switch (fvPla_PersonalDatos.CurrentMode)
+        switch (fvPla_Procedimiento.CurrentMode)
         {
             case FormViewMode.Insert:			
                 //((TextBox)fvPla_Poa.FindControl("CodigoTextBox")).Text = "1";
@@ -172,57 +172,57 @@ public partial class PLA_Pla_PersonalDatos_GvFv : PaginaBase
         }
     }
 	// Si no hay filas en el GridView entonces el FormView cambia a modo Insert
-    protected void fvPla_PersonalDatos_DataBound(object sender, EventArgs e)
+    protected void fvPla_Procedimiento_DataBound(object sender, EventArgs e)
     {
-        if (gvPla_PersonalDatos.Rows.Count == 0)
-            fvPla_PersonalDatos.ChangeMode(FormViewMode.Insert);
+        if (gvPla_Procedimiento.Rows.Count == 0)
+            fvPla_Procedimiento.ChangeMode(FormViewMode.Insert);
     }
 	#endregion
 	// Eventos para el ObjectDataSource
     #region Eventos para el ObjectDataSource
-    protected void odsfvPla_PersonalDatos_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
+    protected void odsfvPla_Procedimiento_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
     {
         if (e.Exception != null)
         {
             SoapException ex = (SoapException)e.Exception.InnerException;
             string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgErrorPla_PersonalDatos.Text = errorResumen;
+            lbFvMsgErrorPla_Procedimiento.Text = errorResumen;
             AsignarMensaje(ex.Message, mal);
         }
         else
         {
             tbFiltroId.Text = e.ReturnValue.ToString();
-            lbFvMsgInfoPla_PersonalDatos.Text = "Pla_PersonalDatos Registro Insertado. " + this.MemoriaRegistroActual;
+            lbFvMsgInfoPla_Procedimiento.Text = "Pla_Procedimiento Registro Insertado. " + this.MemoriaRegistroActual;
             AsignarMensaje("Registro Insertado. " + this.MemoriaRegistroActual, bien);
         }
     }
-    protected void odsfvPla_PersonalDatos_Updated(object sender, ObjectDataSourceStatusEventArgs e)
+    protected void odsfvPla_Procedimiento_Updated(object sender, ObjectDataSourceStatusEventArgs e)
     {
         if (e.Exception != null)
         {
             SoapException ex = (SoapException)e.Exception.InnerException;
             string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgErrorPla_PersonalDatos.Text = errorResumen;
+            lbFvMsgErrorPla_Procedimiento.Text = errorResumen;
             AsignarMensaje(ex.Message, mal);
         }
         else
         {
-            lbFvMsgInfoPla_PersonalDatos.Text = "Pla_PersonalDatos Registro Actualizado. " + this.MemoriaRegistroActual;
+            lbFvMsgInfoPla_Procedimiento.Text = "Pla_Procedimiento Registro Actualizado. " + this.MemoriaRegistroActual;
             AsignarMensaje("Registro Actualizado. " + this.MemoriaRegistroActual, bien);
         }
     }
-    protected void odsfvPla_PersonalDatos_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
+    protected void odsfvPla_Procedimiento_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
     {
         if (e.Exception != null)
         {
             SoapException ex = (SoapException)e.Exception.InnerException;
             string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgErrorPla_PersonalDatos.Text = errorResumen;
+            lbFvMsgErrorPla_Procedimiento.Text = errorResumen;
             AsignarMensaje(ex.Message, mal);
         }
         else
         {
-            lbFvMsgInfoPla_PersonalDatos.Text = "Pla_PersonalDatos Registro Borrado. " + this.MemoriaRegistroActual;
+            lbFvMsgInfoPla_Procedimiento.Text = "Pla_Procedimiento Registro Borrado. " + this.MemoriaRegistroActual;
             AsignarMensaje("Registro Borrado. " + this.MemoriaRegistroActual, bien);
         }
     }	
