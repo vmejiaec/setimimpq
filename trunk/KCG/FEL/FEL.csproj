@@ -201,6 +201,9 @@
     <Compile Include="PLA\BO_Pla_Poa.cs">
       <DependentUpon>generaCEL.txt4</DependentUpon>
     </Compile>
+    <Compile Include="PLA\BO_Pla_Procedimiento.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
     <Compile Include="PLA\BO_Pla_Tarea.cs">
       <DependentUpon>generaCEL.txt4</DependentUpon>
     </Compile>

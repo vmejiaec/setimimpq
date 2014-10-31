@@ -207,6 +207,7 @@
       <SubType>
       </SubType>
     </Compile>
+    <Compile Include="PLA\Pla_Procedimiento.cs" />
     <Compile Include="PLA\Pla_Tarea.cs">
       <SubType>
       </SubType>

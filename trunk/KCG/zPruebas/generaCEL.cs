@@ -4,6 +4,7 @@
 // C:\IMPQ\Code\KApu_01\WEB\EWS\generaCEL.txt4
 // C:\IMPQ\Code\KApu_01\WEB\CEL\PLA\generaCEL.txt4
 // Generated items
+// C:\IMPQ\Code\KApu_01\WEB\FEL\PLA\BO_Pla_Procedimiento.cs
 // C:\IMPQ\Code\KApu_01\WEB\FEL\PLA\BO_Pla_PersonalDatos.cs
 // C:\IMPQ\Code\KApu_01\WEB\FEL\PLA\BO_Pla_Param.cs
 // C:\IMPQ\Code\KApu_01\WEB\FEL\PLA\BO_Pla_Mov.cs
@@ -13,6 +14,7 @@
 // C:\IMPQ\Code\KApu_01\WEB\FEL\PLA\BO_Pla_Poa.cs
 // C:\IMPQ\Code\KApu_01\WEB\FEL\PLA\BO_Pla_Cta.cs
 // C:\IMPQ\Code\KApu_01\WEB\EWS\WS_PLA.asmx.cs
+// C:\IMPQ\Code\KApu_01\WEB\CEL\PLA\DO_Pla_Procedimiento.cs
 // C:\IMPQ\Code\KApu_01\WEB\CEL\PLA\DO_Pla_PersonalDatos.cs
 // C:\IMPQ\Code\KApu_01\WEB\CEL\PLA\DO_Pla_Param.cs
 // C:\IMPQ\Code\KApu_01\WEB\CEL\PLA\DO_Pla_Mov.cs
