@@ -12,6 +12,30 @@
   <DataSets>
     <DataSet Name="DataSet1">
       <Fields>
+        <Field Name="Per_Personal_Id_Solicita_Pie_Firma_Cargo">
+          <DataField>Per_Personal_Id_Solicita_Pie_Firma_Cargo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Per_Personal_Id_Planifica_Pie_Firma_Nombre">
+          <DataField>Per_Personal_Id_Planifica_Pie_Firma_Nombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Per_Personal_Id_Planifica_Pie_Firma_Cargo">
+          <DataField>Per_Personal_Id_Planifica_Pie_Firma_Cargo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Per_Personal_Id_Contrata_Pie_Firma_Nombre">
+          <DataField>Per_Personal_Id_Contrata_Pie_Firma_Nombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Per_Personal_Id_Contrata_Pie_Firma_Cargo">
+          <DataField>Per_Personal_Id_Contrata_Pie_Firma_Cargo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Per_Personal_Id_Solicita_Pie_Firma_Nombre">
+          <DataField>Per_Personal_Id_Solicita_Pie_Firma_Nombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="Programa">
           <DataField>Programa</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -1505,7 +1529,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -1723,14 +1746,14 @@ Parameters!pr_ProcedimientoNombre.Value &amp;
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Per_Personal_Nombre_Solicita">
+                    <Textbox Name="Per_Personal_Id_Solicita_Pie_Firma_Nombre">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Per_Personal_Nombre_Solicita.Value</Value>
+                              <Value>=Fields!Per_Personal_Id_Solicita_Pie_Firma_Nombre.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -1739,7 +1762,7 @@ Parameters!pr_ProcedimientoNombre.Value &amp;
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Per_Personal_Nombre_Solicita</rd:DefaultName>
+                      <rd:DefaultName>Per_Personal_Id_Solicita_Pie_Firma_Nombre</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -1759,14 +1782,14 @@ Parameters!pr_ProcedimientoNombre.Value &amp;
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Area_Nombre_Solicita">
+                    <Textbox Name="Per_Personal_Id_Solicita_Pie_Firma_Cargo">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Area_Nombre_Solicita.Value</Value>
+                              <Value>=Fields!Per_Personal_Id_Solicita_Pie_Firma_Cargo.Value</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -1777,7 +1800,7 @@ Parameters!pr_ProcedimientoNombre.Value &amp;
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Area_Nombre_Solicita</rd:DefaultName>
+                      <rd:DefaultName>Per_Personal_Id_Solicita_Pie_Firma_Cargo</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>

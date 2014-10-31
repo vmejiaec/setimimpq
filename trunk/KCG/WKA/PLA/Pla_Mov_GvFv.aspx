@@ -527,7 +527,8 @@ TagPrefix="ajax" %>
     <%--Fuente de datos para el GridView --%>
     <asp:ObjectDataSource ID="odsgvPla_Mov" runat="server" 
         SelectMethod="Get" 
-        TypeName="FEL.PLA.BO_Pla_Mov">
+        TypeName="FEL.PLA.BO_Pla_Mov"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
         </SelectParameters>
@@ -535,7 +536,8 @@ TagPrefix="ajax" %>
 	<%--Fuente de datos para los procesos genéricos --%>
     <asp:ObjectDataSource ID="odsgvPla_Mov_GetById" runat="server" 
         SelectMethod="GetById" 
-        TypeName="FEL.PLA.BO_Pla_Mov">
+        TypeName="FEL.PLA.BO_Pla_Mov"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="tbFiltroId" Name="p_Id" PropertyName="Text" Type="Int32" />
@@ -543,7 +545,8 @@ TagPrefix="ajax" %>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Mov_GetByPla_Doc_Id" runat="server" 
         SelectMethod="GetByPla_Doc_Id" 
-        TypeName="FEL.PLA.BO_Pla_Mov">
+        TypeName="FEL.PLA.BO_Pla_Mov"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="tbFiltro" Name="p_Pla_Doc_Id" PropertyName="Text" Type="Int32" />
@@ -551,7 +554,8 @@ TagPrefix="ajax" %>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Mov_GetByPla_Poa_Id" runat="server" 
         SelectMethod="GetByPla_Poa_Id" 
-        TypeName="FEL.PLA.BO_Pla_Mov">
+        TypeName="FEL.PLA.BO_Pla_Mov"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="tbFiltro" Name="p_Pla_Poa_Id" PropertyName="Text" Type="Int32" />
@@ -560,7 +564,8 @@ TagPrefix="ajax" %>
     <%--Objetos de Datos para obtener los dominios de un campo en un objeto --%>
     <asp:ObjectDataSource ID="odsDominioAnio" runat="server" 
         SelectMethod="GetByObjetoCampo" 
-        TypeName="FEL.DIC.BO_Dic_Dominio">
+        TypeName="FEL.DIC.BO_Dic_Dominio"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:Parameter DefaultValue="Nombre" Name="sortExpression" Type="String" />
             <asp:SessionParameter DefaultValue="" Name="s" SessionField="Scope" Type="Object" />
@@ -580,7 +585,8 @@ TagPrefix="ajax" %>
         OldValuesParameterFormatString="o"
         oninserted="odsfvPla_Mov_Inserted" 
         onupdated="odsfvPla_Mov_Updated" 
-		ondeleted="odsfvPla_Mov_Deleted">
+		ondeleted="odsfvPla_Mov_Deleted"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
             <asp:ControlParameter ControlID="gvPla_Mov" Name="p_Id" PropertyName="SelectedValue" Type="Int32" />

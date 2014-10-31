@@ -93,6 +93,19 @@ namespace DEL.VAR
 
             sUsuario_Id = adpInt_Usuario.Insert(s, oUsuario);
 
+            // Creo un objeto de Pla_PersonalDatos
+            CEL.PLA.DO_Pla_PersonalDatos adpPersonalDat = new CEL.PLA.DO_Pla_PersonalDatos();
+            AEL.PLA.Pla_PersonalDatos oPersonalDat = new
+                AEL.PLA.Pla_PersonalDatos(
+                    id: 0,
+                    per_Personal_Id: sPersonal_Id,
+                    pie_Firma_Nombre: oFuncionario.Persona_Nombre,
+                    pie_Firma_Cargo: oFuncionario.Persona_Cargo,
+                    email_Inst: "",
+                    per_Personal_Nombre:"",
+                    per_Personal_NumeroDoc:"");
+            int resPersonalDat = adpPersonalDat.Insert(oPersonalDat);
+
             // Se retorna los valores creados en el proceso
             res = "sRazonSocial_Id:" + sRazonSocial_Id + "-sPersonal_Id:" + sPersonal_Id + "-sUsuario_Id:" + sUsuario_Id;
             return res;

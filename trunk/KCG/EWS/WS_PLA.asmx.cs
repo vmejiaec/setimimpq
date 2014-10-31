@@ -4,8 +4,8 @@ using System.Web.Services;
 
 using CEL.PLA; // datos.xsdNombreIniciales
 using AEL.PLA;
-using BEL; 
- 
+using BEL;
+
 namespace EWS
 {
     [WebService(Namespace = "http://koala.org/")]
@@ -154,6 +154,11 @@ namespace EWS
 		#endregion
 		#region Métodos Get
 		[WebMethod]
+		public List<Pla_Poa> Pla_Poa_GetByAnio(Scope s , string p_Anio)
+        {
+            return Pla_Poa.GetByAnio(s,  p_Anio);
+        }
+		[WebMethod]
 		public List<Pla_Poa> Pla_Poa_GetById(Scope s , Int32 p_Id)
         {
             return Pla_Poa.GetById(s,  p_Id);
@@ -170,6 +175,11 @@ namespace EWS
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+		public int Pla_Poa_Delete_Con_Pla_Mov_y_Pla_DocINT(Scope s , Int32 Original_Id, string Original_Codigo, Int32 Original_Pla_Tarea_Id, Int32 Original_Pla_Partida_Id, string Original_Estado)
+        {
+            return Pla_Poa.Delete_Con_Pla_Mov_y_Pla_DocINT(s,  Original_Id, Original_Codigo, Original_Pla_Tarea_Id, Original_Pla_Partida_Id, Original_Estado);
+        }
 				[WebMethod]
 		public int Pla_Poa_Insert_Con_Pla_Mov_SaldoInicialINT(Scope s , string Codigo, Int32 Pla_Tarea_Id, Int32 Pla_Partida_Id, Decimal Valor_Inicial, string Estado)
         {
@@ -466,6 +476,99 @@ namespace EWS
         {
             return Pla_Mov.InsertINT(n);
         }
+		#endregion
+		#endregion
+	    #region Servicios para Pla_Param
+        private DO_Pla_Param _Pla_Param;
+        public DO_Pla_Param Pla_Param {
+            get {
+                if (_Pla_Param == null)
+                    _Pla_Param = new DO_Pla_Param();
+                return _Pla_Param;
+            }
+        }
+
+		#region Select
+		[WebMethod]
+        public List<Pla_Param> Pla_Param_Get(Scope s)
+        {
+            return Pla_Param.Get(s);
+        }
+		#endregion
+		#region Insert, Delete, Update
+		[WebMethod]
+        public int Pla_Param_Insert(Pla_Param n)
+        {
+            return Pla_Param.Insert(n);
+        }
+		[WebMethod]
+        public int Pla_Param_Delete(Pla_Param o)
+        {
+            return Pla_Param.Delete(o);
+        }
+		[WebMethod]
+        public int Pla_Param_Update(Pla_Param o,Pla_Param n)
+        {
+            return Pla_Param.Update(o, n);
+        }
+		#endregion
+		#region Métodos Get
+		#endregion
+		#region Métodos Genéricos retornan un escalar
+		#endregion
+		#endregion
+	    #region Servicios para Pla_PersonalDatos
+        private DO_Pla_PersonalDatos _Pla_PersonalDatos;
+        public DO_Pla_PersonalDatos Pla_PersonalDatos {
+            get {
+                if (_Pla_PersonalDatos == null)
+                    _Pla_PersonalDatos = new DO_Pla_PersonalDatos();
+                return _Pla_PersonalDatos;
+            }
+        }
+
+		#region Select
+		[WebMethod]
+        public List<Pla_PersonalDatos> Pla_PersonalDatos_Get(Scope s)
+        {
+            return Pla_PersonalDatos.Get(s);
+        }
+		#endregion
+		#region Insert, Delete, Update
+		[WebMethod]
+        public int Pla_PersonalDatos_Insert(Pla_PersonalDatos n)
+        {
+            return Pla_PersonalDatos.Insert(n);
+        }
+		[WebMethod]
+        public int Pla_PersonalDatos_Delete(Pla_PersonalDatos o)
+        {
+            return Pla_PersonalDatos.Delete(o);
+        }
+		[WebMethod]
+        public int Pla_PersonalDatos_Update(Pla_PersonalDatos o,Pla_PersonalDatos n)
+        {
+            return Pla_PersonalDatos.Update(o, n);
+        }
+		#endregion
+		#region Métodos Get
+		[WebMethod]
+		public List<Pla_PersonalDatos> Pla_PersonalDatos_GetById(Scope s , Int32 p_Id)
+        {
+            return Pla_PersonalDatos.GetById(s,  p_Id);
+        }
+		[WebMethod]
+		public List<Pla_PersonalDatos> Pla_PersonalDatos_GetByLikePer_Personal_Nombre(Scope s , string p_Per_Personal_Nombre)
+        {
+            return Pla_PersonalDatos.GetByLikePer_Personal_Nombre(s,  p_Per_Personal_Nombre);
+        }
+		[WebMethod]
+		public List<Pla_PersonalDatos> Pla_PersonalDatos_GetByPer_Personal_Id(Scope s , string p_Per_Personal_Id)
+        {
+            return Pla_PersonalDatos.GetByPer_Personal_Id(s,  p_Per_Personal_Id);
+        }
+		#endregion
+		#region Métodos Genéricos retornan un escalar
 		#endregion
 		#endregion
 		}

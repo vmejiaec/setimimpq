@@ -22,9 +22,10 @@ namespace FEL.PLA
         #region Select
 		// Select
         [DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-        public List<Pla_Cta> Get(Scope s)
+        public List<Pla_Cta> Get(Scope s,string sortExpression="")
         {
-            List<Pla_Cta> lista = new List<Pla_Cta>(Adapter.Pla_Cta_Get(s));            
+            List<Pla_Cta> lista = new List<Pla_Cta>(Adapter.Pla_Cta_Get(s));
+			lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
         #endregion
@@ -52,66 +53,75 @@ namespace FEL.PLA
 		// Procedimientos Get
 		#region Métodos Get
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Cta> GetByAnio(Scope s , string p_Anio)
+		public List<Pla_Cta> GetByAnio(Scope s , string p_Anio, string sortExpression="")
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetByAnio(s,  p_Anio));
+			lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Cta> GetByAnioArbolPla_Cta_Codigo(Scope s , string p_Anio, string p_Pla_Cta_Codigo)
+		public List<Pla_Cta> GetByAnioArbolPla_Cta_Codigo(Scope s , string p_Anio, string p_Pla_Cta_Codigo, string sortExpression="")
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetByAnioArbolPla_Cta_Codigo(s,  p_Anio, p_Pla_Cta_Codigo));
+			lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Cta> GetByAnioArbolPla_Cta_Id(Scope s , Int32 p_Pla_Cta_Id)
+		public List<Pla_Cta> GetByAnioArbolPla_Cta_Id(Scope s , Int32 p_Pla_Cta_Id, string sortExpression="")
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetByAnioArbolPla_Cta_Id(s,  p_Pla_Cta_Id));
+			lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Cta> GetByAnioArbolPla_Tarea_Id(Scope s , Int32 p_Pla_Tarea_Id)
+		public List<Pla_Cta> GetByAnioArbolPla_Tarea_Id(Scope s , Int32 p_Pla_Tarea_Id, string sortExpression="")
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetByAnioArbolPla_Tarea_Id(s,  p_Pla_Tarea_Id));
+			lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Cta> GetByAnioLikeCodigo(Scope s , string p_Anio, string p_Codigo)
+		public List<Pla_Cta> GetByAnioLikeCodigo(Scope s , string p_Anio, string p_Codigo, string sortExpression="")
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetByAnioLikeCodigo(s,  p_Anio, p_Codigo));
+			lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Cta> GetByAnioLikeNombre(Scope s , string p_Anio, string p_Nombre)
+		public List<Pla_Cta> GetByAnioLikeNombre(Scope s , string p_Anio, string p_Nombre, string sortExpression="")
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetByAnioLikeNombre(s,  p_Anio, p_Nombre));
+			lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Cta> GetById(Scope s , Int32 p_Id)
+		public List<Pla_Cta> GetById(Scope s , Int32 p_Id, string sortExpression="")
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetById(s,  p_Id));
+			lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Cta> GetByLikeCodigo(Scope s , string p_Codigo)
+		public List<Pla_Cta> GetByLikeCodigo(Scope s , string p_Codigo, string sortExpression="")
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetByLikeCodigo(s,  p_Codigo));
+			lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Cta> GetByLikeNombre(Scope s , string p_Nombre)
+		public List<Pla_Cta> GetByLikeNombre(Scope s , string p_Nombre, string sortExpression="")
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetByLikeNombre(s,  p_Nombre));
+			lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
 		#endregion
@@ -146,4 +156,59 @@ namespace FEL.PLA
 		#endregion
 		#endregion
     }
+
+	// Clase para ordenar las listas
+	#region Ordenar la lista
+    class Pla_Cta_Comparar : IComparer<Pla_Cta>
+    {
+        private bool _reverse;
+        private string _sortColumn;
+
+        public Pla_Cta_Comparar(string sortExpression)
+        {
+            _reverse = sortExpression.ToLowerInvariant().EndsWith(" desc");
+            if (_reverse)
+                _sortColumn = sortExpression.Substring(0, sortExpression.Length - 5);
+            else
+                _sortColumn = sortExpression;
+        }
+
+        public int Compare(Pla_Cta x, Pla_Cta y)
+        {
+            int retVal = 0;
+            switch (_sortColumn)
+            {
+              // System.Int32
+                case "Id":
+                    retVal =  x.Id - y.Id ;
+                    break;
+				// System.String
+                case "Anio":
+                    retVal =  string.Compare(x.Anio, y.Anio);
+                    break;
+				// System.String
+                case "Codigo":
+                    retVal =  string.Compare(x.Codigo, y.Codigo);
+                    break;
+				// System.String
+                case "Nivel":
+                    retVal =  string.Compare(x.Nivel, y.Nivel);
+                    break;
+				// System.String
+                case "Nombre":
+                    retVal =  string.Compare(x.Nombre, y.Nombre);
+                    break;
+				// System.String
+                case "Descripcion":
+                    retVal =  string.Compare(x.Descripcion, y.Descripcion);
+                    break;
+				// System.String
+                case "Estado":
+                    retVal =  string.Compare(x.Estado, y.Estado);
+                    break;
+            }
+            return (retVal * (_reverse ? -1 : 1));
+        }
+    }
+    #endregion
 }

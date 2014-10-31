@@ -22,22 +22,6 @@ tagprefix="rsweb" %>
         </tr>
         <tr>
             <td>
-                Director(a):
-            </td>
-            <td>
-                <asp:TextBox ID="tbPersona_Autoriza_Nombre" runat="server" Width="450px" CssClass="edicion" Text = "ARQ. DORA ARIZAGA GUZMÁN"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Cargo:
-            </td>
-            <td>
-                <asp:TextBox ID="tbPersona_Autoriza_Cargo" runat="server" Width="450px" CssClass="edicion" Text = "DIRECTORA EJECUTIVA"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
                 Procedimiento:
             </td>
             <td>

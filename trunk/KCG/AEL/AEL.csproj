@@ -194,7 +194,12 @@
       <SubType>
       </SubType>
     </Compile>
+    <Compile Include="PLA\Pla_Param.cs" />
     <Compile Include="PLA\Pla_Partida.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="PLA\Pla_PersonalDatos.cs">
       <SubType>
       </SubType>
     </Compile>

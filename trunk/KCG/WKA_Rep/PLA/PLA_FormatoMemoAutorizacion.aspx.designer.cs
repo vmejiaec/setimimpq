@@ -31,24 +31,6 @@ namespace WKA_Rep.PLA {
         protected global::System.Web.UI.WebControls.TextBox tbMemorandoNo;
         
         /// <summary>
-        /// tbPersona_Autoriza_Nombre control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbPersona_Autoriza_Nombre;
-        
-        /// <summary>
-        /// tbPersona_Autoriza_Cargo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbPersona_Autoriza_Cargo;
-        
-        /// <summary>
         /// tbProcedimiento control.
         /// </summary>
         /// <remarks>

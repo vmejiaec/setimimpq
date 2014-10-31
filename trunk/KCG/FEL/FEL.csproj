@@ -189,7 +189,13 @@
     <Compile Include="PLA\BO_Pla_Mov.cs">
       <DependentUpon>generaCEL.txt4</DependentUpon>
     </Compile>
+    <Compile Include="PLA\BO_Pla_Param.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
     <Compile Include="PLA\BO_Pla_Partida.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="PLA\BO_Pla_PersonalDatos.cs">
       <DependentUpon>generaCEL.txt4</DependentUpon>
     </Compile>
     <Compile Include="PLA\BO_Pla_Poa.cs">
