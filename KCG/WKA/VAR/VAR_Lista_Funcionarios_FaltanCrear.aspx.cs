@@ -67,6 +67,7 @@ public partial class VAR_VAR_Lista_Funcionarios_FaltanCrear : PaginaBase
             // Inserto el funcionario
             FEL.VAR.BO_V_INT_Funcionario_Area adp = new FEL.VAR.BO_V_INT_Funcionario_Area();
             string res = adp.Insert(Scope, oFuncionario);
+            
             // Publico los Ids resultados
             string[] lista = res.Split('-');
             string[] sublista = lista[0].Split(':');

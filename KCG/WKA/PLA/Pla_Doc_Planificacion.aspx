@@ -1054,7 +1054,8 @@ TagPrefix="ajax" %>
 
                     <asp:ObjectDataSource ID="odsPla_Cta_Arbol" runat="server" 
                         SelectMethod="GetByAnioArbolPla_Tarea_Id" TypeName="FEL.PLA.BO_Pla_Cta" 
-                        onselecting="odsPla_Cta_Arbol_Selecting">
+                        onselecting="odsPla_Cta_Arbol_Selecting"
+                        SortParameterName = "sortExpression">
                         <SelectParameters>
                             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
                             <asp:ControlParameter ControlID="Pla_Tarea_IdTextBox" Name="p_Pla_Tarea_Id" 
@@ -1146,7 +1147,8 @@ TagPrefix="ajax" %>
     <%--Fuente de datos para el GridView --%>
     <asp:ObjectDataSource ID="odsgvPla_Doc" runat="server" 
         SelectMethod="Get" 
-        TypeName="FEL.PLA.BO_Pla_Doc">
+        TypeName="FEL.PLA.BO_Pla_Doc"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
         </SelectParameters>
@@ -1154,7 +1156,8 @@ TagPrefix="ajax" %>
 	<%--Fuente de datos para los procesos genéricos --%>
     <asp:ObjectDataSource ID="odsgvPla_Doc_GetByArea_Codigo_RangoFecha_Solicita" runat="server" 
         SelectMethod="GetByArea_Codigo_RangoFecha_Solicita" 
-        TypeName="FEL.PLA.BO_Pla_Doc">
+        TypeName="FEL.PLA.BO_Pla_Doc"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="tbFiltro" Name="p_Area_Codigo" PropertyName="Text" Type="string" />
@@ -1164,7 +1167,8 @@ TagPrefix="ajax" %>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Doc_GetByCodigo" runat="server" 
         SelectMethod="GetByCodigo" 
-        TypeName="FEL.PLA.BO_Pla_Doc">
+        TypeName="FEL.PLA.BO_Pla_Doc"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="tbFiltro" Name="p_Codigo" PropertyName="Text" Type="string" />
@@ -1172,7 +1176,8 @@ TagPrefix="ajax" %>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Doc_GetById" runat="server" 
         SelectMethod="GetById" 
-        TypeName="FEL.PLA.BO_Pla_Doc">
+        TypeName="FEL.PLA.BO_Pla_Doc"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="tbFiltroId" Name="p_Id" PropertyName="Text" Type="Int32" />
@@ -1180,7 +1185,8 @@ TagPrefix="ajax" %>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Doc_GetByRangoFecha_Solicita" runat="server" 
         SelectMethod="GetByRangoFecha_Solicita" 
-        TypeName="FEL.PLA.BO_Pla_Doc">
+        TypeName="FEL.PLA.BO_Pla_Doc"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="tbFiltro" Name="p_Fecha_Solicita_Ini" PropertyName="Text" Type="DateTime" />
@@ -1189,7 +1195,8 @@ TagPrefix="ajax" %>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Doc_GetByTipo_Area_Codigo_Codigo" runat="server" 
         SelectMethod="GetByTipo_Area_Codigo_Codigo" 
-        TypeName="FEL.PLA.BO_Pla_Doc">
+        TypeName="FEL.PLA.BO_Pla_Doc"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="lbCabeceraTipo" Name="p_Tipo" PropertyName="Text" Type="string" />
@@ -1199,7 +1206,8 @@ TagPrefix="ajax" %>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Doc_GetByTipo_Area_Codigo_LikeDescripcion" runat="server" 
         SelectMethod="GetByTipo_Area_Codigo_LikeDescripcion" 
-        TypeName="FEL.PLA.BO_Pla_Doc">
+        TypeName="FEL.PLA.BO_Pla_Doc"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="lbCabeceraTipo" Name="p_Tipo" PropertyName="Text" Type="string" />
@@ -1209,7 +1217,8 @@ TagPrefix="ajax" %>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Doc_GetByTipo_Area_Codigo_RangoFecha_Solicita" runat="server" 
         SelectMethod="GetByTipo_Area_Codigo_RangoFecha_Solicita" 
-        TypeName="FEL.PLA.BO_Pla_Doc">
+        TypeName="FEL.PLA.BO_Pla_Doc"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="lbCabeceraTipo" Name="p_Tipo" PropertyName="Text" Type="string" />
@@ -1220,7 +1229,8 @@ TagPrefix="ajax" %>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Doc_GetByTipo_RangoFecha_Solicita" runat="server" 
         SelectMethod="GetByTipo_RangoFecha_Solicita" 
-        TypeName="FEL.PLA.BO_Pla_Doc">
+        TypeName="FEL.PLA.BO_Pla_Doc"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="lbCabeceraTipo" Name="p_Tipo" PropertyName="Text" Type="string" />
@@ -1230,7 +1240,8 @@ TagPrefix="ajax" %>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Doc_GetByTipo_RangoFecha_Solicita_LikeDescripcion" runat="server" 
         SelectMethod="GetByTipo_RangoFecha_Solicita_LikeDescripcion" 
-        TypeName="FEL.PLA.BO_Pla_Doc">
+        TypeName="FEL.PLA.BO_Pla_Doc"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="lbCabeceraTipo" Name="p_Tipo" PropertyName="Text" Type="string" />
@@ -1242,7 +1253,8 @@ TagPrefix="ajax" %>
     <%--Objetos de Datos para obtener los dominios de un campo en un objeto --%>
     <asp:ObjectDataSource ID="odsDominioAnio" runat="server" 
         SelectMethod="GetByObjetoCampo" 
-        TypeName="FEL.DIC.BO_Dic_Dominio">
+        TypeName="FEL.DIC.BO_Dic_Dominio"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:Parameter DefaultValue="Nombre" Name="sortExpression" Type="String" />
             <asp:SessionParameter DefaultValue="" Name="s" SessionField="Scope" Type="Object" />
@@ -1262,7 +1274,8 @@ TagPrefix="ajax" %>
         OldValuesParameterFormatString="o"
         oninserted="odsfvPla_Doc_Inserted" 
         onupdated="odsfvPla_Doc_Updated" 
-		ondeleted="odsfvPla_Doc_Deleted" onselected="odsfvPla_Doc_Selected">
+		ondeleted="odsfvPla_Doc_Deleted" onselected="odsfvPla_Doc_Selected"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
             <asp:ControlParameter ControlID="gvPla_Doc" Name="p_Id" PropertyName="SelectedValue" Type="Int32" />
@@ -1280,7 +1293,8 @@ TagPrefix="ajax" %>
 	<%--Fuente de datos para los procesos genéricos --%>
     <asp:ObjectDataSource ID="odsgvPla_Mov_GetByPla_Doc_Id" runat="server" 
         SelectMethod="GetByPla_Doc_Id" 
-        TypeName="FEL.PLA.BO_Pla_Mov" >
+        TypeName="FEL.PLA.BO_Pla_Mov" 
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="fvPla_Doc" Name="p_Pla_Doc_Id" PropertyName="SelectedValue" Type="Int32" />
@@ -1288,7 +1302,8 @@ TagPrefix="ajax" %>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Mov_GetByPla_Poa_Id" runat="server" 
         SelectMethod="GetByPla_Poa_Id" 
-        TypeName="FEL.PLA.BO_Pla_Mov">
+        TypeName="FEL.PLA.BO_Pla_Mov"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="tbFiltro" Name="p_Pla_Poa_Id" PropertyName="Text" Type="Int32" />
@@ -1297,7 +1312,8 @@ TagPrefix="ajax" %>
     <%--Objetos de Datos para obtener los dominios de un campo en un objeto --%>
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
         SelectMethod="GetByObjetoCampo" 
-        TypeName="FEL.DIC.BO_Dic_Dominio">
+        TypeName="FEL.DIC.BO_Dic_Dominio"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:Parameter DefaultValue="Nombre" Name="sortExpression" Type="String" />
             <asp:SessionParameter DefaultValue="" Name="s" SessionField="Scope" Type="Object" />
@@ -1317,7 +1333,8 @@ TagPrefix="ajax" %>
         OldValuesParameterFormatString="o"
         oninserted="odsfvPla_Mov_Inserted" 
         onupdated="odsfvPla_Mov_Updated" 
-		ondeleted="odsfvPla_Mov_Deleted">
+		ondeleted="odsfvPla_Mov_Deleted"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
             <asp:ControlParameter ControlID="gvPla_Mov" Name="p_Id" PropertyName="SelectedValue" Type="Int32" />

@@ -13,97 +13,150 @@ namespace REL.PLA
     { 
         // Atributos para el reporte
         private string _Programa;
+        private string _Proyecto;
+        private string _Producto;
+        private string _Actividad;
+        private string _Tarea;
+        private string _Partida_Codigo_0;
+        private string _Partida_Codigo_1;
+        private string _Partida_Codigo_2;
+        private string _Partida_Nombre_0;
+        private string _Partida_Nombre_1;
+        private string _Partida_Nombre_2;
+        private decimal _Partida_Valor_0;
+        private decimal _Partida_Valor_1;
+        private decimal _Partida_Valor_2;
 
+        private string _Per_Personal_Id_Solicita_Pie_Firma_Nombre;
+        private string _Per_Personal_Id_Solicita_Pie_Firma_Cargo;
+        private string _Per_Personal_Id_Contrata_Pie_Firma_Cargo;
+        private string _Per_Personal_Id_Contrata_Pie_Firma_Nombre;
+        private string _Per_Personal_Id_Planifica_Pie_Firma_Cargo;
+        private string _Per_Personal_Id_Planifica_Pie_Firma_Nombre;        
+
+        public string Per_Personal_Id_Solicita_Pie_Firma_Cargo
+        {
+            get { return _Per_Personal_Id_Solicita_Pie_Firma_Cargo; }
+            set { _Per_Personal_Id_Solicita_Pie_Firma_Cargo = value; }
+        }        
+
+        public string Per_Personal_Id_Planifica_Pie_Firma_Nombre
+        {
+            get { return _Per_Personal_Id_Planifica_Pie_Firma_Nombre; }
+            set { _Per_Personal_Id_Planifica_Pie_Firma_Nombre = value; }
+        }
+        
+
+        public string Per_Personal_Id_Planifica_Pie_Firma_Cargo
+        {
+            get { return _Per_Personal_Id_Planifica_Pie_Firma_Cargo; }
+            set { _Per_Personal_Id_Planifica_Pie_Firma_Cargo = value; }
+        }
+        
+
+        public string Per_Personal_Id_Contrata_Pie_Firma_Nombre
+        {
+            get { return _Per_Personal_Id_Contrata_Pie_Firma_Nombre; }
+            set { _Per_Personal_Id_Contrata_Pie_Firma_Nombre = value; }
+        }
+        
+
+        public string Per_Personal_Id_Contrata_Pie_Firma_Cargo
+        {
+            get { return _Per_Personal_Id_Contrata_Pie_Firma_Cargo; }
+            set { _Per_Personal_Id_Contrata_Pie_Firma_Cargo = value; }
+        }
+
+        public string Per_Personal_Id_Solicita_Pie_Firma_Nombre
+        {
+            get { return _Per_Personal_Id_Solicita_Pie_Firma_Nombre; }
+            set { _Per_Personal_Id_Solicita_Pie_Firma_Nombre = value; }
+        }
         public string Programa
         {
             get { return _Programa; }
             set { _Programa = value; }
-        }
-        private string _Proyecto;
+        }        
 
         public string Proyecto
         {
             get { return _Proyecto; }
             set { _Proyecto = value; }
-        }
-        private string _Producto;
+        }        
 
         public string Producto
         {
             get { return _Producto; }
             set { _Producto = value; }
-        }
-        private string _Actividad;
+        }        
 
         public string Actividad
         {
             get { return _Actividad; }
             set { _Actividad = value; }
-        }
-        private string _Tarea;
+        }        
 
         public string Tarea
         {
             get { return _Tarea; }
             set { _Tarea = value; }
-        }
-        private string _Partida_Codigo_0;
+        }        
 
         public string Partida_Codigo_0
         {
             get { return _Partida_Codigo_0; }
             set { _Partida_Codigo_0 = value; }
         }
-        private string _Partida_Codigo_1;
+        
 
         public string Partida_Codigo_1
         {
             get { return _Partida_Codigo_1; }
             set { _Partida_Codigo_1 = value; }
         }
-        private string _Partida_Codigo_2;
+        
 
         public string Partida_Codigo_2
         {
             get { return _Partida_Codigo_2; }
             set { _Partida_Codigo_2 = value; }
         }
-        private string _Partida_Nombre_0;
+        
 
         public string Partida_Nombre_0
         {
             get { return _Partida_Nombre_0; }
             set { _Partida_Nombre_0 = value; }
         }
-        private string _Partida_Nombre_1;
+        
 
         public string Partida_Nombre_1
         {
             get { return _Partida_Nombre_1; }
             set { _Partida_Nombre_1 = value; }
         }
-        private string _Partida_Nombre_2;
+        
 
         public string Partida_Nombre_2
         {
             get { return _Partida_Nombre_2; }
             set { _Partida_Nombre_2 = value; }
         }
-        private decimal _Partida_Valor_0;
+        
 
         public decimal Partida_Valor_0
         {
             get { return _Partida_Valor_0; }
             set { _Partida_Valor_0 = value; }
         }
-        private decimal _Partida_Valor_1;
+        
 
         public decimal Partida_Valor_1
         {
             get { return _Partida_Valor_1; }
             set { _Partida_Valor_1 = value; }
         }
-        private decimal _Partida_Valor_2;
+        
 
         public decimal Partida_Valor_2
         {
@@ -172,6 +225,23 @@ namespace REL.PLA
                     this.Partida_Nombre_2 = listaMov[2].Pla_Partida_Nombre;
                     this.Partida_Valor_2 = listaMov[2].Valor;
                 }
+                // Pongo los pies de firma
+                CEL.PLA.DO_Pla_PersonalDatos adpPersonalDatos = new DO_Pla_PersonalDatos();
+                //    Persona Solicita
+                var listaPerDatSolicita = adpPersonalDatos.GetByPer_Personal_Id(new Scope(), this.Per_Personal_Id_Solicita);
+                var filaPerDatSolicita = listaPerDatSolicita[0];
+                this.Per_Personal_Id_Solicita_Pie_Firma_Nombre = filaPerDatSolicita.Pie_Firma_Nombre;
+                this.Per_Personal_Id_Solicita_Pie_Firma_Cargo = filaPerDatSolicita.Pie_Firma_Cargo;
+                //    Persona Planifica
+                var listaPerDatPlanifica = adpPersonalDatos.GetByPer_Personal_Id(new Scope(), this.Per_Personal_Id_Planifica);
+                var filaPerDatPlanifica = listaPerDatPlanifica[0];
+                this.Per_Personal_Id_Planifica_Pie_Firma_Nombre = filaPerDatPlanifica.Pie_Firma_Nombre;
+                this.Per_Personal_Id_Planifica_Pie_Firma_Cargo = filaPerDatPlanifica.Pie_Firma_Cargo;
+                //    Persona Contrata
+                var listaPerDatContrata = adpPersonalDatos.GetByPer_Personal_Id(new Scope(), this.Per_Personal_Id_Contrata);
+                var filaPerDatContrata = listaPerDatContrata[0];
+                this.Per_Personal_Id_Contrata_Pie_Firma_Nombre = filaPerDatContrata.Pie_Firma_Nombre;
+                this.Per_Personal_Id_Contrata_Pie_Firma_Cargo = filaPerDatContrata.Pie_Firma_Cargo;
             }
         }
 

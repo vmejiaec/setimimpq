@@ -9,7 +9,7 @@
 	//Parámetros 
 	string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Planificacion.xsd";
 	string Iniciales = "PLA";
-	string TablaBase = "Pla_Doc";
+	string TablaBase = "Pla_PersonalDatos";
 	//Proceso
 	var manager = TemplateFileManager.Create(this);
 	ExtraeMetaDatos datos = new ExtraeMetaDatos(PathXSD);	
@@ -193,6 +193,7 @@ TagPrefix="ajax" %>
     <%--Fuente de datos para el GridView --%>
     <asp:ObjectDataSource ID="odsgv<#= tabla.Nombre #>" runat="server" 
         SelectMethod="Get" 
+        SortParameterName = "sortExpression"
         TypeName="FEL.<#= Iniciales #>.BO_<#= tabla.Nombre #>">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
@@ -201,6 +202,7 @@ TagPrefix="ajax" %>
 	<%--Fuente de datos para los procesos genéricos --%>
 <#+ foreach(var pg in tabla.ProcGenericosGet) { #>
     <asp:ObjectDataSource ID="odsgv<#= tabla.Nombre #>_<#= pg.ProcNombre #>" runat="server" 
+        SortParameterName = "sortExpression"
         SelectMethod="<#= pg.ProcNombre #>" 
         TypeName="FEL.<#= Iniciales #>.BO_<#= tabla.Nombre #>">
         <SelectParameters>
@@ -214,6 +216,7 @@ TagPrefix="ajax" %>
 <#+ } #>
     <%--Objetos de Datos para obtener los dominios de un campo en un objeto --%>
     <asp:ObjectDataSource ID="odsDominioAnio" runat="server" 
+        SortParameterName = "sortExpression"
         SelectMethod="GetByObjetoCampo" 
         TypeName="FEL.DIC.BO_Dic_Dominio">
         <SelectParameters>
@@ -229,6 +232,7 @@ TagPrefix="ajax" %>
         DeleteMethod="Delete" 
         InsertMethod="InsertINT" 
         UpdateMethod="Update"
+        SortParameterName = "sortExpression"
         TypeName="FEL.<#= Iniciales #>.BO_<#= tabla.Nombre #>"
         DataObjectTypeName="<#= tabla.Nombre #>"
         ConflictDetection = "CompareAllValues"

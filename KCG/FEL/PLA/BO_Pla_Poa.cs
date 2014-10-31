@@ -22,9 +22,10 @@ namespace FEL.PLA
         #region Select
 		// Select
         [DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-        public List<Pla_Poa> Get(Scope s)
+        public List<Pla_Poa> Get(Scope s,string sortExpression="")
         {
-            List<Pla_Poa> lista = new List<Pla_Poa>(Adapter.Pla_Poa_Get(s));            
+            List<Pla_Poa> lista = new List<Pla_Poa>(Adapter.Pla_Poa_Get(s));
+			lista.Sort(new Pla_Poa_Comparar(sortExpression));
             return lista;
         }
         #endregion
@@ -52,31 +53,35 @@ namespace FEL.PLA
 		// Procedimientos Get
 		#region Métodos Get
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Poa> GetByAnio(Scope s , string p_Anio)
+		public List<Pla_Poa> GetByAnio(Scope s , string p_Anio, string sortExpression="")
         {
 			List<Pla_Poa> lista = new List<Pla_Poa>(
 				Adapter.Pla_Poa_GetByAnio(s,  p_Anio));
+			lista.Sort(new Pla_Poa_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Poa> GetById(Scope s , Int32 p_Id)
+		public List<Pla_Poa> GetById(Scope s , Int32 p_Id, string sortExpression="")
         {
 			List<Pla_Poa> lista = new List<Pla_Poa>(
 				Adapter.Pla_Poa_GetById(s,  p_Id));
+			lista.Sort(new Pla_Poa_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Poa> GetByPla_Partida_Id(Scope s , Int32 p_Pla_Partida_Id)
+		public List<Pla_Poa> GetByPla_Partida_Id(Scope s , Int32 p_Pla_Partida_Id, string sortExpression="")
         {
 			List<Pla_Poa> lista = new List<Pla_Poa>(
 				Adapter.Pla_Poa_GetByPla_Partida_Id(s,  p_Pla_Partida_Id));
+			lista.Sort(new Pla_Poa_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Poa> GetByPla_Tarea_Id(Scope s , Int32 p_Pla_Tarea_Id)
+		public List<Pla_Poa> GetByPla_Tarea_Id(Scope s , Int32 p_Pla_Tarea_Id, string sortExpression="")
         {
 			List<Pla_Poa> lista = new List<Pla_Poa>(
 				Adapter.Pla_Poa_GetByPla_Tarea_Id(s,  p_Pla_Tarea_Id));
+			lista.Sort(new Pla_Poa_Comparar(sortExpression));
             return lista;
         }
 		#endregion
@@ -111,4 +116,79 @@ namespace FEL.PLA
 		#endregion
 		#endregion
     }
+
+	// Clase para ordenar las listas
+	#region Ordenar la lista
+    class Pla_Poa_Comparar : IComparer<Pla_Poa>
+    {
+        private bool _reverse;
+        private string _sortColumn;
+
+        public Pla_Poa_Comparar(string sortExpression)
+        {
+            _reverse = sortExpression.ToLowerInvariant().EndsWith(" desc");
+            if (_reverse)
+                _sortColumn = sortExpression.Substring(0, sortExpression.Length - 5);
+            else
+                _sortColumn = sortExpression;
+        }
+
+        public int Compare(Pla_Poa x, Pla_Poa y)
+        {
+            int retVal = 0;
+            switch (_sortColumn)
+            {
+              // System.Int32
+                case "Id":
+                    retVal =  x.Id - y.Id ;
+                    break;
+				// System.String
+                case "Codigo":
+                    retVal =  string.Compare(x.Codigo, y.Codigo);
+                    break;
+              // System.Int32
+                case "Pla_Tarea_Id":
+                    retVal =  x.Pla_Tarea_Id - y.Pla_Tarea_Id ;
+                    break;
+              // System.Int32
+                case "Pla_Partida_Id":
+                    retVal =  x.Pla_Partida_Id - y.Pla_Partida_Id ;
+                    break;
+				// System.String
+                case "Estado":
+                    retVal =  string.Compare(x.Estado, y.Estado);
+                    break;
+				// System.String
+                case "Pla_Tarea_Codigo":
+                    retVal =  string.Compare(x.Pla_Tarea_Codigo, y.Pla_Tarea_Codigo);
+                    break;
+				// System.String
+                case "Pla_Tarea_Nombre":
+                    retVal =  string.Compare(x.Pla_Tarea_Nombre, y.Pla_Tarea_Nombre);
+                    break;
+              // System.Int32
+                case "Pla_Cta_Id":
+                    retVal =  x.Pla_Cta_Id - y.Pla_Cta_Id ;
+                    break;
+				// System.String
+                case "Pla_Cta_Codigo":
+                    retVal =  string.Compare(x.Pla_Cta_Codigo, y.Pla_Cta_Codigo);
+                    break;
+				// System.String
+                case "Pla_Cta_Nombre":
+                    retVal =  string.Compare(x.Pla_Cta_Nombre, y.Pla_Cta_Nombre);
+                    break;
+				// System.String
+                case "Pla_Partida_Codigo":
+                    retVal =  string.Compare(x.Pla_Partida_Codigo, y.Pla_Partida_Codigo);
+                    break;
+				// System.String
+                case "Pla_Partida_Nombre":
+                    retVal =  string.Compare(x.Pla_Partida_Nombre, y.Pla_Partida_Nombre);
+                    break;
+            }
+            return (retVal * (_reverse ? -1 : 1));
+        }
+    }
+    #endregion
 }

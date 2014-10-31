@@ -7,7 +7,7 @@ using ADL.PlanificacionTableAdapters;
 using AEL.PLA;
 using BEL;
 using System.Data.SqlClient;
- 
+
 namespace CEL.PLA
 {
     public class DO_Pla_Mov
@@ -37,7 +37,11 @@ fila.Pla_Partida_Codigo,
 fila.Pla_Partida_Nombre,
 fila.Pla_Doc_Tipo,
 fila.Pla_Doc_Fecha,
-fila.Pla_Doc_Codigo
+fila.Pla_Doc_Codigo,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Tarea_Codigo
 			));
         }
         return lista;
@@ -133,7 +137,11 @@ fila.Pla_Partida_Codigo,
 fila.Pla_Partida_Nombre,
 fila.Pla_Doc_Tipo,
 fila.Pla_Doc_Fecha,
-fila.Pla_Doc_Codigo
+fila.Pla_Doc_Codigo,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Tarea_Codigo
 				));
 			}
 			return lista;
@@ -161,7 +169,11 @@ fila.Pla_Partida_Codigo,
 fila.Pla_Partida_Nombre,
 fila.Pla_Doc_Tipo,
 fila.Pla_Doc_Fecha,
-fila.Pla_Doc_Codigo
+fila.Pla_Doc_Codigo,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Tarea_Codigo
 				));
 			}
 			return lista;
@@ -189,7 +201,11 @@ fila.Pla_Partida_Codigo,
 fila.Pla_Partida_Nombre,
 fila.Pla_Doc_Tipo,
 fila.Pla_Doc_Fecha,
-fila.Pla_Doc_Codigo
+fila.Pla_Doc_Codigo,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Tarea_Codigo
 				));
 			}
 			return lista;

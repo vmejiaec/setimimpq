@@ -7,7 +7,7 @@ using ADL.PlanificacionTableAdapters;
 using AEL.PLA;
 using BEL;
 using System.Data.SqlClient;
- 
+
 namespace CEL.PLA
 {
     public class DO_Pla_Poa
@@ -35,7 +35,8 @@ fila.Pla_Cta_Nombre,
 fila.Pla_Partida_Codigo,
 fila.Pla_Partida_Nombre,
 fila.Valor_Inicial,
-fila.Valor_Suma
+fila.Valor_Suma,
+fila.Valor_Suma_Movs_Reasignacion
 			));
         }
         return lista;
@@ -96,7 +97,34 @@ n.Id
         { throw (new Exception(e.Message)); }
         return res;
     } // xxx Fin de Update
-	// GetById
+	// GetByAnio
+		public List<Pla_Poa> GetByAnio (Scope s , string p_Anio)
+		{
+			List<Pla_Poa> lista = new List<Pla_Poa>();
+			var tabla = Adapter.GetByAnio( p_Anio);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new Pla_Poa(
+				fila.Id,
+fila.Codigo,
+fila.Pla_Tarea_Id,
+fila.Pla_Partida_Id,
+fila.Estado,
+fila.Pla_Tarea_Codigo,
+fila.Pla_Tarea_Nombre,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Partida_Codigo,
+fila.Pla_Partida_Nombre,
+fila.Valor_Inicial,
+fila.Valor_Suma,
+fila.Valor_Suma_Movs_Reasignacion
+				));
+			}
+			return lista;
+		}
+		// GetById
 		public List<Pla_Poa> GetById (Scope s , Int32 p_Id)
 		{
 			List<Pla_Poa> lista = new List<Pla_Poa>();
@@ -117,7 +145,8 @@ fila.Pla_Cta_Nombre,
 fila.Pla_Partida_Codigo,
 fila.Pla_Partida_Nombre,
 fila.Valor_Inicial,
-fila.Valor_Suma
+fila.Valor_Suma,
+fila.Valor_Suma_Movs_Reasignacion
 				));
 			}
 			return lista;
@@ -143,7 +172,8 @@ fila.Pla_Cta_Nombre,
 fila.Pla_Partida_Codigo,
 fila.Pla_Partida_Nombre,
 fila.Valor_Inicial,
-fila.Valor_Suma
+fila.Valor_Suma,
+fila.Valor_Suma_Movs_Reasignacion
 				));
 			}
 			return lista;
@@ -169,10 +199,23 @@ fila.Pla_Cta_Nombre,
 fila.Pla_Partida_Codigo,
 fila.Pla_Partida_Nombre,
 fila.Valor_Inicial,
-fila.Valor_Suma
+fila.Valor_Suma,
+fila.Valor_Suma_Movs_Reasignacion
 				));
 			}
 			return lista;
+		}
+		// Delete_Con_Pla_Mov_y_Pla_DocINT
+			public int Delete_Con_Pla_Mov_y_Pla_DocINT (Scope s , Int32 Original_Id, string Original_Codigo, Int32 Original_Pla_Tarea_Id, Int32 Original_Pla_Partida_Id, string Original_Estado)
+		{
+            int res;
+            try
+            {
+				res = (int)Adapter.Delete_Con_Pla_Mov_y_Pla_DocINT( Original_Id, Original_Codigo, Original_Pla_Tarea_Id, Original_Pla_Partida_Id, Original_Estado);
+            }
+            catch (SqlException e)
+            { throw (new Exception(e.Message)); }
+            return res;
 		}
 		// Insert_Con_Pla_Mov_SaldoInicialINT
 			public int Insert_Con_Pla_Mov_SaldoInicialINT (Scope s , string Codigo, Int32 Pla_Tarea_Id, Int32 Pla_Partida_Id, Decimal Valor_Inicial, string Estado)

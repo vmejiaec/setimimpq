@@ -59,9 +59,10 @@ namespace FEL.<#= xsdNombreIniciales #>
         #region Select
 		// Select
         [DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-        public List<<#= tabla.Nombre #>> Get(Scope s)
+        public List<<#= tabla.Nombre #>> Get(Scope s,string sortExpression="")
         {
-            List<<#= tabla.Nombre #>> lista = new List<<#= tabla.Nombre #>>(Adapter.<#= tabla.Nombre #>_Get(s));            
+            List<<#= tabla.Nombre #>> lista = new List<<#= tabla.Nombre #>>(Adapter.<#= tabla.Nombre #>_Get(s));
+			lista.Sort(new <#= tabla.Nombre #>_Comparar(sortExpression));
             return lista;
         }
         #endregion
@@ -90,10 +91,11 @@ namespace FEL.<#= xsdNombreIniciales #>
 		#region Métodos Get
 		<#+  foreach ( var proc in tabla.ProcGenericosGet) {
 		#>[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<<#= tabla.Nombre #>> <#= proc.ProcNombre #>(Scope s <#= proc.listaParamsMET() #>)
+		public List<<#= tabla.Nombre #>> <#= proc.ProcNombre #>(Scope s <#= proc.listaParamsMET() #>, string sortExpression="")
         {
 			List<<#= tabla.Nombre #>> lista = new List<<#= tabla.Nombre #>>(
 				Adapter.<#= tabla.Nombre #>_<#= proc.ProcNombre #>(s, <#= proc.listaParamsSP() #>));
+			lista.Sort(new <#= tabla.Nombre #>_Comparar(sortExpression));
             return lista;
         }
 		<#+  } 
@@ -118,6 +120,55 @@ namespace FEL.<#= xsdNombreIniciales #>
 		#>#endregion
 		#endregion
     }
+
+	// Clase para ordenar las listas
+	#region Ordenar la lista
+    class <#= tabla.Nombre #>_Comparar : IComparer<<#= tabla.Nombre #>>
+    {
+        private bool _reverse;
+        private string _sortColumn;
+
+        public <#= tabla.Nombre #>_Comparar(string sortExpression)
+        {
+            _reverse = sortExpression.ToLowerInvariant().EndsWith(" desc");
+            if (_reverse)
+                _sortColumn = sortExpression.Substring(0, sortExpression.Length - 5);
+            else
+                _sortColumn = sortExpression;
+        }
+
+        public int Compare(<#= tabla.Nombre #> x, <#= tabla.Nombre #> y)
+        {
+            int retVal = 0;
+            switch (_sortColumn)
+            {
+<#+ foreach(var campo in tabla.Campos) {
+	{
+		switch(campo.Tipo.ToString()){
+			case "System.Int32":
+#>              // <#= campo.Tipo.ToString() #>
+                case "<#= campo.propiedad #>":
+                    retVal =  x.<#= campo.propiedad #> - y.<#= campo.propiedad #> ;
+                    break;
+<#+				break;
+			case "System.String":#>
+				// <#= campo.Tipo #>
+                case "<#= campo.propiedad #>":
+                    retVal =  string.Compare(x.<#= campo.propiedad #>, y.<#= campo.propiedad #>);
+                    break;
+<#+				break;
+			case "System.DateTime":#>
+			   // <#= campo.Tipo #>
+                case "<#= campo.propiedad #>":
+                    retVal =  DateTime.Compare(x.<#= campo.propiedad #>, y.<#= campo.propiedad #>);
+                    break;
+<#+				break;
+		}}} #>
+            }
+            return (retVal * (_reverse ? -1 : 1));
+        }
+    }
+    #endregion
 }
 <#+ 
 } #>

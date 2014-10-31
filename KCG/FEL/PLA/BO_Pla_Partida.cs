@@ -22,9 +22,10 @@ namespace FEL.PLA
         #region Select
 		// Select
         [DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-        public List<Pla_Partida> Get(Scope s)
+        public List<Pla_Partida> Get(Scope s,string sortExpression="")
         {
-            List<Pla_Partida> lista = new List<Pla_Partida>(Adapter.Pla_Partida_Get(s));            
+            List<Pla_Partida> lista = new List<Pla_Partida>(Adapter.Pla_Partida_Get(s));
+			lista.Sort(new Pla_Partida_Comparar(sortExpression));
             return lista;
         }
         #endregion
@@ -52,24 +53,27 @@ namespace FEL.PLA
 		// Procedimientos Get
 		#region Métodos Get
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Partida> GetById(Scope s , Int32 p_Id)
+		public List<Pla_Partida> GetById(Scope s , Int32 p_Id, string sortExpression="")
         {
 			List<Pla_Partida> lista = new List<Pla_Partida>(
 				Adapter.Pla_Partida_GetById(s,  p_Id));
+			lista.Sort(new Pla_Partida_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Partida> GetByLikeCodigo(Scope s , string p_Codigo)
+		public List<Pla_Partida> GetByLikeCodigo(Scope s , string p_Codigo, string sortExpression="")
         {
 			List<Pla_Partida> lista = new List<Pla_Partida>(
 				Adapter.Pla_Partida_GetByLikeCodigo(s,  p_Codigo));
+			lista.Sort(new Pla_Partida_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Pla_Partida> GetByLikeNombre(Scope s , string p_Nombre)
+		public List<Pla_Partida> GetByLikeNombre(Scope s , string p_Nombre, string sortExpression="")
         {
 			List<Pla_Partida> lista = new List<Pla_Partida>(
 				Adapter.Pla_Partida_GetByLikeNombre(s,  p_Nombre));
+			lista.Sort(new Pla_Partida_Comparar(sortExpression));
             return lista;
         }
 		#endregion
@@ -83,4 +87,47 @@ namespace FEL.PLA
 		#endregion
 		#endregion
     }
+
+	// Clase para ordenar las listas
+	#region Ordenar la lista
+    class Pla_Partida_Comparar : IComparer<Pla_Partida>
+    {
+        private bool _reverse;
+        private string _sortColumn;
+
+        public Pla_Partida_Comparar(string sortExpression)
+        {
+            _reverse = sortExpression.ToLowerInvariant().EndsWith(" desc");
+            if (_reverse)
+                _sortColumn = sortExpression.Substring(0, sortExpression.Length - 5);
+            else
+                _sortColumn = sortExpression;
+        }
+
+        public int Compare(Pla_Partida x, Pla_Partida y)
+        {
+            int retVal = 0;
+            switch (_sortColumn)
+            {
+              // System.Int32
+                case "Id":
+                    retVal =  x.Id - y.Id ;
+                    break;
+				// System.String
+                case "Codigo":
+                    retVal =  string.Compare(x.Codigo, y.Codigo);
+                    break;
+				// System.String
+                case "Nombre":
+                    retVal =  string.Compare(x.Nombre, y.Nombre);
+                    break;
+				// System.String
+                case "Estado":
+                    retVal =  string.Compare(x.Estado, y.Estado);
+                    break;
+            }
+            return (retVal * (_reverse ? -1 : 1));
+        }
+    }
+    #endregion
 }

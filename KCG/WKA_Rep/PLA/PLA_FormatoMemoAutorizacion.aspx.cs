@@ -26,13 +26,17 @@ namespace WKA_Rep.PLA
         void CargaParametrosAlReporte()
         {
             Scope = Scope_Factory.Get(Request.QueryString);
+            // Consulta el pie de firma del representante legal
+            CEL.PLA.DO_Pla_Param adpPla_Param = new CEL.PLA.DO_Pla_Param();
+            var listaParams = adpPla_Param.Get(Scope);
+            var filaParams = listaParams[0];
 
             ReportParameter[] parametros = new ReportParameter[6];
             parametros[0] = new ReportParameter("pr_Usuario_Nombre", Scope.Int_Usuario_Nombre);
             parametros[1] = new ReportParameter("pr_Logo_Imagen", ObtenerUrlCompleta(@"~\Imagenes\LogoReporteIMPQ_Small.png"));
             parametros[2] = new ReportParameter("pr_ProcedimientoNombre", tbProcedimiento.Text);
-            parametros[3] = new ReportParameter("pr_Persona_Autoriza_Nombre", tbPersona_Autoriza_Nombre.Text);
-            parametros[4] = new ReportParameter("pr_Persona_Autoriza_Cargo", tbPersona_Autoriza_Cargo.Text);
+            parametros[3] = new ReportParameter("pr_Persona_Autoriza_Nombre", filaParams.Rep_Legal_Pie_Firma_Nombre);
+            parametros[4] = new ReportParameter("pr_Persona_Autoriza_Cargo", filaParams.Rep_Legal_Pie_Firma_Cargo);
             parametros[5] = new ReportParameter("pr_Memorando_No", tbMemorandoNo.Text);
 
             ReportViewer1.LocalReport.SetParameters(parametros);

@@ -12,6 +12,30 @@
   <DataSets>
     <DataSet Name="DataSet1">
       <Fields>
+        <Field Name="Per_Personal_Id_Solicita_Pie_Firma_Cargo">
+          <DataField>Per_Personal_Id_Solicita_Pie_Firma_Cargo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Per_Personal_Id_Planifica_Pie_Firma_Nombre">
+          <DataField>Per_Personal_Id_Planifica_Pie_Firma_Nombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Per_Personal_Id_Planifica_Pie_Firma_Cargo">
+          <DataField>Per_Personal_Id_Planifica_Pie_Firma_Cargo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Per_Personal_Id_Contrata_Pie_Firma_Nombre">
+          <DataField>Per_Personal_Id_Contrata_Pie_Firma_Nombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Per_Personal_Id_Contrata_Pie_Firma_Cargo">
+          <DataField>Per_Personal_Id_Contrata_Pie_Firma_Cargo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Per_Personal_Id_Solicita_Pie_Firma_Nombre">
+          <DataField>Per_Personal_Id_Solicita_Pie_Firma_Nombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="Programa">
           <DataField>Programa</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -1013,7 +1037,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.66198in</Height>
+              <Height>0.63073in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1211,14 +1235,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Per_Personal_Nombre_Solicita">
+                    <Textbox Name="Per_Personal_Id_Solicita_Pie_Firma_Nombre">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Per_Personal_Nombre_Solicita.Value</Value>
+                              <Value>=Fields!Per_Personal_Id_Solicita_Pie_Firma_Nombre.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -1230,7 +1254,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Per_Personal_Nombre_Solicita</rd:DefaultName>
+                      <rd:DefaultName>Per_Personal_Id_Solicita_Pie_Firma_Nombre</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -2731,7 +2755,6 @@
                                       <PaddingBottom>2pt</PaddingBottom>
                                     </Style>
                                   </Textbox>
-                                  <rd:Selected>true</rd:Selected>
                                 </CellContents>
                               </TablixCell>
                             </TablixCells>
@@ -3569,14 +3592,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Per_Personal_Nombre_Planifica">
+                    <Textbox Name="Per_Personal_Id_Planifica_Pie_Firma_Nombre">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Per_Personal_Nombre_Planifica.Value</Value>
+                              <Value>=Fields!Per_Personal_Id_Planifica_Pie_Firma_Nombre.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -3588,7 +3611,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Per_Personal_Nombre_Planifica</rd:DefaultName>
+                      <rd:DefaultName>Per_Personal_Id_Planifica_Pie_Firma_Nombre</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -4772,14 +4795,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Per_Personal_Nombre_Contrata">
+                    <Textbox Name="Per_Personal_Id_Contrata_Pie_Firma_Nombre">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Per_Personal_Nombre_Contrata.Value</Value>
+                              <Value>=Fields!Per_Personal_Id_Contrata_Pie_Firma_Nombre.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -4791,7 +4814,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Per_Personal_Nombre_Contrata</rd:DefaultName>
+                      <rd:DefaultName>Per_Personal_Id_Contrata_Pie_Firma_Nombre</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -5016,7 +5039,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Height>22.4806cm</Height>
+        <Height>22.40123cm</Height>
         <Width>18.45887cm</Width>
         <Style>
           <Border>

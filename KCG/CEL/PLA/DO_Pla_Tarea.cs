@@ -7,7 +7,7 @@ using ADL.PlanificacionTableAdapters;
 using AEL.PLA;
 using BEL;
 using System.Data.SqlClient;
- 
+
 namespace CEL.PLA
 {
     public class DO_Pla_Tarea
@@ -33,7 +33,8 @@ fila.Fecha_Ini,
 fila.Fecha_Fin,
 fila.Estado,
 fila.Valor_Inicial,
-fila.Valor_Suma
+fila.Valor_Suma,
+fila.Valor_Suma_Movs_Reasignacion
 			));
         }
         return lista;
@@ -121,7 +122,8 @@ fila.Fecha_Ini,
 fila.Fecha_Fin,
 fila.Estado,
 fila.Valor_Inicial,
-fila.Valor_Suma
+fila.Valor_Suma,
+fila.Valor_Suma_Movs_Reasignacion
 				));
 			}
 			return lista;
@@ -145,7 +147,8 @@ fila.Fecha_Ini,
 fila.Fecha_Fin,
 fila.Estado,
 fila.Valor_Inicial,
-fila.Valor_Suma
+fila.Valor_Suma,
+fila.Valor_Suma_Movs_Reasignacion
 				));
 			}
 			return lista;
@@ -169,7 +172,8 @@ fila.Fecha_Ini,
 fila.Fecha_Fin,
 fila.Estado,
 fila.Valor_Inicial,
-fila.Valor_Suma
+fila.Valor_Suma,
+fila.Valor_Suma_Movs_Reasignacion
 				));
 			}
 			return lista;
@@ -193,7 +197,8 @@ fila.Fecha_Ini,
 fila.Fecha_Fin,
 fila.Estado,
 fila.Valor_Inicial,
-fila.Valor_Suma
+fila.Valor_Suma,
+fila.Valor_Suma_Movs_Reasignacion
 				));
 			}
 			return lista;
@@ -217,7 +222,8 @@ fila.Fecha_Ini,
 fila.Fecha_Fin,
 fila.Estado,
 fila.Valor_Inicial,
-fila.Valor_Suma
+fila.Valor_Suma,
+fila.Valor_Suma_Movs_Reasignacion
 				));
 			}
 			return lista;
@@ -241,7 +247,8 @@ fila.Fecha_Ini,
 fila.Fecha_Fin,
 fila.Estado,
 fila.Valor_Inicial,
-fila.Valor_Suma
+fila.Valor_Suma,
+fila.Valor_Suma_Movs_Reasignacion
 				));
 			}
 			return lista;

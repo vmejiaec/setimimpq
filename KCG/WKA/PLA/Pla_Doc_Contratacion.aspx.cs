@@ -392,4 +392,5 @@ public partial class PLA_Pla_Doc_Contratacion : PaginaBase
                                     "_blank", "scrollbars=yes, resizable=yes");
         }
     }
+
 }

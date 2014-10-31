@@ -57,7 +57,8 @@ namespace="Koala.KoalaWebControls" %>
                 </asp:DropDownList>
                     <asp:ObjectDataSource ID="odsDominioAnio" runat="server" 
                         SelectMethod="GetByObjetoCampo" 
-                        TypeName="FEL.DIC.BO_Dic_Dominio">
+                        TypeName="FEL.DIC.BO_Dic_Dominio"
+                        SortParameterName = "sortExpression">
                         <SelectParameters>
                             <asp:Parameter DefaultValue="Nombre" Name="sortExpression" Type="String" />
                             <asp:SessionParameter DefaultValue="" Name="s" SessionField="Scope" Type="Object" />
@@ -187,14 +188,16 @@ namespace="Koala.KoalaWebControls" %>
     <%--Objetos de Datos para el GridView --%>
     <asp:ObjectDataSource ID="odsgvPla_Partida" runat="server" 
         SelectMethod="Get" 
-        TypeName="FEL.PLA.BO_Pla_Partida">
+        TypeName="FEL.PLA.BO_Pla_Partida"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
         </SelectParameters>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Partida_ByCodigo" runat="server" 
         SelectMethod="GetByLikeCodigo" 
-        TypeName="FEL.PLA.BO_Pla_Partida">
+        TypeName="FEL.PLA.BO_Pla_Partida"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
             <asp:ControlParameter ControlID="tbFiltro" Name="p_Codigo" PropertyName="Text" Type="String" />
@@ -202,7 +205,8 @@ namespace="Koala.KoalaWebControls" %>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Partida_ByNombre" runat="server" 
         SelectMethod="GetByLikeNombre" 
-        TypeName="FEL.PLA.BO_Pla_Partida">
+        TypeName="FEL.PLA.BO_Pla_Partida"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
             <asp:ControlParameter ControlID="tbFiltro" Name="p_Nombre" PropertyName="Text" Type="String" />
@@ -210,7 +214,8 @@ namespace="Koala.KoalaWebControls" %>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvPla_Partida_ById" runat="server" 
         SelectMethod="GetById" 
-        TypeName="FEL.PLA.BO_Pla_Partida">
+        TypeName="FEL.PLA.BO_Pla_Partida"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
             <asp:ControlParameter ControlID="tbFiltroId" Name="p_Id" PropertyName="Text" Type="Int32" />
@@ -228,7 +233,8 @@ namespace="Koala.KoalaWebControls" %>
         OldValuesParameterFormatString="o" 
         oninserted="odsfvPla_Partida_Inserted" 
         onupdated="odsfvPla_Partida_Updated" 
-        ondeleted="odsfvPla_Partida_Deleted">
+        ondeleted="odsfvPla_Partida_Deleted"
+                        SortParameterName = "sortExpression">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
             <asp:ControlParameter ControlID="gvPla_Partida" Name="p_Id" PropertyName="SelectedValue" Type="Int32" />
