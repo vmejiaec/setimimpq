@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Web.Services;
 
 using CEL.PLA; // datos.xsdNombreIniciales
-using AEL.PLA;
-using BEL; 
+using AEL.PLA; 
+using BEL;
 
 namespace EWS
 {
@@ -616,8 +616,18 @@ namespace EWS
         {
             return Pla_Procedimiento.GetByLikeNombre(s,  p_Nombre);
         }
+		[WebMethod]
+		public List<Pla_Procedimiento> Pla_Procedimiento_GetByLikeValor(Scope s , Decimal p_Valor)
+        {
+            return Pla_Procedimiento.GetByLikeValor(s,  p_Valor);
+        }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+        public int Pla_Procedimiento_InsertINT(Pla_Procedimiento n)
+        {
+            return Pla_Procedimiento.InsertINT(n);
+        }
 		#endregion
 		#endregion
 		}

@@ -14,7 +14,7 @@
     <Shape ID="DesignTable:Pla_Mov" ZOrder="4" X="423" Y="68" Height="381" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:Pla_Param" ZOrder="3" X="1219" Y="348" Height="134" Width="204" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:Pla_PersonalDatos" ZOrder="2" X="864" Y="478" Height="267" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
-    <Shape ID="DesignTable:Pla_Procedimiento" ZOrder="1" X="440" Y="478" Height="210" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
+    <Shape ID="DesignTable:Pla_Procedimiento" ZOrder="1" X="440" Y="478" Height="229" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

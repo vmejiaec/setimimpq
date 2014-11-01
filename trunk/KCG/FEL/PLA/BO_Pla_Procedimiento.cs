@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 using HER;
-
+ 
 namespace FEL.PLA
 {
     [DataObject]
@@ -68,8 +68,22 @@ namespace FEL.PLA
 			lista.Sort(new Pla_Procedimiento_Comparar(sortExpression));
             return lista;
         }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Pla_Procedimiento> GetByLikeValor(Scope s , Decimal p_Valor, string sortExpression="")
+        {
+			List<Pla_Procedimiento> lista = new List<Pla_Procedimiento>(
+				Adapter.Pla_Procedimiento_GetByLikeValor(s,  p_Valor));
+			lista.Sort(new Pla_Procedimiento_Comparar(sortExpression));
+            return lista;
+        }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+		 // InsertINT
+		[DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
+		public int InsertINT(Pla_Procedimiento n)
+        {            
+            return Adapter.Pla_Procedimiento_InsertINT(n);
+        }
 		#endregion
 		#endregion
     }

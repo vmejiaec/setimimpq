@@ -45,19 +45,21 @@ TagPrefix="ajax" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <%--Funcion para poner el formato numérico a los campos del FV--%>
-<%--<script type="text/javascript">
+<script type="text/javascript">
     function PonerFormatoNumericoACamposFV() {
-        $('#ctl00_ContentPlaceHolder1_fvPla_Poa_Valor_InicialTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
-        $('#ctl00_ContentPlaceHolder1_fvPla_Poa_Valor_SumaTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
+	<#+ foreach(var campo in tabla.Campos){ 
+		 if(campo.propiedad.StartsWith("Valor")){
+	#>$('#ctl00_ContentPlaceHolder1_fv<#= tabla.Nombre #>_<#= campo.propiedad #>TextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
+	<#+ }} #>
     }
-</script>--%>
+</script>
 <asp:UpdatePanel runat="server" ID="udp">
 <ContentTemplate>
 <%--Ejecuta la función antes de presentar los objetos en pantalla mediante PageRequestManager--%>
-<%--<script type="text/javascript">
+<script type="text/javascript">
     Sys.WebForms.PageRequestManager.getInstance().add_endRequest(PonerFormatoNumericoACamposFV);
 </script>
---%>
+
     <%--[O] Cabecera--%>
     <asp:Panel runat="server" ID="pcabecera" GroupingText="Cabecera">
         <asp:Label ID="lbCabecera" runat="server" Text="Seleccionar el ... :"></asp:Label>
@@ -89,17 +91,18 @@ TagPrefix="ajax" %>
         SelectedRowStyle-CssClass="selectedrowstyle" 
 		AlternatingRowStyle-CssClass="alternatingrowstyle" 
         HeaderStyle-CssClass="headerstyle" 
-		PagerStyle-CssClass="pagerstyle" 
+		PagerStyle-CssClass="pagerstyle"
+		AllowSorting="true"
             onselectedindexchanged="gv<#= tabla.Nombre #>_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
 			<#+ foreach(var campo in tabla.Campos){ 
 				if (campo.Nombre.StartsWith("Fecha")) { 
-				#><asp:BoundField DataField="<#= campo.Nombre #>" HeaderText="<#= campo.Nombre #>" <#= (campo.Nombre =="Id" || campo.Nombre =="Estado")? "Visible = \"false\"":"" #>  DataFormatString="{0:d}" />
+				#><asp:BoundField DataField="<#= campo.Nombre #>" HeaderText="<#= campo.Nombre #>" <#= (campo.Nombre =="Id" || campo.Nombre =="Estado")? "Visible = \"false\"":"" #>  DataFormatString="{0:d}" SortExpression="<#= campo.Nombre #>" />
 				<#+ } else if (campo.Nombre.StartsWith("Valor")) {
-				#><asp:BoundField DataField="<#= campo.Nombre #>" HeaderText="<#= campo.Nombre #>" <#= (campo.Nombre =="Id" || campo.Nombre =="Estado")? "Visible = \"false\"":"" #>   DataFormatString="{0:N2}"/>
+				#><asp:BoundField DataField="<#= campo.Nombre #>" HeaderText="<#= campo.Nombre #>" <#= (campo.Nombre =="Id" || campo.Nombre =="Estado")? "Visible = \"false\"":"" #>   DataFormatString="{0:N2}"  ItemStyle-HorizontalAlign="Right"/>
 				<#+ } else {
-				#><asp:BoundField DataField="<#= campo.Nombre #>" HeaderText="<#= campo.Nombre #>" <#= (campo.Nombre =="Id" || campo.Nombre =="Estado")? "Visible = \"false\"":"" #>  />
+				#><asp:BoundField DataField="<#= campo.Nombre #>" HeaderText="<#= campo.Nombre #>" <#= (campo.Nombre =="Id" || campo.Nombre =="Estado")? "Visible = \"false\"":"" #>  SortExpression="<#= campo.Nombre #>" />
 			<#+ }}
 	#></Columns>
     </asp:GridView>
@@ -226,7 +229,27 @@ TagPrefix="ajax" %>
             <asp:Parameter DefaultValue="CAMPO" Name="Campo_Nombre" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
-    <%--Objetos de Datos para el FormView --%>
+	<#+ foreach(var campo in tabla.Campos){ 
+		 if (campo.Nombre.StartsWith("Tipo") || campo.Nombre.StartsWith("Estado")) { 
+	#>
+<%--Objetos de Datos para obtener los dominios del campo <#= campo.Nombre #> de la tabla <#= tabla.Nombre #> --%>
+    <asp:ObjectDataSource ID="odsDominio_<#= tabla.Nombre #>_<#= campo.Nombre #>" runat="server" 
+        SortParameterName = "sortExpression" 
+        SelectMethod="GetByObjetoCampo" 
+        TypeName="FEL.DIC.BO_Dic_Dominio"
+        EnableCaching="true"
+        CacheDuration="60"
+        CacheExpirationPolicy="Sliding"
+        >
+        <SelectParameters>
+            <asp:Parameter DefaultValue="Nombre" Name="sortExpression" Type="String" />
+            <asp:SessionParameter DefaultValue="" Name="s" SessionField="Scope" Type="Object" />
+            <asp:Parameter Type="String" Name="Objeto_Nombre" DefaultValue="<#= tabla.Nombre #>"  />
+            <asp:Parameter Type="String" Name="Campo_Nombre"  DefaultValue="<#= campo.Nombre #>"               />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+	<#+ }} #>
+<%--Objetos de Datos para el FormView --%>
     <asp:ObjectDataSource ID="odsfv<#= tabla.Nombre #>" runat="server" 
         SelectMethod="GetById"         
         DeleteMethod="Delete" 
@@ -266,11 +289,18 @@ TagPrefix="ajax" %>
 				<asp:Button runat="server" ID="btcex<#= campo.Nombre #>" Text="."/>
 				<ajax:CalendarExtender runat="server" ID="cex<#= campo.Nombre #>" TargetControlID="<#= campo.Nombre #>TextBox" PopupButtonID="btcex<#= campo.Nombre #>" />
 				<#+ }  else if (campo.Nombre.StartsWith("Valor")) { 
-				#><td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>","0:N2") %>' <#+ CssCampoEdit(campo.Nombre); #> />
+				#><td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>' <#+ CssCampoEdit(campo.Nombre); #> />
+				<#+ }  else if (campo.Nombre.StartsWith("Tipo") || campo.Nombre.StartsWith("Estado")) { 
+				#><td>
+				<asp:DropDownList ID="<#= campo.Nombre #>DropDownList" runat="server" DataSourceID="odsDominio_<#= tabla.Nombre #>_<#= campo.Nombre #>"  CssClass="txtEdit" 
+                        DataTextField="Nombre" 
+                        DataValueField="Dominio" 
+                        SelectedValue='<%# Bind("<#= campo.Nombre #>") %>'>
+                </asp:DropDownList>
 				<#+ } else {
 			    #><td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>' <#+ CssCampoEdit(campo.Nombre); #> />
 				<#+}
-				if ( !constantes.CamposNoValidar.Any(c => c == campo.Nombre) || campo.Nombre.EndsWith("_Id") ) {
+				if ( !(constantes.CamposNoValidar.Any(c => c == campo.Nombre) || campo.Nombre.EndsWith("_Id") || campo.Nombre.StartsWith("Tipo"))) {
 				#><%--Validador--%>
                     <asp:RequiredFieldValidator ID="rq<#= campo.Nombre #>" runat="server" 
                     ControlToValidate="<#= campo.Nombre #>TextBox"
@@ -296,7 +326,10 @@ TagPrefix="ajax" %>
 				#> CssClass="txtEditDescripcion" TextMode="MultiLine" <#+ 
 				break;
             default:
-				#> CssClass="txtEdit" <#+ 
+				if(nombre.StartsWith("Valor")){
+					#> CssClass="txtEditValor" <#+}
+				else{
+					#> CssClass="txtEdit" <#+}
 				break;
         }
 
@@ -310,7 +343,14 @@ TagPrefix="ajax" %>
 				<#+ if (campo.Nombre.StartsWith("Fecha")) { 
                 #><td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>","{0:d}") %>'  ReadOnly="true" <#+ CssCampoItem(campo.Nombre); #>/></td>
 				<#+ } else if (campo.Nombre.StartsWith("Valor")) {
-			    #><td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>","{0:N2}") %>'  ReadOnly="true" <#+ CssCampoItem(campo.Nombre); #>/></td>
+			    #><td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>'  ReadOnly="true" <#+ CssCampoItem(campo.Nombre); #>/></td>
+				<#+ }  else if (campo.Nombre.StartsWith("Tipo") || campo.Nombre.StartsWith("Estado")) { 
+				#><td>
+				<asp:DropDownList ID="<#= campo.Nombre #>DropDownList" runat="server" DataSourceID="odsDominio_<#= tabla.Nombre #>_<#= campo.Nombre #>"  Enabled="false" CssClass="txtItemDDL" 
+                        DataTextField="Nombre" 
+                        DataValueField="Dominio" 
+                        SelectedValue='<%# Bind("<#= campo.Nombre #>") %>'>
+                </asp:DropDownList>
 				<#+ } else {
 				#><td><asp:TextBox ID="<#= campo.Nombre #>TextBox" runat="server" Text='<%# Bind("<#= campo.Nombre #>") %>'  ReadOnly="true" <#+ CssCampoItem(campo.Nombre); #>/></td>
 				<#+ } #>
@@ -328,7 +368,10 @@ TagPrefix="ajax" %>
 				#> CssClass="txtItemDescripcion" TextMode="MultiLine" <#+ 
 				break;
             default:
-				#> CssClass="txtItem" <#+ 
+				if(nombre.StartsWith("Valor")){
+					#> CssClass="txtItemValor" <#+}
+				else{
+					#> CssClass="txtItem" <#+}
 				break;
         }
 
@@ -400,6 +443,10 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
     // Evento se dispara cuando se selecciona una fila del GridView
     protected void gv<#= tabla.Nombre #>_SelectedIndexChanged(object sender, EventArgs e)
     {
+		// Si el usuario selecciona una fila, pone el FormView en ReadOnly
+        if (fv<#= tabla.Nombre #>.CurrentMode != FormViewMode.ReadOnly)
+                fv<#= tabla.Nombre #>.ChangeMode(FormViewMode.ReadOnly);
+        // Mensaje
         lbFvMsgError<#= tabla.Nombre #>.Text = ":";
         lbFvMsgInfo<#= tabla.Nombre #>.Text = "> <#= tabla.Nombre #> Seleccionado";
     }
@@ -471,33 +518,47 @@ public partial class <#= Iniciales #>_<#= tabla.Nombre #>_GvFv : PaginaBase
     {
         // Valor por defecto del Id y Estado
         e.Values["Id"] = -1;
-        if (String.IsNullOrWhiteSpace((string)e.Values["Estado"])) e.Values["Estado"] = "PEN";
-		// Cambio del formato de los campos de fechas
-		// e.Values["Fecha_Ini"] = DateTime.Parse((string)e.Values["Fecha_Ini"]);
-		
-		// Guarda los datos del registro a borrar en memoria
-        this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
-									 "Codigo: " + (string)e.Values["Codigo"] ;
+		// Cambio del formato de los campos que empiezan con Valor y Fecha
+		<#+ foreach(var campo in tabla.Campos){ 
+	if (campo.propiedad.StartsWith("Valor")){
+		#>e.Values["<#= campo.propiedad #>"] = Decimal.Parse((string)e.Values["<#= campo.propiedad #>"]);
+		<#+ } 
+	if (campo.propiedad.StartsWith("Fecha")){
+		#>e.Values["<#= campo.propiedad #>"] = DateTime.Parse((string)e.Values["<#= campo.propiedad #>"]);
+		<#+ }
+	} #>
+// Guarda los datos del registro en memoria
+        this.MemoriaRegistroActual = String.Format( "Id: {0} * Código: {1}.", e.Values["Id"], e.Values["Codigo"]) ;
     }	
     protected void fv<#= tabla.Nombre #>_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
-        // Controla el cambio del formato de las fechas
-        // e.NewValues["Fecha_Ini"] = DateTime.Parse((string)e.NewValues["Fecha_Ini"]);
-        // e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);
-		
-		// Guarda los datos del registro a borrar en memoria
-        this.MemoriaRegistroActual = "Id: " + (string)e.NewValues["Id"] + " * " +
-									 "Codigo: " + (string)e.NewValues["Codigo"] ;
+        // Cambio del formato de los campos que empiezan con Valor y Fecha
+		<#+ foreach(var campo in tabla.Campos){ 
+	if (campo.propiedad.StartsWith("Valor")){
+		#>e.NewValues["<#= campo.propiedad #>"] = Decimal.Parse((string)e.NewValues["<#= campo.propiedad #>"]);
+		e.OldValues["<#= campo.propiedad #>"] = Decimal.Parse((string)e.OldValues["<#= campo.propiedad #>"]);
+		<#+ } 
+	if (campo.propiedad.StartsWith("Fecha")){
+		#>e.NewValues["<#= campo.propiedad #>"] = DateTime.Parse((string)e.NewValues["<#= campo.propiedad #>"]);
+		e.OldValues["<#= campo.propiedad #>"] = DateTime.Parse((string)e.OldValues["<#= campo.propiedad #>"]);			
+		<#+ }
+	} #>
+// Guarda los datos del registro en memoria
+        this.MemoriaRegistroActual = String.Format( "Id: {0} * Código: {1}.", e.NewValues["Id"], e.NewValues["Codigo"]) ;
     }
     protected void fv<#= tabla.Nombre #>_ItemDeleting(object sender, FormViewDeleteEventArgs e)
     {
-        // Control de valores antes del borrado como fechas y números
-        // e.Values["Valor_Inicial"] = "0";
-        //e.Values["Valor_Suma"] = "0";
-		
-		// Guarda los datos del registro a borrar en memoria
-        this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
-									 "Codigo: " + (string)e.Values["Codigo"] ;
+        // Cambio del formato de los campos que empiezan con Valor y Fecha
+		<#+ foreach(var campo in tabla.Campos){ 
+	if (campo.propiedad.StartsWith("Valor")){
+		#>e.Values["<#= campo.propiedad #>"] = Decimal.Parse((string)e.Values["<#= campo.propiedad #>"]);
+		<#+ } 
+	if (campo.propiedad.StartsWith("Fecha")){
+		#>e.Values["<#= campo.propiedad #>"] = DateTime.Parse((string)e.Values["<#= campo.propiedad #>"]);
+		<#+ }
+	} #>
+// Guarda los datos del registro en memoria
+        this.MemoriaRegistroActual = String.Format( "Id: {0} * Código: {1}.", e.Values["Id"], e.Values["Codigo"]) ;
     }
 	// Inicializa los valores antes de que el FormView se dibuje en la página
     protected void fv<#= tabla.Nombre #>_PreRender(object sender, EventArgs e)

@@ -14,19 +14,19 @@ TagPrefix="ajax" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <%--Funcion para poner el formato numérico a los campos del FV--%>
-<%--<script type="text/javascript">
+<script type="text/javascript">
     function PonerFormatoNumericoACamposFV() {
-        $('#ctl00_ContentPlaceHolder1_fvPla_Poa_Valor_InicialTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
-        $('#ctl00_ContentPlaceHolder1_fvPla_Poa_Valor_SumaTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
-    }
-</script>--%>
+	$('#ctl00_ContentPlaceHolder1_fvPla_Procedimiento_Valor_MinTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
+	$('#ctl00_ContentPlaceHolder1_fvPla_Procedimiento_Valor_MaxTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
+	    }
+</script>
 <asp:UpdatePanel runat="server" ID="udp">
 <ContentTemplate>
 <%--Ejecuta la función antes de presentar los objetos en pantalla mediante PageRequestManager--%>
-<%--<script type="text/javascript">
+<script type="text/javascript">
     Sys.WebForms.PageRequestManager.getInstance().add_endRequest(PonerFormatoNumericoACamposFV);
 </script>
---%>
+
     <%--[O] Cabecera--%>
     <asp:Panel runat="server" ID="pcabecera" GroupingText="Cabecera">
         <asp:Label ID="lbCabecera" runat="server" Text="Seleccionar el ... :"></asp:Label>
@@ -55,15 +55,16 @@ TagPrefix="ajax" %>
         SelectedRowStyle-CssClass="selectedrowstyle" 
 		AlternatingRowStyle-CssClass="alternatingrowstyle" 
         HeaderStyle-CssClass="headerstyle" 
-		PagerStyle-CssClass="pagerstyle" 
+		PagerStyle-CssClass="pagerstyle"
+		AllowSorting="true"
             onselectedindexchanged="gvPla_Procedimiento_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
-			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />
-			<asp:BoundField DataField="Nombre" HeaderText="Nombre"   />
-			<asp:BoundField DataField="Tipo" HeaderText="Tipo"   />
-			<asp:BoundField DataField="Valor_Min" HeaderText="Valor_Min"    DataFormatString="{0:N2}"/>
-				<asp:BoundField DataField="Valor_Max" HeaderText="Valor_Max"    DataFormatString="{0:N2}"/>
+			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  SortExpression="Id" />
+			<asp:BoundField DataField="Nombre" HeaderText="Nombre"   SortExpression="Nombre" />
+			<asp:BoundField DataField="Tipo" HeaderText="Tipo"   SortExpression="Tipo" />
+			<asp:BoundField DataField="Valor_Min" HeaderText="Valor_Min"    DataFormatString="{0:N2}"  ItemStyle-HorizontalAlign="Right"/>
+				<asp:BoundField DataField="Valor_Max" HeaderText="Valor_Max"    DataFormatString="{0:N2}"  ItemStyle-HorizontalAlign="Right"/>
 				</Columns>
     </asp:GridView>
     </asp:Panel>
@@ -135,17 +136,17 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Tipo </td>                
-				<td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqTipo" runat="server" 
-                    ControlToValidate="TipoTextBox"
-                    ErrorMessage="El campo Tipo es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Procedimiento"/>
-					</td>
+				<td>
+				<asp:DropDownList ID="TipoDropDownList" runat="server" DataSourceID="odsDominio_Pla_Procedimiento_Tipo"  CssClass="txtEdit" 
+                        DataTextField="Nombre" 
+                        DataValueField="Dominio" 
+                        SelectedValue='<%# Bind("Tipo") %>'>
+                </asp:DropDownList>
+				</td>
             </tr>
 			<tr >
                 <td> Valor_Min </td>                
-				<td><asp:TextBox ID="Valor_MinTextBox" runat="server" Text='<%# Bind("Valor_Min","0:N2") %>'  CssClass="txtEdit"  />
+				<td><asp:TextBox ID="Valor_MinTextBox" runat="server" Text='<%# Bind("Valor_Min") %>'  CssClass="txtEditValor"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqValor_Min" runat="server" 
                     ControlToValidate="Valor_MinTextBox"
@@ -155,7 +156,7 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Valor_Max </td>                
-				<td><asp:TextBox ID="Valor_MaxTextBox" runat="server" Text='<%# Bind("Valor_Max","0:N2") %>'  CssClass="txtEdit"  />
+				<td><asp:TextBox ID="Valor_MaxTextBox" runat="server" Text='<%# Bind("Valor_Max") %>'  CssClass="txtEditValor"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqValor_Max" runat="server" 
                     ControlToValidate="Valor_MaxTextBox"
@@ -189,17 +190,17 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Tipo </td>                
-				<td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqTipo" runat="server" 
-                    ControlToValidate="TipoTextBox"
-                    ErrorMessage="El campo Tipo es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Procedimiento"/>
-					</td>
+				<td>
+				<asp:DropDownList ID="TipoDropDownList" runat="server" DataSourceID="odsDominio_Pla_Procedimiento_Tipo"  CssClass="txtEdit" 
+                        DataTextField="Nombre" 
+                        DataValueField="Dominio" 
+                        SelectedValue='<%# Bind("Tipo") %>'>
+                </asp:DropDownList>
+				</td>
             </tr>
 			<tr >
                 <td> Valor_Min </td>                
-				<td><asp:TextBox ID="Valor_MinTextBox" runat="server" Text='<%# Bind("Valor_Min","0:N2") %>'  CssClass="txtEdit"  />
+				<td><asp:TextBox ID="Valor_MinTextBox" runat="server" Text='<%# Bind("Valor_Min") %>'  CssClass="txtEditValor"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqValor_Min" runat="server" 
                     ControlToValidate="Valor_MinTextBox"
@@ -209,7 +210,7 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Valor_Max </td>                
-				<td><asp:TextBox ID="Valor_MaxTextBox" runat="server" Text='<%# Bind("Valor_Max","0:N2") %>'  CssClass="txtEdit"  />
+				<td><asp:TextBox ID="Valor_MaxTextBox" runat="server" Text='<%# Bind("Valor_Max") %>'  CssClass="txtEditValor"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqValor_Max" runat="server" 
                     ControlToValidate="Valor_MaxTextBox"
@@ -236,15 +237,20 @@ TagPrefix="ajax" %>
 							</tr>
 			<tr >
                 <td> Tipo </td>
-				<td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+				<td>
+				<asp:DropDownList ID="TipoDropDownList" runat="server" DataSourceID="odsDominio_Pla_Procedimiento_Tipo"  Enabled="false" CssClass="txtItemDDL" 
+                        DataTextField="Nombre" 
+                        DataValueField="Dominio" 
+                        SelectedValue='<%# Bind("Tipo") %>'>
+                </asp:DropDownList>
 							</tr>
 			<tr >
                 <td> Valor_Min </td>
-				<td><asp:TextBox ID="Valor_MinTextBox" runat="server" Text='<%# Bind("Valor_Min","{0:N2}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+				<td><asp:TextBox ID="Valor_MinTextBox" runat="server" Text='<%# Bind("Valor_Min") %>'  ReadOnly="true"  CssClass="txtItemValor" /></td>
 							</tr>
 			<tr >
                 <td> Valor_Max </td>
-				<td><asp:TextBox ID="Valor_MaxTextBox" runat="server" Text='<%# Bind("Valor_Max","{0:N2}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+				<td><asp:TextBox ID="Valor_MaxTextBox" runat="server" Text='<%# Bind("Valor_Max") %>'  ReadOnly="true"  CssClass="txtItemValor" /></td>
 							</tr>
 			</table>
             <asp:Button ID="EditButton" RunAt="server"  CausesValidation="False" CommandName="Edit" Text="Editar" />
@@ -306,7 +312,23 @@ TagPrefix="ajax" %>
             <asp:Parameter DefaultValue="CAMPO" Name="Campo_Nombre" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
-    <%--Objetos de Datos para el FormView --%>
+	<%--Objetos de Datos para obtener los dominios del campo Tipo de la tabla Pla_Procedimiento --%>
+    <asp:ObjectDataSource ID="odsDominio_Pla_Procedimiento_Tipo" runat="server" 
+        SortParameterName = "sortExpression" 
+        SelectMethod="GetByObjetoCampo" 
+        TypeName="FEL.DIC.BO_Dic_Dominio"
+        EnableCaching="true"
+        CacheDuration="60"
+        CacheExpirationPolicy="Sliding"
+        >
+        <SelectParameters>
+            <asp:Parameter DefaultValue="Nombre" Name="sortExpression" Type="String" />
+            <asp:SessionParameter DefaultValue="" Name="s" SessionField="Scope" Type="Object" />
+            <asp:Parameter Type="String" Name="Objeto_Nombre" DefaultValue="Pla_Procedimiento"  />
+            <asp:Parameter Type="String" Name="Campo_Nombre"  DefaultValue="Tipo"               />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+	<%--Objetos de Datos para el FormView --%>
     <asp:ObjectDataSource ID="odsfvPla_Procedimiento" runat="server" 
         SelectMethod="GetById"         
         DeleteMethod="Delete" 
