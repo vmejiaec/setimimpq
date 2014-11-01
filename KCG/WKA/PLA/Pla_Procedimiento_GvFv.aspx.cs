@@ -57,6 +57,10 @@ public partial class PLA_Pla_Procedimiento_GvFv : PaginaBase
     // Evento se dispara cuando se selecciona una fila del GridView
     protected void gvPla_Procedimiento_SelectedIndexChanged(object sender, EventArgs e)
     {
+		// Si el usuario selecciona una fila, pone el FormView en ReadOnly
+        if (fvPla_Procedimiento.CurrentMode != FormViewMode.ReadOnly)
+                fvPla_Procedimiento.ChangeMode(FormViewMode.ReadOnly);
+        // Mensaje
         lbFvMsgErrorPla_Procedimiento.Text = ":";
         lbFvMsgInfoPla_Procedimiento.Text = "> Pla_Procedimiento Seleccionado";
     }
@@ -128,33 +132,29 @@ public partial class PLA_Pla_Procedimiento_GvFv : PaginaBase
     {
         // Valor por defecto del Id y Estado
         e.Values["Id"] = -1;
-        if (String.IsNullOrWhiteSpace((string)e.Values["Estado"])) e.Values["Estado"] = "PEN";
-		// Cambio del formato de los campos de fechas
-		// e.Values["Fecha_Ini"] = DateTime.Parse((string)e.Values["Fecha_Ini"]);
-		
-		// Guarda los datos del registro a borrar en memoria
-        this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
-									 "Codigo: " + (string)e.Values["Codigo"] ;
+		// Cambio del formato de los campos que empiezan con Valor y Fecha
+		e.Values["Valor_Min"] = Decimal.Parse((string)e.Values["Valor_Min"]);
+		e.Values["Valor_Max"] = Decimal.Parse((string)e.Values["Valor_Max"]);
+		// Guarda los datos del registro en memoria
+        this.MemoriaRegistroActual = String.Format( "Id: {0} * Código: {1}.", e.Values["Id"], e.Values["Codigo"]) ;
     }	
     protected void fvPla_Procedimiento_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
-        // Controla el cambio del formato de las fechas
-        // e.NewValues["Fecha_Ini"] = DateTime.Parse((string)e.NewValues["Fecha_Ini"]);
-        // e.OldValues["Fecha_Ini"] = DateTime.Parse((string)e.OldValues["Fecha_Ini"]);
-		
-		// Guarda los datos del registro a borrar en memoria
-        this.MemoriaRegistroActual = "Id: " + (string)e.NewValues["Id"] + " * " +
-									 "Codigo: " + (string)e.NewValues["Codigo"] ;
+        // Cambio del formato de los campos que empiezan con Valor y Fecha
+		e.NewValues["Valor_Min"] = Decimal.Parse((string)e.NewValues["Valor_Min"]);
+		e.OldValues["Valor_Min"] = Decimal.Parse((string)e.OldValues["Valor_Min"]);
+		e.NewValues["Valor_Max"] = Decimal.Parse((string)e.NewValues["Valor_Max"]);
+		e.OldValues["Valor_Max"] = Decimal.Parse((string)e.OldValues["Valor_Max"]);
+		// Guarda los datos del registro en memoria
+        this.MemoriaRegistroActual = String.Format( "Id: {0} * Código: {1}.", e.NewValues["Id"], e.NewValues["Codigo"]) ;
     }
     protected void fvPla_Procedimiento_ItemDeleting(object sender, FormViewDeleteEventArgs e)
     {
-        // Control de valores antes del borrado como fechas y números
-        // e.Values["Valor_Inicial"] = "0";
-        //e.Values["Valor_Suma"] = "0";
-		
-		// Guarda los datos del registro a borrar en memoria
-        this.MemoriaRegistroActual = "Id: " + (string)e.Values["Id"] + " * " +
-									 "Codigo: " + (string)e.Values["Codigo"] ;
+        // Cambio del formato de los campos que empiezan con Valor y Fecha
+		e.Values["Valor_Min"] = Decimal.Parse((string)e.Values["Valor_Min"]);
+		e.Values["Valor_Max"] = Decimal.Parse((string)e.Values["Valor_Max"]);
+		// Guarda los datos del registro en memoria
+        this.MemoriaRegistroActual = String.Format( "Id: {0} * Código: {1}.", e.Values["Id"], e.Values["Codigo"]) ;
     }
 	// Inicializa los valores antes de que el FormView se dibuje en la página
     protected void fvPla_Procedimiento_PreRender(object sender, EventArgs e)

@@ -91,12 +91,12 @@ TagPrefix="ajax" %>
             <asp:BoundField DataField="Fecha_Planifica" HeaderText="F_Planifica"   DataFormatString="{0:d}" ItemStyle-HorizontalAlign="Right"   SortExpression="Fecha_Planifica"/>	
             <asp:BoundField DataField="Esta_Contratada" HeaderText="Contratc." ItemStyle-HorizontalAlign="Center"                                   SortExpression="Esta_Contratada"/>
             <asp:BoundField DataField="Fecha_Contrata" HeaderText="F_Contratc"   DataFormatString="{0:d}" ItemStyle-HorizontalAlign="Right"     SortExpression="Fecha_Contrata"/>
+            <asp:BoundField DataField="Estado" HeaderText="Estado"/>
 
                 <asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />
                 <asp:BoundField DataField="Tipo" HeaderText="Tipo"  Visible = "false"  />
                 <asp:BoundField DataField="Per_Personal_Id_Solicita" HeaderText="Per_Personal_Id_Solicita"  Visible = "false"  />
-			    <asp:BoundField DataField="Area_Codigo_Solicita" HeaderText="Area_Codigo_Solicita"  Visible = "false"  />
-                <asp:BoundField DataField="Estado" HeaderText="Estado" Visible = "false"  />
+			    <asp:BoundField DataField="Area_Codigo_Solicita" HeaderText="Area_Codigo_Solicita"  Visible = "false"  />                
                 <asp:BoundField DataField="Per_Personal_Id_Crea" HeaderText="Per_Personal_Id_Crea"   Visible = "false" />
                 <asp:BoundField DataField="Per_Personal_Id_Modifica" HeaderText="Per_Personal_Id_Modifica"  Visible = "false"  />
 			    <asp:BoundField DataField="Per_Personal_Id_Planifica" HeaderText="Per_Personal_Id_Planifica" Visible = "false"   />

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Text; 
 
 using ADL.PlanificacionTableAdapters;
 using AEL.PLA;
@@ -121,5 +121,38 @@ fila.Valor_Max
 			}
 			return lista;
 		}
+		// GetByLikeValor
+		public List<Pla_Procedimiento> GetByLikeValor (Scope s , Decimal p_Valor)
+		{
+			List<Pla_Procedimiento> lista = new List<Pla_Procedimiento>();
+			var tabla = Adapter.GetByLikeValor( p_Valor);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new Pla_Procedimiento(
+				fila.Id,
+fila.Nombre,
+fila.Tipo,
+fila.Valor_Min,
+fila.Valor_Max
+				));
+			}
+			return lista;
+		}
+		// InsertINT
+		public int InsertINT(Pla_Procedimiento n)
+    {
+        int res;
+        try {
+            res = Convert.ToInt16( Adapter.InsertINT(
+				n.Nombre,
+n.Tipo,
+n.Valor_Min,
+n.Valor_Max
+			));
+        }
+        catch (SqlException e)
+        { throw (new Exception( e.Message)); }
+        return res;
+    }
 	}
 }
