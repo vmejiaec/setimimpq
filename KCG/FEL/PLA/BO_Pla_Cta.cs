@@ -25,7 +25,8 @@ namespace FEL.PLA
         public List<Pla_Cta> Get(Scope s,string sortExpression="")
         {
             List<Pla_Cta> lista = new List<Pla_Cta>(Adapter.Pla_Cta_Get(s));
-			lista.Sort(new Pla_Cta_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
         #endregion
@@ -57,7 +58,8 @@ namespace FEL.PLA
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetByAnio(s,  p_Anio));
-			lista.Sort(new Pla_Cta_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -65,7 +67,8 @@ namespace FEL.PLA
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetByAnioArbolPla_Cta_Codigo(s,  p_Anio, p_Pla_Cta_Codigo));
-			lista.Sort(new Pla_Cta_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -73,7 +76,8 @@ namespace FEL.PLA
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetByAnioArbolPla_Cta_Id(s,  p_Pla_Cta_Id));
-			lista.Sort(new Pla_Cta_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -81,7 +85,8 @@ namespace FEL.PLA
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetByAnioArbolPla_Tarea_Id(s,  p_Pla_Tarea_Id));
-			lista.Sort(new Pla_Cta_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -89,7 +94,8 @@ namespace FEL.PLA
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetByAnioLikeCodigo(s,  p_Anio, p_Codigo));
-			lista.Sort(new Pla_Cta_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -97,7 +103,8 @@ namespace FEL.PLA
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetByAnioLikeNombre(s,  p_Anio, p_Nombre));
-			lista.Sort(new Pla_Cta_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -105,7 +112,8 @@ namespace FEL.PLA
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetById(s,  p_Id));
-			lista.Sort(new Pla_Cta_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -113,7 +121,8 @@ namespace FEL.PLA
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetByLikeCodigo(s,  p_Codigo));
-			lista.Sort(new Pla_Cta_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -121,7 +130,8 @@ namespace FEL.PLA
         {
 			List<Pla_Cta> lista = new List<Pla_Cta>(
 				Adapter.Pla_Cta_GetByLikeNombre(s,  p_Nombre));
-			lista.Sort(new Pla_Cta_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Cta_Comparar(sortExpression));
             return lista;
         }
 		#endregion
