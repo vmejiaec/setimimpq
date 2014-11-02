@@ -488,83 +488,84 @@ TagPrefix="ajax" %>
             </asp:Panel>
             <asp:Panel runat="server" ID="panel2"  CssClass="panCol2">
                 <asp:Panel runat="server" ID="panel3"  GroupingText="Planificación">
-            <table  >
-			<tr style="display:none">
-                <td> Area_Nombre_Solicita </td>
-				<td><asp:TextBox ID="Area_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Nombre_Solicita") %>'  ReadOnly="true"  CssClass="txtItem"  />
-                <asp:TextBox ID="Area_Codigo_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Codigo_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" Width ="60px"/>
-                </td>
-			</tr>
+                    <table  >
+			        <tr style="display:none">
+                        <td> Area_Nombre_Solicita </td>
+				        <td><asp:TextBox ID="Area_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Nombre_Solicita") %>'  ReadOnly="true"  CssClass="txtItem"  />
+                        <asp:TextBox ID="Area_Codigo_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Codigo_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" Width ="60px"/>
+                        </td>
+			        </tr>
 
-            <tr style="display:none">
-                <td> Per_Personal_Id_Planifica </td>
-				<td><asp:TextBox ID="Per_Personal_Id_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Planifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Persona_Planifica </td>
-				<td><asp:TextBox ID="Per_Personal_Nombre_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Planifica") %>'  
-                ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
-							</tr>
-			<tr >
-                <td> Esta_Planificada </td>
-				<td><asp:TextBox ID="Esta_PlanificadaTextBox" runat="server" Text='<%# Bind("Esta_Planificada") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-            <tr >
-                <td> Fecha_Planifica </td>
-				<td><asp:TextBox ID="Fecha_PlanificaTextBox" runat="server" Text='<%# Bind("Fecha_Planifica","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-			</tr>
-            <tr >
-                <td> Valor_Planificado </td>
-				<td><asp:TextBox ID="Valor_Suma_MovsTextBox" runat="server" Text='<%# Bind("Valor_Suma_Movs","{0:#,###,###.00;#,###,###.00}") %>'  
-                ReadOnly="true"  CssClass="txtItemValor" />
-                </td>
-			</tr>
-            <tr >
-                <td> Planif - Solicit </td>
-				<td><asp:TextBox ID="Valor_Dif_Planif_Solicit" runat="server" ReadOnly="true"  CssClass="txtItemValor" />
-                </td>
-			</tr>
-            <tr >
-                <td> Cedula_Prsp_Codigo </td>                
-				<td>
-                    <asp:TextBox ID="Cedula_Presup_CodigoTextBox" runat="server" Text='<%# Bind("Cedula_Presup_Codigo") %>'  CssClass="txtItem" Width="380px" ReadOnly="true"  />
-				</td>
-            </tr>
-			</table>
-            </asp:Panel>
+                    <tr style="display:none">
+                        <td> Per_Personal_Id_Planifica </td>
+				        <td><asp:TextBox ID="Per_Personal_Id_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Planifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							        </tr>
+			        <tr >
+                        <td> Persona_Planifica </td>
+				        <td><asp:TextBox ID="Per_Personal_Nombre_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Planifica") %>'  
+                        ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
+							        </tr>
+			        <tr >
+                        <td> Esta_Planificada </td>
+				        <td><asp:TextBox ID="Esta_PlanificadaTextBox" runat="server" Text='<%# Bind("Esta_Planificada") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							        </tr>
+                    <tr >
+                        <td> Fecha_Planifica </td>
+				        <td><asp:TextBox ID="Fecha_PlanificaTextBox" runat="server" Text='<%# Bind("Fecha_Planifica","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			        </tr>
+                    <tr >
+                        <td> Valor_Planificado </td>
+				        <td><asp:TextBox ID="Valor_Suma_MovsTextBox" runat="server" Text='<%# Bind("Valor_Suma_Movs","{0:#,###,###.00;#,###,###.00}") %>'  
+                        ReadOnly="true"  CssClass="txtItemValor" />
+                        </td>
+			        </tr>
+                    <tr >
+                        <td> Planif - Solicit </td>
+				        <td><asp:TextBox ID="Valor_Dif_Planif_Solicit" runat="server" ReadOnly="true"  CssClass="txtItemValor" />
+                        </td>
+			        </tr>
+                    <tr >
+                        <td> Cedula_Prsp_Codigo </td>                
+				        <td>
+                            <asp:TextBox ID="Cedula_Presup_CodigoTextBox" runat="server" Text='<%# Bind("Cedula_Presup_Codigo") %>'  CssClass="txtItem" Width="380px" ReadOnly="true"  />
+				        </td>
+                    </tr>
+
+			        </table>
+                </asp:Panel>
                 <asp:Panel runat="server" ID="panel4"  GroupingText="Contratación">
                     <table>
-            <tr style="display:none">
-                <td> Per_Personal_Id_Contrata </td>
-				<td><asp:TextBox ID="Per_Personal_Id_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Contrata") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td  style="width:146px;"> Personal_Contrata </td>
-				<td><asp:TextBox ID="Per_Personal_Nombre_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Contrata") %>'  
-                ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
-							</tr>
-			<tr >
-                <td> Esta_Contratada </td>
-				<td><asp:TextBox ID="Esta_ContratadaTextBox" runat="server" Text='<%# Bind("Esta_Contratada") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-			</tr>
-            <tr >
-                <td> Fecha_Contrata </td>
-				<td><asp:TextBox ID="Fecha_ContrataTextBox" runat="server" Text='<%# Bind("Fecha_Contrata","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-			</tr>
-			<tr >
-                <td> PAC_Linea </td>
-				<td><asp:TextBox ID="PAC_LineaTextBox" runat="server" Text='<%# Bind("PAC_Linea") %>'  ReadOnly="true"  CssClass="txtItem" Width="130px" />
-                     CPC_Codigo
-                     <asp:TextBox ID="CPC_CodigoTextBox" runat="server" Text='<%# Bind("CPC_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" Width="130px" />
-                </td>
-			</tr>
-            <tr >
-                <td> Contrata_Desc </td>                
-				<td>
-                    <asp:TextBox ID="Contrata_DescTextBox" runat="server" Text='<%# Bind("Contrata_Desc") %>'  CssClass="txtItemDescripcion" ReadOnly="true" TextMode="MultiLine" />
-				</td>
-            </tr>
-            </table>
+                    <tr style="display:none">
+                        <td> Per_Personal_Id_Contrata </td>
+				        <td><asp:TextBox ID="Per_Personal_Id_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Contrata") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							        </tr>
+			        <tr >
+                        <td  style="width:146px;"> Personal_Contrata </td>
+				        <td><asp:TextBox ID="Per_Personal_Nombre_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Contrata") %>'  
+                        ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
+							        </tr>
+			        <tr >
+                        <td> Esta_Contratada </td>
+				        <td><asp:TextBox ID="Esta_ContratadaTextBox" runat="server" Text='<%# Bind("Esta_Contratada") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			        </tr>
+                    <tr >
+                        <td> Fecha_Contrata </td>
+				        <td><asp:TextBox ID="Fecha_ContrataTextBox" runat="server" Text='<%# Bind("Fecha_Contrata","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			        </tr>
+			        <tr >
+                        <td> PAC_Linea </td>
+				        <td><asp:TextBox ID="PAC_LineaTextBox" runat="server" Text='<%# Bind("PAC_Linea") %>'  ReadOnly="true"  CssClass="txtItem" Width="130px" />
+                             CPC_Codigo
+                             <asp:TextBox ID="CPC_CodigoTextBox" runat="server" Text='<%# Bind("CPC_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" Width="130px" />
+                        </td>
+			        </tr>
+                    <tr >
+                        <td> Contrata_Desc </td>                
+				        <td>
+                            <asp:TextBox ID="Contrata_DescTextBox" runat="server" Text='<%# Bind("Contrata_Desc") %>'  CssClass="txtItemDescripcion" ReadOnly="true" TextMode="MultiLine" />
+				        </td>
+                    </tr>
+                    </table>
                 </asp:Panel>
             </asp:Panel>
         </ItemTemplate>

@@ -101,6 +101,7 @@
     </Compile>
     <Compile Include="WS_COM.asmx.cs">
       <DependentUpon>WS_COM.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_DIC.asmx.cs">
       <DependentUpon>WS_DIC.asmx</DependentUpon>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel;
-using HER;
+using HER; 
 
 namespace FEL.PLA
 {
@@ -270,6 +270,26 @@ namespace FEL.PLA
 				// System.String
                 case "Contrata_Desc":
                     retVal =  string.Compare(x.Contrata_Desc, y.Contrata_Desc);
+                    break;
+              // System.Int32
+                case "Pla_Tarea_Id":
+                    retVal =  x.Pla_Tarea_Id - y.Pla_Tarea_Id ;
+                    break;
+              // System.Int32
+                case "Pla_Cta_Id":
+                    retVal =  x.Pla_Cta_Id - y.Pla_Cta_Id ;
+                    break;
+				// System.String
+                case "Pla_Cta_Codigo":
+                    retVal =  string.Compare(x.Pla_Cta_Codigo, y.Pla_Cta_Codigo);
+                    break;
+				// System.String
+                case "Pla_Cta_Nombre":
+                    retVal =  string.Compare(x.Pla_Cta_Nombre, y.Pla_Cta_Nombre);
+                    break;
+				// System.String
+                case "Pla_Tarea_Nombre":
+                    retVal =  string.Compare(x.Pla_Tarea_Nombre, y.Pla_Tarea_Nombre);
                     break;
             }
             return (retVal * (_reverse ? -1 : 1));
