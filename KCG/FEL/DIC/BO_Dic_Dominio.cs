@@ -77,7 +77,8 @@
   public List<Dic_Dominio> GetByObjetoCampo(string sortExpression, Scope s, string Objeto_Nombre, string Campo_Nombre)
   {
       List<Dic_Dominio> lista = new List<Dic_Dominio>(Adapter.Dic_Dominio_GetByObjetoCampo(s, Objeto_Nombre, Campo_Nombre));
-      lista.Sort(new Dic_Dominio_Comparar(sortExpression));
+      if (!string.IsNullOrEmpty(sortExpression))
+        lista.Sort(new Dic_Dominio_Comparar(sortExpression));
       return lista;
   }
   [DataObjectMethodAttribute(DataObjectMethodType.Select, false)]

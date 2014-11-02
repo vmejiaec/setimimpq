@@ -131,6 +131,10 @@
     <Compile Include="AUD\Aud_Log.cs" />
     <Compile Include="AUD\Aud_Par_Auditoria.cs" />
     <Compile Include="AUD\Aud_Par_Log.cs" />
+    <Compile Include="COM\Com_Contrato.cs" />
+    <Compile Include="COM\Com_Contrato_DocTec.cs" />
+    <Compile Include="COM\Com_Contrato_Oferente.cs" />
+    <Compile Include="COM\Com_DocTec.cs" />
     <Compile Include="COM\Com_Procedimiento.cs" />
     <Compile Include="DIC\Dic_Campo.cs" />
     <Compile Include="DIC\Dic_Codigo.cs" />

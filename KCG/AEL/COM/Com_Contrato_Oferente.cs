@@ -7,7 +7,7 @@
 //     se vuelve a generar el código.
 // </auto-generated>
 //------------------------------------------------------------------------------
- 
+
 namespace AEL.COM
 {
     using System;
@@ -15,7 +15,7 @@ namespace AEL.COM
     using System.Text;
     
     
-    public class Com_Procedimiento
+    public class Com_Contrato_Oferente
     {
         
         // Comentario
@@ -25,34 +25,39 @@ namespace AEL.COM
         private string _Nombre;
         
         // Comentario
-        private string _Tipo;
+        private System.DateTime _Fecha_Recepcion;
         
         // Comentario
-        private decimal _Valor_Min;
+        private int _Com_Contrato_Id;
         
         // Comentario
-        private decimal _Valor_Max;
+        private string _Per_Personal_Id_Recibe;
         
-        public Com_Procedimiento()
+        // Comentario
+        private string _Comentario;
+        
+        public Com_Contrato_Oferente()
         {
         }
         
-        public Com_Procedimiento(int id, string nombre, string tipo, decimal valor_Min, decimal valor_Max)
+        public Com_Contrato_Oferente(int id, string nombre, System.DateTime fecha_Recepcion, int com_Contrato_Id, string per_Personal_Id_Recibe, string comentario)
         {
             this.Id = id;
             this.Nombre = nombre;
-            this.Tipo = tipo;
-            this.Valor_Min = valor_Min;
-            this.Valor_Max = valor_Max;
+            this.Fecha_Recepcion = fecha_Recepcion;
+            this.Com_Contrato_Id = com_Contrato_Id;
+            this.Per_Personal_Id_Recibe = per_Personal_Id_Recibe;
+            this.Comentario = comentario;
         }
         
-        public Com_Procedimiento(Com_Procedimiento o)
+        public Com_Contrato_Oferente(Com_Contrato_Oferente o)
         {
             this.Id = o.Id;
             this.Nombre = o.Nombre;
-            this.Tipo = o.Tipo;
-            this.Valor_Min = o.Valor_Min;
-            this.Valor_Max = o.Valor_Max;
+            this.Fecha_Recepcion = o.Fecha_Recepcion;
+            this.Com_Contrato_Id = o.Com_Contrato_Id;
+            this.Per_Personal_Id_Recibe = o.Per_Personal_Id_Recibe;
+            this.Comentario = o.Comentario;
         }
         
         // Comentario
@@ -82,41 +87,54 @@ namespace AEL.COM
         }
         
         // Comentario
-        public string Tipo
+        public System.DateTime Fecha_Recepcion
         {
             get
             {
-                return this._Tipo;
+                return this._Fecha_Recepcion;
             }
             set
             {
-                this._Tipo = value;
+                this._Fecha_Recepcion = value;
             }
         }
         
         // Comentario
-        public decimal Valor_Min
+        public int Com_Contrato_Id
         {
             get
             {
-                return this._Valor_Min;
+                return this._Com_Contrato_Id;
             }
             set
             {
-                this._Valor_Min = value;
+                this._Com_Contrato_Id = value;
             }
         }
         
         // Comentario
-        public decimal Valor_Max
+        public string Per_Personal_Id_Recibe
         {
             get
             {
-                return this._Valor_Max;
+                return this._Per_Personal_Id_Recibe;
             }
             set
             {
-                this._Valor_Max = value;
+                this._Per_Personal_Id_Recibe = value;
+            }
+        }
+        
+        // Comentario
+        public string Comentario
+        {
+            get
+            {
+                return this._Comentario;
+            }
+            set
+            {
+                this._Comentario = value;
             }
         }
     }

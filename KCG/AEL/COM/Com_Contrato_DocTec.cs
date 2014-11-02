@@ -7,7 +7,7 @@
 //     se vuelve a generar el código.
 // </auto-generated>
 //------------------------------------------------------------------------------
- 
+
 namespace AEL.COM
 {
     using System;
@@ -15,44 +15,39 @@ namespace AEL.COM
     using System.Text;
     
     
-    public class Com_Procedimiento
+    public class Com_Contrato_DocTec
     {
         
         // Comentario
         private int _Id;
         
         // Comentario
+        private int _Com_Contrato_Id;
+        
+        // Comentario
         private string _Nombre;
         
         // Comentario
-        private string _Tipo;
+        private string _Tiene;
         
-        // Comentario
-        private decimal _Valor_Min;
-        
-        // Comentario
-        private decimal _Valor_Max;
-        
-        public Com_Procedimiento()
+        public Com_Contrato_DocTec()
         {
         }
         
-        public Com_Procedimiento(int id, string nombre, string tipo, decimal valor_Min, decimal valor_Max)
+        public Com_Contrato_DocTec(int id, int com_Contrato_Id, string nombre, string tiene)
         {
             this.Id = id;
+            this.Com_Contrato_Id = com_Contrato_Id;
             this.Nombre = nombre;
-            this.Tipo = tipo;
-            this.Valor_Min = valor_Min;
-            this.Valor_Max = valor_Max;
+            this.Tiene = tiene;
         }
         
-        public Com_Procedimiento(Com_Procedimiento o)
+        public Com_Contrato_DocTec(Com_Contrato_DocTec o)
         {
             this.Id = o.Id;
+            this.Com_Contrato_Id = o.Com_Contrato_Id;
             this.Nombre = o.Nombre;
-            this.Tipo = o.Tipo;
-            this.Valor_Min = o.Valor_Min;
-            this.Valor_Max = o.Valor_Max;
+            this.Tiene = o.Tiene;
         }
         
         // Comentario
@@ -65,6 +60,19 @@ namespace AEL.COM
             set
             {
                 this._Id = value;
+            }
+        }
+        
+        // Comentario
+        public int Com_Contrato_Id
+        {
+            get
+            {
+                return this._Com_Contrato_Id;
+            }
+            set
+            {
+                this._Com_Contrato_Id = value;
             }
         }
         
@@ -82,41 +90,15 @@ namespace AEL.COM
         }
         
         // Comentario
-        public string Tipo
+        public string Tiene
         {
             get
             {
-                return this._Tipo;
+                return this._Tiene;
             }
             set
             {
-                this._Tipo = value;
-            }
-        }
-        
-        // Comentario
-        public decimal Valor_Min
-        {
-            get
-            {
-                return this._Valor_Min;
-            }
-            set
-            {
-                this._Valor_Min = value;
-            }
-        }
-        
-        // Comentario
-        public decimal Valor_Max
-        {
-            get
-            {
-                return this._Valor_Max;
-            }
-            set
-            {
-                this._Valor_Max = value;
+                this._Tiene = value;
             }
         }
     }

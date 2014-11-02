@@ -64,7 +64,8 @@ namespace FEL.<#= xsdNombreIniciales #>
         public List<<#= tabla.Nombre #>> Get(Scope s,string sortExpression="")
         {
             List<<#= tabla.Nombre #>> lista = new List<<#= tabla.Nombre #>>(Adapter.<#= tabla.Nombre #>_Get(s));
-			lista.Sort(new <#= tabla.Nombre #>_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new <#= tabla.Nombre #>_Comparar(sortExpression));
             return lista;
         }
         #endregion
@@ -97,7 +98,8 @@ namespace FEL.<#= xsdNombreIniciales #>
         {
 			List<<#= tabla.Nombre #>> lista = new List<<#= tabla.Nombre #>>(
 				Adapter.<#= tabla.Nombre #>_<#= proc.ProcNombre #>(s, <#= proc.listaParamsSP() #>));
-			lista.Sort(new <#= tabla.Nombre #>_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new <#= tabla.Nombre #>_Comparar(sortExpression));
             return lista;
         }
 		<#+  } 
