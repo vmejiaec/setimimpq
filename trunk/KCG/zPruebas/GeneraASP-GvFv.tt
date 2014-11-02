@@ -7,9 +7,11 @@
 <#@ include file="$(ProjectDir)\TemplateFilemanager.ttinclude" #>
 <#   
 	//Parámetros 
-	string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Planificacion.xsd";
-	string Iniciales = "PLA";
-	string TablaBase = "Pla_Procedimiento";
+	//string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Planificacion.xsd";
+	//string Iniciales = "PLA";
+	string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Compras.xsd";
+	string Iniciales = "COM";
+	string TablaBase = "Com_DocTec";
 	//Proceso
 	var manager = TemplateFileManager.Create(this);
 	ExtraeMetaDatos datos = new ExtraeMetaDatos(PathXSD);	

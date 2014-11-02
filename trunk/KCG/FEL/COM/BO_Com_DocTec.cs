@@ -8,7 +8,7 @@ using HER;
 namespace FEL.COM
 {
     [DataObject]
-    public partial class BO_Com_Procedimiento
+    public partial class BO_Com_DocTec
     {
         #region Adaptador
         private WS_COM _Adapter;
@@ -22,71 +22,62 @@ namespace FEL.COM
         #region Select
 		// Select
         [DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-        public List<Com_Procedimiento> Get(Scope s,string sortExpression="")
+        public List<Com_DocTec> Get(Scope s,string sortExpression="")
         {
-            List<Com_Procedimiento> lista = new List<Com_Procedimiento>(Adapter.Com_Procedimiento_Get(s));
+            List<Com_DocTec> lista = new List<Com_DocTec>(Adapter.Com_DocTec_Get(s));
 			if (!string.IsNullOrEmpty(sortExpression))
-				lista.Sort(new Com_Procedimiento_Comparar(sortExpression));
+				lista.Sort(new Com_DocTec_Comparar(sortExpression));
             return lista;
         }
         #endregion
         #region Insert, Update, Delete
 		// Insert
         [DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
-        public int Insert(Com_Procedimiento n)
+        public int Insert(Com_DocTec n)
         {            
-            return Adapter.Com_Procedimiento_Insert(n);
+            return Adapter.Com_DocTec_Insert(n);
         }
 		// Delete
         [DataObjectMethodAttribute(DataObjectMethodType.Delete, false)]
-        public int Delete(Com_Procedimiento o)
+        public int Delete(Com_DocTec o)
         {            
-            return Adapter.Com_Procedimiento_Delete(o);
+            return Adapter.Com_DocTec_Delete(o);
         }
 		// Update
         [DataObjectMethodAttribute(DataObjectMethodType.Update, false)]
-        public int Update(Com_Procedimiento o, Com_Procedimiento n)
+        public int Update(Com_DocTec o, Com_DocTec n)
         {            
-            return Adapter.Com_Procedimiento_Update(o, n);
+            return Adapter.Com_DocTec_Update(o, n);
         }
         #endregion
         #region Procedimientos Get
 		// Procedimientos Get
 		#region Métodos Get
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Com_Procedimiento> GetById(Scope s , Int32 p_Id, string sortExpression="")
+		public List<Com_DocTec> GetById(Scope s , Int32 p_Id, string sortExpression="")
         {
-			List<Com_Procedimiento> lista = new List<Com_Procedimiento>(
-				Adapter.Com_Procedimiento_GetById(s,  p_Id));
+			List<Com_DocTec> lista = new List<Com_DocTec>(
+				Adapter.Com_DocTec_GetById(s,  p_Id));
 			if (!string.IsNullOrEmpty(sortExpression))
-				lista.Sort(new Com_Procedimiento_Comparar(sortExpression));
+				lista.Sort(new Com_DocTec_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Com_Procedimiento> GetByLikeNombre(Scope s , string p_Nombre, string sortExpression="")
+		public List<Com_DocTec> GetByLikeNombre(Scope s , string p_Nombre, string sortExpression="")
         {
-			List<Com_Procedimiento> lista = new List<Com_Procedimiento>(
-				Adapter.Com_Procedimiento_GetByLikeNombre(s,  p_Nombre));
+			List<Com_DocTec> lista = new List<Com_DocTec>(
+				Adapter.Com_DocTec_GetByLikeNombre(s,  p_Nombre));
 			if (!string.IsNullOrEmpty(sortExpression))
-				lista.Sort(new Com_Procedimiento_Comparar(sortExpression));
-            return lista;
-        }
-		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
-		public List<Com_Procedimiento> GetByLikeValor(Scope s , Decimal p_Valor, string sortExpression="")
-        {
-			List<Com_Procedimiento> lista = new List<Com_Procedimiento>(
-				Adapter.Com_Procedimiento_GetByLikeValor(s,  p_Valor));
-			if (!string.IsNullOrEmpty(sortExpression))
-				lista.Sort(new Com_Procedimiento_Comparar(sortExpression));
+				lista.Sort(new Com_DocTec_Comparar(sortExpression));
             return lista;
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
 		 // InsertINT
 		[DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
-		public int InsertINT(Com_Procedimiento n)
+		public int InsertINT(Com_DocTec n)
         {            
-            return Adapter.Com_Procedimiento_InsertINT(n);
+            return Adapter.Com_DocTec_InsertINT(n);
         }
 		#endregion
 		#endregion
@@ -94,12 +85,12 @@ namespace FEL.COM
 
 	// Clase para ordenar las listas
 	#region Ordenar la lista
-    class Com_Procedimiento_Comparar : IComparer<Com_Procedimiento>
+    class Com_DocTec_Comparar : IComparer<Com_DocTec>
     {
         private bool _reverse;
         private string _sortColumn;
 
-        public Com_Procedimiento_Comparar(string sortExpression)
+        public Com_DocTec_Comparar(string sortExpression)
         {
             _reverse = sortExpression.ToLowerInvariant().EndsWith(" desc");
             if (_reverse)
@@ -108,7 +99,7 @@ namespace FEL.COM
                 _sortColumn = sortExpression;
         }
 
-        public int Compare(Com_Procedimiento x, Com_Procedimiento y)
+        public int Compare(Com_DocTec x, Com_DocTec y)
         {
             int retVal = 0;
             switch (_sortColumn)
@@ -120,10 +111,6 @@ namespace FEL.COM
 				// System.String
                 case "Nombre":
                     retVal =  string.Compare(x.Nombre, y.Nombre);
-                    break;
-				// System.String
-                case "Tipo":
-                    retVal =  string.Compare(x.Tipo, y.Tipo);
                     break;
             }
             return (retVal * (_reverse ? -1 : 1));

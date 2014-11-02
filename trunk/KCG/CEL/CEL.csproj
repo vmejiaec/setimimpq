@@ -131,6 +131,18 @@
     <Compile Include="AUD\DO_Aud_Log.cs" />
     <Compile Include="AUD\DO_Aud_Par_Auditoria.cs" />
     <Compile Include="AUD\DO_Aud_Par_Log.cs" />
+    <Compile Include="COM\DO_Com_Contrato.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="COM\DO_Com_Contrato_DocTec.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="COM\DO_Com_Contrato_Oferente.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="COM\DO_Com_DocTec.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
     <Compile Include="COM\DO_Com_Procedimiento.cs">
       <DependentUpon>generaCEL.txt4</DependentUpon>
     </Compile>

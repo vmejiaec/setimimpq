@@ -1256,7 +1256,7 @@ TagPrefix="ajax" %>
         TypeName="FEL.DIC.BO_Dic_Dominio"
                         SortParameterName = "sortExpression">
         <SelectParameters>
-            <asp:Parameter DefaultValue="Nombre" Name="sortExpression" Type="String" />
+            
             <asp:SessionParameter DefaultValue="" Name="s" SessionField="Scope" Type="Object" />
             <asp:Parameter DefaultValue="Pla_Cta" Name="Objeto_Nombre" Type="String" />
             <asp:Parameter DefaultValue="Anio" Name="Campo_Nombre" Type="String" />
