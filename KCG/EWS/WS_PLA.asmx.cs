@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Web.Services;
 
 using CEL.PLA; // datos.xsdNombreIniciales
-using AEL.PLA; 
+using AEL.PLA;
 using BEL;
 
 namespace EWS
@@ -569,65 +569,6 @@ namespace EWS
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
-		#endregion
-		#endregion
-	    #region Servicios para Pla_Procedimiento
-        private DO_Pla_Procedimiento _Pla_Procedimiento;
-        public DO_Pla_Procedimiento Pla_Procedimiento {
-            get {
-                if (_Pla_Procedimiento == null)
-                    _Pla_Procedimiento = new DO_Pla_Procedimiento();
-                return _Pla_Procedimiento;
-            }
-        }
-
-		#region Select
-		[WebMethod]
-        public List<Pla_Procedimiento> Pla_Procedimiento_Get(Scope s)
-        {
-            return Pla_Procedimiento.Get(s);
-        }
-		#endregion
-		#region Insert, Delete, Update
-		[WebMethod]
-        public int Pla_Procedimiento_Insert(Pla_Procedimiento n)
-        {
-            return Pla_Procedimiento.Insert(n);
-        }
-		[WebMethod]
-        public int Pla_Procedimiento_Delete(Pla_Procedimiento o)
-        {
-            return Pla_Procedimiento.Delete(o);
-        }
-		[WebMethod]
-        public int Pla_Procedimiento_Update(Pla_Procedimiento o,Pla_Procedimiento n)
-        {
-            return Pla_Procedimiento.Update(o, n);
-        }
-		#endregion
-		#region Métodos Get
-		[WebMethod]
-		public List<Pla_Procedimiento> Pla_Procedimiento_GetById(Scope s , Int32 p_Id)
-        {
-            return Pla_Procedimiento.GetById(s,  p_Id);
-        }
-		[WebMethod]
-		public List<Pla_Procedimiento> Pla_Procedimiento_GetByLikeNombre(Scope s , string p_Nombre)
-        {
-            return Pla_Procedimiento.GetByLikeNombre(s,  p_Nombre);
-        }
-		[WebMethod]
-		public List<Pla_Procedimiento> Pla_Procedimiento_GetByLikeValor(Scope s , Decimal p_Valor)
-        {
-            return Pla_Procedimiento.GetByLikeValor(s,  p_Valor);
-        }
-		#endregion
-		#region Métodos Genéricos retornan un escalar
-				[WebMethod]
-        public int Pla_Procedimiento_InsertINT(Pla_Procedimiento n)
-        {
-            return Pla_Procedimiento.InsertINT(n);
-        }
 		#endregion
 		#endregion
 		}
