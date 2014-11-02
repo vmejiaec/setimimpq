@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Text; 
 
 using ADL.PlanificacionTableAdapters;
 using AEL.PLA;
@@ -49,7 +49,12 @@ fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
 fila.Valor_Suma_Movs,
 fila.Cedula_Presup_Codigo,
-fila.Contrata_Desc
+fila.Contrata_Desc,
+fila.Pla_Tarea_Id,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Tarea_Nombre
 			));
         }
         return lista;
@@ -79,7 +84,8 @@ n.CPC_Codigo,
 n.Fecha_Contrata,
 n.Fecha_Planifica,
 n.Cedula_Presup_Codigo,
-n.Contrata_Desc
+n.Contrata_Desc,
+n.Pla_Tarea_Id
 			);
         }
         catch (SqlException e)
@@ -112,7 +118,8 @@ o.CPC_Codigo,
 o.Fecha_Contrata,
 o.Fecha_Planifica,
 o.Cedula_Presup_Codigo,
-o.Contrata_Desc
+o.Contrata_Desc,
+o.Pla_Tarea_Id
 			);
         }
         catch (SqlException e)
@@ -146,6 +153,7 @@ n.Fecha_Contrata,
 n.Fecha_Planifica,
 n.Cedula_Presup_Codigo,
 n.Contrata_Desc,
+n.Pla_Tarea_Id,
 o.Id,
 o.Codigo,
 o.Tipo,
@@ -167,6 +175,7 @@ o.Fecha_Contrata,
 o.Fecha_Planifica,
 o.Cedula_Presup_Codigo,
 o.Contrata_Desc,
+o.Pla_Tarea_Id,
 n.Id
 			);
         }
@@ -209,7 +218,12 @@ fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
 fila.Valor_Suma_Movs,
 fila.Cedula_Presup_Codigo,
-fila.Contrata_Desc
+fila.Contrata_Desc,
+fila.Pla_Tarea_Id,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Tarea_Nombre
 				));
 			}
 			return lista;
@@ -249,7 +263,12 @@ fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
 fila.Valor_Suma_Movs,
 fila.Cedula_Presup_Codigo,
-fila.Contrata_Desc
+fila.Contrata_Desc,
+fila.Pla_Tarea_Id,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Tarea_Nombre
 				));
 			}
 			return lista;
@@ -289,7 +308,12 @@ fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
 fila.Valor_Suma_Movs,
 fila.Cedula_Presup_Codigo,
-fila.Contrata_Desc
+fila.Contrata_Desc,
+fila.Pla_Tarea_Id,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Tarea_Nombre
 				));
 			}
 			return lista;
@@ -329,7 +353,12 @@ fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
 fila.Valor_Suma_Movs,
 fila.Cedula_Presup_Codigo,
-fila.Contrata_Desc
+fila.Contrata_Desc,
+fila.Pla_Tarea_Id,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Tarea_Nombre
 				));
 			}
 			return lista;
@@ -369,7 +398,12 @@ fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
 fila.Valor_Suma_Movs,
 fila.Cedula_Presup_Codigo,
-fila.Contrata_Desc
+fila.Contrata_Desc,
+fila.Pla_Tarea_Id,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Tarea_Nombre
 				));
 			}
 			return lista;
@@ -409,7 +443,12 @@ fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
 fila.Valor_Suma_Movs,
 fila.Cedula_Presup_Codigo,
-fila.Contrata_Desc
+fila.Contrata_Desc,
+fila.Pla_Tarea_Id,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Tarea_Nombre
 				));
 			}
 			return lista;
@@ -449,7 +488,12 @@ fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
 fila.Valor_Suma_Movs,
 fila.Cedula_Presup_Codigo,
-fila.Contrata_Desc
+fila.Contrata_Desc,
+fila.Pla_Tarea_Id,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Tarea_Nombre
 				));
 			}
 			return lista;
@@ -489,7 +533,12 @@ fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
 fila.Valor_Suma_Movs,
 fila.Cedula_Presup_Codigo,
-fila.Contrata_Desc
+fila.Contrata_Desc,
+fila.Pla_Tarea_Id,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Tarea_Nombre
 				));
 			}
 			return lista;
@@ -529,7 +578,12 @@ fila.Per_Personal_Nombre_Planifica,
 fila.Per_Personal_Nombre_Contrata,
 fila.Valor_Suma_Movs,
 fila.Cedula_Presup_Codigo,
-fila.Contrata_Desc
+fila.Contrata_Desc,
+fila.Pla_Tarea_Id,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Tarea_Nombre
 				));
 			}
 			return lista;
@@ -559,7 +613,8 @@ n.CPC_Codigo,
 n.Fecha_Contrata,
 n.Fecha_Planifica,
 n.Cedula_Presup_Codigo,
-n.Contrata_Desc
+n.Contrata_Desc,
+n.Pla_Tarea_Id
 			));
         }
         catch (SqlException e)
