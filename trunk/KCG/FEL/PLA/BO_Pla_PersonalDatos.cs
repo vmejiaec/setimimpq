@@ -25,7 +25,8 @@ namespace FEL.PLA
         public List<Pla_PersonalDatos> Get(Scope s,string sortExpression="")
         {
             List<Pla_PersonalDatos> lista = new List<Pla_PersonalDatos>(Adapter.Pla_PersonalDatos_Get(s));
-			lista.Sort(new Pla_PersonalDatos_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_PersonalDatos_Comparar(sortExpression));
             return lista;
         }
         #endregion
@@ -57,7 +58,8 @@ namespace FEL.PLA
         {
 			List<Pla_PersonalDatos> lista = new List<Pla_PersonalDatos>(
 				Adapter.Pla_PersonalDatos_GetById(s,  p_Id));
-			lista.Sort(new Pla_PersonalDatos_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_PersonalDatos_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -65,7 +67,8 @@ namespace FEL.PLA
         {
 			List<Pla_PersonalDatos> lista = new List<Pla_PersonalDatos>(
 				Adapter.Pla_PersonalDatos_GetByLikePer_Personal_Nombre(s,  p_Per_Personal_Nombre));
-			lista.Sort(new Pla_PersonalDatos_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_PersonalDatos_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -73,7 +76,8 @@ namespace FEL.PLA
         {
 			List<Pla_PersonalDatos> lista = new List<Pla_PersonalDatos>(
 				Adapter.Pla_PersonalDatos_GetByPer_Personal_Id(s,  p_Per_Personal_Id));
-			lista.Sort(new Pla_PersonalDatos_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_PersonalDatos_Comparar(sortExpression));
             return lista;
         }
 		#endregion

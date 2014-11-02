@@ -25,7 +25,8 @@ namespace FEL.PLA
         public List<Pla_Doc> Get(Scope s,string sortExpression="")
         {
             List<Pla_Doc> lista = new List<Pla_Doc>(Adapter.Pla_Doc_Get(s));
-			lista.Sort(new Pla_Doc_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Doc_Comparar(sortExpression));
             return lista;
         }
         #endregion
@@ -57,7 +58,8 @@ namespace FEL.PLA
         {
 			List<Pla_Doc> lista = new List<Pla_Doc>(
 				Adapter.Pla_Doc_GetByArea_Codigo_RangoFecha_Solicita(s,  p_Area_Codigo, p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin));
-			lista.Sort(new Pla_Doc_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Doc_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -65,7 +67,8 @@ namespace FEL.PLA
         {
 			List<Pla_Doc> lista = new List<Pla_Doc>(
 				Adapter.Pla_Doc_GetByCodigo(s,  p_Codigo));
-			lista.Sort(new Pla_Doc_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Doc_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -73,7 +76,8 @@ namespace FEL.PLA
         {
 			List<Pla_Doc> lista = new List<Pla_Doc>(
 				Adapter.Pla_Doc_GetById(s,  p_Id));
-			lista.Sort(new Pla_Doc_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Doc_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -81,7 +85,8 @@ namespace FEL.PLA
         {
 			List<Pla_Doc> lista = new List<Pla_Doc>(
 				Adapter.Pla_Doc_GetByRangoFecha_Solicita(s,  p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin));
-			lista.Sort(new Pla_Doc_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Doc_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -89,7 +94,8 @@ namespace FEL.PLA
         {
 			List<Pla_Doc> lista = new List<Pla_Doc>(
 				Adapter.Pla_Doc_GetByTipo_Area_Codigo_Codigo(s,  p_Tipo, p_Area_Codigo, p_Codigo));
-			lista.Sort(new Pla_Doc_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Doc_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -97,7 +103,8 @@ namespace FEL.PLA
         {
 			List<Pla_Doc> lista = new List<Pla_Doc>(
 				Adapter.Pla_Doc_GetByTipo_Area_Codigo_LikeDescripcion(s,  p_Tipo, p_Area_Codigo, p_Descripcion));
-			lista.Sort(new Pla_Doc_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Doc_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -105,7 +112,8 @@ namespace FEL.PLA
         {
 			List<Pla_Doc> lista = new List<Pla_Doc>(
 				Adapter.Pla_Doc_GetByTipo_Area_Codigo_RangoFecha_Solicita(s,  p_Tipo, p_Area_Codigo, p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin));
-			lista.Sort(new Pla_Doc_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Doc_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -113,7 +121,8 @@ namespace FEL.PLA
         {
 			List<Pla_Doc> lista = new List<Pla_Doc>(
 				Adapter.Pla_Doc_GetByTipo_RangoFecha_Solicita(s,  p_Tipo, p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin));
-			lista.Sort(new Pla_Doc_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Doc_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -121,7 +130,8 @@ namespace FEL.PLA
         {
 			List<Pla_Doc> lista = new List<Pla_Doc>(
 				Adapter.Pla_Doc_GetByTipo_RangoFecha_Solicita_LikeDescripcion(s,  p_Tipo, p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin, p_Descripcion));
-			lista.Sort(new Pla_Doc_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Doc_Comparar(sortExpression));
             return lista;
         }
 		#endregion

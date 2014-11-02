@@ -25,7 +25,8 @@ namespace FEL.PLA
         public List<Pla_Mov> Get(Scope s,string sortExpression="")
         {
             List<Pla_Mov> lista = new List<Pla_Mov>(Adapter.Pla_Mov_Get(s));
-			lista.Sort(new Pla_Mov_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Mov_Comparar(sortExpression));
             return lista;
         }
         #endregion
@@ -57,7 +58,8 @@ namespace FEL.PLA
         {
 			List<Pla_Mov> lista = new List<Pla_Mov>(
 				Adapter.Pla_Mov_GetById(s,  p_Id));
-			lista.Sort(new Pla_Mov_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Mov_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -65,7 +67,8 @@ namespace FEL.PLA
         {
 			List<Pla_Mov> lista = new List<Pla_Mov>(
 				Adapter.Pla_Mov_GetByPla_Doc_Id(s,  p_Pla_Doc_Id));
-			lista.Sort(new Pla_Mov_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Mov_Comparar(sortExpression));
             return lista;
         }
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
@@ -73,7 +76,8 @@ namespace FEL.PLA
         {
 			List<Pla_Mov> lista = new List<Pla_Mov>(
 				Adapter.Pla_Mov_GetByPla_Poa_Id(s,  p_Pla_Poa_Id));
-			lista.Sort(new Pla_Mov_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Mov_Comparar(sortExpression));
             return lista;
         }
 		#endregion

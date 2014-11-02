@@ -25,7 +25,8 @@ namespace FEL.PLA
         public List<Pla_Param> Get(Scope s,string sortExpression="")
         {
             List<Pla_Param> lista = new List<Pla_Param>(Adapter.Pla_Param_Get(s));
-			lista.Sort(new Pla_Param_Comparar(sortExpression));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Pla_Param_Comparar(sortExpression));
             return lista;
         }
         #endregion
