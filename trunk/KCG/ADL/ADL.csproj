@@ -96,6 +96,11 @@
     <Compile Include="BizWiz\TransactionSupport.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Compras.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Compras.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Diccionario.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -208,6 +213,17 @@
     </None>
     <None Include="Auditoria.xss">
       <DependentUpon>Auditoria.xsd</DependentUpon>
+    </None>
+    <None Include="Compras.xsc">
+      <DependentUpon>Compras.xsd</DependentUpon>
+    </None>
+    <None Include="Compras.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Compras.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Compras.xss">
+      <DependentUpon>Compras.xsd</DependentUpon>
     </None>
     <None Include="Diccionario.xsc">
       <DependentUpon>Diccionario.xsd</DependentUpon>

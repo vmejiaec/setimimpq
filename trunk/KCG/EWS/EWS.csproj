@@ -67,6 +67,7 @@
     <Content Include="WS_APROBACION_ESTADO.asmx" />
     <Content Include="WS_APU.asmx" />
     <Content Include="WS_AUD.asmx" />
+    <Content Include="WS_COM.asmx" />
     <Content Include="WS_DIC.asmx" />
     <Content Include="WS_EST.asmx" />
     <Content Include="WS_FIS.asmx" />
@@ -96,6 +97,10 @@
     </Compile>
     <Compile Include="WS_AUD.asmx.cs">
       <DependentUpon>WS_AUD.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_COM.asmx.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_DIC.asmx.cs">
@@ -131,7 +136,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_PLA.asmx.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
+      <DependentUpon>WS_PLA.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_SEG.asmx.cs">
@@ -176,6 +181,7 @@
   <ItemGroup>
     <None Include="generaCEL.txt4" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

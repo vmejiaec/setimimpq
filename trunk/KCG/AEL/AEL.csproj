@@ -131,6 +131,7 @@
     <Compile Include="AUD\Aud_Log.cs" />
     <Compile Include="AUD\Aud_Par_Auditoria.cs" />
     <Compile Include="AUD\Aud_Par_Log.cs" />
+    <Compile Include="COM\Com_Procedimiento.cs" />
     <Compile Include="DIC\Dic_Campo.cs" />
     <Compile Include="DIC\Dic_Codigo.cs" />
     <Compile Include="DIC\Dic_Contenedor.cs" />
@@ -207,7 +208,6 @@
       <SubType>
       </SubType>
     </Compile>
-    <Compile Include="PLA\Pla_Procedimiento.cs" />
     <Compile Include="PLA\Pla_Tarea.cs">
       <SubType>
       </SubType>
