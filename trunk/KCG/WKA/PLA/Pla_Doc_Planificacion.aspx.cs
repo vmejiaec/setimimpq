@@ -193,33 +193,55 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
         string sEsta_Contratada = (string) e.OldValues["Esta_Contratada"];
         if (sEsta_Contratada == "PEN")
         {
-            // Controla el cambio del formato de las fechas
-            e.NewValues["Fecha_Solicita"] = DateTime.Parse((string)e.NewValues["Fecha_Solicita"]);
-            e.OldValues["Fecha_Solicita"] = DateTime.Parse((string)e.OldValues["Fecha_Solicita"]);
-            e.NewValues["Fecha_Contrata"] = DateTime.Parse((string)e.NewValues["Fecha_Contrata"]);
-            e.OldValues["Fecha_Contrata"] = DateTime.Parse((string)e.OldValues["Fecha_Contrata"]);
-            e.NewValues["Fecha_Planifica"] = DateTime.Parse((string)e.NewValues["Fecha_Planifica"]);
-            e.OldValues["Fecha_Planifica"] = DateTime.Parse((string)e.OldValues["Fecha_Planifica"]);
-            // Valores para los campos de personas
-            e.NewValues["Per_Personal_Id_Modifica"] = Scope.Per_Personal_Id;
-            // La solicitud del director se actualiza con las personas de Contratación
-            // en NULL para que sea coherente con el proceso
-            if (String.IsNullOrEmpty((string)e.OldValues["Per_Personal_Id_Contrata"]))
+            // Valida si tiene Movimientos deben ser igual la tarea del Doc
+            bool bValido = false;
+            int iPla_Doc_Id = Int32.Parse( (string) e.NewValues["Id"] );
+            BO_Pla_Mov adpMov = new BO_Pla_Mov();
+            var listaMovs = adpMov.GetByPla_Doc_Id(Scope, iPla_Doc_Id);
+            if (listaMovs.Count == 0)
+                bValido = true;
+            else 
             {
-                e.OldValues["Per_Personal_Id_Contrata"] = null;
-                e.NewValues["Per_Personal_Id_Contrata"] = null;
+                var oMov = listaMovs[0];
+                int iPla_Tarea_Id = Int32.Parse( (string) e.NewValues["Pla_Tarea_Id"]);
+                bValido = (oMov.Pla_Tarea_Id == iPla_Tarea_Id);
             }
-            if (String.IsNullOrEmpty((string)e.OldValues["Per_Personal_Id_Planifica"]))
+            if (bValido)
             {
-                e.OldValues["Per_Personal_Id_Planifica"] = null;
-            }
-            // Cambio del formato del campo Valor
-            e.NewValues["Valor_Solicita"] = Decimal.Parse((string)e.NewValues["Valor_Solicita"]);
-            e.OldValues["Valor_Solicita"] = Decimal.Parse((string)e.OldValues["Valor_Solicita"]);
+                // Controla el cambio del formato de las fechas
+                e.NewValues["Fecha_Solicita"] = DateTime.Parse((string)e.NewValues["Fecha_Solicita"]);
+                e.OldValues["Fecha_Solicita"] = DateTime.Parse((string)e.OldValues["Fecha_Solicita"]);
+                e.NewValues["Fecha_Contrata"] = DateTime.Parse((string)e.NewValues["Fecha_Contrata"]);
+                e.OldValues["Fecha_Contrata"] = DateTime.Parse((string)e.OldValues["Fecha_Contrata"]);
+                e.NewValues["Fecha_Planifica"] = DateTime.Parse((string)e.NewValues["Fecha_Planifica"]);
+                e.OldValues["Fecha_Planifica"] = DateTime.Parse((string)e.OldValues["Fecha_Planifica"]);
+                // Valores para los campos de personas
+                e.NewValues["Per_Personal_Id_Modifica"] = Scope.Per_Personal_Id;
+                // La solicitud del director se actualiza con las personas de Contratación
+                // en NULL para que sea coherente con el proceso
+                if (String.IsNullOrEmpty((string)e.OldValues["Per_Personal_Id_Contrata"]))
+                {
+                    e.OldValues["Per_Personal_Id_Contrata"] = null;
+                    e.NewValues["Per_Personal_Id_Contrata"] = null;
+                }
+                if (String.IsNullOrEmpty((string)e.OldValues["Per_Personal_Id_Planifica"]))
+                {
+                    e.OldValues["Per_Personal_Id_Planifica"] = null;
+                }
+                // Cambio del formato del campo Valor
+                e.NewValues["Valor_Solicita"] = Decimal.Parse((string)e.NewValues["Valor_Solicita"]);
+                e.OldValues["Valor_Solicita"] = Decimal.Parse((string)e.OldValues["Valor_Solicita"]);
 
-            // Guarda los datos del registro a borrar en memoria
-            this.MemoriaRegistroActual = "Id: " + (string)e.NewValues["Id"] + " * " +
-                                         "Codigo: " + (string)e.NewValues["Codigo"];
+                // Guarda los datos del registro a borrar en memoria
+                this.MemoriaRegistroActual = "Id: " + (string)e.NewValues["Id"] + " * " +
+                                             "Codigo: " + (string)e.NewValues["Codigo"];
+            }
+            else // Si hay movimientos que son diferentes al del DOC no puede continuar
+            {
+                e.Cancel = true;
+                fvPla_Doc.HayErrorInsUpd = true;
+                lbFvMsgErrorPla_Doc.Text = String.Format("Error, la cuenta debe ser la misma que la(s) partida(s) ya está relacionada(s).");
+            }
         }
         else // Si no se cumple que Esta_Contratada sea PEN
         {
@@ -241,6 +263,9 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
     // Inicializa los valores antes de que el FormView se dibuje en la página
     protected void fvPla_Doc_PreRender(object sender, EventArgs e)
     {
+        AjaxControlToolkit.AutoCompleteExtender acxPla_Cta_CodigoTextBox = new AjaxControlToolkit.AutoCompleteExtender();
+        AjaxControlToolkit.AutoCompleteExtender acxPla_Cta_NombreTextBox = new AjaxControlToolkit.AutoCompleteExtender();
+        AjaxControlToolkit.AutoCompleteExtender acxPla_Tarea_NombreTextBox = new AjaxControlToolkit.AutoCompleteExtender();
         switch (fvPla_Doc.CurrentMode)
         {
             case FormViewMode.Insert:
@@ -248,9 +273,31 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
                 //((TextBox)fvPla_Poa.FindControl("EstadoTextBox")).Text = "PEN";
                 break;
             case FormViewMode.Edit:
+                // Pone el año en el autocompletar
+                acxPla_Cta_CodigoTextBox = (AjaxControlToolkit.AutoCompleteExtender)fvPla_Doc.FindControl("acxPla_Cta_CodigoTextBox");
+                acxPla_Cta_CodigoTextBox.ContextKey = ((DropDownList)fvPla_Doc.FindControl("ddlAnio")).SelectedValue;
+                acxPla_Cta_NombreTextBox = (AjaxControlToolkit.AutoCompleteExtender)fvPla_Doc.FindControl("acxPla_Cta_NombreTextBox");
+                acxPla_Cta_NombreTextBox.ContextKey = ((DropDownList)fvPla_Doc.FindControl("ddlAnio")).SelectedValue;                
+                //
                 ((TextBox)fvPla_Doc.FindControl("Per_Personal_Id_PlanificaTextBox")).Text = Scope.Per_Personal_Id;
                 ((TextBox)fvPla_Doc.FindControl("Per_Personal_Nombre_PlanificaTextBox")).Text = Scope.Per_Personal_Nombre;
-                ((TextBox)fvPla_Doc.FindControl("Fecha_PlanificaTextBox")).Text = DateTime.Today.ToShortDateString();                
+                ((TextBox)fvPla_Doc.FindControl("Fecha_PlanificaTextBox")).Text = DateTime.Today.ToShortDateString();
+                // Coloca los valores de la cuenta asociada a la tarea
+                string sPla_Tarea_Id = ((TextBox)fvPla_Doc.FindControl("Pla_Tarea_IdTextBox")).Text;
+                int iPla_Tarea_Id = Int32.Parse(sPla_Tarea_Id);
+                if (iPla_Tarea_Id > 0)
+                {
+                    BO_Pla_Tarea adpTarea = new BO_Pla_Tarea();
+                    var listaTareas = adpTarea.GetById(Scope, iPla_Tarea_Id);
+                    var tarea = listaTareas[0];
+                    ((TextBox)fvPla_Doc.FindControl("Pla_Cta_CodigoTextBox")).Text = tarea.Pla_Cta_Codigo;
+                    ((TextBox)fvPla_Doc.FindControl("Pla_Cta_NivelTextBox")).Text = tarea.Pla_Cta_Nivel;
+                    ((TextBox)fvPla_Doc.FindControl("Pla_Cta_NombreTextBox")).Text = tarea.Pla_Cta_Nombre;
+                    ((TextBox)fvPla_Doc.FindControl("Pla_Cta_IdTextBox")).Text = tarea.Pla_Cta_Id.ToString();
+                    // Pone el prerender en el autocompletar de la Tarea
+                    acxPla_Tarea_NombreTextBox = (AjaxControlToolkit.AutoCompleteExtender)fvPla_Doc.FindControl("acxPla_Tarea_NombreTextBox");
+                    acxPla_Tarea_NombreTextBox.ContextKey = ((TextBox)fvPla_Doc.FindControl("Pla_Cta_IdTextBox")).Text; ;
+                }
                 break;
             case FormViewMode.ReadOnly:
                 //  Inicializa la diferencia entre lo planificado y lo solicitado
@@ -492,8 +539,7 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
                     lbFvMsgErrorPla_Mov.Text = ":";
                 }
                 // Guarda los datos del registro a borrar en memoria
-                this.MemoriaRegistroActual = "Id: " + (string)e.NewValues["Id"] + " * " +
-                                             "Codigo: " + (string)e.NewValues["Codigo"];
+                this.MemoriaRegistroActual = String.Format( "Id: {0} * Código: {1}.", e.NewValues["Id"], e.NewValues["Codigo"] );
             }
             else // Si el Estado_Contrata es diferente de PEN
             {
@@ -546,8 +592,6 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
     // Inicializa los valores antes de que el FormView se dibuje en la página
     protected void fvPla_Mov_PreRender(object sender, EventArgs e)
     {
-        AjaxControlToolkit.AutoCompleteExtender acxPla_Cta_CodigoTextBox = new AjaxControlToolkit.AutoCompleteExtender();
-        AjaxControlToolkit.AutoCompleteExtender acxPla_Cta_NombreTextBox = new AjaxControlToolkit.AutoCompleteExtender();
         string sPoaId;
         switch (fvPla_Mov.CurrentMode)
         {
@@ -558,28 +602,20 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
                 ((TextBox)fvPla_Mov.FindControl("ValorTextBox")).Text = "0";
                 // Pla_Doc_Id viene del seleccionado en el Grid
                 if (gvPla_Doc.SelectedValue != null)
-                    ((TextBox)fvPla_Mov.FindControl("Pla_Doc_IdTextBox")).Text = gvPla_Doc.SelectedValue.ToString();
-                // Pone el año en el autocompletar
-                acxPla_Cta_CodigoTextBox = (AjaxControlToolkit.AutoCompleteExtender)fvPla_Mov.FindControl("acxPla_Cta_CodigoTextBox");
-                acxPla_Cta_CodigoTextBox.ContextKey = ((DropDownList) fvPla_Mov.FindControl("ddlAnio")).SelectedValue;
-                acxPla_Cta_NombreTextBox = (AjaxControlToolkit.AutoCompleteExtender)fvPla_Mov.FindControl("acxPla_Cta_NombreTextBox");
-                acxPla_Cta_NombreTextBox.ContextKey = ((DropDownList)fvPla_Mov.FindControl("ddlAnio")).SelectedValue;
-                // Si NO es la primera vez que se insertan registros el Grid estará con al menos una fila
-                if (gvPla_Mov.Rows.Count > 0)
-                { 
-                    // Ponemos por defecto los datos del registro anterior
-                    if (gvPla_Mov.SelectedIndex != -1)
-                    {
-                        // EN CONSTRUCCION.
-                    }
+                {
+                    string sPla_Doc_Id = gvPla_Doc.SelectedValue.ToString();
+                    int iPla_Doc_Id = Int32.Parse(sPla_Doc_Id);
+                    ((TextBox)fvPla_Mov.FindControl("Pla_Doc_IdTextBox")).Text = sPla_Doc_Id;
+                    // Buscamos la tarea del documento asociado
+                    BO_Pla_Doc adpDoc = new BO_Pla_Doc();
+                    var listaDocs = adpDoc.GetById(Scope, iPla_Doc_Id);
+                    var oDoc = listaDocs[0];
+                    AjaxControlToolkit.AutoCompleteExtender acxPla_Partida_CodigoTextBox = new AjaxControlToolkit.AutoCompleteExtender();
+                    acxPla_Partida_CodigoTextBox = (AjaxControlToolkit.AutoCompleteExtender)fvPla_Mov.FindControl("acxPla_Partida_CodigoTextBox");
+                    acxPla_Partida_CodigoTextBox.ContextKey = oDoc.Pla_Tarea_Id.ToString();
                 }
                 break;
             case FormViewMode.Edit:
-                // Pone el año en el autocompletar
-                acxPla_Cta_CodigoTextBox = (AjaxControlToolkit.AutoCompleteExtender)fvPla_Mov.FindControl("acxPla_Cta_CodigoTextBox");
-                acxPla_Cta_CodigoTextBox.ContextKey = ((DropDownList)fvPla_Mov.FindControl("ddlAnio")).SelectedValue;
-                acxPla_Cta_NombreTextBox = (AjaxControlToolkit.AutoCompleteExtender)fvPla_Mov.FindControl("acxPla_Cta_NombreTextBox");
-                acxPla_Cta_NombreTextBox.ContextKey = ((DropDownList)fvPla_Mov.FindControl("ddlAnio")).SelectedValue;
                 // Poner los valores iniciales a los campos
                 sPoaId = ((TextBox)fvPla_Mov.FindControl("Pla_Poa_IdTextBox")).Text;
                 if (!String.IsNullOrEmpty(sPoaId))
@@ -587,10 +623,6 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
                     int xPoaId = Int32.Parse(sPoaId);
                     BO_Pla_Poa adpPoa = new BO_Pla_Poa();
                     var poa = adpPoa.GetById(Scope, xPoaId)[0];
-                    ((TextBox)fvPla_Mov.FindControl("Pla_Cta_CodigoTextBox")).Text = poa.Pla_Cta_Codigo;
-                    ((TextBox)fvPla_Mov.FindControl("Pla_Cta_NivelTextBox")).Text = "";
-                    ((TextBox)fvPla_Mov.FindControl("Pla_Cta_NombreTextBox")).Text = poa.Pla_Cta_Nombre;
-                    ((TextBox)fvPla_Mov.FindControl("Pla_Tarea_NombreTextBox")).Text = poa.Pla_Tarea_Nombre;
                     ((TextBox)fvPla_Mov.FindControl("Pla_Partida_CodigoTextBox")).Text = poa.Pla_Partida_Codigo;
                     ((TextBox)fvPla_Mov.FindControl("Pla_Partida_NombreTextBox")).Text = poa.Pla_Partida_Nombre;
                     ((TextBox)fvPla_Mov.FindControl("Valor_InicialTextBox")).Text = string.Format("{0:N2}", poa.Valor_Inicial);
@@ -746,22 +778,15 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
     }
     #endregion WebServices para autocompletar
 
-    protected void gvPla_Doc_DataBound(object sender, EventArgs e)
-    {
-        var index = gvPla_Doc.SelectedIndex;
-        //if (index == -1)
-        //    if (gvPla_Doc.Rows.Count > 0)
-        //        gvPla_Doc.SelectedIndex = 0;
-    }
 
-    // Evantos para el ObjectDataSource del arbol de Cuentas
-    protected void odsPla_Cta_Arbol_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
-    {
-        var o = e.InputParameters;        
-        // Obtiene el Pla_Tarea_Id
-        var xMovId = (int)gvPla_Mov.SelectedValue;
-        BO_Pla_Mov adpMov = new BO_Pla_Mov();
-        var oMov = (adpMov.GetById(Scope, xMovId))[0];
-        o["p_Pla_Tarea_Id"] = oMov.Pla_Tarea_Id;
-    }
+    //// Evantos para el ObjectDataSource del arbol de Cuentas
+    //protected void odsPla_Cta_Arbol_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
+    //{
+    //    var o = e.InputParameters;        
+    //    // Obtiene el Pla_Tarea_Id
+    //    var xMovId = (int)gvPla_Mov.SelectedValue;
+    //    BO_Pla_Mov adpMov = new BO_Pla_Mov();
+    //    var oMov = (adpMov.GetById(Scope, xMovId))[0];
+    //    o["p_Pla_Tarea_Id"] = oMov.Pla_Tarea_Id;
+    //}
 }

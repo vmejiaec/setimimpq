@@ -2775,6 +2775,7 @@ namespace ADL {
                 this.columnCedula_Presup_Codigo.MaxLength = 100;
                 this.columnContrata_Desc.AllowDBNull = false;
                 this.columnContrata_Desc.MaxLength = 200;
+                this.columnPla_Tarea_Id.DefaultValue = ((int)(-1));
                 this.columnPla_Cta_Id.ReadOnly = true;
                 this.columnPla_Cta_Codigo.ReadOnly = true;
                 this.columnPla_Cta_Codigo.MaxLength = 200;

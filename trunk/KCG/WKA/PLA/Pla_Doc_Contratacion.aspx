@@ -87,9 +87,9 @@ TagPrefix="ajax" %>
 			<asp:BoundField DataField="Codigo" HeaderText="Codigo"  ItemStyle-HorizontalAlign="Center" />
             <asp:BoundField DataField="Descripcion" HeaderText="Descripcion"   ItemStyle-Width="310px"/>
 			<asp:BoundField DataField="Valor_Solicita" HeaderText="Valor_Solicita"    DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
-			<asp:BoundField DataField="Esta_Planificada" HeaderText="Planif." ItemStyle-HorizontalAlign="Center"                                    SortExpression="Esta_Planificada"/>
+			<asp:BoundField DataField="Esta_Planificada" HeaderText="Es_POA" ItemStyle-HorizontalAlign="Center"                                    SortExpression="Esta_Planificada"/>
             <asp:BoundField DataField="Fecha_Planifica" HeaderText="F_Planifica"   DataFormatString="{0:d}" ItemStyle-HorizontalAlign="Right"   SortExpression="Fecha_Planifica"/>	
-            <asp:BoundField DataField="Esta_Contratada" HeaderText="Contratc." ItemStyle-HorizontalAlign="Center"                                   SortExpression="Esta_Contratada"/>
+            <asp:BoundField DataField="Esta_Contratada" HeaderText="ES_PAC" ItemStyle-HorizontalAlign="Center"                                   SortExpression="Esta_Contratada"/>
             <asp:BoundField DataField="Fecha_Contrata" HeaderText="F_Contratc"   DataFormatString="{0:d}" ItemStyle-HorizontalAlign="Right"     SortExpression="Fecha_Contrata"/>
             <asp:BoundField DataField="Estado" HeaderText="Estado"/>
 
@@ -355,7 +355,7 @@ TagPrefix="ajax" %>
                         ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
 					</tr>
                     <tr >
-                        <td> Esta_Planificada </td>
+                        <td> Esta_POA </td>
 				        <td><asp:TextBox ID="Esta_PlanificadaTextBox" runat="server" Text='<%# Bind("Esta_Planificada") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							        </tr>
                     <tr >
@@ -388,7 +388,7 @@ TagPrefix="ajax" %>
                 ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
 							</tr>
 			<tr >
-                <td> Esta_Contratada </td>
+                <td> Esta_PAC </td>
 				<td><asp:DropDownList ID="Esta_ContratadaDropDownList" runat="server" CssClass="txtEdit"
                                 SelectedValue='<%# Bind("Esta_Contratada") %>' >
                                     <asp:ListItem Text="Pendiente" Value="PEN"></asp:ListItem>
@@ -510,7 +510,7 @@ TagPrefix="ajax" %>
                 ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
 							</tr>
 			<tr >
-                <td> Esta_Planificada </td>
+                <td> Esta_POA </td>
 				<td><asp:TextBox ID="Esta_PlanificadaTextBox" runat="server" Text='<%# Bind("Esta_Planificada") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
             <tr >
@@ -548,7 +548,7 @@ TagPrefix="ajax" %>
                 ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
 							</tr>
 			<tr >
-                <td> Esta_Contratada </td>
+                <td> Esta_PAC </td>
 				<td><asp:TextBox ID="Esta_ContratadaTextBox" runat="server" Text='<%# Bind("Esta_Contratada") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 			</tr>
             <tr >

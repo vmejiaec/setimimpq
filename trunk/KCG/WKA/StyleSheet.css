@@ -41,6 +41,13 @@
 {
     font-family: Arial;
     background-color: #FFFFCC;
+    width: 380px;
+}
+
+.txtItemNombre
+{
+    font-family: Arial;
+    width: 380px;
 }
 
 .txtEditNombreLargo
