@@ -69,7 +69,7 @@ TagPrefix="ajax" %>
         HeaderStyle-CssClass="headerstyle" 
 		PagerStyle-CssClass="pagerstyle" 
             onselectedindexchanged="gvPla_Doc_SelectedIndexChanged" 
-            ondatabound="gvPla_Doc_DataBound">
+            >
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />			    
 			
@@ -79,7 +79,7 @@ TagPrefix="ajax" %>
 			<asp:BoundField DataField="Codigo" HeaderText="Codigo"  ItemStyle-HorizontalAlign="Center" />
             <asp:BoundField DataField="Descripcion" HeaderText="Descripcion"   ItemStyle-Width="310px"/>
 			<asp:BoundField DataField="Valor_Solicita" HeaderText="Valor_Solicita"    DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>				
-			<asp:BoundField DataField="Esta_Planificada" HeaderText="Es_Planif."   />
+			<asp:BoundField DataField="Esta_Planificada" HeaderText="Es_POA."   />
 
                 <asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />
                 <asp:BoundField DataField="Tipo" HeaderText="Tipo"  Visible = "false"  />
@@ -89,7 +89,7 @@ TagPrefix="ajax" %>
                 <asp:BoundField DataField="Per_Personal_Id_Crea" HeaderText="Per_Personal_Id_Crea"   Visible = "false" />
                 <asp:BoundField DataField="Per_Personal_Id_Modifica" HeaderText="Per_Personal_Id_Modifica"  Visible = "false"  />
 			    <asp:BoundField DataField="Per_Personal_Id_Planifica" HeaderText="Per_Personal_Id_Planifica" Visible = "false"   />
-			    <asp:BoundField DataField="Esta_Contratada" HeaderText="Es_Contrat."   Visible = "false"/>
+			    <asp:BoundField DataField="Esta_Contratada" HeaderText="Es_PAC."   Visible = "false"/>
 			    <asp:BoundField DataField="PAC_Linea" HeaderText="PAC_Linea"   Visible = "false" />
 			    <asp:BoundField DataField="CPC_Codigo" HeaderText="CPC_Codigo"   Visible = "false" />
 			    <asp:BoundField DataField="Fecha_Contrata" HeaderText="Fecha_Contrata"   DataFormatString="{0:d}" Visible = "false"/>
@@ -114,91 +114,59 @@ TagPrefix="ajax" %>
             var params = new Array();
             params = eventArgs.get_value().split('||');
             // 0 Id 
-            var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_IdTextBox');
+            var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Doc_Pla_Cta_IdTextBox');
             xId.value = params[0];
             // 2 Nombre
-            var xNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NombreTextBox');
+            var xNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Doc_Pla_Cta_NombreTextBox');
             xNombre.value = params[2];
             // 3 Nivel
-            var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NivelTextBox');
+            var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Doc_Pla_Cta_NivelTextBox');
             xNivel.value = params[3];
             // coloca el id del maestro en el detalle mediante el contextKey
             $find('acxBIDPla_Tarea_NombreTextBox').set_contextKey(xId.value);
             // Encera los campos en cascada
             // Tarea Id
-            var xTareaId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Tarea_IdTextBox');
+            var xTareaId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Doc_Pla_Tarea_IdTextBox');
             xTareaId.value = '';
             // Tarea Nombre
-            var xTareaNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Tarea_NombreTextBox');
+            var xTareaNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Doc_Pla_Tarea_NombreTextBox');
             xTareaNombre.value = '';
-            // Partida Id
-            var xPartidaId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Partida_IdTextBox');
-            xPartidaId.value = '';
-            // Partida Codigo
-            var xPartidaCodigo = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Partida_CodigoTextBox');
-            xPartidaCodigo.value = '';
-            // Partida Nombre
-            var xPartidaNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Partida_NombreTextBox');
-            xPartidaNombre.value = '';
         }
         function acxPla_Cta_NombreTextBox_Click(source, eventArgs) {
             //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
             var params = new Array();
             params = eventArgs.get_value().split('||');
             // 0 Id
-            var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_IdTextBox');
+            var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Doc_Pla_Cta_IdTextBox');
             xId.value = params[0];
             // 1 Codigo
-            var xCodigo = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_CodigoTextBox');
+            var xCodigo = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Doc_Pla_Cta_CodigoTextBox');
             xCodigo.value = params[1];
             // 3 Nivel
-            var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NivelTextBox');
+            var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Doc_Pla_Cta_NivelTextBox');
             xNivel.value = params[3];
             // coloca el id del maestro en el detalle mediante el contextKey
             $find('acxBIDPla_Tarea_NombreTextBox').set_contextKey(xId.value);
         }
-        // Evento que encera los campos cuando se vuelve a seleccionar los autocomplex
-        function acxPla_Cta_CodigoTextBox_Populating(source, eventArgs) {
-            // 0 Id 
-            var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_IdTextBox');
-            xId.value = '';
-            // 2 Nombre
-            var xNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NombreTextBox');
-            xNombre.value = '';
-            // 3 Nivel
-            var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NivelTextBox');
-            xNivel.value = '';
-        }
-        function acxPla_Cta_NombreTextBox_Populating(source, eventArgs) {
-            // 0 Id
-            var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_IdTextBox');
-            xId.value = '';
-            // 1 Codigo
-            var xCodigo = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_CodigoTextBox');
-            xCodigo.value = '';
-            // 3 Nivel
-            var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NivelTextBox');
-            xNivel.value = '';
-        }
         // Evento para poner el Anio del ddl en el contextKey
         function ddlAnio_OnChange() {
-            var xddlAnio = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_ddlAnio');
+            var xddlAnio = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Doc_ddlAnio');
             //Codigo
             $find('acxBID_Pla_Cta_CodigoTextBox').set_contextKey(xddlAnio.value);
             //Nombre
             $find('acxBID_Pla_Cta_NombreTextBox').set_contextKey(xddlAnio.value);
             // Encera los campos
             // 0 Id
-            var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_IdTextBox');
+            var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Doc_Pla_Cta_IdTextBox');
             xId.value = '';
             // 1 Codigo
-            var xCodigo = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_CodigoTextBox');
+            var xCodigo = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Doc_Pla_Cta_CodigoTextBox');
             xCodigo.value = '';
             // 2 Nombre
-            var xNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NombreTextBox');
+            var xNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Doc_Pla_Cta_NombreTextBox');
             xNombre.value = '';
             // 3 Nivel
-            var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Cta_NivelTextBox');
+            var xNivel = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Doc_Pla_Cta_NivelTextBox');
             xNivel.value = '';
         }
         // Autocompletar del Nombre de la tarea
@@ -207,7 +175,7 @@ TagPrefix="ajax" %>
             var params = new Array();
             params = eventArgs.get_value().split('||');
             // 0 Id                            
-            var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Tarea_IdTextBox');
+            var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Doc_Pla_Tarea_IdTextBox');
             xId.value = params[0];
             // Coloca el valor del campo Nombre para correguir al autocompletar
             var acxBIDAutoCompletar = $find("acxBIDPla_Tarea_NombreTextBox");
@@ -215,18 +183,9 @@ TagPrefix="ajax" %>
             if (selInd != -1)
                 acxBIDAutoCompletar.get_element().value = params[2];
             // Pone el contextKey en el autocompletar de la partida POA
-            $find('acxBIDPla_Partida_CodigoTextBox').set_contextKey(xId.value);
-            // Partida Id
-            var xPartidaId = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Partida_IdTextBox');
-            xPartidaId.value = '';
-            // Partida Codigo
-            var xPartidaCodigo = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Partida_CodigoTextBox');
-            xPartidaCodigo.value = '';
-            // Partida Nombre
-            var xPartidaNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvPla_Mov_Pla_Partida_NombreTextBox');
-            xPartidaNombre.value = '';
+            //$find('acxBIDPla_Partida_CodigoTextBox').set_contextKey(xId.value);
         }
-        // Un tuco para las listas desplegables con imagen incluida
+        // Un truco para las listas desplegables con imagen incluida
         function OnClientPopulatedTarea(sender, eventArgs) {
             //Find the autocompleteextender list
             var autoList = $find("acxBIDPla_Tarea_NombreTextBox").get_completionList();
@@ -277,62 +236,145 @@ TagPrefix="ajax" %>
 			>
         <EmptyDataTemplate>No se ha seleccionado un registro de la lista.</EmptyDataTemplate>
         <EditItemTemplate>
-            <asp:Panel runat="server" ID="panelEditTemplate" DefaultButton="UpdateButton"  CssClass="panCol2" GroupingText="Solicitud">
-                <table>
+            <asp:Panel runat="server" ID="panel3"  GroupingText="Planificación" CssClass="panCol2">
+                <table >
 			    <tr style="display:none">
-                    <td> Id </td>
-				    <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							    </tr>
-			    <tr >
-                    <td> Codigo </td>
-				    <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							    </tr>
-			    <tr style="display:none">
-                    <td> Tipo </td>
-				    <td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+                    <td> Area_Nombre_Solicita </td>
+				    <td><asp:TextBox ID="Area_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Nombre_Solicita") %>'  ReadOnly="true"  CssClass="txtItem"  />
+                    <asp:TextBox ID="Area_Codigo_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Codigo_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" Width ="60px"/>
+                    </td>
 			    </tr>
                 <tr style="display:none">
-                    <td> Per_Personal_Id_Solicita </td>
-				    <td><asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-			    </tr>
+                    <td> Per_Personal_Id_Planifica </td>
+				    <td><asp:TextBox ID="Per_Personal_Id_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Planifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+				</tr>
 			    <tr >
-                    <td> Persona_Solicita </td>
-				    <td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  
-                        ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
-			    </tr>
+                    <td> Persona_Planifica </td>
+				    <td><asp:TextBox ID="Per_Personal_Nombre_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Planifica") %>'  
+                    ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
+				</tr>
 			    <tr >
-                    <td> Fecha_Solicita </td>
-				    <td><asp:TextBox ID="Fecha_SolicitaTextBox" runat="server" Text='<%# Bind("Fecha_Solicita","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							    </tr>
+                    <td> Esta_POA </td>
+				    <td><asp:DropDownList ID="Esta_PlanificadaDropDownList" runat="server"  CssClass="txtEdit"
+                        SelectedValue='<%# Bind("Esta_Planificada") %>' >
+                            <asp:ListItem Text="Pendiente" Value="PEN"></asp:ListItem>
+                            <asp:ListItem Text="SI" Value="SIP"></asp:ListItem>
+                            <asp:ListItem Text="NO" Value="NOP"></asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+				</tr>
+                <tr >
+                    <td> Fecha_Planifica </td>                
+				    <td><asp:TextBox ID="Fecha_PlanificaTextBox" runat="server" Text='<%# Bind("Fecha_Planifica","{0:d}") %>'  CssClass="txtEdit" Width="80px" />
+				    <asp:Button runat="server" ID="btcexFecha_Planifica" Text="."/>
+				    <ajax:CalendarExtender runat="server" ID="cexFecha_Planifica" TargetControlID="Fecha_PlanificaTextBox" PopupButtonID="btcexFecha_Planifica" />
+				    <%--Validador--%>
+                        <asp:RequiredFieldValidator ID="rqFecha_Planifica" runat="server" 
+                        ControlToValidate="Fecha_PlanificaTextBox"
+                        ErrorMessage="Fecha_Planifica es obligatorio" 
+                        Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+					    <asp:RangeValidator ID="rvFecha_Planifica" runat="server" 
+                        ErrorMessage="Fecha_Planifica no es una válida" 
+                        ControlToValidate="Fecha_PlanificaTextBox" 
+                        Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgPla_Doc"/>
+				    </td>
+                </tr>
+                <tr >
+                    <td> Codigo_Cedula </td>                
+				    <td>
+                        <asp:TextBox ID="Cedula_Presup_CodigoTextBox" runat="server" Text='<%# Bind("Cedula_Presup_Codigo") %>'  CssClass="txtEditNombre" />
+				    </td>
+                </tr>
+                <%--La selección de la cuenta y la tarea--%>
+                <tr>
+                    <td>Año:</td>
+                    <td><asp:DropDownList ID="ddlAnio" runat="server" 
+                            DataSourceID="odsDominioAnio" DataTextField="Nombre" DataValueField="Nombre" 
+                            onchange="ddlAnio_OnChange();"/>
+                    </td>
+                </tr>
+                <tr style="display:none">
+                    <td> Pla_Cta_Id </td>
+                    <td><asp:TextBox ID="Pla_Cta_IdTextBox" runat="server"   />
+                    </td>
+                </tr>
 			    <tr >
-                    <td> Descripcion </td>
-				    <td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  ReadOnly="true"  CssClass="txtItemDescripcion" TextMode="MultiLine"  Height="84px"/></td>
-							    </tr>
-			    <tr style="display:none">
-                    <td> Estado </td>
-				    <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							    </tr>
-			    <tr style="display:none">
-                    <td> Per_Personal_Id_Crea </td>
-				    <td><asp:TextBox ID="Per_Personal_Id_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Crea") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							    </tr>
-			    <tr style="display:none">
-                    <td> Per_Personal_Nombre_Crea </td>
-				    <td><asp:TextBox ID="Per_Personal_Nombre_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Crea") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							    </tr>
-			    <tr style="display:none" >
-                    <td> Per_Personal_Id_Modifica </td>
-				    <td><asp:TextBox ID="Per_Personal_Id_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Modifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							    </tr>
-			    <tr style="display:none">
-                    <td> Per_Personal_Nombre_Modifica </td>
-				    <td><asp:TextBox ID="Per_Personal_Nombre_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Modifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							    </tr>
+                    <td> Cuenta </td>
+                    <td>
+                    <asp:TextBox ID="Pla_Cta_CodigoTextBox" runat="server" CssClass="txtEdit"  />
+                    <asp:TextBox ID="Pla_Cta_NivelTextBox" runat="server"  Width="35px" />
+				    <%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqPla_Cta_Codigo" runat="server" 
+                        ControlToValidate="Pla_Cta_CodigoTextBox"
+                        ErrorMessage="El campo Pla_Cta_Codigo es obligatorio" 
+                        Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
+                    <ajax:AutoCompleteExtender 
+                        runat="server" ID="acxPla_Cta_CodigoTextBox"
+                        BehaviorID="acxBID_Pla_Cta_CodigoTextBox"
+                        TargetControlID="Pla_Cta_CodigoTextBox" 
+                        ServiceMethod="acxPla_Cta_GetByAnioLikeCodigo_List" 
+                        UseContextKey="True"
+                        ContextKey=""
+                        CompletionInterval="100"
+                        MinimumPrefixLength="1"
+                        OnClientItemSelected="acxPla_Cta_CodigoTextBox_Click"
+                        EnableCaching ="false"
+                        FirstRowSelected="true"
+                        />
+				    </td>
+                </tr>
 			    <tr >
-                    <td> Valor_Solicita </td>
-				    <td><asp:TextBox ID="Valor_SolicitaTextBox" runat="server" Text='<%# Bind("Valor_Solicita","{0:N2}") %>'  
-                    ReadOnly="true"  CssClass="txtItemValor"  /></td>
-							    </tr>			
+                    <td> Cta_Nombre </td>
+                    <td>                    
+                    <asp:TextBox ID="Pla_Cta_NombreTextBox" runat="server" CssClass="txtEditNombre"  />
+				    <%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqPla_Cta_Nombre" runat="server" 
+                        ControlToValidate="Pla_Cta_NombreTextBox"
+                        ErrorMessage="El campo Pla_Cta_Nombre es obligatorio" 
+                        Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
+                    <ajax:AutoCompleteExtender 
+                        runat="server" ID="acxPla_Cta_NombreTextBox"
+                        BehaviorID="acxBID_Pla_Cta_NombreTextBox"
+                        TargetControlID="Pla_Cta_NombreTextBox"
+                        ServiceMethod="acxPla_Cta_GetByAnioLikeNombre_List"
+                        UseContextKey="True" 
+                        ContextKey=""
+                        CompletionInterval="100"
+                        MinimumPrefixLength="1"
+                        OnClientItemSelected="acxPla_Cta_NombreTextBox_Click" 
+                        EnableCaching ="false"
+                        FirstRowSelected="true"/>
+				    </td>
+                </tr>
+                <tr style="display:none">
+                    <td> Pla_Tarea_Id </td>                
+				    <td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  CssClass="txtEdit" />
+				    </td>
+                </tr>
+			    <tr >
+                    <td> Tarea_Nombre </td>                
+				    <td><asp:TextBox ID="Pla_Tarea_NombreTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Nombre") %>'  
+                    CssClass="txtEditNombreLargo" TextMode="MultiLine"  />
+				    <%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqPla_Tarea_Nombre" runat="server" 
+                        ControlToValidate="Pla_Tarea_NombreTextBox"
+                        ErrorMessage="El campo Pla_Tarea_Nombre es obligatorio" 
+                        Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
+                    <ajax:AutoCompleteExtender 
+                        runat="server" ID= "acxPla_Tarea_NombreTextBox"
+                        BehaviorID= "acxBIDPla_Tarea_NombreTextBox"
+                        TargetControlID= "Pla_Tarea_NombreTextBox"
+                        ServiceMethod= "acxPla_Tarea_GetByPla_Cta_IdLikeNombre_List"
+                        UseContextKey="True" 
+                        ContextKey=""
+                        CompletionInterval="100"
+                        MinimumPrefixLength="0"
+                        OnClientItemSelected= "acxPla_Tarea_NombreTextBox_Click"
+                        EnableCaching="false"
+                        OnClientPopulated="OnClientPopulatedTarea" 
+                        FirstRowSelected="true"/>
+				    </td>
+                </tr>
 			    </table>
                 <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" 
                 Text="Actualizar" ValidationGroup="vgPla_Doc"/>
@@ -340,197 +382,62 @@ TagPrefix="ajax" %>
                 <asp:Button ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
             </asp:Panel>
             <asp:Panel runat="server" ID="panel2"  CssClass="panCol2">
-                <asp:Panel runat="server" ID="panel3"  GroupingText="Planificación">
-                    <table  >
-			        <tr style="display:none">
-                        <td> Area_Nombre_Solicita </td>
-				        <td><asp:TextBox ID="Area_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Nombre_Solicita") %>'  ReadOnly="true"  CssClass="txtItem"  />
-                        <asp:TextBox ID="Area_Codigo_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Codigo_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" Width ="60px"/>
-                        </td>
-			        </tr>
-                    <tr style="display:none">
-                        <td> Per_Personal_Id_Planifica </td>
-				        <td><asp:TextBox ID="Per_Personal_Id_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Planifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-					</tr>
-			        <tr >
-                        <td> Persona_Planifica </td>
-				        <td><asp:TextBox ID="Per_Personal_Nombre_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Planifica") %>'  
-                        ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
-					</tr>
-			        <tr >
-                        <td> Esta_Planificada </td>
-				        <td><asp:DropDownList ID="Esta_PlanificadaDropDownList" runat="server"  CssClass="txtEdit"
-                            SelectedValue='<%# Bind("Esta_Planificada") %>' >
-                                <asp:ListItem Text="Pendiente" Value="PEN"></asp:ListItem>
-                                <asp:ListItem Text="SI" Value="SIP"></asp:ListItem>
-                                <asp:ListItem Text="NO" Value="NOP"></asp:ListItem>
-                            </asp:DropDownList>
-                        </td>
-					</tr>
-                    <tr >
-                        <td> Fecha_Planifica </td>                
-				        <td><asp:TextBox ID="Fecha_PlanificaTextBox" runat="server" Text='<%# Bind("Fecha_Planifica","{0:d}") %>'  CssClass="txtEdit" Width="80px" />
-				        <asp:Button runat="server" ID="btcexFecha_Planifica" Text="."/>
-				        <ajax:CalendarExtender runat="server" ID="cexFecha_Planifica" TargetControlID="Fecha_PlanificaTextBox" PopupButtonID="btcexFecha_Planifica" />
-				        <%--Validador--%>
-                            <asp:RequiredFieldValidator ID="rqFecha_Planifica" runat="server" 
-                            ControlToValidate="Fecha_PlanificaTextBox"
-                            ErrorMessage="Fecha_Planifica es obligatorio" 
-                            Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
-					        <asp:RangeValidator ID="rvFecha_Planifica" runat="server" 
-                            ErrorMessage="Fecha_Planifica no es una válida" 
-                            ControlToValidate="Fecha_PlanificaTextBox" 
-                            Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgPla_Doc"/>
-				        </td>
-                    </tr>
-                    <tr >
-                        <td> Cedula_Prsp_Codigo </td>                
-				        <td>
-                            <asp:TextBox ID="Cedula_Presup_CodigoTextBox" runat="server" Text='<%# Bind("Cedula_Presup_Codigo") %>'  CssClass="txtEditNombre" Width="380px" />
-				        </td>
-                    </tr>
-			        </table>
-                </asp:Panel>
-                <asp:Panel runat="server" ID="panel4"  GroupingText="Contratación">
+                <asp:Panel runat="server" ID="panelEditTemplate" DefaultButton="UpdateButton"  CssClass="panCol2" GroupingText="Solicitud">
                     <table>
-            <tr style="display:none">
-                <td> Per_Personal_Id_Contrata </td>
-				<td><asp:TextBox ID="Per_Personal_Id_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Contrata") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Personal_Contrata </td>
-				<td><asp:TextBox ID="Per_Personal_Nombre_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Contrata") %>'  
-                ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
-							</tr>
-			<tr >
-                <td> Esta_Contratada </td>
-				<td><asp:TextBox ID="Esta_ContratadaTextBox" runat="server" Text='<%# Bind("Esta_Contratada") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-			</tr>
-            <tr >
-                <td> Fecha_Contrata </td>
-				<td><asp:TextBox ID="Fecha_ContrataTextBox" runat="server" Text='<%# Bind("Fecha_Contrata","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-			</tr>
-			<tr >
-                <td> PAC_Linea </td>
-				<td><asp:TextBox ID="PAC_LineaTextBox" runat="server" Text='<%# Bind("PAC_Linea") %>'  ReadOnly="true"  CssClass="txtItem" Width="130px" />
-                     CPC_Codigo
-                     <asp:TextBox ID="CPC_CodigoTextBox" runat="server" Text='<%# Bind("CPC_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" Width="130px" />
-                </td>
-			</tr>
-            <tr >
-                <td> Contrata_Desc </td>                
-				<td>
-                    <asp:TextBox ID="Contrata_DescTextBox" runat="server" Text='<%# Bind("Contrata_Desc") %>'  CssClass="txtItemDescripcion" TextMode="MultiLine" ReadOnly="true" />
-				</td>
-            </tr>
-            </table>
-                </asp:Panel>
-            </asp:Panel>
-        </EditItemTemplate>
-        <ItemTemplate>
-            <asp:Panel runat="server" ID="panelItemTemplate" DefaultButton="EditButton"  CssClass="panCol2" GroupingText="Solicitud">
-            <table>
-			<tr style="display:none">
-                <td> Id </td>
-				<td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Codigo </td>
-				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr style="display:none">
-                <td> Tipo </td>
-				<td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-			</tr>
-            <tr style="display:none">
-                <td> Per_Personal_Id_Solicita </td>
-				<td><asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-			</tr>
-			<tr >
-                <td> Persona_Solicita </td>
-				<td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  
-                    ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
-			</tr>
-			<tr >
-                <td> Fecha_Solicita </td>
-				<td><asp:TextBox ID="Fecha_SolicitaTextBox" runat="server" Text='<%# Bind("Fecha_Solicita","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Descripcion </td>
-				<td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  ReadOnly="true"  CssClass="txtItemDescripcion" TextMode="MultiLine"  Height="84px"/></td>
-							</tr>
-			<tr style="display:none">
-                <td> Estado </td>
-				<td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr style="display:none">
-                <td> Per_Personal_Id_Crea </td>
-				<td><asp:TextBox ID="Per_Personal_Id_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Crea") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr style="display:none">
-                <td> Per_Personal_Nombre_Crea </td>
-				<td><asp:TextBox ID="Per_Personal_Nombre_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Crea") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr style="display:none" >
-                <td> Per_Personal_Id_Modifica </td>
-				<td><asp:TextBox ID="Per_Personal_Id_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Modifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr style="display:none">
-                <td> Per_Personal_Nombre_Modifica </td>
-				<td><asp:TextBox ID="Per_Personal_Nombre_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Modifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-			<tr >
-                <td> Valor_Solicita </td>
-				<td><asp:TextBox ID="Valor_SolicitaTextBox" runat="server" Text='<%# Bind("Valor_Solicita","{0:N2}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>			
-			</table>
-            <asp:Button ID="EditButton" RunAt="server"  CausesValidation="False" CommandName="Edit" Text="Editar" />
-            </asp:Panel>
-            <asp:Panel runat="server" ID="panel2"  CssClass="panCol2">
-                <asp:Panel runat="server" ID="panel3"  GroupingText="Planificación">
-                    <table  >
 			        <tr style="display:none">
-                        <td> Area_Nombre_Solicita </td>
-				        <td><asp:TextBox ID="Area_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Nombre_Solicita") %>'  ReadOnly="true"  CssClass="txtItem"  />
-                        <asp:TextBox ID="Area_Codigo_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Codigo_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" Width ="60px"/>
-                        </td>
+                        <td> Id </td>
+				        <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							        </tr>
+			        <tr >
+                        <td> Codigo </td>
+				        <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							        </tr>
+			        <tr style="display:none">
+                        <td> Tipo </td>
+				        <td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 			        </tr>
-
                     <tr style="display:none">
-                        <td> Per_Personal_Id_Planifica </td>
-				        <td><asp:TextBox ID="Per_Personal_Id_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Planifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+                        <td> Per_Personal_Id_Solicita </td>
+				        <td><asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			        </tr>
+			        <tr >
+                        <td> Persona_Solicita </td>
+				        <td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  
+                            ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
+			        </tr>
+			        <tr >
+                        <td> Fecha_Solicita </td>
+				        <td><asp:TextBox ID="Fecha_SolicitaTextBox" runat="server" Text='<%# Bind("Fecha_Solicita","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							        </tr>
 			        <tr >
-                        <td> Persona_Planifica </td>
-				        <td><asp:TextBox ID="Per_Personal_Nombre_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Planifica") %>'  
-                        ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
+                        <td> Descripcion </td>
+				        <td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  ReadOnly="true"  CssClass="txtItemDescripcion" TextMode="MultiLine"  Height="84px"/></td>
+							        </tr>
+			        <tr style="display:none">
+                        <td> Estado </td>
+				        <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							        </tr>
+			        <tr style="display:none">
+                        <td> Per_Personal_Id_Crea </td>
+				        <td><asp:TextBox ID="Per_Personal_Id_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Crea") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							        </tr>
+			        <tr style="display:none">
+                        <td> Per_Personal_Nombre_Crea </td>
+				        <td><asp:TextBox ID="Per_Personal_Nombre_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Crea") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							        </tr>
+			        <tr style="display:none" >
+                        <td> Per_Personal_Id_Modifica </td>
+				        <td><asp:TextBox ID="Per_Personal_Id_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Modifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							        </tr>
+			        <tr style="display:none">
+                        <td> Per_Personal_Nombre_Modifica </td>
+				        <td><asp:TextBox ID="Per_Personal_Nombre_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Modifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							        </tr>
 			        <tr >
-                        <td> Esta_Planificada </td>
-				        <td><asp:TextBox ID="Esta_PlanificadaTextBox" runat="server" Text='<%# Bind("Esta_Planificada") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							        </tr>
-                    <tr >
-                        <td> Fecha_Planifica </td>
-				        <td><asp:TextBox ID="Fecha_PlanificaTextBox" runat="server" Text='<%# Bind("Fecha_Planifica","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-			        </tr>
-                    <tr >
-                        <td> Valor_Planificado </td>
-				        <td><asp:TextBox ID="Valor_Suma_MovsTextBox" runat="server" Text='<%# Bind("Valor_Suma_Movs","{0:#,###,###.00;#,###,###.00}") %>'  
-                        ReadOnly="true"  CssClass="txtItemValor" />
-                        </td>
-			        </tr>
-                    <tr >
-                        <td> Planif - Solicit </td>
-				        <td><asp:TextBox ID="Valor_Dif_Planif_Solicit" runat="server" ReadOnly="true"  CssClass="txtItemValor" />
-                        </td>
-			        </tr>
-                    <tr >
-                        <td> Cedula_Prsp_Codigo </td>                
-				        <td>
-                            <asp:TextBox ID="Cedula_Presup_CodigoTextBox" runat="server" Text='<%# Bind("Cedula_Presup_Codigo") %>'  CssClass="txtItem" Width="380px" ReadOnly="true"  />
-				        </td>
-                    </tr>
-
+                        <td> Valor_Solicita </td>
+				        <td><asp:TextBox ID="Valor_SolicitaTextBox" runat="server" Text='<%# Bind("Valor_Solicita","{0:N2}") %>'  
+                        ReadOnly="true"  CssClass="txtItemValor"  /></td>
+							        </tr>			
 			        </table>
                 </asp:Panel>
                 <asp:Panel runat="server" ID="panel4"  GroupingText="Contratación">
@@ -540,12 +447,201 @@ TagPrefix="ajax" %>
 				        <td><asp:TextBox ID="Per_Personal_Id_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Contrata") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							        </tr>
 			        <tr >
-                        <td  style="width:146px;"> Personal_Contrata </td>
+                        <td> Persona_Contrat </td>
 				        <td><asp:TextBox ID="Per_Personal_Nombre_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Contrata") %>'  
                         ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
 							        </tr>
 			        <tr >
-                        <td> Esta_Contratada </td>
+                        <td> Esta_PAC </td>
+				        <td><asp:TextBox ID="Esta_ContratadaTextBox" runat="server" Text='<%# Bind("Esta_Contratada") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			        </tr>
+                    <tr >
+                        <td> Fecha_Contrata </td>
+				        <td><asp:TextBox ID="Fecha_ContrataTextBox" runat="server" Text='<%# Bind("Fecha_Contrata","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			        </tr>
+			        <tr >
+                        <td> PAC_Linea </td>
+				        <td><asp:TextBox ID="PAC_LineaTextBox" runat="server" Text='<%# Bind("PAC_Linea") %>'  ReadOnly="true"  CssClass="txtItem" Width="130px" />
+                             CPC_Codigo
+                             <asp:TextBox ID="CPC_CodigoTextBox" runat="server" Text='<%# Bind("CPC_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" Width="130px" />
+                        </td>
+			        </tr>
+                    <tr >
+                        <td> Contrata_Desc </td>                
+				        <td>
+                            <asp:TextBox ID="Contrata_DescTextBox" runat="server" Text='<%# Bind("Contrata_Desc") %>'  CssClass="txtItemDescripcion" TextMode="MultiLine" ReadOnly="true" />
+				        </td>
+                    </tr>
+                    </table>
+                </asp:Panel>
+            </asp:Panel>
+        </EditItemTemplate>
+        <ItemTemplate>
+            <asp:Panel runat="server" ID="panel3"  GroupingText="Planificación" CssClass="panCol2">
+                <table  >
+			    <tr style="display:none">
+                    <td> Area_Nombre_Solicita </td>
+				    <td><asp:TextBox ID="Area_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Nombre_Solicita") %>'  ReadOnly="true"  CssClass="txtItem"  />
+                    <asp:TextBox ID="Area_Codigo_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Codigo_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" Width ="60px"/>
+                    </td>
+			    </tr>
+
+                <tr style="display:none">
+                    <td> Per_Personal_Id_Planifica </td>
+				    <td><asp:TextBox ID="Per_Personal_Id_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Planifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+				</tr>
+			    <tr >
+                    <td> Persona_Planifica </td>
+				    <td>
+                    <asp:TextBox ID="Per_Personal_Nombre_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Planifica") %>'  ReadOnly="true"  CssClass="txtItemNombre"  />
+                    </td>
+				</tr>
+			    <tr >
+                    <td> Esta_POA </td>
+				    <td><asp:TextBox ID="Esta_PlanificadaTextBox" runat="server" Text='<%# Bind("Esta_Planificada") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							    </tr>
+                <tr >
+                    <td> Fecha_Planifica </td>
+				    <td><asp:TextBox ID="Fecha_PlanificaTextBox" runat="server" Text='<%# Bind("Fecha_Planifica","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			    </tr>
+                <tr >
+                    <td> Valor_Planificado </td>
+				    <td><asp:TextBox ID="Valor_Suma_MovsTextBox" runat="server" Text='<%# Bind("Valor_Suma_Movs","{0:#,###,###.00;#,###,###.00}") %>'  
+                    ReadOnly="true"  CssClass="txtItemValor" />
+                    </td>
+			    </tr>
+                <tr >
+                    <td> Planif - Solicit </td>
+				    <td><asp:TextBox ID="Valor_Dif_Planif_Solicit" runat="server" ReadOnly="true"  CssClass="txtItemValor" />
+                    </td>
+			    </tr>
+                <tr >
+                    <td> Codigo_Cedula </td>                
+				    <td>
+                        <asp:TextBox ID="Cedula_Presup_CodigoTextBox" runat="server" Text='<%# Bind("Cedula_Presup_Codigo") %>'  CssClass="txtItem" ReadOnly="true"  />
+				    </td>
+                </tr>
+                <tr style="display:none">
+                    <td> Pla_Tarea_Id </td>                
+				    <td>
+                        <asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  CssClass="txtItem" ReadOnly="true"  />
+				    </td>
+                </tr>
+                <tr>
+                    <td> Ctas </td>
+                    <td>
+                        <asp:GridView ID="gvPla_Cta_Arbol" runat="server" AutoGenerateColumns="False" 
+                            DataSourceID="odsPla_Cta_Arbol"
+                            AlternatingRowStyle-CssClass="alternatingrowstyle" HeaderStyle-CssClass="headerstyle" Width="380px">
+                            <Columns>
+                                <asp:BoundField DataField="Id" HeaderText="Id"  Visible="False" />
+                                <asp:BoundField DataField="Anio" HeaderText="Anio"  Visible="False" />
+                                <asp:BoundField DataField="Codigo" HeaderText="Cta Codigo" />
+                                <asp:BoundField DataField="Nivel" HeaderText="Cta Nivel" />
+                                <asp:BoundField DataField="Nombre" HeaderText="Cta Nombre" />
+                                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" Visible="False" />
+                                <asp:BoundField DataField="Estado" HeaderText="Estado"  Visible="False" />
+                            </Columns>
+                            <EmptyDataTemplate>
+                                <p class="pTextoPagina">
+                                No se ha asignado una Tarea a la Solicitud.
+                                </p>
+                            </EmptyDataTemplate>
+                        </asp:GridView>
+
+                        <asp:ObjectDataSource ID="odsPla_Cta_Arbol" runat="server" 
+                            SelectMethod="GetByAnioArbolPla_Tarea_Id" TypeName="FEL.PLA.BO_Pla_Cta" 
+                            SortParameterName = "sortExpression">
+                            <SelectParameters>
+                                <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+                                <asp:ControlParameter ControlID="Pla_Tarea_IdTextBox" Name="p_Pla_Tarea_Id" 
+                                    PropertyName="Text" Type="Int32" />
+                            </SelectParameters>
+                        </asp:ObjectDataSource>
+
+                    </td>
+                </tr>
+                <tr >
+                    <td>Tarea</td>                
+				    <td>
+                        <asp:TextBox ID="Pla_Tarea_NombreTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Nombre") %>'  CssClass="txtItemDescripcion" 
+                        ReadOnly="true" TextMode="MultiLine" />
+				    </td>
+                </tr>
+			    </table>
+                <asp:Button ID="EditButton" RunAt="server"  CausesValidation="False" CommandName="Edit" Text="Editar" />
+            </asp:Panel>
+            <asp:Panel runat="server" ID="panel2"  CssClass="panCol2">
+                <asp:Panel runat="server" ID="panelItemTemplate" DefaultButton="EditButton"  CssClass="panCol2" GroupingText="Solicitud">
+                    <table>
+			        <tr style="display:none">
+                        <td> Id </td>
+				        <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							        </tr>
+			        <tr >
+                        <td> Codigo </td>
+				        <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							        </tr>
+			        <tr style="display:none">
+                        <td> Tipo </td>
+				        <td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			        </tr>
+                    <tr style="display:none">
+                        <td> Per_Personal_Id_Solicita </td>
+				        <td><asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			        </tr>
+			        <tr >
+                        <td> Persona_Solicita </td>
+				        <td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  
+                            ReadOnly="true"  CssClass="txtItemNombre" /></td>
+			        </tr>
+			        <tr >
+                        <td> Fecha_Solicita </td>
+				        <td><asp:TextBox ID="Fecha_SolicitaTextBox" runat="server" Text='<%# Bind("Fecha_Solicita","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							        </tr>
+			        <tr >
+                        <td> Descripcion </td>
+				        <td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  ReadOnly="true"  CssClass="txtItemDescripcion" TextMode="MultiLine"  Height="84px"/></td>
+							        </tr>
+			        <tr style="display:none">
+                        <td> Estado </td>
+				        <td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							        </tr>
+			        <tr style="display:none">
+                        <td> Per_Personal_Id_Crea </td>
+				        <td><asp:TextBox ID="Per_Personal_Id_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Crea") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							        </tr>
+			        <tr style="display:none">
+                        <td> Per_Personal_Nombre_Crea </td>
+				        <td><asp:TextBox ID="Per_Personal_Nombre_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Crea") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							        </tr>
+			        <tr style="display:none" >
+                        <td> Per_Personal_Id_Modifica </td>
+				        <td><asp:TextBox ID="Per_Personal_Id_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Modifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							        </tr>
+			        <tr style="display:none">
+                        <td> Per_Personal_Nombre_Modifica </td>
+				        <td><asp:TextBox ID="Per_Personal_Nombre_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Modifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							        </tr>
+			        <tr >
+                        <td> Valor_Solicita </td>
+				        <td><asp:TextBox ID="Valor_SolicitaTextBox" runat="server" Text='<%# Bind("Valor_Solicita","{0:N2}") %>'  ReadOnly="true"  CssClass="txtItemValor" /></td>
+					</tr>			
+			        </table>                
+                </asp:Panel>
+                <asp:Panel runat="server" ID="panel4"  GroupingText="Contratación">
+                    <table>
+                    <tr style="display:none">
+                        <td> Per_Personal_Id_Contrata </td>
+				        <td><asp:TextBox ID="Per_Personal_Id_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Contrata") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							        </tr>
+			        <tr >
+                        <td > Persona_Contrat </td>
+				        <td><asp:TextBox ID="Per_Personal_Nombre_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Contrata") %>'  
+                        ReadOnly="true"  CssClass="txtItemNombre" /></td>
+							        </tr>
+			        <tr >
+                        <td> Esta_PAC </td>
 				        <td><asp:TextBox ID="Esta_ContratadaTextBox" runat="server" Text='<%# Bind("Esta_Contratada") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 			        </tr>
                     <tr >
@@ -577,7 +673,7 @@ TagPrefix="ajax" %>
 	<%--[X] FormView de Pla_Doc --%>
 
     <%--[O] GridView de Pla_Mov --%>
-    <asp:Panel ID="Panel5" runat="server" GroupingText="Tarea y partidas presupuestarias">
+    <asp:Panel ID="Panel5" runat="server" GroupingText="Una o varias Partidas Presupuestarias">
     <p class="pTextoPagina">
     Lista de tareas y partidas presupuestarias junto con sus respectivos valores asignados a 
     la tarea seleccionada en la lista superior. Seleccione una fila de la lista para eliminarla 
@@ -595,7 +691,7 @@ TagPrefix="ajax" %>
 						
 			<asp:BoundField DataField="Pla_Cta_Codigo" HeaderText="Cta"   />
             <asp:BoundField DataField="Pla_Tarea_Codigo" HeaderText="Tarea"   />
-			<asp:BoundField DataField="Pla_Tarea_Nombre" HeaderText="Tarea_Nombre"  ItemStyle-Width="400px"  />
+			<asp:BoundField DataField="Pla_Tarea_Nombre" HeaderText="Tarea_Nombre"  ItemStyle-Width="400px" Visible = "false" />
 			<asp:BoundField DataField="Pla_Partida_Codigo" HeaderText="Partida_Cod"   />
 			<asp:BoundField DataField="Pla_Partida_Nombre" HeaderText="Partida_Nombre"  />
             <asp:BoundField DataField="Valor" HeaderText="Valor"    DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
@@ -637,95 +733,7 @@ TagPrefix="ajax" %>
                 <td> Pla_Doc_Id </td>                
 				<td><asp:TextBox ID="Pla_Doc_IdTextBox" runat="server" Text='<%# Bind("Pla_Doc_Id") %>'  CssClass="txtEdit"  />
 				</td>
-            </tr>
-            <tr>
-            <td>Año:</td>
-            <td><asp:DropDownList ID="ddlAnio" runat="server" 
-                    DataSourceID="odsDominioAnio" DataTextField="Nombre" DataValueField="Nombre" 
-                    onchange="ddlAnio_OnChange();"
-                    /></td>
-            </tr>
-            <tr style="display:none">
-                <td> Pla_Cta_Id </td>
-                <td><asp:TextBox ID="Pla_Cta_IdTextBox" runat="server"   /></td>
-            </tr>
-			<tr >
-                <td> Cuenta </td>
-                <td><asp:TextBox ID="Pla_Cta_CodigoTextBox" runat="server" CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Cta_Codigo" runat="server" 
-                    ControlToValidate="Pla_Cta_CodigoTextBox"
-                    ErrorMessage="El campo Pla_Cta_Codigo es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
-                    ...<ajax:AutoCompleteExtender 
-                        runat="server" ID="acxPla_Cta_CodigoTextBox"
-                        BehaviorID="acxBID_Pla_Cta_CodigoTextBox"
-                        TargetControlID="Pla_Cta_CodigoTextBox" 
-                        ServiceMethod="acxPla_Cta_GetByAnioLikeCodigo_List" 
-                        UseContextKey="True"
-                        ContextKey=""
-                        CompletionInterval="100"
-                        MinimumPrefixLength="1"
-                        OnClientItemSelected="acxPla_Cta_CodigoTextBox_Click"
-                        EnableCaching ="false"
-                        OnClientPopulating="acxPla_Cta_CodigoTextBox_Populating" 
-                        FirstRowSelected="true"
-                        />
-				</td>
-            </tr>
-			<tr >
-                <td> Cta_Nombre </td>
-                <td>
-                <asp:TextBox ID="Pla_Cta_NivelTextBox" runat="server"  Width="35px" />
-                <asp:TextBox ID="Pla_Cta_NombreTextBox" runat="server" CssClass="txtEdit"   Width="610px"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Cta_Nombre" runat="server" 
-                    ControlToValidate="Pla_Cta_NombreTextBox"
-                    ErrorMessage="El campo Pla_Cta_Nombre es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
-                ...<ajax:AutoCompleteExtender 
-                    runat="server" ID="acxPla_Cta_NombreTextBox"
-                    BehaviorID="acxBID_Pla_Cta_NombreTextBox"
-                    TargetControlID="Pla_Cta_NombreTextBox"
-                    ServiceMethod="acxPla_Cta_GetByAnioLikeNombre_List"
-                    UseContextKey="True" 
-                    ContextKey=""
-                    CompletionInterval="100"
-                    MinimumPrefixLength="1"
-                    OnClientItemSelected="acxPla_Cta_NombreTextBox_Click" 
-                    EnableCaching ="false"
-                    OnClientPopulating="acxPla_Cta_NombreTextBox_Populating" 
-                    FirstRowSelected="true"/>
-				</td>
-            </tr>
-            <tr style="display:none">
-                <td> Pla_Tarea_Id </td>                
-				<td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  CssClass="txtEdit" />
-				</td>
-            </tr>
-			<tr >
-                <td> Tarea_Nombre </td>                
-				<td><asp:TextBox ID="Pla_Tarea_NombreTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Nombre") %>'  CssClass="txtEditNombreLargo" TextMode="MultiLine"  Width="650px" />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Tarea_Nombre" runat="server" 
-                    ControlToValidate="Pla_Tarea_NombreTextBox"
-                    ErrorMessage="El campo Pla_Tarea_Nombre es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
-                ...<ajax:AutoCompleteExtender 
-                    runat="server" ID= "acxPla_Tarea_NombreTextBox"
-                    BehaviorID= "acxBIDPla_Tarea_NombreTextBox"
-                    TargetControlID= "Pla_Tarea_NombreTextBox"
-                    ServiceMethod= "acxPla_Tarea_GetByPla_Cta_IdLikeNombre_List"
-                    UseContextKey="True" 
-                    ContextKey=""
-                    CompletionInterval="100"
-                    MinimumPrefixLength="0"
-                    OnClientItemSelected= "acxPla_Tarea_NombreTextBox_Click"
-                    EnableCaching="false"
-                    OnClientPopulated="OnClientPopulatedTarea" 
-                    FirstRowSelected="true"/>
-				</td>
-            </tr>
+            </tr>            
 			<tr style="display:none">
                 <td> Pla_Poa_Id </td>                
 				<td><asp:TextBox ID="Pla_Poa_IdTextBox" runat="server" Text='<%# Bind("Pla_Poa_Id") %>'  CssClass="txtEdit"  />
@@ -733,13 +741,14 @@ TagPrefix="ajax" %>
             </tr>
             <tr >
                 <td> Partida_Codigo </td>                
-				<td><asp:TextBox ID="Pla_Partida_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Partida_Codigo") %>'  CssClass="txtEdit"  />
+				<td>
+                <asp:TextBox ID="Pla_Partida_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Partida_Codigo") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Codigo" runat="server" 
                     ControlToValidate="Pla_Partida_CodigoTextBox"
                     ErrorMessage="El campo Pla_Partida_Codigo es obligatorio" 
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
-                ...<ajax:AutoCompleteExtender 
+                <ajax:AutoCompleteExtender 
                     runat="server" ID= "acxPla_Partida_CodigoTextBox"
                     BehaviorID= "acxBIDPla_Partida_CodigoTextBox"
                     TargetControlID= "Pla_Partida_CodigoTextBox"
@@ -751,7 +760,11 @@ TagPrefix="ajax" %>
                     EnableCaching="false"
                     OnClientItemSelected= "acxPla_Partida_CodigoTextBox_Click"
                     />
-                Partida_Nombre: 
+                </td>
+            </tr>
+            <tr>
+                <td> Partida_Nombre: </td>
+                <td>
                 <asp:TextBox ID="Pla_Partida_NombreTextBox" runat="server" Text='<%# Bind("Pla_Partida_Nombre") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Nombre" runat="server" 
@@ -831,94 +844,6 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="Pla_Doc_IdTextBox" runat="server" Text='<%# Bind("Pla_Doc_Id") %>'  CssClass="txtEdit"  />
 				</td>
             </tr>
-            <tr>
-            <td>Año:</td>
-            <td><asp:DropDownList ID="ddlAnio" runat="server" 
-                    DataSourceID="odsDominioAnio" DataTextField="Nombre" DataValueField="Nombre" 
-                    onchange="ddlAnio_OnChange();"
-                    /></td>
-            </tr>
-            <tr style="display:none">
-                <td> Pla_Cta_Id </td>
-                <td><asp:TextBox ID="Pla_Cta_IdTextBox" runat="server"   /></td>
-            </tr>
-			<tr >
-                <td> Cuenta </td>
-                <td><asp:TextBox ID="Pla_Cta_CodigoTextBox" runat="server" CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Cta_Codigo" runat="server" 
-                    ControlToValidate="Pla_Cta_CodigoTextBox"
-                    ErrorMessage="El campo Pla_Cta_Codigo es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
-                    ...<ajax:AutoCompleteExtender 
-                        runat="server" ID="acxPla_Cta_CodigoTextBox"
-                        BehaviorID="acxBID_Pla_Cta_CodigoTextBox"
-                        TargetControlID="Pla_Cta_CodigoTextBox" 
-                        ServiceMethod="acxPla_Cta_GetByAnioLikeCodigo_List" 
-                        UseContextKey="True"
-                        ContextKey=""
-                        CompletionInterval="100"
-                        MinimumPrefixLength="1"
-                        OnClientItemSelected="acxPla_Cta_CodigoTextBox_Click"
-                        EnableCaching ="false"
-                        OnClientPopulating="acxPla_Cta_CodigoTextBox_Populating" 
-                        FirstRowSelected="true"
-                        />
-				</td>
-            </tr>
-			<tr >
-                <td> Cta_Nombre </td>
-                <td>
-                <asp:TextBox ID="Pla_Cta_NivelTextBox" runat="server"  Width="35px" />
-                <asp:TextBox ID="Pla_Cta_NombreTextBox" runat="server" CssClass="txtEdit"   Width="610px"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Cta_Nombre" runat="server" 
-                    ControlToValidate="Pla_Cta_NombreTextBox"
-                    ErrorMessage="El campo Pla_Cta_Nombre es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
-                ...<ajax:AutoCompleteExtender 
-                    runat="server" ID="acxPla_Cta_NombreTextBox"
-                    BehaviorID="acxBID_Pla_Cta_NombreTextBox"
-                    TargetControlID="Pla_Cta_NombreTextBox"
-                    ServiceMethod="acxPla_Cta_GetByAnioLikeNombre_List"
-                    UseContextKey="True" 
-                    ContextKey=""
-                    CompletionInterval="100"
-                    MinimumPrefixLength="1"
-                    OnClientItemSelected="acxPla_Cta_NombreTextBox_Click" 
-                    EnableCaching ="false"
-                    OnClientPopulating="acxPla_Cta_NombreTextBox_Populating" 
-                    FirstRowSelected="true"/>
-				</td>
-            </tr>
-            <tr style="display:none">
-                <td> Pla_Tarea_Id </td>                
-				<td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  CssClass="txtEdit" />
-				</td>
-            </tr>
-			<tr >
-                <td> Tarea_Nombre </td>                
-				<td><asp:TextBox ID="Pla_Tarea_NombreTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Nombre") %>'  CssClass="txtEditNombreLargo" TextMode="MultiLine"  Width="650px" />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqPla_Tarea_Nombre" runat="server" 
-                    ControlToValidate="Pla_Tarea_NombreTextBox"
-                    ErrorMessage="El campo Pla_Tarea_Nombre es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Mov"/>
-                ...<ajax:AutoCompleteExtender 
-                    runat="server" ID= "acxPla_Tarea_NombreTextBox"
-                    BehaviorID= "acxBIDPla_Tarea_NombreTextBox"
-                    TargetControlID= "Pla_Tarea_NombreTextBox"
-                    ServiceMethod= "acxPla_Tarea_GetByPla_Cta_IdLikeNombre_List"
-                    UseContextKey="True" 
-                    ContextKey=""
-                    CompletionInterval="100"
-                    MinimumPrefixLength="0"
-                    OnClientItemSelected= "acxPla_Tarea_NombreTextBox_Click"
-                    EnableCaching="false"
-                    OnClientPopulated="OnClientPopulatedTarea" 
-                    FirstRowSelected="true"/>
-				</td>
-            </tr>
 			<tr style="display:none">
                 <td> Pla_Poa_Id </td>                
 				<td><asp:TextBox ID="Pla_Poa_IdTextBox" runat="server" Text='<%# Bind("Pla_Poa_Id") %>'  CssClass="txtEdit"  />
@@ -944,7 +869,11 @@ TagPrefix="ajax" %>
                     EnableCaching="false"
                     OnClientItemSelected= "acxPla_Partida_CodigoTextBox_Click"
                     />
-				Partida_Nombre: 
+                </td>
+            </tr>
+            <tr>
+                <td> Partida_Nombre: </td>
+                <td>
                 <asp:TextBox ID="Pla_Partida_NombreTextBox" runat="server" Text='<%# Bind("Pla_Partida_Nombre") %>'  CssClass="txtEdit"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqPla_Partida_Nombre" runat="server" 
@@ -1029,53 +958,17 @@ TagPrefix="ajax" %>
                 <td> Codigo </td>
 				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 			</tr>
-            <tr >
+            <tr style="display:none">
                 <td> Orden </td>
 				<td><asp:TextBox ID="OrdenTextBox" runat="server" Text='<%# Bind("Orden") %>'  ReadOnly="true"  CssClass="txtItem" />
                     Fecha: 
                     <asp:TextBox ID="Pla_Doc_FechaTextBox" runat="server" Text='<%# Bind("Pla_Doc_Fecha","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" />
                 </td>
 			</tr>
-            <tr>
-                <td> Planificación </td>
-                <td>
-                    <asp:GridView ID="gvPla_Cta_Arbol" runat="server" AutoGenerateColumns="False" 
-                        DataSourceID="odsPla_Cta_Arbol" Width="805px"
-                        AlternatingRowStyle-CssClass="alternatingrowstyle" HeaderStyle-CssClass="headerstyle" >
-                        <Columns>
-                            <asp:BoundField DataField="Id" HeaderText="Id"  Visible="False" />
-                            <asp:BoundField DataField="Anio" HeaderText="Anio"  Visible="False" />
-                            <asp:BoundField DataField="Codigo" HeaderText="Cta Codigo" />
-                            <asp:BoundField DataField="Nivel" HeaderText="Cta Nivel" />
-                            <asp:BoundField DataField="Nombre" HeaderText="Cta Nombre" ItemStyle-Width="600px" />
-                            <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" Visible="False" />
-                            <asp:BoundField DataField="Estado" HeaderText="Estado"  Visible="False" />
-                        </Columns>
-                    </asp:GridView>
-
-                    <asp:ObjectDataSource ID="odsPla_Cta_Arbol" runat="server" 
-                        SelectMethod="GetByAnioArbolPla_Tarea_Id" TypeName="FEL.PLA.BO_Pla_Cta" 
-                        onselecting="odsPla_Cta_Arbol_Selecting"
-                        SortParameterName = "sortExpression">
-                        <SelectParameters>
-                            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-                            <asp:ControlParameter ControlID="Pla_Tarea_IdTextBox" Name="p_Pla_Tarea_Id" 
-                                PropertyName="Text" Type="Int32" />
-                        </SelectParameters>
-                    </asp:ObjectDataSource>
-
-                </td>
-            </tr>
-            <tr >
-                <td> Tarea_Nombre </td>
-				<td><asp:TextBox ID="Pla_Tarea_NombreTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Nombre") %>'  
-                    ReadOnly="true"  CssClass="txtItem" TextMode="MultiLine" Height="50px"  Width="800px"/></td>
-			</tr>
 			<tr style="display:none">
                 <td> Id </td>
 				<td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
-
+			</tr>
 			<tr style="display:none">
                 <td> Pla_Poa_Id </td>
 				<td><asp:TextBox ID="Pla_Poa_IdTextBox" runat="server" Text='<%# Bind("Pla_Poa_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
@@ -1089,10 +982,7 @@ TagPrefix="ajax" %>
                 <td> Estado </td>
 				<td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
-			<tr style="display:none">
-                <td> Pla_Tarea_Id </td>
-				<td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
+			
 
 			<tr style="display:none">
                 <td> Pla_Partida_Id </td>
@@ -1100,9 +990,14 @@ TagPrefix="ajax" %>
 							</tr>
 			<tr >
                 <td> Partida_Codigo </td>
-				<td><asp:TextBox ID="Pla_Partida_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Partida_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" />
-				    Partida_Nombre: 
-				    <asp:TextBox ID="Pla_Partida_NombreTextBox" runat="server" Text='<%# Bind("Pla_Partida_Nombre") %>'  ReadOnly="true"  CssClass="txtItem" />
+				<td>
+                <asp:TextBox ID="Pla_Partida_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Partida_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" />
+                </td>
+            </tr>
+            <tr>
+                <td>Partida_Nombre: </td>
+                <td>
+                <asp:TextBox ID="Pla_Partida_NombreTextBox" runat="server" Text='<%# Bind("Pla_Partida_Nombre") %>'  ReadOnly="true"  CssClass="txtItemNombre" />
                 </td>
             </tr>
             <tr >
