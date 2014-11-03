@@ -161,6 +161,9 @@ TagPrefix="ajax" %>
 			onitemdeleting="fvPla_Doc_ItemDeleting"
             DataKeyNames="Id"
 			>
+        <EmptyDataTemplate>
+            <asp:Button ID="NewButton" RunAt="server" CausesValidation="False" CommandName="New" Text="Nuevo" />
+        </EmptyDataTemplate>
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton" GroupingText="Reasignación">
 			<table>
@@ -1346,7 +1349,7 @@ TagPrefix="ajax" %>
     </koala:FormViewSetim>
         <asp:Label ID="lbFvMsgErrorPla_Mov" runat="server" Text=":" CssClass="FvMensajeError"></asp:Label>
         <asp:Label ID="lbFvMsgInfoPla_Mov" runat="server" Text=">" CssClass="FvMensajeInfo"></asp:Label>
-        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="vgPla_Mov"/>
+        <asp:ValidationSummary ID="vsValidacionPla_Mov" runat="server" ValidationGroup="vgPla_Mov"/>
     </asp:Panel>
 	<%--[X] FormView de Pla_Mov --%>
 
