@@ -100,7 +100,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_COM.asmx.cs">
-      <DependentUpon>WS_COM.asmx</DependentUpon>
+      <DependentUpon>generaCEL.txt4</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_DIC.asmx.cs">
@@ -136,7 +136,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_PLA.asmx.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
+      <DependentUpon>WS_PLA.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_SEG.asmx.cs">

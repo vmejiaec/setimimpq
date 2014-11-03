@@ -26,13 +26,13 @@ namespace ADL {
         
         private Com_ProcedimientoDataTable tableCom_Procedimiento;
         
-        private Com_ContratoDataTable tableCom_Contrato;
-        
         private Com_Contrato_DocTecDataTable tableCom_Contrato_DocTec;
         
         private Com_Contrato_OferenteDataTable tableCom_Contrato_Oferente;
         
         private Com_DocTecDataTable tableCom_DocTec;
+        
+        private Com_ContratoDataTable tableCom_Contrato;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -65,9 +65,6 @@ namespace ADL {
                 if ((ds.Tables["Com_Procedimiento"] != null)) {
                     base.Tables.Add(new Com_ProcedimientoDataTable(ds.Tables["Com_Procedimiento"]));
                 }
-                if ((ds.Tables["Com_Contrato"] != null)) {
-                    base.Tables.Add(new Com_ContratoDataTable(ds.Tables["Com_Contrato"]));
-                }
                 if ((ds.Tables["Com_Contrato_DocTec"] != null)) {
                     base.Tables.Add(new Com_Contrato_DocTecDataTable(ds.Tables["Com_Contrato_DocTec"]));
                 }
@@ -76,6 +73,9 @@ namespace ADL {
                 }
                 if ((ds.Tables["Com_DocTec"] != null)) {
                     base.Tables.Add(new Com_DocTecDataTable(ds.Tables["Com_DocTec"]));
+                }
+                if ((ds.Tables["Com_Contrato"] != null)) {
+                    base.Tables.Add(new Com_ContratoDataTable(ds.Tables["Com_Contrato"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -109,16 +109,6 @@ namespace ADL {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Com_ContratoDataTable Com_Contrato {
-            get {
-                return this.tableCom_Contrato;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public Com_Contrato_DocTecDataTable Com_Contrato_DocTec {
             get {
                 return this.tableCom_Contrato_DocTec;
@@ -142,6 +132,16 @@ namespace ADL {
         public Com_DocTecDataTable Com_DocTec {
             get {
                 return this.tableCom_DocTec;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Com_ContratoDataTable Com_Contrato {
+            get {
+                return this.tableCom_Contrato;
             }
         }
         
@@ -215,9 +215,6 @@ namespace ADL {
                 if ((ds.Tables["Com_Procedimiento"] != null)) {
                     base.Tables.Add(new Com_ProcedimientoDataTable(ds.Tables["Com_Procedimiento"]));
                 }
-                if ((ds.Tables["Com_Contrato"] != null)) {
-                    base.Tables.Add(new Com_ContratoDataTable(ds.Tables["Com_Contrato"]));
-                }
                 if ((ds.Tables["Com_Contrato_DocTec"] != null)) {
                     base.Tables.Add(new Com_Contrato_DocTecDataTable(ds.Tables["Com_Contrato_DocTec"]));
                 }
@@ -226,6 +223,9 @@ namespace ADL {
                 }
                 if ((ds.Tables["Com_DocTec"] != null)) {
                     base.Tables.Add(new Com_DocTecDataTable(ds.Tables["Com_DocTec"]));
+                }
+                if ((ds.Tables["Com_Contrato"] != null)) {
+                    base.Tables.Add(new Com_ContratoDataTable(ds.Tables["Com_Contrato"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -266,12 +266,6 @@ namespace ADL {
                     this.tableCom_Procedimiento.InitVars();
                 }
             }
-            this.tableCom_Contrato = ((Com_ContratoDataTable)(base.Tables["Com_Contrato"]));
-            if ((initTable == true)) {
-                if ((this.tableCom_Contrato != null)) {
-                    this.tableCom_Contrato.InitVars();
-                }
-            }
             this.tableCom_Contrato_DocTec = ((Com_Contrato_DocTecDataTable)(base.Tables["Com_Contrato_DocTec"]));
             if ((initTable == true)) {
                 if ((this.tableCom_Contrato_DocTec != null)) {
@@ -290,6 +284,12 @@ namespace ADL {
                     this.tableCom_DocTec.InitVars();
                 }
             }
+            this.tableCom_Contrato = ((Com_ContratoDataTable)(base.Tables["Com_Contrato"]));
+            if ((initTable == true)) {
+                if ((this.tableCom_Contrato != null)) {
+                    this.tableCom_Contrato.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -302,25 +302,19 @@ namespace ADL {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableCom_Procedimiento = new Com_ProcedimientoDataTable();
             base.Tables.Add(this.tableCom_Procedimiento);
-            this.tableCom_Contrato = new Com_ContratoDataTable();
-            base.Tables.Add(this.tableCom_Contrato);
             this.tableCom_Contrato_DocTec = new Com_Contrato_DocTecDataTable();
             base.Tables.Add(this.tableCom_Contrato_DocTec);
             this.tableCom_Contrato_Oferente = new Com_Contrato_OferenteDataTable();
             base.Tables.Add(this.tableCom_Contrato_Oferente);
             this.tableCom_DocTec = new Com_DocTecDataTable();
             base.Tables.Add(this.tableCom_DocTec);
+            this.tableCom_Contrato = new Com_ContratoDataTable();
+            base.Tables.Add(this.tableCom_Contrato);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeCom_Procedimiento() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeCom_Contrato() {
             return false;
         }
         
@@ -339,6 +333,12 @@ namespace ADL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeCom_DocTec() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeCom_Contrato() {
             return false;
         }
         
@@ -401,9 +401,6 @@ namespace ADL {
         public delegate void Com_ProcedimientoRowChangeEventHandler(object sender, Com_ProcedimientoRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void Com_ContratoRowChangeEventHandler(object sender, Com_ContratoRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void Com_Contrato_DocTecRowChangeEventHandler(object sender, Com_Contrato_DocTecRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -411,6 +408,9 @@ namespace ADL {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void Com_DocTecRowChangeEventHandler(object sender, Com_DocTecRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void Com_ContratoRowChangeEventHandler(object sender, Com_ContratoRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -696,498 +696,6 @@ namespace ADL {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "Com_ProcedimientoDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Com_ContratoDataTable : global::System.Data.TypedTableBase<Com_ContratoRow> {
-            
-            private global::System.Data.DataColumn columnId;
-            
-            private global::System.Data.DataColumn columnPla_Doc_Id;
-            
-            private global::System.Data.DataColumn columnEstado;
-            
-            private global::System.Data.DataColumn columnCom_Procedimiento_Id;
-            
-            private global::System.Data.DataColumn columnPorcentaje_Anticipo_Ref;
-            
-            private global::System.Data.DataColumn columnPlazo_Ref;
-            
-            private global::System.Data.DataColumn columnCodigo_Sercop;
-            
-            private global::System.Data.DataColumn columnPer_Personal_Resp_Exp;
-            
-            private global::System.Data.DataColumn columnFecha_Cierre_Rec_Ofertas;
-            
-            private global::System.Data.DataColumn columnPar_Razon_Social_Id_Contratista;
-            
-            private global::System.Data.DataColumn columnValor_Contrato;
-            
-            private global::System.Data.DataColumn columnPlazo_Contrato;
-            
-            private global::System.Data.DataColumn columnFecha_Inicio_Contrato;
-            
-            private global::System.Data.DataColumn columnPorcentaje_Anticipo_Contrato;
-            
-            private global::System.Data.DataColumn columnPer_Personal_Id_Admin;
-            
-            private global::System.Data.DataColumn columnDesc_Contrata;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Com_ContratoDataTable() {
-                this.TableName = "Com_Contrato";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal Com_ContratoDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected Com_ContratoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IdColumn {
-                get {
-                    return this.columnId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Doc_IdColumn {
-                get {
-                    return this.columnPla_Doc_Id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn EstadoColumn {
-                get {
-                    return this.columnEstado;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Com_Procedimiento_IdColumn {
-                get {
-                    return this.columnCom_Procedimiento_Id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Porcentaje_Anticipo_RefColumn {
-                get {
-                    return this.columnPorcentaje_Anticipo_Ref;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Plazo_RefColumn {
-                get {
-                    return this.columnPlazo_Ref;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Codigo_SercopColumn {
-                get {
-                    return this.columnCodigo_Sercop;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Per_Personal_Resp_ExpColumn {
-                get {
-                    return this.columnPer_Personal_Resp_Exp;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Fecha_Cierre_Rec_OfertasColumn {
-                get {
-                    return this.columnFecha_Cierre_Rec_Ofertas;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Par_Razon_Social_Id_ContratistaColumn {
-                get {
-                    return this.columnPar_Razon_Social_Id_Contratista;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Valor_ContratoColumn {
-                get {
-                    return this.columnValor_Contrato;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Plazo_ContratoColumn {
-                get {
-                    return this.columnPlazo_Contrato;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Fecha_Inicio_ContratoColumn {
-                get {
-                    return this.columnFecha_Inicio_Contrato;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Porcentaje_Anticipo_ContratoColumn {
-                get {
-                    return this.columnPorcentaje_Anticipo_Contrato;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Per_Personal_Id_AdminColumn {
-                get {
-                    return this.columnPer_Personal_Id_Admin;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Desc_ContrataColumn {
-                get {
-                    return this.columnDesc_Contrata;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Com_ContratoRow this[int index] {
-                get {
-                    return ((Com_ContratoRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Com_ContratoRowChangeEventHandler Com_ContratoRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Com_ContratoRowChangeEventHandler Com_ContratoRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Com_ContratoRowChangeEventHandler Com_ContratoRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Com_ContratoRowChangeEventHandler Com_ContratoRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddCom_ContratoRow(Com_ContratoRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Com_ContratoRow AddCom_ContratoRow(int Pla_Doc_Id, string Estado, int Com_Procedimiento_Id, decimal Porcentaje_Anticipo_Ref, int Plazo_Ref, string Codigo_Sercop, string Per_Personal_Resp_Exp, System.DateTime Fecha_Cierre_Rec_Ofertas, string Par_Razon_Social_Id_Contratista, decimal Valor_Contrato, int Plazo_Contrato, System.DateTime Fecha_Inicio_Contrato, decimal Porcentaje_Anticipo_Contrato, string Per_Personal_Id_Admin, string Desc_Contrata) {
-                Com_ContratoRow rowCom_ContratoRow = ((Com_ContratoRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        Pla_Doc_Id,
-                        Estado,
-                        Com_Procedimiento_Id,
-                        Porcentaje_Anticipo_Ref,
-                        Plazo_Ref,
-                        Codigo_Sercop,
-                        Per_Personal_Resp_Exp,
-                        Fecha_Cierre_Rec_Ofertas,
-                        Par_Razon_Social_Id_Contratista,
-                        Valor_Contrato,
-                        Plazo_Contrato,
-                        Fecha_Inicio_Contrato,
-                        Porcentaje_Anticipo_Contrato,
-                        Per_Personal_Id_Admin,
-                        Desc_Contrata};
-                rowCom_ContratoRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowCom_ContratoRow);
-                return rowCom_ContratoRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Com_ContratoRow FindById(int Id) {
-                return ((Com_ContratoRow)(this.Rows.Find(new object[] {
-                            Id})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                Com_ContratoDataTable cln = ((Com_ContratoDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new Com_ContratoDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnId = base.Columns["Id"];
-                this.columnPla_Doc_Id = base.Columns["Pla_Doc_Id"];
-                this.columnEstado = base.Columns["Estado"];
-                this.columnCom_Procedimiento_Id = base.Columns["Com_Procedimiento_Id"];
-                this.columnPorcentaje_Anticipo_Ref = base.Columns["Porcentaje_Anticipo_Ref"];
-                this.columnPlazo_Ref = base.Columns["Plazo_Ref"];
-                this.columnCodigo_Sercop = base.Columns["Codigo_Sercop"];
-                this.columnPer_Personal_Resp_Exp = base.Columns["Per_Personal_Resp_Exp"];
-                this.columnFecha_Cierre_Rec_Ofertas = base.Columns["Fecha_Cierre_Rec_Ofertas"];
-                this.columnPar_Razon_Social_Id_Contratista = base.Columns["Par_Razon_Social_Id_Contratista"];
-                this.columnValor_Contrato = base.Columns["Valor_Contrato"];
-                this.columnPlazo_Contrato = base.Columns["Plazo_Contrato"];
-                this.columnFecha_Inicio_Contrato = base.Columns["Fecha_Inicio_Contrato"];
-                this.columnPorcentaje_Anticipo_Contrato = base.Columns["Porcentaje_Anticipo_Contrato"];
-                this.columnPer_Personal_Id_Admin = base.Columns["Per_Personal_Id_Admin"];
-                this.columnDesc_Contrata = base.Columns["Desc_Contrata"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnId);
-                this.columnPla_Doc_Id = new global::System.Data.DataColumn("Pla_Doc_Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Doc_Id);
-                this.columnEstado = new global::System.Data.DataColumn("Estado", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEstado);
-                this.columnCom_Procedimiento_Id = new global::System.Data.DataColumn("Com_Procedimiento_Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCom_Procedimiento_Id);
-                this.columnPorcentaje_Anticipo_Ref = new global::System.Data.DataColumn("Porcentaje_Anticipo_Ref", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPorcentaje_Anticipo_Ref);
-                this.columnPlazo_Ref = new global::System.Data.DataColumn("Plazo_Ref", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPlazo_Ref);
-                this.columnCodigo_Sercop = new global::System.Data.DataColumn("Codigo_Sercop", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCodigo_Sercop);
-                this.columnPer_Personal_Resp_Exp = new global::System.Data.DataColumn("Per_Personal_Resp_Exp", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPer_Personal_Resp_Exp);
-                this.columnFecha_Cierre_Rec_Ofertas = new global::System.Data.DataColumn("Fecha_Cierre_Rec_Ofertas", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFecha_Cierre_Rec_Ofertas);
-                this.columnPar_Razon_Social_Id_Contratista = new global::System.Data.DataColumn("Par_Razon_Social_Id_Contratista", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPar_Razon_Social_Id_Contratista);
-                this.columnValor_Contrato = new global::System.Data.DataColumn("Valor_Contrato", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnValor_Contrato);
-                this.columnPlazo_Contrato = new global::System.Data.DataColumn("Plazo_Contrato", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPlazo_Contrato);
-                this.columnFecha_Inicio_Contrato = new global::System.Data.DataColumn("Fecha_Inicio_Contrato", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFecha_Inicio_Contrato);
-                this.columnPorcentaje_Anticipo_Contrato = new global::System.Data.DataColumn("Porcentaje_Anticipo_Contrato", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPorcentaje_Anticipo_Contrato);
-                this.columnPer_Personal_Id_Admin = new global::System.Data.DataColumn("Per_Personal_Id_Admin", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPer_Personal_Id_Admin);
-                this.columnDesc_Contrata = new global::System.Data.DataColumn("Desc_Contrata", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDesc_Contrata);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnId}, true));
-                this.columnId.AutoIncrement = true;
-                this.columnId.AutoIncrementSeed = -1;
-                this.columnId.AutoIncrementStep = -1;
-                this.columnId.AllowDBNull = false;
-                this.columnId.ReadOnly = true;
-                this.columnId.Unique = true;
-                this.columnPla_Doc_Id.AllowDBNull = false;
-                this.columnEstado.AllowDBNull = false;
-                this.columnEstado.MaxLength = 3;
-                this.columnCom_Procedimiento_Id.AllowDBNull = false;
-                this.columnPorcentaje_Anticipo_Ref.AllowDBNull = false;
-                this.columnPlazo_Ref.AllowDBNull = false;
-                this.columnCodigo_Sercop.AllowDBNull = false;
-                this.columnCodigo_Sercop.MaxLength = 200;
-                this.columnPer_Personal_Resp_Exp.AllowDBNull = false;
-                this.columnPer_Personal_Resp_Exp.MaxLength = 17;
-                this.columnFecha_Cierre_Rec_Ofertas.AllowDBNull = false;
-                this.columnPar_Razon_Social_Id_Contratista.MaxLength = 17;
-                this.columnValor_Contrato.AllowDBNull = false;
-                this.columnPlazo_Contrato.AllowDBNull = false;
-                this.columnFecha_Inicio_Contrato.AllowDBNull = false;
-                this.columnPorcentaje_Anticipo_Contrato.AllowDBNull = false;
-                this.columnPer_Personal_Id_Admin.AllowDBNull = false;
-                this.columnPer_Personal_Id_Admin.MaxLength = 17;
-                this.columnDesc_Contrata.AllowDBNull = false;
-                this.columnDesc_Contrata.MaxLength = 300;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Com_ContratoRow NewCom_ContratoRow() {
-                return ((Com_ContratoRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Com_ContratoRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(Com_ContratoRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.Com_ContratoRowChanged != null)) {
-                    this.Com_ContratoRowChanged(this, new Com_ContratoRowChangeEvent(((Com_ContratoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.Com_ContratoRowChanging != null)) {
-                    this.Com_ContratoRowChanging(this, new Com_ContratoRowChangeEvent(((Com_ContratoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.Com_ContratoRowDeleted != null)) {
-                    this.Com_ContratoRowDeleted(this, new Com_ContratoRowChangeEvent(((Com_ContratoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.Com_ContratoRowDeleting != null)) {
-                    this.Com_ContratoRowDeleting(this, new Com_ContratoRowChangeEvent(((Com_ContratoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveCom_ContratoRow(Com_ContratoRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Compras ds = new Compras();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Com_ContratoDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2156,6 +1664,697 @@ namespace ADL {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Com_ContratoDataTable : global::System.Data.TypedTableBase<Com_ContratoRow> {
+            
+            private global::System.Data.DataColumn columnId;
+            
+            private global::System.Data.DataColumn columnPla_Doc_Id;
+            
+            private global::System.Data.DataColumn columnEstado;
+            
+            private global::System.Data.DataColumn columnCom_Procedimiento_Id;
+            
+            private global::System.Data.DataColumn columnPorcentaje_Anticipo_Ref;
+            
+            private global::System.Data.DataColumn columnPlazo_Ref;
+            
+            private global::System.Data.DataColumn columnCodigo_Sercop;
+            
+            private global::System.Data.DataColumn columnPer_Personal_Resp_Exp;
+            
+            private global::System.Data.DataColumn columnFecha_Cierre_Rec_Ofertas;
+            
+            private global::System.Data.DataColumn columnPar_Razon_Social_Id_Contratista;
+            
+            private global::System.Data.DataColumn columnValor_Contrato;
+            
+            private global::System.Data.DataColumn columnPlazo_Contrato;
+            
+            private global::System.Data.DataColumn columnFecha_Inicio_Contrato;
+            
+            private global::System.Data.DataColumn columnPorcentaje_Anticipo_Contrato;
+            
+            private global::System.Data.DataColumn columnPer_Personal_Id_Admin;
+            
+            private global::System.Data.DataColumn columnDesc_Contrata;
+            
+            private global::System.Data.DataColumn columnFecha_Crea;
+            
+            private global::System.Data.DataColumn columnPla_Tarea_Id;
+            
+            private global::System.Data.DataColumn columnPla_Tarea_Codigo;
+            
+            private global::System.Data.DataColumn columnPla_Tarea_Nombre;
+            
+            private global::System.Data.DataColumn columnPer_Personal_Nombre_Admin;
+            
+            private global::System.Data.DataColumn columnValor_Suma_Movs;
+            
+            private global::System.Data.DataColumn columnCom_Procedimiento_Tipo;
+            
+            private global::System.Data.DataColumn columnCom_Procedimiento_Nombre;
+            
+            private global::System.Data.DataColumn columnPer_Personal_Nombre_Resp_Exp;
+            
+            private global::System.Data.DataColumn columnPer_Personal_Id_Solicita;
+            
+            private global::System.Data.DataColumn columnPer_Personal_Nombre_Solicita;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Com_ContratoDataTable() {
+                this.TableName = "Com_Contrato";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Com_ContratoDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected Com_ContratoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Doc_IdColumn {
+                get {
+                    return this.columnPla_Doc_Id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EstadoColumn {
+                get {
+                    return this.columnEstado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Com_Procedimiento_IdColumn {
+                get {
+                    return this.columnCom_Procedimiento_Id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Porcentaje_Anticipo_RefColumn {
+                get {
+                    return this.columnPorcentaje_Anticipo_Ref;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Plazo_RefColumn {
+                get {
+                    return this.columnPlazo_Ref;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Codigo_SercopColumn {
+                get {
+                    return this.columnCodigo_Sercop;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Per_Personal_Resp_ExpColumn {
+                get {
+                    return this.columnPer_Personal_Resp_Exp;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Fecha_Cierre_Rec_OfertasColumn {
+                get {
+                    return this.columnFecha_Cierre_Rec_Ofertas;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Par_Razon_Social_Id_ContratistaColumn {
+                get {
+                    return this.columnPar_Razon_Social_Id_Contratista;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Valor_ContratoColumn {
+                get {
+                    return this.columnValor_Contrato;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Plazo_ContratoColumn {
+                get {
+                    return this.columnPlazo_Contrato;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Fecha_Inicio_ContratoColumn {
+                get {
+                    return this.columnFecha_Inicio_Contrato;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Porcentaje_Anticipo_ContratoColumn {
+                get {
+                    return this.columnPorcentaje_Anticipo_Contrato;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Per_Personal_Id_AdminColumn {
+                get {
+                    return this.columnPer_Personal_Id_Admin;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Desc_ContrataColumn {
+                get {
+                    return this.columnDesc_Contrata;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Fecha_CreaColumn {
+                get {
+                    return this.columnFecha_Crea;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Tarea_IdColumn {
+                get {
+                    return this.columnPla_Tarea_Id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Tarea_CodigoColumn {
+                get {
+                    return this.columnPla_Tarea_Codigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Tarea_NombreColumn {
+                get {
+                    return this.columnPla_Tarea_Nombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Per_Personal_Nombre_AdminColumn {
+                get {
+                    return this.columnPer_Personal_Nombre_Admin;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Valor_Suma_MovsColumn {
+                get {
+                    return this.columnValor_Suma_Movs;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Com_Procedimiento_TipoColumn {
+                get {
+                    return this.columnCom_Procedimiento_Tipo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Com_Procedimiento_NombreColumn {
+                get {
+                    return this.columnCom_Procedimiento_Nombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Per_Personal_Nombre_Resp_ExpColumn {
+                get {
+                    return this.columnPer_Personal_Nombre_Resp_Exp;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Per_Personal_Id_SolicitaColumn {
+                get {
+                    return this.columnPer_Personal_Id_Solicita;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Per_Personal_Nombre_SolicitaColumn {
+                get {
+                    return this.columnPer_Personal_Nombre_Solicita;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Com_ContratoRow this[int index] {
+                get {
+                    return ((Com_ContratoRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Com_ContratoRowChangeEventHandler Com_ContratoRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Com_ContratoRowChangeEventHandler Com_ContratoRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Com_ContratoRowChangeEventHandler Com_ContratoRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Com_ContratoRowChangeEventHandler Com_ContratoRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddCom_ContratoRow(Com_ContratoRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Com_ContratoRow AddCom_ContratoRow(
+                        int Pla_Doc_Id, 
+                        string Estado, 
+                        int Com_Procedimiento_Id, 
+                        decimal Porcentaje_Anticipo_Ref, 
+                        int Plazo_Ref, 
+                        string Codigo_Sercop, 
+                        string Per_Personal_Resp_Exp, 
+                        System.DateTime Fecha_Cierre_Rec_Ofertas, 
+                        string Par_Razon_Social_Id_Contratista, 
+                        decimal Valor_Contrato, 
+                        int Plazo_Contrato, 
+                        System.DateTime Fecha_Inicio_Contrato, 
+                        decimal Porcentaje_Anticipo_Contrato, 
+                        string Per_Personal_Id_Admin, 
+                        string Desc_Contrata, 
+                        System.DateTime Fecha_Crea, 
+                        int Pla_Tarea_Id, 
+                        string Pla_Tarea_Codigo, 
+                        string Pla_Tarea_Nombre, 
+                        string Per_Personal_Nombre_Admin, 
+                        decimal Valor_Suma_Movs, 
+                        string Com_Procedimiento_Tipo, 
+                        string Com_Procedimiento_Nombre, 
+                        string Per_Personal_Nombre_Resp_Exp, 
+                        string Per_Personal_Id_Solicita, 
+                        string Per_Personal_Nombre_Solicita) {
+                Com_ContratoRow rowCom_ContratoRow = ((Com_ContratoRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Pla_Doc_Id,
+                        Estado,
+                        Com_Procedimiento_Id,
+                        Porcentaje_Anticipo_Ref,
+                        Plazo_Ref,
+                        Codigo_Sercop,
+                        Per_Personal_Resp_Exp,
+                        Fecha_Cierre_Rec_Ofertas,
+                        Par_Razon_Social_Id_Contratista,
+                        Valor_Contrato,
+                        Plazo_Contrato,
+                        Fecha_Inicio_Contrato,
+                        Porcentaje_Anticipo_Contrato,
+                        Per_Personal_Id_Admin,
+                        Desc_Contrata,
+                        Fecha_Crea,
+                        Pla_Tarea_Id,
+                        Pla_Tarea_Codigo,
+                        Pla_Tarea_Nombre,
+                        Per_Personal_Nombre_Admin,
+                        Valor_Suma_Movs,
+                        Com_Procedimiento_Tipo,
+                        Com_Procedimiento_Nombre,
+                        Per_Personal_Nombre_Resp_Exp,
+                        Per_Personal_Id_Solicita,
+                        Per_Personal_Nombre_Solicita};
+                rowCom_ContratoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCom_ContratoRow);
+                return rowCom_ContratoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Com_ContratoRow FindById(int Id) {
+                return ((Com_ContratoRow)(this.Rows.Find(new object[] {
+                            Id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Com_ContratoDataTable cln = ((Com_ContratoDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Com_ContratoDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnId = base.Columns["Id"];
+                this.columnPla_Doc_Id = base.Columns["Pla_Doc_Id"];
+                this.columnEstado = base.Columns["Estado"];
+                this.columnCom_Procedimiento_Id = base.Columns["Com_Procedimiento_Id"];
+                this.columnPorcentaje_Anticipo_Ref = base.Columns["Porcentaje_Anticipo_Ref"];
+                this.columnPlazo_Ref = base.Columns["Plazo_Ref"];
+                this.columnCodigo_Sercop = base.Columns["Codigo_Sercop"];
+                this.columnPer_Personal_Resp_Exp = base.Columns["Per_Personal_Resp_Exp"];
+                this.columnFecha_Cierre_Rec_Ofertas = base.Columns["Fecha_Cierre_Rec_Ofertas"];
+                this.columnPar_Razon_Social_Id_Contratista = base.Columns["Par_Razon_Social_Id_Contratista"];
+                this.columnValor_Contrato = base.Columns["Valor_Contrato"];
+                this.columnPlazo_Contrato = base.Columns["Plazo_Contrato"];
+                this.columnFecha_Inicio_Contrato = base.Columns["Fecha_Inicio_Contrato"];
+                this.columnPorcentaje_Anticipo_Contrato = base.Columns["Porcentaje_Anticipo_Contrato"];
+                this.columnPer_Personal_Id_Admin = base.Columns["Per_Personal_Id_Admin"];
+                this.columnDesc_Contrata = base.Columns["Desc_Contrata"];
+                this.columnFecha_Crea = base.Columns["Fecha_Crea"];
+                this.columnPla_Tarea_Id = base.Columns["Pla_Tarea_Id"];
+                this.columnPla_Tarea_Codigo = base.Columns["Pla_Tarea_Codigo"];
+                this.columnPla_Tarea_Nombre = base.Columns["Pla_Tarea_Nombre"];
+                this.columnPer_Personal_Nombre_Admin = base.Columns["Per_Personal_Nombre_Admin"];
+                this.columnValor_Suma_Movs = base.Columns["Valor_Suma_Movs"];
+                this.columnCom_Procedimiento_Tipo = base.Columns["Com_Procedimiento_Tipo"];
+                this.columnCom_Procedimiento_Nombre = base.Columns["Com_Procedimiento_Nombre"];
+                this.columnPer_Personal_Nombre_Resp_Exp = base.Columns["Per_Personal_Nombre_Resp_Exp"];
+                this.columnPer_Personal_Id_Solicita = base.Columns["Per_Personal_Id_Solicita"];
+                this.columnPer_Personal_Nombre_Solicita = base.Columns["Per_Personal_Nombre_Solicita"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columnPla_Doc_Id = new global::System.Data.DataColumn("Pla_Doc_Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Doc_Id);
+                this.columnEstado = new global::System.Data.DataColumn("Estado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstado);
+                this.columnCom_Procedimiento_Id = new global::System.Data.DataColumn("Com_Procedimiento_Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCom_Procedimiento_Id);
+                this.columnPorcentaje_Anticipo_Ref = new global::System.Data.DataColumn("Porcentaje_Anticipo_Ref", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPorcentaje_Anticipo_Ref);
+                this.columnPlazo_Ref = new global::System.Data.DataColumn("Plazo_Ref", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPlazo_Ref);
+                this.columnCodigo_Sercop = new global::System.Data.DataColumn("Codigo_Sercop", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCodigo_Sercop);
+                this.columnPer_Personal_Resp_Exp = new global::System.Data.DataColumn("Per_Personal_Resp_Exp", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Personal_Resp_Exp);
+                this.columnFecha_Cierre_Rec_Ofertas = new global::System.Data.DataColumn("Fecha_Cierre_Rec_Ofertas", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_Cierre_Rec_Ofertas);
+                this.columnPar_Razon_Social_Id_Contratista = new global::System.Data.DataColumn("Par_Razon_Social_Id_Contratista", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPar_Razon_Social_Id_Contratista);
+                this.columnValor_Contrato = new global::System.Data.DataColumn("Valor_Contrato", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnValor_Contrato);
+                this.columnPlazo_Contrato = new global::System.Data.DataColumn("Plazo_Contrato", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPlazo_Contrato);
+                this.columnFecha_Inicio_Contrato = new global::System.Data.DataColumn("Fecha_Inicio_Contrato", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_Inicio_Contrato);
+                this.columnPorcentaje_Anticipo_Contrato = new global::System.Data.DataColumn("Porcentaje_Anticipo_Contrato", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPorcentaje_Anticipo_Contrato);
+                this.columnPer_Personal_Id_Admin = new global::System.Data.DataColumn("Per_Personal_Id_Admin", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Personal_Id_Admin);
+                this.columnDesc_Contrata = new global::System.Data.DataColumn("Desc_Contrata", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Contrata);
+                this.columnFecha_Crea = new global::System.Data.DataColumn("Fecha_Crea", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_Crea);
+                this.columnPla_Tarea_Id = new global::System.Data.DataColumn("Pla_Tarea_Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Tarea_Id);
+                this.columnPla_Tarea_Codigo = new global::System.Data.DataColumn("Pla_Tarea_Codigo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Tarea_Codigo);
+                this.columnPla_Tarea_Nombre = new global::System.Data.DataColumn("Pla_Tarea_Nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Tarea_Nombre);
+                this.columnPer_Personal_Nombre_Admin = new global::System.Data.DataColumn("Per_Personal_Nombre_Admin", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Personal_Nombre_Admin);
+                this.columnValor_Suma_Movs = new global::System.Data.DataColumn("Valor_Suma_Movs", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnValor_Suma_Movs);
+                this.columnCom_Procedimiento_Tipo = new global::System.Data.DataColumn("Com_Procedimiento_Tipo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCom_Procedimiento_Tipo);
+                this.columnCom_Procedimiento_Nombre = new global::System.Data.DataColumn("Com_Procedimiento_Nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCom_Procedimiento_Nombre);
+                this.columnPer_Personal_Nombre_Resp_Exp = new global::System.Data.DataColumn("Per_Personal_Nombre_Resp_Exp", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Personal_Nombre_Resp_Exp);
+                this.columnPer_Personal_Id_Solicita = new global::System.Data.DataColumn("Per_Personal_Id_Solicita", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Personal_Id_Solicita);
+                this.columnPer_Personal_Nombre_Solicita = new global::System.Data.DataColumn("Per_Personal_Nombre_Solicita", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Personal_Nombre_Solicita);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
+                this.columnId.AllowDBNull = false;
+                this.columnId.ReadOnly = true;
+                this.columnId.Unique = true;
+                this.columnPla_Doc_Id.AllowDBNull = false;
+                this.columnEstado.AllowDBNull = false;
+                this.columnEstado.MaxLength = 3;
+                this.columnCom_Procedimiento_Id.AllowDBNull = false;
+                this.columnPorcentaje_Anticipo_Ref.AllowDBNull = false;
+                this.columnPlazo_Ref.AllowDBNull = false;
+                this.columnCodigo_Sercop.AllowDBNull = false;
+                this.columnCodigo_Sercop.MaxLength = 200;
+                this.columnPer_Personal_Resp_Exp.AllowDBNull = false;
+                this.columnPer_Personal_Resp_Exp.MaxLength = 17;
+                this.columnFecha_Cierre_Rec_Ofertas.AllowDBNull = false;
+                this.columnPar_Razon_Social_Id_Contratista.MaxLength = 17;
+                this.columnValor_Contrato.AllowDBNull = false;
+                this.columnPlazo_Contrato.AllowDBNull = false;
+                this.columnFecha_Inicio_Contrato.AllowDBNull = false;
+                this.columnPorcentaje_Anticipo_Contrato.AllowDBNull = false;
+                this.columnPer_Personal_Id_Admin.AllowDBNull = false;
+                this.columnPer_Personal_Id_Admin.MaxLength = 17;
+                this.columnDesc_Contrata.AllowDBNull = false;
+                this.columnDesc_Contrata.MaxLength = 300;
+                this.columnFecha_Crea.AllowDBNull = false;
+                this.columnPla_Tarea_Id.ReadOnly = true;
+                this.columnPla_Tarea_Codigo.ReadOnly = true;
+                this.columnPla_Tarea_Codigo.MaxLength = 200;
+                this.columnPla_Tarea_Nombre.ReadOnly = true;
+                this.columnPla_Tarea_Nombre.MaxLength = 500;
+                this.columnPer_Personal_Nombre_Admin.ReadOnly = true;
+                this.columnPer_Personal_Nombre_Admin.MaxLength = 500;
+                this.columnValor_Suma_Movs.ReadOnly = true;
+                this.columnCom_Procedimiento_Tipo.ReadOnly = true;
+                this.columnCom_Procedimiento_Tipo.MaxLength = 3;
+                this.columnCom_Procedimiento_Nombre.ReadOnly = true;
+                this.columnCom_Procedimiento_Nombre.MaxLength = 500;
+                this.columnPer_Personal_Nombre_Resp_Exp.ReadOnly = true;
+                this.columnPer_Personal_Nombre_Resp_Exp.MaxLength = 500;
+                this.columnPer_Personal_Id_Solicita.ReadOnly = true;
+                this.columnPer_Personal_Id_Solicita.MaxLength = 17;
+                this.columnPer_Personal_Nombre_Solicita.ReadOnly = true;
+                this.columnPer_Personal_Nombre_Solicita.MaxLength = 500;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Com_ContratoRow NewCom_ContratoRow() {
+                return ((Com_ContratoRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Com_ContratoRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Com_ContratoRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Com_ContratoRowChanged != null)) {
+                    this.Com_ContratoRowChanged(this, new Com_ContratoRowChangeEvent(((Com_ContratoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Com_ContratoRowChanging != null)) {
+                    this.Com_ContratoRowChanging(this, new Com_ContratoRowChangeEvent(((Com_ContratoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Com_ContratoRowDeleted != null)) {
+                    this.Com_ContratoRowDeleted(this, new Com_ContratoRowChangeEvent(((Com_ContratoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Com_ContratoRowDeleting != null)) {
+                    this.Com_ContratoRowDeleting(this, new Com_ContratoRowChangeEvent(((Com_ContratoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveCom_ContratoRow(Com_ContratoRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                Compras ds = new Compras();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Com_ContratoDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class Com_ProcedimientoRow : global::System.Data.DataRow {
@@ -2221,6 +2420,183 @@ namespace ADL {
                 }
                 set {
                     this[this.tableCom_Procedimiento.Valor_MaxColumn] = value;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Com_Contrato_DocTecRow : global::System.Data.DataRow {
+            
+            private Com_Contrato_DocTecDataTable tableCom_Contrato_DocTec;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Com_Contrato_DocTecRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableCom_Contrato_DocTec = ((Com_Contrato_DocTecDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Id {
+                get {
+                    return ((int)(this[this.tableCom_Contrato_DocTec.IdColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato_DocTec.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Com_Contrato_Id {
+                get {
+                    return ((int)(this[this.tableCom_Contrato_DocTec.Com_Contrato_IdColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato_DocTec.Com_Contrato_IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Nombre {
+                get {
+                    return ((string)(this[this.tableCom_Contrato_DocTec.NombreColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato_DocTec.NombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Tiene {
+                get {
+                    return ((string)(this[this.tableCom_Contrato_DocTec.TieneColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato_DocTec.TieneColumn] = value;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Com_Contrato_OferenteRow : global::System.Data.DataRow {
+            
+            private Com_Contrato_OferenteDataTable tableCom_Contrato_Oferente;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Com_Contrato_OferenteRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableCom_Contrato_Oferente = ((Com_Contrato_OferenteDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Id {
+                get {
+                    return ((int)(this[this.tableCom_Contrato_Oferente.IdColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato_Oferente.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Nombre {
+                get {
+                    return ((string)(this[this.tableCom_Contrato_Oferente.NombreColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato_Oferente.NombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Fecha_Recepcion {
+                get {
+                    return ((global::System.DateTime)(this[this.tableCom_Contrato_Oferente.Fecha_RecepcionColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato_Oferente.Fecha_RecepcionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Com_Contrato_Id {
+                get {
+                    return ((int)(this[this.tableCom_Contrato_Oferente.Com_Contrato_IdColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato_Oferente.Com_Contrato_IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Per_Personal_Id_Recibe {
+                get {
+                    return ((string)(this[this.tableCom_Contrato_Oferente.Per_Personal_Id_RecibeColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato_Oferente.Per_Personal_Id_RecibeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Comentario {
+                get {
+                    return ((string)(this[this.tableCom_Contrato_Oferente.ComentarioColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato_Oferente.ComentarioColumn] = value;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Com_DocTecRow : global::System.Data.DataRow {
+            
+            private Com_DocTecDataTable tableCom_DocTec;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Com_DocTecRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableCom_DocTec = ((Com_DocTecDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Id {
+                get {
+                    return ((int)(this[this.tableCom_DocTec.IdColumn]));
+                }
+                set {
+                    this[this.tableCom_DocTec.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Nombre {
+                get {
+                    return ((string)(this[this.tableCom_DocTec.NombreColumn]));
+                }
+                set {
+                    this[this.tableCom_DocTec.NombreColumn] = value;
                 }
             }
         }
@@ -2423,6 +2799,182 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Fecha_Crea {
+                get {
+                    return ((global::System.DateTime)(this[this.tableCom_Contrato.Fecha_CreaColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato.Fecha_CreaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Pla_Tarea_Id {
+                get {
+                    try {
+                        return ((int)(this[this.tableCom_Contrato.Pla_Tarea_IdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Tarea_Id\' in table \'Com_Contrato\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCom_Contrato.Pla_Tarea_IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Pla_Tarea_Codigo {
+                get {
+                    try {
+                        return ((string)(this[this.tableCom_Contrato.Pla_Tarea_CodigoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Tarea_Codigo\' in table \'Com_Contrato\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCom_Contrato.Pla_Tarea_CodigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Pla_Tarea_Nombre {
+                get {
+                    try {
+                        return ((string)(this[this.tableCom_Contrato.Pla_Tarea_NombreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Tarea_Nombre\' in table \'Com_Contrato\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCom_Contrato.Pla_Tarea_NombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Per_Personal_Nombre_Admin {
+                get {
+                    try {
+                        return ((string)(this[this.tableCom_Contrato.Per_Personal_Nombre_AdminColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Per_Personal_Nombre_Admin\' in table \'Com_Contrato\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableCom_Contrato.Per_Personal_Nombre_AdminColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Valor_Suma_Movs {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCom_Contrato.Valor_Suma_MovsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Valor_Suma_Movs\' in table \'Com_Contrato\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCom_Contrato.Valor_Suma_MovsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Com_Procedimiento_Tipo {
+                get {
+                    try {
+                        return ((string)(this[this.tableCom_Contrato.Com_Procedimiento_TipoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Com_Procedimiento_Tipo\' in table \'Com_Contrato\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCom_Contrato.Com_Procedimiento_TipoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Com_Procedimiento_Nombre {
+                get {
+                    try {
+                        return ((string)(this[this.tableCom_Contrato.Com_Procedimiento_NombreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Com_Procedimiento_Nombre\' in table \'Com_Contrato\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableCom_Contrato.Com_Procedimiento_NombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Per_Personal_Nombre_Resp_Exp {
+                get {
+                    try {
+                        return ((string)(this[this.tableCom_Contrato.Per_Personal_Nombre_Resp_ExpColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Per_Personal_Nombre_Resp_Exp\' in table \'Com_Contrato\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableCom_Contrato.Per_Personal_Nombre_Resp_ExpColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Per_Personal_Id_Solicita {
+                get {
+                    try {
+                        return ((string)(this[this.tableCom_Contrato.Per_Personal_Id_SolicitaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Per_Personal_Id_Solicita\' in table \'Com_Contrato\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableCom_Contrato.Per_Personal_Id_SolicitaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Per_Personal_Nombre_Solicita {
+                get {
+                    try {
+                        return ((string)(this[this.tableCom_Contrato.Per_Personal_Nombre_SolicitaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Per_Personal_Nombre_Solicita\' in table \'Com_Contrato\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableCom_Contrato.Per_Personal_Nombre_SolicitaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPar_Razon_Social_Id_ContratistaNull() {
                 return this.IsNull(this.tableCom_Contrato.Par_Razon_Social_Id_ContratistaColumn);
             }
@@ -2432,182 +2984,125 @@ namespace ADL {
             public void SetPar_Razon_Social_Id_ContratistaNull() {
                 this[this.tableCom_Contrato.Par_Razon_Social_Id_ContratistaColumn] = global::System.Convert.DBNull;
             }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class Com_Contrato_DocTecRow : global::System.Data.DataRow {
-            
-            private Com_Contrato_DocTecDataTable tableCom_Contrato_DocTec;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal Com_Contrato_DocTecRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableCom_Contrato_DocTec = ((Com_Contrato_DocTecDataTable)(this.Table));
+            public bool IsPla_Tarea_IdNull() {
+                return this.IsNull(this.tableCom_Contrato.Pla_Tarea_IdColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Id {
-                get {
-                    return ((int)(this[this.tableCom_Contrato_DocTec.IdColumn]));
-                }
-                set {
-                    this[this.tableCom_Contrato_DocTec.IdColumn] = value;
-                }
+            public void SetPla_Tarea_IdNull() {
+                this[this.tableCom_Contrato.Pla_Tarea_IdColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Com_Contrato_Id {
-                get {
-                    return ((int)(this[this.tableCom_Contrato_DocTec.Com_Contrato_IdColumn]));
-                }
-                set {
-                    this[this.tableCom_Contrato_DocTec.Com_Contrato_IdColumn] = value;
-                }
+            public bool IsPla_Tarea_CodigoNull() {
+                return this.IsNull(this.tableCom_Contrato.Pla_Tarea_CodigoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Nombre {
-                get {
-                    return ((string)(this[this.tableCom_Contrato_DocTec.NombreColumn]));
-                }
-                set {
-                    this[this.tableCom_Contrato_DocTec.NombreColumn] = value;
-                }
+            public void SetPla_Tarea_CodigoNull() {
+                this[this.tableCom_Contrato.Pla_Tarea_CodigoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Tiene {
-                get {
-                    return ((string)(this[this.tableCom_Contrato_DocTec.TieneColumn]));
-                }
-                set {
-                    this[this.tableCom_Contrato_DocTec.TieneColumn] = value;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class Com_Contrato_OferenteRow : global::System.Data.DataRow {
-            
-            private Com_Contrato_OferenteDataTable tableCom_Contrato_Oferente;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal Com_Contrato_OferenteRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableCom_Contrato_Oferente = ((Com_Contrato_OferenteDataTable)(this.Table));
+            public bool IsPla_Tarea_NombreNull() {
+                return this.IsNull(this.tableCom_Contrato.Pla_Tarea_NombreColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Id {
-                get {
-                    return ((int)(this[this.tableCom_Contrato_Oferente.IdColumn]));
-                }
-                set {
-                    this[this.tableCom_Contrato_Oferente.IdColumn] = value;
-                }
+            public void SetPla_Tarea_NombreNull() {
+                this[this.tableCom_Contrato.Pla_Tarea_NombreColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Nombre {
-                get {
-                    return ((string)(this[this.tableCom_Contrato_Oferente.NombreColumn]));
-                }
-                set {
-                    this[this.tableCom_Contrato_Oferente.NombreColumn] = value;
-                }
+            public bool IsPer_Personal_Nombre_AdminNull() {
+                return this.IsNull(this.tableCom_Contrato.Per_Personal_Nombre_AdminColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Fecha_Recepcion {
-                get {
-                    return ((global::System.DateTime)(this[this.tableCom_Contrato_Oferente.Fecha_RecepcionColumn]));
-                }
-                set {
-                    this[this.tableCom_Contrato_Oferente.Fecha_RecepcionColumn] = value;
-                }
+            public void SetPer_Personal_Nombre_AdminNull() {
+                this[this.tableCom_Contrato.Per_Personal_Nombre_AdminColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Com_Contrato_Id {
-                get {
-                    return ((int)(this[this.tableCom_Contrato_Oferente.Com_Contrato_IdColumn]));
-                }
-                set {
-                    this[this.tableCom_Contrato_Oferente.Com_Contrato_IdColumn] = value;
-                }
+            public bool IsValor_Suma_MovsNull() {
+                return this.IsNull(this.tableCom_Contrato.Valor_Suma_MovsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Per_Personal_Id_Recibe {
-                get {
-                    return ((string)(this[this.tableCom_Contrato_Oferente.Per_Personal_Id_RecibeColumn]));
-                }
-                set {
-                    this[this.tableCom_Contrato_Oferente.Per_Personal_Id_RecibeColumn] = value;
-                }
+            public void SetValor_Suma_MovsNull() {
+                this[this.tableCom_Contrato.Valor_Suma_MovsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Comentario {
-                get {
-                    return ((string)(this[this.tableCom_Contrato_Oferente.ComentarioColumn]));
-                }
-                set {
-                    this[this.tableCom_Contrato_Oferente.ComentarioColumn] = value;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class Com_DocTecRow : global::System.Data.DataRow {
-            
-            private Com_DocTecDataTable tableCom_DocTec;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal Com_DocTecRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableCom_DocTec = ((Com_DocTecDataTable)(this.Table));
+            public bool IsCom_Procedimiento_TipoNull() {
+                return this.IsNull(this.tableCom_Contrato.Com_Procedimiento_TipoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Id {
-                get {
-                    return ((int)(this[this.tableCom_DocTec.IdColumn]));
-                }
-                set {
-                    this[this.tableCom_DocTec.IdColumn] = value;
-                }
+            public void SetCom_Procedimiento_TipoNull() {
+                this[this.tableCom_Contrato.Com_Procedimiento_TipoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Nombre {
-                get {
-                    return ((string)(this[this.tableCom_DocTec.NombreColumn]));
-                }
-                set {
-                    this[this.tableCom_DocTec.NombreColumn] = value;
-                }
+            public bool IsCom_Procedimiento_NombreNull() {
+                return this.IsNull(this.tableCom_Contrato.Com_Procedimiento_NombreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCom_Procedimiento_NombreNull() {
+                this[this.tableCom_Contrato.Com_Procedimiento_NombreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPer_Personal_Nombre_Resp_ExpNull() {
+                return this.IsNull(this.tableCom_Contrato.Per_Personal_Nombre_Resp_ExpColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPer_Personal_Nombre_Resp_ExpNull() {
+                this[this.tableCom_Contrato.Per_Personal_Nombre_Resp_ExpColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPer_Personal_Id_SolicitaNull() {
+                return this.IsNull(this.tableCom_Contrato.Per_Personal_Id_SolicitaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPer_Personal_Id_SolicitaNull() {
+                this[this.tableCom_Contrato.Per_Personal_Id_SolicitaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPer_Personal_Nombre_SolicitaNull() {
+                return this.IsNull(this.tableCom_Contrato.Per_Personal_Nombre_SolicitaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPer_Personal_Nombre_SolicitaNull() {
+                this[this.tableCom_Contrato.Per_Personal_Nombre_SolicitaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2631,40 +3126,6 @@ namespace ADL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Com_ProcedimientoRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class Com_ContratoRowChangeEvent : global::System.EventArgs {
-            
-            private Com_ContratoRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Com_ContratoRowChangeEvent(Com_ContratoRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Com_ContratoRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2767,6 +3228,40 @@ namespace ADL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Com_DocTecRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class Com_ContratoRowChangeEvent : global::System.EventArgs {
+            
+            private Com_ContratoRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Com_ContratoRowChangeEvent(Com_ContratoRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Com_ContratoRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3367,773 +3862,6 @@ namespace ADL.ComprasTableAdapters {
             }
             else {
                 command.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            object returnValue;
-            try {
-                returnValue = command.ExecuteScalar();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return null;
-            }
-            else {
-                return ((object)(returnValue));
-            }
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Com_ContratoTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public Com_ContratoTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Com_Contrato";
-            tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("Pla_Doc_Id", "Pla_Doc_Id");
-            tableMapping.ColumnMappings.Add("Estado", "Estado");
-            tableMapping.ColumnMappings.Add("Com_Procedimiento_Id", "Com_Procedimiento_Id");
-            tableMapping.ColumnMappings.Add("Porcentaje_Anticipo_Ref", "Porcentaje_Anticipo_Ref");
-            tableMapping.ColumnMappings.Add("Plazo_Ref", "Plazo_Ref");
-            tableMapping.ColumnMappings.Add("Codigo_Sercop", "Codigo_Sercop");
-            tableMapping.ColumnMappings.Add("Per_Personal_Resp_Exp", "Per_Personal_Resp_Exp");
-            tableMapping.ColumnMappings.Add("Fecha_Cierre_Rec_Ofertas", "Fecha_Cierre_Rec_Ofertas");
-            tableMapping.ColumnMappings.Add("Par_Razon_Social_Id_Contratista", "Par_Razon_Social_Id_Contratista");
-            tableMapping.ColumnMappings.Add("Valor_Contrato", "Valor_Contrato");
-            tableMapping.ColumnMappings.Add("Plazo_Contrato", "Plazo_Contrato");
-            tableMapping.ColumnMappings.Add("Fecha_Inicio_Contrato", "Fecha_Inicio_Contrato");
-            tableMapping.ColumnMappings.Add("Porcentaje_Anticipo_Contrato", "Porcentaje_Anticipo_Contrato");
-            tableMapping.ColumnMappings.Add("Per_Personal_Id_Admin", "Per_Personal_Id_Admin");
-            tableMapping.ColumnMappings.Add("Desc_Contrata", "Desc_Contrata");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "dbo.Com_Contrato_Del";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Variant, 0, global::System.Data.ParameterDirection.ReturnValue, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Doc_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pla_Doc_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Com_Procedimiento_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Com_Procedimiento_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Porcentaje_Anticipo_Ref", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Ref", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Plazo_Ref", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Plazo_Ref", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Codigo_Sercop", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo_Sercop", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Resp_Exp", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Resp_Exp", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Cierre_Rec_Ofertas", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_Cierre_Rec_Ofertas", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Par_Razon_Social_Id_Contratista", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Par_Razon_Social_Id_Contratista", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Par_Razon_Social_Id_Contratista", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Par_Razon_Social_Id_Contratista", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Valor_Contrato", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 17, 4, "Valor_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Plazo_Contrato", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Plazo_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Inicio_Contrato", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_Inicio_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Porcentaje_Anticipo_Contrato", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Admin", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Admin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Desc_Contrata", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Desc_Contrata", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "dbo.Com_Contrato_Ins";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Variant, 0, global::System.Data.ParameterDirection.ReturnValue, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Doc_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pla_Doc_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Com_Procedimiento_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Com_Procedimiento_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Porcentaje_Anticipo_Ref", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Ref", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Plazo_Ref", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Plazo_Ref", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo_Sercop", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo_Sercop", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Resp_Exp", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Resp_Exp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Cierre_Rec_Ofertas", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_Cierre_Rec_Ofertas", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Par_Razon_Social_Id_Contratista", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Par_Razon_Social_Id_Contratista", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Valor_Contrato", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 17, 4, "Valor_Contrato", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Plazo_Contrato", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Plazo_Contrato", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Inicio_Contrato", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_Inicio_Contrato", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Porcentaje_Anticipo_Contrato", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Contrato", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Admin", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Admin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Desc_Contrata", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Desc_Contrata", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "dbo.Com_Contrato_Upd";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Variant, 0, global::System.Data.ParameterDirection.ReturnValue, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Doc_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pla_Doc_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Com_Procedimiento_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Com_Procedimiento_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Porcentaje_Anticipo_Ref", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Ref", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Plazo_Ref", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Plazo_Ref", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo_Sercop", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo_Sercop", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Resp_Exp", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Resp_Exp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Cierre_Rec_Ofertas", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_Cierre_Rec_Ofertas", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Par_Razon_Social_Id_Contratista", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Par_Razon_Social_Id_Contratista", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Valor_Contrato", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 17, 4, "Valor_Contrato", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Plazo_Contrato", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Plazo_Contrato", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Inicio_Contrato", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_Inicio_Contrato", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Porcentaje_Anticipo_Contrato", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Contrato", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Admin", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Admin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Desc_Contrata", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Desc_Contrata", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Doc_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pla_Doc_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Com_Procedimiento_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Com_Procedimiento_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Porcentaje_Anticipo_Ref", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Ref", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Plazo_Ref", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Plazo_Ref", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Codigo_Sercop", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo_Sercop", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Resp_Exp", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Resp_Exp", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Cierre_Rec_Ofertas", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_Cierre_Rec_Ofertas", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Par_Razon_Social_Id_Contratista", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Par_Razon_Social_Id_Contratista", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Par_Razon_Social_Id_Contratista", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Par_Razon_Social_Id_Contratista", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Valor_Contrato", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 17, 4, "Valor_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Plazo_Contrato", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Plazo_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Inicio_Contrato", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_Inicio_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Porcentaje_Anticipo_Contrato", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Admin", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Admin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Desc_Contrata", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Desc_Contrata", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ADL.Properties.Settings.Default.KCG_DataConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.Com_Contrato_Sel";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Variant, 0, global::System.Data.ParameterDirection.ReturnValue, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "dbo.Com_Contrato_Ins";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Doc_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Com_Procedimiento_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Porcentaje_Anticipo_Ref", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Plazo_Ref", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo_Sercop", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Resp_Exp", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Cierre_Rec_Ofertas", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Par_Razon_Social_Id_Contratista", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Valor_Contrato", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Plazo_Contrato", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Inicio_Contrato", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Porcentaje_Anticipo_Contrato", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Admin", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Desc_Contrata", global::System.Data.SqlDbType.VarChar, 300, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Compras.Com_ContratoDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Compras.Com_ContratoDataTable Get() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            Compras.Com_ContratoDataTable dataTable = new Compras.Com_ContratoDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Compras.Com_ContratoDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Compras dataSet) {
-            return this.Adapter.Update(dataSet, "Com_Contrato");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(
-                    int Original_Id, 
-                    int Original_Pla_Doc_Id, 
-                    string Original_Estado, 
-                    int Original_Com_Procedimiento_Id, 
-                    decimal Original_Porcentaje_Anticipo_Ref, 
-                    int Original_Plazo_Ref, 
-                    string Original_Codigo_Sercop, 
-                    string Original_Per_Personal_Resp_Exp, 
-                    System.DateTime Original_Fecha_Cierre_Rec_Ofertas, 
-                    string Original_Par_Razon_Social_Id_Contratista, 
-                    decimal Original_Valor_Contrato, 
-                    int Original_Plazo_Contrato, 
-                    System.DateTime Original_Fecha_Inicio_Contrato, 
-                    decimal Original_Porcentaje_Anticipo_Contrato, 
-                    string Original_Per_Personal_Id_Admin, 
-                    string Original_Desc_Contrata) {
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Id));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Pla_Doc_Id));
-            if ((Original_Estado == null)) {
-                throw new global::System.ArgumentNullException("Original_Estado");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Estado));
-            }
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Com_Procedimiento_Id));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((decimal)(Original_Porcentaje_Anticipo_Ref));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_Plazo_Ref));
-            if ((Original_Codigo_Sercop == null)) {
-                throw new global::System.ArgumentNullException("Original_Codigo_Sercop");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Codigo_Sercop));
-            }
-            if ((Original_Per_Personal_Resp_Exp == null)) {
-                throw new global::System.ArgumentNullException("Original_Per_Personal_Resp_Exp");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Per_Personal_Resp_Exp));
-            }
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((System.DateTime)(Original_Fecha_Cierre_Rec_Ofertas));
-            if ((Original_Par_Razon_Social_Id_Contratista == null)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_Par_Razon_Social_Id_Contratista));
-            }
-            this.Adapter.DeleteCommand.Parameters[12].Value = ((decimal)(Original_Valor_Contrato));
-            this.Adapter.DeleteCommand.Parameters[13].Value = ((int)(Original_Plazo_Contrato));
-            this.Adapter.DeleteCommand.Parameters[14].Value = ((System.DateTime)(Original_Fecha_Inicio_Contrato));
-            this.Adapter.DeleteCommand.Parameters[15].Value = ((decimal)(Original_Porcentaje_Anticipo_Contrato));
-            if ((Original_Per_Personal_Id_Admin == null)) {
-                throw new global::System.ArgumentNullException("Original_Per_Personal_Id_Admin");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_Per_Personal_Id_Admin));
-            }
-            if ((Original_Desc_Contrata == null)) {
-                throw new global::System.ArgumentNullException("Original_Desc_Contrata");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_Desc_Contrata));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Pla_Doc_Id, string Estado, int Com_Procedimiento_Id, decimal Porcentaje_Anticipo_Ref, int Plazo_Ref, string Codigo_Sercop, string Per_Personal_Resp_Exp, System.DateTime Fecha_Cierre_Rec_Ofertas, string Par_Razon_Social_Id_Contratista, decimal Valor_Contrato, int Plazo_Contrato, System.DateTime Fecha_Inicio_Contrato, decimal Porcentaje_Anticipo_Contrato, string Per_Personal_Id_Admin, string Desc_Contrata) {
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Pla_Doc_Id));
-            if ((Estado == null)) {
-                throw new global::System.ArgumentNullException("Estado");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Estado));
-            }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Com_Procedimiento_Id));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(Porcentaje_Anticipo_Ref));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(Plazo_Ref));
-            if ((Codigo_Sercop == null)) {
-                throw new global::System.ArgumentNullException("Codigo_Sercop");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Codigo_Sercop));
-            }
-            if ((Per_Personal_Resp_Exp == null)) {
-                throw new global::System.ArgumentNullException("Per_Personal_Resp_Exp");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Per_Personal_Resp_Exp));
-            }
-            this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(Fecha_Cierre_Rec_Ofertas));
-            if ((Par_Razon_Social_Id_Contratista == null)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Par_Razon_Social_Id_Contratista));
-            }
-            this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(Valor_Contrato));
-            this.Adapter.InsertCommand.Parameters[11].Value = ((int)(Plazo_Contrato));
-            this.Adapter.InsertCommand.Parameters[12].Value = ((System.DateTime)(Fecha_Inicio_Contrato));
-            this.Adapter.InsertCommand.Parameters[13].Value = ((decimal)(Porcentaje_Anticipo_Contrato));
-            if ((Per_Personal_Id_Admin == null)) {
-                throw new global::System.ArgumentNullException("Per_Personal_Id_Admin");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(Per_Personal_Id_Admin));
-            }
-            if ((Desc_Contrata == null)) {
-                throw new global::System.ArgumentNullException("Desc_Contrata");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(Desc_Contrata));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int Pla_Doc_Id, 
-                    string Estado, 
-                    int Com_Procedimiento_Id, 
-                    decimal Porcentaje_Anticipo_Ref, 
-                    int Plazo_Ref, 
-                    string Codigo_Sercop, 
-                    string Per_Personal_Resp_Exp, 
-                    System.DateTime Fecha_Cierre_Rec_Ofertas, 
-                    string Par_Razon_Social_Id_Contratista, 
-                    decimal Valor_Contrato, 
-                    int Plazo_Contrato, 
-                    System.DateTime Fecha_Inicio_Contrato, 
-                    decimal Porcentaje_Anticipo_Contrato, 
-                    string Per_Personal_Id_Admin, 
-                    string Desc_Contrata, 
-                    int Original_Id, 
-                    int Original_Pla_Doc_Id, 
-                    string Original_Estado, 
-                    int Original_Com_Procedimiento_Id, 
-                    decimal Original_Porcentaje_Anticipo_Ref, 
-                    int Original_Plazo_Ref, 
-                    string Original_Codigo_Sercop, 
-                    string Original_Per_Personal_Resp_Exp, 
-                    System.DateTime Original_Fecha_Cierre_Rec_Ofertas, 
-                    string Original_Par_Razon_Social_Id_Contratista, 
-                    decimal Original_Valor_Contrato, 
-                    int Original_Plazo_Contrato, 
-                    System.DateTime Original_Fecha_Inicio_Contrato, 
-                    decimal Original_Porcentaje_Anticipo_Contrato, 
-                    string Original_Per_Personal_Id_Admin, 
-                    string Original_Desc_Contrata, 
-                    int Id) {
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Pla_Doc_Id));
-            if ((Estado == null)) {
-                throw new global::System.ArgumentNullException("Estado");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Estado));
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Com_Procedimiento_Id));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(Porcentaje_Anticipo_Ref));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Plazo_Ref));
-            if ((Codigo_Sercop == null)) {
-                throw new global::System.ArgumentNullException("Codigo_Sercop");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Codigo_Sercop));
-            }
-            if ((Per_Personal_Resp_Exp == null)) {
-                throw new global::System.ArgumentNullException("Per_Personal_Resp_Exp");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Per_Personal_Resp_Exp));
-            }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Fecha_Cierre_Rec_Ofertas));
-            if ((Par_Razon_Social_Id_Contratista == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Par_Razon_Social_Id_Contratista));
-            }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Valor_Contrato));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Plazo_Contrato));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Fecha_Inicio_Contrato));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Porcentaje_Anticipo_Contrato));
-            if ((Per_Personal_Id_Admin == null)) {
-                throw new global::System.ArgumentNullException("Per_Personal_Id_Admin");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Per_Personal_Id_Admin));
-            }
-            if ((Desc_Contrata == null)) {
-                throw new global::System.ArgumentNullException("Desc_Contrata");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Desc_Contrata));
-            }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_Id));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_Pla_Doc_Id));
-            if ((Original_Estado == null)) {
-                throw new global::System.ArgumentNullException("Original_Estado");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Estado));
-            }
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_Com_Procedimiento_Id));
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(Original_Porcentaje_Anticipo_Ref));
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_Plazo_Ref));
-            if ((Original_Codigo_Sercop == null)) {
-                throw new global::System.ArgumentNullException("Original_Codigo_Sercop");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_Codigo_Sercop));
-            }
-            if ((Original_Per_Personal_Resp_Exp == null)) {
-                throw new global::System.ArgumentNullException("Original_Per_Personal_Resp_Exp");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Per_Personal_Resp_Exp));
-            }
-            this.Adapter.UpdateCommand.Parameters[24].Value = ((System.DateTime)(Original_Fecha_Cierre_Rec_Ofertas));
-            if ((Original_Par_Razon_Social_Id_Contratista == null)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_Par_Razon_Social_Id_Contratista));
-            }
-            this.Adapter.UpdateCommand.Parameters[27].Value = ((decimal)(Original_Valor_Contrato));
-            this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_Plazo_Contrato));
-            this.Adapter.UpdateCommand.Parameters[29].Value = ((System.DateTime)(Original_Fecha_Inicio_Contrato));
-            this.Adapter.UpdateCommand.Parameters[30].Value = ((decimal)(Original_Porcentaje_Anticipo_Contrato));
-            if ((Original_Per_Personal_Id_Admin == null)) {
-                throw new global::System.ArgumentNullException("Original_Per_Personal_Id_Admin");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_Per_Personal_Id_Admin));
-            }
-            if ((Original_Desc_Contrata == null)) {
-                throw new global::System.ArgumentNullException("Original_Desc_Contrata");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_Desc_Contrata));
-            }
-            this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Id));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int Pla_Doc_Id, 
-                    string Estado, 
-                    int Com_Procedimiento_Id, 
-                    decimal Porcentaje_Anticipo_Ref, 
-                    int Plazo_Ref, 
-                    string Codigo_Sercop, 
-                    string Per_Personal_Resp_Exp, 
-                    System.DateTime Fecha_Cierre_Rec_Ofertas, 
-                    string Par_Razon_Social_Id_Contratista, 
-                    decimal Valor_Contrato, 
-                    int Plazo_Contrato, 
-                    System.DateTime Fecha_Inicio_Contrato, 
-                    decimal Porcentaje_Anticipo_Contrato, 
-                    string Per_Personal_Id_Admin, 
-                    string Desc_Contrata, 
-                    int Original_Id, 
-                    int Original_Pla_Doc_Id, 
-                    string Original_Estado, 
-                    int Original_Com_Procedimiento_Id, 
-                    decimal Original_Porcentaje_Anticipo_Ref, 
-                    int Original_Plazo_Ref, 
-                    string Original_Codigo_Sercop, 
-                    string Original_Per_Personal_Resp_Exp, 
-                    System.DateTime Original_Fecha_Cierre_Rec_Ofertas, 
-                    string Original_Par_Razon_Social_Id_Contratista, 
-                    decimal Original_Valor_Contrato, 
-                    int Original_Plazo_Contrato, 
-                    System.DateTime Original_Fecha_Inicio_Contrato, 
-                    decimal Original_Porcentaje_Anticipo_Contrato, 
-                    string Original_Per_Personal_Id_Admin, 
-                    string Original_Desc_Contrata) {
-            return this.Update(Pla_Doc_Id, Estado, Com_Procedimiento_Id, Porcentaje_Anticipo_Ref, Plazo_Ref, Codigo_Sercop, Per_Personal_Resp_Exp, Fecha_Cierre_Rec_Ofertas, Par_Razon_Social_Id_Contratista, Valor_Contrato, Plazo_Contrato, Fecha_Inicio_Contrato, Porcentaje_Anticipo_Contrato, Per_Personal_Id_Admin, Desc_Contrata, Original_Id, Original_Pla_Doc_Id, Original_Estado, Original_Com_Procedimiento_Id, Original_Porcentaje_Anticipo_Ref, Original_Plazo_Ref, Original_Codigo_Sercop, Original_Per_Personal_Resp_Exp, Original_Fecha_Cierre_Rec_Ofertas, Original_Par_Razon_Social_Id_Contratista, Original_Valor_Contrato, Original_Plazo_Contrato, Original_Fecha_Inicio_Contrato, Original_Porcentaje_Anticipo_Contrato, Original_Per_Personal_Id_Admin, Original_Desc_Contrata, Original_Id);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object InsertINT(global::System.Nullable<int> Pla_Doc_Id, string Estado, global::System.Nullable<int> Com_Procedimiento_Id, global::System.Nullable<decimal> Porcentaje_Anticipo_Ref, global::System.Nullable<int> Plazo_Ref, string Codigo_Sercop, string Per_Personal_Resp_Exp, global::System.Nullable<global::System.DateTime> Fecha_Cierre_Rec_Ofertas, string Par_Razon_Social_Id_Contratista, global::System.Nullable<decimal> Valor_Contrato, global::System.Nullable<int> Plazo_Contrato, global::System.Nullable<global::System.DateTime> Fecha_Inicio_Contrato, global::System.Nullable<decimal> Porcentaje_Anticipo_Contrato, string Per_Personal_Id_Admin, string Desc_Contrata) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
-            if ((Pla_Doc_Id.HasValue == true)) {
-                command.Parameters[1].Value = ((int)(Pla_Doc_Id.Value));
-            }
-            else {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Estado == null)) {
-                command.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[2].Value = ((string)(Estado));
-            }
-            if ((Com_Procedimiento_Id.HasValue == true)) {
-                command.Parameters[3].Value = ((int)(Com_Procedimiento_Id.Value));
-            }
-            else {
-                command.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Porcentaje_Anticipo_Ref.HasValue == true)) {
-                command.Parameters[4].Value = ((decimal)(Porcentaje_Anticipo_Ref.Value));
-            }
-            else {
-                command.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Plazo_Ref.HasValue == true)) {
-                command.Parameters[5].Value = ((int)(Plazo_Ref.Value));
-            }
-            else {
-                command.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Codigo_Sercop == null)) {
-                command.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[6].Value = ((string)(Codigo_Sercop));
-            }
-            if ((Per_Personal_Resp_Exp == null)) {
-                command.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[7].Value = ((string)(Per_Personal_Resp_Exp));
-            }
-            if ((Fecha_Cierre_Rec_Ofertas.HasValue == true)) {
-                command.Parameters[8].Value = ((System.DateTime)(Fecha_Cierre_Rec_Ofertas.Value));
-            }
-            else {
-                command.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((Par_Razon_Social_Id_Contratista == null)) {
-                command.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[9].Value = ((string)(Par_Razon_Social_Id_Contratista));
-            }
-            if ((Valor_Contrato.HasValue == true)) {
-                command.Parameters[10].Value = ((decimal)(Valor_Contrato.Value));
-            }
-            else {
-                command.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Plazo_Contrato.HasValue == true)) {
-                command.Parameters[11].Value = ((int)(Plazo_Contrato.Value));
-            }
-            else {
-                command.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((Fecha_Inicio_Contrato.HasValue == true)) {
-                command.Parameters[12].Value = ((System.DateTime)(Fecha_Inicio_Contrato.Value));
-            }
-            else {
-                command.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((Porcentaje_Anticipo_Contrato.HasValue == true)) {
-                command.Parameters[13].Value = ((decimal)(Porcentaje_Anticipo_Contrato.Value));
-            }
-            else {
-                command.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            if ((Per_Personal_Id_Admin == null)) {
-                command.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[14].Value = ((string)(Per_Personal_Id_Admin));
-            }
-            if ((Desc_Contrata == null)) {
-                command.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[15].Value = ((string)(Desc_Contrata));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5642,6 +5370,1071 @@ namespace ADL.ComprasTableAdapters {
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class Com_ContratoTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public Com_ContratoTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Com_Contrato";
+            tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("Pla_Doc_Id", "Pla_Doc_Id");
+            tableMapping.ColumnMappings.Add("Estado", "Estado");
+            tableMapping.ColumnMappings.Add("Com_Procedimiento_Id", "Com_Procedimiento_Id");
+            tableMapping.ColumnMappings.Add("Porcentaje_Anticipo_Ref", "Porcentaje_Anticipo_Ref");
+            tableMapping.ColumnMappings.Add("Plazo_Ref", "Plazo_Ref");
+            tableMapping.ColumnMappings.Add("Codigo_Sercop", "Codigo_Sercop");
+            tableMapping.ColumnMappings.Add("Per_Personal_Resp_Exp", "Per_Personal_Resp_Exp");
+            tableMapping.ColumnMappings.Add("Fecha_Cierre_Rec_Ofertas", "Fecha_Cierre_Rec_Ofertas");
+            tableMapping.ColumnMappings.Add("Par_Razon_Social_Id_Contratista", "Par_Razon_Social_Id_Contratista");
+            tableMapping.ColumnMappings.Add("Valor_Contrato", "Valor_Contrato");
+            tableMapping.ColumnMappings.Add("Plazo_Contrato", "Plazo_Contrato");
+            tableMapping.ColumnMappings.Add("Fecha_Inicio_Contrato", "Fecha_Inicio_Contrato");
+            tableMapping.ColumnMappings.Add("Porcentaje_Anticipo_Contrato", "Porcentaje_Anticipo_Contrato");
+            tableMapping.ColumnMappings.Add("Per_Personal_Id_Admin", "Per_Personal_Id_Admin");
+            tableMapping.ColumnMappings.Add("Desc_Contrata", "Desc_Contrata");
+            tableMapping.ColumnMappings.Add("Fecha_Crea", "Fecha_Crea");
+            tableMapping.ColumnMappings.Add("Pla_Tarea_Id", "Pla_Tarea_Id");
+            tableMapping.ColumnMappings.Add("Pla_Tarea_Codigo", "Pla_Tarea_Codigo");
+            tableMapping.ColumnMappings.Add("Pla_Tarea_Nombre", "Pla_Tarea_Nombre");
+            tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Admin", "Per_Personal_Nombre_Admin");
+            tableMapping.ColumnMappings.Add("Valor_Suma_Movs", "Valor_Suma_Movs");
+            tableMapping.ColumnMappings.Add("Com_Procedimiento_Tipo", "Com_Procedimiento_Tipo");
+            tableMapping.ColumnMappings.Add("Com_Procedimiento_Nombre", "Com_Procedimiento_Nombre");
+            tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Resp_Exp", "Per_Personal_Nombre_Resp_Exp");
+            tableMapping.ColumnMappings.Add("Per_Personal_Id_Solicita", "Per_Personal_Id_Solicita");
+            tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Solicita", "Per_Personal_Nombre_Solicita");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "dbo.Com_Contrato_Del";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Doc_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Com_Procedimiento_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Com_Procedimiento_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Porcentaje_Anticipo_Ref", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Ref", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Plazo_Ref", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Plazo_Ref", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Codigo_Sercop", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo_Sercop", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Resp_Exp", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Resp_Exp", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Cierre_Rec_Ofertas", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Cierre_Rec_Ofertas", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Par_Razon_Social_Id_Contratista", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Par_Razon_Social_Id_Contratista", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Par_Razon_Social_Id_Contratista", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Par_Razon_Social_Id_Contratista", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Valor_Contrato", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Plazo_Contrato", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Plazo_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Inicio_Contrato", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Inicio_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Porcentaje_Anticipo_Contrato", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Admin", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Admin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Desc_Contrata", global::System.Data.SqlDbType.VarChar, 300, global::System.Data.ParameterDirection.Input, 0, 0, "Desc_Contrata", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Crea", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Crea", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "dbo.Com_Contrato_Ins";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Doc_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Com_Procedimiento_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Com_Procedimiento_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Porcentaje_Anticipo_Ref", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Ref", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Plazo_Ref", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Plazo_Ref", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo_Sercop", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo_Sercop", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Resp_Exp", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Resp_Exp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Cierre_Rec_Ofertas", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Cierre_Rec_Ofertas", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Par_Razon_Social_Id_Contratista", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Par_Razon_Social_Id_Contratista", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Valor_Contrato", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor_Contrato", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Plazo_Contrato", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Plazo_Contrato", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Inicio_Contrato", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Inicio_Contrato", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Porcentaje_Anticipo_Contrato", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Contrato", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Admin", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Admin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Desc_Contrata", global::System.Data.SqlDbType.VarChar, 300, global::System.Data.ParameterDirection.Input, 0, 0, "Desc_Contrata", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Crea", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Crea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "dbo.Com_Contrato_Upd";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Doc_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Com_Procedimiento_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Com_Procedimiento_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Porcentaje_Anticipo_Ref", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Ref", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Plazo_Ref", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Plazo_Ref", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo_Sercop", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo_Sercop", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Resp_Exp", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Resp_Exp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Cierre_Rec_Ofertas", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Cierre_Rec_Ofertas", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Par_Razon_Social_Id_Contratista", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Par_Razon_Social_Id_Contratista", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Valor_Contrato", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor_Contrato", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Plazo_Contrato", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Plazo_Contrato", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Inicio_Contrato", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Inicio_Contrato", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Porcentaje_Anticipo_Contrato", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Contrato", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Admin", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Admin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Desc_Contrata", global::System.Data.SqlDbType.VarChar, 300, global::System.Data.ParameterDirection.Input, 0, 0, "Desc_Contrata", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Crea", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Crea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Doc_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Com_Procedimiento_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Com_Procedimiento_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Porcentaje_Anticipo_Ref", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Ref", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Plazo_Ref", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Plazo_Ref", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Codigo_Sercop", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo_Sercop", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Resp_Exp", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Resp_Exp", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Cierre_Rec_Ofertas", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Cierre_Rec_Ofertas", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Par_Razon_Social_Id_Contratista", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Par_Razon_Social_Id_Contratista", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Par_Razon_Social_Id_Contratista", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Par_Razon_Social_Id_Contratista", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Valor_Contrato", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Plazo_Contrato", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Plazo_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Inicio_Contrato", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Inicio_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Porcentaje_Anticipo_Contrato", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Admin", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Admin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Desc_Contrata", global::System.Data.SqlDbType.VarChar, 300, global::System.Data.ParameterDirection.Input, 0, 0, "Desc_Contrata", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Crea", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Crea", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::ADL.Properties.Settings.Default.KCG_DataConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.Com_Contrato_Sel";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "dbo.Com_Contrato_SelById";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "dbo.Com_Contrato_SelByLikePla_Tarea_Nombre";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Pla_Tarea_Nombre", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "dbo.Com_Contrato_SelByPla_Tarea_Codigo";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Pla_Tarea_Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "dbo.Com_Contrato_SelByRangoFecha_Crea";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Crea_Ini", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Crea_Fin", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(Compras.Com_ContratoDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual Compras.Com_ContratoDataTable Get() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            Compras.Com_ContratoDataTable dataTable = new Compras.Com_ContratoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillById(Compras.Com_ContratoDataTable dataTable, global::System.Nullable<int> p_Id) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((p_Id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(p_Id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Compras.Com_ContratoDataTable GetById(global::System.Nullable<int> p_Id) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((p_Id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(p_Id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            Compras.Com_ContratoDataTable dataTable = new Compras.Com_ContratoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByLikePla_Tarea_Nombre(Compras.Com_ContratoDataTable dataTable, string p_Pla_Tarea_Nombre) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((p_Pla_Tarea_Nombre == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Pla_Tarea_Nombre));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Compras.Com_ContratoDataTable GetByLikePla_Tarea_Nombre(string p_Pla_Tarea_Nombre) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((p_Pla_Tarea_Nombre == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Pla_Tarea_Nombre));
+            }
+            Compras.Com_ContratoDataTable dataTable = new Compras.Com_ContratoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPla_Tarea_Codigo(Compras.Com_ContratoDataTable dataTable, string p_Pla_Tarea_Codigo) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((p_Pla_Tarea_Codigo == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Pla_Tarea_Codigo));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Compras.Com_ContratoDataTable GetByPla_Tarea_Codigo(string p_Pla_Tarea_Codigo) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((p_Pla_Tarea_Codigo == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Pla_Tarea_Codigo));
+            }
+            Compras.Com_ContratoDataTable dataTable = new Compras.Com_ContratoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByRangoFecha_Crea(Compras.Com_ContratoDataTable dataTable, global::System.Nullable<global::System.DateTime> p_Fecha_Crea_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Crea_Fin) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((p_Fecha_Crea_Ini.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(p_Fecha_Crea_Ini.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((p_Fecha_Crea_Fin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(p_Fecha_Crea_Fin.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Compras.Com_ContratoDataTable GetByRangoFecha_Crea(global::System.Nullable<global::System.DateTime> p_Fecha_Crea_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Crea_Fin) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((p_Fecha_Crea_Ini.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(p_Fecha_Crea_Ini.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((p_Fecha_Crea_Fin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(p_Fecha_Crea_Fin.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            Compras.Com_ContratoDataTable dataTable = new Compras.Com_ContratoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(Compras.Com_ContratoDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(Compras dataSet) {
+            return this.Adapter.Update(dataSet, "Com_Contrato");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(
+                    global::System.Nullable<int> Original_Id, 
+                    global::System.Nullable<int> Original_Pla_Doc_Id, 
+                    string Original_Estado, 
+                    global::System.Nullable<int> Original_Com_Procedimiento_Id, 
+                    global::System.Nullable<decimal> Original_Porcentaje_Anticipo_Ref, 
+                    global::System.Nullable<int> Original_Plazo_Ref, 
+                    string Original_Codigo_Sercop, 
+                    string Original_Per_Personal_Resp_Exp, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Cierre_Rec_Ofertas, 
+                    string Original_Par_Razon_Social_Id_Contratista, 
+                    global::System.Nullable<decimal> Original_Valor_Contrato, 
+                    global::System.Nullable<int> Original_Plazo_Contrato, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Inicio_Contrato, 
+                    global::System.Nullable<decimal> Original_Porcentaje_Anticipo_Contrato, 
+                    string Original_Per_Personal_Id_Admin, 
+                    string Original_Desc_Contrata, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Crea) {
+            if ((Original_Id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Pla_Doc_Id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Pla_Doc_Id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Estado == null)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Estado));
+            }
+            if ((Original_Com_Procedimiento_Id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Com_Procedimiento_Id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Porcentaje_Anticipo_Ref.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((decimal)(Original_Porcentaje_Anticipo_Ref.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Plazo_Ref.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_Plazo_Ref.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Codigo_Sercop == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Codigo_Sercop));
+            }
+            if ((Original_Per_Personal_Resp_Exp == null)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Per_Personal_Resp_Exp));
+            }
+            if ((Original_Fecha_Cierre_Rec_Ofertas.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((System.DateTime)(Original_Fecha_Cierre_Rec_Ofertas.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Par_Razon_Social_Id_Contratista == null)) {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_Par_Razon_Social_Id_Contratista));
+            }
+            if ((Original_Valor_Contrato.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((decimal)(Original_Valor_Contrato.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Plazo_Contrato.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((int)(Original_Plazo_Contrato.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fecha_Inicio_Contrato.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((System.DateTime)(Original_Fecha_Inicio_Contrato.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Porcentaje_Anticipo_Contrato.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((decimal)(Original_Porcentaje_Anticipo_Contrato.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Per_Personal_Id_Admin == null)) {
+                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_Per_Personal_Id_Admin));
+            }
+            if ((Original_Desc_Contrata == null)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_Desc_Contrata));
+            }
+            if ((Original_Fecha_Crea.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((System.DateTime)(Original_Fecha_Crea.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(
+                    global::System.Nullable<int> Pla_Doc_Id, 
+                    string Estado, 
+                    global::System.Nullable<int> Com_Procedimiento_Id, 
+                    global::System.Nullable<decimal> Porcentaje_Anticipo_Ref, 
+                    global::System.Nullable<int> Plazo_Ref, 
+                    string Codigo_Sercop, 
+                    string Per_Personal_Resp_Exp, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Cierre_Rec_Ofertas, 
+                    string Par_Razon_Social_Id_Contratista, 
+                    global::System.Nullable<decimal> Valor_Contrato, 
+                    global::System.Nullable<int> Plazo_Contrato, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Inicio_Contrato, 
+                    global::System.Nullable<decimal> Porcentaje_Anticipo_Contrato, 
+                    string Per_Personal_Id_Admin, 
+                    string Desc_Contrata, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Crea) {
+            if ((Pla_Doc_Id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Pla_Doc_Id.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Estado == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Estado));
+            }
+            if ((Com_Procedimiento_Id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Com_Procedimiento_Id.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Porcentaje_Anticipo_Ref.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(Porcentaje_Anticipo_Ref.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Plazo_Ref.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(Plazo_Ref.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Codigo_Sercop == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Codigo_Sercop));
+            }
+            if ((Per_Personal_Resp_Exp == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Per_Personal_Resp_Exp));
+            }
+            if ((Fecha_Cierre_Rec_Ofertas.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(Fecha_Cierre_Rec_Ofertas.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Par_Razon_Social_Id_Contratista == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Par_Razon_Social_Id_Contratista));
+            }
+            if ((Valor_Contrato.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(Valor_Contrato.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Plazo_Contrato.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((int)(Plazo_Contrato.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_Inicio_Contrato.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((System.DateTime)(Fecha_Inicio_Contrato.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Porcentaje_Anticipo_Contrato.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((decimal)(Porcentaje_Anticipo_Contrato.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((Per_Personal_Id_Admin == null)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(Per_Personal_Id_Admin));
+            }
+            if ((Desc_Contrata == null)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(Desc_Contrata));
+            }
+            if ((Fecha_Crea.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((System.DateTime)(Fecha_Crea.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    global::System.Nullable<int> Pla_Doc_Id, 
+                    string Estado, 
+                    global::System.Nullable<int> Com_Procedimiento_Id, 
+                    global::System.Nullable<decimal> Porcentaje_Anticipo_Ref, 
+                    global::System.Nullable<int> Plazo_Ref, 
+                    string Codigo_Sercop, 
+                    string Per_Personal_Resp_Exp, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Cierre_Rec_Ofertas, 
+                    string Par_Razon_Social_Id_Contratista, 
+                    global::System.Nullable<decimal> Valor_Contrato, 
+                    global::System.Nullable<int> Plazo_Contrato, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Inicio_Contrato, 
+                    global::System.Nullable<decimal> Porcentaje_Anticipo_Contrato, 
+                    string Per_Personal_Id_Admin, 
+                    string Desc_Contrata, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Crea, 
+                    global::System.Nullable<int> Original_Id, 
+                    global::System.Nullable<int> Original_Pla_Doc_Id, 
+                    string Original_Estado, 
+                    global::System.Nullable<int> Original_Com_Procedimiento_Id, 
+                    global::System.Nullable<decimal> Original_Porcentaje_Anticipo_Ref, 
+                    global::System.Nullable<int> Original_Plazo_Ref, 
+                    string Original_Codigo_Sercop, 
+                    string Original_Per_Personal_Resp_Exp, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Cierre_Rec_Ofertas, 
+                    string Original_Par_Razon_Social_Id_Contratista, 
+                    global::System.Nullable<decimal> Original_Valor_Contrato, 
+                    global::System.Nullable<int> Original_Plazo_Contrato, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Inicio_Contrato, 
+                    global::System.Nullable<decimal> Original_Porcentaje_Anticipo_Contrato, 
+                    string Original_Per_Personal_Id_Admin, 
+                    string Original_Desc_Contrata, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Crea, 
+                    global::System.Nullable<int> Id) {
+            if ((Pla_Doc_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Pla_Doc_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Estado == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Estado));
+            }
+            if ((Com_Procedimiento_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Com_Procedimiento_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Porcentaje_Anticipo_Ref.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(Porcentaje_Anticipo_Ref.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Plazo_Ref.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Plazo_Ref.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Codigo_Sercop == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Codigo_Sercop));
+            }
+            if ((Per_Personal_Resp_Exp == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Per_Personal_Resp_Exp));
+            }
+            if ((Fecha_Cierre_Rec_Ofertas.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Fecha_Cierre_Rec_Ofertas.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Par_Razon_Social_Id_Contratista == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Par_Razon_Social_Id_Contratista));
+            }
+            if ((Valor_Contrato.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Valor_Contrato.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Plazo_Contrato.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Plazo_Contrato.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_Inicio_Contrato.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Fecha_Inicio_Contrato.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Porcentaje_Anticipo_Contrato.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Porcentaje_Anticipo_Contrato.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((Per_Personal_Id_Admin == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Per_Personal_Id_Admin));
+            }
+            if ((Desc_Contrata == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Desc_Contrata));
+            }
+            if ((Fecha_Crea.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Fecha_Crea.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Pla_Doc_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_Pla_Doc_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Estado == null)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Estado));
+            }
+            if ((Original_Com_Procedimiento_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_Com_Procedimiento_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Porcentaje_Anticipo_Ref.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(Original_Porcentaje_Anticipo_Ref.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Plazo_Ref.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_Plazo_Ref.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Codigo_Sercop == null)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Codigo_Sercop));
+            }
+            if ((Original_Per_Personal_Resp_Exp == null)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_Per_Personal_Resp_Exp));
+            }
+            if ((Original_Fecha_Cierre_Rec_Ofertas.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((System.DateTime)(Original_Fecha_Cierre_Rec_Ofertas.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Par_Razon_Social_Id_Contratista == null)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_Par_Razon_Social_Id_Contratista));
+            }
+            if ((Original_Valor_Contrato.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((decimal)(Original_Valor_Contrato.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Plazo_Contrato.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(Original_Plazo_Contrato.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fecha_Inicio_Contrato.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((System.DateTime)(Original_Fecha_Inicio_Contrato.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Porcentaje_Anticipo_Contrato.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((decimal)(Original_Porcentaje_Anticipo_Contrato.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Per_Personal_Id_Admin == null)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_Per_Personal_Id_Admin));
+            }
+            if ((Original_Desc_Contrata == null)) {
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_Desc_Contrata));
+            }
+            if ((Original_Fecha_Crea.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((System.DateTime)(Original_Fecha_Crea.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            if ((Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    global::System.Nullable<int> Pla_Doc_Id, 
+                    string Estado, 
+                    global::System.Nullable<int> Com_Procedimiento_Id, 
+                    global::System.Nullable<decimal> Porcentaje_Anticipo_Ref, 
+                    global::System.Nullable<int> Plazo_Ref, 
+                    string Codigo_Sercop, 
+                    string Per_Personal_Resp_Exp, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Cierre_Rec_Ofertas, 
+                    string Par_Razon_Social_Id_Contratista, 
+                    global::System.Nullable<decimal> Valor_Contrato, 
+                    global::System.Nullable<int> Plazo_Contrato, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Inicio_Contrato, 
+                    global::System.Nullable<decimal> Porcentaje_Anticipo_Contrato, 
+                    string Per_Personal_Id_Admin, 
+                    string Desc_Contrata, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Crea, 
+                    global::System.Nullable<int> Original_Id, 
+                    global::System.Nullable<int> Original_Pla_Doc_Id, 
+                    string Original_Estado, 
+                    global::System.Nullable<int> Original_Com_Procedimiento_Id, 
+                    global::System.Nullable<decimal> Original_Porcentaje_Anticipo_Ref, 
+                    global::System.Nullable<int> Original_Plazo_Ref, 
+                    string Original_Codigo_Sercop, 
+                    string Original_Per_Personal_Resp_Exp, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Cierre_Rec_Ofertas, 
+                    string Original_Par_Razon_Social_Id_Contratista, 
+                    global::System.Nullable<decimal> Original_Valor_Contrato, 
+                    global::System.Nullable<int> Original_Plazo_Contrato, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Inicio_Contrato, 
+                    global::System.Nullable<decimal> Original_Porcentaje_Anticipo_Contrato, 
+                    string Original_Per_Personal_Id_Admin, 
+                    string Original_Desc_Contrata, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Crea) {
+            return this.Update(Pla_Doc_Id, Estado, Com_Procedimiento_Id, Porcentaje_Anticipo_Ref, Plazo_Ref, Codigo_Sercop, Per_Personal_Resp_Exp, Fecha_Cierre_Rec_Ofertas, Par_Razon_Social_Id_Contratista, Valor_Contrato, Plazo_Contrato, Fecha_Inicio_Contrato, Porcentaje_Anticipo_Contrato, Per_Personal_Id_Admin, Desc_Contrata, Fecha_Crea, Original_Id, Original_Pla_Doc_Id, Original_Estado, Original_Com_Procedimiento_Id, Original_Porcentaje_Anticipo_Ref, Original_Plazo_Ref, Original_Codigo_Sercop, Original_Per_Personal_Resp_Exp, Original_Fecha_Cierre_Rec_Ofertas, Original_Par_Razon_Social_Id_Contratista, Original_Valor_Contrato, Original_Plazo_Contrato, Original_Fecha_Inicio_Contrato, Original_Porcentaje_Anticipo_Contrato, Original_Per_Personal_Id_Admin, Original_Desc_Contrata, Original_Fecha_Crea, Original_Id);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5655,13 +6448,13 @@ namespace ADL.ComprasTableAdapters {
         
         private Com_ProcedimientoTableAdapter _com_ProcedimientoTableAdapter;
         
-        private Com_ContratoTableAdapter _com_ContratoTableAdapter;
-        
         private Com_Contrato_DocTecTableAdapter _com_Contrato_DocTecTableAdapter;
         
         private Com_Contrato_OferenteTableAdapter _com_Contrato_OferenteTableAdapter;
         
         private Com_DocTecTableAdapter _com_DocTecTableAdapter;
+        
+        private Com_ContratoTableAdapter _com_ContratoTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -5689,20 +6482,6 @@ namespace ADL.ComprasTableAdapters {
             }
             set {
                 this._com_ProcedimientoTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public Com_ContratoTableAdapter Com_ContratoTableAdapter {
-            get {
-                return this._com_ContratoTableAdapter;
-            }
-            set {
-                this._com_ContratoTableAdapter = value;
             }
         }
         
@@ -5750,6 +6529,20 @@ namespace ADL.ComprasTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public Com_ContratoTableAdapter Com_ContratoTableAdapter {
+            get {
+                return this._com_ContratoTableAdapter;
+            }
+            set {
+                this._com_ContratoTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -5771,10 +6564,6 @@ namespace ADL.ComprasTableAdapters {
                             && (this._com_ProcedimientoTableAdapter.Connection != null))) {
                     return this._com_ProcedimientoTableAdapter.Connection;
                 }
-                if (((this._com_ContratoTableAdapter != null) 
-                            && (this._com_ContratoTableAdapter.Connection != null))) {
-                    return this._com_ContratoTableAdapter.Connection;
-                }
                 if (((this._com_Contrato_DocTecTableAdapter != null) 
                             && (this._com_Contrato_DocTecTableAdapter.Connection != null))) {
                     return this._com_Contrato_DocTecTableAdapter.Connection;
@@ -5786,6 +6575,10 @@ namespace ADL.ComprasTableAdapters {
                 if (((this._com_DocTecTableAdapter != null) 
                             && (this._com_DocTecTableAdapter.Connection != null))) {
                     return this._com_DocTecTableAdapter.Connection;
+                }
+                if (((this._com_ContratoTableAdapter != null) 
+                            && (this._com_ContratoTableAdapter.Connection != null))) {
+                    return this._com_ContratoTableAdapter.Connection;
                 }
                 return null;
             }
@@ -5803,9 +6596,6 @@ namespace ADL.ComprasTableAdapters {
                 if ((this._com_ProcedimientoTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._com_ContratoTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._com_Contrato_DocTecTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -5813,6 +6603,9 @@ namespace ADL.ComprasTableAdapters {
                     count = (count + 1);
                 }
                 if ((this._com_DocTecTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._com_ContratoTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -5826,15 +6619,6 @@ namespace ADL.ComprasTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(Compras dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._com_Contrato_OferenteTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Com_Contrato_Oferente.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._com_Contrato_OferenteTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._com_DocTecTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Com_DocTec.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -5844,12 +6628,21 @@ namespace ADL.ComprasTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._com_Contrato_DocTecTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Com_Contrato_DocTec.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._com_ContratoTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Com_Contrato.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._com_Contrato_DocTecTableAdapter.Update(updatedRows));
+                    result = (result + this._com_ContratoTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._com_Contrato_OferenteTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Com_Contrato_Oferente.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._com_Contrato_OferenteTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5862,12 +6655,12 @@ namespace ADL.ComprasTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._com_ContratoTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Com_Contrato.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._com_Contrato_DocTecTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Com_Contrato_DocTec.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._com_ContratoTableAdapter.Update(updatedRows));
+                    result = (result + this._com_Contrato_DocTecTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5881,14 +6674,6 @@ namespace ADL.ComprasTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(Compras dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._com_Contrato_OferenteTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Com_Contrato_Oferente.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._com_Contrato_OferenteTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._com_DocTecTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Com_DocTec.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -5897,11 +6682,19 @@ namespace ADL.ComprasTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._com_Contrato_DocTecTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Com_Contrato_DocTec.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._com_ContratoTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Com_Contrato.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._com_Contrato_DocTecTableAdapter.Update(addedRows));
+                    result = (result + this._com_ContratoTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._com_Contrato_OferenteTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Com_Contrato_Oferente.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._com_Contrato_OferenteTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -5913,11 +6706,11 @@ namespace ADL.ComprasTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._com_ContratoTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Com_Contrato.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._com_Contrato_DocTecTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Com_Contrato_DocTec.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._com_ContratoTableAdapter.Update(addedRows));
+                    result = (result + this._com_Contrato_DocTecTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -5931,11 +6724,11 @@ namespace ADL.ComprasTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(Compras dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._com_ContratoTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Com_Contrato.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._com_Contrato_DocTecTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Com_Contrato_DocTec.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._com_ContratoTableAdapter.Update(deletedRows));
+                    result = (result + this._com_Contrato_DocTecTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -5947,11 +6740,19 @@ namespace ADL.ComprasTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._com_Contrato_DocTecTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Com_Contrato_DocTec.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._com_Contrato_OferenteTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Com_Contrato_Oferente.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._com_Contrato_DocTecTableAdapter.Update(deletedRows));
+                    result = (result + this._com_Contrato_OferenteTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._com_ContratoTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Com_Contrato.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._com_ContratoTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -5960,14 +6761,6 @@ namespace ADL.ComprasTableAdapters {
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._com_DocTecTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._com_Contrato_OferenteTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Com_Contrato_Oferente.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._com_Contrato_OferenteTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -6015,11 +6808,6 @@ namespace ADL.ComprasTableAdapters {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._com_ContratoTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._com_ContratoTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             if (((this._com_Contrato_DocTecTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._com_Contrato_DocTecTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
@@ -6032,6 +6820,11 @@ namespace ADL.ComprasTableAdapters {
             }
             if (((this._com_DocTecTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._com_DocTecTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._com_ContratoTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._com_ContratoTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -6076,15 +6869,6 @@ namespace ADL.ComprasTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this._com_ProcedimientoTableAdapter.Adapter);
                     }
                 }
-                if ((this._com_ContratoTableAdapter != null)) {
-                    revertConnections.Add(this._com_ContratoTableAdapter, this._com_ContratoTableAdapter.Connection);
-                    this._com_ContratoTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._com_ContratoTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._com_ContratoTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._com_ContratoTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._com_ContratoTableAdapter.Adapter);
-                    }
-                }
                 if ((this._com_Contrato_DocTecTableAdapter != null)) {
                     revertConnections.Add(this._com_Contrato_DocTecTableAdapter, this._com_Contrato_DocTecTableAdapter.Connection);
                     this._com_Contrato_DocTecTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -6110,6 +6894,15 @@ namespace ADL.ComprasTableAdapters {
                     if (this._com_DocTecTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._com_DocTecTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._com_DocTecTableAdapter.Adapter);
+                    }
+                }
+                if ((this._com_ContratoTableAdapter != null)) {
+                    revertConnections.Add(this._com_ContratoTableAdapter, this._com_ContratoTableAdapter.Connection);
+                    this._com_ContratoTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._com_ContratoTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._com_ContratoTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._com_ContratoTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._com_ContratoTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -6174,10 +6967,6 @@ namespace ADL.ComprasTableAdapters {
                     this._com_ProcedimientoTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._com_ProcedimientoTableAdapter]));
                     this._com_ProcedimientoTableAdapter.Transaction = null;
                 }
-                if ((this._com_ContratoTableAdapter != null)) {
-                    this._com_ContratoTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._com_ContratoTableAdapter]));
-                    this._com_ContratoTableAdapter.Transaction = null;
-                }
                 if ((this._com_Contrato_DocTecTableAdapter != null)) {
                     this._com_Contrato_DocTecTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._com_Contrato_DocTecTableAdapter]));
                     this._com_Contrato_DocTecTableAdapter.Transaction = null;
@@ -6189,6 +6978,10 @@ namespace ADL.ComprasTableAdapters {
                 if ((this._com_DocTecTableAdapter != null)) {
                     this._com_DocTecTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._com_DocTecTableAdapter]));
                     this._com_DocTecTableAdapter.Transaction = null;
+                }
+                if ((this._com_ContratoTableAdapter != null)) {
+                    this._com_ContratoTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._com_ContratoTableAdapter]));
+                    this._com_ContratoTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

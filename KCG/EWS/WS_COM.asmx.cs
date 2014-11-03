@@ -5,7 +5,7 @@ using System.Web.Services;
 using CEL.COM; // datos.xsdNombreIniciales
 using AEL.COM;
 using BEL;
-
+ 
 namespace EWS
 {
     [WebService(Namespace = "http://koala.org/")]
@@ -70,50 +70,6 @@ namespace EWS
         public int Com_Procedimiento_InsertINT(Com_Procedimiento n)
         {
             return Com_Procedimiento.InsertINT(n);
-        }
-		#endregion
-		#endregion
-	    #region Servicios para Com_Contrato
-        private DO_Com_Contrato _Com_Contrato;
-        public DO_Com_Contrato Com_Contrato {
-            get {
-                if (_Com_Contrato == null)
-                    _Com_Contrato = new DO_Com_Contrato();
-                return _Com_Contrato;
-            }
-        }
-
-		#region Select
-		[WebMethod]
-        public List<Com_Contrato> Com_Contrato_Get(Scope s)
-        {
-            return Com_Contrato.Get(s);
-        }
-		#endregion
-		#region Insert, Delete, Update
-		[WebMethod]
-        public int Com_Contrato_Insert(Com_Contrato n)
-        {
-            return Com_Contrato.Insert(n);
-        }
-		[WebMethod]
-        public int Com_Contrato_Delete(Com_Contrato o)
-        {
-            return Com_Contrato.Delete(o);
-        }
-		[WebMethod]
-        public int Com_Contrato_Update(Com_Contrato o,Com_Contrato n)
-        {
-            return Com_Contrato.Update(o, n);
-        }
-		#endregion
-		#region Métodos Get
-		#endregion
-		#region Métodos Genéricos retornan un escalar
-				[WebMethod]
-        public int Com_Contrato_InsertINT(Com_Contrato n)
-        {
-            return Com_Contrato.InsertINT(n);
         }
 		#endregion
 		#endregion
@@ -277,6 +233,65 @@ namespace EWS
         {
             return Com_DocTec.InsertINT(n);
         }
+		#endregion
+		#endregion
+	    #region Servicios para Com_Contrato
+        private DO_Com_Contrato _Com_Contrato;
+        public DO_Com_Contrato Com_Contrato {
+            get {
+                if (_Com_Contrato == null)
+                    _Com_Contrato = new DO_Com_Contrato();
+                return _Com_Contrato;
+            }
+        }
+
+		#region Select
+		[WebMethod]
+        public List<Com_Contrato> Com_Contrato_Get(Scope s)
+        {
+            return Com_Contrato.Get(s);
+        }
+		#endregion
+		#region Insert, Delete, Update
+		[WebMethod]
+        public int Com_Contrato_Insert(Com_Contrato n)
+        {
+            return Com_Contrato.Insert(n);
+        }
+		[WebMethod]
+        public int Com_Contrato_Delete(Com_Contrato o)
+        {
+            return Com_Contrato.Delete(o);
+        }
+		[WebMethod]
+        public int Com_Contrato_Update(Com_Contrato o,Com_Contrato n)
+        {
+            return Com_Contrato.Update(o, n);
+        }
+		#endregion
+		#region Métodos Get
+		[WebMethod]
+		public List<Com_Contrato> Com_Contrato_GetById(Scope s , Int32 p_Id)
+        {
+            return Com_Contrato.GetById(s,  p_Id);
+        }
+		[WebMethod]
+		public List<Com_Contrato> Com_Contrato_GetByLikePla_Tarea_Nombre(Scope s , string p_Pla_Tarea_Nombre)
+        {
+            return Com_Contrato.GetByLikePla_Tarea_Nombre(s,  p_Pla_Tarea_Nombre);
+        }
+		[WebMethod]
+		public List<Com_Contrato> Com_Contrato_GetByPla_Tarea_Codigo(Scope s , string p_Pla_Tarea_Codigo)
+        {
+            return Com_Contrato.GetByPla_Tarea_Codigo(s,  p_Pla_Tarea_Codigo);
+        }
+		[WebMethod]
+		public List<Com_Contrato> Com_Contrato_GetByRangoFecha_Crea(Scope s , DateTime p_Fecha_Crea_Ini, DateTime p_Fecha_Crea_Fin)
+        {
+            return Com_Contrato.GetByRangoFecha_Crea(s,  p_Fecha_Crea_Ini, p_Fecha_Crea_Fin);
+        }
+		#endregion
+		#region Métodos Genéricos retornan un escalar
 		#endregion
 		#endregion
 		}

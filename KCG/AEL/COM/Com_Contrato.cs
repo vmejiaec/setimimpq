@@ -7,7 +7,7 @@
 //     se vuelve a generar el código.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
+ 
 namespace AEL.COM
 {
     using System;
@@ -66,6 +66,39 @@ namespace AEL.COM
         // Comentario
         private string _Desc_Contrata;
         
+        // Comentario
+        private System.DateTime _Fecha_Crea;
+        
+        // Comentario
+        private int _Pla_Tarea_Id;
+        
+        // Comentario
+        private string _Pla_Tarea_Codigo;
+        
+        // Comentario
+        private string _Pla_Tarea_Nombre;
+        
+        // Comentario
+        private string _Per_Personal_Nombre_Admin;
+        
+        // Comentario
+        private decimal _Valor_Suma_Movs;
+        
+        // Comentario
+        private string _Com_Procedimiento_Tipo;
+        
+        // Comentario
+        private string _Com_Procedimiento_Nombre;
+        
+        // Comentario
+        private string _Per_Personal_Nombre_Resp_Exp;
+        
+        // Comentario
+        private string _Per_Personal_Id_Solicita;
+        
+        // Comentario
+        private string _Per_Personal_Nombre_Solicita;
+        
         public Com_Contrato()
         {
         }
@@ -86,7 +119,18 @@ namespace AEL.COM
                     System.DateTime fecha_Inicio_Contrato, 
                     decimal porcentaje_Anticipo_Contrato, 
                     string per_Personal_Id_Admin, 
-                    string desc_Contrata)
+                    string desc_Contrata, 
+                    System.DateTime fecha_Crea, 
+                    int pla_Tarea_Id, 
+                    string pla_Tarea_Codigo, 
+                    string pla_Tarea_Nombre, 
+                    string per_Personal_Nombre_Admin, 
+                    decimal valor_Suma_Movs, 
+                    string com_Procedimiento_Tipo, 
+                    string com_Procedimiento_Nombre, 
+                    string per_Personal_Nombre_Resp_Exp, 
+                    string per_Personal_Id_Solicita, 
+                    string per_Personal_Nombre_Solicita)
         {
             this.Id = id;
             this.Pla_Doc_Id = pla_Doc_Id;
@@ -104,6 +148,17 @@ namespace AEL.COM
             this.Porcentaje_Anticipo_Contrato = porcentaje_Anticipo_Contrato;
             this.Per_Personal_Id_Admin = per_Personal_Id_Admin;
             this.Desc_Contrata = desc_Contrata;
+            this.Fecha_Crea = fecha_Crea;
+            this.Pla_Tarea_Id = pla_Tarea_Id;
+            this.Pla_Tarea_Codigo = pla_Tarea_Codigo;
+            this.Pla_Tarea_Nombre = pla_Tarea_Nombre;
+            this.Per_Personal_Nombre_Admin = per_Personal_Nombre_Admin;
+            this.Valor_Suma_Movs = valor_Suma_Movs;
+            this.Com_Procedimiento_Tipo = com_Procedimiento_Tipo;
+            this.Com_Procedimiento_Nombre = com_Procedimiento_Nombre;
+            this.Per_Personal_Nombre_Resp_Exp = per_Personal_Nombre_Resp_Exp;
+            this.Per_Personal_Id_Solicita = per_Personal_Id_Solicita;
+            this.Per_Personal_Nombre_Solicita = per_Personal_Nombre_Solicita;
         }
         
         public Com_Contrato(Com_Contrato o)
@@ -124,6 +179,17 @@ namespace AEL.COM
             this.Porcentaje_Anticipo_Contrato = o.Porcentaje_Anticipo_Contrato;
             this.Per_Personal_Id_Admin = o.Per_Personal_Id_Admin;
             this.Desc_Contrata = o.Desc_Contrata;
+            this.Fecha_Crea = o.Fecha_Crea;
+            this.Pla_Tarea_Id = o.Pla_Tarea_Id;
+            this.Pla_Tarea_Codigo = o.Pla_Tarea_Codigo;
+            this.Pla_Tarea_Nombre = o.Pla_Tarea_Nombre;
+            this.Per_Personal_Nombre_Admin = o.Per_Personal_Nombre_Admin;
+            this.Valor_Suma_Movs = o.Valor_Suma_Movs;
+            this.Com_Procedimiento_Tipo = o.Com_Procedimiento_Tipo;
+            this.Com_Procedimiento_Nombre = o.Com_Procedimiento_Nombre;
+            this.Per_Personal_Nombre_Resp_Exp = o.Per_Personal_Nombre_Resp_Exp;
+            this.Per_Personal_Id_Solicita = o.Per_Personal_Id_Solicita;
+            this.Per_Personal_Nombre_Solicita = o.Per_Personal_Nombre_Solicita;
         }
         
         // Comentario
@@ -331,6 +397,149 @@ namespace AEL.COM
             set
             {
                 this._Desc_Contrata = value;
+            }
+        }
+        
+        // Comentario
+        public System.DateTime Fecha_Crea
+        {
+            get
+            {
+                return this._Fecha_Crea;
+            }
+            set
+            {
+                this._Fecha_Crea = value;
+            }
+        }
+        
+        // Comentario
+        public int Pla_Tarea_Id
+        {
+            get
+            {
+                return this._Pla_Tarea_Id;
+            }
+            set
+            {
+                this._Pla_Tarea_Id = value;
+            }
+        }
+        
+        // Comentario
+        public string Pla_Tarea_Codigo
+        {
+            get
+            {
+                return this._Pla_Tarea_Codigo;
+            }
+            set
+            {
+                this._Pla_Tarea_Codigo = value;
+            }
+        }
+        
+        // Comentario
+        public string Pla_Tarea_Nombre
+        {
+            get
+            {
+                return this._Pla_Tarea_Nombre;
+            }
+            set
+            {
+                this._Pla_Tarea_Nombre = value;
+            }
+        }
+        
+        // Comentario
+        public string Per_Personal_Nombre_Admin
+        {
+            get
+            {
+                return this._Per_Personal_Nombre_Admin;
+            }
+            set
+            {
+                this._Per_Personal_Nombre_Admin = value;
+            }
+        }
+        
+        // Comentario
+        public decimal Valor_Suma_Movs
+        {
+            get
+            {
+                return this._Valor_Suma_Movs;
+            }
+            set
+            {
+                this._Valor_Suma_Movs = value;
+            }
+        }
+        
+        // Comentario
+        public string Com_Procedimiento_Tipo
+        {
+            get
+            {
+                return this._Com_Procedimiento_Tipo;
+            }
+            set
+            {
+                this._Com_Procedimiento_Tipo = value;
+            }
+        }
+        
+        // Comentario
+        public string Com_Procedimiento_Nombre
+        {
+            get
+            {
+                return this._Com_Procedimiento_Nombre;
+            }
+            set
+            {
+                this._Com_Procedimiento_Nombre = value;
+            }
+        }
+        
+        // Comentario
+        public string Per_Personal_Nombre_Resp_Exp
+        {
+            get
+            {
+                return this._Per_Personal_Nombre_Resp_Exp;
+            }
+            set
+            {
+                this._Per_Personal_Nombre_Resp_Exp = value;
+            }
+        }
+        
+        // Comentario
+        public string Per_Personal_Id_Solicita
+        {
+            get
+            {
+                return this._Per_Personal_Id_Solicita;
+            }
+            set
+            {
+                this._Per_Personal_Id_Solicita = value;
+            }
+        }
+        
+        // Comentario
+        public string Per_Personal_Nombre_Solicita
+        {
+            get
+            {
+                return this._Per_Personal_Nombre_Solicita;
+            }
+            set
+            {
+                this._Per_Personal_Nombre_Solicita = value;
             }
         }
     }

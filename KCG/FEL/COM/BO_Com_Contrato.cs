@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 using HER;
-
+ 
 namespace FEL.COM
 {
     [DataObject]
@@ -53,14 +53,44 @@ namespace FEL.COM
         #region Procedimientos Get
 		// Procedimientos Get
 		#region Métodos Get
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Com_Contrato> GetById(Scope s , Int32 p_Id, string sortExpression="")
+        {
+			List<Com_Contrato> lista = new List<Com_Contrato>(
+				Adapter.Com_Contrato_GetById(s,  p_Id));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Com_Contrato_Comparar(sortExpression));
+            return lista;
+        }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Com_Contrato> GetByLikePla_Tarea_Nombre(Scope s , string p_Pla_Tarea_Nombre, string sortExpression="")
+        {
+			List<Com_Contrato> lista = new List<Com_Contrato>(
+				Adapter.Com_Contrato_GetByLikePla_Tarea_Nombre(s,  p_Pla_Tarea_Nombre));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Com_Contrato_Comparar(sortExpression));
+            return lista;
+        }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Com_Contrato> GetByPla_Tarea_Codigo(Scope s , string p_Pla_Tarea_Codigo, string sortExpression="")
+        {
+			List<Com_Contrato> lista = new List<Com_Contrato>(
+				Adapter.Com_Contrato_GetByPla_Tarea_Codigo(s,  p_Pla_Tarea_Codigo));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Com_Contrato_Comparar(sortExpression));
+            return lista;
+        }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Com_Contrato> GetByRangoFecha_Crea(Scope s , DateTime p_Fecha_Crea_Ini, DateTime p_Fecha_Crea_Fin, string sortExpression="")
+        {
+			List<Com_Contrato> lista = new List<Com_Contrato>(
+				Adapter.Com_Contrato_GetByRangoFecha_Crea(s,  p_Fecha_Crea_Ini, p_Fecha_Crea_Fin));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Com_Contrato_Comparar(sortExpression));
+            return lista;
+        }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
-		 // InsertINT
-		[DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
-		public int InsertINT(Com_Contrato n)
-        {            
-            return Adapter.Com_Contrato_InsertINT(n);
-        }
 		#endregion
 		#endregion
     }
@@ -137,6 +167,46 @@ namespace FEL.COM
 				// System.String
                 case "Desc_Contrata":
                     retVal =  string.Compare(x.Desc_Contrata, y.Desc_Contrata);
+                    break;
+			   // System.DateTime
+                case "Fecha_Crea":
+                    retVal =  DateTime.Compare(x.Fecha_Crea, y.Fecha_Crea);
+                    break;
+              // System.Int32
+                case "Pla_Tarea_Id":
+                    retVal =  x.Pla_Tarea_Id - y.Pla_Tarea_Id ;
+                    break;
+				// System.String
+                case "Pla_Tarea_Codigo":
+                    retVal =  string.Compare(x.Pla_Tarea_Codigo, y.Pla_Tarea_Codigo);
+                    break;
+				// System.String
+                case "Pla_Tarea_Nombre":
+                    retVal =  string.Compare(x.Pla_Tarea_Nombre, y.Pla_Tarea_Nombre);
+                    break;
+				// System.String
+                case "Per_Personal_Nombre_Admin":
+                    retVal =  string.Compare(x.Per_Personal_Nombre_Admin, y.Per_Personal_Nombre_Admin);
+                    break;
+				// System.String
+                case "Com_Procedimiento_Tipo":
+                    retVal =  string.Compare(x.Com_Procedimiento_Tipo, y.Com_Procedimiento_Tipo);
+                    break;
+				// System.String
+                case "Com_Procedimiento_Nombre":
+                    retVal =  string.Compare(x.Com_Procedimiento_Nombre, y.Com_Procedimiento_Nombre);
+                    break;
+				// System.String
+                case "Per_Personal_Nombre_Resp_Exp":
+                    retVal =  string.Compare(x.Per_Personal_Nombre_Resp_Exp, y.Per_Personal_Nombre_Resp_Exp);
+                    break;
+				// System.String
+                case "Per_Personal_Id_Solicita":
+                    retVal =  string.Compare(x.Per_Personal_Id_Solicita, y.Per_Personal_Id_Solicita);
+                    break;
+				// System.String
+                case "Per_Personal_Nombre_Solicita":
+                    retVal =  string.Compare(x.Per_Personal_Nombre_Solicita, y.Per_Personal_Nombre_Solicita);
                     break;
             }
             return (retVal * (_reverse ? -1 : 1));
