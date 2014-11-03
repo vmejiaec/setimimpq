@@ -9,10 +9,10 @@ namespace zPruebas
         static void Main(string[] args)
         {
             //Parámetros 
-            string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Planificacion.xsd";
-            string NameSpace = "AEL.PLA";
-            //string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Compras.xsd";
-            //string NameSpace = "AEL.COM";
+            //string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Planificacion.xsd";
+            //string NameSpace = "AEL.PLA";
+            string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Compras.xsd";
+            string NameSpace = "AEL.COM";
             ExtraeMetaDatos datos = new ExtraeMetaDatos(PathXSD);
             Generador gen = new Generador();
             gen.CrearClasesAEL(datos, NameSpace);

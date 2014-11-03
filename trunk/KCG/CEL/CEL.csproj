@@ -131,11 +131,21 @@
     <Compile Include="AUD\DO_Aud_Log.cs" />
     <Compile Include="AUD\DO_Aud_Par_Auditoria.cs" />
     <Compile Include="AUD\DO_Aud_Par_Log.cs" />
-    <Compile Include="COM\DO_Com_Contrato.cs" />
-    <Compile Include="COM\DO_Com_Contrato_DocTec.cs" />
-    <Compile Include="COM\DO_Com_Contrato_Oferente.cs" />
-    <Compile Include="COM\DO_Com_DocTec.cs" />
-    <Compile Include="COM\DO_Com_Procedimiento.cs" />
+    <Compile Include="COM\DO_Com_Contrato.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="COM\DO_Com_Contrato_DocTec.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="COM\DO_Com_Contrato_Oferente.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="COM\DO_Com_DocTec.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="COM\DO_Com_Procedimiento.cs">
+      <DependentUpon>generaCEL.txt4</DependentUpon>
+    </Compile>
     <Compile Include="DIC\DO_Dic_Campo.cs" />
     <Compile Include="DIC\DO_Dic_Codigo.cs" />
     <Compile Include="DIC\DO_Dic_Contenedor.cs" />
@@ -185,30 +195,14 @@
     <Compile Include="PAR\DO_Par_Servidor_Det.cs" />
     <Compile Include="PAR\DO_Par_Tipo_Identificacion.cs" />
     <Compile Include="PER\DO_Per_Personal.cs" />
-    <Compile Include="PLA\DO_Pla_Cta.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
-    <Compile Include="PLA\DO_Pla_Doc.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
-    <Compile Include="PLA\DO_Pla_Mov.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
-    <Compile Include="PLA\DO_Pla_Param.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
-    <Compile Include="PLA\DO_Pla_Partida.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
-    <Compile Include="PLA\DO_Pla_PersonalDatos.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
-    <Compile Include="PLA\DO_Pla_Poa.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
-    <Compile Include="PLA\DO_Pla_Tarea.cs">
-      <DependentUpon>generaCEL.txt4</DependentUpon>
-    </Compile>
+    <Compile Include="PLA\DO_Pla_Cta.cs" />
+    <Compile Include="PLA\DO_Pla_Doc.cs" />
+    <Compile Include="PLA\DO_Pla_Mov.cs" />
+    <Compile Include="PLA\DO_Pla_Param.cs" />
+    <Compile Include="PLA\DO_Pla_Partida.cs" />
+    <Compile Include="PLA\DO_Pla_PersonalDatos.cs" />
+    <Compile Include="PLA\DO_Pla_Poa.cs" />
+    <Compile Include="PLA\DO_Pla_Tarea.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SEG\DO_Seg_Menu.cs" />
     <Compile Include="SEG\DO_Seg_Rol.cs" />
@@ -274,7 +268,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="PLA\generaCEL.txt4" />
+    <None Include="COM\generaCEL.txt4" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
