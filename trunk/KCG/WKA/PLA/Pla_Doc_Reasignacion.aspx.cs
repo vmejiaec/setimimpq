@@ -281,8 +281,8 @@ public partial class PLA_Pla_Doc_Reasignacion : PaginaBase
     // Si no hay filas en el GridView entonces el FormView cambia a modo Insert
     protected void fvPla_Doc_DataBound(object sender, EventArgs e)
     {
-        if (gvPla_Doc.Rows.Count == 0)
-            fvPla_Doc.ChangeMode(FormViewMode.Insert);
+        //if (gvPla_Doc.Rows.Count == 0)
+        //    fvPla_Doc.ChangeMode(FormViewMode.Insert);
     }
     #endregion
     // Eventos para el ObjectDataSource de Pla_Doc
