@@ -99,6 +99,33 @@ namespace AEL.COM
         // Comentario
         private string _Per_Personal_Nombre_Solicita;
         
+        // Comentario
+        private string _Par_Razon_Social_Nombre_Contratista;
+        
+        // Comentario
+        private string _Par_Razon_Social_Numero_Contratista;
+        
+        // Comentario
+        private string _Pla_Doc_Cedula_Presup_Codigo;
+        
+        // Comentario
+        private string _Pla_Doc_CPC_Codigo;
+        
+        // Comentario
+        private string _Pla_Doc_PAC_Linea;
+        
+        // Comentario
+        private string _Pla_Doc_Codigo;
+        
+        // Comentario
+        private int _Pla_Cta_Id;
+        
+        // Comentario
+        private string _Pla_Cta_Codigo;
+        
+        // Comentario
+        private string _Pla_Cta_Nombre;
+        
         public Com_Contrato()
         {
         }
@@ -130,7 +157,16 @@ namespace AEL.COM
                     string com_Procedimiento_Nombre, 
                     string per_Personal_Nombre_Resp_Exp, 
                     string per_Personal_Id_Solicita, 
-                    string per_Personal_Nombre_Solicita)
+                    string per_Personal_Nombre_Solicita, 
+                    string par_Razon_Social_Nombre_Contratista, 
+                    string par_Razon_Social_Numero_Contratista, 
+                    string pla_Doc_Cedula_Presup_Codigo, 
+                    string pla_Doc_CPC_Codigo, 
+                    string pla_Doc_PAC_Linea, 
+                    string pla_Doc_Codigo, 
+                    int pla_Cta_Id, 
+                    string pla_Cta_Codigo, 
+                    string pla_Cta_Nombre)
         {
             this.Id = id;
             this.Pla_Doc_Id = pla_Doc_Id;
@@ -159,6 +195,15 @@ namespace AEL.COM
             this.Per_Personal_Nombre_Resp_Exp = per_Personal_Nombre_Resp_Exp;
             this.Per_Personal_Id_Solicita = per_Personal_Id_Solicita;
             this.Per_Personal_Nombre_Solicita = per_Personal_Nombre_Solicita;
+            this.Par_Razon_Social_Nombre_Contratista = par_Razon_Social_Nombre_Contratista;
+            this.Par_Razon_Social_Numero_Contratista = par_Razon_Social_Numero_Contratista;
+            this.Pla_Doc_Cedula_Presup_Codigo = pla_Doc_Cedula_Presup_Codigo;
+            this.Pla_Doc_CPC_Codigo = pla_Doc_CPC_Codigo;
+            this.Pla_Doc_PAC_Linea = pla_Doc_PAC_Linea;
+            this.Pla_Doc_Codigo = pla_Doc_Codigo;
+            this.Pla_Cta_Id = pla_Cta_Id;
+            this.Pla_Cta_Codigo = pla_Cta_Codigo;
+            this.Pla_Cta_Nombre = pla_Cta_Nombre;
         }
         
         public Com_Contrato(Com_Contrato o)
@@ -190,6 +235,15 @@ namespace AEL.COM
             this.Per_Personal_Nombre_Resp_Exp = o.Per_Personal_Nombre_Resp_Exp;
             this.Per_Personal_Id_Solicita = o.Per_Personal_Id_Solicita;
             this.Per_Personal_Nombre_Solicita = o.Per_Personal_Nombre_Solicita;
+            this.Par_Razon_Social_Nombre_Contratista = o.Par_Razon_Social_Nombre_Contratista;
+            this.Par_Razon_Social_Numero_Contratista = o.Par_Razon_Social_Numero_Contratista;
+            this.Pla_Doc_Cedula_Presup_Codigo = o.Pla_Doc_Cedula_Presup_Codigo;
+            this.Pla_Doc_CPC_Codigo = o.Pla_Doc_CPC_Codigo;
+            this.Pla_Doc_PAC_Linea = o.Pla_Doc_PAC_Linea;
+            this.Pla_Doc_Codigo = o.Pla_Doc_Codigo;
+            this.Pla_Cta_Id = o.Pla_Cta_Id;
+            this.Pla_Cta_Codigo = o.Pla_Cta_Codigo;
+            this.Pla_Cta_Nombre = o.Pla_Cta_Nombre;
         }
         
         // Comentario
@@ -540,6 +594,123 @@ namespace AEL.COM
             set
             {
                 this._Per_Personal_Nombre_Solicita = value;
+            }
+        }
+        
+        // Comentario
+        public string Par_Razon_Social_Nombre_Contratista
+        {
+            get
+            {
+                return this._Par_Razon_Social_Nombre_Contratista;
+            }
+            set
+            {
+                this._Par_Razon_Social_Nombre_Contratista = value;
+            }
+        }
+        
+        // Comentario
+        public string Par_Razon_Social_Numero_Contratista
+        {
+            get
+            {
+                return this._Par_Razon_Social_Numero_Contratista;
+            }
+            set
+            {
+                this._Par_Razon_Social_Numero_Contratista = value;
+            }
+        }
+        
+        // Comentario
+        public string Pla_Doc_Cedula_Presup_Codigo
+        {
+            get
+            {
+                return this._Pla_Doc_Cedula_Presup_Codigo;
+            }
+            set
+            {
+                this._Pla_Doc_Cedula_Presup_Codigo = value;
+            }
+        }
+        
+        // Comentario
+        public string Pla_Doc_CPC_Codigo
+        {
+            get
+            {
+                return this._Pla_Doc_CPC_Codigo;
+            }
+            set
+            {
+                this._Pla_Doc_CPC_Codigo = value;
+            }
+        }
+        
+        // Comentario
+        public string Pla_Doc_PAC_Linea
+        {
+            get
+            {
+                return this._Pla_Doc_PAC_Linea;
+            }
+            set
+            {
+                this._Pla_Doc_PAC_Linea = value;
+            }
+        }
+        
+        // Comentario
+        public string Pla_Doc_Codigo
+        {
+            get
+            {
+                return this._Pla_Doc_Codigo;
+            }
+            set
+            {
+                this._Pla_Doc_Codigo = value;
+            }
+        }
+        
+        // Comentario
+        public int Pla_Cta_Id
+        {
+            get
+            {
+                return this._Pla_Cta_Id;
+            }
+            set
+            {
+                this._Pla_Cta_Id = value;
+            }
+        }
+        
+        // Comentario
+        public string Pla_Cta_Codigo
+        {
+            get
+            {
+                return this._Pla_Cta_Codigo;
+            }
+            set
+            {
+                this._Pla_Cta_Codigo = value;
+            }
+        }
+        
+        // Comentario
+        public string Pla_Cta_Nombre
+        {
+            get
+            {
+                return this._Pla_Cta_Nombre;
+            }
+            set
+            {
+                this._Pla_Cta_Nombre = value;
             }
         }
     }

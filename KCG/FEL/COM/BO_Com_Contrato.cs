@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel;
-using HER;
- 
+using HER; 
+
 namespace FEL.COM
 {
     [DataObject]
@@ -54,6 +54,15 @@ namespace FEL.COM
 		// Procedimientos Get
 		#region Métodos Get
 		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Com_Contrato> GetByCodigo_Sercop(Scope s , string p_Codigo_Sercop, string sortExpression="")
+        {
+			List<Com_Contrato> lista = new List<Com_Contrato>(
+				Adapter.Com_Contrato_GetByCodigo_Sercop(s,  p_Codigo_Sercop));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Com_Contrato_Comparar(sortExpression));
+            return lista;
+        }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
 		public List<Com_Contrato> GetById(Scope s , Int32 p_Id, string sortExpression="")
         {
 			List<Com_Contrato> lista = new List<Com_Contrato>(
@@ -91,6 +100,12 @@ namespace FEL.COM
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+		 // InsertINT
+		[DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
+		public int InsertINT(Com_Contrato n)
+        {            
+            return Adapter.Com_Contrato_InsertINT(n);
+        }
 		#endregion
 		#endregion
     }
@@ -207,6 +222,42 @@ namespace FEL.COM
 				// System.String
                 case "Per_Personal_Nombre_Solicita":
                     retVal =  string.Compare(x.Per_Personal_Nombre_Solicita, y.Per_Personal_Nombre_Solicita);
+                    break;
+				// System.String
+                case "Par_Razon_Social_Nombre_Contratista":
+                    retVal =  string.Compare(x.Par_Razon_Social_Nombre_Contratista, y.Par_Razon_Social_Nombre_Contratista);
+                    break;
+				// System.String
+                case "Par_Razon_Social_Numero_Contratista":
+                    retVal =  string.Compare(x.Par_Razon_Social_Numero_Contratista, y.Par_Razon_Social_Numero_Contratista);
+                    break;
+				// System.String
+                case "Pla_Doc_Cedula_Presup_Codigo":
+                    retVal =  string.Compare(x.Pla_Doc_Cedula_Presup_Codigo, y.Pla_Doc_Cedula_Presup_Codigo);
+                    break;
+				// System.String
+                case "Pla_Doc_CPC_Codigo":
+                    retVal =  string.Compare(x.Pla_Doc_CPC_Codigo, y.Pla_Doc_CPC_Codigo);
+                    break;
+				// System.String
+                case "Pla_Doc_PAC_Linea":
+                    retVal =  string.Compare(x.Pla_Doc_PAC_Linea, y.Pla_Doc_PAC_Linea);
+                    break;
+				// System.String
+                case "Pla_Doc_Codigo":
+                    retVal =  string.Compare(x.Pla_Doc_Codigo, y.Pla_Doc_Codigo);
+                    break;
+              // System.Int32
+                case "Pla_Cta_Id":
+                    retVal =  x.Pla_Cta_Id - y.Pla_Cta_Id ;
+                    break;
+				// System.String
+                case "Pla_Cta_Codigo":
+                    retVal =  string.Compare(x.Pla_Cta_Codigo, y.Pla_Cta_Codigo);
+                    break;
+				// System.String
+                case "Pla_Cta_Nombre":
+                    retVal =  string.Compare(x.Pla_Cta_Nombre, y.Pla_Cta_Nombre);
                     break;
             }
             return (retVal * (_reverse ? -1 : 1));
