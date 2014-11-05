@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web.Services;
+using System.Web.Services; 
 
 using CEL.COM; // datos.xsdNombreIniciales
 using AEL.COM;
 using BEL;
- 
+
 namespace EWS
 {
     [WebService(Namespace = "http://koala.org/")]
@@ -271,6 +271,11 @@ namespace EWS
 		#endregion
 		#region Métodos Get
 		[WebMethod]
+		public List<Com_Contrato> Com_Contrato_GetByCodigo_Sercop(Scope s , string p_Codigo_Sercop)
+        {
+            return Com_Contrato.GetByCodigo_Sercop(s,  p_Codigo_Sercop);
+        }
+		[WebMethod]
 		public List<Com_Contrato> Com_Contrato_GetById(Scope s , Int32 p_Id)
         {
             return Com_Contrato.GetById(s,  p_Id);
@@ -292,6 +297,11 @@ namespace EWS
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+        public int Com_Contrato_InsertINT(Com_Contrato n)
+        {
+            return Com_Contrato.InsertINT(n);
+        }
 		#endregion
 		#endregion
 		}

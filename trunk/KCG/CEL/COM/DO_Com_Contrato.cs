@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
- 
+
 using ADL.ComprasTableAdapters;
-using AEL.COM;
+using AEL.COM; 
 using BEL;
 using System.Data.SqlClient;
 
@@ -48,7 +48,16 @@ fila.Com_Procedimiento_Tipo,
 fila.Com_Procedimiento_Nombre,
 fila.Per_Personal_Nombre_Resp_Exp,
 fila.Per_Personal_Id_Solicita,
-fila.Per_Personal_Nombre_Solicita
+fila.Per_Personal_Nombre_Solicita,
+fila.Par_Razon_Social_Nombre_Contratista,
+fila.Par_Razon_Social_Numero_Contratista,
+fila.Pla_Doc_Cedula_Presup_Codigo,
+fila.Pla_Doc_CPC_Codigo,
+fila.Pla_Doc_PAC_Linea,
+fila.Pla_Doc_Codigo,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre
 			));
         }
         return lista;
@@ -157,7 +166,55 @@ n.Id
         { throw (new Exception(e.Message)); }
         return res;
     } // xxx Fin de Update
-	// GetById
+	// GetByCodigo_Sercop
+		public List<Com_Contrato> GetByCodigo_Sercop (Scope s , string p_Codigo_Sercop)
+		{
+			List<Com_Contrato> lista = new List<Com_Contrato>();
+			var tabla = Adapter.GetByCodigo_Sercop( p_Codigo_Sercop);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new Com_Contrato(
+				fila.Id,
+fila.Pla_Doc_Id,
+fila.Estado,
+fila.Com_Procedimiento_Id,
+fila.Porcentaje_Anticipo_Ref,
+fila.Plazo_Ref,
+fila.Codigo_Sercop,
+fila.Per_Personal_Resp_Exp,
+fila.Fecha_Cierre_Rec_Ofertas,
+fila.Par_Razon_Social_Id_Contratista,
+fila.Valor_Contrato,
+fila.Plazo_Contrato,
+fila.Fecha_Inicio_Contrato,
+fila.Porcentaje_Anticipo_Contrato,
+fila.Per_Personal_Id_Admin,
+fila.Desc_Contrata,
+fila.Fecha_Crea,
+fila.Pla_Tarea_Id,
+fila.Pla_Tarea_Codigo,
+fila.Pla_Tarea_Nombre,
+fila.Per_Personal_Nombre_Admin,
+fila.Valor_Suma_Movs,
+fila.Com_Procedimiento_Tipo,
+fila.Com_Procedimiento_Nombre,
+fila.Per_Personal_Nombre_Resp_Exp,
+fila.Per_Personal_Id_Solicita,
+fila.Per_Personal_Nombre_Solicita,
+fila.Par_Razon_Social_Nombre_Contratista,
+fila.Par_Razon_Social_Numero_Contratista,
+fila.Pla_Doc_Cedula_Presup_Codigo,
+fila.Pla_Doc_CPC_Codigo,
+fila.Pla_Doc_PAC_Linea,
+fila.Pla_Doc_Codigo,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre
+				));
+			}
+			return lista;
+		}
+		// GetById
 		public List<Com_Contrato> GetById (Scope s , Int32 p_Id)
 		{
 			List<Com_Contrato> lista = new List<Com_Contrato>();
@@ -191,7 +248,16 @@ fila.Com_Procedimiento_Tipo,
 fila.Com_Procedimiento_Nombre,
 fila.Per_Personal_Nombre_Resp_Exp,
 fila.Per_Personal_Id_Solicita,
-fila.Per_Personal_Nombre_Solicita
+fila.Per_Personal_Nombre_Solicita,
+fila.Par_Razon_Social_Nombre_Contratista,
+fila.Par_Razon_Social_Numero_Contratista,
+fila.Pla_Doc_Cedula_Presup_Codigo,
+fila.Pla_Doc_CPC_Codigo,
+fila.Pla_Doc_PAC_Linea,
+fila.Pla_Doc_Codigo,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre
 				));
 			}
 			return lista;
@@ -230,7 +296,16 @@ fila.Com_Procedimiento_Tipo,
 fila.Com_Procedimiento_Nombre,
 fila.Per_Personal_Nombre_Resp_Exp,
 fila.Per_Personal_Id_Solicita,
-fila.Per_Personal_Nombre_Solicita
+fila.Per_Personal_Nombre_Solicita,
+fila.Par_Razon_Social_Nombre_Contratista,
+fila.Par_Razon_Social_Numero_Contratista,
+fila.Pla_Doc_Cedula_Presup_Codigo,
+fila.Pla_Doc_CPC_Codigo,
+fila.Pla_Doc_PAC_Linea,
+fila.Pla_Doc_Codigo,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre
 				));
 			}
 			return lista;
@@ -269,7 +344,16 @@ fila.Com_Procedimiento_Tipo,
 fila.Com_Procedimiento_Nombre,
 fila.Per_Personal_Nombre_Resp_Exp,
 fila.Per_Personal_Id_Solicita,
-fila.Per_Personal_Nombre_Solicita
+fila.Per_Personal_Nombre_Solicita,
+fila.Par_Razon_Social_Nombre_Contratista,
+fila.Par_Razon_Social_Numero_Contratista,
+fila.Pla_Doc_Cedula_Presup_Codigo,
+fila.Pla_Doc_CPC_Codigo,
+fila.Pla_Doc_PAC_Linea,
+fila.Pla_Doc_Codigo,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre
 				));
 			}
 			return lista;
@@ -308,10 +392,47 @@ fila.Com_Procedimiento_Tipo,
 fila.Com_Procedimiento_Nombre,
 fila.Per_Personal_Nombre_Resp_Exp,
 fila.Per_Personal_Id_Solicita,
-fila.Per_Personal_Nombre_Solicita
+fila.Per_Personal_Nombre_Solicita,
+fila.Par_Razon_Social_Nombre_Contratista,
+fila.Par_Razon_Social_Numero_Contratista,
+fila.Pla_Doc_Cedula_Presup_Codigo,
+fila.Pla_Doc_CPC_Codigo,
+fila.Pla_Doc_PAC_Linea,
+fila.Pla_Doc_Codigo,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre
 				));
 			}
 			return lista;
 		}
+		// InsertINT
+		public int InsertINT(Com_Contrato n)
+    {
+        int res;
+        try {
+            res = Convert.ToInt16( Adapter.InsertINT(
+				n.Pla_Doc_Id,
+n.Estado,
+n.Com_Procedimiento_Id,
+n.Porcentaje_Anticipo_Ref,
+n.Plazo_Ref,
+n.Codigo_Sercop,
+n.Per_Personal_Resp_Exp,
+n.Fecha_Cierre_Rec_Ofertas,
+n.Par_Razon_Social_Id_Contratista,
+n.Valor_Contrato,
+n.Plazo_Contrato,
+n.Fecha_Inicio_Contrato,
+n.Porcentaje_Anticipo_Contrato,
+n.Per_Personal_Id_Admin,
+n.Desc_Contrata,
+n.Fecha_Crea
+			));
+        }
+        catch (SqlException e)
+        { throw (new Exception( e.Message)); }
+        return res;
+    }
 	}
 }
