@@ -51,10 +51,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="generaCEL.cs">
+    <Compile Include="GeneraCapasCOM.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>generaCEL.tt</DependentUpon>
+      <DependentUpon>GeneraCapasCOM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="generaCapasPLA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>generaCapasPLA.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,9 +96,13 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>GeneraASP-GvFv.txt</LastGenOutput>
     </None>
-    <None Include="generaCEL.tt">
+    <None Include="GeneraCapasCOM.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>generaCEL.cs</LastGenOutput>
+      <LastGenOutput>GeneraCapasCOM.cs</LastGenOutput>
+    </None>
+    <None Include="generaCapasPLA.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>generaCapasPLA.cs</LastGenOutput>
       <Parameters>&lt;%3fxml version="1.0" encoding="utf-16"%3f&gt;
 &lt;ArrayOfParameterStorage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Parameters>
     </None>

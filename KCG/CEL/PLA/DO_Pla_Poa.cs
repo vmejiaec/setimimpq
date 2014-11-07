@@ -36,7 +36,8 @@ fila.Pla_Partida_Codigo,
 fila.Pla_Partida_Nombre,
 fila.Valor_Inicial,
 fila.Valor_Suma,
-fila.Valor_Suma_Movs_Reasignacion
+fila.Valor_Suma_Movs_Reasignacion,
+fila.Valor_Suma_Certificados
 			));
         }
         return lista;
@@ -119,7 +120,8 @@ fila.Pla_Partida_Codigo,
 fila.Pla_Partida_Nombre,
 fila.Valor_Inicial,
 fila.Valor_Suma,
-fila.Valor_Suma_Movs_Reasignacion
+fila.Valor_Suma_Movs_Reasignacion,
+fila.Valor_Suma_Certificados
 				));
 			}
 			return lista;
@@ -146,7 +148,8 @@ fila.Pla_Partida_Codigo,
 fila.Pla_Partida_Nombre,
 fila.Valor_Inicial,
 fila.Valor_Suma,
-fila.Valor_Suma_Movs_Reasignacion
+fila.Valor_Suma_Movs_Reasignacion,
+fila.Valor_Suma_Certificados
 				));
 			}
 			return lista;
@@ -173,7 +176,8 @@ fila.Pla_Partida_Codigo,
 fila.Pla_Partida_Nombre,
 fila.Valor_Inicial,
 fila.Valor_Suma,
-fila.Valor_Suma_Movs_Reasignacion
+fila.Valor_Suma_Movs_Reasignacion,
+fila.Valor_Suma_Certificados
 				));
 			}
 			return lista;
@@ -200,7 +204,8 @@ fila.Pla_Partida_Codigo,
 fila.Pla_Partida_Nombre,
 fila.Valor_Inicial,
 fila.Valor_Suma,
-fila.Valor_Suma_Movs_Reasignacion
+fila.Valor_Suma_Movs_Reasignacion,
+fila.Valor_Suma_Certificados
 				));
 			}
 			return lista;
