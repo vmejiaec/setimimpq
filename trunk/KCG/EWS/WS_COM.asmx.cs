@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web.Services; 
+using System.Web.Services;
 
 using CEL.COM; // datos.xsdNombreIniciales
 using AEL.COM;

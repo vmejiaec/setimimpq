@@ -911,6 +911,8 @@ namespace ADL {
             
             private global::System.Data.DataColumn columnValor_Suma_Movs_Reasignacion;
             
+            private global::System.Data.DataColumn columnValor_Suma_Certificados;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Pla_PoaDataTable() {
@@ -1066,6 +1068,14 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Valor_Suma_CertificadosColumn {
+                get {
+                    return this.columnValor_Suma_Certificados;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1101,7 +1111,7 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Pla_PoaRow AddPla_PoaRow(string Codigo, int Pla_Tarea_Id, int Pla_Partida_Id, string Estado, string Pla_Tarea_Codigo, string Pla_Tarea_Nombre, int Pla_Cta_Id, string Pla_Cta_Codigo, string Pla_Cta_Nombre, string Pla_Partida_Codigo, string Pla_Partida_Nombre, decimal Valor_Inicial, decimal Valor_Suma, decimal Valor_Suma_Movs_Reasignacion) {
+            public Pla_PoaRow AddPla_PoaRow(string Codigo, int Pla_Tarea_Id, int Pla_Partida_Id, string Estado, string Pla_Tarea_Codigo, string Pla_Tarea_Nombre, int Pla_Cta_Id, string Pla_Cta_Codigo, string Pla_Cta_Nombre, string Pla_Partida_Codigo, string Pla_Partida_Nombre, decimal Valor_Inicial, decimal Valor_Suma, decimal Valor_Suma_Movs_Reasignacion, decimal Valor_Suma_Certificados) {
                 Pla_PoaRow rowPla_PoaRow = ((Pla_PoaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1118,7 +1128,8 @@ namespace ADL {
                         Pla_Partida_Nombre,
                         Valor_Inicial,
                         Valor_Suma,
-                        Valor_Suma_Movs_Reasignacion};
+                        Valor_Suma_Movs_Reasignacion,
+                        Valor_Suma_Certificados};
                 rowPla_PoaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPla_PoaRow);
                 return rowPla_PoaRow;
@@ -1163,6 +1174,7 @@ namespace ADL {
                 this.columnValor_Inicial = base.Columns["Valor_Inicial"];
                 this.columnValor_Suma = base.Columns["Valor_Suma"];
                 this.columnValor_Suma_Movs_Reasignacion = base.Columns["Valor_Suma_Movs_Reasignacion"];
+                this.columnValor_Suma_Certificados = base.Columns["Valor_Suma_Certificados"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1198,6 +1210,8 @@ namespace ADL {
                 base.Columns.Add(this.columnValor_Suma);
                 this.columnValor_Suma_Movs_Reasignacion = new global::System.Data.DataColumn("Valor_Suma_Movs_Reasignacion", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnValor_Suma_Movs_Reasignacion);
+                this.columnValor_Suma_Certificados = new global::System.Data.DataColumn("Valor_Suma_Certificados", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnValor_Suma_Certificados);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -1228,6 +1242,7 @@ namespace ADL {
                 this.columnValor_Inicial.ReadOnly = true;
                 this.columnValor_Suma.ReadOnly = true;
                 this.columnValor_Suma_Movs_Reasignacion.ReadOnly = true;
+                this.columnValor_Suma_Certificados.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4479,6 +4494,22 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Valor_Suma_Certificados {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablePla_Poa.Valor_Suma_CertificadosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Valor_Suma_Certificados\' in table \'Pla_Poa\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Poa.Valor_Suma_CertificadosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPla_Tarea_CodigoNull() {
                 return this.IsNull(this.tablePla_Poa.Pla_Tarea_CodigoColumn);
             }
@@ -4595,6 +4626,18 @@ namespace ADL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetValor_Suma_Movs_ReasignacionNull() {
                 this[this.tablePla_Poa.Valor_Suma_Movs_ReasignacionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsValor_Suma_CertificadosNull() {
+                return this.IsNull(this.tablePla_Poa.Valor_Suma_CertificadosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetValor_Suma_CertificadosNull() {
+                this[this.tablePla_Poa.Valor_Suma_CertificadosColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7660,6 +7703,7 @@ namespace ADL.PlanificacionTableAdapters {
             tableMapping.ColumnMappings.Add("Valor_Inicial", "Valor_Inicial");
             tableMapping.ColumnMappings.Add("Valor_Suma", "Valor_Suma");
             tableMapping.ColumnMappings.Add("Valor_Suma_Movs_Reasignacion", "Valor_Suma_Movs_Reasignacion");
+            tableMapping.ColumnMappings.Add("Valor_Suma_Certificados", "Valor_Suma_Certificados");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;

@@ -1,0 +1,420 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="$(ProjectDir)\bin\Debug\GeneraClases.dll" #>
+<#@ import namespace="zGeneraClases" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Reflection" #>
+<#@ include file="$(ProjectDir)\TemplateFilemanager.ttinclude" #>
+<#
+	//Parámetros 
+	string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Planificacion.xsd";
+	string Iniciales = "PLA";
+	//string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Compras.xsd";
+	//string Iniciales = "COM";
+	//Proceso
+	var manager = TemplateFileManager.Create(this);
+	ExtraeMetaDatos datos = new ExtraeMetaDatos(PathXSD);
+	// Genera los archivos CEL
+	foreach ( genTabla tabla in datos.BaseDatos)
+    {
+		manager.StartNewFile(projectName:"CEL", folderName:Iniciales, name: "DO_"+ tabla.Nombre +".cs" );
+		ClaseDO(datos.xsdNombre, datos.xsdNombreIniciales, tabla);
+	}
+	// Genera el servicio Web
+	manager.StartNewFile(projectName:"EWS", name: "WS_"+ datos.xsdNombreIniciales +".asmx.cs" );
+	ClaseWS(datos);
+	// Genera las clases FEL
+	foreach ( genTabla tabla in datos.BaseDatos)
+    {
+		manager.StartNewFile(projectName:"FEL", folderName:Iniciales, name: "BO_"+ tabla.Nombre +".cs" );
+		ClaseFEL(datos.xsdNombre, datos.xsdNombreIniciales, tabla);
+	}
+	// Crea los arhivos 
+	manager.Process();	
+#>
+
+<#+  
+private void ClaseFEL(string xsdNombre, string xsdNombreIniciales, genTabla tabla)
+{
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.ComponentModel;
+using HER;
+
+namespace FEL.<#= xsdNombreIniciales #>
+{
+    [DataObject]
+    public partial class BO_<#= tabla.Nombre #>
+    {
+        #region Adaptador
+        private WS_<#= xsdNombreIniciales #> _Adapter;
+        public WS_<#= xsdNombreIniciales #> Adapter
+        {
+            get {
+                if (_Adapter == null) _Adapter = new WS_<#= xsdNombreIniciales #>();
+                return _Adapter; }
+        }
+        #endregion
+        #region Select
+		// Select
+        [DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+        public List<<#= tabla.Nombre #>> Get(Scope s,string sortExpression="")
+        {
+            List<<#= tabla.Nombre #>> lista = new List<<#= tabla.Nombre #>>(Adapter.<#= tabla.Nombre #>_Get(s));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new <#= tabla.Nombre #>_Comparar(sortExpression));
+            return lista;
+        }
+        #endregion
+        #region Insert, Update, Delete
+		// Insert
+        [DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
+        public int Insert(<#= tabla.Nombre #> n)
+        {            
+            return Adapter.<#= tabla.Nombre #>_Insert(n);
+        }
+		// Delete
+        [DataObjectMethodAttribute(DataObjectMethodType.Delete, false)]
+        public int Delete(<#= tabla.Nombre #> o)
+        {            
+            return Adapter.<#= tabla.Nombre #>_Delete(o);
+        }
+		// Update
+        [DataObjectMethodAttribute(DataObjectMethodType.Update, false)]
+        public int Update(<#= tabla.Nombre #> o, <#= tabla.Nombre #> n)
+        {            
+            return Adapter.<#= tabla.Nombre #>_Update(o, n);
+        }
+        #endregion
+        #region Procedimientos Get
+		// Procedimientos Get
+		#region Métodos Get
+		<#+  foreach ( var proc in tabla.ProcGenericosGet) {
+		#>[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<<#= tabla.Nombre #>> <#= proc.ProcNombre #>(Scope s <#= proc.listaParamsMET() #>, string sortExpression="")
+        {
+			List<<#= tabla.Nombre #>> lista = new List<<#= tabla.Nombre #>>(
+				Adapter.<#= tabla.Nombre #>_<#= proc.ProcNombre #>(s, <#= proc.listaParamsSP() #>));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new <#= tabla.Nombre #>_Comparar(sortExpression));
+            return lista;
+        }
+		<#+  } 
+		#>#endregion
+		#region Métodos Genéricos retornan un escalar
+		<#+  foreach ( var proc in tabla.ProcGenericosScalar) {
+		#> // <#= proc.ProcNombre #>
+		<#+ if ( proc.ProcNombre == "InsertINT" ) {
+		#>[DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
+		public int InsertINT(<#= tabla.Nombre #> n)
+        {            
+            return Adapter.<#= tabla.Nombre #>_InsertINT(n);
+        }
+		<#+ } else { #>
+		public <#= proc.TipoDevueltoEscalar #> <#= tabla.Nombre #>_<#= proc.ProcNombre #>(Scope s <#= proc.listaParamsMET() #>)
+        {
+			<#= proc.TipoDevueltoEscalar #> res = 
+				Adapter.<#= tabla.Nombre #>_<#= proc.ProcNombre #>(s, <#= proc.listaParamsSP() #>);
+            return res;
+        }
+		<#+ } }
+		#>#endregion
+		#endregion
+    }
+
+	// Clase para ordenar las listas
+	#region Ordenar la lista
+    class <#= tabla.Nombre #>_Comparar : IComparer<<#= tabla.Nombre #>>
+    {
+        private bool _reverse;
+        private string _sortColumn;
+
+        public <#= tabla.Nombre #>_Comparar(string sortExpression)
+        {
+            _reverse = sortExpression.ToLowerInvariant().EndsWith(" desc");
+            if (_reverse)
+                _sortColumn = sortExpression.Substring(0, sortExpression.Length - 5);
+            else
+                _sortColumn = sortExpression;
+        }
+
+        public int Compare(<#= tabla.Nombre #> x, <#= tabla.Nombre #> y)
+        {
+            int retVal = 0;
+            switch (_sortColumn)
+            {
+<#+ foreach(var campo in tabla.Campos) {
+	{
+		switch(campo.Tipo.ToString()){
+			case "System.Int32":
+#>              // <#= campo.Tipo.ToString() #>
+                case "<#= campo.propiedad #>":
+                    retVal =  x.<#= campo.propiedad #> - y.<#= campo.propiedad #> ;
+                    break;
+<#+				break;
+			case "System.String":#>
+				// <#= campo.Tipo #>
+                case "<#= campo.propiedad #>":
+                    retVal =  string.Compare(x.<#= campo.propiedad #>, y.<#= campo.propiedad #>);
+                    break;
+<#+				break;
+			case "System.DateTime":#>
+			   // <#= campo.Tipo #>
+                case "<#= campo.propiedad #>":
+                    retVal =  DateTime.Compare(x.<#= campo.propiedad #>, y.<#= campo.propiedad #>);
+                    break;
+<#+				break;
+		}}} #>
+            }
+            return (retVal * (_reverse ? -1 : 1));
+        }
+    }
+    #endregion
+}
+<#+ 
+} #>
+
+<#+  
+private void ClaseWS(ExtraeMetaDatos datos)
+{
+#>
+using System;
+using System.Collections.Generic;
+using System.Web.Services;
+
+using CEL.<#= datos.xsdNombreIniciales #>; // datos.xsdNombreIniciales
+using AEL.<#= datos.xsdNombreIniciales #>;
+using BEL;
+
+namespace EWS
+{
+    [WebService(Namespace = "http://koala.org/")]
+    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+    [System.ComponentModel.ToolboxItem(false)]
+    [System.Web.Script.Services.ScriptService]
+    public class WS_<#= datos.xsdNombreIniciales #> : System.Web.Services.WebService
+    {
+	<#+ foreach (var tabla in datos.BaseDatos){ #>
+    #region Servicios para <#= tabla.Nombre #>
+        private DO_<#= tabla.Nombre #> _<#= tabla.Nombre #>;
+        public DO_<#= tabla.Nombre #> <#= tabla.Nombre #> {
+            get {
+                if (_<#= tabla.Nombre #> == null)
+                    _<#= tabla.Nombre #> = new DO_<#= tabla.Nombre #>();
+                return _<#= tabla.Nombre #>;
+            }
+        }
+
+		#region Select
+		[WebMethod]
+        public List<<#= tabla.Nombre #>> <#= tabla.Nombre #>_Get(Scope s)
+        {
+            return <#= tabla.Nombre #>.Get(s);
+        }
+		#endregion
+		#region Insert, Delete, Update
+		[WebMethod]
+        public int <#= tabla.Nombre #>_Insert(<#= tabla.Nombre #> n)
+        {
+            return <#= tabla.Nombre #>.Insert(n);
+        }
+		[WebMethod]
+        public int <#= tabla.Nombre #>_Delete(<#= tabla.Nombre #> o)
+        {
+            return <#= tabla.Nombre #>.Delete(o);
+        }
+		[WebMethod]
+        public int <#= tabla.Nombre #>_Update(<#= tabla.Nombre #> o,<#= tabla.Nombre #> n)
+        {
+            return <#= tabla.Nombre #>.Update(o, n);
+        }
+		#endregion
+		#region Métodos Get
+		<#+  foreach ( var proc in tabla.ProcGenericosGet) {
+		#>[WebMethod]
+		public List<<#= tabla.Nombre #>> <#= tabla.Nombre #>_<#= proc.ProcNombre #>(Scope s <#= proc.listaParamsMET() #>)
+        {
+            return <#= tabla.Nombre #>.<#= proc.ProcNombre #>(s, <#= proc.listaParamsSP() #>);
+        }
+		<#+  } 
+		#>#endregion
+		#region Métodos Genéricos retornan un escalar
+		<#+  foreach ( var proc in tabla.ProcGenericosScalar) {
+		if (proc.ProcNombre == "InsertINT") {#>
+		[WebMethod]
+        public int <#= tabla.Nombre #>_InsertINT(<#= tabla.Nombre #> n)
+        {
+            return <#= tabla.Nombre #>.InsertINT(n);
+        }
+		<#+ } else { #>
+		[WebMethod]
+		public <#= proc.TipoDevueltoEscalar #> <#= tabla.Nombre #>_<#= proc.ProcNombre #>(Scope s <#= proc.listaParamsMET() #>)
+        {
+            return <#= tabla.Nombre #>.<#= proc.ProcNombre #>(s, <#= proc.listaParamsSP() #>);
+        }
+		<#+ } }
+		#>#endregion
+		#endregion
+	<#+ } #>
+	}
+}
+<#+  
+}
+#>
+
+<#+  
+private void ClaseDO(string xsdNombre, string xsdNombreIniciales, genTabla tabla)
+{
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using ADL.<#= xsdNombre #>TableAdapters;
+using AEL.<#= xsdNombreIniciales #>;
+using BEL;
+using System.Data.SqlClient;
+
+namespace CEL.<#= xsdNombreIniciales #>
+{
+    public class DO_<#= tabla.Nombre #>
+    {
+	// adapter
+    public <#= tabla.AdapterNombre #> Adapter = new <#= tabla.AdapterNombre #>();
+	<#+ 
+	BloqueProcSelect(tabla); 
+	BloqueProcsBasicos(tabla); 
+	BloqueProcsGet(tabla); 
+	BloqueProcsScalar(tabla); 
+	#>
+}
+}
+<#+ 
+}
+#>
+
+<#+ 
+private void BloqueProcsScalar(genTabla tabla)
+{
+	 foreach (var pg in tabla.ProcGenericosScalar) { #>
+	// <#= pg.ProcNombre #>
+	<#+ if (pg.ProcNombre == "InsertINT") { #>
+	public int InsertINT(<#= tabla.Nombre #> n)
+    {
+        int res;
+        try {
+            res = Convert.ToInt16( Adapter.InsertINT(
+				<#= tabla.listaParams(tabla.ProcBasicos[0]) #>
+			));
+        }
+        catch (SqlException e)
+        { throw (new Exception( e.Message)); }
+        return res;
+    }
+	<#+ } else { #>
+		public <#= pg.TipoDevueltoEscalar #> <#= pg.ProcNombre #> (Scope s <#= pg.listaParamsMET() #>)
+		{
+            <#= pg.TipoDevueltoEscalar #> res;
+            try
+            {
+				res = (<#= pg.TipoDevueltoEscalar #>)Adapter.<#= pg.ProcNombre #>(<#= pg.listaParamsSP() #>);
+            }
+            catch (SqlException e)
+            { throw (new Exception(e.Message)); }
+            return res;
+		}
+	<#+ } }
+}
+#>
+
+<#+ 
+private void BloqueProcsGet(genTabla tabla)
+{
+	 foreach (var pg in tabla.ProcGenericosGet) { #>
+	// <#= pg.ProcNombre #>
+		public List<<#= tabla.Nombre #>> <#= pg.ProcNombre #> (Scope s <#= pg.listaParamsMET() #>)
+		{
+			List<<#= tabla.Nombre #>> lista = new List<<#= tabla.Nombre #>>();
+			var tabla = Adapter.<#= pg.ProcNombre #>(<#= pg.listaParamsSP() #>);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new <#= tabla.Nombre #>(
+				<#= tabla.listaCampos("fila.") #>
+				));
+			}
+			return lista;
+		}
+	<#+ } 
+}
+#>
+
+<#+
+private void BloqueProcSelect(genTabla tabla)
+{
+#>//Select
+	public List<<#= tabla.Nombre #>> Get(Scope s)
+    {
+        List<<#= tabla.Nombre #>> lista = new List<<#= tabla.Nombre #>>();
+        var tabla = Adapter.Get();
+        foreach (var fila in tabla)
+        {
+            lista.Add(new <#= tabla.Nombre #>(
+				<#= tabla.listaCampos("fila.") #>
+			));
+        }
+        return lista;
+    } // xxx Fin de Select
+<#+ 
+} 
+ #>
+
+<#+  
+private void BloqueProcsBasicos(genTabla tabla)
+{#>
+	//Insert
+	public int Insert(<#= tabla.Nombre #> n)
+    {
+        int res;
+        try {
+            res = Adapter.Insert(
+				<#= tabla.listaParams(tabla.ProcBasicos[0]) #>
+			);
+        }
+        catch (SqlException e)
+        { throw (new Exception( e.Message)); }
+        return res;
+    } // xxx Fin de Insert
+	//Delete
+	public int Delete(<#= tabla.Nombre #> o)
+    {
+        int res;
+        try { 
+            res = Adapter.Delete(
+                    <#= tabla.listaParams(tabla.ProcBasicos[1]) #>
+			);
+        }
+        catch (SqlException e)
+        { throw (new Exception(e.Message)); }
+        return res;
+    } // xxx Fin de Delete
+	//Update
+	public int Update(<#= tabla.Nombre #> o, <#= tabla.Nombre #> n)
+    {
+        int res;
+        try
+        {
+            res = Adapter.Update(
+                    <#= tabla.listaParams(tabla.ProcBasicos[2]) #>
+			);
+        }
+        catch (SqlException e)
+        { throw (new Exception(e.Message)); }
+        return res;
+    } // xxx Fin de Update
+<#+ 
+}
+#>
