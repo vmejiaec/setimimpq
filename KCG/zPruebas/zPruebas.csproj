@@ -117,9 +117,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AEL\" />
-    <Folder Include="CEL\" />
-    <Folder Include="EWS\" />
-    <Folder Include="FEL\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AutoCompletar2Campos.aspx">

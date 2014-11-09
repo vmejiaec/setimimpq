@@ -57,11 +57,14 @@ namespace AEL.PLA
         // Comentario
         private decimal _Valor_Suma_Movs_Reasignacion;
         
+        // Comentario
+        private decimal _Valor_Suma_Movs_Certificados;
+        
         public Pla_Tarea()
         {
         }
         
-        public Pla_Tarea(int id, string codigo, int pla_Cta_Id, string pla_Cta_Codigo, string pla_Cta_Nombre, string pla_Cta_Nivel, string nombre, System.DateTime fecha_Ini, System.DateTime fecha_Fin, string estado, decimal valor_Inicial, decimal valor_Suma, decimal valor_Suma_Movs_Reasignacion)
+        public Pla_Tarea(int id, string codigo, int pla_Cta_Id, string pla_Cta_Codigo, string pla_Cta_Nombre, string pla_Cta_Nivel, string nombre, System.DateTime fecha_Ini, System.DateTime fecha_Fin, string estado, decimal valor_Inicial, decimal valor_Suma, decimal valor_Suma_Movs_Reasignacion, decimal valor_Suma_Movs_Certificados)
         {
             this.Id = id;
             this.Codigo = codigo;
@@ -76,6 +79,7 @@ namespace AEL.PLA
             this.Valor_Inicial = valor_Inicial;
             this.Valor_Suma = valor_Suma;
             this.Valor_Suma_Movs_Reasignacion = valor_Suma_Movs_Reasignacion;
+            this.Valor_Suma_Movs_Certificados = valor_Suma_Movs_Certificados;
         }
         
         public Pla_Tarea(Pla_Tarea o)
@@ -93,6 +97,7 @@ namespace AEL.PLA
             this.Valor_Inicial = o.Valor_Inicial;
             this.Valor_Suma = o.Valor_Suma;
             this.Valor_Suma_Movs_Reasignacion = o.Valor_Suma_Movs_Reasignacion;
+            this.Valor_Suma_Movs_Certificados = o.Valor_Suma_Movs_Certificados;
         }
         
         // Comentario
@@ -261,6 +266,19 @@ namespace AEL.PLA
             set
             {
                 this._Valor_Suma_Movs_Reasignacion = value;
+            }
+        }
+        
+        // Comentario
+        public decimal Valor_Suma_Movs_Certificados
+        {
+            get
+            {
+                return this._Valor_Suma_Movs_Certificados;
+            }
+            set
+            {
+                this._Valor_Suma_Movs_Certificados = value;
             }
         }
     }

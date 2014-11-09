@@ -42,6 +42,7 @@ namespace REL.VAR
             this.Valor_Inicial = o.Valor_Inicial;
             this.Valor_Suma = o.Valor_Suma;
             this.Valor_Suma_Movs_Reasignacion = o.Valor_Suma_Movs_Reasignacion;
+            this.Valor_Suma_Movs_Certificados = o.Valor_Suma_Movs_Certificados;
             // Construye los niveles
             string[] separador = new string[1];
             separador[0] = "<|>";
