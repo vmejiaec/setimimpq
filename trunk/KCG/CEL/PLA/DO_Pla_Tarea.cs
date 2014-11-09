@@ -34,7 +34,8 @@ fila.Fecha_Fin,
 fila.Estado,
 fila.Valor_Inicial,
 fila.Valor_Suma,
-fila.Valor_Suma_Movs_Reasignacion
+fila.Valor_Suma_Movs_Reasignacion,
+fila.Valor_Suma_Movs_Certificados
 			));
         }
         return lista;
@@ -123,7 +124,8 @@ fila.Fecha_Fin,
 fila.Estado,
 fila.Valor_Inicial,
 fila.Valor_Suma,
-fila.Valor_Suma_Movs_Reasignacion
+fila.Valor_Suma_Movs_Reasignacion,
+fila.Valor_Suma_Movs_Certificados
 				));
 			}
 			return lista;
@@ -148,7 +150,8 @@ fila.Fecha_Fin,
 fila.Estado,
 fila.Valor_Inicial,
 fila.Valor_Suma,
-fila.Valor_Suma_Movs_Reasignacion
+fila.Valor_Suma_Movs_Reasignacion,
+fila.Valor_Suma_Movs_Certificados
 				));
 			}
 			return lista;
@@ -173,7 +176,8 @@ fila.Fecha_Fin,
 fila.Estado,
 fila.Valor_Inicial,
 fila.Valor_Suma,
-fila.Valor_Suma_Movs_Reasignacion
+fila.Valor_Suma_Movs_Reasignacion,
+fila.Valor_Suma_Movs_Certificados
 				));
 			}
 			return lista;
@@ -198,7 +202,8 @@ fila.Fecha_Fin,
 fila.Estado,
 fila.Valor_Inicial,
 fila.Valor_Suma,
-fila.Valor_Suma_Movs_Reasignacion
+fila.Valor_Suma_Movs_Reasignacion,
+fila.Valor_Suma_Movs_Certificados
 				));
 			}
 			return lista;
@@ -223,7 +228,8 @@ fila.Fecha_Fin,
 fila.Estado,
 fila.Valor_Inicial,
 fila.Valor_Suma,
-fila.Valor_Suma_Movs_Reasignacion
+fila.Valor_Suma_Movs_Reasignacion,
+fila.Valor_Suma_Movs_Certificados
 				));
 			}
 			return lista;
@@ -248,7 +254,8 @@ fila.Fecha_Fin,
 fila.Estado,
 fila.Valor_Inicial,
 fila.Valor_Suma,
-fila.Valor_Suma_Movs_Reasignacion
+fila.Valor_Suma_Movs_Reasignacion,
+fila.Valor_Suma_Movs_Certificados
 				));
 			}
 			return lista;

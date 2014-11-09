@@ -20,12 +20,7 @@ namespace AEL.VAR
         decimal _Valor_Inicial;
         decimal _Valor_Suma;
         decimal _Valor_Suma_Movs_Reasignacion;
-
-        public decimal Valor_Suma_Movs_Reasignacion
-        {
-            get { return _Valor_Suma_Movs_Reasignacion; }
-            set { _Valor_Suma_Movs_Reasignacion = value; }
-        }
+        decimal _Valor_Suma_Movs_Certificados;
         
         // Constructor
         public Pla_Cta_Rep_Niveles()
@@ -44,7 +39,8 @@ namespace AEL.VAR
             string p_Estado,
             decimal p_Valor_Inicial,
             decimal p_Valor_Suma,
-            decimal p_Valor_Suma_Movs_Reasignacion
+            decimal p_Valor_Suma_Movs_Reasignacion,
+            decimal p_Valor_Suma_Movs_Certificados
             )
         {
             this.Id = p_Id;
@@ -60,9 +56,23 @@ namespace AEL.VAR
             this.Valor_Inicial = p_Valor_Inicial;
             this.Valor_Suma = p_Valor_Suma;
             this.Valor_Suma_Movs_Reasignacion = p_Valor_Suma_Movs_Reasignacion;
+            this.Valor_Suma_Movs_Certificados = p_Valor_Suma_Movs_Certificados;
         }
 
         //
+
+        public decimal Valor_Suma_Movs_Certificados
+        {
+            get { return _Valor_Suma_Movs_Certificados; }
+            set { _Valor_Suma_Movs_Certificados = value; }
+        }
+
+        public decimal Valor_Suma_Movs_Reasignacion
+        {
+            get { return _Valor_Suma_Movs_Reasignacion; }
+            set { _Valor_Suma_Movs_Reasignacion = value; }
+        }
+
         public decimal Valor_Suma
         {
             get { return _Valor_Suma; }

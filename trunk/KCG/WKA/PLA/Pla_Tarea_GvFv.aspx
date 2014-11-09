@@ -89,7 +89,7 @@ TagPrefix="ajax" %>
 <%--[X]FIN Javascript para manegar los campos de autocompletar --%>
 
     <%--Cabecera--%>
-    <asp:Panel runat="server" ID="pcabecera" GroupingText="Cabecera">
+    <asp:Panel runat="server" ID="pcabecera" GroupingText="Listado de Tareas y Partidas Presupuestarias del POA">
     <p class="pTextoPagina">
     Para filtrar los datos de la lista de tareas, seleccione un año específico de la lista desplegable. 
     Si desea buscar por una cuenta específica, ingrese el criterio de búsqueda y elija sobre
@@ -139,6 +139,7 @@ TagPrefix="ajax" %>
 			<asp:BoundField DataField="Fecha_Ini" HeaderText="Fecha_Ini"  DataFormatString="{0:d}" />
 			<asp:BoundField DataField="Fecha_Fin" HeaderText="Fecha_Fin"  DataFormatString="{0:d}" />
             <asp:BoundField DataField="Valor_Inicial" HeaderText="Valor_Inicial"  DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
+            <asp:BoundField DataField="Valor_Suma_Movs_Certificados" HeaderText="Certific."  DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
             <asp:BoundField DataField="Valor_Suma_Movs_Reasignacion" HeaderText="Reasign."  DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
             <asp:BoundField DataField="Valor_Suma" HeaderText="Saldo"  DataFormatString="{0:N2}"  ItemStyle-HorizontalAlign="Right"/>
                 

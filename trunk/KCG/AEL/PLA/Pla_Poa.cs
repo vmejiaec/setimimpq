@@ -63,11 +63,30 @@ namespace AEL.PLA
         // Comentario
         private decimal _Valor_Suma_Movs_Reasignacion;
         
+        // Comentario
+        private decimal _Valor_Suma_Certificados;
+        
         public Pla_Poa()
         {
         }
         
-        public Pla_Poa(int id, string codigo, int pla_Tarea_Id, int pla_Partida_Id, string estado, string pla_Tarea_Codigo, string pla_Tarea_Nombre, int pla_Cta_Id, string pla_Cta_Codigo, string pla_Cta_Nombre, string pla_Partida_Codigo, string pla_Partida_Nombre, decimal valor_Inicial, decimal valor_Suma, decimal valor_Suma_Movs_Reasignacion)
+        public Pla_Poa(
+                    int id, 
+                    string codigo, 
+                    int pla_Tarea_Id, 
+                    int pla_Partida_Id, 
+                    string estado, 
+                    string pla_Tarea_Codigo, 
+                    string pla_Tarea_Nombre, 
+                    int pla_Cta_Id, 
+                    string pla_Cta_Codigo, 
+                    string pla_Cta_Nombre, 
+                    string pla_Partida_Codigo, 
+                    string pla_Partida_Nombre, 
+                    decimal valor_Inicial, 
+                    decimal valor_Suma, 
+                    decimal valor_Suma_Movs_Reasignacion, 
+                    decimal valor_Suma_Certificados)
         {
             this.Id = id;
             this.Codigo = codigo;
@@ -84,6 +103,7 @@ namespace AEL.PLA
             this.Valor_Inicial = valor_Inicial;
             this.Valor_Suma = valor_Suma;
             this.Valor_Suma_Movs_Reasignacion = valor_Suma_Movs_Reasignacion;
+            this.Valor_Suma_Certificados = valor_Suma_Certificados;
         }
         
         public Pla_Poa(Pla_Poa o)
@@ -103,6 +123,7 @@ namespace AEL.PLA
             this.Valor_Inicial = o.Valor_Inicial;
             this.Valor_Suma = o.Valor_Suma;
             this.Valor_Suma_Movs_Reasignacion = o.Valor_Suma_Movs_Reasignacion;
+            this.Valor_Suma_Certificados = o.Valor_Suma_Certificados;
         }
         
         // Comentario
@@ -297,6 +318,19 @@ namespace AEL.PLA
             set
             {
                 this._Valor_Suma_Movs_Reasignacion = value;
+            }
+        }
+        
+        // Comentario
+        public decimal Valor_Suma_Certificados
+        {
+            get
+            {
+                return this._Valor_Suma_Certificados;
+            }
+            set
+            {
+                this._Valor_Suma_Certificados = value;
             }
         }
     }

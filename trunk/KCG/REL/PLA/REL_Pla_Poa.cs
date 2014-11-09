@@ -28,7 +28,7 @@ namespace REL.PLA
             this.Valor_Inicial = o.Valor_Inicial;
             this.Valor_Suma = o.Valor_Suma;
             this.Valor_Suma_Movs_Reasignacion = o.Valor_Suma_Movs_Reasignacion;
-        
+            this.Valor_Suma_Certificados = o.Valor_Suma_Certificados;
         }
     }
 }

@@ -510,6 +510,7 @@
     <EmbeddedResource Include="PLA\Rep_PLA_FormularioInicioProceso.rdlc" />
     <EmbeddedResource Include="PLA\Rep_PLA_Poa_Partidas.rdlc" />
     <EmbeddedResource Include="PLA\Rep_PLA_Tareas.rdlc" />
+    <EmbeddedResource Include="VAR\Rep_Pla_Cta_Rep_4Niveles.rdlc" />
     <EmbeddedResource Include="VAR\Rep_Pla_Cta_Rep_Niveles.rdlc" />
   </ItemGroup>
   <ItemGroup>

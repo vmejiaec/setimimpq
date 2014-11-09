@@ -1020,6 +1020,8 @@ namespace ADL {
             
             private global::System.Data.DataColumn columnValor_Suma_Movs_Reasignacion;
             
+            private global::System.Data.DataColumn columnValor_Suma_Movs_Certificados;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Pla_Cta_Rep_NivelesDataTable() {
@@ -1159,6 +1161,14 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Valor_Suma_Movs_CertificadosColumn {
+                get {
+                    return this.columnValor_Suma_Movs_Certificados;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1194,7 +1204,7 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Pla_Cta_Rep_NivelesRow AddPla_Cta_Rep_NivelesRow(string Codigo, string Nivel01, string Nivel02, string Nivel03, string Nivel04, string Nombre, System.DateTime Fecha_Ini, System.DateTime Fecha_Fin, string Estado, decimal Valor_Inicial, decimal Valor_Suma, decimal Valor_Suma_Movs_Reasignacion) {
+            public Pla_Cta_Rep_NivelesRow AddPla_Cta_Rep_NivelesRow(string Codigo, string Nivel01, string Nivel02, string Nivel03, string Nivel04, string Nombre, System.DateTime Fecha_Ini, System.DateTime Fecha_Fin, string Estado, decimal Valor_Inicial, decimal Valor_Suma, decimal Valor_Suma_Movs_Reasignacion, decimal Valor_Suma_Movs_Certificados) {
                 Pla_Cta_Rep_NivelesRow rowPla_Cta_Rep_NivelesRow = ((Pla_Cta_Rep_NivelesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1209,7 +1219,8 @@ namespace ADL {
                         Estado,
                         Valor_Inicial,
                         Valor_Suma,
-                        Valor_Suma_Movs_Reasignacion};
+                        Valor_Suma_Movs_Reasignacion,
+                        Valor_Suma_Movs_Certificados};
                 rowPla_Cta_Rep_NivelesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPla_Cta_Rep_NivelesRow);
                 return rowPla_Cta_Rep_NivelesRow;
@@ -1252,6 +1263,7 @@ namespace ADL {
                 this.columnValor_Inicial = base.Columns["Valor_Inicial"];
                 this.columnValor_Suma = base.Columns["Valor_Suma"];
                 this.columnValor_Suma_Movs_Reasignacion = base.Columns["Valor_Suma_Movs_Reasignacion"];
+                this.columnValor_Suma_Movs_Certificados = base.Columns["Valor_Suma_Movs_Certificados"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1283,6 +1295,8 @@ namespace ADL {
                 base.Columns.Add(this.columnValor_Suma);
                 this.columnValor_Suma_Movs_Reasignacion = new global::System.Data.DataColumn("Valor_Suma_Movs_Reasignacion", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnValor_Suma_Movs_Reasignacion);
+                this.columnValor_Suma_Movs_Certificados = new global::System.Data.DataColumn("Valor_Suma_Movs_Certificados", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnValor_Suma_Movs_Certificados);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -1310,6 +1324,7 @@ namespace ADL {
                 this.columnValor_Inicial.ReadOnly = true;
                 this.columnValor_Suma.ReadOnly = true;
                 this.columnValor_Suma_Movs_Reasignacion.ReadOnly = true;
+                this.columnValor_Suma_Movs_Certificados.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2192,6 +2207,23 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Valor_Suma_Movs_Certificados {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablePla_Cta_Rep_Niveles.Valor_Suma_Movs_CertificadosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Valor_Suma_Movs_Certificados\' in table \'Pla_Cta_Rep_Niveles" +
+                                "\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Cta_Rep_Niveles.Valor_Suma_Movs_CertificadosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNivel01Null() {
                 return this.IsNull(this.tablePla_Cta_Rep_Niveles.Nivel01Column);
             }
@@ -2272,6 +2304,18 @@ namespace ADL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetValor_Suma_Movs_ReasignacionNull() {
                 this[this.tablePla_Cta_Rep_Niveles.Valor_Suma_Movs_ReasignacionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsValor_Suma_Movs_CertificadosNull() {
+                return this.IsNull(this.tablePla_Cta_Rep_Niveles.Valor_Suma_Movs_CertificadosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetValor_Suma_Movs_CertificadosNull() {
+                this[this.tablePla_Cta_Rep_Niveles.Valor_Suma_Movs_CertificadosColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3185,6 +3229,7 @@ namespace ADL.VariosTableAdapters {
             tableMapping.ColumnMappings.Add("Valor_Inicial", "Valor_Inicial");
             tableMapping.ColumnMappings.Add("Valor_Suma", "Valor_Suma");
             tableMapping.ColumnMappings.Add("Valor_Suma_Movs_Reasignacion", "Valor_Suma_Movs_Reasignacion");
+            tableMapping.ColumnMappings.Add("Valor_Suma_Movs_Certificados", "Valor_Suma_Movs_Certificados");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
