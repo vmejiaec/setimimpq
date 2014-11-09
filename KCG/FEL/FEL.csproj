@@ -269,6 +269,7 @@
     <None Include="FEL local.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bak\" />
     <Folder Include="obj\" />
   </ItemGroup>
   <ItemGroup>
