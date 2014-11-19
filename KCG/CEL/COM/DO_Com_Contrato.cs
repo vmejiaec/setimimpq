@@ -57,7 +57,17 @@ fila.Pla_Doc_PAC_Linea,
 fila.Pla_Doc_Codigo,
 fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
-fila.Pla_Cta_Nombre
+fila.Pla_Cta_Nombre,
+fila.Pla_Doc_Valor_Solicita,
+fila.Com_Procedimiento_Desc,
+fila.Estado_Portal,
+fila.Estado_Contratacion,
+fila.Fecha_Inicio_Elabora_Pliegos,
+fila.Fecha_Publicacion_Portal,
+fila.Fecha_Calificaciones,
+fila.Fecha_Estimada_Adjudicacion,
+fila.Fecha_Adjudicacion,
+fila.Fecha_Juridico
 			));
         }
         return lista;
@@ -83,7 +93,16 @@ n.Fecha_Inicio_Contrato,
 n.Porcentaje_Anticipo_Contrato,
 n.Per_Personal_Id_Admin,
 n.Desc_Contrata,
-n.Fecha_Crea
+n.Fecha_Crea,
+n.Com_Procedimiento_Desc,
+n.Estado_Portal,
+n.Estado_Contratacion,
+n.Fecha_Inicio_Elabora_Pliegos,
+n.Fecha_Publicacion_Portal,
+n.Fecha_Calificaciones,
+n.Fecha_Estimada_Adjudicacion,
+n.Fecha_Adjudicacion,
+n.Fecha_Juridico
 			);
         }
         catch (SqlException e)
@@ -112,7 +131,16 @@ o.Fecha_Inicio_Contrato,
 o.Porcentaje_Anticipo_Contrato,
 o.Per_Personal_Id_Admin,
 o.Desc_Contrata,
-o.Fecha_Crea
+o.Fecha_Crea,
+o.Com_Procedimiento_Desc,
+o.Estado_Portal,
+o.Estado_Contratacion,
+o.Fecha_Inicio_Elabora_Pliegos,
+o.Fecha_Publicacion_Portal,
+o.Fecha_Calificaciones,
+o.Fecha_Estimada_Adjudicacion,
+o.Fecha_Adjudicacion,
+o.Fecha_Juridico
 			);
         }
         catch (SqlException e)
@@ -142,6 +170,15 @@ n.Porcentaje_Anticipo_Contrato,
 n.Per_Personal_Id_Admin,
 n.Desc_Contrata,
 n.Fecha_Crea,
+n.Com_Procedimiento_Desc,
+n.Estado_Portal,
+n.Estado_Contratacion,
+n.Fecha_Inicio_Elabora_Pliegos,
+n.Fecha_Publicacion_Portal,
+n.Fecha_Calificaciones,
+n.Fecha_Estimada_Adjudicacion,
+n.Fecha_Adjudicacion,
+n.Fecha_Juridico,
 o.Id,
 o.Pla_Doc_Id,
 o.Estado,
@@ -159,6 +196,15 @@ o.Porcentaje_Anticipo_Contrato,
 o.Per_Personal_Id_Admin,
 o.Desc_Contrata,
 o.Fecha_Crea,
+o.Com_Procedimiento_Desc,
+o.Estado_Portal,
+o.Estado_Contratacion,
+o.Fecha_Inicio_Elabora_Pliegos,
+o.Fecha_Publicacion_Portal,
+o.Fecha_Calificaciones,
+o.Fecha_Estimada_Adjudicacion,
+o.Fecha_Adjudicacion,
+o.Fecha_Juridico,
 n.Id
 			);
         }
@@ -209,7 +255,17 @@ fila.Pla_Doc_PAC_Linea,
 fila.Pla_Doc_Codigo,
 fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
-fila.Pla_Cta_Nombre
+fila.Pla_Cta_Nombre,
+fila.Pla_Doc_Valor_Solicita,
+fila.Com_Procedimiento_Desc,
+fila.Estado_Portal,
+fila.Estado_Contratacion,
+fila.Fecha_Inicio_Elabora_Pliegos,
+fila.Fecha_Publicacion_Portal,
+fila.Fecha_Calificaciones,
+fila.Fecha_Estimada_Adjudicacion,
+fila.Fecha_Adjudicacion,
+fila.Fecha_Juridico
 				));
 			}
 			return lista;
@@ -257,7 +313,17 @@ fila.Pla_Doc_PAC_Linea,
 fila.Pla_Doc_Codigo,
 fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
-fila.Pla_Cta_Nombre
+fila.Pla_Cta_Nombre,
+fila.Pla_Doc_Valor_Solicita,
+fila.Com_Procedimiento_Desc,
+fila.Estado_Portal,
+fila.Estado_Contratacion,
+fila.Fecha_Inicio_Elabora_Pliegos,
+fila.Fecha_Publicacion_Portal,
+fila.Fecha_Calificaciones,
+fila.Fecha_Estimada_Adjudicacion,
+fila.Fecha_Adjudicacion,
+fila.Fecha_Juridico
 				));
 			}
 			return lista;
@@ -305,7 +371,17 @@ fila.Pla_Doc_PAC_Linea,
 fila.Pla_Doc_Codigo,
 fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
-fila.Pla_Cta_Nombre
+fila.Pla_Cta_Nombre,
+fila.Pla_Doc_Valor_Solicita,
+fila.Com_Procedimiento_Desc,
+fila.Estado_Portal,
+fila.Estado_Contratacion,
+fila.Fecha_Inicio_Elabora_Pliegos,
+fila.Fecha_Publicacion_Portal,
+fila.Fecha_Calificaciones,
+fila.Fecha_Estimada_Adjudicacion,
+fila.Fecha_Adjudicacion,
+fila.Fecha_Juridico
 				));
 			}
 			return lista;
@@ -353,7 +429,17 @@ fila.Pla_Doc_PAC_Linea,
 fila.Pla_Doc_Codigo,
 fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
-fila.Pla_Cta_Nombre
+fila.Pla_Cta_Nombre,
+fila.Pla_Doc_Valor_Solicita,
+fila.Com_Procedimiento_Desc,
+fila.Estado_Portal,
+fila.Estado_Contratacion,
+fila.Fecha_Inicio_Elabora_Pliegos,
+fila.Fecha_Publicacion_Portal,
+fila.Fecha_Calificaciones,
+fila.Fecha_Estimada_Adjudicacion,
+fila.Fecha_Adjudicacion,
+fila.Fecha_Juridico
 				));
 			}
 			return lista;
@@ -401,7 +487,17 @@ fila.Pla_Doc_PAC_Linea,
 fila.Pla_Doc_Codigo,
 fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
-fila.Pla_Cta_Nombre
+fila.Pla_Cta_Nombre,
+fila.Pla_Doc_Valor_Solicita,
+fila.Com_Procedimiento_Desc,
+fila.Estado_Portal,
+fila.Estado_Contratacion,
+fila.Fecha_Inicio_Elabora_Pliegos,
+fila.Fecha_Publicacion_Portal,
+fila.Fecha_Calificaciones,
+fila.Fecha_Estimada_Adjudicacion,
+fila.Fecha_Adjudicacion,
+fila.Fecha_Juridico
 				));
 			}
 			return lista;
@@ -427,7 +523,16 @@ n.Fecha_Inicio_Contrato,
 n.Porcentaje_Anticipo_Contrato,
 n.Per_Personal_Id_Admin,
 n.Desc_Contrata,
-n.Fecha_Crea
+n.Fecha_Crea,
+n.Com_Procedimiento_Desc,
+n.Estado_Portal,
+n.Estado_Contratacion,
+n.Fecha_Inicio_Elabora_Pliegos,
+n.Fecha_Publicacion_Portal,
+n.Fecha_Calificaciones,
+n.Fecha_Estimada_Adjudicacion,
+n.Fecha_Adjudicacion,
+n.Fecha_Juridico
 			));
         }
         catch (SqlException e)

@@ -1742,6 +1742,26 @@ namespace ADL {
             
             private global::System.Data.DataColumn columnPla_Cta_Nombre;
             
+            private global::System.Data.DataColumn columnPla_Doc_Valor_Solicita;
+            
+            private global::System.Data.DataColumn columnCom_Procedimiento_Desc;
+            
+            private global::System.Data.DataColumn columnEstado_Portal;
+            
+            private global::System.Data.DataColumn columnEstado_Contratacion;
+            
+            private global::System.Data.DataColumn columnFecha_Inicio_Elabora_Pliegos;
+            
+            private global::System.Data.DataColumn columnFecha_Publicacion_Portal;
+            
+            private global::System.Data.DataColumn columnFecha_Calificaciones;
+            
+            private global::System.Data.DataColumn columnFecha_Estimada_Adjudicacion;
+            
+            private global::System.Data.DataColumn columnFecha_Adjudicacion;
+            
+            private global::System.Data.DataColumn columnFecha_Juridico;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Com_ContratoDataTable() {
@@ -2065,6 +2085,86 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Doc_Valor_SolicitaColumn {
+                get {
+                    return this.columnPla_Doc_Valor_Solicita;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Com_Procedimiento_DescColumn {
+                get {
+                    return this.columnCom_Procedimiento_Desc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Estado_PortalColumn {
+                get {
+                    return this.columnEstado_Portal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Estado_ContratacionColumn {
+                get {
+                    return this.columnEstado_Contratacion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Fecha_Inicio_Elabora_PliegosColumn {
+                get {
+                    return this.columnFecha_Inicio_Elabora_Pliegos;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Fecha_Publicacion_PortalColumn {
+                get {
+                    return this.columnFecha_Publicacion_Portal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Fecha_CalificacionesColumn {
+                get {
+                    return this.columnFecha_Calificaciones;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Fecha_Estimada_AdjudicacionColumn {
+                get {
+                    return this.columnFecha_Estimada_Adjudicacion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Fecha_AdjudicacionColumn {
+                get {
+                    return this.columnFecha_Adjudicacion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Fecha_JuridicoColumn {
+                get {
+                    return this.columnFecha_Juridico;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2135,7 +2235,17 @@ namespace ADL {
                         string Pla_Doc_Codigo, 
                         int Pla_Cta_Id, 
                         string Pla_Cta_Codigo, 
-                        string Pla_Cta_Nombre) {
+                        string Pla_Cta_Nombre, 
+                        decimal Pla_Doc_Valor_Solicita, 
+                        string Com_Procedimiento_Desc, 
+                        string Estado_Portal, 
+                        string Estado_Contratacion, 
+                        System.DateTime Fecha_Inicio_Elabora_Pliegos, 
+                        System.DateTime Fecha_Publicacion_Portal, 
+                        System.DateTime Fecha_Calificaciones, 
+                        System.DateTime Fecha_Estimada_Adjudicacion, 
+                        System.DateTime Fecha_Adjudicacion, 
+                        System.DateTime Fecha_Juridico) {
                 Com_ContratoRow rowCom_ContratoRow = ((Com_ContratoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2173,7 +2283,17 @@ namespace ADL {
                         Pla_Doc_Codigo,
                         Pla_Cta_Id,
                         Pla_Cta_Codigo,
-                        Pla_Cta_Nombre};
+                        Pla_Cta_Nombre,
+                        Pla_Doc_Valor_Solicita,
+                        Com_Procedimiento_Desc,
+                        Estado_Portal,
+                        Estado_Contratacion,
+                        Fecha_Inicio_Elabora_Pliegos,
+                        Fecha_Publicacion_Portal,
+                        Fecha_Calificaciones,
+                        Fecha_Estimada_Adjudicacion,
+                        Fecha_Adjudicacion,
+                        Fecha_Juridico};
                 rowCom_ContratoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCom_ContratoRow);
                 return rowCom_ContratoRow;
@@ -2239,6 +2359,16 @@ namespace ADL {
                 this.columnPla_Cta_Id = base.Columns["Pla_Cta_Id"];
                 this.columnPla_Cta_Codigo = base.Columns["Pla_Cta_Codigo"];
                 this.columnPla_Cta_Nombre = base.Columns["Pla_Cta_Nombre"];
+                this.columnPla_Doc_Valor_Solicita = base.Columns["Pla_Doc_Valor_Solicita"];
+                this.columnCom_Procedimiento_Desc = base.Columns["Com_Procedimiento_Desc"];
+                this.columnEstado_Portal = base.Columns["Estado_Portal"];
+                this.columnEstado_Contratacion = base.Columns["Estado_Contratacion"];
+                this.columnFecha_Inicio_Elabora_Pliegos = base.Columns["Fecha_Inicio_Elabora_Pliegos"];
+                this.columnFecha_Publicacion_Portal = base.Columns["Fecha_Publicacion_Portal"];
+                this.columnFecha_Calificaciones = base.Columns["Fecha_Calificaciones"];
+                this.columnFecha_Estimada_Adjudicacion = base.Columns["Fecha_Estimada_Adjudicacion"];
+                this.columnFecha_Adjudicacion = base.Columns["Fecha_Adjudicacion"];
+                this.columnFecha_Juridico = base.Columns["Fecha_Juridico"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2316,6 +2446,26 @@ namespace ADL {
                 base.Columns.Add(this.columnPla_Cta_Codigo);
                 this.columnPla_Cta_Nombre = new global::System.Data.DataColumn("Pla_Cta_Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPla_Cta_Nombre);
+                this.columnPla_Doc_Valor_Solicita = new global::System.Data.DataColumn("Pla_Doc_Valor_Solicita", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Doc_Valor_Solicita);
+                this.columnCom_Procedimiento_Desc = new global::System.Data.DataColumn("Com_Procedimiento_Desc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCom_Procedimiento_Desc);
+                this.columnEstado_Portal = new global::System.Data.DataColumn("Estado_Portal", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstado_Portal);
+                this.columnEstado_Contratacion = new global::System.Data.DataColumn("Estado_Contratacion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstado_Contratacion);
+                this.columnFecha_Inicio_Elabora_Pliegos = new global::System.Data.DataColumn("Fecha_Inicio_Elabora_Pliegos", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_Inicio_Elabora_Pliegos);
+                this.columnFecha_Publicacion_Portal = new global::System.Data.DataColumn("Fecha_Publicacion_Portal", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_Publicacion_Portal);
+                this.columnFecha_Calificaciones = new global::System.Data.DataColumn("Fecha_Calificaciones", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_Calificaciones);
+                this.columnFecha_Estimada_Adjudicacion = new global::System.Data.DataColumn("Fecha_Estimada_Adjudicacion", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_Estimada_Adjudicacion);
+                this.columnFecha_Adjudicacion = new global::System.Data.DataColumn("Fecha_Adjudicacion", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_Adjudicacion);
+                this.columnFecha_Juridico = new global::System.Data.DataColumn("Fecha_Juridico", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_Juridico);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -2332,7 +2482,6 @@ namespace ADL {
                 this.columnPlazo_Ref.AllowDBNull = false;
                 this.columnCodigo_Sercop.AllowDBNull = false;
                 this.columnCodigo_Sercop.MaxLength = 200;
-                this.columnPer_Personal_Resp_Exp.AllowDBNull = false;
                 this.columnPer_Personal_Resp_Exp.MaxLength = 17;
                 this.columnFecha_Cierre_Rec_Ofertas.AllowDBNull = false;
                 this.columnPar_Razon_Social_Id_Contratista.MaxLength = 17;
@@ -2340,7 +2489,6 @@ namespace ADL {
                 this.columnPlazo_Contrato.AllowDBNull = false;
                 this.columnFecha_Inicio_Contrato.AllowDBNull = false;
                 this.columnPorcentaje_Anticipo_Contrato.AllowDBNull = false;
-                this.columnPer_Personal_Id_Admin.AllowDBNull = false;
                 this.columnPer_Personal_Id_Admin.MaxLength = 17;
                 this.columnDesc_Contrata.AllowDBNull = false;
                 this.columnDesc_Contrata.MaxLength = 300;
@@ -2380,6 +2528,18 @@ namespace ADL {
                 this.columnPla_Cta_Codigo.MaxLength = 200;
                 this.columnPla_Cta_Nombre.ReadOnly = true;
                 this.columnPla_Cta_Nombre.MaxLength = 500;
+                this.columnPla_Doc_Valor_Solicita.ReadOnly = true;
+                this.columnCom_Procedimiento_Desc.MaxLength = 250;
+                this.columnEstado_Portal.AllowDBNull = false;
+                this.columnEstado_Portal.MaxLength = 3;
+                this.columnEstado_Contratacion.AllowDBNull = false;
+                this.columnEstado_Contratacion.MaxLength = 250;
+                this.columnFecha_Inicio_Elabora_Pliegos.AllowDBNull = false;
+                this.columnFecha_Publicacion_Portal.AllowDBNull = false;
+                this.columnFecha_Calificaciones.AllowDBNull = false;
+                this.columnFecha_Estimada_Adjudicacion.AllowDBNull = false;
+                this.columnFecha_Adjudicacion.AllowDBNull = false;
+                this.columnFecha_Juridico.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2848,7 +3008,12 @@ namespace ADL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Per_Personal_Resp_Exp {
                 get {
-                    return ((string)(this[this.tableCom_Contrato.Per_Personal_Resp_ExpColumn]));
+                    if (this.IsPer_Personal_Resp_ExpNull()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableCom_Contrato.Per_Personal_Resp_ExpColumn]));
+                    }
                 }
                 set {
                     this[this.tableCom_Contrato.Per_Personal_Resp_ExpColumn] = value;
@@ -2930,7 +3095,12 @@ namespace ADL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Per_Personal_Id_Admin {
                 get {
-                    return ((string)(this[this.tableCom_Contrato.Per_Personal_Id_AdminColumn]));
+                    if (this.IsPer_Personal_Id_AdminNull()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableCom_Contrato.Per_Personal_Id_AdminColumn]));
+                    }
                 }
                 set {
                     this[this.tableCom_Contrato.Per_Personal_Id_AdminColumn] = value;
@@ -3273,6 +3443,138 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Pla_Doc_Valor_Solicita {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCom_Contrato.Pla_Doc_Valor_SolicitaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Doc_Valor_Solicita\' in table \'Com_Contrato\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCom_Contrato.Pla_Doc_Valor_SolicitaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Com_Procedimiento_Desc {
+                get {
+                    if (this.IsCom_Procedimiento_DescNull()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableCom_Contrato.Com_Procedimiento_DescColumn]));
+                    }
+                }
+                set {
+                    this[this.tableCom_Contrato.Com_Procedimiento_DescColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Estado_Portal {
+                get {
+                    return ((string)(this[this.tableCom_Contrato.Estado_PortalColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato.Estado_PortalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Estado_Contratacion {
+                get {
+                    return ((string)(this[this.tableCom_Contrato.Estado_ContratacionColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato.Estado_ContratacionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Fecha_Inicio_Elabora_Pliegos {
+                get {
+                    return ((global::System.DateTime)(this[this.tableCom_Contrato.Fecha_Inicio_Elabora_PliegosColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato.Fecha_Inicio_Elabora_PliegosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Fecha_Publicacion_Portal {
+                get {
+                    return ((global::System.DateTime)(this[this.tableCom_Contrato.Fecha_Publicacion_PortalColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato.Fecha_Publicacion_PortalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Fecha_Calificaciones {
+                get {
+                    return ((global::System.DateTime)(this[this.tableCom_Contrato.Fecha_CalificacionesColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato.Fecha_CalificacionesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Fecha_Estimada_Adjudicacion {
+                get {
+                    return ((global::System.DateTime)(this[this.tableCom_Contrato.Fecha_Estimada_AdjudicacionColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato.Fecha_Estimada_AdjudicacionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Fecha_Adjudicacion {
+                get {
+                    return ((global::System.DateTime)(this[this.tableCom_Contrato.Fecha_AdjudicacionColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato.Fecha_AdjudicacionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Fecha_Juridico {
+                get {
+                    return ((global::System.DateTime)(this[this.tableCom_Contrato.Fecha_JuridicoColumn]));
+                }
+                set {
+                    this[this.tableCom_Contrato.Fecha_JuridicoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPer_Personal_Resp_ExpNull() {
+                return this.IsNull(this.tableCom_Contrato.Per_Personal_Resp_ExpColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPer_Personal_Resp_ExpNull() {
+                this[this.tableCom_Contrato.Per_Personal_Resp_ExpColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPar_Razon_Social_Id_ContratistaNull() {
                 return this.IsNull(this.tableCom_Contrato.Par_Razon_Social_Id_ContratistaColumn);
             }
@@ -3281,6 +3583,18 @@ namespace ADL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPar_Razon_Social_Id_ContratistaNull() {
                 this[this.tableCom_Contrato.Par_Razon_Social_Id_ContratistaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPer_Personal_Id_AdminNull() {
+                return this.IsNull(this.tableCom_Contrato.Per_Personal_Id_AdminColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPer_Personal_Id_AdminNull() {
+                this[this.tableCom_Contrato.Per_Personal_Id_AdminColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3509,6 +3823,30 @@ namespace ADL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPla_Cta_NombreNull() {
                 this[this.tableCom_Contrato.Pla_Cta_NombreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPla_Doc_Valor_SolicitaNull() {
+                return this.IsNull(this.tableCom_Contrato.Pla_Doc_Valor_SolicitaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPla_Doc_Valor_SolicitaNull() {
+                this[this.tableCom_Contrato.Pla_Doc_Valor_SolicitaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCom_Procedimiento_DescNull() {
+                return this.IsNull(this.tableCom_Contrato.Com_Procedimiento_DescColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCom_Procedimiento_DescNull() {
+                this[this.tableCom_Contrato.Com_Procedimiento_DescColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5932,6 +6270,16 @@ namespace ADL.ComprasTableAdapters {
             tableMapping.ColumnMappings.Add("Pla_Cta_Id", "Pla_Cta_Id");
             tableMapping.ColumnMappings.Add("Pla_Cta_Codigo", "Pla_Cta_Codigo");
             tableMapping.ColumnMappings.Add("Pla_Cta_Nombre", "Pla_Cta_Nombre");
+            tableMapping.ColumnMappings.Add("Pla_Doc_Valor_Solicita", "Pla_Doc_Valor_Solicita");
+            tableMapping.ColumnMappings.Add("Com_Procedimiento_Desc", "Com_Procedimiento_Desc");
+            tableMapping.ColumnMappings.Add("Estado_Portal", "Estado_Portal");
+            tableMapping.ColumnMappings.Add("Estado_Contratacion", "Estado_Contratacion");
+            tableMapping.ColumnMappings.Add("Fecha_Inicio_Elabora_Pliegos", "Fecha_Inicio_Elabora_Pliegos");
+            tableMapping.ColumnMappings.Add("Fecha_Publicacion_Portal", "Fecha_Publicacion_Portal");
+            tableMapping.ColumnMappings.Add("Fecha_Calificaciones", "Fecha_Calificaciones");
+            tableMapping.ColumnMappings.Add("Fecha_Estimada_Adjudicacion", "Fecha_Estimada_Adjudicacion");
+            tableMapping.ColumnMappings.Add("Fecha_Adjudicacion", "Fecha_Adjudicacion");
+            tableMapping.ColumnMappings.Add("Fecha_Juridico", "Fecha_Juridico");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -5945,6 +6293,7 @@ namespace ADL.ComprasTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Porcentaje_Anticipo_Ref", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Ref", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Plazo_Ref", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Plazo_Ref", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Codigo_Sercop", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo_Sercop", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Per_Personal_Resp_Exp", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Per_Personal_Resp_Exp", global::System.Data.DataRowVersion.Current, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Resp_Exp", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Resp_Exp", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Cierre_Rec_Ofertas", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Cierre_Rec_Ofertas", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Par_Razon_Social_Id_Contratista", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Par_Razon_Social_Id_Contratista", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -5953,9 +6302,20 @@ namespace ADL.ComprasTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Plazo_Contrato", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Plazo_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Inicio_Contrato", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Inicio_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Porcentaje_Anticipo_Contrato", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Per_Personal_Id_Admin", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Per_Personal_Id_Admin", global::System.Data.DataRowVersion.Current, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Admin", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Admin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Desc_Contrata", global::System.Data.SqlDbType.VarChar, 300, global::System.Data.ParameterDirection.Input, 0, 0, "Desc_Contrata", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Crea", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Crea", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Com_Procedimiento_Desc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Com_Procedimiento_Desc", global::System.Data.DataRowVersion.Current, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Com_Procedimiento_Desc", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "Com_Procedimiento_Desc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado_Portal", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_Portal", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado_Contratacion", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_Contratacion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Inicio_Elabora_Pliegos", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Inicio_Elabora_Pliegos", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Publicacion_Portal", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Publicacion_Portal", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Calificaciones", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Calificaciones", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Estimada_Adjudicacion", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Estimada_Adjudicacion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Adjudicacion", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Adjudicacion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Juridico", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Juridico", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "dbo.Com_Contrato_Ins";
@@ -5977,6 +6337,15 @@ namespace ADL.ComprasTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Admin", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Admin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Desc_Contrata", global::System.Data.SqlDbType.VarChar, 300, global::System.Data.ParameterDirection.Input, 0, 0, "Desc_Contrata", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Crea", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Crea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Com_Procedimiento_Desc", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "Com_Procedimiento_Desc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado_Portal", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_Portal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado_Contratacion", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_Contratacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Inicio_Elabora_Pliegos", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Inicio_Elabora_Pliegos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Publicacion_Portal", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Publicacion_Portal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Calificaciones", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Calificaciones", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Estimada_Adjudicacion", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Estimada_Adjudicacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Adjudicacion", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Adjudicacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Juridico", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Juridico", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "dbo.Com_Contrato_Upd";
@@ -5998,6 +6367,15 @@ namespace ADL.ComprasTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Admin", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Admin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Desc_Contrata", global::System.Data.SqlDbType.VarChar, 300, global::System.Data.ParameterDirection.Input, 0, 0, "Desc_Contrata", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Crea", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Crea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Com_Procedimiento_Desc", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "Com_Procedimiento_Desc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado_Portal", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_Portal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado_Contratacion", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_Contratacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Inicio_Elabora_Pliegos", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Inicio_Elabora_Pliegos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Publicacion_Portal", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Publicacion_Portal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Calificaciones", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Calificaciones", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Estimada_Adjudicacion", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Estimada_Adjudicacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Adjudicacion", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Adjudicacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Juridico", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Juridico", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Doc_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -6005,6 +6383,7 @@ namespace ADL.ComprasTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Porcentaje_Anticipo_Ref", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Ref", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Plazo_Ref", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Plazo_Ref", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Codigo_Sercop", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo_Sercop", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Per_Personal_Resp_Exp", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Per_Personal_Resp_Exp", global::System.Data.DataRowVersion.Current, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Resp_Exp", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Resp_Exp", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Cierre_Rec_Ofertas", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Cierre_Rec_Ofertas", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Par_Razon_Social_Id_Contratista", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Par_Razon_Social_Id_Contratista", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -6013,9 +6392,20 @@ namespace ADL.ComprasTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Plazo_Contrato", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Plazo_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Inicio_Contrato", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Inicio_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Porcentaje_Anticipo_Contrato", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Porcentaje_Anticipo_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Per_Personal_Id_Admin", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Per_Personal_Id_Admin", global::System.Data.DataRowVersion.Current, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Admin", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Admin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Desc_Contrata", global::System.Data.SqlDbType.VarChar, 300, global::System.Data.ParameterDirection.Input, 0, 0, "Desc_Contrata", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Crea", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Crea", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Com_Procedimiento_Desc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Com_Procedimiento_Desc", global::System.Data.DataRowVersion.Current, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Com_Procedimiento_Desc", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "Com_Procedimiento_Desc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado_Portal", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_Portal", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado_Contratacion", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_Contratacion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Inicio_Elabora_Pliegos", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Inicio_Elabora_Pliegos", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Publicacion_Portal", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Publicacion_Portal", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Calificaciones", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Calificaciones", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Estimada_Adjudicacion", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Estimada_Adjudicacion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Adjudicacion", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Adjudicacion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Juridico", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Juridico", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -6087,6 +6477,15 @@ namespace ADL.ComprasTableAdapters {
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Admin", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Desc_Contrata", global::System.Data.SqlDbType.VarChar, 300, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Crea", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Com_Procedimiento_Desc", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado_Portal", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado_Contratacion", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Inicio_Elabora_Pliegos", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Publicacion_Portal", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Calificaciones", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Estimada_Adjudicacion", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Adjudicacion", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Juridico", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6355,7 +6754,16 @@ namespace ADL.ComprasTableAdapters {
                     global::System.Nullable<decimal> Original_Porcentaje_Anticipo_Contrato, 
                     string Original_Per_Personal_Id_Admin, 
                     string Original_Desc_Contrata, 
-                    global::System.Nullable<global::System.DateTime> Original_Fecha_Crea) {
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Crea, 
+                    string Original_Com_Procedimiento_Desc, 
+                    string Original_Estado_Portal, 
+                    string Original_Estado_Contratacion, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Inicio_Elabora_Pliegos, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Publicacion_Portal, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Calificaciones, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Estimada_Adjudicacion, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Adjudicacion, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Juridico) {
             if ((Original_Id.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Id.Value));
             }
@@ -6399,66 +6807,120 @@ namespace ADL.ComprasTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Codigo_Sercop));
             }
             if ((Original_Per_Personal_Resp_Exp == null)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Per_Personal_Resp_Exp));
-            }
-            if ((Original_Fecha_Cierre_Rec_Ofertas.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((System.DateTime)(Original_Fecha_Cierre_Rec_Ofertas.Value));
-            }
-            else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Per_Personal_Resp_Exp));
+            }
+            if ((Original_Fecha_Cierre_Rec_Ofertas.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((System.DateTime)(Original_Fecha_Cierre_Rec_Ofertas.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
             if ((Original_Par_Razon_Social_Id_Contratista == null)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_Par_Razon_Social_Id_Contratista));
-            }
-            if ((Original_Valor_Contrato.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((decimal)(Original_Valor_Contrato.Value));
-            }
-            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            if ((Original_Plazo_Contrato.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((int)(Original_Plazo_Contrato.Value));
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Par_Razon_Social_Id_Contratista));
+            }
+            if ((Original_Valor_Contrato.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((decimal)(Original_Valor_Contrato.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((Original_Fecha_Inicio_Contrato.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((System.DateTime)(Original_Fecha_Inicio_Contrato.Value));
+            if ((Original_Plazo_Contrato.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_Plazo_Contrato.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((Original_Porcentaje_Anticipo_Contrato.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((decimal)(Original_Porcentaje_Anticipo_Contrato.Value));
+            if ((Original_Fecha_Inicio_Contrato.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((System.DateTime)(Original_Fecha_Inicio_Contrato.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
-            if ((Original_Per_Personal_Id_Admin == null)) {
+            if ((Original_Porcentaje_Anticipo_Contrato.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((decimal)(Original_Porcentaje_Anticipo_Contrato.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
+            if ((Original_Per_Personal_Id_Admin == null)) {
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
             else {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_Per_Personal_Id_Admin));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_Per_Personal_Id_Admin));
             }
             if ((Original_Desc_Contrata == null)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_Desc_Contrata));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_Desc_Contrata));
             }
             if ((Original_Fecha_Crea.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((System.DateTime)(Original_Fecha_Crea.Value));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((System.DateTime)(Original_Fecha_Crea.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Com_Procedimiento_Desc == null)) {
+                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_Com_Procedimiento_Desc));
+            }
+            if ((Original_Estado_Portal == null)) {
+                this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_Estado_Portal));
+            }
+            if ((Original_Estado_Contratacion == null)) {
+                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(Original_Estado_Contratacion));
+            }
+            if ((Original_Fecha_Inicio_Elabora_Pliegos.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((System.DateTime)(Original_Fecha_Inicio_Elabora_Pliegos.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fecha_Publicacion_Portal.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((System.DateTime)(Original_Fecha_Publicacion_Portal.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fecha_Calificaciones.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((System.DateTime)(Original_Fecha_Calificaciones.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fecha_Estimada_Adjudicacion.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((System.DateTime)(Original_Fecha_Estimada_Adjudicacion.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fecha_Adjudicacion.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((System.DateTime)(Original_Fecha_Adjudicacion.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fecha_Juridico.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((System.DateTime)(Original_Fecha_Juridico.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6496,7 +6958,16 @@ namespace ADL.ComprasTableAdapters {
                     global::System.Nullable<decimal> Porcentaje_Anticipo_Contrato, 
                     string Per_Personal_Id_Admin, 
                     string Desc_Contrata, 
-                    global::System.Nullable<global::System.DateTime> Fecha_Crea) {
+                    global::System.Nullable<global::System.DateTime> Fecha_Crea, 
+                    string Com_Procedimiento_Desc, 
+                    string Estado_Portal, 
+                    string Estado_Contratacion, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Inicio_Elabora_Pliegos, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Publicacion_Portal, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Calificaciones, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Estimada_Adjudicacion, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Adjudicacion, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Juridico) {
             if ((Pla_Doc_Id.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Pla_Doc_Id.Value));
             }
@@ -6593,6 +7064,60 @@ namespace ADL.ComprasTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
+            if ((Com_Procedimiento_Desc == null)) {
+                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(Com_Procedimiento_Desc));
+            }
+            if ((Estado_Portal == null)) {
+                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(Estado_Portal));
+            }
+            if ((Estado_Contratacion == null)) {
+                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(Estado_Contratacion));
+            }
+            if ((Fecha_Inicio_Elabora_Pliegos.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[20].Value = ((System.DateTime)(Fecha_Inicio_Elabora_Pliegos.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_Publicacion_Portal.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[21].Value = ((System.DateTime)(Fecha_Publicacion_Portal.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_Calificaciones.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[22].Value = ((System.DateTime)(Fecha_Calificaciones.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_Estimada_Adjudicacion.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[23].Value = ((System.DateTime)(Fecha_Estimada_Adjudicacion.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_Adjudicacion.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[24].Value = ((System.DateTime)(Fecha_Adjudicacion.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_Juridico.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[25].Value = ((System.DateTime)(Fecha_Juridico.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6630,6 +7155,15 @@ namespace ADL.ComprasTableAdapters {
                     string Per_Personal_Id_Admin, 
                     string Desc_Contrata, 
                     global::System.Nullable<global::System.DateTime> Fecha_Crea, 
+                    string Com_Procedimiento_Desc, 
+                    string Estado_Portal, 
+                    string Estado_Contratacion, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Inicio_Elabora_Pliegos, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Publicacion_Portal, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Calificaciones, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Estimada_Adjudicacion, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Adjudicacion, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Juridico, 
                     global::System.Nullable<int> Original_Id, 
                     global::System.Nullable<int> Original_Pla_Doc_Id, 
                     string Original_Estado, 
@@ -6647,6 +7181,15 @@ namespace ADL.ComprasTableAdapters {
                     string Original_Per_Personal_Id_Admin, 
                     string Original_Desc_Contrata, 
                     global::System.Nullable<global::System.DateTime> Original_Fecha_Crea, 
+                    string Original_Com_Procedimiento_Desc, 
+                    string Original_Estado_Portal, 
+                    string Original_Estado_Contratacion, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Inicio_Elabora_Pliegos, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Publicacion_Portal, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Calificaciones, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Estimada_Adjudicacion, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Adjudicacion, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Juridico, 
                     global::System.Nullable<int> Id) {
             if ((Pla_Doc_Id.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Pla_Doc_Id.Value));
@@ -6744,115 +7287,223 @@ namespace ADL.ComprasTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((Original_Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_Id.Value));
-            }
-            else {
+            if ((Com_Procedimiento_Desc == null)) {
                 this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
-            if ((Original_Pla_Doc_Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_Pla_Doc_Id.Value));
-            }
             else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Com_Procedimiento_Desc));
+            }
+            if ((Estado_Portal == null)) {
                 this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            if ((Original_Estado == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Estado_Portal));
+            }
+            if ((Estado_Contratacion == null)) {
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Estado));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Estado_Contratacion));
             }
-            if ((Original_Com_Procedimiento_Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_Com_Procedimiento_Id.Value));
+            if ((Fecha_Inicio_Elabora_Pliegos.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((System.DateTime)(Fecha_Inicio_Elabora_Pliegos.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
-            if ((Original_Porcentaje_Anticipo_Ref.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(Original_Porcentaje_Anticipo_Ref.Value));
+            if ((Fecha_Publicacion_Portal.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(Fecha_Publicacion_Portal.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            if ((Original_Plazo_Ref.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_Plazo_Ref.Value));
+            if ((Fecha_Calificaciones.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(Fecha_Calificaciones.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
-            if ((Original_Codigo_Sercop == null)) {
+            if ((Fecha_Estimada_Adjudicacion.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Fecha_Estimada_Adjudicacion.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Codigo_Sercop));
+            if ((Fecha_Adjudicacion.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((System.DateTime)(Fecha_Adjudicacion.Value));
             }
-            if ((Original_Per_Personal_Resp_Exp == null)) {
+            else {
                 this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_Per_Personal_Resp_Exp));
-            }
-            if ((Original_Fecha_Cierre_Rec_Ofertas.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((System.DateTime)(Original_Fecha_Cierre_Rec_Ofertas.Value));
+            if ((Fecha_Juridico.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((System.DateTime)(Fecha_Juridico.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
-            if ((Original_Par_Razon_Social_Id_Contratista == null)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+            if ((Original_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Pla_Doc_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_Pla_Doc_Id.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_Par_Razon_Social_Id_Contratista));
-            }
-            if ((Original_Valor_Contrato.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((decimal)(Original_Valor_Contrato.Value));
-            }
-            else {
+            if ((Original_Estado == null)) {
                 this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
-            if ((Original_Plazo_Contrato.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(Original_Plazo_Contrato.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_Estado));
+            }
+            if ((Original_Com_Procedimiento_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(Original_Com_Procedimiento_Id.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
-            if ((Original_Fecha_Inicio_Contrato.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((System.DateTime)(Original_Fecha_Inicio_Contrato.Value));
+            if ((Original_Porcentaje_Anticipo_Ref.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((decimal)(Original_Porcentaje_Anticipo_Ref.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
-            if ((Original_Porcentaje_Anticipo_Contrato.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((decimal)(Original_Porcentaje_Anticipo_Contrato.Value));
+            if ((Original_Plazo_Ref.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((int)(Original_Plazo_Ref.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
-            if ((Original_Per_Personal_Id_Admin == null)) {
+            if ((Original_Codigo_Sercop == null)) {
                 this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_Per_Personal_Id_Admin));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_Codigo_Sercop));
             }
-            if ((Original_Desc_Contrata == null)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_Desc_Contrata));
-            }
-            if ((Original_Fecha_Crea.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((System.DateTime)(Original_Fecha_Crea.Value));
-            }
-            else {
+            if ((Original_Per_Personal_Resp_Exp == null)) {
                 this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
-            if ((Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Id.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_Per_Personal_Resp_Exp));
+            }
+            if ((Original_Fecha_Cierre_Rec_Ofertas.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((System.DateTime)(Original_Fecha_Cierre_Rec_Ofertas.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Par_Razon_Social_Id_Contratista == null)) {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_Par_Razon_Social_Id_Contratista));
+            }
+            if ((Original_Valor_Contrato.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((decimal)(Original_Valor_Contrato.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Plazo_Contrato.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(Original_Plazo_Contrato.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fecha_Inicio_Contrato.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((System.DateTime)(Original_Fecha_Inicio_Contrato.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Porcentaje_Anticipo_Contrato.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((decimal)(Original_Porcentaje_Anticipo_Contrato.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Per_Personal_Id_Admin == null)) {
+                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_Per_Personal_Id_Admin));
+            }
+            if ((Original_Desc_Contrata == null)) {
+                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_Desc_Contrata));
+            }
+            if ((Original_Fecha_Crea.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((System.DateTime)(Original_Fecha_Crea.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Com_Procedimiento_Desc == null)) {
+                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Original_Com_Procedimiento_Desc));
+            }
+            if ((Original_Estado_Portal == null)) {
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_Estado_Portal));
+            }
+            if ((Original_Estado_Contratacion == null)) {
+                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(Original_Estado_Contratacion));
+            }
+            if ((Original_Fecha_Inicio_Elabora_Pliegos.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((System.DateTime)(Original_Fecha_Inicio_Elabora_Pliegos.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fecha_Publicacion_Portal.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((System.DateTime)(Original_Fecha_Publicacion_Portal.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fecha_Calificaciones.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((System.DateTime)(Original_Fecha_Calificaciones.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fecha_Estimada_Adjudicacion.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((System.DateTime)(Original_Fecha_Estimada_Adjudicacion.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fecha_Adjudicacion.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((System.DateTime)(Original_Fecha_Adjudicacion.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fecha_Juridico.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((System.DateTime)(Original_Fecha_Juridico.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
+            }
+            if ((Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((int)(Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[56].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6891,6 +7542,15 @@ namespace ADL.ComprasTableAdapters {
                     string Per_Personal_Id_Admin, 
                     string Desc_Contrata, 
                     global::System.Nullable<global::System.DateTime> Fecha_Crea, 
+                    string Com_Procedimiento_Desc, 
+                    string Estado_Portal, 
+                    string Estado_Contratacion, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Inicio_Elabora_Pliegos, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Publicacion_Portal, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Calificaciones, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Estimada_Adjudicacion, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Adjudicacion, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Juridico, 
                     global::System.Nullable<int> Original_Id, 
                     global::System.Nullable<int> Original_Pla_Doc_Id, 
                     string Original_Estado, 
@@ -6907,8 +7567,17 @@ namespace ADL.ComprasTableAdapters {
                     global::System.Nullable<decimal> Original_Porcentaje_Anticipo_Contrato, 
                     string Original_Per_Personal_Id_Admin, 
                     string Original_Desc_Contrata, 
-                    global::System.Nullable<global::System.DateTime> Original_Fecha_Crea) {
-            return this.Update(Pla_Doc_Id, Estado, Com_Procedimiento_Id, Porcentaje_Anticipo_Ref, Plazo_Ref, Codigo_Sercop, Per_Personal_Resp_Exp, Fecha_Cierre_Rec_Ofertas, Par_Razon_Social_Id_Contratista, Valor_Contrato, Plazo_Contrato, Fecha_Inicio_Contrato, Porcentaje_Anticipo_Contrato, Per_Personal_Id_Admin, Desc_Contrata, Fecha_Crea, Original_Id, Original_Pla_Doc_Id, Original_Estado, Original_Com_Procedimiento_Id, Original_Porcentaje_Anticipo_Ref, Original_Plazo_Ref, Original_Codigo_Sercop, Original_Per_Personal_Resp_Exp, Original_Fecha_Cierre_Rec_Ofertas, Original_Par_Razon_Social_Id_Contratista, Original_Valor_Contrato, Original_Plazo_Contrato, Original_Fecha_Inicio_Contrato, Original_Porcentaje_Anticipo_Contrato, Original_Per_Personal_Id_Admin, Original_Desc_Contrata, Original_Fecha_Crea, Original_Id);
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Crea, 
+                    string Original_Com_Procedimiento_Desc, 
+                    string Original_Estado_Portal, 
+                    string Original_Estado_Contratacion, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Inicio_Elabora_Pliegos, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Publicacion_Portal, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Calificaciones, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Estimada_Adjudicacion, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Adjudicacion, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Juridico) {
+            return this.Update(Pla_Doc_Id, Estado, Com_Procedimiento_Id, Porcentaje_Anticipo_Ref, Plazo_Ref, Codigo_Sercop, Per_Personal_Resp_Exp, Fecha_Cierre_Rec_Ofertas, Par_Razon_Social_Id_Contratista, Valor_Contrato, Plazo_Contrato, Fecha_Inicio_Contrato, Porcentaje_Anticipo_Contrato, Per_Personal_Id_Admin, Desc_Contrata, Fecha_Crea, Com_Procedimiento_Desc, Estado_Portal, Estado_Contratacion, Fecha_Inicio_Elabora_Pliegos, Fecha_Publicacion_Portal, Fecha_Calificaciones, Fecha_Estimada_Adjudicacion, Fecha_Adjudicacion, Fecha_Juridico, Original_Id, Original_Pla_Doc_Id, Original_Estado, Original_Com_Procedimiento_Id, Original_Porcentaje_Anticipo_Ref, Original_Plazo_Ref, Original_Codigo_Sercop, Original_Per_Personal_Resp_Exp, Original_Fecha_Cierre_Rec_Ofertas, Original_Par_Razon_Social_Id_Contratista, Original_Valor_Contrato, Original_Plazo_Contrato, Original_Fecha_Inicio_Contrato, Original_Porcentaje_Anticipo_Contrato, Original_Per_Personal_Id_Admin, Original_Desc_Contrata, Original_Fecha_Crea, Original_Com_Procedimiento_Desc, Original_Estado_Portal, Original_Estado_Contratacion, Original_Fecha_Inicio_Elabora_Pliegos, Original_Fecha_Publicacion_Portal, Original_Fecha_Calificaciones, Original_Fecha_Estimada_Adjudicacion, Original_Fecha_Adjudicacion, Original_Fecha_Juridico, Original_Id);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6930,7 +7599,16 @@ namespace ADL.ComprasTableAdapters {
                     global::System.Nullable<decimal> Porcentaje_Anticipo_Contrato, 
                     string Per_Personal_Id_Admin, 
                     string Desc_Contrata, 
-                    global::System.Nullable<global::System.DateTime> Fecha_Crea) {
+                    global::System.Nullable<global::System.DateTime> Fecha_Crea, 
+                    string Com_Procedimiento_Desc, 
+                    string Estado_Portal, 
+                    string Estado_Contratacion, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Inicio_Elabora_Pliegos, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Publicacion_Portal, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Calificaciones, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Estimada_Adjudicacion, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Adjudicacion, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Juridico) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
             if ((Pla_Doc_Id.HasValue == true)) {
                 command.Parameters[1].Value = ((int)(Pla_Doc_Id.Value));
@@ -7027,6 +7705,60 @@ namespace ADL.ComprasTableAdapters {
             }
             else {
                 command.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Com_Procedimiento_Desc == null)) {
+                command.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[17].Value = ((string)(Com_Procedimiento_Desc));
+            }
+            if ((Estado_Portal == null)) {
+                command.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[18].Value = ((string)(Estado_Portal));
+            }
+            if ((Estado_Contratacion == null)) {
+                command.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[19].Value = ((string)(Estado_Contratacion));
+            }
+            if ((Fecha_Inicio_Elabora_Pliegos.HasValue == true)) {
+                command.Parameters[20].Value = ((System.DateTime)(Fecha_Inicio_Elabora_Pliegos.Value));
+            }
+            else {
+                command.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_Publicacion_Portal.HasValue == true)) {
+                command.Parameters[21].Value = ((System.DateTime)(Fecha_Publicacion_Portal.Value));
+            }
+            else {
+                command.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_Calificaciones.HasValue == true)) {
+                command.Parameters[22].Value = ((System.DateTime)(Fecha_Calificaciones.Value));
+            }
+            else {
+                command.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_Estimada_Adjudicacion.HasValue == true)) {
+                command.Parameters[23].Value = ((System.DateTime)(Fecha_Estimada_Adjudicacion.Value));
+            }
+            else {
+                command.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_Adjudicacion.HasValue == true)) {
+                command.Parameters[24].Value = ((System.DateTime)(Fecha_Adjudicacion.Value));
+            }
+            else {
+                command.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_Juridico.HasValue == true)) {
+                command.Parameters[25].Value = ((System.DateTime)(Fecha_Juridico.Value));
+            }
+            else {
+                command.Parameters[25].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 

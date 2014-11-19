@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" 
 MasterPageFile="~/KOALA.master" 
 AutoEventWireup="true" 
-CodeFile="Com_Contrato_GvFv.aspx.cs" 
+CodeFile="Com_Contrato_GvFv.aspx.cs"  
 Inherits="COM_Com_Contrato_GvFv" %>
 
 <%@ Register tagprefix="koala" 
@@ -17,7 +17,7 @@ TagPrefix="ajax" %>
 <script type="text/javascript">
     function PonerFormatoNumericoACamposFV() {
 	$('#ctl00_ContentPlaceHolder1_fvCom_Contrato_Valor_ContratoTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
-	$('#ctl00_ContentPlaceHolder1_fvCom_Contrato_Valor_Suma_MovsTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
+	$('#ctl00_ContentPlaceHolder1_fvCom_Contrato_Pla_Doc_Valor_SolicitaTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
 	$('#ctl00_ContentPlaceHolder1_fvCom_Contrato_Porcentaje_Anticipo_RefTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
 	$('#ctl00_ContentPlaceHolder1_fvCom_Contrato_Porcentaje_Anticipo_ContratoTextBox').autoNumeric('init', { aSep: '.', aDec: ',' });
 	
@@ -84,14 +84,14 @@ TagPrefix="ajax" %>
             <asp:BoundField DataField="Pla_Doc_Codigo"          HeaderText="Form Inic."     SortExpression="Pla_Doc_Codigo" ItemStyle-HorizontalAlign="Center" />
             <asp:BoundField DataField="Pla_Cta_Codigo"          HeaderText="Cta"            SortExpression="Pla_Cta_Codigo" />
 			<asp:BoundField DataField="Pla_Tarea_Codigo"        HeaderText="Tarea"          SortExpression="Pla_Tarea_Codigo" ItemStyle-HorizontalAlign="Center" />
-			<asp:BoundField DataField="Pla_Tarea_Nombre"        HeaderText="Tarea_Nombre"   SortExpression="Pla_Tarea_Nombre" ItemStyle-Width="350px"/>
-            <asp:BoundField DataField="Com_Procedimiento_Tipo"  HeaderText="Tipo"           SortExpression="Com_Procedimiento_Tipo" ItemStyle-HorizontalAlign="Center" />
+			<asp:BoundField DataField="Pla_Tarea_Nombre"        HeaderText="Tarea_Nombre"   SortExpression="Pla_Tarea_Nombre" ItemStyle-Width="350px"/>            
 			<asp:BoundField DataField="Codigo_Sercop"           HeaderText="Codigo Sercop"   SortExpression="Codigo_Sercop" />            
             <asp:BoundField DataField="Pla_Doc_CPC_Codigo"      HeaderText="Codigo CPC"     SortExpression="Pla_Doc_CPC_Codigo" ItemStyle-HorizontalAlign="Center" />
             <asp:BoundField DataField="Pla_Doc_PAC_Linea"       HeaderText="Linea PAC"      SortExpression="Pla_Doc_PAC_Linea" ItemStyle-HorizontalAlign="Center" />
             <asp:BoundField DataField="Estado"                  HeaderText="Estado"         SortExpression="Estado" ItemStyle-HorizontalAlign="Center" />
-            <asp:BoundField DataField="Fecha_Cierre_Rec_Ofertas" HeaderText="Fecha Cierre"   DataFormatString="{0:d}" SortExpression="Fecha_Cierre_Rec_Ofertas" />
-            
+
+            <asp:BoundField DataField="Com_Procedimiento_Tipo"  HeaderText="Tipo"           SortExpression="Com_Procedimiento_Tipo" ItemStyle-HorizontalAlign="Center" Visible = "false" />
+            <asp:BoundField DataField="Fecha_Cierre_Rec_Ofertas" HeaderText="Fecha Cierre"   DataFormatString="{0:d}" SortExpression="Fecha_Cierre_Rec_Ofertas" Visible = "false" />            
             <asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />
 			<asp:BoundField DataField="Pla_Doc_Id" HeaderText="Pla_Doc_Id"  Visible = "false" />
             <asp:BoundField DataField="Com_Procedimiento_Id" HeaderText="Com_Procedimiento_Id"  Visible = "false" />
@@ -104,32 +104,37 @@ TagPrefix="ajax" %>
 <%--Autocompletar del FormView de Com_Contrato --%>
 <%--[0]INICIO Javascript para manegar los campos de autocompletar --%>
 <div>
-<%--<script type="text/javascript" >
-    function acxCabecera_Nombre_Click(source, eventArgs) {
+<script type="text/javascript" >
+    function acxPer_Personal_Nombre_AdminTextBox_Click(source, eventArgs) {
         //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
         var params = new Array();
         params = eventArgs.get_value().split('||');
         // 0 Id
-        var xId = document.getElementById('<%= ((TextBox)fv.FindControl("Cabecera_Id")).ClientID %>');
+        var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvCom_Contrato_Per_Personal_Id_AdminTextBox');
         xId.value = params[0];
-        // 1 Codigo
-        var xCodigo = document.getElementById('<%= ((TextBox)fv.FindControl("Cabecera_Codigo")).ClientID %>');
-        xCodigo.value = params[1];
-        // coloca el id del maestro en el detalle mediante el contextKey
-        $find('acxBID_Detalle_Nombre').set_contextKey(xId.value);
     }
-    function acxDetalle_Nombre_Click(source, eventArgs) {
+    function acxPer_Personal_Nombre_Resp_ExpTextBox_Click(source, eventArgs) {
         //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
         var params = new Array();
         params = eventArgs.get_value().split('||');
         // 0 Id
-        var xId = document.getElementById('<%= ((TextBox)fv.FindControl("Detalle_Id")).ClientID %>');
+        var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvCom_Contrato_Per_Personal_Resp_ExpTextBox');
         xId.value = params[0];
-        // 1 Codigo
-        var xCodigo = document.getElementById('<%= ((TextBox)fv.FindControl("Detalle_Codigo")).ClientID %>');
-        xCodigo.value = params[1];
     }
-</script>--%>
+    function acxPar_Razon_Social_Numero_ContratistaTextBox_Click(source, eventArgs) {
+        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+        var params = new Array();
+        params = eventArgs.get_value().split('||');
+        // 0 Id
+        var xId = document.getElementById('ctl00_ContentPlaceHolder1_fvCom_Contrato_Par_Razon_Social_Id_ContratistaTextBox');
+        xId.value = params[0];
+        // 2 Id
+        var xNombre = document.getElementById('ctl00_ContentPlaceHolder1_fvCom_Contrato_Par_Razon_Social_Nombre_ContratistaTextBox');
+        xNombre.value = params[2];
+    }
+    //
+
+</script>
 </div>
 <%--[X]FIN Javascript para manegar los campos de autocompletar --%>
 
@@ -170,6 +175,17 @@ TagPrefix="ajax" %>
 				        <td>
                             <asp:TextBox ID="Fecha_CreaTextBox" runat="server" Text='<%# Bind("Fecha_Crea","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" />
                         </td>
+                        <td>Categoria - PAC:</td>
+                        <td>
+                            <asp:TextBox ID="Pla_Doc_CPC_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Doc_CPC_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" Width="80px" />
+                            <asp:TextBox ID="Pla_Doc_PAC_LineaTextBox" runat="server" Text='<%# Bind("Pla_Doc_PAC_Linea") %>'  ReadOnly="true"  CssClass="txtItem" Width="70px" />
+                        </td>
+			        </tr>
+                    <tr>
+                        <td>Código Sercop: </td>
+                        <td>
+                            <asp:TextBox ID="Codigo_SercopTextBox" runat="server" Text='<%# Bind("Codigo_Sercop") %>' CssClass="txtEdit" />
+                        </td>
                         <td> Estado </td>
 				        <td>
 				        <asp:DropDownList ID="EstadoDropDownList" runat="server" DataSourceID="odsDominio_Com_Contrato_Estado"   CssClass="txtEdit" 
@@ -177,17 +193,6 @@ TagPrefix="ajax" %>
                                 DataValueField="Dominio" 
                                 SelectedValue='<%# Bind("Estado") %>'>
                         </asp:DropDownList>
-                        </td>
-			        </tr>
-                    <tr>
-                        <td>Código Sercop: </td>
-                        <td>
-                            <asp:TextBox ID="Codigo_SercopTextBox" runat="server" Text='<%# Bind("Codigo_Sercop") %>'  ReadOnly="true"  CssClass="txtEdit" />
-                        </td>
-                        <td>Categoria - PAC:</td>
-                        <td>
-                            <asp:TextBox ID="Pla_Doc_CPC_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Doc_CPC_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" Width="80px" />
-                            <asp:TextBox ID="Pla_Doc_PAC_LineaTextBox" runat="server" Text='<%# Bind("Pla_Doc_PAC_Linea") %>'  ReadOnly="true"  CssClass="txtItem" Width="70px" />
                         </td>
                     </tr>
                 </table>
@@ -264,10 +269,30 @@ TagPrefix="ajax" %>
 				    <td>
                         <asp:TextBox ID="Per_Personal_Nombre_AdminTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Admin") %>'  
                             CssClass="txtEditNombre" />
+                        <ajax:AutoCompleteExtender 
+                            runat="server" ID= "acxPer_Personal_Nombre_AdminTextBox"
+                            BehaviorID= "acxBIDPer_Personal_Nombre_AdminTextBox"
+                            TargetControlID= "Per_Personal_Nombre_AdminTextBox"
+                            ServiceMethod= "acxPer_Personal_GetByLikeNombre_List"
+                            UseContextKey="True" 
+                            ContextKey=""
+                            CompletionInterval="0"
+                            MinimumPrefixLength="3"
+                            OnClientItemSelected= "acxPer_Personal_Nombre_AdminTextBox_Click"
+                        />
+                        <label class="pTextoPagina"> Ingresar al menos 3 letras. </label>
                     </td>
 			    </tr>
                 <tr >
                     <td> Presupuesto_Ref </td>
+				    <td>
+                        <asp:TextBox ID="Pla_Doc_Valor_SolicitaTextBox" runat="server" Text='<%# Bind("Pla_Doc_Valor_Solicita") %>'  
+                           ReadOnly="true" CssClass="txtItemValor" />
+                        <label class="pTextoPagina"> Valor solicitado por el área requirente. </label>
+                    </td>
+			    </tr>
+                <tr  style="display:none">
+                    <td> Valor_Suma_Movs </td>
 				    <td>
                         <asp:TextBox ID="Valor_Suma_MovsTextBox" runat="server" Text='<%# Bind("Valor_Suma_Movs") %>'  
                            ReadOnly="true" CssClass="txtItemValor" />
@@ -289,24 +314,32 @@ TagPrefix="ajax" %>
                         Días
                     </td>
 			    </tr>
-                <tr style="display:none">
-                    <td> Com_Procedimiento_Id </td>
-				    <td>
-                        <asp:TextBox ID="Com_Procedimiento_IdTextBox" runat="server" Text='<%# Bind("Com_Procedimiento_Id") %>' 
-                            CssClass="txtItem" />
-                    </td>
-			    </tr>
-			    <tr >
-                    <td> Procedimiento_Nombre </td>
-				    <td>
+                <tr>
+                    <td>Proc_Tipo</td>
+                    <td>
                         <asp:TextBox ID="Com_Procedimiento_TipoTextBox" runat="server" Text='<%# Bind("Com_Procedimiento_Tipo") %>'  
-                            CssClass="txtItem" Width ="40px" />
-                        <asp:TextBox ID="Com_Procedimiento_NombreTextBox" runat="server" Text='<%# Bind("Com_Procedimiento_Nombre") %>'  
-                            CssClass="txtEditNombre" Width="390px"/>
+                            CssClass="txtItem" Width ="40px" /> 
                     </td>
+                </tr>
+			    <tr >
+                    <td> Procedimiento </td>
+				    <td>
+                        <asp:DropDownList ID="ddlCom_Procedimiento_Nombre" runat="server" DataSourceID="odsgvCom_Procedimiento" CssClass="txtEdit" Width="470px"
+                                DataTextField="Nombre"
+                                DataValueField="Id"
+                                SelectedValue='<%# Bind("Com_Procedimiento_Id") %>'>
+                        </asp:DropDownList>
+                    </td> 
 			    </tr>
+                <tr>
+                    <td>Descripción:</td>
+                    <td>
+                        <asp:TextBox ID="Com_Procedimiento_DescTextBox" runat="server" Text='<%# Bind("Com_Procedimiento_Desc") %>'  
+                            CssClass="txtEditNombre" Width="465px" />
+                    </td>
+                </tr>
                 <tr >
-                    <td> Fecha_Cierre_Rec_Ofertas </td>
+                    <td> Cierre Ofertas </td>
 				    <td>
                         <asp:TextBox ID="Fecha_Cierre_Rec_OfertasTextBox" runat="server" Text='<%# Bind("Fecha_Cierre_Rec_Ofertas","{0:d}") %>'  
                             CssClass="txtEdit" />
@@ -319,7 +352,7 @@ TagPrefix="ajax" %>
 
             <asp:Panel runat ="server" ID="pn04" GroupingText="4. Responsables">
             <table>
-                <tr style="display:none">
+                <tr >
                     <td> Per_Personal_Resp_Exp </td>
 				    <td>
                         <asp:TextBox ID="Per_Personal_Resp_ExpTextBox" runat="server" Text='<%# Bind("Per_Personal_Resp_Exp") %>'  
@@ -331,6 +364,18 @@ TagPrefix="ajax" %>
 				    <td>
                         <asp:TextBox ID="Per_Personal_Nombre_Resp_ExpTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Resp_Exp") %>'  
                             CssClass="txtEditNombre" />
+                        <ajax:AutoCompleteExtender 
+                            runat="server" ID= "acxPer_Personal_Nombre_Resp_ExpTextBox"
+                            BehaviorID= "acxBIDPer_Personal_Nombre_Resp_ExpTextBox"
+                            TargetControlID= "Per_Personal_Nombre_Resp_ExpTextBox"
+                            ServiceMethod= "acxPer_Personal_GetByLikeNombre_List"
+                            UseContextKey="True" 
+                            ContextKey=""
+                            CompletionInterval="0"
+                            MinimumPrefixLength="3"
+                            OnClientItemSelected= "acxPer_Personal_Nombre_Resp_ExpTextBox_Click"
+                        />
+                        <label class="pTextoPagina"> Ingresar al menos 3 letras. </label>
                     </td>
 				</tr>
 			    <tr style="display:none">
@@ -350,18 +395,150 @@ TagPrefix="ajax" %>
             </table>
             </asp:Panel>
 
-            <asp:Panel runat ="server" ID="pn05" GroupingText="5. Datos del Contrato">
+            <asp:Panel runat ="server" ID="pn05" GroupingText="5. Seguimiento">
+                <table>
+                    <tr >
+                        <td> Estado_Portal </td>
+				        <td>
+				        <asp:DropDownList ID="Estado_PortalDropDownList" runat="server" DataSourceID="odsDominio_Com_Contrato_Estado_Portal"   
+                                DataTextField="Nombre" 
+                                DataValueField="Dominio" 
+                                SelectedValue='<%# Bind("Estado_Portal") %>'>
+                        </asp:DropDownList>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Estado_Contratacion </td>
+				        <td><asp:TextBox ID="Estado_ContratacionTextBox" runat="server" Text='<%# Bind("Estado_Contratacion") %>'  CssClass="txtEdit"  Width="600px"/>
+                        </td>
+					</tr>
+                </table>
+                <table>
+			        <tr >
+                        <td> Fecha_Inicio_Elabora_Pliegos </td>                
+				        <td><asp:TextBox ID="Fecha_Inicio_Elabora_PliegosTextBox" runat="server" Text='<%# Bind("Fecha_Inicio_Elabora_Pliegos","{0:d}") %>'  CssClass="txtEdit"  />
+				        <asp:Button runat="server" ID="btcexFecha_Inicio_Elabora_Pliegos" Text="."/>
+				        <ajax:CalendarExtender runat="server" ID="cexFecha_Inicio_Elabora_Pliegos" TargetControlID="Fecha_Inicio_Elabora_PliegosTextBox" PopupButtonID="btcexFecha_Inicio_Elabora_Pliegos" />
+				        <%--Validador--%>
+                            <asp:RequiredFieldValidator ID="rqFecha_Inicio_Elabora_Pliegos" runat="server" 
+                            ControlToValidate="Fecha_Inicio_Elabora_PliegosTextBox"
+                            ErrorMessage="Fecha_Inicio_Elabora_Pliegos obligatorio" 
+                            Text="X" Display="Dynamic" ValidationGroup="vgCom_Contrato"/>
+					        <asp:RangeValidator ID="rvFecha_Inicio_Elabora_Pliegos" runat="server" 
+                            ErrorMessage="Fecha no válida" 
+                            ControlToValidate="Fecha_Inicio_Elabora_PliegosTextBox" 
+                            Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgCom_Contrato"/>
+				        </td>
+
+                        <td> Fecha_Publicacion_Portal </td>                
+				        <td><asp:TextBox ID="Fecha_Publicacion_PortalTextBox" runat="server" Text='<%# Bind("Fecha_Publicacion_Portal","{0:d}") %>'  CssClass="txtEdit"  />
+				        <asp:Button runat="server" ID="btcexFecha_Publicacion_Portal" Text="."/>
+				        <ajax:CalendarExtender runat="server" ID="cexFecha_Publicacion_Portal" TargetControlID="Fecha_Publicacion_PortalTextBox" PopupButtonID="btcexFecha_Publicacion_Portal" />
+				        <%--Validador--%>
+                            <asp:RequiredFieldValidator ID="rqFecha_Publicacion_Portal" runat="server" 
+                            ControlToValidate="Fecha_Publicacion_PortalTextBox"
+                            ErrorMessage="Fecha_Publicacion_Portal obligatorio" 
+                            Text="X" Display="Dynamic" ValidationGroup="vgCom_Contrato"/>
+					        <asp:RangeValidator ID="rvFecha_Publicacion_Portal" runat="server" 
+                            ErrorMessage="Fecha no válida" 
+                            ControlToValidate="Fecha_Publicacion_PortalTextBox" 
+                            Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgCom_Contrato"/>
+				        </td>
+                    </tr>
+			        <tr >
+                        <td> Fecha_Calificaciones </td>                
+				        <td><asp:TextBox ID="Fecha_CalificacionesTextBox" runat="server" Text='<%# Bind("Fecha_Calificaciones","{0:d}") %>'  CssClass="txtEdit"  />
+				        <asp:Button runat="server" ID="btcexFecha_Calificaciones" Text="."/>
+				        <ajax:CalendarExtender runat="server" ID="cexFecha_Calificaciones" TargetControlID="Fecha_CalificacionesTextBox" PopupButtonID="btcexFecha_Calificaciones" />
+				        <%--Validador--%>
+                            <asp:RequiredFieldValidator ID="rqFecha_Calificaciones" runat="server" 
+                            ControlToValidate="Fecha_CalificacionesTextBox"
+                            ErrorMessage="Fecha_Calificaciones obligatorio" 
+                            Text="X" Display="Dynamic" ValidationGroup="vgCom_Contrato"/>
+					        <asp:RangeValidator ID="rvFecha_Calificaciones" runat="server" 
+                            ErrorMessage="Fecha no válida" 
+                            ControlToValidate="Fecha_CalificacionesTextBox" 
+                            Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgCom_Contrato"/>
+				        </td>
+
+                        <td> Fecha_Estimada_Adjudicacion </td>                
+				        <td><asp:TextBox ID="Fecha_Estimada_AdjudicacionTextBox" runat="server" Text='<%# Bind("Fecha_Estimada_Adjudicacion","{0:d}") %>'  CssClass="txtEdit"  />
+				        <asp:Button runat="server" ID="btcexFecha_Estimada_Adjudicacion" Text="."/>
+				        <ajax:CalendarExtender runat="server" ID="cexFecha_Estimada_Adjudicacion" TargetControlID="Fecha_Estimada_AdjudicacionTextBox" PopupButtonID="btcexFecha_Estimada_Adjudicacion" />
+				        <%--Validador--%>
+                            <asp:RequiredFieldValidator ID="rqFecha_Estimada_Adjudicacion" runat="server" 
+                            ControlToValidate="Fecha_Estimada_AdjudicacionTextBox"
+                            ErrorMessage="Fecha_Estimada_Adjudicacion obligatorio" 
+                            Text="X" Display="Dynamic" ValidationGroup="vgCom_Contrato"/>
+					        <asp:RangeValidator ID="rvFecha_Estimada_Adjudicacion" runat="server" 
+                            ErrorMessage="Fecha no válida" 
+                            ControlToValidate="Fecha_Estimada_AdjudicacionTextBox" 
+                            Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgCom_Contrato"/>
+				        </td>
+                    </tr>
+			        <tr >
+                        <td> Fecha_Adjudicacion </td>                
+				        <td><asp:TextBox ID="Fecha_AdjudicacionTextBox" runat="server" Text='<%# Bind("Fecha_Adjudicacion","{0:d}") %>'  CssClass="txtEdit"  />
+				        <asp:Button runat="server" ID="btcexFecha_Adjudicacion" Text="."/>
+				        <ajax:CalendarExtender runat="server" ID="cexFecha_Adjudicacion" TargetControlID="Fecha_AdjudicacionTextBox" PopupButtonID="btcexFecha_Adjudicacion" />
+				        <%--Validador--%>
+                            <asp:RequiredFieldValidator ID="rqFecha_Adjudicacion" runat="server" 
+                            ControlToValidate="Fecha_AdjudicacionTextBox"
+                            ErrorMessage="Fecha_Adjudicacion obligatorio" 
+                            Text="X" Display="Dynamic" ValidationGroup="vgCom_Contrato"/>
+					        <asp:RangeValidator ID="rvFecha_Adjudicacion" runat="server" 
+                            ErrorMessage="Fecha no válida" 
+                            ControlToValidate="Fecha_AdjudicacionTextBox" 
+                            Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgCom_Contrato"/>
+				        </td>
+                        <td> Fecha_Juridico </td>                
+				        <td><asp:TextBox ID="Fecha_JuridicoTextBox" runat="server" Text='<%# Bind("Fecha_Juridico","{0:d}") %>'  CssClass="txtEdit"  />
+				        <asp:Button runat="server" ID="btcexFecha_Juridico" Text="."/>
+				        <ajax:CalendarExtender runat="server" ID="cexFecha_Juridico" TargetControlID="Fecha_JuridicoTextBox" PopupButtonID="btcexFecha_Juridico" />
+				        <%--Validador--%>
+                            <asp:RequiredFieldValidator ID="rqFecha_Juridico" runat="server" 
+                            ControlToValidate="Fecha_JuridicoTextBox"
+                            ErrorMessage="Fecha_Juridico obligatorio" 
+                            Text="X" Display="Dynamic" ValidationGroup="vgCom_Contrato"/>
+					        <asp:RangeValidator ID="rvFecha_Juridico" runat="server" 
+                            ErrorMessage="Fecha no válida" 
+                            ControlToValidate="Fecha_JuridicoTextBox" 
+                            Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgCom_Contrato"/>
+				        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+
+            <asp:Panel runat ="server" ID="pn06" GroupingText="6. Datos del Contrato">
                 <table>			    
-			        <tr style="display:none">
+			        <tr >
                         <td> Par_Razon_Social_Id_Contratista </td>
 				        <td><asp:TextBox ID="Par_Razon_Social_Id_ContratistaTextBox" runat="server" Text='<%# Bind("Par_Razon_Social_Id_Contratista") %>'  
                             CssClass="txtItem" /></td>
 			        </tr>
                     <tr >
-                        <td> Número de RUC Contratista </td>
+                        <td> RUC del Contratista </td>
 				        <td>
                             <asp:TextBox ID="Par_Razon_Social_Numero_ContratistaTextBox" runat="server" Text='<%# Bind("Par_Razon_Social_Numero_Contratista") %>'  
                                  CssClass="txtEdit" />
+                            <label class="pTextoPagina"> Ingresar al menos 3 dígitos. (000 indica ninguno)</label>
+                            <asp:RegularExpressionValidator ID="revRUC" runat="server" 
+                                ErrorMessage="RUC no válido" 
+                                ValidationExpression="^[0-2][0-9][0-69]\d{7}[0][0][1-9]$"
+                                ControlToValidate ="Par_Razon_Social_Numero_ContratistaTextBox"
+                                ValidationGroup="vgCom_Contrato"
+                            />
+                            <ajax:AutoCompleteExtender 
+                                runat="server" ID= "acxPar_Razon_Social_Numero_ContratistaTextBox"
+                                BehaviorID= "acxBIDPar_Razon_Social_Numero_ContratistaTextBox"
+                                TargetControlID= "Par_Razon_Social_Numero_ContratistaTextBox"
+                                ServiceMethod= "acxPar_Razon_Social_GetByLikeNumero_List"
+                                UseContextKey="True" 
+                                ContextKey=""
+                                CompletionInterval="0"
+                                MinimumPrefixLength="3"
+                                OnClientItemSelected= "acxPar_Razon_Social_Numero_ContratistaTextBox_Click"
+                            />
                         </td>
 			        </tr>
                     <tr >
@@ -439,13 +616,10 @@ TagPrefix="ajax" %>
 				        <td>
                             <asp:TextBox ID="Fecha_CreaTextBox" runat="server" Text='<%# Bind("Fecha_Crea","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" />
                         </td>
-                        <td> Estado </td>
-				        <td>
-				        <asp:DropDownList ID="EstadoDropDownList" runat="server" DataSourceID="odsDominio_Com_Contrato_Estado"  Enabled="false" CssClass="txtItemDDL" 
-                                DataTextField="Nombre" 
-                                DataValueField="Dominio" 
-                                SelectedValue='<%# Bind("Estado") %>'>
-                        </asp:DropDownList>
+                        <td>Categoria - PAC:</td>
+                        <td>
+                            <asp:TextBox ID="Pla_Doc_CPC_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Doc_CPC_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" Width="80px" />
+                            <asp:TextBox ID="Pla_Doc_PAC_LineaTextBox" runat="server" Text='<%# Bind("Pla_Doc_PAC_Linea") %>'  ReadOnly="true"  CssClass="txtItem" Width="70px" />
                         </td>
 			        </tr>
                     <tr>
@@ -453,10 +627,13 @@ TagPrefix="ajax" %>
                         <td>
                             <asp:TextBox ID="Codigo_SercopTextBox" runat="server" Text='<%# Bind("Codigo_Sercop") %>'  ReadOnly="true"  CssClass="txtItem" />
                         </td>
-                        <td>Categoria - PAC:</td>
-                        <td>
-                            <asp:TextBox ID="Pla_Doc_CPC_CodigoTextBox" runat="server" Text='<%# Bind("Pla_Doc_CPC_Codigo") %>'  ReadOnly="true"  CssClass="txtItem" Width="80px" />
-                            <asp:TextBox ID="Pla_Doc_PAC_LineaTextBox" runat="server" Text='<%# Bind("Pla_Doc_PAC_Linea") %>'  ReadOnly="true"  CssClass="txtItem" Width="70px" />
+                        <td> Estado </td>
+				        <td>
+				        <asp:DropDownList ID="EstadoDropDownList" runat="server" DataSourceID="odsDominio_Com_Contrato_Estado"  Enabled="false" CssClass="txtItemDDL" 
+                                DataTextField="Nombre" 
+                                DataValueField="Dominio" 
+                                SelectedValue='<%# Bind("Estado") %>'>
+                        </asp:DropDownList>
                         </td>
                     </tr>
                 </table>
@@ -531,9 +708,17 @@ TagPrefix="ajax" %>
 			    </tr>
                 <tr >
                     <td> Presupuesto_Ref </td>
+                    <td>
+                        <asp:TextBox ID="Pla_Doc_Valor_SolicitaTextBox" runat="server" Text='<%# Bind("Pla_Doc_Valor_Solicita") %>'  
+                           ReadOnly="true" CssClass="txtItemValor" />
+                        <label class="pTextoPagina"> Valor solicitado por el área requirente. </label>
+                    </td>
+			    </tr>
+                <tr  style="display:none">
+                    <td> Valor_Suma_Movs </td>
 				    <td>
                         <asp:TextBox ID="Valor_Suma_MovsTextBox" runat="server" Text='<%# Bind("Valor_Suma_Movs") %>'  
-                            ReadOnly="true"  CssClass="txtItemValor" />
+                           ReadOnly="true" CssClass="txtItemValor" />
                     </td>
 			    </tr>
                 <tr >
@@ -559,15 +744,23 @@ TagPrefix="ajax" %>
                     </td>
 			    </tr>
 			    <tr >
-                    <td> Procedimiento_Nombre </td>
+                    <td> Procedimiento </td>
 				    <td>
-                        <asp:TextBox ID="Com_Procedimiento_TipoTextBox" runat="server" Text='<%# Bind("Com_Procedimiento_Tipo") %>'  ReadOnly="true"  CssClass="txtItem" Width ="40px" />
                         <asp:TextBox ID="Com_Procedimiento_NombreTextBox" runat="server" Text='<%# Bind("Com_Procedimiento_Nombre") %>'  
-                            ReadOnly="true"  CssClass="txtItemNombre" Width="390px"/>
+                            ReadOnly="true"  CssClass="txtItemNombre" Width="465px"/>
+                        <asp:TextBox ID="Com_Procedimiento_TipoTextBox" runat="server" Text='<%# Bind("Com_Procedimiento_Tipo") %>'  
+                            ReadOnly="true"  CssClass="txtItem" Width ="40px" />
                     </td>
 			    </tr>
+                <tr>
+                    <td>Descripción:</td>
+                    <td>
+                        <asp:TextBox ID="Com_Procedimiento_DescTextBox" runat="server" Text='<%# Bind("Com_Procedimiento_Desc") %>'  
+                            ReadOnly="true"  CssClass="txtItemNombre" Width="465px" />
+                    </td>
+                </tr>
                 <tr >
-                    <td> Fecha_Cierre_Rec_Ofertas </td>
+                    <td> Cierre Ofertas </td>
 				    <td><asp:TextBox ID="Fecha_Cierre_Rec_OfertasTextBox" runat="server" Text='<%# Bind("Fecha_Cierre_Rec_Ofertas","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 			    </tr>
             </table>
@@ -600,7 +793,50 @@ TagPrefix="ajax" %>
             </table>
             </asp:Panel>
 
-            <asp:Panel runat ="server" ID="pn05" GroupingText="5. Datos del Contrato">
+            <asp:Panel runat ="server" ID="pn05" GroupingText="5. Seguimiento">
+                <table>
+                    <tr >
+                        <td> Estado_Portal </td>
+				        <td>
+				        <asp:DropDownList ID="Estado_PortalDropDownList" runat="server" DataSourceID="odsDominio_Com_Contrato_Estado_Portal"  Enabled="false" CssClass="txtItemDDL" 
+                                DataTextField="Nombre" 
+                                DataValueField="Dominio" 
+                                SelectedValue='<%# Bind("Estado_Portal") %>'>
+                        </asp:DropDownList>
+                        </td>
+                    </tr>
+			        <tr >
+                        <td> Estado_Contratacion </td>
+				        <td><asp:TextBox ID="Estado_ContratacionTextBox" runat="server" Text='<%# Bind("Estado_Contratacion") %>'  ReadOnly="true"  CssClass="txtItem"  Width="600px"/>
+                        </td>
+					</tr>
+                </table>
+                <table>
+			        <tr >
+                        <td> Fecha_Inicio_Elabora_Pliegos </td>
+				        <td><asp:TextBox ID="Fecha_Inicio_Elabora_PliegosTextBox" runat="server" Text='<%# Bind("Fecha_Inicio_Elabora_Pliegos","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+						
+                        <td> Fecha_Publicacion_Portal </td>
+				        <td><asp:TextBox ID="Fecha_Publicacion_PortalTextBox" runat="server" Text='<%# Bind("Fecha_Publicacion_Portal","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+					</tr>
+			        <tr >
+                        <td> Fecha_Calificaciones </td>
+				        <td><asp:TextBox ID="Fecha_CalificacionesTextBox" runat="server" Text='<%# Bind("Fecha_Calificaciones","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+						
+                        <td> Fecha_Estimada_Adjudicacion </td>
+				        <td><asp:TextBox ID="Fecha_Estimada_AdjudicacionTextBox" runat="server" Text='<%# Bind("Fecha_Estimada_Adjudicacion","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+					</tr>
+			        <tr >
+                        <td> Fecha_Adjudicacion </td>
+				        <td><asp:TextBox ID="Fecha_AdjudicacionTextBox" runat="server" Text='<%# Bind("Fecha_Adjudicacion","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+						
+                        <td> Fecha_Juridico </td>
+				        <td><asp:TextBox ID="Fecha_JuridicoTextBox" runat="server" Text='<%# Bind("Fecha_Juridico","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			        </tr>
+                </table>
+            </asp:Panel>
+
+            <asp:Panel runat ="server" ID="pn06" GroupingText="6. Datos del Contrato">
                 <table>			    
 			        <tr style="display:none">
                         <td> Par_Razon_Social_Id_Contratista </td>
@@ -656,6 +892,8 @@ TagPrefix="ajax" %>
 			    </table>
             </asp:Panel>
 
+            
+
             <asp:Button ID="EditButton" RunAt="server"  CausesValidation="False" CommandName="Edit" Text="Editar" />
             &nbsp;
             <asp:Button ID="DeleteButton" RunAt="server" CausesValidation="False" CommandName="Delete" Text="Borrar" />
@@ -669,7 +907,7 @@ TagPrefix="ajax" %>
 	<%--[X] FormView de Com_Contrato --%>
 
     <%--[O] GridView de Com_Contrato_DocTec --%>
-    <asp:Panel ID="Panel1" runat="server" GroupingText="Documentación Técnica:" CssClass="panCol2">
+    <asp:Panel ID="Panel1" runat="server" GroupingText="Documentación Técnica:" CssClass="panCol2" Width="500px">
     <asp:GridView ID="gvCom_Contrato_DocTec" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvCom_Contrato_DocTec_GetByCom_Contrato_Id" 
         SelectedRowStyle-CssClass="selectedrowstyle" 
@@ -720,9 +958,13 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Tiene </td>                
-				<td><asp:TextBox ID="TieneTextBox" runat="server" Text='<%# Bind("Tiene") %>'  CssClass="txtEdit"  />
-				
-					</td>
+				<td>
+                    <asp:DropDownList ID="ddlTiene" runat="server" SelectedValue='<%# Bind("Tiene") %>'>
+                        <asp:ListItem>SI</asp:ListItem>
+                        <asp:ListItem>NO</asp:ListItem>
+                        <asp:ListItem>..</asp:ListItem>
+                    </asp:DropDownList>
+				</td>
             </tr>
 			</table>
             <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
@@ -750,10 +992,14 @@ TagPrefix="ajax" %>
 					</td>
             </tr>
 			<tr >
-                <td> Tiene </td>                
-				<td><asp:TextBox ID="TieneTextBox" runat="server" Text='<%# Bind("Tiene") %>'  CssClass="txtEdit"  />
-				
-					</td>
+                <td> Tiene </td>
+				<td>
+                    <asp:DropDownList ID="ddlTiene" runat="server" SelectedValue='<%# Bind("Tiene") %>'>
+                        <asp:ListItem>SI</asp:ListItem>
+                        <asp:ListItem>NO</asp:ListItem>
+                        <asp:ListItem>..</asp:ListItem>
+                    </asp:DropDownList>
+				</td>
             </tr>
 			</table>
             <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
@@ -852,8 +1098,6 @@ TagPrefix="ajax" %>
 			<tr >
                 <td> Fecha-Hora_Recepcion </td>                
 				<td><asp:TextBox ID="Fecha_RecepcionTextBox" runat="server" Text='<%# Bind("Fecha_Recepcion","{0:dd/MM/yyyy hh:mm}") %>'  CssClass="txtEdit"  />
-				<asp:Button runat="server" ID="btcexFecha_Recepcion" Text="."/>
-				<ajax:CalendarExtender runat="server" ID="cexFecha_Recepcion" TargetControlID="Fecha_RecepcionTextBox" PopupButtonID="btcexFecha_Recepcion" />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqFecha_Recepcion" runat="server" 
                     ControlToValidate="Fecha_RecepcionTextBox"
@@ -905,8 +1149,6 @@ TagPrefix="ajax" %>
 			<tr >
                 <td> Fecha_Recepcion </td>                
 				<td><asp:TextBox ID="Fecha_RecepcionTextBox" runat="server" Text='<%# Bind("Fecha_Recepcion","{0:dd/MM/yyyy hh:mm}") %>'  CssClass="txtEdit"  />
-				<asp:Button runat="server" ID="btcexFecha_Recepcion" Text="."/>
-				<ajax:CalendarExtender runat="server" ID="cexFecha_Recepcion" TargetControlID="Fecha_RecepcionTextBox" PopupButtonID="btcexFecha_Recepcion" />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqFecha_Recepcion" runat="server" 
                     ControlToValidate="Fecha_RecepcionTextBox"
@@ -1070,6 +1312,22 @@ TagPrefix="ajax" %>
             <asp:Parameter Type="String" Name="Campo_Nombre"  DefaultValue="Estado"               />
         </SelectParameters>
     </asp:ObjectDataSource>
+	<%--Objetos de Datos para obtener los dominios del campo Estado_Portal de la tabla Com_Contrato --%>
+    <asp:ObjectDataSource ID="odsDominio_Com_Contrato_Estado_Portal" runat="server" 
+        SortParameterName = "sortExpression" 
+        SelectMethod="GetByObjetoCampo" 
+        TypeName="FEL.DIC.BO_Dic_Dominio"
+        EnableCaching="true"
+        CacheDuration="60"
+        CacheExpirationPolicy="Sliding"
+        >
+        <SelectParameters>
+            <asp:Parameter DefaultValue="Nombre" Name="sortExpression" Type="String" />
+            <asp:SessionParameter DefaultValue="" Name="s" SessionField="Scope" Type="Object" />
+            <asp:Parameter Type="String" Name="Objeto_Nombre" DefaultValue="Com_Contrato"  />
+            <asp:Parameter Type="String" Name="Campo_Nombre"  DefaultValue="Estado_Portal"               />
+        </SelectParameters>
+    </asp:ObjectDataSource>
 	<%--Objetos de Datos para el FormView --%>
     <asp:ObjectDataSource ID="odsfvCom_Contrato" runat="server" 
         SelectMethod="GetById"         
@@ -1114,7 +1372,7 @@ TagPrefix="ajax" %>
         TypeName="FEL.COM.BO_Com_Contrato_DocTec">
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-			<asp:ControlParameter ControlID="fvCom_Contrato" Name="p_Com_Contrato_Id" PropertyName="SelectedValue" Type="Int32" />
+			<asp:ControlParameter ControlID="gvCom_Contrato" Name="p_Com_Contrato_Id" PropertyName="SelectedValue" Type="Int32" />
 		</SelectParameters>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvCom_Contrato_DocTec_GetById" runat="server" 
@@ -1206,4 +1464,20 @@ TagPrefix="ajax" %>
     </asp:ObjectDataSource>
 </div>
 <%--[X] FIN Fuentes de datos de Com_Contrato_Oferente --%>
+
+<%--[O]INICIO Fuentes de datos de Com_Procedimiento --%>
+<div>
+    <%--Fuente de datos para el GridView --%>
+    <asp:ObjectDataSource ID="odsgvCom_Procedimiento" runat="server" 
+        SelectMethod="Get" 
+        SortParameterName = "sortExpression"
+        TypeName="FEL.COM.BO_Com_Procedimiento" >
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+</div>
+<%--[O]FIN Fuentes de datos de Com_Procedimiento --%>
+
+
 </asp:Content>
