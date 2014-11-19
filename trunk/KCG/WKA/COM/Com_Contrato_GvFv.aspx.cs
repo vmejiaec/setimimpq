@@ -163,13 +163,97 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
 		e.NewValues["Fecha_Inicio_Contrato"] = DateTime.Parse((string)e.NewValues["Fecha_Inicio_Contrato"]);
 		e.OldValues["Fecha_Inicio_Contrato"] = DateTime.Parse((string)e.OldValues["Fecha_Inicio_Contrato"]);			
 		e.NewValues["Fecha_Crea"] = DateTime.Parse((string)e.NewValues["Fecha_Crea"]);
-		e.OldValues["Fecha_Crea"] = DateTime.Parse((string)e.OldValues["Fecha_Crea"]);			
+		e.OldValues["Fecha_Crea"] = DateTime.Parse((string)e.OldValues["Fecha_Crea"]);
 		e.NewValues["Valor_Suma_Movs"] = Decimal.Parse((string)e.NewValues["Valor_Suma_Movs"]);
 		e.OldValues["Valor_Suma_Movs"] = Decimal.Parse((string)e.OldValues["Valor_Suma_Movs"]);
+        e.NewValues["Pla_Doc_Valor_Solicita"] = Decimal.Parse((string)e.NewValues["Pla_Doc_Valor_Solicita"]);
+        e.OldValues["Pla_Doc_Valor_Solicita"] = Decimal.Parse((string)e.OldValues["Pla_Doc_Valor_Solicita"]);
         e.NewValues["Porcentaje_Anticipo_Ref"] = Decimal.Parse((string)e.NewValues["Porcentaje_Anticipo_Ref"]);
         e.OldValues["Porcentaje_Anticipo_Ref"] = Decimal.Parse((string)e.OldValues["Porcentaje_Anticipo_Ref"]);
         e.NewValues["Porcentaje_Anticipo_Contrato"] = Decimal.Parse((string)e.NewValues["Porcentaje_Anticipo_Contrato"]);
         e.OldValues["Porcentaje_Anticipo_Contrato"] = Decimal.Parse((string)e.OldValues["Porcentaje_Anticipo_Contrato"]);
+        // Seguimiento
+        e.NewValues["Fecha_Inicio_Elabora_Pliegos"] = DateTime.Parse((string)e.NewValues["Fecha_Inicio_Elabora_Pliegos"]);
+        e.OldValues["Fecha_Inicio_Elabora_Pliegos"] = DateTime.Parse((string)e.OldValues["Fecha_Inicio_Elabora_Pliegos"]);
+        e.NewValues["Fecha_Publicacion_Portal"] = DateTime.Parse((string)e.NewValues["Fecha_Publicacion_Portal"]);
+        e.OldValues["Fecha_Publicacion_Portal"] = DateTime.Parse((string)e.OldValues["Fecha_Publicacion_Portal"]);
+        e.NewValues["Fecha_Calificaciones"] = DateTime.Parse((string)e.NewValues["Fecha_Calificaciones"]);
+        e.OldValues["Fecha_Calificaciones"] = DateTime.Parse((string)e.OldValues["Fecha_Calificaciones"]);
+        e.NewValues["Fecha_Estimada_Adjudicacion"] = DateTime.Parse((string)e.NewValues["Fecha_Estimada_Adjudicacion"]);
+        e.OldValues["Fecha_Estimada_Adjudicacion"] = DateTime.Parse((string)e.OldValues["Fecha_Estimada_Adjudicacion"]);
+        e.NewValues["Fecha_Adjudicacion"] = DateTime.Parse((string)e.NewValues["Fecha_Adjudicacion"]);
+        e.OldValues["Fecha_Adjudicacion"] = DateTime.Parse((string)e.OldValues["Fecha_Adjudicacion"]);
+        e.NewValues["Fecha_Juridico"] = DateTime.Parse((string)e.NewValues["Fecha_Juridico"]);
+        e.OldValues["Fecha_Juridico"] = DateTime.Parse((string)e.OldValues["Fecha_Juridico"]);
+        // Verifica si el id del contratista sea vacío y lo convierte en nulo
+        if (String.IsNullOrEmpty((string)e.OldValues["Par_Razon_Social_Id_Contratista"]))
+        {
+            e.OldValues["Par_Razon_Social_Id_Contratista"] = null;
+        }
+        // Verifica que el contratista sea nulo para insertarlo en la tabla de Par_Razon_Social como nuevo
+        if (String.IsNullOrEmpty((string)e.NewValues["Par_Razon_Social_Id_Contratista"]))
+        {
+            // Verifica que a más del id = vacio, también el nombre sea vacio, lo cual implica que no se debe insertar
+            string sNombreContratista = (string)e.NewValues["Par_Razon_Social_Nombre_Contratista"];
+            if (String.IsNullOrEmpty(sNombreContratista))
+            {
+                e.NewValues["Par_Razon_Social_Id_Contratista"] = null;
+            }
+            else // Si el id = vacio pero el nombre contiene caracteres, entonces se debe insertar
+            { 
+                // Si los caracteres del nombre son muy cortos, entonces se cancela la inserción
+                sNombreContratista = sNombreContratista.Trim().ToUpper();
+                if (sNombreContratista.Length < 6)
+                    e.Cancel = true;
+                else // Si el nombre tiene más de 7 caracteres entonces lo insertará
+                {
+                    Scope s = new Scope();
+                    s.Int_Empresa_Id = "1";
+                    s.Ver_Version_Id = "1";
+                    FEL.PAR.BO_Par_Razon_Social adpRazonSocial = new FEL.PAR.BO_Par_Razon_Social();
+                    string sNumero = (string)e.NewValues["Par_Razon_Social_Numero_Contratista"];
+                    // Primero se verifica que no existe una razón social con ese ruc
+                    var listaRazones = adpRazonSocial.GetByLikeNumero("",s, "00126010595787657", sNumero);
+                    if (listaRazones.Count > 0)
+                    {
+                        // Si existe una razón social con dicho RUC
+                        e.Cancel = true;
+                        lbFvMsgErrorCom_Contrato.Text = string.Format( "No se puede crear el RUC: {0} porque ya consta en la base.", sNumero);
+                    }
+                    else
+                    {  // No existe una razón social con el RUC indicado y se puede insertar
+                        string sIdRazonSocial = "";
+                        Par_Razon_Social oRazonSocial = new Par_Razon_Social();
+                        oRazonSocial.Int_Empresa_Id = "1";
+                        oRazonSocial.Nombre = sNombreContratista;
+                        oRazonSocial.Nombre_Comercial = sNombreContratista;
+                        oRazonSocial.Numero = sNumero;
+                        oRazonSocial.Par_Tipo_Identificacion_Id = "00126010595787657"; // Identificación tipo RUC                    
+                        sIdRazonSocial = adpRazonSocial.Insert(s, oRazonSocial);
+                        // El nuevo id se coloca en los valores para insertar en el contrato
+                        e.NewValues["Par_Razon_Social_Id_Contratista"] = sIdRazonSocial;
+                    }
+                }
+            }
+        }
+        // Verifica si el id del administrador sea vacío y lo convierte en nulo
+        if (String.IsNullOrEmpty((string)e.OldValues["Per_Personal_Id_Admin"]))
+        {
+            e.OldValues["Per_Personal_Id_Admin"] = null;
+        }
+        if (String.IsNullOrEmpty((string)e.NewValues["Per_Personal_Id_Admin"]))
+        {
+            e.NewValues["Per_Personal_Id_Admin"] = null;
+        }
+        // Verifica si el id de la persona responsable sea vacío y lo convierte en nulo
+        if (String.IsNullOrEmpty((string)e.OldValues["Per_Personal_Resp_Exp"]))
+        {
+            e.OldValues["Per_Personal_Resp_Exp"] = null;
+        }
+        if (String.IsNullOrEmpty((string)e.NewValues["Per_Personal_Resp_Exp"])) 
+        {
+            e.NewValues["Per_Personal_Resp_Exp"] = null;
+        }
 		// Guarda los datos del registro en memoria
         this.MemoriaRegistroActual = String.Format( "Id: {0} * Código: {1}.", e.NewValues["Id"], e.NewValues["Codigo"]) ;
     }
@@ -181,6 +265,14 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
 		e.Values["Fecha_Inicio_Contrato"] = DateTime.Parse((string)e.Values["Fecha_Inicio_Contrato"]);
 		e.Values["Fecha_Crea"] = DateTime.Parse((string)e.Values["Fecha_Crea"]);
 		e.Values["Valor_Suma_Movs"] = Decimal.Parse((string)e.Values["Valor_Suma_Movs"]);
+        e.Values["Pla_Doc_Valor_Solicita"] = Decimal.Parse((string)e.Values["Pla_Doc_Valor_Solicita"]);
+        // Datos de seguimiento
+        e.Values["Fecha_Inicio_Elabora_Pliegos"] = DateTime.Parse((string)e.Values["Fecha_Inicio_Elabora_Pliegos"]);
+        e.Values["Fecha_Publicacion_Portal"] = DateTime.Parse((string)e.Values["Fecha_Publicacion_Portal"]);
+        e.Values["Fecha_Calificaciones"] = DateTime.Parse((string)e.Values["Fecha_Calificaciones"]);
+        e.Values["Fecha_Estimada_Adjudicacion"] = DateTime.Parse((string)e.Values["Fecha_Estimada_Adjudicacion"]);
+        e.Values["Fecha_Adjudicacion"] = DateTime.Parse((string)e.Values["Fecha_Adjudicacion"]);
+        e.Values["Fecha_Juridico"] = DateTime.Parse((string)e.Values["Fecha_Juridico"]);
 		// Guarda los datos del registro en memoria
         this.MemoriaRegistroActual = String.Format( "Id: {0} * Código: {1}.", e.Values["Id"], e.Values["Codigo"]) ;
     }
@@ -337,7 +429,6 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
     {
         // Valor por defecto del Id y Estado
         e.Values["Id"] = -1;
-        // Cambio del formato de los campos que empiezan con Valor y Fecha
         // Guarda los datos del registro en memoria
         this.MemoriaRegistroActual = String.Format("Id: {0} * Código: {1}.", e.Values["Id"], e.Values["Codigo"]);
     }
@@ -359,8 +450,12 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
         switch (fvCom_Contrato_DocTec.CurrentMode)
         {
             case FormViewMode.Insert:
-                //((TextBox)fvPla_Poa.FindControl("CodigoTextBox")).Text = "1";
-                //((TextBox)fvPla_Poa.FindControl("EstadoTextBox")).Text = "PEN";
+                // Pongo el Com_Contrato_Id por defecto del Grid
+                if (gvCom_Contrato.SelectedValue != null)
+                {
+                    string sCom_Contrato_Id = gvCom_Contrato.SelectedValue.ToString();
+                    ((TextBox)fvCom_Contrato_DocTec.FindControl("Com_Contrato_IdTextBox")).Text = sCom_Contrato_Id;
+                }
                 break;
             case FormViewMode.Edit:
                 break;
@@ -530,8 +625,17 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
         switch (fvCom_Contrato_Oferente.CurrentMode)
         {
             case FormViewMode.Insert:
-                //((TextBox)fvPla_Poa.FindControl("CodigoTextBox")).Text = "1";
-                //((TextBox)fvPla_Poa.FindControl("EstadoTextBox")).Text = "PEN";
+                // Pongo el Com_Contrato_Id por defecto del Grid
+                if (gvCom_Contrato.SelectedValue != null)
+                {
+                    string sCom_Contrato_Id = gvCom_Contrato.SelectedValue.ToString();
+                    ((TextBox)fvCom_Contrato_Oferente.FindControl("Com_Contrato_IdTextBox")).Text = sCom_Contrato_Id;
+                }
+                // Pongo el usuario que recibe la oferta
+                ((TextBox)fvCom_Contrato_Oferente.FindControl("Per_Personal_Id_RecibeTextBox")).Text = Scope.Per_Personal_Id;
+                // Pongo la fecha y hora del sistema en el campo de fecha de recepción
+                string sFechaAhora = DateTime.Now.ToString("dd/MM/yyyy hh:mm");
+                ((TextBox)fvCom_Contrato_Oferente.FindControl("Fecha_RecepcionTextBox")).Text = sFechaAhora;
                 break;
             case FormViewMode.Edit:
                 break;
@@ -603,4 +707,46 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
         }
     }
     #endregion
+
+    // --------------------------------------------------------------------
+    // WebServices para autocompletar campos de Personal
+    // --------------------------------------------------------------------
+    [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
+    public static string[] acxPer_Personal_GetByLikeNombre_List(string prefixText, int count, string contextKey)
+    {
+        Scope s = (Scope)HttpContext.Current.Session["Scope"];
+        FEL.PER.BO_Per_Personal adp = new FEL.PER.BO_Per_Personal();
+        var lista = adp.GetByLikeNombre("Nombre", s, prefixText);
+        List<string> items = new List<string>();
+        foreach (var fila in lista)
+            items.Add(
+                AjaxControlToolkit.AutoCompleteExtender.
+                    CreateAutoCompleteItem(
+                        fila.Nombre, fila.Id + "||" + fila.Codigo + "||" + fila.Nombre + "||" + fila.Par_Razon_Social_Numero  // 0 1 2 3
+                    ));
+        return items.ToArray();
+    }
+    [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
+    public static string[] acxPar_Razon_Social_GetByLikeNumero_List(string prefixText, int count, string contextKey)
+    {
+        Scope s = (Scope)HttpContext.Current.Session["Scope"];
+        FEL.PAR.BO_Par_Razon_Social adp = new FEL.PAR.BO_Par_Razon_Social();
+        // 00126010595787657 es el id para RUC
+        var lista = adp.GetByLikeNumero("Numero",s, "00126010595787657", prefixText);
+        List<string> items = new List<string>();
+        // El resultado de la base
+        foreach (var fila in lista)
+            items.Add(
+                AjaxControlToolkit.AutoCompleteExtender.
+                    CreateAutoCompleteItem(
+                        fila.Numero, fila.Id + "||" + fila.Codigo + "||" + fila.Nombre + "||" + fila.Numero  // 0 1 2 3
+                    ));
+        // Aumentamos un registro para seleccionar vacio con el valor 000
+        items.Add(
+                AjaxControlToolkit.AutoCompleteExtender.
+                    CreateAutoCompleteItem(
+                        "0000000000001", "" + "||" + "" + "||" + "" + "||" + ""  // 0 1 2 3
+                    ));
+        return items.ToArray();
+    }
 }

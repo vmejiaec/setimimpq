@@ -126,6 +126,36 @@ namespace AEL.COM
         // Comentario
         private string _Pla_Cta_Nombre;
         
+        // Comentario
+        private decimal _Pla_Doc_Valor_Solicita;
+        
+        // Comentario
+        private string _Com_Procedimiento_Desc;
+        
+        // Comentario
+        private string _Estado_Portal;
+        
+        // Comentario
+        private string _Estado_Contratacion;
+        
+        // Comentario
+        private System.DateTime _Fecha_Inicio_Elabora_Pliegos;
+        
+        // Comentario
+        private System.DateTime _Fecha_Publicacion_Portal;
+        
+        // Comentario
+        private System.DateTime _Fecha_Calificaciones;
+        
+        // Comentario
+        private System.DateTime _Fecha_Estimada_Adjudicacion;
+        
+        // Comentario
+        private System.DateTime _Fecha_Adjudicacion;
+        
+        // Comentario
+        private System.DateTime _Fecha_Juridico;
+        
         public Com_Contrato()
         {
         }
@@ -166,7 +196,17 @@ namespace AEL.COM
                     string pla_Doc_Codigo, 
                     int pla_Cta_Id, 
                     string pla_Cta_Codigo, 
-                    string pla_Cta_Nombre)
+                    string pla_Cta_Nombre, 
+                    decimal pla_Doc_Valor_Solicita, 
+                    string com_Procedimiento_Desc, 
+                    string estado_Portal, 
+                    string estado_Contratacion, 
+                    System.DateTime fecha_Inicio_Elabora_Pliegos, 
+                    System.DateTime fecha_Publicacion_Portal, 
+                    System.DateTime fecha_Calificaciones, 
+                    System.DateTime fecha_Estimada_Adjudicacion, 
+                    System.DateTime fecha_Adjudicacion, 
+                    System.DateTime fecha_Juridico)
         {
             this.Id = id;
             this.Pla_Doc_Id = pla_Doc_Id;
@@ -204,6 +244,16 @@ namespace AEL.COM
             this.Pla_Cta_Id = pla_Cta_Id;
             this.Pla_Cta_Codigo = pla_Cta_Codigo;
             this.Pla_Cta_Nombre = pla_Cta_Nombre;
+            this.Pla_Doc_Valor_Solicita = pla_Doc_Valor_Solicita;
+            this.Com_Procedimiento_Desc = com_Procedimiento_Desc;
+            this.Estado_Portal = estado_Portal;
+            this.Estado_Contratacion = estado_Contratacion;
+            this.Fecha_Inicio_Elabora_Pliegos = fecha_Inicio_Elabora_Pliegos;
+            this.Fecha_Publicacion_Portal = fecha_Publicacion_Portal;
+            this.Fecha_Calificaciones = fecha_Calificaciones;
+            this.Fecha_Estimada_Adjudicacion = fecha_Estimada_Adjudicacion;
+            this.Fecha_Adjudicacion = fecha_Adjudicacion;
+            this.Fecha_Juridico = fecha_Juridico;
         }
         
         public Com_Contrato(Com_Contrato o)
@@ -244,6 +294,16 @@ namespace AEL.COM
             this.Pla_Cta_Id = o.Pla_Cta_Id;
             this.Pla_Cta_Codigo = o.Pla_Cta_Codigo;
             this.Pla_Cta_Nombre = o.Pla_Cta_Nombre;
+            this.Pla_Doc_Valor_Solicita = o.Pla_Doc_Valor_Solicita;
+            this.Com_Procedimiento_Desc = o.Com_Procedimiento_Desc;
+            this.Estado_Portal = o.Estado_Portal;
+            this.Estado_Contratacion = o.Estado_Contratacion;
+            this.Fecha_Inicio_Elabora_Pliegos = o.Fecha_Inicio_Elabora_Pliegos;
+            this.Fecha_Publicacion_Portal = o.Fecha_Publicacion_Portal;
+            this.Fecha_Calificaciones = o.Fecha_Calificaciones;
+            this.Fecha_Estimada_Adjudicacion = o.Fecha_Estimada_Adjudicacion;
+            this.Fecha_Adjudicacion = o.Fecha_Adjudicacion;
+            this.Fecha_Juridico = o.Fecha_Juridico;
         }
         
         // Comentario
@@ -711,6 +771,136 @@ namespace AEL.COM
             set
             {
                 this._Pla_Cta_Nombre = value;
+            }
+        }
+        
+        // Comentario
+        public decimal Pla_Doc_Valor_Solicita
+        {
+            get
+            {
+                return this._Pla_Doc_Valor_Solicita;
+            }
+            set
+            {
+                this._Pla_Doc_Valor_Solicita = value;
+            }
+        }
+        
+        // Comentario
+        public string Com_Procedimiento_Desc
+        {
+            get
+            {
+                return this._Com_Procedimiento_Desc;
+            }
+            set
+            {
+                this._Com_Procedimiento_Desc = value;
+            }
+        }
+        
+        // Comentario
+        public string Estado_Portal
+        {
+            get
+            {
+                return this._Estado_Portal;
+            }
+            set
+            {
+                this._Estado_Portal = value;
+            }
+        }
+        
+        // Comentario
+        public string Estado_Contratacion
+        {
+            get
+            {
+                return this._Estado_Contratacion;
+            }
+            set
+            {
+                this._Estado_Contratacion = value;
+            }
+        }
+        
+        // Comentario
+        public System.DateTime Fecha_Inicio_Elabora_Pliegos
+        {
+            get
+            {
+                return this._Fecha_Inicio_Elabora_Pliegos;
+            }
+            set
+            {
+                this._Fecha_Inicio_Elabora_Pliegos = value;
+            }
+        }
+        
+        // Comentario
+        public System.DateTime Fecha_Publicacion_Portal
+        {
+            get
+            {
+                return this._Fecha_Publicacion_Portal;
+            }
+            set
+            {
+                this._Fecha_Publicacion_Portal = value;
+            }
+        }
+        
+        // Comentario
+        public System.DateTime Fecha_Calificaciones
+        {
+            get
+            {
+                return this._Fecha_Calificaciones;
+            }
+            set
+            {
+                this._Fecha_Calificaciones = value;
+            }
+        }
+        
+        // Comentario
+        public System.DateTime Fecha_Estimada_Adjudicacion
+        {
+            get
+            {
+                return this._Fecha_Estimada_Adjudicacion;
+            }
+            set
+            {
+                this._Fecha_Estimada_Adjudicacion = value;
+            }
+        }
+        
+        // Comentario
+        public System.DateTime Fecha_Adjudicacion
+        {
+            get
+            {
+                return this._Fecha_Adjudicacion;
+            }
+            set
+            {
+                this._Fecha_Adjudicacion = value;
+            }
+        }
+        
+        // Comentario
+        public System.DateTime Fecha_Juridico
+        {
+            get
+            {
+                return this._Fecha_Juridico;
+            }
+            set
+            {
+                this._Fecha_Juridico = value;
             }
         }
     }

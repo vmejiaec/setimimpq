@@ -259,6 +259,42 @@ namespace FEL.COM
                 case "Pla_Cta_Nombre":
                     retVal =  string.Compare(x.Pla_Cta_Nombre, y.Pla_Cta_Nombre);
                     break;
+				// System.String
+                case "Com_Procedimiento_Desc":
+                    retVal =  string.Compare(x.Com_Procedimiento_Desc, y.Com_Procedimiento_Desc);
+                    break;
+				// System.String
+                case "Estado_Portal":
+                    retVal =  string.Compare(x.Estado_Portal, y.Estado_Portal);
+                    break;
+				// System.String
+                case "Estado_Contratacion":
+                    retVal =  string.Compare(x.Estado_Contratacion, y.Estado_Contratacion);
+                    break;
+			   // System.DateTime
+                case "Fecha_Inicio_Elabora_Pliegos":
+                    retVal =  DateTime.Compare(x.Fecha_Inicio_Elabora_Pliegos, y.Fecha_Inicio_Elabora_Pliegos);
+                    break;
+			   // System.DateTime
+                case "Fecha_Publicacion_Portal":
+                    retVal =  DateTime.Compare(x.Fecha_Publicacion_Portal, y.Fecha_Publicacion_Portal);
+                    break;
+			   // System.DateTime
+                case "Fecha_Calificaciones":
+                    retVal =  DateTime.Compare(x.Fecha_Calificaciones, y.Fecha_Calificaciones);
+                    break;
+			   // System.DateTime
+                case "Fecha_Estimada_Adjudicacion":
+                    retVal =  DateTime.Compare(x.Fecha_Estimada_Adjudicacion, y.Fecha_Estimada_Adjudicacion);
+                    break;
+			   // System.DateTime
+                case "Fecha_Adjudicacion":
+                    retVal =  DateTime.Compare(x.Fecha_Adjudicacion, y.Fecha_Adjudicacion);
+                    break;
+			   // System.DateTime
+                case "Fecha_Juridico":
+                    retVal =  DateTime.Compare(x.Fecha_Juridico, y.Fecha_Juridico);
+                    break;
             }
             return (retVal * (_reverse ? -1 : 1));
         }
