@@ -49,6 +49,9 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
             case "Codigo_Sercop":
                 gvCom_Contrato.DataSourceID = odsgvCom_Contrato_GetByCodigo_Sercop.ID;
                 break;
+            case "Codigo":
+                gvCom_Contrato.DataSourceID = odsgvCom_Contrato_GetByPla_Doc_Codigo.ID;
+                break;
 		}
         gvCom_Contrato.DataBind();
         // Si existe algún error en el FormView lo borra
@@ -260,19 +263,21 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
     protected void fvCom_Contrato_ItemDeleting(object sender, FormViewDeleteEventArgs e)
     {
         // Cambio del formato de los campos que empiezan con Valor y Fecha
-		e.Values["Fecha_Cierre_Rec_Ofertas"] = DateTime.Parse((string)e.Values["Fecha_Cierre_Rec_Ofertas"]);
-		e.Values["Valor_Contrato"] = Decimal.Parse((string)e.Values["Valor_Contrato"]);
-		e.Values["Fecha_Inicio_Contrato"] = DateTime.Parse((string)e.Values["Fecha_Inicio_Contrato"]);
-		e.Values["Fecha_Crea"] = DateTime.Parse((string)e.Values["Fecha_Crea"]);
-		e.Values["Valor_Suma_Movs"] = Decimal.Parse((string)e.Values["Valor_Suma_Movs"]);
+        e.Values["Fecha_Cierre_Rec_Ofertas"] = DateTime.Parse((string)e.Values["Fecha_Cierre_Rec_Ofertas"]);
+        e.Values["Valor_Contrato"] = Decimal.Parse((string)e.Values["Valor_Contrato"]);
+        e.Values["Fecha_Inicio_Contrato"] = DateTime.Parse((string)e.Values["Fecha_Inicio_Contrato"]);
+        e.Values["Fecha_Crea"] = DateTime.Parse((string)e.Values["Fecha_Crea"]);
+        e.Values["Valor_Suma_Movs"] = Decimal.Parse((string)e.Values["Valor_Suma_Movs"]);
         e.Values["Pla_Doc_Valor_Solicita"] = Decimal.Parse((string)e.Values["Pla_Doc_Valor_Solicita"]);
+        e.Values["Porcentaje_Anticipo_Ref"] = Decimal.Parse((string)e.Values["Porcentaje_Anticipo_Ref"]);
+        e.Values["Porcentaje_Anticipo_Contrato"] = Decimal.Parse((string)e.Values["Porcentaje_Anticipo_Contrato"]);
         // Datos de seguimiento
         e.Values["Fecha_Inicio_Elabora_Pliegos"] = DateTime.Parse((string)e.Values["Fecha_Inicio_Elabora_Pliegos"]);
         e.Values["Fecha_Publicacion_Portal"] = DateTime.Parse((string)e.Values["Fecha_Publicacion_Portal"]);
         e.Values["Fecha_Calificaciones"] = DateTime.Parse((string)e.Values["Fecha_Calificaciones"]);
         e.Values["Fecha_Estimada_Adjudicacion"] = DateTime.Parse((string)e.Values["Fecha_Estimada_Adjudicacion"]);
         e.Values["Fecha_Adjudicacion"] = DateTime.Parse((string)e.Values["Fecha_Adjudicacion"]);
-        e.Values["Fecha_Juridico"] = DateTime.Parse((string)e.Values["Fecha_Juridico"]);
+        e.Values["Fecha_Juridico"] = DateTime.Parse((string)e.Values["Fecha_Juridico"]);        
 		// Guarda los datos del registro en memoria
         this.MemoriaRegistroActual = String.Format( "Id: {0} * Código: {1}.", e.Values["Id"], e.Values["Codigo"]) ;
     }

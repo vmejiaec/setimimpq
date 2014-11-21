@@ -154,6 +154,13 @@
 {
     color: #3333FF;
 }
+
+/*Victor Para centrar un objeto*/
+.centrar
+{
+    margin: 0 auto;
+}
+
 /*CollapsiblePanel*/
 .collapsePanel {
 	
@@ -411,8 +418,9 @@ body {
     position:absolute; 
 }
 
-.modalBackgroundEspera {
-	background-color:#FFFFFF;
-    filter:alpha(opacity=80);
-    opacity:0.8;
+.modalBackgroundEspera
+{
+    background-color: #CCFFFF;
+    filter: alpha(opacity=80);
+    opacity: 0.8;
 }

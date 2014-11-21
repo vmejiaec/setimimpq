@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 using HER;
-
+ 
 namespace FEL.COM
 {
     [DataObject]
@@ -76,6 +76,15 @@ namespace FEL.COM
         {
 			List<Com_Contrato> lista = new List<Com_Contrato>(
 				Adapter.Com_Contrato_GetByLikePla_Tarea_Nombre(s,  p_Pla_Tarea_Nombre));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Com_Contrato_Comparar(sortExpression));
+            return lista;
+        }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Com_Contrato> GetByPla_Doc_Codigo(Scope s , string p_Pla_Doc_Codigo, string sortExpression="")
+        {
+			List<Com_Contrato> lista = new List<Com_Contrato>(
+				Adapter.Com_Contrato_GetByPla_Doc_Codigo(s,  p_Pla_Doc_Codigo));
 			if (!string.IsNullOrEmpty(sortExpression))
 				lista.Sort(new Com_Contrato_Comparar(sortExpression));
             return lista;

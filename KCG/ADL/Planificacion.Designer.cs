@@ -2215,6 +2215,8 @@ namespace ADL {
             
             private global::System.Data.DataColumn columnPla_Tarea_Nombre;
             
+            private global::System.Data.DataColumn columnEstado_Proceso;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Pla_DocDataTable() {
@@ -2514,6 +2516,14 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Estado_ProcesoColumn {
+                get {
+                    return this.columnEstado_Proceso;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2581,7 +2591,8 @@ namespace ADL {
                         int Pla_Cta_Id, 
                         string Pla_Cta_Codigo, 
                         string Pla_Cta_Nombre, 
-                        string Pla_Tarea_Nombre) {
+                        string Pla_Tarea_Nombre, 
+                        string Estado_Proceso) {
                 Pla_DocRow rowPla_DocRow = ((Pla_DocRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2616,7 +2627,8 @@ namespace ADL {
                         Pla_Cta_Id,
                         Pla_Cta_Codigo,
                         Pla_Cta_Nombre,
-                        Pla_Tarea_Nombre};
+                        Pla_Tarea_Nombre,
+                        Estado_Proceso};
                 rowPla_DocRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPla_DocRow);
                 return rowPla_DocRow;
@@ -2679,6 +2691,7 @@ namespace ADL {
                 this.columnPla_Cta_Codigo = base.Columns["Pla_Cta_Codigo"];
                 this.columnPla_Cta_Nombre = base.Columns["Pla_Cta_Nombre"];
                 this.columnPla_Tarea_Nombre = base.Columns["Pla_Tarea_Nombre"];
+                this.columnEstado_Proceso = base.Columns["Estado_Proceso"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2750,6 +2763,8 @@ namespace ADL {
                 base.Columns.Add(this.columnPla_Cta_Nombre);
                 this.columnPla_Tarea_Nombre = new global::System.Data.DataColumn("Pla_Tarea_Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPla_Tarea_Nombre);
+                this.columnEstado_Proceso = new global::System.Data.DataColumn("Estado_Proceso", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstado_Proceso);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -2813,6 +2828,8 @@ namespace ADL {
                 this.columnPla_Cta_Nombre.MaxLength = 500;
                 this.columnPla_Tarea_Nombre.ReadOnly = true;
                 this.columnPla_Tarea_Nombre.MaxLength = 500;
+                this.columnEstado_Proceso.ReadOnly = true;
+                this.columnEstado_Proceso.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5458,6 +5475,22 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Estado_Proceso {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Doc.Estado_ProcesoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Estado_Proceso\' in table \'Pla_Doc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Estado_ProcesoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPer_Personal_Id_PlanificaNull() {
                 return this.IsNull(this.tablePla_Doc.Per_Personal_Id_PlanificaColumn);
             }
@@ -5622,6 +5655,18 @@ namespace ADL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPla_Tarea_NombreNull() {
                 this[this.tablePla_Doc.Pla_Tarea_NombreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEstado_ProcesoNull() {
+                return this.IsNull(this.tablePla_Doc.Estado_ProcesoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEstado_ProcesoNull() {
+                this[this.tablePla_Doc.Estado_ProcesoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -10093,6 +10138,7 @@ namespace ADL.PlanificacionTableAdapters {
             tableMapping.ColumnMappings.Add("Pla_Cta_Codigo", "Pla_Cta_Codigo");
             tableMapping.ColumnMappings.Add("Pla_Cta_Nombre", "Pla_Cta_Nombre");
             tableMapping.ColumnMappings.Add("Pla_Tarea_Nombre", "Pla_Tarea_Nombre");
+            tableMapping.ColumnMappings.Add("Estado_Proceso", "Estado_Proceso");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;

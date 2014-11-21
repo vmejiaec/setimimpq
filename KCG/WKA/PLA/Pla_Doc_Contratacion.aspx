@@ -91,7 +91,7 @@ TagPrefix="ajax" %>
             <asp:BoundField DataField="Fecha_Planifica" HeaderText="F_Planifica"   DataFormatString="{0:d}" ItemStyle-HorizontalAlign="Right"   SortExpression="Fecha_Planifica"/>	
             <asp:BoundField DataField="Esta_Contratada" HeaderText="ES_PAC" ItemStyle-HorizontalAlign="Center"                                   SortExpression="Esta_Contratada"/>
             <asp:BoundField DataField="Fecha_Contrata" HeaderText="F_Contratc"   DataFormatString="{0:d}" ItemStyle-HorizontalAlign="Right"     SortExpression="Fecha_Contrata"/>
-            <asp:BoundField DataField="Estado" HeaderText="Estado"/>
+            <asp:BoundField DataField="Estado_Proceso" HeaderText="Estado"/>
 
                 <asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />
                 <asp:BoundField DataField="Tipo" HeaderText="Tipo"  Visible = "false"  />
@@ -113,7 +113,7 @@ TagPrefix="ajax" %>
     </asp:Panel>
 	<%--[X] GridView de Pla_Doc --%>
 
-    <%--[O] Barras del Reporte --%>
+    <%--[O] Barra del Reportes --%>
     <asp:Panel runat="server" ID="pReportes" GroupingText="Reportes">
         <table>
         <tr>
@@ -123,6 +123,22 @@ TagPrefix="ajax" %>
                 Para imprimir el formulario estándar de inicio del proceso de compra 
                 primero busque en la lista superior, luego seleccione pulsando el botón [...] y revise que contenga 
                 la información requerida en los detalles del formulario.
+                </p>
+            </td>
+        </tr>
+        </table>
+    </asp:Panel>
+    <%--[X] Barra del Reportes --%>
+
+    <%--[O] Barra de Procesos --%>
+    <asp:Panel runat="server" ID="pProcesos" GroupingText="Procesos">
+        <table>
+        <tr>
+            <td><asp:Button ID="btCrearProcesoContratacion" runat="server" Text="Crear Proceso" 
+                    onclick="btCrearProcesoContratacion_Click" /></td>
+            <td>
+                <p class="pTextoPagina">
+                Crea el proceso de contratación y da por cerrado el ciclo del Formulario de Inicio.
                 </p>
             </td>
         </tr>
@@ -270,16 +286,25 @@ TagPrefix="ajax" %>
 			onitemupdating="fvPla_Doc_ItemUpdating"
             ondatabound="fvPla_Doc_DataBound" 
             onprerender="fvPla_Doc_PreRender"			
-			DataKeyNames="Id"
+			DataKeyNames="Id" onmodechanging="fvPla_Doc_ModeChanging"
 			>
         <EmptyDataTemplate>No se ha seleccionado un registro de la lista.</EmptyDataTemplate>
         <EditItemTemplate>
             <asp:Panel runat="server" ID="panelEditTemplate" DefaultButton="UpdateButton"  CssClass="panCol2" GroupingText="Area Requirente">
                 <table>
+                <tr style="display:none">
+                    <td> Pla_Tarea_Id </td>                    
+				    <td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			    </tr>
+                <tr style="display:none">
+                    <td> Estado_Proceso </td>                    
+				    <td><asp:TextBox ID="Estado_ProcesoTextBox" runat="server" Text='<%# Bind("Estado_Proceso") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+				</tr>
+
 			    <tr style="display:none">
                     <td> Id </td>
 				    <td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							    </tr>
+				</tr>
 			    <tr >
                     <td> Codigo </td>
 				    <td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
@@ -434,6 +459,14 @@ TagPrefix="ajax" %>
         <ItemTemplate>
             <asp:Panel runat="server" ID="panelItemTemplate" DefaultButton="EditButton"  CssClass="panCol2" GroupingText="Area Requirente">
             <table>
+            <tr style="display:none">
+                    <td> Pla_Tarea_Id </td>                    
+				    <td><asp:TextBox ID="Pla_Tarea_IdTextBox" runat="server" Text='<%# Bind("Pla_Tarea_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			</tr>
+            <tr style="display:none">
+                    <td> Estado_Proceso </td>                    
+				    <td><asp:TextBox ID="Estado_ProcesoTextBox" runat="server" Text='<%# Bind("Estado_Proceso") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			</tr>
 			<tr style="display:none">
                 <td> Id </td>
 				<td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
@@ -748,6 +781,49 @@ TagPrefix="ajax" %>
         <asp:Label ID="lbFvMsgInfoPla_Mov" runat="server" Text=">" CssClass="FvMensajeInfo"></asp:Label>
     </asp:Panel>
 	<%--[X] FormView de Pla_Mov --%>
+
+    <%--[O] Mensaje PopUp para presentar alertas --%>
+    <div>
+    <div id="PopUpDiv" style="display:none">
+    <asp:Panel runat="server" ID="pAlerta" GroupingText="" CssClass="collapsePanel" >
+            <div id="PopUpDivHeader" style="background-color:#4F81BD;">
+                <table width="100%">
+                <tr>
+                <td style="vertical-align:middle; color:White; text-align:center;">
+                    Alerta
+                </td>
+                </tr>
+                </table>
+            </div>
+            <div id="PopUpDivContent">
+                <table width="100%">
+                <tr>
+                <td> 
+                    <p style="margin:5px;">
+                    <asp:Label runat="server" ID="lbMensajeAlerta" Text="..." />
+                    </p>
+                </td>
+                </tr>
+                <tr>
+                <td >
+                    <div style="width:80px;margin: 0 auto;">
+                        <asp:button id="OkButton" runat="server" Text="Ok" Width="80px" />
+                    </div>
+                </td>
+                </tr>
+                </table>
+            </div>
+    </asp:Panel>
+    </div>
+    <ajax:ModalPopupExtender ID="mpeAlerta" runat="server" 
+        PopupControlID="PopUpDiv" 
+        CancelControlID="OkButton" 
+        TargetControlID="hButton"
+        BackgroundCssClass="modalBackgroundEspera">
+    </ajax:ModalPopupExtender>
+    <asp:button id="hButton" runat="server" style="display:none;" />
+    </div>
+    <%--[X] Mensaje PopUp para presentar alertas --%>
 
 </ContentTemplate>
 </asp:UpdatePanel>

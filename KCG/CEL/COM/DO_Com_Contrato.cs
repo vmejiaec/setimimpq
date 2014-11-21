@@ -5,7 +5,7 @@ using System.Text;
 
 using ADL.ComprasTableAdapters;
 using AEL.COM;
-using BEL;
+using BEL; 
 using System.Data.SqlClient;
 
 namespace CEL.COM
@@ -333,6 +333,64 @@ fila.Fecha_Juridico
 		{
 			List<Com_Contrato> lista = new List<Com_Contrato>();
 			var tabla = Adapter.GetByLikePla_Tarea_Nombre( p_Pla_Tarea_Nombre);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new Com_Contrato(
+				fila.Id,
+fila.Pla_Doc_Id,
+fila.Estado,
+fila.Com_Procedimiento_Id,
+fila.Porcentaje_Anticipo_Ref,
+fila.Plazo_Ref,
+fila.Codigo_Sercop,
+fila.Per_Personal_Resp_Exp,
+fila.Fecha_Cierre_Rec_Ofertas,
+fila.Par_Razon_Social_Id_Contratista,
+fila.Valor_Contrato,
+fila.Plazo_Contrato,
+fila.Fecha_Inicio_Contrato,
+fila.Porcentaje_Anticipo_Contrato,
+fila.Per_Personal_Id_Admin,
+fila.Desc_Contrata,
+fila.Fecha_Crea,
+fila.Pla_Tarea_Id,
+fila.Pla_Tarea_Codigo,
+fila.Pla_Tarea_Nombre,
+fila.Per_Personal_Nombre_Admin,
+fila.Valor_Suma_Movs,
+fila.Com_Procedimiento_Tipo,
+fila.Com_Procedimiento_Nombre,
+fila.Per_Personal_Nombre_Resp_Exp,
+fila.Per_Personal_Id_Solicita,
+fila.Per_Personal_Nombre_Solicita,
+fila.Par_Razon_Social_Nombre_Contratista,
+fila.Par_Razon_Social_Numero_Contratista,
+fila.Pla_Doc_Cedula_Presup_Codigo,
+fila.Pla_Doc_CPC_Codigo,
+fila.Pla_Doc_PAC_Linea,
+fila.Pla_Doc_Codigo,
+fila.Pla_Cta_Id,
+fila.Pla_Cta_Codigo,
+fila.Pla_Cta_Nombre,
+fila.Pla_Doc_Valor_Solicita,
+fila.Com_Procedimiento_Desc,
+fila.Estado_Portal,
+fila.Estado_Contratacion,
+fila.Fecha_Inicio_Elabora_Pliegos,
+fila.Fecha_Publicacion_Portal,
+fila.Fecha_Calificaciones,
+fila.Fecha_Estimada_Adjudicacion,
+fila.Fecha_Adjudicacion,
+fila.Fecha_Juridico
+				));
+			}
+			return lista;
+		}
+		// GetByPla_Doc_Codigo
+		public List<Com_Contrato> GetByPla_Doc_Codigo (Scope s , string p_Pla_Doc_Codigo)
+		{
+			List<Com_Contrato> lista = new List<Com_Contrato>();
+			var tabla = Adapter.GetByPla_Doc_Codigo( p_Pla_Doc_Codigo);
 			foreach (var fila in tabla)
 			{
 				lista.Add(new Com_Contrato(
