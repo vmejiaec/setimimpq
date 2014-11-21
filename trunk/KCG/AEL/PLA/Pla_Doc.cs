@@ -7,9 +7,9 @@
 //     se vuelve a generar el código.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
+  
 namespace AEL.PLA
-{ 
+{
     using System;
     using System.Collections.Generic;
     using System.Text;
@@ -117,6 +117,9 @@ namespace AEL.PLA
         // Comentario
         private string _Pla_Tarea_Nombre;
         
+        // Comentario
+        private string _Estado_Proceso;
+        
         public Pla_Doc()
         {
         }
@@ -154,7 +157,8 @@ namespace AEL.PLA
                     int pla_Cta_Id, 
                     string pla_Cta_Codigo, 
                     string pla_Cta_Nombre, 
-                    string pla_Tarea_Nombre)
+                    string pla_Tarea_Nombre, 
+                    string estado_Proceso)
         {
             this.Id = id;
             this.Codigo = codigo;
@@ -189,6 +193,7 @@ namespace AEL.PLA
             this.Pla_Cta_Codigo = pla_Cta_Codigo;
             this.Pla_Cta_Nombre = pla_Cta_Nombre;
             this.Pla_Tarea_Nombre = pla_Tarea_Nombre;
+            this.Estado_Proceso = estado_Proceso;
         }
         
         public Pla_Doc(Pla_Doc o)
@@ -226,6 +231,7 @@ namespace AEL.PLA
             this.Pla_Cta_Codigo = o.Pla_Cta_Codigo;
             this.Pla_Cta_Nombre = o.Pla_Cta_Nombre;
             this.Pla_Tarea_Nombre = o.Pla_Tarea_Nombre;
+            this.Estado_Proceso = o.Estado_Proceso;
         }
         
         // Comentario
@@ -654,6 +660,19 @@ namespace AEL.PLA
             set
             {
                 this._Pla_Tarea_Nombre = value;
+            }
+        }
+        
+        // Comentario
+        public string Estado_Proceso
+        {
+            get
+            {
+                return this._Estado_Proceso;
+            }
+            set
+            {
+                this._Estado_Proceso = value;
             }
         }
     }

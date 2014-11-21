@@ -185,7 +185,7 @@ public partial class PLA_Pla_Doc_Contratacion : PaginaBase
         {
             e.Cancel = true;
             fvPla_Doc.HayErrorInsUpd = true;
-            lbFvMsgErrorPla_Doc.Text = String.Format("Error, el campo Esta_Planifica debe ser diferente a PEN.");
+            lbFvMsgErrorPla_Doc.Text = String.Format("Error, el campo Esta_POA debe ser diferente a PEN.");
         }
     }
     // Inicializa los valores antes de que el FormView se dibuje en la página
@@ -393,4 +393,117 @@ public partial class PLA_Pla_Doc_Contratacion : PaginaBase
         }
     }
 
+    protected void fvPla_Doc_ModeChanging(object sender, FormViewModeEventArgs e)
+    {
+        // Verifica que el estado_proceso esté en pendiente
+        if (e.NewMode == FormViewMode.Edit)
+        {
+            string sEstado_Proceso = ((TextBox)fvPla_Doc.FindControl("Estado_ProcesoTextBox")).Text;
+            if (sEstado_Proceso != "Pendiente")
+            {
+                e.Cancel = true;
+                lbFvMsgErrorPla_Doc.Text = "El formulario ya tiene un proceso de contratación.";
+            }
+        }
+    }
+    protected void btCrearProcesoContratacion_Click(object sender, EventArgs e)
+    {
+        string mensaje = "";        
+        //Verificar que está seleccionado un registro del Grid
+        var vPla_Doc_Id = gvPla_Doc.SelectedValue;
+        if (vPla_Doc_Id == null)
+        {
+            mensaje = "Error, no se ha seleccionado un registro de la lista superior.";
+            goto Alerta;
+        }        
+        int iPla_Doc_Id = (int)vPla_Doc_Id;
+        FEL.PLA.BO_Pla_Doc adpDoc = new BO_Pla_Doc();
+        var listaDocs = adpDoc.GetById(Scope, iPla_Doc_Id);
+        var oDoc = listaDocs[0];
+        //Verificar que el registro seleccionado tenga SIP y SIC
+        if (oDoc.Esta_Planificada != "SIP" || oDoc.Esta_Contratada != "SIC")
+        {
+            mensaje = "Error, Esta_Planificada debe ser SIP y Esta_Contratada debe ser SIC.";
+            goto Alerta;
+        }
+        // Verifica que el estado del proceso se pendiente
+        if (listaDocs[0].Estado_Proceso != "Pendiente")
+        {
+            mensaje = "Error, el registro ya tiene un proceso.";
+            goto Alerta;
+        }            
+        // Consulto el tipo de procedimiento NIN 
+        FEL.COM.BO_Com_Procedimiento adpProc = new FEL.COM.BO_Com_Procedimiento();
+        List<Com_Procedimiento> listaProc = adpProc.Get(Scope);
+        Com_Procedimiento oProcNinguno = listaProc.Find(o => o.Tipo == "NIN");
+        // Verifica que exista el tipo de procedimiento NIN
+        if (oProcNinguno == null)
+        {
+            mensaje = "Error, no existe un procedimiento tipo NIN.";
+            goto Alerta;
+        }
+        //Construir el objeto Com_Contrato con valores por defecto
+        Com_Contrato oContrato = new Com_Contrato();
+        oContrato.Pla_Doc_Id = iPla_Doc_Id;
+        oContrato.Codigo_Sercop = "";
+        oContrato.Com_Procedimiento_Id = oProcNinguno.Id;
+        oContrato.Com_Procedimiento_Desc = "";
+        // Responsables y contratista
+        oContrato.Per_Personal_Resp_Exp = null;
+        oContrato.Par_Razon_Social_Id_Contratista = null;
+        oContrato.Per_Personal_Id_Admin = null;
+        // Referencial
+        oContrato.Plazo_Ref = 0;
+        oContrato.Porcentaje_Anticipo_Ref = 0.0m;
+        // Contrato
+        oContrato.Valor_Contrato = 0.0m;
+        oContrato.Plazo_Contrato = 0;
+        oContrato.Porcentaje_Anticipo_Contrato = 0.0m;
+        oContrato.Desc_Contrata = "";
+        // Estados
+        oContrato.Estado = "PEN";
+        oContrato.Estado_Portal = "POR"; // Estado Portal: Por subir
+        oContrato.Estado_Contratacion = "";
+        // Fechas
+        DateTime dtFechaHoy = DateTime.Today;
+        oContrato.Fecha_Cierre_Rec_Ofertas = dtFechaHoy;
+        oContrato.Fecha_Inicio_Contrato = dtFechaHoy;
+        oContrato.Fecha_Crea = dtFechaHoy;
+        oContrato.Fecha_Inicio_Elabora_Pliegos = dtFechaHoy;
+        oContrato.Fecha_Publicacion_Portal = dtFechaHoy;
+        oContrato.Fecha_Calificaciones = dtFechaHoy;
+        oContrato.Fecha_Estimada_Adjudicacion = dtFechaHoy;
+        oContrato.Fecha_Adjudicacion = dtFechaHoy;
+        oContrato.Fecha_Juridico = dtFechaHoy;
+        //Intentar insertar el objeto Com_Contrato
+        FEL.COM.BO_Com_Contrato adpCon = new FEL.COM.BO_Com_Contrato();
+        int resConId = adpCon.InsertINT(oContrato);
+        //Verificar que el objeto Com_Contrato se haya insertado
+        if (resConId <= 0)
+        {
+            mensaje = "Error al insertar el inicio del proceso.";
+            goto Alerta;
+        }
+        //Cargar los documentos técnicos por defecto
+        FEL.COM.BO_Com_Contrato_DocTec adpConDocTec = new FEL.COM.BO_Com_Contrato_DocTec();
+        FEL.COM.BO_Com_DocTec adpTec = new FEL.COM.BO_Com_DocTec();
+        var listaTecs = adpTec.Get(Scope, "Nombre");
+        foreach (var Tec in listaTecs)
+        {
+            Com_Contrato_DocTec oConDocTec = new Com_Contrato_DocTec();
+            oConDocTec.Com_Contrato_Id = resConId;
+            oConDocTec.Nombre = Tec.Nombre;
+            oConDocTec.Tiene = ".."; // Esta pendiente del SI o NO del usaurio en compras
+            int resTec = adpConDocTec.InsertINT(oConDocTec);
+        }
+        // Presenta la alerta que el inicio del proceso se ha creado con éxito
+        mensaje = string.Format("El proceso {0} se ha creado con éxito. Ir a la pantalla de 'Proceso Contrato'", oDoc.Codigo);
+        // Publica el mesanje si existe alguna alerta
+        Alerta:
+        if (!string.IsNullOrEmpty(mensaje))
+        {
+            lbMensajeAlerta.Text = mensaje;
+            mpeAlerta.Show();
+        }
+    }
 }

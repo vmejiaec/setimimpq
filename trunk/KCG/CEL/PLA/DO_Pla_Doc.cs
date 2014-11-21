@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Text; 
 
 using ADL.PlanificacionTableAdapters;
 using AEL.PLA;
 using BEL;
 using System.Data.SqlClient;
-
+ 
 namespace CEL.PLA
 {
     public class DO_Pla_Doc
@@ -54,7 +54,8 @@ fila.Pla_Tarea_Id,
 fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
 fila.Pla_Cta_Nombre,
-fila.Pla_Tarea_Nombre
+fila.Pla_Tarea_Nombre,
+fila.Estado_Proceso
 			));
         }
         return lista;
@@ -223,7 +224,8 @@ fila.Pla_Tarea_Id,
 fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
 fila.Pla_Cta_Nombre,
-fila.Pla_Tarea_Nombre
+fila.Pla_Tarea_Nombre,
+fila.Estado_Proceso
 				));
 			}
 			return lista;
@@ -268,7 +270,8 @@ fila.Pla_Tarea_Id,
 fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
 fila.Pla_Cta_Nombre,
-fila.Pla_Tarea_Nombre
+fila.Pla_Tarea_Nombre,
+fila.Estado_Proceso
 				));
 			}
 			return lista;
@@ -313,7 +316,8 @@ fila.Pla_Tarea_Id,
 fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
 fila.Pla_Cta_Nombre,
-fila.Pla_Tarea_Nombre
+fila.Pla_Tarea_Nombre,
+fila.Estado_Proceso
 				));
 			}
 			return lista;
@@ -358,7 +362,8 @@ fila.Pla_Tarea_Id,
 fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
 fila.Pla_Cta_Nombre,
-fila.Pla_Tarea_Nombre
+fila.Pla_Tarea_Nombre,
+fila.Estado_Proceso
 				));
 			}
 			return lista;
@@ -403,7 +408,8 @@ fila.Pla_Tarea_Id,
 fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
 fila.Pla_Cta_Nombre,
-fila.Pla_Tarea_Nombre
+fila.Pla_Tarea_Nombre,
+fila.Estado_Proceso
 				));
 			}
 			return lista;
@@ -448,7 +454,8 @@ fila.Pla_Tarea_Id,
 fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
 fila.Pla_Cta_Nombre,
-fila.Pla_Tarea_Nombre
+fila.Pla_Tarea_Nombre,
+fila.Estado_Proceso
 				));
 			}
 			return lista;
@@ -493,7 +500,8 @@ fila.Pla_Tarea_Id,
 fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
 fila.Pla_Cta_Nombre,
-fila.Pla_Tarea_Nombre
+fila.Pla_Tarea_Nombre,
+fila.Estado_Proceso
 				));
 			}
 			return lista;
@@ -538,7 +546,8 @@ fila.Pla_Tarea_Id,
 fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
 fila.Pla_Cta_Nombre,
-fila.Pla_Tarea_Nombre
+fila.Pla_Tarea_Nombre,
+fila.Estado_Proceso
 				));
 			}
 			return lista;
@@ -583,7 +592,8 @@ fila.Pla_Tarea_Id,
 fila.Pla_Cta_Id,
 fila.Pla_Cta_Codigo,
 fila.Pla_Cta_Nombre,
-fila.Pla_Tarea_Nombre
+fila.Pla_Tarea_Nombre,
+fila.Estado_Proceso
 				));
 			}
 			return lista;

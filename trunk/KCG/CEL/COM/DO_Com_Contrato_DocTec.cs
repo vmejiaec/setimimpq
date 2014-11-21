@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 using ADL.ComprasTableAdapters;
-using AEL.COM;
+using AEL.COM; 
 using BEL;
 using System.Data.SqlClient;
 

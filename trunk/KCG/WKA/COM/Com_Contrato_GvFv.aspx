@@ -59,8 +59,9 @@ TagPrefix="ajax" %>
                     <asp:TextBox ID="tbFiltro" runat="server"></asp:TextBox>
                     <asp:DropDownList ID="ddlFiltro" runat="server" AutoPostBack="true" onselectedindexchanged="ddlFiltro_SelectedIndexChanged">
                         <asp:ListItem Text = "Todos" Value="Todos" ></asp:ListItem>
+                        <asp:ListItem Text = "Código" Value="Codigo" ></asp:ListItem>
 			            <asp:ListItem Text = "Nombre" Value="Pla_Tarea_Nombre" ></asp:ListItem>
-                        <asp:ListItem Text = "Codigo Sercop" Value="Codigo_Sercop" ></asp:ListItem>
+                        <asp:ListItem Text = "Código Sercop" Value="Codigo_Sercop" ></asp:ListItem>
 		            </asp:DropDownList>
                 </td>
             </tr>
@@ -352,7 +353,7 @@ TagPrefix="ajax" %>
 
             <asp:Panel runat ="server" ID="pn04" GroupingText="4. Responsables">
             <table>
-                <tr >
+                <tr style="display:none">
                     <td> Per_Personal_Resp_Exp </td>
 				    <td>
                         <asp:TextBox ID="Per_Personal_Resp_ExpTextBox" runat="server" Text='<%# Bind("Per_Personal_Resp_Exp") %>'  
@@ -511,7 +512,7 @@ TagPrefix="ajax" %>
 
             <asp:Panel runat ="server" ID="pn06" GroupingText="6. Datos del Contrato">
                 <table>			    
-			        <tr >
+			        <tr style="display:none">
                         <td> Par_Razon_Social_Id_Contratista </td>
 				        <td><asp:TextBox ID="Par_Razon_Social_Id_ContratistaTextBox" runat="server" Text='<%# Bind("Par_Razon_Social_Id_Contratista") %>'  
                             CssClass="txtItem" /></td>
@@ -1238,7 +1239,16 @@ TagPrefix="ajax" %>
         </SelectParameters>
     </asp:ObjectDataSource>
 	<%--Fuente de datos para los procesos genéricos --%>
-        <asp:ObjectDataSource ID="odsgvCom_Contrato_GetByCodigo_Sercop" runat="server" 
+    <asp:ObjectDataSource ID="odsgvCom_Contrato_GetByPla_Doc_Codigo" runat="server" 
+        SortParameterName = "sortExpression"
+        SelectMethod="GetByPla_Doc_Codigo" 
+        TypeName="FEL.COM.BO_Com_Contrato">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+			<asp:ControlParameter ControlID="tbFiltro" Name="p_Pla_Doc_Codigo" PropertyName="Text" Type="string" />
+		</SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsgvCom_Contrato_GetByCodigo_Sercop" runat="server" 
         SortParameterName = "sortExpression"
         SelectMethod="GetByCodigo_Sercop" 
         TypeName="FEL.COM.BO_Com_Contrato">
@@ -1383,7 +1393,7 @@ TagPrefix="ajax" %>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="tbFiltroId" Name="p_Id" PropertyName="Text" Type="Int32" />
 		</SelectParameters>
-    </asp:ObjectDataSource>
+    </asp:ObjectDataSource>    
 	<%--Objetos de Datos para el FormView --%>
     <asp:ObjectDataSource ID="odsfvCom_Contrato_DocTec" runat="server" 
         SelectMethod="GetById"         

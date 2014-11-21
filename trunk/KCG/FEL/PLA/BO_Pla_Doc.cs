@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 using HER;
-
-namespace FEL.PLA
+ 
+namespace FEL.PLA 
 {
     [DataObject]
     public partial class BO_Pla_Doc
@@ -290,6 +290,10 @@ namespace FEL.PLA
 				// System.String
                 case "Pla_Tarea_Nombre":
                     retVal =  string.Compare(x.Pla_Tarea_Nombre, y.Pla_Tarea_Nombre);
+                    break;
+				// System.String
+                case "Estado_Proceso":
+                    retVal =  string.Compare(x.Estado_Proceso, y.Estado_Proceso);
                     break;
             }
             return (retVal * (_reverse ? -1 : 1));

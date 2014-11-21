@@ -1432,6 +1432,15 @@ TagPrefix="ajax" %>
 			<asp:ControlParameter ControlID="tbFiltro" Name="p_Pla_Tarea_Nombre" PropertyName="Text" Type="string" />
 		</SelectParameters>
     </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsgvCom_Contrato_GetByPla_Doc_Codigo" runat="server" 
+        SortParameterName = "sortExpression"
+        SelectMethod="GetByPla_Doc_Codigo" 
+        TypeName="FEL.COM.BO_Com_Contrato">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+			<asp:ControlParameter ControlID="tbFiltro" Name="p_Pla_Doc_Codigo" PropertyName="Text" Type="string" />
+		</SelectParameters>
+    </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsgvCom_Contrato_GetByPla_Tarea_Codigo" runat="server" 
         SortParameterName = "sortExpression"
         SelectMethod="GetByPla_Tarea_Codigo" 

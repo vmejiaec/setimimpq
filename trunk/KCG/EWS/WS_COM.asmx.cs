@@ -5,7 +5,7 @@ using System.Web.Services;
 using CEL.COM; // datos.xsdNombreIniciales
 using AEL.COM;
 using BEL;
-
+ 
 namespace EWS
 {
     [WebService(Namespace = "http://koala.org/")]
@@ -284,6 +284,11 @@ namespace EWS
 		public List<Com_Contrato> Com_Contrato_GetByLikePla_Tarea_Nombre(Scope s , string p_Pla_Tarea_Nombre)
         {
             return Com_Contrato.GetByLikePla_Tarea_Nombre(s,  p_Pla_Tarea_Nombre);
+        }
+		[WebMethod]
+		public List<Com_Contrato> Com_Contrato_GetByPla_Doc_Codigo(Scope s , string p_Pla_Doc_Codigo)
+        {
+            return Com_Contrato.GetByPla_Doc_Codigo(s,  p_Pla_Doc_Codigo);
         }
 		[WebMethod]
 		public List<Com_Contrato> Com_Contrato_GetByPla_Tarea_Codigo(Scope s , string p_Pla_Tarea_Codigo)
