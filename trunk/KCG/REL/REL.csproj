@@ -97,6 +97,10 @@
     <Compile Include="APU\RO_Apu_Subtitulo.cs" />
     <Compile Include="APU\RO_Apu_Titulo.cs" />
     <Compile Include="APU\RO_Apu_Rubro.cs" />
+    <Compile Include="COM\REL_Com_Contrato_Perfil.cs" />
+    <Compile Include="COM\REL_Com_Contrato_Perfil_DocsTecs.cs" />
+    <Compile Include="COM\RO_Com_Contrato_Perfil.cs" />
+    <Compile Include="COM\RO_Com_Contrato_Perfil_DocsTecs.cs" />
     <Compile Include="FIS\RO_Fis_Ampliacion.cs" />
     <Compile Include="FIS\RO_Fis_Catalogo.cs" />
     <Compile Include="FIS\RO_Fis_Catalogo_Categoria.cs" />
@@ -111,6 +115,7 @@
     <Compile Include="PER\RO_Per_Personal.cs" />
     <Compile Include="PLA\REL_Pla_Cta.cs" />
     <Compile Include="PLA\REL_Pla_Poa.cs" />
+    <Compile Include="PLA\RO_Pla_Cta.cs" />
     <Compile Include="PLA\RO_Pla_Poa.cs" />
     <Compile Include="VAR\REL_Pla_Cta_Niveles.cs" />
     <Compile Include="PLA\REL_Pla_Doc.cs" />
