@@ -72,8 +72,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="APU\APU_RUBRO_REPORTE.aspx" />
+    <Content Include="COM\COM_Com_Contrato_Perfil.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Imagenes\fonsal.JPG" />
+    <Content Include="Imagenes\LogoPerfilProyecto.png" />
     <Content Include="Imagenes\LogoReporteIMPQ_Small.jpg" />
     <Content Include="PLA\PLA_FormatoMemoAutorizacion.aspx" />
     <Content Include="PLA\PLA_Formulario_Inicio_Proceso.aspx" />
@@ -248,6 +250,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>APU_REP.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="COM\COM_Com_Contrato_Perfil.aspx.cs">
+      <DependentUpon>COM_Com_Contrato_Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COM\COM_Com_Contrato_Perfil.aspx.designer.cs">
+      <DependentUpon>COM_Com_Contrato_Perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -482,6 +491,9 @@
     <EmbeddedResource Include="APU\R_APU_PRESUPUESTO_CUADRILLA.rdlc" />
     <EmbeddedResource Include="APU\R_APU_PRESUPUESTO_INDICE.rdlc" />
     <EmbeddedResource Include="APU\R_APU_PRESUPUESTO_RUBRO.rdlc" />
+    <EmbeddedResource Include="COM\Rep_Com_Contrato_DocsTecs_Perfil.rdlc" />
+    <EmbeddedResource Include="COM\Rep_Com_Contrato_Perfil.rdlc" />
+    <EmbeddedResource Include="COM\Rep_Com_Contrato_Pla_Cta_Perfil.rdlc" />
     <EmbeddedResource Include="FIS\R_FIS_CATALOGO.rdlc" />
     <EmbeddedResource Include="FIS\R_FIS_LISTADO_FISCALIZACION.rdlc" />
     <EmbeddedResource Include="FIS\R_FIS_PLANILLA_DET.rdlc" />

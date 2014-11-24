@@ -139,6 +139,23 @@ TagPrefix="ajax" %>
 </div>
 <%--[X]FIN Javascript para manegar los campos de autocompletar --%>
 
+    <%--[O] Barra del Reportes --%>
+    <asp:Panel runat="server" ID="pReportes" GroupingText="Reportes">
+        <table>
+        <tr>
+            <td><asp:Button ID="btReportePerfil" runat="server" Text="Perfil de Proyecto" onclick="btReportePerfil_Click" /></td>
+            <td>
+                <p class="pTextoPagina">
+                Para imprimir el perfil de proyecto 
+                primero busque en la lista superior, luego seleccione pulsando el botón [...] y revise que contenga 
+                la información requerida en los detalles del formulario.
+                </p>
+            </td>
+        </tr>
+        </table>
+    </asp:Panel>
+    <%--[X] Barra del Reportes --%>
+
     <%--[O] FormView de Com_Contrato --%>
     <asp:Panel runat="server" ID="pfvCom_Contrato" GroupingText="Crear, Editar o Borar un Registro">
     <koala:FormViewSetim ID="fvCom_Contrato" runat="server" 
