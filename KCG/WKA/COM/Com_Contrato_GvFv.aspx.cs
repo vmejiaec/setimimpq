@@ -785,4 +785,20 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
                                 + Scope_Factory.Get_QueryString(s),
                                 "_blank", "scrollbars=yes, resizable=yes");
     }
+    protected void btReciboOferta_Click(object sender, EventArgs e)
+    {
+        // Tomo el Id seleccionado de la lista
+        if (gvCom_Contrato_Oferente.SelectedValue != null)
+        {
+            int xCom_Contrato_Oferente_Id = (int)gvCom_Contrato_Oferente.SelectedValue;
+            if (Session["Scope"] == null) Response.Redirect("~/PAS/PAR_ACCESO.aspx");
+            Scope s = (Scope)Session["Scope"];
+            string servidor_reporte = ConfigurationManager.AppSettings["URL_Servidor_Reportes"];
+            HER.ResponseHelper.Redirect(servidor_reporte
+                                    + "COM/COM_Com_Contrato_Oferente.aspx"
+                                    + Scope_Factory.Get_QueryString(s)
+                                    + string.Format("&v_Com_Contrato_Oferente_Id={0}", xCom_Contrato_Oferente_Id),
+                                    "_blank", "scrollbars=yes, resizable=yes");
+        }
+    }
 }

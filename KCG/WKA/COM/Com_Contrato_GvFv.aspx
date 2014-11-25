@@ -1091,6 +1091,21 @@ TagPrefix="ajax" %>
 			</Columns>
     </asp:GridView>
     
+        <%--[O] Barra del Reportes --%>
+    <asp:Panel runat="server" ID="Panel3" GroupingText="Reporte">
+        <table>
+        <tr>
+            <td><asp:Button ID="btReciboOferta" runat="server" Text="Recibo de Oferta" 
+                    onclick="btReciboOferta_Click" /></td>
+            <td>
+                <p class="pTextoPagina">
+                Reporte del recibo de la entrega del sobre de la oferta técnica.
+                </p>
+            </td>
+        </tr>
+        </table>
+    </asp:Panel>
+    <%--[X] Barra del Reportes --%>
 
     <%--[O] FormView de Com_Contrato_Oferente --%>
     <asp:Panel runat="server" ID="pfvCom_Contrato_Oferente" GroupingText="Oferente" CssClass="panCol2">

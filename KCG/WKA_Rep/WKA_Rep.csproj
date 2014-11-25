@@ -73,11 +73,13 @@
   <ItemGroup>
     <Content Include="APU\APU_RUBRO_REPORTE.aspx" />
     <Content Include="COM\COM_Com_Contrato_Control.aspx" />
+    <Content Include="COM\COM_Com_Contrato_Oferente.aspx" />
     <Content Include="COM\COM_Com_Contrato_Perfil.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Imagenes\fonsal.JPG" />
     <Content Include="Imagenes\LogoPerfilProyecto.png" />
     <Content Include="Imagenes\LogoReporteIMPQ_Small.jpg" />
+    <Content Include="Imagenes\LogoReporteIMPQ_Small.png" />
     <Content Include="PLA\PLA_FormatoMemoAutorizacion.aspx" />
     <Content Include="PLA\PLA_Formulario_Inicio_Proceso.aspx" />
     <Content Include="PLA\PLA_Poa_Partidas.aspx" />
@@ -258,6 +260,13 @@
     </Compile>
     <Compile Include="COM\COM_Com_Contrato_Control.aspx.designer.cs">
       <DependentUpon>COM_Com_Contrato_Control.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="COM\COM_Com_Contrato_Oferente.aspx.cs">
+      <DependentUpon>COM_Com_Contrato_Oferente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COM\COM_Com_Contrato_Oferente.aspx.designer.cs">
+      <DependentUpon>COM_Com_Contrato_Oferente.aspx</DependentUpon>
     </Compile>
     <Compile Include="COM\COM_Com_Contrato_Perfil.aspx.cs">
       <DependentUpon>COM_Com_Contrato_Perfil.aspx</DependentUpon>
@@ -501,6 +510,7 @@
     <EmbeddedResource Include="APU\R_APU_PRESUPUESTO_RUBRO.rdlc" />
     <EmbeddedResource Include="COM\Rep_Com_Contrato_Control.rdlc" />
     <EmbeddedResource Include="COM\Rep_Com_Contrato_DocsTecs_Perfil.rdlc" />
+    <EmbeddedResource Include="COM\Rep_Com_Contrato_Oferente.rdlc" />
     <EmbeddedResource Include="COM\Rep_Com_Contrato_Perfil.rdlc" />
     <EmbeddedResource Include="COM\Rep_Com_Contrato_Pla_Cta_Perfil.rdlc" />
     <EmbeddedResource Include="FIS\R_FIS_CATALOGO.rdlc" />

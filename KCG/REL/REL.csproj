@@ -97,8 +97,10 @@
     <Compile Include="APU\RO_Apu_Subtitulo.cs" />
     <Compile Include="APU\RO_Apu_Titulo.cs" />
     <Compile Include="APU\RO_Apu_Rubro.cs" />
+    <Compile Include="COM\REL_Com_Contrato_Oferente.cs" />
     <Compile Include="COM\REL_Com_Contrato_Perfil.cs" />
     <Compile Include="COM\REL_Com_Contrato_Perfil_DocsTecs.cs" />
+    <Compile Include="COM\RO_Com_Contrato_Oferente.cs" />
     <Compile Include="COM\RO_Com_Contrato_Perfil.cs" />
     <Compile Include="COM\RO_Com_Contrato_Perfil_DocsTecs.cs" />
     <Compile Include="FIS\RO_Fis_Ampliacion.cs" />
