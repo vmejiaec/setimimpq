@@ -1090,32 +1090,9 @@ TagPrefix="ajax" %>
 			<asp:BoundField DataField="Comentario" HeaderText="Comentario"   SortExpression="Comentario" />
 			</Columns>
     </asp:GridView>
-    
-        <%--[O] Barra del Reportes --%>
-    <asp:Panel runat="server" ID="Panel3" GroupingText="Reporte">
-        <table>
-        <tr>
-            <td><asp:Button ID="btReciboOferta" runat="server" Text="Recibo de Oferta" onclick="btReciboOferta_Click" /></td>
-            <td>
-                <p class="pTextoPagina">
-                Reporte del recibo de la entrega del sobre de la oferta técnica.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td><asp:Button ID="btActaOfertas" runat="server" Text="Acta de Ofertas" onclick="btActaOfertas_Click" /></td>
-            <td>
-                <p class="pTextoPagina">
-                Reporte del acta de cierre de presentación de ofertas.
-                </p>
-            </td>
-        </tr>
-        </table>
-    </asp:Panel>
-    <%--[X] Barra del Reportes --%>
 
     <%--[O] FormView de Com_Contrato_Oferente --%>
-    <asp:Panel runat="server" ID="pfvCom_Contrato_Oferente" GroupingText="Oferente" CssClass="panCol2">
+    <asp:Panel runat="server" ID="pfvCom_Contrato_Oferente" GroupingText="Oferente" >
     <koala:FormViewSetim ID="fvCom_Contrato_Oferente" runat="server" DataSourceID="odsfvCom_Contrato_Oferente" 
             oniteminserting="fvCom_Contrato_Oferente_ItemInserting" 
             onitemdeleted="fvCom_Contrato_Oferente_ItemDeleted" 
@@ -1124,7 +1101,7 @@ TagPrefix="ajax" %>
 			ondatabound="fvCom_Contrato_Oferente_DataBound" 
             onprerender="fvCom_Contrato_Oferente_PreRender"
 			onitemupdating="fvCom_Contrato_Oferente_ItemUpdating"
-			onitemdeleting="fvCom_Contrato_Oferente_ItemDeleting"
+			onitemdeleting="fvCom_Contrato_Oferente_ItemDeleting" 
 			>
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
@@ -1268,6 +1245,32 @@ TagPrefix="ajax" %>
         <asp:ValidationSummary ID="ValidationSummary2" runat="server" ValidationGroup="vgCom_Contrato_Oferente"/>
     </asp:Panel>
 	<%--[X] FormView de Com_Contrato_Oferente --%>
+
+    <%--[O] Barra del Reportes --%>
+    <asp:Panel runat="server" ID="Panel3" GroupingText="Reportes de Ofertas">
+        <table>
+        <tr>
+            <td><asp:Button ID="btReciboOferta" runat="server" Text="Recibo de Oferta" onclick="btReciboOferta_Click" /></td>
+            <td>
+                <p class="pTextoPagina">Recibo de la entrega del sobre de una oferta técnica.</p>
+            </td>
+        </tr>
+        <tr>
+            <td><asp:Button ID="btActaOfertas" runat="server" Text="Acta de Ofertas" onclick="btActaOfertas_Click" /></td>
+            <td>
+                <p class="pTextoPagina">Acta de cierre de presentación de ofertas.</p>
+            </td>
+        </tr>
+        <tr>
+            <td><asp:Button ID="btCuadroOfertas" runat="server" Text="Cuadro de Ofertas" 
+                    onclick="btCuadroOfertas_Click"  /></td>
+            <td>
+                <p class="pTextoPagina">Cuadro de las ofertas presentadas.</p>
+            </td>
+        </tr>
+        </table>
+    </asp:Panel>
+    <%--[X] Barra del Reportes --%>
 
     </asp:Panel>
 	<%--[X] GridView de Com_Contrato_Oferente --%>

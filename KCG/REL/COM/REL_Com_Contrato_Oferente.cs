@@ -24,6 +24,15 @@ namespace REL.COM
             set { _Pla_Doc_Codigo = value; }
         }
 
+        string _Codigo_Sercop;
+
+        public string Codigo_Sercop
+        {
+            get { return _Codigo_Sercop; }
+            set { _Codigo_Sercop = value; }
+        }
+
+
         // Constructor
         public REL_Com_Contrato_Oferente(AEL.COM.Com_Contrato_Oferente o)
         {
@@ -42,6 +51,8 @@ namespace REL.COM
             var filaDoc = listaDoc[0];
             this.Pla_Tarea_Nombre = filaDoc.Pla_Tarea_Nombre;
             this.Pla_Doc_Codigo = filaDoc.Codigo;
+            // El código del sercop
+            this.Codigo_Sercop = filaCon.Codigo_Sercop;
         }
     }
 }

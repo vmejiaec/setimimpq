@@ -817,4 +817,21 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
                                     "_blank", "scrollbars=yes, resizable=yes");
         }
     }
+
+    protected void btCuadroOfertas_Click(object sender, EventArgs e)
+    {
+        // Tomo el Id seleccionado de la lista de contratos
+        if (gvCom_Contrato.SelectedValue != null)
+        {
+            int xCom_Contrato_Id = (int)gvCom_Contrato.SelectedValue;
+            if (Session["Scope"] == null) Response.Redirect("~/PAS/PAR_ACCESO.aspx");
+            Scope s = (Scope)Session["Scope"];
+            string servidor_reporte = ConfigurationManager.AppSettings["URL_Servidor_Reportes"];
+            HER.ResponseHelper.Redirect(servidor_reporte
+                                    + "COM/COM_Com_Contrato_OfertasCuadro.aspx"
+                                    + Scope_Factory.Get_QueryString(s)
+                                    + string.Format("&v_Com_Contrato_Id={0}", xCom_Contrato_Id),
+                                    "_blank", "scrollbars=yes, resizable=yes");
+        }
+    }
 }
