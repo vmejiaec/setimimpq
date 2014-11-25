@@ -20,6 +20,7 @@ namespace WKA_Rep
             s.Int_Usuario_Id = solicitud.Get("Int_Usuario_Id");
             s.Int_Usuario_Nombre = solicitud.Get("Int_Usuario_Nombre");
             s.Per_Personal_Id = solicitud.Get("Per_Personal_Id");
+            s.Per_Personal_Nombre = solicitud.Get("Per_Personal_Nombre");
             // Controla que tenga valores minimos 
             s.Ver_Version_Id = s.Ver_Version_Id ?? "1";
             s.Int_Empresa_Id = s.Int_Empresa_Id ?? "1";
@@ -27,6 +28,7 @@ namespace WKA_Rep
             s.Int_Sucursal_Nombre = s.Int_Sucursal_Nombre ?? "Sucursal nombre";
             s.Int_Usuario_Nombre = s.Int_Usuario_Nombre ?? "Usuario nombre";
             s.Per_Personal_Id = s.Per_Personal_Id ?? "Personal Id";
+            s.Per_Personal_Nombre = s.Per_Personal_Nombre ?? "Personal nombre";
             return s;
         }
 
@@ -44,7 +46,9 @@ namespace WKA_Rep
             cadena.Append(string.Format("Seg_Rol_Nombre={0}&", s.Seg_Rol_Nombre));
             cadena.Append(string.Format("Int_Usuario_Id={0}&", s.Int_Usuario_Id));
             cadena.Append(string.Format("Int_Usuario_Nombre={0}&", s.Int_Usuario_Nombre));
-            cadena.Append(string.Format("Per_Personal_Id={0}", s.Per_Personal_Id));
+            cadena.Append(string.Format("Per_Personal_Id={0}&", s.Per_Personal_Id));
+            // Aumento el nombre de la persona
+            cadena.Append(string.Format("Per_Personal_Nombre={0}", s.Per_Personal_Nombre));
             return cadena.ToString();
         }
     }
