@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="APU\APU_RUBRO_REPORTE.aspx" />
+    <Content Include="COM\COM_Com_Contrato_Control.aspx" />
     <Content Include="COM\COM_Com_Contrato_Perfil.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Imagenes\fonsal.JPG" />
@@ -250,6 +251,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>APU_REP.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="COM\COM_Com_Contrato_Control.aspx.cs">
+      <DependentUpon>COM_Com_Contrato_Control.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COM\COM_Com_Contrato_Control.aspx.designer.cs">
+      <DependentUpon>COM_Com_Contrato_Control.aspx</DependentUpon>
     </Compile>
     <Compile Include="COM\COM_Com_Contrato_Perfil.aspx.cs">
       <DependentUpon>COM_Com_Contrato_Perfil.aspx</DependentUpon>
@@ -491,6 +499,7 @@
     <EmbeddedResource Include="APU\R_APU_PRESUPUESTO_CUADRILLA.rdlc" />
     <EmbeddedResource Include="APU\R_APU_PRESUPUESTO_INDICE.rdlc" />
     <EmbeddedResource Include="APU\R_APU_PRESUPUESTO_RUBRO.rdlc" />
+    <EmbeddedResource Include="COM\Rep_Com_Contrato_Control.rdlc" />
     <EmbeddedResource Include="COM\Rep_Com_Contrato_DocsTecs_Perfil.rdlc" />
     <EmbeddedResource Include="COM\Rep_Com_Contrato_Perfil.rdlc" />
     <EmbeddedResource Include="COM\Rep_Com_Contrato_Pla_Cta_Perfil.rdlc" />

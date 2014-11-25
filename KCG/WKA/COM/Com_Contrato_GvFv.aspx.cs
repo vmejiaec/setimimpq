@@ -775,4 +775,14 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
                                     "_blank", "scrollbars=yes, resizable=yes");
         }
     }
+    protected void btReporteControl_Click(object sender, EventArgs e)
+    {
+        if (Session["Scope"] == null) Response.Redirect("~/PAS/PAR_ACCESO.aspx");
+        Scope s = (Scope)Session["Scope"];
+        string servidor_reporte = ConfigurationManager.AppSettings["URL_Servidor_Reportes"];
+        HER.ResponseHelper.Redirect(servidor_reporte
+                                + "COM/COM_Com_Contrato_Control.aspx"
+                                + Scope_Factory.Get_QueryString(s),
+                                "_blank", "scrollbars=yes, resizable=yes");
+    }
 }

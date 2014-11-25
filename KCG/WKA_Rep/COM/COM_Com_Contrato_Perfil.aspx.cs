@@ -24,8 +24,6 @@ namespace WKA_Rep.COM
             CEL.PLA.DO_Pla_Param adpPla_Param = new CEL.PLA.DO_Pla_Param();
             var listaParams = adpPla_Param.Get(Scope);
             var filaParams = listaParams[0];
-            // Consulta el pie de firmas de los responsables
-
 
             ReportParameter[] parametros = new ReportParameter[4];
             parametros[0] = new ReportParameter("pr_Usuario_Nombre", Scope.Int_Usuario_Nombre);
