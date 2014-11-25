@@ -14,7 +14,7 @@ tagprefix="rsweb" %>
         <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" 
             Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
             WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt"
-            Height="780px" Width="628">
+            Height="780px" Width="725px">
             <LocalReport ReportPath="COM\Rep_Com_Contrato_Perfil.rdlc" 
                 EnableExternalImages="true">
                 <DataSources>

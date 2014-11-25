@@ -152,6 +152,15 @@ TagPrefix="ajax" %>
                 </p>
             </td>
         </tr>
+        <tr>
+            <td><asp:Button ID="btReporteControl" runat="server" 
+                    Text="Seguimiento de Proyectos" onclick="btReporteControl_Click" /></td>
+            <td>
+                <p class="pTextoPagina">
+                El reporte de Seguimiento de Proyectos
+                </p>
+            </td>
+        </tr>
         </table>
     </asp:Panel>
     <%--[X] Barra del Reportes --%>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using CEL.PLA;
 using BEL;
+using AEL.PLA;
 
 namespace REL.COM
 {
@@ -13,6 +14,35 @@ namespace REL.COM
         //[@pr_Persona_Elaborado_Nombre]
         //[@pr_Persona_Administrador_Nombre]
         //[@pr_Persona_Aprobado_Nombre]
+
+        string _Programa;
+
+        public string Programa
+        {
+            get { return _Programa; }
+            set { _Programa = value; }
+        }
+        string _Proyecto;
+
+        public string Proyecto
+        {
+            get { return _Proyecto; }
+            set { _Proyecto = value; }
+        }
+        string _Producto;
+
+        public string Producto
+        {
+            get { return _Producto; }
+            set { _Producto = value; }
+        }
+        string _Actividad;
+
+        public string Actividad
+        {
+            get { return _Actividad; }
+            set { _Actividad = value; }
+        }
 
         string _Persona_Elaborado_Pie_Firma_Nombre;
 
@@ -57,6 +87,78 @@ namespace REL.COM
         {
             get { return _Persona_Aprobado_Pie_Firma_Cargo; }
             set { _Persona_Aprobado_Pie_Firma_Cargo = value; }
+        }
+
+        private string _Partida_Codigo_0 = "";
+        private string _Partida_Codigo_1 = "";
+        private string _Partida_Codigo_2 = "";
+        private string _Partida_Nombre_0 = "";
+        private string _Partida_Nombre_1 = "";
+        private string _Partida_Nombre_2 = "";
+        private decimal _Partida_Valor_0 ;
+        private decimal _Partida_Valor_1 ;
+        private decimal _Partida_Valor_2 ;
+
+        public string Partida_Codigo_0
+        {
+            get { return _Partida_Codigo_0; }
+            set { _Partida_Codigo_0 = value; }
+        }
+
+
+        public string Partida_Codigo_1
+        {
+            get { return _Partida_Codigo_1; }
+            set { _Partida_Codigo_1 = value; }
+        }
+
+
+        public string Partida_Codigo_2
+        {
+            get { return _Partida_Codigo_2; }
+            set { _Partida_Codigo_2 = value; }
+        }
+
+
+        public string Partida_Nombre_0
+        {
+            get { return _Partida_Nombre_0; }
+            set { _Partida_Nombre_0 = value; }
+        }
+
+
+        public string Partida_Nombre_1
+        {
+            get { return _Partida_Nombre_1; }
+            set { _Partida_Nombre_1 = value; }
+        }
+
+
+        public string Partida_Nombre_2
+        {
+            get { return _Partida_Nombre_2; }
+            set { _Partida_Nombre_2 = value; }
+        }
+
+
+        public decimal Partida_Valor_0
+        {
+            get { return _Partida_Valor_0; }
+            set { _Partida_Valor_0 = value; }
+        }
+
+
+        public decimal Partida_Valor_1
+        {
+            get { return _Partida_Valor_1; }
+            set { _Partida_Valor_1 = value; }
+        }
+
+
+        public decimal Partida_Valor_2
+        {
+            get { return _Partida_Valor_2; }
+            set { _Partida_Valor_2 = value; }
         }
 
         // Constructor
@@ -113,15 +215,23 @@ namespace REL.COM
             // Pongo los pies de firma
             CEL.PLA.DO_Pla_PersonalDatos adpPerDat = new DO_Pla_PersonalDatos();
             // Elaborado Por
-            var listaPerDat = adpPerDat.GetByPer_Personal_Id(new Scope(), this.Per_Personal_Resp_Exp);
-            var filaPerDat = listaPerDat[0];
-            this.Persona_Elaborado_Pie_Firma_Nombre = filaPerDat.Pie_Firma_Nombre;
-            this.Persona_Elaborado_Pie_Firma_Cargo = filaPerDat.Pie_Firma_Cargo;
+            List<Pla_PersonalDatos> listaPerDat = new List<Pla_PersonalDatos>();
+            Pla_PersonalDatos filaPerDat = new Pla_PersonalDatos();
+            if (!string.IsNullOrEmpty(this.Per_Personal_Resp_Exp))
+            {
+                listaPerDat = adpPerDat.GetByPer_Personal_Id(new Scope(), this.Per_Personal_Resp_Exp);
+                filaPerDat = listaPerDat[0];
+                this.Persona_Elaborado_Pie_Firma_Nombre = filaPerDat.Pie_Firma_Nombre;
+                this.Persona_Elaborado_Pie_Firma_Cargo = filaPerDat.Pie_Firma_Cargo;
+            }
             // Administrador
-            listaPerDat = adpPerDat.GetByPer_Personal_Id(new Scope(), this.Per_Personal_Id_Admin);
-            filaPerDat = listaPerDat[0];
-            this.Persona_Administrador_Pie_Firma_Nombre = filaPerDat.Pie_Firma_Nombre;
-            this.Persona_Administrador_Pie_Firma_Cargo = filaPerDat.Pie_Firma_Cargo;
+            if (!string.IsNullOrEmpty(this.Per_Personal_Id_Admin))
+            {
+                listaPerDat = adpPerDat.GetByPer_Personal_Id(new Scope(), this.Per_Personal_Id_Admin);
+                filaPerDat = listaPerDat[0];
+                this.Persona_Administrador_Pie_Firma_Nombre = filaPerDat.Pie_Firma_Nombre;
+                this.Persona_Administrador_Pie_Firma_Cargo = filaPerDat.Pie_Firma_Cargo;
+            }
             // Aprobado por
             // Buscamos el director del area solicitante
             CEL.PLA.DO_Pla_Doc adpDoc = new DO_Pla_Doc();
@@ -131,6 +241,34 @@ namespace REL.COM
             filaPerDat = listaPerDat[0];
             this.Persona_Aprobado_Pie_Firma_Nombre = filaPerDat.Pie_Firma_Nombre;
             this.Persona_Aprobado_Pie_Firma_Cargo = filaPerDat.Pie_Firma_Cargo;
+
+            // Obtengo el arbol
+            CEL.PLA.DO_Pla_Cta adpCta = new DO_Pla_Cta();
+            var listaArbol = adpCta.GetByAnioArbolPla_Tarea_Id(new Scope(), filaDoc.Pla_Tarea_Id );
+            // Pongo los datos de programa, proyecto, producto y actividad
+            this.Programa = listaArbol[0].Nombre;
+            this.Proyecto = listaArbol[1].Nombre;
+            this.Producto = listaArbol[2].Nombre;
+            this.Actividad = listaArbol[3].Nombre;
+            // Consulto los movimientos
+            CEL.PLA.DO_Pla_Mov adpMov = new DO_Pla_Mov();
+            var listaMov = adpMov.GetByPla_Doc_Id(new Scope(), this.Pla_Doc_Id );
+            // Pongo los datos de partidas 
+            this.Partida_Codigo_0 = listaMov[0].Pla_Partida_Codigo;
+            this.Partida_Nombre_0 = listaMov[0].Pla_Partida_Nombre;
+            this.Partida_Valor_0 = listaMov[0].Valor;
+            if (listaMov.Count() > 1)
+            {
+                this.Partida_Codigo_1 = listaMov[1].Pla_Partida_Codigo;
+                this.Partida_Nombre_1 = listaMov[1].Pla_Partida_Nombre;
+                this.Partida_Valor_1 = listaMov[1].Valor;
+            }
+            if (listaMov.Count() > 2)
+            {
+                this.Partida_Codigo_2 = listaMov[2].Pla_Partida_Codigo;
+                this.Partida_Nombre_2 = listaMov[2].Pla_Partida_Nombre;
+                this.Partida_Valor_2 = listaMov[2].Valor;
+            }
         }
     }
 }
