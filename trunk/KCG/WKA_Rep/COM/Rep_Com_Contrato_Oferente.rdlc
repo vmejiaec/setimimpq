@@ -1870,8 +1870,8 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>3.48403cm</Top>
-        <Height>13.34678cm</Height>
-        <Width>18.62667cm</Width>
+        <Height>13.34679cm</Height>
+        <Width>18.62666cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1894,7 +1894,7 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>6.6263in</Height>
+    <Height>6.62631in</Height>
     <Style />
   </Body>
   <ReportParameters>

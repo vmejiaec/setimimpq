@@ -1095,11 +1095,18 @@ TagPrefix="ajax" %>
     <asp:Panel runat="server" ID="Panel3" GroupingText="Reporte">
         <table>
         <tr>
-            <td><asp:Button ID="btReciboOferta" runat="server" Text="Recibo de Oferta" 
-                    onclick="btReciboOferta_Click" /></td>
+            <td><asp:Button ID="btReciboOferta" runat="server" Text="Recibo de Oferta" onclick="btReciboOferta_Click" /></td>
             <td>
                 <p class="pTextoPagina">
                 Reporte del recibo de la entrega del sobre de la oferta técnica.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td><asp:Button ID="btActaOfertas" runat="server" Text="Acta de Ofertas" onclick="btActaOfertas_Click" /></td>
+            <td>
+                <p class="pTextoPagina">
+                Reporte del acta de cierre de presentación de ofertas.
                 </p>
             </td>
         </tr>
