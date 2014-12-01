@@ -20,7 +20,7 @@ namespace zTest
             //doc.CloseDocument();
             decimal numero = 900909009.09m;
             EscribirEnteroALetras ALetras = new EscribirEnteroALetras();
-            string[] sNumero = ALetras.Convertir_Decimal(numero);
+            string sNumero = ALetras.FormatoParaContrato(numero);
         }
     }
 }
