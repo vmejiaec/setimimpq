@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web.Services;
+using System.Web.Services; 
 
 using CEL.COM; // datos.xsdNombreIniciales
 using AEL.COM;
 using BEL;
- 
+
 namespace EWS
 {
     [WebService(Namespace = "http://koala.org/")]
@@ -306,6 +306,163 @@ namespace EWS
         public int Com_Contrato_InsertINT(Com_Contrato n)
         {
             return Com_Contrato.InsertINT(n);
+        }
+		#endregion
+		#endregion
+	    #region Servicios para Com_Contrato_Tipo
+        private DO_Com_Contrato_Tipo _Com_Contrato_Tipo;
+        public DO_Com_Contrato_Tipo Com_Contrato_Tipo {
+            get {
+                if (_Com_Contrato_Tipo == null)
+                    _Com_Contrato_Tipo = new DO_Com_Contrato_Tipo();
+                return _Com_Contrato_Tipo;
+            }
+        }
+
+		#region Select
+		[WebMethod]
+        public List<Com_Contrato_Tipo> Com_Contrato_Tipo_Get(Scope s)
+        {
+            return Com_Contrato_Tipo.Get(s);
+        }
+		#endregion
+		#region Insert, Delete, Update
+		[WebMethod]
+        public int Com_Contrato_Tipo_Insert(Com_Contrato_Tipo n)
+        {
+            return Com_Contrato_Tipo.Insert(n);
+        }
+		[WebMethod]
+        public int Com_Contrato_Tipo_Delete(Com_Contrato_Tipo o)
+        {
+            return Com_Contrato_Tipo.Delete(o);
+        }
+		[WebMethod]
+        public int Com_Contrato_Tipo_Update(Com_Contrato_Tipo o,Com_Contrato_Tipo n)
+        {
+            return Com_Contrato_Tipo.Update(o, n);
+        }
+		#endregion
+		#region Métodos Get
+		[WebMethod]
+		public List<Com_Contrato_Tipo> Com_Contrato_Tipo_GetById(Scope s , Int32 p_Id)
+        {
+            return Com_Contrato_Tipo.GetById(s,  p_Id);
+        }
+		#endregion
+		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+        public int Com_Contrato_Tipo_InsertINT(Com_Contrato_Tipo n)
+        {
+            return Com_Contrato_Tipo.InsertINT(n);
+        }
+		#endregion
+		#endregion
+	    #region Servicios para Com_Contrato_Tipo_Marca
+        private DO_Com_Contrato_Tipo_Marca _Com_Contrato_Tipo_Marca;
+        public DO_Com_Contrato_Tipo_Marca Com_Contrato_Tipo_Marca {
+            get {
+                if (_Com_Contrato_Tipo_Marca == null)
+                    _Com_Contrato_Tipo_Marca = new DO_Com_Contrato_Tipo_Marca();
+                return _Com_Contrato_Tipo_Marca;
+            }
+        }
+
+		#region Select
+		[WebMethod]
+        public List<Com_Contrato_Tipo_Marca> Com_Contrato_Tipo_Marca_Get(Scope s)
+        {
+            return Com_Contrato_Tipo_Marca.Get(s);
+        }
+		#endregion
+		#region Insert, Delete, Update
+		[WebMethod]
+        public int Com_Contrato_Tipo_Marca_Insert(Com_Contrato_Tipo_Marca n)
+        {
+            return Com_Contrato_Tipo_Marca.Insert(n);
+        }
+		[WebMethod]
+        public int Com_Contrato_Tipo_Marca_Delete(Com_Contrato_Tipo_Marca o)
+        {
+            return Com_Contrato_Tipo_Marca.Delete(o);
+        }
+		[WebMethod]
+        public int Com_Contrato_Tipo_Marca_Update(Com_Contrato_Tipo_Marca o,Com_Contrato_Tipo_Marca n)
+        {
+            return Com_Contrato_Tipo_Marca.Update(o, n);
+        }
+		#endregion
+		#region Métodos Get
+		[WebMethod]
+		public List<Com_Contrato_Tipo_Marca> Com_Contrato_Tipo_Marca_GetByCom_Contrato_Tipo_Id(Scope s , Int32 p_Com_Contrato_Tipo_Id)
+        {
+            return Com_Contrato_Tipo_Marca.GetByCom_Contrato_Tipo_Id(s,  p_Com_Contrato_Tipo_Id);
+        }
+		[WebMethod]
+		public List<Com_Contrato_Tipo_Marca> Com_Contrato_Tipo_Marca_GetById(Scope s , Int32 p_Id)
+        {
+            return Com_Contrato_Tipo_Marca.GetById(s,  p_Id);
+        }
+		#endregion
+		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+        public int Com_Contrato_Tipo_Marca_InsertINT(Com_Contrato_Tipo_Marca n)
+        {
+            return Com_Contrato_Tipo_Marca.InsertINT(n);
+        }
+		#endregion
+		#endregion
+	    #region Servicios para Com_Contrato_Legal
+        private DO_Com_Contrato_Legal _Com_Contrato_Legal;
+        public DO_Com_Contrato_Legal Com_Contrato_Legal {
+            get {
+                if (_Com_Contrato_Legal == null)
+                    _Com_Contrato_Legal = new DO_Com_Contrato_Legal();
+                return _Com_Contrato_Legal;
+            }
+        }
+
+		#region Select
+		[WebMethod]
+        public List<Com_Contrato_Legal> Com_Contrato_Legal_Get(Scope s)
+        {
+            return Com_Contrato_Legal.Get(s);
+        }
+		#endregion
+		#region Insert, Delete, Update
+		[WebMethod]
+        public int Com_Contrato_Legal_Insert(Com_Contrato_Legal n)
+        {
+            return Com_Contrato_Legal.Insert(n);
+        }
+		[WebMethod]
+        public int Com_Contrato_Legal_Delete(Com_Contrato_Legal o)
+        {
+            return Com_Contrato_Legal.Delete(o);
+        }
+		[WebMethod]
+        public int Com_Contrato_Legal_Update(Com_Contrato_Legal o,Com_Contrato_Legal n)
+        {
+            return Com_Contrato_Legal.Update(o, n);
+        }
+		#endregion
+		#region Métodos Get
+		[WebMethod]
+		public List<Com_Contrato_Legal> Com_Contrato_Legal_GetByCom_Contrato_Id(Scope s , Int32 p_Com_Contrato_Id)
+        {
+            return Com_Contrato_Legal.GetByCom_Contrato_Id(s,  p_Com_Contrato_Id);
+        }
+		[WebMethod]
+		public List<Com_Contrato_Legal> Com_Contrato_Legal_GetById(Scope s , Int32 p_Id)
+        {
+            return Com_Contrato_Legal.GetById(s,  p_Id);
+        }
+		#endregion
+		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+        public int Com_Contrato_Legal_InsertINT(Com_Contrato_Legal n)
+        {
+            return Com_Contrato_Legal.InsertINT(n);
         }
 		#endregion
 		#endregion

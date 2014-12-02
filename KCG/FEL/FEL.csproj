@@ -138,7 +138,16 @@
     <Compile Include="COM\BO_Com_Contrato_DocTec.cs">
       <DependentUpon>GeneraCapasCOM.txt4</DependentUpon>
     </Compile>
+    <Compile Include="COM\BO_Com_Contrato_Legal.cs">
+      <DependentUpon>GeneraCapasCOM.txt4</DependentUpon>
+    </Compile>
     <Compile Include="COM\BO_Com_Contrato_Oferente.cs">
+      <DependentUpon>GeneraCapasCOM.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="COM\BO_Com_Contrato_Tipo.cs">
+      <DependentUpon>GeneraCapasCOM.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="COM\BO_Com_Contrato_Tipo_Marca.cs">
       <DependentUpon>GeneraCapasCOM.txt4</DependentUpon>
     </Compile>
     <Compile Include="COM\BO_Com_DocTec.cs">

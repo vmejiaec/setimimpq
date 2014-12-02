@@ -5,7 +5,7 @@ using System.Text;
 
 using ADL.ComprasTableAdapters;
 using AEL.COM;
-using BEL; 
+using BEL;
 using System.Data.SqlClient;
 
 namespace CEL.COM

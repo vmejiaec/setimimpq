@@ -66,10 +66,27 @@ namespace zTest
             wordApp.Quit(ref saveChanges);
         }
 
-        public void ReemplazarMarcas()
+        /// <summary>
+        /// El formato de las marcas en el Word es m_Abcde_01, m_Abcde_02, etc. 
+        /// En la función se quitan los tres últimos dígitos y reemplaza con el texto del diccionario.
+        /// </summary>
+        /// <param name="datos"></param>
+        public void ReemplazarMarcas(Dictionary<string, string> datos)
         {
-            object m_Codigo_Sercop = "m_Codigo_Sercop";
-            wordDoc.Bookmarks[m_Codigo_Sercop].Range.Text = "000-00-00";
+            
+            //object mMarcador = "m_Codigo_Sercop_01";
+            //wordDoc.Bookmarks[mMarcador].Range.Text = "000-00-00";
+
+            foreach (dynamic m in wordDoc.Bookmarks)
+            {
+                string marca = m.Name;
+                // El formato de una marca en el doc word es m_xxx_01, m_xxx_02, ...
+                string marca_sin_numeral = marca.Remove(marca.Length - 3);
+                if (datos.ContainsKey(marca_sin_numeral))
+                {
+                    m.Range.Text = datos[marca_sin_numeral];
+                }
+            }
         }
     }
 }

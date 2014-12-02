@@ -139,10 +139,13 @@
       <SubType>
       </SubType>
     </Compile>
+    <Compile Include="COM\Com_Contrato_Legal.cs" />
     <Compile Include="COM\Com_Contrato_Oferente.cs">
       <SubType>
       </SubType>
     </Compile>
+    <Compile Include="COM\Com_Contrato_Tipo.cs" />
+    <Compile Include="COM\Com_Contrato_Tipo_Marca.cs" />
     <Compile Include="COM\Com_DocTec.cs">
       <SubType>
       </SubType>

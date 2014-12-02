@@ -56,7 +56,7 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
-    <Content Include="COM\Com_Contrato_GvFv.aspx">
+    <Content Include="COM\Com_Contrato_Legal_GvFv.aspx">
       <DependentUpon>GeneraASP-GvFv.txt4</DependentUpon>
     </Content>
     <Content Include="Styles\Site.css" />
@@ -117,7 +117,7 @@
     <Content Include="App_Code\PaginaBaseKCG.cs" />
     <Content Include="App_Code\PaginaBaseTreeGrid.cs" />
     <Content Include="App_Code\Scope_Factory.cs" />
-    <Compile Include="COM\Com_Contrato_GvFv.aspx.cs">
+    <Compile Include="COM\Com_Contrato_Legal_GvFv.aspx.cs">
       <DependentUpon>GeneraASP-GvFv.txt4</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
