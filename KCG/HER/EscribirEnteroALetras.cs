@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace zTest
+namespace HER
 {
     /// <summary>
     /// Decimal numero = 900909009.09m;
