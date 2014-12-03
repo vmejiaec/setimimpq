@@ -11,12 +11,87 @@ namespace zTest
 {
     public class DocWord
     {
+        //DocWord doc = new DocWord();
+        //Dictionary<string, string> datos = new Dictionary<string, string>();            
+        //datos.Add("m_Contratista_Nombre", "Víctor Mejía");
+        //datos.Add("m_Contrato_Plazo", "60");
+        //datos.Add("m_Contrato_Plazo_Letras", "SESENTA");
+        //datos.Add("m_Proyecto_Nombre", "MANTENIMIENTO PERFECTIVO.");
+        //doc.GeneraYGuardaNuevoDoc(@"..\..\WordTemplates\CONTRATODEEJECUCIONDEOBRACOTIZACION.docx", @"..\..\CONTRATONUEVO01.docx",datos);
+        //
+        //var z = doc.RecuperarMarcasPlantilla(@"..\..\WordTemplates\CONTRATODEEJECUCIONDEOBRACOTIZACION.docx");
+
         // Atributos
         private Word.Application wordApp;
         private Word.Document wordDoc;
         private object missing = Missing.Value;
 
-        public DocWord(string docPlantilla, string docNuevo)
+        public DocWord()
+        { }
+        
+        /// <summary>
+        /// Para crear un nuevo documento:
+        ///     Plantilla en word con marcas del tipo m_xxx_nn
+        ///     Nombre del nuevo documento
+        ///     diccionario con los datos a reemplazar las marcas
+        /// </summary>
+        /// <param name="docPlantilla"></param>
+        /// <param name="docNuevo"></param>
+        /// <param name="datos"></param>
+        public void GeneraYGuardaNuevoDoc(string docPlantilla, string docNuevo, Dictionary<string, string> datos)
+        { 
+            GeneraNuevoDoc(docPlantilla, docNuevo);
+            ReemplazarMarcas(datos);
+            SaveDocument();
+            CloseDocument();
+        }
+
+        /// <summary>
+        /// Saca las marcas de una plantilla de Word que 
+        /// coincidan con el formato m_xxxx_nn
+        /// </summary>
+        /// <param name="docPlantilla"></param>
+        /// <returns></returns>
+        public List<string> RecuperarMarcasPlantilla(string docPlantilla)
+        {
+            AbrirDoc(docPlantilla);
+            var marcas = RecuperarMarcas();
+            CloseDocument();
+            return marcas;
+        }
+
+        void AbrirDoc(string docPlantilla)
+        {
+            object oDocWord = docPlantilla;
+            try
+            {
+                wordApp = new Word.Application();
+
+                if (File.Exists((string)oDocWord))
+                {
+                    oDocWord = Path.GetFullPath((string)oDocWord);
+                    object readOnly = false;
+                    object isVisible = false;
+                    wordApp.Visible = false;
+                    wordDoc = wordApp.Documents.Open
+                        (ref oDocWord, ref missing,
+                         ref readOnly, ref missing, ref missing, ref missing,
+                         ref missing, ref missing, ref missing, ref missing, ref missing,
+                         ref isVisible, ref missing, ref missing, ref missing, ref missing);
+                    wordDoc.Activate();
+                }
+                else
+                {
+                    throw (new Exception("El archivo no existe."));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw (new Exception("Error durante el inicio: " + ex.Message));
+            }
+        }
+
+        void GeneraNuevoDoc(string docPlantilla, string docNuevo)
         {
             object oDocNuevo = docNuevo;
             try
@@ -47,7 +122,7 @@ namespace zTest
             }
         }
 
-        public void SaveDocument()
+        void SaveDocument()
         {
             try
             {
@@ -60,7 +135,7 @@ namespace zTest
             }
         }
 
-        public void CloseDocument()
+        void CloseDocument()
         {
             object saveChanges = Word.WdSaveOptions.wdSaveChanges;
             wordApp.Quit(ref saveChanges);
@@ -71,7 +146,7 @@ namespace zTest
         /// En la función se quitan los tres últimos dígitos y reemplaza con el texto del diccionario.
         /// </summary>
         /// <param name="datos"></param>
-        public void ReemplazarMarcas(Dictionary<string, string> datos)
+        void ReemplazarMarcas(Dictionary<string, string> datos)
         {
             
             //object mMarcador = "m_Codigo_Sercop_01";
@@ -87,6 +162,29 @@ namespace zTest
                     m.Range.Text = datos[marca_sin_numeral];
                 }
             }
+        }
+
+        /// <summary>
+        /// Las marcas en el doc word deben empezar con "m_"
+        /// </summary>
+        /// <returns></returns>
+        List<string> RecuperarMarcas()
+        {
+            List<string> marcas = new List<string>();
+
+            foreach (dynamic m in wordDoc.Bookmarks)
+            {
+                string marca = m.Name;
+                // El formato de una marca en el doc word es m_xxx_01, m_xxx_02, ...
+                string marca_sin_numeral = marca.Remove(marca.Length - 3);
+                if (marca_sin_numeral.StartsWith("m_"))
+                {
+                    if (!marcas.Exists(x => x.Equals(marca_sin_numeral)))
+                        marcas.Add(marca_sin_numeral);
+                }
+            }
+
+            return marcas;
         }
     }
 }
