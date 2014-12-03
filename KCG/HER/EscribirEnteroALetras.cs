@@ -5,6 +5,11 @@ using System.Text;
 
 namespace zTest
 {
+    /// <summary>
+    /// Decimal numero = 900909009.09m;
+    /// EscribirEnteroALetras ALetras = new EscribirEnteroALetras();
+    /// String sNumero = ALetras.FormatoParaContrato(numero);
+    /// </summary>
     public class EscribirEnteroALetras
     {
         public EscribirEnteroALetras()

@@ -99,7 +99,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="WordTemplates\CONTRATODEEJECUCIONDEOBRACOTIZACIÓN.docx" />
+    <None Include="WordTemplates\CONTRATODEEJECUCIONDEOBRACOTIZACION.docx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

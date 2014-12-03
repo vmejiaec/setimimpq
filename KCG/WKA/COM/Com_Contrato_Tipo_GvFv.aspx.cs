@@ -5,6 +5,11 @@ using System.Web.Services.Protocols;
 using System.Data;
 using System.Collections.Generic;
 using System.Web;
+using System.Web.UI;
+using System.Configuration;
+using System.IO;
+using System.Text;
+using System.Text.RegularExpressions;
 
 public partial class COM_Com_Contrato_Tipo_GvFv : PaginaBase
 {
@@ -33,6 +38,9 @@ public partial class COM_Com_Contrato_Tipo_GvFv : PaginaBase
         {
             case "Todos":
                 gvCom_Contrato_Tipo.DataSourceID = odsgvCom_Contrato_Tipo.ID;
+                break;
+			case "Nombre":
+                gvCom_Contrato_Tipo.DataSourceID = odsgvCom_Contrato_Tipo_GetByLikeNombre.ID;
                 break;
 			}
         gvCom_Contrato_Tipo.DataBind();
@@ -129,13 +137,49 @@ public partial class COM_Com_Contrato_Tipo_GvFv : PaginaBase
     {
         // Valor por defecto del Id y Estado
         e.Values["Id"] = -1;
-		// Cambio del formato de los campos que empiezan con Valor y Fecha
+        // Gestión del archivo si se ha seleccionado
+        string Dir_COM_Uploads = ConfigurationManager.AppSettings["Dir_COM_Uploads"];
+        FileUpload ful = (FileUpload)fvCom_Contrato_Tipo.FindControl("fulSubirWord");
+        if (ful.HasFile)
+        {
+            Regex reg = new Regex("[^a-zA-Z0-9. ]");
+            string fileNameSinAcentos = reg.Replace(ful.FileName, "");
+            string fileName = Server.HtmlEncode(fileNameSinAcentos);
+            string fileNameNormalizado = fileName.Normalize(NormalizationForm.FormD);
+
+            string extension = System.IO.Path.GetExtension(fileNameNormalizado);
+            if ((extension == ".doc") || (extension == ".docx"))
+            {
+                string serverPath = Server.MapPath(Dir_COM_Uploads);
+                string savePath = serverPath + fileNameNormalizado;
+                ful.SaveAs(savePath);
+                e.Values["URL_Plantilla_Word"] = fileNameNormalizado;
+            }
+        }
 		// Guarda los datos del registro en memoria
         this.MemoriaRegistroActual = String.Format( "Id: {0} * Código: {1}.", e.Values["Id"], e.Values["Codigo"]) ;
     }	
     protected void fvCom_Contrato_Tipo_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
-        // Cambio del formato de los campos que empiezan con Valor y Fecha
+        // Gestión del archivo si se ha seleccionado
+        string Dir_COM_Uploads = ConfigurationManager.AppSettings["Dir_COM_Uploads"];
+        FileUpload ful = (FileUpload)fvCom_Contrato_Tipo.FindControl("fulSubirWord");
+        if (ful.HasFile)
+        {
+            Regex reg = new Regex("[^a-zA-Z0-9. ]");
+            string fileNameSinAcentos = reg.Replace(ful.FileName, "");
+            string fileName = Server.HtmlEncode(fileNameSinAcentos);
+            string fileNameNormalizado = fileName.Normalize(NormalizationForm.FormD);
+
+            string extension = System.IO.Path.GetExtension(fileNameNormalizado);
+            if ((extension == ".doc") || (extension == ".docx"))
+            {
+                string serverPath = Server.MapPath(Dir_COM_Uploads);
+                string savePath = serverPath + fileNameNormalizado;
+                ful.SaveAs(savePath);
+                e.NewValues["URL_Plantilla_Word"] = fileNameNormalizado;
+            }
+        }
 		// Guarda los datos del registro en memoria
         this.MemoriaRegistroActual = String.Format( "Id: {0} * Código: {1}.", e.NewValues["Id"], e.NewValues["Codigo"]) ;
     }
@@ -165,6 +209,23 @@ public partial class COM_Com_Contrato_Tipo_GvFv : PaginaBase
     {
         if (gvCom_Contrato_Tipo.Rows.Count == 0)
             fvCom_Contrato_Tipo.ChangeMode(FormViewMode.Insert);
+
+        if (fvCom_Contrato_Tipo.CurrentMode == FormViewMode.Edit)
+        {
+            Button UpdateButton = (Button)fvCom_Contrato_Tipo.FindControl("UpdateButton");
+            ScriptManager.GetCurrent(Page).RegisterPostBackControl(UpdateButton);
+        }
+        if (fvCom_Contrato_Tipo.CurrentMode == FormViewMode.Insert)
+        {
+            Button InsertButton = (Button)fvCom_Contrato_Tipo.FindControl("InsertButton");
+            ScriptManager.GetCurrent(Page).RegisterPostBackControl(InsertButton);
+        }
+        if (fvCom_Contrato_Tipo.CurrentMode == FormViewMode.ReadOnly)
+        {
+            Button btDescargar = (Button)fvCom_Contrato_Tipo.FindControl("btDescargar");
+            ScriptManager.GetCurrent(Page).RegisterPostBackControl(btDescargar);
+        }
+        
     }
 	#endregion
 	// Eventos para el ObjectDataSource
@@ -223,4 +284,28 @@ public partial class COM_Com_Contrato_Tipo_GvFv : PaginaBase
 
 
 
+    protected void btDescargar_Click(object sender, EventArgs e)
+    {
+        TextBox URL_Plantilla_WordTextBox = (TextBox)fvCom_Contrato_Tipo.FindControl("URL_Plantilla_WordTextBox");
+        string archivoNombre = URL_Plantilla_WordTextBox.Text;
+        string Dir_COM_Uploads = ConfigurationManager.AppSettings["Dir_COM_Uploads"];
+        string serverPath = Server.MapPath(Dir_COM_Uploads);
+        string filepath = serverPath + archivoNombre;
+        if (File.Exists(filepath))
+        {
+            HttpContext.Current.Response.Clear();
+            Response.ClearContent();
+            Response.ClearHeaders();
+            HttpContext.Current.Response.ContentType = "application/octet-stream";
+            HttpContext.Current.Response.AppendHeader("content-disposition", "attachment;filename=\"" + Path.GetFileName(filepath) + "\"");
+            HttpContext.Current.Response.AppendHeader("content-length", new FileInfo(filepath).Length.ToString());
+
+            HttpContext.Current.Response.WriteFile(filepath);
+
+            HttpContext.Current.Response.Flush();
+            HttpContext.Current.Response.Close();
+            Response.End();
+        }
+
+    }
 }

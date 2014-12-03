@@ -25,14 +25,6 @@ TagPrefix="ajax" %>
     Sys.WebForms.PageRequestManager.getInstance().add_endRequest(PonerFormatoNumericoACamposFV);
 </script>
 
-    <%--[O] Cabecera--%>
-    <asp:Panel runat="server" ID="pcabecera" GroupingText="Cabecera">
-        <asp:Label ID="lbCabecera" runat="server" Text="Seleccionar el ... :"></asp:Label>
-        <asp:DropDownList ID="ddlCabecera" runat="server" AutoPostBack="true" >
-        </asp:DropDownList>        
-    </asp:Panel>
-	<%--[X] Cabecera--%>
-
     <%--[O] Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
         <asp:Label ID="lbFiltro" runat="server" Text="Filtro"></asp:Label>
@@ -41,6 +33,7 @@ TagPrefix="ajax" %>
         <asp:Button runat="server" ID="btFiltrar" Text="..." Visible="true" onclick="btFiltrar_Click" style="display:none" />
         <asp:DropDownList ID="ddlFiltro" runat="server" AutoPostBack="true" onselectedindexchanged="ddlFiltro_SelectedIndexChanged">
             <asp:ListItem Text = "Todos" Value="Todos" ></asp:ListItem>
+			<asp:ListItem Text = "Nombre" Value="Nombre" ></asp:ListItem>
 			</asp:DropDownList>
     </asp:Panel>
 	<%--[X] Filtro--%>
@@ -97,8 +90,6 @@ TagPrefix="ajax" %>
 </div>
 <%--[X]FIN Javascript para manegar los campos de autocompletar --%>
 
-
-
     <%--[O] FormView de Com_Contrato_Tipo --%>
     <asp:Panel runat="server" ID="pfvCom_Contrato_Tipo" GroupingText="Crear, Editar o Borar un Registro">
     <koala:FormViewSetim ID="fvCom_Contrato_Tipo" runat="server" DataSourceID="odsfvCom_Contrato_Tipo" 
@@ -121,7 +112,7 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Nombre </td>                
-				<td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>'  CssClass="txtEditNombreLargo" TextMode="MultiLine"  />
+				<td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>'  CssClass="txtEditNombreLargo" TextMode="MultiLine"  Width="450px" />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqNombre" runat="server" 
                     ControlToValidate="NombreTextBox"
@@ -131,13 +122,11 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> URL_Plantilla_Word </td>                
-				<td><asp:TextBox ID="URL_Plantilla_WordTextBox" runat="server" Text='<%# Bind("URL_Plantilla_Word") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqURL_Plantilla_Word" runat="server" 
-                    ControlToValidate="URL_Plantilla_WordTextBox"
-                    ErrorMessage="El campo URL_Plantilla_Word es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Contrato_Tipo"/>
-					</td>
+				<td>
+                    <asp:TextBox ID="URL_Plantilla_WordTextBox" runat="server" Text='<%# Bind("URL_Plantilla_Word") %>'  ReadOnly="true"  CssClass="txtItem" Width="452px" />
+                    <asp:FileUpload ID="fulSubirWord" runat="server"  />
+				</td>
+
             </tr>
 			</table>
             <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" ValidationGroup="vgCom_Contrato_Tipo"/>
@@ -155,7 +144,7 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Nombre </td>                
-				<td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>'  CssClass="txtEditNombreLargo" TextMode="MultiLine"  />
+				<td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>'  CssClass="txtEditNombreLargo" TextMode="MultiLine"  Width="450px" />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqNombre" runat="server" 
                     ControlToValidate="NombreTextBox"
@@ -165,13 +154,10 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> URL_Plantilla_Word </td>                
-				<td><asp:TextBox ID="URL_Plantilla_WordTextBox" runat="server" Text='<%# Bind("URL_Plantilla_Word") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqURL_Plantilla_Word" runat="server" 
-                    ControlToValidate="URL_Plantilla_WordTextBox"
-                    ErrorMessage="El campo URL_Plantilla_Word es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Contrato_Tipo"/>
-					</td>
+				<td>
+                    <asp:TextBox ID="URL_Plantilla_WordTextBox" runat="server" Text='<%# Bind("URL_Plantilla_Word") %>'  ReadOnly="true"  CssClass="txtItem" Width="452px" />
+                    <asp:FileUpload ID="fulSubirWord" runat="server"  />
+				</td>
             </tr>
 			</table>
             <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" ValidationGroup="vgCom_Contrato_Tipo"/>
@@ -188,12 +174,15 @@ TagPrefix="ajax" %>
 							</tr>
 			<tr >
                 <td> Nombre </td>
-				<td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>'  ReadOnly="true"  CssClass="txtItemNombreLargo" TextMode="MultiLine" /></td>
+				<td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>'  ReadOnly="true"  CssClass="txtItemNombreLargo" TextMode="MultiLine" Width="450px"  /></td>
 							</tr>
 			<tr >
                 <td> URL_Plantilla_Word </td>
-				<td><asp:TextBox ID="URL_Plantilla_WordTextBox" runat="server" Text='<%# Bind("URL_Plantilla_Word") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
+				<td>
+                    <asp:TextBox ID="URL_Plantilla_WordTextBox" runat="server" Text='<%# Bind("URL_Plantilla_Word") %>'  ReadOnly="true"  CssClass="txtItem" Width="452px" />
+                    <asp:Button ID="btDescargar" runat="server" Text="Descargar" onclick="btDescargar_Click" />
+                </td>
+			</tr>
 			</table>
             <asp:Button ID="EditButton" RunAt="server"  CausesValidation="False" CommandName="Edit" Text="Editar" />
             &nbsp;
@@ -231,6 +220,15 @@ TagPrefix="ajax" %>
         <SelectParameters>
             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
 			<asp:ControlParameter ControlID="tbFiltroId" Name="p_Id" PropertyName="Text" Type="Int32" />
+		</SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsgvCom_Contrato_Tipo_GetByLikeNombre" runat="server" 
+        SortParameterName = "sortExpression"
+        SelectMethod="GetByLikeNombre" 
+        TypeName="FEL.COM.BO_Com_Contrato_Tipo">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+			<asp:ControlParameter ControlID="tbFiltro" Name="p_Nombre" PropertyName="Text" Type="string" />
 		</SelectParameters>
     </asp:ObjectDataSource>
     <%--Objetos de Datos para obtener los dominios de un campo en un objeto --%>

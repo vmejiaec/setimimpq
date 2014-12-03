@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ayuda.cs" />
+    <Compile Include="DocWord.cs" />
     <Compile Include="EntidadDT.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="EscribirEnteroALetras.cs" />
