@@ -12,7 +12,7 @@
     <Shape ID="DesignTable:Com_DocTec" ZOrder="6" X="806" Y="29" Height="172" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:Com_Contrato" ZOrder="4" X="474" Y="16" Height="495" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="313" />
     <Shape ID="DesignTable:Com_Contrato_Tipo" ZOrder="3" X="1497" Y="22" Height="191" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:Com_Contrato_Tipo_Marca" ZOrder="2" X="1173" Y="22" Height="248" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
+    <Shape ID="DesignTable:Com_Contrato_Tipo_Marca" ZOrder="2" X="1173" Y="22" Height="267" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:Com_Contrato_Legal" ZOrder="1" X="1799" Y="18" Height="362" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
   </Shapes>
   <Connectors />

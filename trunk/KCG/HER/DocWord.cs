@@ -7,7 +7,7 @@ using Word = Microsoft.Office.Interop.Word;
 using System.Reflection;
 using System.IO;
 
-namespace zTest
+namespace HER
 {
     public class DocWord
     {
