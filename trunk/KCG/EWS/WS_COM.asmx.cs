@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web.Services; 
+using System.Web.Services;
 
 using CEL.COM; // datos.xsdNombreIniciales
 using AEL.COM;
@@ -349,6 +349,11 @@ namespace EWS
         {
             return Com_Contrato_Tipo.GetById(s,  p_Id);
         }
+		[WebMethod]
+		public List<Com_Contrato_Tipo> Com_Contrato_Tipo_GetByLikeNombre(Scope s , string p_Nombre)
+        {
+            return Com_Contrato_Tipo.GetByLikeNombre(s,  p_Nombre);
+        }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
 				[WebMethod]
@@ -405,6 +410,11 @@ namespace EWS
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+		public int Com_Contrato_Tipo_Marca_DelByCom_Contrato_Tipo_IdINT(Scope s , Int32 p_Com_Contrato_Tipo_Id)
+        {
+            return Com_Contrato_Tipo_Marca.DelByCom_Contrato_Tipo_IdINT(s,  p_Com_Contrato_Tipo_Id);
+        }
 				[WebMethod]
         public int Com_Contrato_Tipo_Marca_InsertINT(Com_Contrato_Tipo_Marca n)
         {

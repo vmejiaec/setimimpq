@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="APU\DO_Apu_Proyecto_Rubro_Material.cs" />
     <Compile Include="APU\DO_Apu_Rubro.cs" />
+    <Compile Include="VAR\DO_Com_Contrato_Info.cs" />
     <Compile Include="FIS\DO_Fis_Catalogo.cs" />
     <Compile Include="PAR\DO_Par_Razon_Social.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -140,6 +141,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="COM\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
