@@ -59,7 +59,12 @@ TagPrefix="ajax" %>
 
     <%--[O] Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
-        <asp:Label ID="lbFiltro" runat="server" Text="Filtro"></asp:Label>
+        <p class="pTextoPagina">
+            Para filtrar los tipos de contratos por el nombre, ingrese las primeras letras en el campo [Criterio] y seleccione
+            a continuación [Nombre] de la lista desplegable. Si cambia el criterio de búsqueda, solo debe pulsar el botón [Enter].
+            Para volver a ver la lista completa, seleccione [Todos].
+        </p>
+        <asp:Label ID="lbFiltro" runat="server" Text="Criterio"></asp:Label>
         <asp:TextBox ID="tbFiltro" runat="server"></asp:TextBox>
         <asp:TextBox ID="tbFiltroId" runat="server" CssClass="filtroID"></asp:TextBox>
         <asp:Button runat="server" ID="btFiltrar" Text="..." Visible="true" onclick="btFiltrar_Click" style="display:none" />
@@ -71,7 +76,10 @@ TagPrefix="ajax" %>
 	<%--[X] Filtro--%>
 
     <%--[O] GridView de Com_Contrato_Tipo --%>
-    <asp:Panel runat="server" GroupingText="Registros">
+    <asp:Panel runat="server" GroupingText="Lista de Tipos de Contratos y sus Plantillas Word">
+        <p class="pTextoPagina">
+            Seleccione un tipo de contrato de la siguiente lista pulsando el botón [...] de la izquierda.
+        </p>
     <asp:GridView ID="gvCom_Contrato_Tipo" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvCom_Contrato_Tipo" 
         SelectedRowStyle-CssClass="selectedrowstyle" 
@@ -91,7 +99,11 @@ TagPrefix="ajax" %>
 	<%--[X] GridView de Com_Contrato_Tipo --%>
 
     <%--[O] FormView de Com_Contrato_Tipo --%>
-    <asp:Panel runat="server" ID="pfvCom_Contrato_Tipo" GroupingText="Crear, Editar o Borar un Registro">
+    <asp:Panel runat="server" ID="pfvCom_Contrato_Tipo" GroupingText="Tipo de Contrato seleccionado">
+        <p class="pTextoPagina">
+            Para obtener una copia de uaa plantilla Word, primero seleccione un tipo de contrato de la lista 
+            pulsando el botón [...] de la izquierda, y luego pulse en el botón [Descargar].
+        </p>
     <koala:FormViewSetim ID="fvCom_Contrato_Tipo" runat="server" DataSourceID="odsfvCom_Contrato_Tipo" 
             oniteminserting="fvCom_Contrato_Tipo_ItemInserting" 
             onitemdeleted="fvCom_Contrato_Tipo_ItemDeleted" 
@@ -204,12 +216,25 @@ TagPrefix="ajax" %>
         <td>
             <asp:Button runat="server" ID="btBuscarMarcas" Text ="Buscar Marcas" onclick="btBuscarMarcas_Click" />
         </td>
+        <td>
+            <p class="pTextoPagina">
+                Analiza las marcas de la plantilla Word del contrato tipo seleccionado en la lista superior,
+                y acontinuación las presenta en la lista inferior. Las marcas anteriores serán borradas.
+                Las marcas deben tener el siguiente formato "m_xxxx_nn" como en: "m_ProyectoNombre_03".
+                El sistema eliminará los tres últimos caracteres del nombre de la marca.
+            </p>
+        </td>
         </tr>
         </table>
     </asp:Panel>
 
     <%--[O] GridView de Com_Contrato_Tipo_Marca --%>
-    <asp:Panel ID="Panel1" runat="server" GroupingText="Registros">
+    <asp:Panel ID="Panel1" runat="server" GroupingText="Marcas de la Plantilla Word">
+        <p class="pTextoPagina">
+            La siguiente lista de marcas pertenecen a la plantilla del contrato tipo seleccionado, y 
+            se presentan con su correspondiente origen de datos. Una marca sin su correspondiente origen
+            no será reemplazada en el proceso de generación del borrador del contrato.
+        </p>
     <asp:GridView ID="gvCom_Contrato_Tipo_Marca" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvCom_Contrato_Tipo_Marca_GetByCom_Contrato_Tipo_Id" 
         SelectedRowStyle-CssClass="selectedrowstyle" 
@@ -232,7 +257,12 @@ TagPrefix="ajax" %>
 	<%--[X] GridView de Com_Contrato_Tipo_Marca --%>
 
     <%--[O] FormView de Com_Contrato_Tipo_Marca --%>
-    <asp:Panel runat="server" ID="pfvCom_Contrato_Tipo_Marca" GroupingText="Crear, Editar o Borar un Registro">
+    <asp:Panel runat="server" ID="pfvCom_Contrato_Tipo_Marca" GroupingText="Marca seleccionada">
+        <p class="pTextoPagina">
+            Para asociar un origen a una marca, debe seleccionar primero la marca de la lista superior
+            y luego elegir cuál es el tipo de información que se desea asignar. El sistema reemplazará 
+            las marcas que posean un origen definido en este formulario.
+        </p>
     <koala:FormViewSetim ID="fvCom_Contrato_Tipo_Marca" runat="server" DataSourceID="odsfvCom_Contrato_Tipo_Marca" 
             oniteminserting="fvCom_Contrato_Tipo_Marca_ItemInserting" 
             onitemdeleted="fvCom_Contrato_Tipo_Marca_ItemDeleted" 
@@ -253,7 +283,7 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> Nombre </td>                
-				<td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>'  CssClass="txtEditNombre" TextMode="MultiLine"  />
+				<td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>'  CssClass="txtEditNombre"   />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqNombre" runat="server" 
                     ControlToValidate="NombreTextBox"
@@ -263,12 +293,19 @@ TagPrefix="ajax" %>
             </tr>
 			<tr style="display:none">
                 <td> Com_Contrato_Tipo_Id </td>                
-				<td><asp:TextBox ID="Com_Contrato_Tipo_IdTextBox" runat="server" Text='<%# Bind("Com_Contrato_Tipo_Id") %>'  CssClass="txtEdit"  />
+				<td><asp:TextBox ID="Com_Contrato_Tipo_IdTextBox" runat="server" Text='<%# Bind("Com_Contrato_Tipo_Id") %>' />
 				</td>
             </tr>
 			<tr >
                 <td> Origen </td>                
-				<td><asp:TextBox ID="OrigenTextBox" runat="server" Text='<%# Bind("Origen") %>'  CssClass="txtEdit"  />
+				<td>
+                    <asp:DropDownList ID="ddlCom_Contrato_Info_Campos" runat="server" 
+                        DataSourceID="odsCom_Contrato_Info_Campos" DataTextField="Valor"  CssClass="txtEditNombre"
+                        DataValueField="Valor" SelectedValue='<%# Bind("Origen") %>'>
+                    </asp:DropDownList>
+				    <asp:ObjectDataSource ID="odsCom_Contrato_Info_Campos" runat="server" 
+                        OldValuesParameterFormatString="original_{0}" SelectMethod="GetCampos" 
+                        TypeName="FEL.VAR.BO_Com_Contrato_Info"></asp:ObjectDataSource>
 				</td>
             </tr>
 			<tr >
@@ -301,21 +338,21 @@ TagPrefix="ajax" %>
 							</tr>
 			<tr >
                 <td> Nombre </td>
-				<td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>'  ReadOnly="true"  CssClass="txtItemNombre" TextMode="MultiLine" /></td>
-							</tr>
-			<tr style="display:none">
-                <td> Com_Contrato_Tipo_Id </td>
-				<td><asp:TextBox ID="Com_Contrato_Tipo_IdTextBox" runat="server" Text='<%# Bind("Com_Contrato_Tipo_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
+				<td><asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>'  ReadOnly="true"  CssClass="txtItemNombre" /></td>
+			</tr>
 			<tr >
                 <td> Origen </td>
-				<td><asp:TextBox ID="OrigenTextBox" runat="server" Text='<%# Bind("Origen") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
+				<td><asp:TextBox ID="OrigenTextBox" runat="server" Text='<%# Bind("Origen") %>'  ReadOnly="true"  CssClass="txtItemNombre" /></td>
+			</tr>
 			<tr >
                 <td> Descripcion </td>
 				<td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  ReadOnly="true"  CssClass="txtItemDescripcion" TextMode="MultiLine" /></td>
-							</tr>
-			<tr style="display:none">
+			</tr>			
+            <tr style="display:none">
+                <td> Com_Contrato_Tipo_Id </td>
+				<td><asp:TextBox ID="Com_Contrato_Tipo_IdTextBox" runat="server" Text='<%# Bind("Com_Contrato_Tipo_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			</tr>
+            <tr style="display:none">
                 <td> Com_Contrato_Tipo_Nombre </td>
 				<td><asp:TextBox ID="Com_Contrato_Tipo_NombreTextBox" runat="server" Text='<%# Bind("Com_Contrato_Tipo_Nombre") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 			</tr>

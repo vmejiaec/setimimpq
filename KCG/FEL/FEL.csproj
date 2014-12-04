@@ -60,8 +60,10 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -242,6 +244,7 @@
     <Compile Include="SEG\BO_Seg_Rol_Usuario.cs" />
     <Compile Include="SEG\BO_Seg_Rol_Usuario_Det.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="VAR\BO_Com_Contrato_Info.cs" />
     <Compile Include="VAR\BO_Pla_Cta_Codigo_Next.cs" />
     <Compile Include="VAR\BO_V_INT_Area.cs" />
     <Compile Include="VAR\BO_V_INT_Funcionario_Area.cs" />

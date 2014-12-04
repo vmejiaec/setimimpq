@@ -89,5 +89,21 @@ namespace EWS
             return res;
         }
         #endregion
+
+        #region Com_Contrato_Info Información para la generación de contratos Word
+        [WebMethod]
+        public List<DEL.VAR.DO_Com_Contrato_Info> Com_Contrato_Info_GetByCom_Contrato_Id(int p_Com_Contrato_Id)
+        {
+            DEL.VAR.DO_Com_Contrato_Info adp = new DEL.VAR.DO_Com_Contrato_Info();
+            return  adp.GetByCom_Contrato_Id(p_Com_Contrato_Id);
+        }
+
+        [WebMethod]
+        public List<DEL.VAR.DO_Com_Contrato_Info> Com_Contrato_Infor_GetCampos()
+        {
+            DEL.VAR.DO_Com_Contrato_Info adp = new DEL.VAR.DO_Com_Contrato_Info();
+            return adp.GetCampos();
+        }
+        #endregion
     }
 }

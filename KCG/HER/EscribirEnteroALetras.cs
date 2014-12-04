@@ -49,7 +49,30 @@ namespace HER
                                    "ochenta",
                                    "noventa"
                                };
-        public string[,] Convertir_Decimal(decimal numero)
+
+
+        public string FormatoParaContrato(decimal numero)
+        {
+            //SESENTA Y CUATRO MIL CUARENTA Y CINCO DÓLARES DE LOS ESTADOS UNIDOS DE NORTEAMÉRICA CON  46/100 CTVS)
+            string[,] s = Convertir_Decimal(numero);
+            string ss = string.Format("{0} DÓLARES DE LOS ESTADOS UNIDOS DE NORTEAMÉRICA CON {1}/100 CTVS.", s[0, 1].ToUpper(), s[1, 0].ToUpper());
+            return ss;
+        }
+
+        public string FormatoParaProcentajes(decimal porcentaje)
+        {
+            string[,] s = Convertir_Decimal(porcentaje);
+            string ss = string.Format("{0} CON {1} %.", s[0, 1].ToUpper(), s[1, 1].ToUpper());
+            return ss;
+        }
+
+        public string FormatoParaEnteros(Int32 entero)
+        {
+            string ss = Convertir_Numero(entero.ToString()).ToUpper();
+            return ss;
+        }
+
+        string[,] Convertir_Decimal(decimal numero)
         {
             decimal numero_redondeado = Decimal.Round(numero, 2);
             decimal numero_por_100 = numero_redondeado * 100;
@@ -67,23 +90,14 @@ namespace HER
                 sParteDecimal = sNumero;
             }
             EscribirEnteroALetras esc = new EscribirEnteroALetras();
-            string[,] s = new string[2,2];
-            s[0,0] = sParteEntera;
-            s[0,1] = esc.Convertir_Numero(sParteEntera);
-            s[1,0] = sParteDecimal;
-            s[1,1] = esc.Convertir_Numero(sParteDecimal);
+            string[,] s = new string[2, 2];
+            s[0, 0] = sParteEntera;
+            s[0, 1] = esc.Convertir_Numero(sParteEntera);
+            s[1, 0] = sParteDecimal;
+            s[1, 1] = esc.Convertir_Numero(sParteDecimal);
             return s;
         }
-
-        public string FormatoParaContrato(decimal numero)
-        {
-            //SESENTA Y CUATRO MIL CUARENTA Y CINCO DÓLARES DE LOS ESTADOS UNIDOS DE NORTEAMÉRICA CON  46/100 CTVS)
-            string[,] s = Convertir_Decimal(numero);
-            string ss = string.Format("{0} DÓLARES DE LOS ESTADOS UNIDOS DE NORTEAMÉRICA CON {1}/100 CTVS.", s[0,1].ToUpper(), s[1,0]);
-            return ss;
-        }
-
-        public string Convertir_Numero(string num)
+        string Convertir_Numero(string num)
         {
             string Resultado = "";
             int Tama_Cadena = num.Length;
@@ -121,6 +135,10 @@ namespace HER
                 Resultado = "";
             else if (Tama_Cadena < 24)
                 Resultado = "";
+
+            if (Resultado == "")
+                Resultado = "cero";
+
             return Resultado;
         }
         string Unidades(string numx)

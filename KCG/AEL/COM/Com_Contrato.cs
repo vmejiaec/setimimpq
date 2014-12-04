@@ -7,7 +7,7 @@
 //     se vuelve a generar el código.
 // </auto-generated>
 //------------------------------------------------------------------------------
-  
+
 namespace AEL.COM
 {
     using System;
