@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel;
-using HER;
+using HER; 
 
 namespace FEL.COM
 {
@@ -73,6 +73,13 @@ namespace FEL.COM
         }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+		 // DelByCom_Contrato_Tipo_IdINT
+				public int Com_Contrato_Tipo_Marca_DelByCom_Contrato_Tipo_IdINT(Scope s , Int32 p_Com_Contrato_Tipo_Id)
+        {
+			int res = 
+				Adapter.Com_Contrato_Tipo_Marca_DelByCom_Contrato_Tipo_IdINT(s,  p_Com_Contrato_Tipo_Id);
+            return res;
+        }
 		 // InsertINT
 		[DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
 		public int InsertINT(Com_Contrato_Tipo_Marca n)

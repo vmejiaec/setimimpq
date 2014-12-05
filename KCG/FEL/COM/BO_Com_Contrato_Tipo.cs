@@ -62,6 +62,15 @@ namespace FEL.COM
 				lista.Sort(new Com_Contrato_Tipo_Comparar(sortExpression));
             return lista;
         }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Com_Contrato_Tipo> GetByLikeNombre(Scope s , string p_Nombre, string sortExpression="")
+        {
+			List<Com_Contrato_Tipo> lista = new List<Com_Contrato_Tipo>(
+				Adapter.Com_Contrato_Tipo_GetByLikeNombre(s,  p_Nombre));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Com_Contrato_Tipo_Comparar(sortExpression));
+            return lista;
+        }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
 		 // InsertINT

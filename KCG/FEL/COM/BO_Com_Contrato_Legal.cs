@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Text; 
 using System.ComponentModel;
 using HER;
 
@@ -144,37 +144,9 @@ namespace FEL.COM
                 case "Fecha_Contrato":
                     retVal =  DateTime.Compare(x.Fecha_Contrato, y.Fecha_Contrato);
                     break;
-              // System.Int32
-                case "Pla_Doc_Id":
-                    retVal =  x.Pla_Doc_Id - y.Pla_Doc_Id ;
-                    break;
-              // System.Int32
-                case "Plazo_Contrato":
-                    retVal =  x.Plazo_Contrato - y.Plazo_Contrato ;
-                    break;
-              // System.Int32
-                case "Pla_Tarea_Id":
-                    retVal =  x.Pla_Tarea_Id - y.Pla_Tarea_Id ;
-                    break;
 				// System.String
-                case "Pla_Tarea_Codigo":
-                    retVal =  string.Compare(x.Pla_Tarea_Codigo, y.Pla_Tarea_Codigo);
-                    break;
-				// System.String
-                case "Pla_Tarea_Nombre":
-                    retVal =  string.Compare(x.Pla_Tarea_Nombre, y.Pla_Tarea_Nombre);
-                    break;
-				// System.String
-                case "Par_Razon_Social_Id_Contratista":
-                    retVal =  string.Compare(x.Par_Razon_Social_Id_Contratista, y.Par_Razon_Social_Id_Contratista);
-                    break;
-				// System.String
-                case "Par_Razon_Social_Nombre_Contratista":
-                    retVal =  string.Compare(x.Par_Razon_Social_Nombre_Contratista, y.Par_Razon_Social_Nombre_Contratista);
-                    break;
-				// System.String
-                case "Par_Razon_Social_Numero_Contratista":
-                    retVal =  string.Compare(x.Par_Razon_Social_Numero_Contratista, y.Par_Razon_Social_Numero_Contratista);
+                case "Com_Contrato_Tipo_Nombre":
+                    retVal =  string.Compare(x.Com_Contrato_Tipo_Nombre, y.Com_Contrato_Tipo_Nombre);
                     break;
             }
             return (retVal * (_reverse ? -1 : 1));

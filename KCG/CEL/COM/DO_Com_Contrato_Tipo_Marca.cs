@@ -124,6 +124,18 @@ fila.Com_Contrato_Tipo_Nombre
 			}
 			return lista;
 		}
+		// DelByCom_Contrato_Tipo_IdINT
+			public int DelByCom_Contrato_Tipo_IdINT (Scope s , Int32 p_Com_Contrato_Tipo_Id)
+		{
+            int res;
+            try
+            {
+				res = (int)Adapter.DelByCom_Contrato_Tipo_IdINT( p_Com_Contrato_Tipo_Id);
+            }
+            catch (SqlException e)
+            { throw (new Exception(e.Message)); }
+            return res;
+		}
 		// InsertINT
 		public int InsertINT(Com_Contrato_Tipo_Marca n)
     {

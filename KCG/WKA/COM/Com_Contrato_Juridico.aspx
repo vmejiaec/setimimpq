@@ -46,16 +46,6 @@ TagPrefix="ajax" %>
 </div>
 <%--[X]FIN Javascript para manegar los campos de autocompletar --%>
 
-    <%--[O] Cabecera--%>
-    <asp:Panel runat="server" ID="pcabecera" GroupingText="Cabecera">
-        <%--        
-        <asp:Label ID="lbCabecera" runat="server" Text="Seleccionar el ... :"></asp:Label>
-        <asp:DropDownList ID="ddlCabecera" runat="server" AutoPostBack="true" >
-        </asp:DropDownList>
-        --%>
-    </asp:Panel>
-	<%--[X] Cabecera--%>
-
     <%--[O] Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
         <asp:TextBox ID="tbFiltroId" runat="server" CssClass="filtroID"></asp:TextBox>
@@ -86,7 +76,11 @@ TagPrefix="ajax" %>
 	<%--[X] Filtro--%>
 
     <%--[O] GridView de Com_Contrato --%>
-    <asp:Panel ID="Panel1" runat="server" GroupingText="Registros">
+    <asp:Panel ID="Panel1" runat="server" GroupingText="Lista de Procesos">
+        <p class="pTextoPagina">
+            Lista de procesos en curso correspondientes al rago de fechas de la sección [Buscar] y resultado
+            del filtrado solicitado por el usuario en el campo [Criterio].
+        </p>
     <asp:GridView ID="gvCom_Contrato" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvCom_Contrato_GetByRangoFecha_Crea" 
         SelectedRowStyle-CssClass="selectedrowstyle" 
@@ -136,7 +130,8 @@ TagPrefix="ajax" %>
                     Text="Seguimiento de Proyectos" onclick="btReporteControl_Click" /></td>
             <td>
                 <p class="pTextoPagina">
-                El reporte de Seguimiento de Proyectos
+                    El reporte de Seguimiento de Proyectos que contiene toda la información relacionada con los procesos, 
+                    sus estados y las fechas previstas en el calendario de contratación.
                 </p>
             </td>
         </tr>
@@ -145,7 +140,12 @@ TagPrefix="ajax" %>
     <%--[X] Barra del Reportes --%>
 
     <%--[O] FormView de Com_Contrato --%>
-    <asp:Panel runat="server" ID="pfvCom_Contrato" GroupingText="Crear, Editar o Borar un Registro">
+    <asp:Panel runat="server" ID="pfvCom_Contrato" GroupingText="Datos del Proceso">
+        <p class="pTextoPagina">
+            Los datos del proceso de proceso seleccionado en la lista superior se presentan en el siguiente formulario. 
+            Para cambiar el estado del proceso, pulse el botón [Editar] y luego seleccione el valor correspondiente
+            en la lista desplegable.
+        </p>
     <koala:FormViewSetim ID="fvCom_Contrato" runat="server" 
             DataSourceID="odsfvCom_Contrato" 
             DataKeyNames="Id"
@@ -901,6 +901,10 @@ TagPrefix="ajax" %>
 
     <%--[O] GridView de Com_Contrato_Legal --%>
     <asp:Panel ID="Panel2" runat="server" GroupingText="Contrato">
+        <p class="pTextoPagina">
+            Sección para la creación del documento Word del contrato tipo asignado al proceso y para subir al sistema
+            la versión digital del documento PDF del contrato firmado.
+        </p>
     <asp:GridView ID="gvCom_Contrato_Legal" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvCom_Contrato_Legal_GetByCom_Contrato_Id" 
         SelectedRowStyle-CssClass="selectedrowstyle" 
@@ -932,6 +936,13 @@ TagPrefix="ajax" %>
 
     <%--[O] FormView de Com_Contrato_Legal --%>
     <asp:Panel runat="server" ID="pfvCom_Contrato_Legal" GroupingText="Registrar el Contrato">
+        <p class="pTextoPagina">
+            Para genera un documento Word en base de la plantilla del contrato tipo deseado, seleccione
+            en la sección superior el registro con el botón [..], luego pulse el botón [Editar] para asignar 
+            un tipo de contrato y pulse el botón [Crear Contrato Word]. Para obtener una copia del documento Word del 
+            contrato, pulse en la tecla [Descargar Word]. De igual manera, 
+            Para obtener una copia del documento Word del contrato, pulse en la tecla [Descargar PDF]
+        </p>
     <koala:FormViewSetim ID="fvCom_Contrato_Legal" runat="server" DataSourceID="odsfvCom_Contrato_Legal" 
             oniteminserting="fvCom_Contrato_Legal_ItemInserting" 
             onitemdeleted="fvCom_Contrato_Legal_ItemDeleted" 
@@ -940,7 +951,7 @@ TagPrefix="ajax" %>
 			ondatabound="fvCom_Contrato_Legal_DataBound" 
             onprerender="fvCom_Contrato_Legal_PreRender"
 			onitemupdating="fvCom_Contrato_Legal_ItemUpdating"
-			onitemdeleting="fvCom_Contrato_Legal_ItemDeleting"
+			onitemdeleting="fvCom_Contrato_Legal_ItemDeleting" 
 			>
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
@@ -955,7 +966,7 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="Com_Contrato_IdTextBox" runat="server" Text='<%# Bind("Com_Contrato_Id") %>'  CssClass="txtEdit"  />
 				</td>
             </tr>
-			<tr  style="display:none">
+			<tr  >
                 <td> Com_Contrato_Tipo_Id </td>                
 				<td><asp:TextBox ID="Com_Contrato_Tipo_IdTextBox" runat="server" Text='<%# Bind("Com_Contrato_Tipo_Id") %>'  CssClass="txtEdit"  />
 				</td>
@@ -984,7 +995,9 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> URL_Contrato_Scan </td>                
-				<td><asp:TextBox ID="URL_Contrato_ScanTextBox" runat="server" Text='<%# Bind("URL_Contrato_Scan") %>'  CssClass="txtItemNombre" ReadOnly="true" />
+				<td>
+                    <asp:TextBox ID="URL_Contrato_ScanTextBox" runat="server" Text='<%# Bind("URL_Contrato_Scan") %>'  CssClass="txtItemNombre" ReadOnly="true" />
+                    <asp:FileUpload ID="fulSubirWord" runat="server"  />
 				</td>
             </tr>
 			<tr >
@@ -995,22 +1008,12 @@ TagPrefix="ajax" %>
 			<tr >
                 <td> Desc_Alerta_2 </td>                
 				<td><asp:TextBox ID="Desc_Alerta_2TextBox" runat="server" Text='<%# Bind("Desc_Alerta_2") %>'  CssClass="txtEditNombre"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqDesc_Alerta_2" runat="server" 
-                    ControlToValidate="Desc_Alerta_2TextBox"
-                    ErrorMessage="El campo Desc_Alerta_2 es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Contrato_Legal"/>
 				</td>
             </tr>
 			<tr >
                 <td> Desc_Alerta_3 </td>                
 				<td><asp:TextBox ID="Desc_Alerta_3TextBox" runat="server" Text='<%# Bind("Desc_Alerta_3") %>'  CssClass="txtEditNombre"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqDesc_Alerta_3" runat="server" 
-                    ControlToValidate="Desc_Alerta_3TextBox"
-                    ErrorMessage="El campo Desc_Alerta_3 es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Contrato_Legal"/>
-					</td>
+				</td>
             </tr>
 			<tr >
                 <td> Fecha_Firma_Contrato </td>                
@@ -1172,12 +1175,18 @@ TagPrefix="ajax" %>
             </tr>
 			<tr >
                 <td> URL_Contrato_Word </td>
-				<td><asp:TextBox ID="URL_Contrato_WordTextBox" runat="server" Text='<%# Bind("URL_Contrato_Word") %>'  ReadOnly="true"  CssClass="txtItemNombre" /></td>
-							</tr>
+				<td>
+                    <asp:TextBox ID="URL_Contrato_WordTextBox" runat="server" Text='<%# Bind("URL_Contrato_Word") %>'  ReadOnly="true"  CssClass="txtItemNombre" />
+                    <asp:Button ID="btDescargarWord" runat="server" Text="Descargar Word" onclick="btDescargarWord_Click" />
+                </td>
+			</tr>
 			<tr >
                 <td> URL_Contrato_Scan </td>
-				<td><asp:TextBox ID="URL_Contrato_ScanTextBox" runat="server" Text='<%# Bind("URL_Contrato_Scan") %>'  ReadOnly="true"  CssClass="txtItemNombre" /></td>
-							</tr>
+				<td>
+                    <asp:TextBox ID="URL_Contrato_ScanTextBox" runat="server" Text='<%# Bind("URL_Contrato_Scan") %>'  ReadOnly="true"  CssClass="txtItemNombre" />
+                    <asp:Button ID="btDescargarPDF" runat="server" Text="Descargar PDF" onclick="btDescargarPDF_Click" />
+                </td>
+			</tr>
 			<tr >
                 <td> Desc_Alerta_1 </td>
 				<td><asp:TextBox ID="Desc_Alerta_1TextBox" runat="server" Text='<%# Bind("Desc_Alerta_1") %>'  ReadOnly="true"  CssClass="txtItemNombre" /></td>
@@ -1216,6 +1225,13 @@ TagPrefix="ajax" %>
         <tr>
             <td>
                 <asp:Button runat="server" ID="btCrearContratoBorrador" Text="Crear Contrato Word" onclick="btCrearContratoBorrador_Click" />
+            </td>
+            <td>
+                <p class="pTextoPagina">
+                    Para genera un documento Word en base de la plantilla del contrato tipo deseado, seleccione
+                    en la sección superior el registro con el botón [..], luego pulse el botón [Editar] para asignar 
+                    un tipo de contrato y pulse el botón [Crear Contrato Word]. 
+                </p>
             </td>
         </tr>
         </table>

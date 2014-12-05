@@ -147,6 +147,8 @@ public partial class COM_Com_Contrato_Tipo_GvFv : PaginaBase
             string fileName = Server.HtmlEncode(fileNameSinAcentos);
             string fileNameNormalizado = fileName.Normalize(NormalizationForm.FormD);
 
+            fileNameNormalizado = ful.FileName;
+
             string extension = System.IO.Path.GetExtension(fileNameNormalizado);
             if ((extension == ".doc") || (extension == ".docx"))
             {
@@ -166,10 +168,12 @@ public partial class COM_Com_Contrato_Tipo_GvFv : PaginaBase
         FileUpload ful = (FileUpload)fvCom_Contrato_Tipo.FindControl("fulSubirWord");
         if (ful.HasFile)
         {
-            Regex reg = new Regex("[^a-zA-Z0-9. ]");
+            Regex reg = new Regex("[^a-zA-Z0-9. _]");
             string fileNameSinAcentos = reg.Replace(ful.FileName, "");
             string fileName = Server.HtmlEncode(fileNameSinAcentos);
             string fileNameNormalizado = fileName.Normalize(NormalizationForm.FormD);
+
+            fileNameNormalizado = ful.FileName;
 
             string extension = System.IO.Path.GetExtension(fileNameNormalizado);
             if ((extension == ".doc") || (extension == ".docx"))
@@ -507,7 +511,7 @@ public partial class COM_Com_Contrato_Tipo_GvFv : PaginaBase
             oMarca.Com_Contrato_Tipo_Id = iContrato_Tipo_Id;
             oMarca.Nombre = marca;
             oMarca.Origen = "";
-            oMarca.Descripcion = marca;
+            oMarca.Descripcion = "...";
             res = adpMarca.InsertINT(oMarca);
         }
     }

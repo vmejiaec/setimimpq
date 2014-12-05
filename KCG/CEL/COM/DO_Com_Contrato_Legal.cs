@@ -32,15 +32,7 @@ fila.Desc_Alerta_2,
 fila.Desc_Alerta_3,
 fila.Fecha_Firma_Contrato,
 fila.Fecha_Contrato,
-fila.Pla_Doc_Id,
-fila.Valor_Contrato,
-fila.Plazo_Contrato,
-fila.Pla_Tarea_Id,
-fila.Pla_Tarea_Codigo,
-fila.Pla_Tarea_Nombre,
-fila.Par_Razon_Social_Id_Contratista,
-fila.Par_Razon_Social_Nombre_Contratista,
-fila.Par_Razon_Social_Numero_Contratista
+fila.Com_Contrato_Tipo_Nombre
 			));
         }
         return lista;
@@ -139,15 +131,7 @@ fila.Desc_Alerta_2,
 fila.Desc_Alerta_3,
 fila.Fecha_Firma_Contrato,
 fila.Fecha_Contrato,
-fila.Pla_Doc_Id,
-fila.Valor_Contrato,
-fila.Plazo_Contrato,
-fila.Pla_Tarea_Id,
-fila.Pla_Tarea_Codigo,
-fila.Pla_Tarea_Nombre,
-fila.Par_Razon_Social_Id_Contratista,
-fila.Par_Razon_Social_Nombre_Contratista,
-fila.Par_Razon_Social_Numero_Contratista
+fila.Com_Contrato_Tipo_Nombre
 				));
 			}
 			return lista;
@@ -170,15 +154,7 @@ fila.Desc_Alerta_2,
 fila.Desc_Alerta_3,
 fila.Fecha_Firma_Contrato,
 fila.Fecha_Contrato,
-fila.Pla_Doc_Id,
-fila.Valor_Contrato,
-fila.Plazo_Contrato,
-fila.Pla_Tarea_Id,
-fila.Pla_Tarea_Codigo,
-fila.Pla_Tarea_Nombre,
-fila.Par_Razon_Social_Id_Contratista,
-fila.Par_Razon_Social_Nombre_Contratista,
-fila.Par_Razon_Social_Numero_Contratista
+fila.Com_Contrato_Tipo_Nombre
 				));
 			}
 			return lista;

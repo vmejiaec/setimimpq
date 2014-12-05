@@ -5,7 +5,9 @@ using System.Web.Services.Protocols;
 using System.Data;
 using System.Collections.Generic;
 using System.Web;
+using System.Web.UI;
 using System.Configuration;
+using System.IO;
 
 public partial class COM_Com_Contrato_Juridico : PaginaBase
 {
@@ -446,6 +448,22 @@ public partial class COM_Com_Contrato_Juridico : PaginaBase
         e.OldValues["Fecha_Firma_Contrato"] = DateTime.Parse((string)e.OldValues["Fecha_Firma_Contrato"]);
         e.NewValues["Fecha_Contrato"] = DateTime.Parse((string)e.NewValues["Fecha_Contrato"]);
         e.OldValues["Fecha_Contrato"] = DateTime.Parse((string)e.OldValues["Fecha_Contrato"]);
+        // Gestión del archivo si se ha seleccionado
+        string Dir_COM_Uploads = ConfigurationManager.AppSettings["Dir_COM_Uploads"];
+        FileUpload ful = (FileUpload)fvCom_Contrato_Legal.FindControl("fulSubirWord");
+        if (ful.HasFile)
+        {
+            string fileNameNormalizado = ful.FileName;
+
+            string extension = System.IO.Path.GetExtension(fileNameNormalizado);
+            if ((extension == ".pdf"))
+            {
+                string serverPath = Server.MapPath(Dir_COM_Uploads);
+                string savePath = serverPath + fileNameNormalizado;
+                ful.SaveAs(savePath);
+                e.NewValues["URL_Contrato_Scan"] = fileNameNormalizado;
+            }
+        }
         // Guarda los datos del registro en memoria
         this.MemoriaRegistroActual = String.Format("Id: {0} * Código: {1}.", e.NewValues["Id"], e.NewValues["Codigo"]);
     }
@@ -485,6 +503,23 @@ public partial class COM_Com_Contrato_Juridico : PaginaBase
     {
         if (gvCom_Contrato_Legal.Rows.Count == 0)
             fvCom_Contrato_Legal.ChangeMode(FormViewMode.Insert);
+
+        // Registra los botones
+        if (fvCom_Contrato_Legal.CurrentMode == FormViewMode.Edit)
+        {
+            Button UpdateButton = (Button)fvCom_Contrato_Legal.FindControl("UpdateButton");
+            ScriptManager.GetCurrent(Page).RegisterPostBackControl(UpdateButton);
+        }
+        if (fvCom_Contrato_Legal.CurrentMode == FormViewMode.ReadOnly)
+        {
+            Button btDescargarWord = (Button)fvCom_Contrato_Legal.FindControl("btDescargarWord");
+            if (btDescargarWord != null)
+                ScriptManager.GetCurrent(Page).RegisterPostBackControl(btDescargarWord);
+
+            Button btDescargarPDF = (Button)fvCom_Contrato_Legal.FindControl("btDescargarPDF");
+            if (btDescargarPDF != null)
+                ScriptManager.GetCurrent(Page).RegisterPostBackControl(btDescargarPDF);
+        }
     }
     #endregion
     // Eventos para el ObjectDataSource
@@ -607,6 +642,90 @@ public partial class COM_Com_Contrato_Juridico : PaginaBase
         // Consulto el directorio donde se guardan las plantillas
         string Dir_COM_Uploads = ConfigurationManager.AppSettings["Dir_COM_Uploads"];
         string serverPath = Server.MapPath(Dir_COM_Uploads);
-        string plantillaPath = serverPath + docWordNombre;
+        string plantillaPath = serverPath + oTipo.URL_Plantilla_Word;
+        string docWordFullPath = serverPath + docWordNombre;
+        // Consulto las marcas de la plantilla
+        FEL.COM.BO_Com_Contrato_Tipo_Marca adpMarca = new BO_Com_Contrato_Tipo_Marca();
+        var listaMarcas = adpMarca.GetByCom_Contrato_Tipo_Id(Scope, oTipo.Id);
+        if (listaMarcas.Count == 0) return;
+        // preparo un diccionario para juntar las marcas con la info del contrato        
+        Dictionary<string, string> datos = new Dictionary<string, string>();
+        foreach(var marca in listaMarcas)
+        {
+            var info = listaInfo.Find(o => o.Key == marca.Origen);
+            if (info != null)
+                datos.Add(marca.Nombre, info.Valor);
+        }
+        // Genero el nuevo documento en base de la plantilla y los datos de Info
+        HER.DocWord doc = new HER.DocWord();
+        doc.GeneraYGuardaNuevoDoc(plantillaPath, docWordFullPath, datos);
+        // Guardo el nombre del nuevo documento en el contrato_Legal
+        Com_Contrato_Legal oLegalNuevo = new Com_Contrato_Legal();
+        oLegalNuevo.Id = oLegal.Id;
+        oLegalNuevo.Com_Contrato_Id = oLegal.Com_Contrato_Id;
+        oLegalNuevo.Com_Contrato_Tipo_Id = oLegal.Com_Contrato_Tipo_Id;
+        oLegalNuevo.Com_Contrato_Tipo_Nombre = oLegal.Com_Contrato_Tipo_Nombre;
+        oLegalNuevo.URL_Contrato_Word = docWordNombre;
+        oLegalNuevo.URL_Contrato_Scan = oLegal.URL_Contrato_Scan;
+        oLegalNuevo.Desc_Alerta_1 = oLegal.Desc_Alerta_1;
+        oLegalNuevo.Desc_Alerta_2 = oLegal.Desc_Alerta_2;
+        oLegalNuevo.Desc_Alerta_3 = oLegal.Desc_Alerta_3;
+        oLegalNuevo.Fecha_Firma_Contrato = oLegal.Fecha_Firma_Contrato;
+        oLegalNuevo.Fecha_Contrato = oLegal.Fecha_Contrato;
+
+        adpLegal.Update(oLegal, oLegalNuevo);
     }
+
+    protected void btDescargarWord_Click(object sender, EventArgs e)
+    {
+        TextBox URL_Contrato_WordTextBox = (TextBox)fvCom_Contrato_Legal.FindControl("URL_Contrato_WordTextBox");
+        if (string.IsNullOrEmpty(URL_Contrato_WordTextBox.Text)) return;
+        string archivoNombre = URL_Contrato_WordTextBox.Text;
+        string Dir_COM_Uploads = ConfigurationManager.AppSettings["Dir_COM_Uploads"];
+        string serverPath = Server.MapPath(Dir_COM_Uploads);
+        string filepath = serverPath + archivoNombre;
+        if (File.Exists(filepath))
+        {
+            HttpContext.Current.Response.Clear();
+            Response.ClearContent();
+            Response.ClearHeaders();
+            HttpContext.Current.Response.ContentType = "application/octet-stream";
+            HttpContext.Current.Response.AppendHeader("content-disposition", "attachment;filename=\"" + Path.GetFileName(filepath) + "\"");
+            HttpContext.Current.Response.AppendHeader("content-length", new FileInfo(filepath).Length.ToString());
+
+            HttpContext.Current.Response.WriteFile(filepath);
+
+            HttpContext.Current.Response.Flush();
+            HttpContext.Current.Response.Close();
+            Response.End();
+        }
+
+    }
+
+    protected void btDescargarPDF_Click(object sender, EventArgs e)
+    {
+        TextBox URL_Contrato_ScanTextBox = (TextBox)fvCom_Contrato_Legal.FindControl("URL_Contrato_ScanTextBox");
+        if (string.IsNullOrEmpty(URL_Contrato_ScanTextBox.Text)) return;
+        string archivoNombre = URL_Contrato_ScanTextBox.Text;
+        string Dir_COM_Uploads = ConfigurationManager.AppSettings["Dir_COM_Uploads"];
+        string serverPath = Server.MapPath(Dir_COM_Uploads);
+        string filepath = serverPath + archivoNombre;
+        if (File.Exists(filepath))
+        {
+            HttpContext.Current.Response.Clear();
+            Response.ClearContent();
+            Response.ClearHeaders();
+            HttpContext.Current.Response.ContentType = "application/octet-stream";
+            HttpContext.Current.Response.AppendHeader("content-disposition", "attachment;filename=\"" + Path.GetFileName(filepath) + "\"");
+            HttpContext.Current.Response.AppendHeader("content-length", new FileInfo(filepath).Length.ToString());
+
+            HttpContext.Current.Response.WriteFile(filepath);
+
+            HttpContext.Current.Response.Flush();
+            HttpContext.Current.Response.Close();
+            Response.End();
+        }
+
+    }
+
 }

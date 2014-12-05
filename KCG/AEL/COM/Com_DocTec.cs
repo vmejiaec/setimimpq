@@ -13,7 +13,7 @@ namespace AEL.COM
     using System;
     using System.Collections.Generic;
     using System.Text;
-    
+     
     
     public class Com_DocTec
     {
