@@ -132,7 +132,6 @@ public partial class COM_Com_Contrato_Legal_GvFv : PaginaBase
 		// Cambio del formato de los campos que empiezan con Valor y Fecha
 		e.Values["Fecha_Firma_Contrato"] = DateTime.Parse((string)e.Values["Fecha_Firma_Contrato"]);
 		e.Values["Fecha_Contrato"] = DateTime.Parse((string)e.Values["Fecha_Contrato"]);
-		e.Values["Valor_Contrato"] = Decimal.Parse((string)e.Values["Valor_Contrato"]);
 		// Guarda los datos del registro en memoria
         this.MemoriaRegistroActual = String.Format( "Id: {0} * Código: {1}.", e.Values["Id"], e.Values["Codigo"]) ;
     }	
@@ -143,8 +142,6 @@ public partial class COM_Com_Contrato_Legal_GvFv : PaginaBase
 		e.OldValues["Fecha_Firma_Contrato"] = DateTime.Parse((string)e.OldValues["Fecha_Firma_Contrato"]);			
 		e.NewValues["Fecha_Contrato"] = DateTime.Parse((string)e.NewValues["Fecha_Contrato"]);
 		e.OldValues["Fecha_Contrato"] = DateTime.Parse((string)e.OldValues["Fecha_Contrato"]);			
-		e.NewValues["Valor_Contrato"] = Decimal.Parse((string)e.NewValues["Valor_Contrato"]);
-		e.OldValues["Valor_Contrato"] = Decimal.Parse((string)e.OldValues["Valor_Contrato"]);
 		// Guarda los datos del registro en memoria
         this.MemoriaRegistroActual = String.Format( "Id: {0} * Código: {1}.", e.NewValues["Id"], e.NewValues["Codigo"]) ;
     }
@@ -153,7 +150,6 @@ public partial class COM_Com_Contrato_Legal_GvFv : PaginaBase
         // Cambio del formato de los campos que empiezan con Valor y Fecha
 		e.Values["Fecha_Firma_Contrato"] = DateTime.Parse((string)e.Values["Fecha_Firma_Contrato"]);
 		e.Values["Fecha_Contrato"] = DateTime.Parse((string)e.Values["Fecha_Contrato"]);
-		e.Values["Valor_Contrato"] = Decimal.Parse((string)e.Values["Valor_Contrato"]);
 		// Guarda los datos del registro en memoria
         this.MemoriaRegistroActual = String.Format( "Id: {0} * Código: {1}.", e.Values["Id"], e.Values["Codigo"]) ;
     }

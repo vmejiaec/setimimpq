@@ -49,56 +49,13 @@ namespace AEL.COM
         private System.DateTime _Fecha_Contrato;
         
         // Comentario
-        private int _Pla_Doc_Id;
-        
-        // Comentario
-        private decimal _Valor_Contrato;
-        
-        // Comentario
-        private int _Plazo_Contrato;
-        
-        // Comentario
-        private int _Pla_Tarea_Id;
-        
-        // Comentario
-        private string _Pla_Tarea_Codigo;
-        
-        // Comentario
-        private string _Pla_Tarea_Nombre;
-        
-        // Comentario
-        private string _Par_Razon_Social_Id_Contratista;
-        
-        // Comentario
-        private string _Par_Razon_Social_Nombre_Contratista;
-        
-        // Comentario
-        private string _Par_Razon_Social_Numero_Contratista;
+        private string _Com_Contrato_Tipo_Nombre;
         
         public Com_Contrato_Legal()
         {
         }
         
-        public Com_Contrato_Legal(
-                    int id, 
-                    int com_Contrato_Id, 
-                    int com_Contrato_Tipo_Id, 
-                    string uRL_Contrato_Word, 
-                    string uRL_Contrato_Scan, 
-                    string desc_Alerta_1, 
-                    string desc_Alerta_2, 
-                    string desc_Alerta_3, 
-                    System.DateTime fecha_Firma_Contrato, 
-                    System.DateTime fecha_Contrato, 
-                    int pla_Doc_Id, 
-                    decimal valor_Contrato, 
-                    int plazo_Contrato, 
-                    int pla_Tarea_Id, 
-                    string pla_Tarea_Codigo, 
-                    string pla_Tarea_Nombre, 
-                    string par_Razon_Social_Id_Contratista, 
-                    string par_Razon_Social_Nombre_Contratista, 
-                    string par_Razon_Social_Numero_Contratista)
+        public Com_Contrato_Legal(int id, int com_Contrato_Id, int com_Contrato_Tipo_Id, string uRL_Contrato_Word, string uRL_Contrato_Scan, string desc_Alerta_1, string desc_Alerta_2, string desc_Alerta_3, System.DateTime fecha_Firma_Contrato, System.DateTime fecha_Contrato, string com_Contrato_Tipo_Nombre)
         {
             this.Id = id;
             this.Com_Contrato_Id = com_Contrato_Id;
@@ -110,15 +67,7 @@ namespace AEL.COM
             this.Desc_Alerta_3 = desc_Alerta_3;
             this.Fecha_Firma_Contrato = fecha_Firma_Contrato;
             this.Fecha_Contrato = fecha_Contrato;
-            this.Pla_Doc_Id = pla_Doc_Id;
-            this.Valor_Contrato = valor_Contrato;
-            this.Plazo_Contrato = plazo_Contrato;
-            this.Pla_Tarea_Id = pla_Tarea_Id;
-            this.Pla_Tarea_Codigo = pla_Tarea_Codigo;
-            this.Pla_Tarea_Nombre = pla_Tarea_Nombre;
-            this.Par_Razon_Social_Id_Contratista = par_Razon_Social_Id_Contratista;
-            this.Par_Razon_Social_Nombre_Contratista = par_Razon_Social_Nombre_Contratista;
-            this.Par_Razon_Social_Numero_Contratista = par_Razon_Social_Numero_Contratista;
+            this.Com_Contrato_Tipo_Nombre = com_Contrato_Tipo_Nombre;
         }
         
         public Com_Contrato_Legal(Com_Contrato_Legal o)
@@ -133,15 +82,7 @@ namespace AEL.COM
             this.Desc_Alerta_3 = o.Desc_Alerta_3;
             this.Fecha_Firma_Contrato = o.Fecha_Firma_Contrato;
             this.Fecha_Contrato = o.Fecha_Contrato;
-            this.Pla_Doc_Id = o.Pla_Doc_Id;
-            this.Valor_Contrato = o.Valor_Contrato;
-            this.Plazo_Contrato = o.Plazo_Contrato;
-            this.Pla_Tarea_Id = o.Pla_Tarea_Id;
-            this.Pla_Tarea_Codigo = o.Pla_Tarea_Codigo;
-            this.Pla_Tarea_Nombre = o.Pla_Tarea_Nombre;
-            this.Par_Razon_Social_Id_Contratista = o.Par_Razon_Social_Id_Contratista;
-            this.Par_Razon_Social_Nombre_Contratista = o.Par_Razon_Social_Nombre_Contratista;
-            this.Par_Razon_Social_Numero_Contratista = o.Par_Razon_Social_Numero_Contratista;
+            this.Com_Contrato_Tipo_Nombre = o.Com_Contrato_Tipo_Nombre;
         }
         
         // Comentario
@@ -275,119 +216,15 @@ namespace AEL.COM
         }
         
         // Comentario
-        public int Pla_Doc_Id
+        public string Com_Contrato_Tipo_Nombre
         {
             get
             {
-                return this._Pla_Doc_Id;
+                return this._Com_Contrato_Tipo_Nombre;
             }
             set
             {
-                this._Pla_Doc_Id = value;
-            }
-        }
-        
-        // Comentario
-        public decimal Valor_Contrato
-        {
-            get
-            {
-                return this._Valor_Contrato;
-            }
-            set
-            {
-                this._Valor_Contrato = value;
-            }
-        }
-        
-        // Comentario
-        public int Plazo_Contrato
-        {
-            get
-            {
-                return this._Plazo_Contrato;
-            }
-            set
-            {
-                this._Plazo_Contrato = value;
-            }
-        }
-        
-        // Comentario
-        public int Pla_Tarea_Id
-        {
-            get
-            {
-                return this._Pla_Tarea_Id;
-            }
-            set
-            {
-                this._Pla_Tarea_Id = value;
-            }
-        }
-        
-        // Comentario
-        public string Pla_Tarea_Codigo
-        {
-            get
-            {
-                return this._Pla_Tarea_Codigo;
-            }
-            set
-            {
-                this._Pla_Tarea_Codigo = value;
-            }
-        }
-        
-        // Comentario
-        public string Pla_Tarea_Nombre
-        {
-            get
-            {
-                return this._Pla_Tarea_Nombre;
-            }
-            set
-            {
-                this._Pla_Tarea_Nombre = value;
-            }
-        }
-        
-        // Comentario
-        public string Par_Razon_Social_Id_Contratista
-        {
-            get
-            {
-                return this._Par_Razon_Social_Id_Contratista;
-            }
-            set
-            {
-                this._Par_Razon_Social_Id_Contratista = value;
-            }
-        }
-        
-        // Comentario
-        public string Par_Razon_Social_Nombre_Contratista
-        {
-            get
-            {
-                return this._Par_Razon_Social_Nombre_Contratista;
-            }
-            set
-            {
-                this._Par_Razon_Social_Nombre_Contratista = value;
-            }
-        }
-        
-        // Comentario
-        public string Par_Razon_Social_Numero_Contratista
-        {
-            get
-            {
-                return this._Par_Razon_Social_Numero_Contratista;
-            }
-            set
-            {
-                this._Par_Razon_Social_Numero_Contratista = value;
+                this._Com_Contrato_Tipo_Nombre = value;
             }
         }
     }

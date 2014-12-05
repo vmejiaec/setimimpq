@@ -7,14 +7,14 @@ using System.Collections.Generic;
 using System.Web;
 using System.Configuration;
 
-public partial class COM_Com_Contrato_GvFv : PaginaBase
+public partial class COM_Com_Contrato_Juridico : PaginaBase
 {
     // Nombre del contenedor
     protected override string Contenedor
     {
-        get { return "Contratación"; }
+        get { return "Jurídico"; }
     }
-	// Inicializar controles al arranque de la página
+    // Inicializar controles al arranque de la página
     protected void Page_Init(object sender, EventArgs e)
     {
         // Inicializa los filtros de las fechas desde y hasta
@@ -31,7 +31,7 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
     // Carga inicial
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
     }
     // Controles para el Filtrar
     #region Controles para el Filtrar
@@ -44,7 +44,7 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
             case "Todos":
                 gvCom_Contrato.DataSourceID = odsgvCom_Contrato_GetByRangoFecha_Crea.ID;
                 break;
-			case "Pla_Tarea_Nombre":
+            case "Pla_Tarea_Nombre":
                 gvCom_Contrato.DataSourceID = odsgvCom_Contrato_GetByLikePla_Tarea_Nombre.ID;
                 break;
             case "Codigo_Sercop":
@@ -53,7 +53,7 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
             case "Codigo":
                 gvCom_Contrato.DataSourceID = odsgvCom_Contrato_GetByPla_Doc_Codigo.ID;
                 break;
-		}
+        }
         gvCom_Contrato.DataBind();
         // Si existe algún error en el FormView lo borra
         lbFvMsgErrorCom_Contrato.Text = ":";
@@ -65,22 +65,22 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
     }
     protected void btFiltrar_Click(object sender, EventArgs e)
     {
-        Filtrar();        
+        Filtrar();
     }
     #endregion
 
-	#region Eventos del GridView de Com_Contrato
+    #region Eventos del GridView de Com_Contrato
     // Evento se dispara cuando se selecciona una fila del GridView
     protected void gvCom_Contrato_SelectedIndexChanged(object sender, EventArgs e)
     {
-		// Si el usuario selecciona una fila, pone el FormView en ReadOnly
+        // Si el usuario selecciona una fila, pone el FormView en ReadOnly
         if (fvCom_Contrato.CurrentMode != FormViewMode.ReadOnly)
-                fvCom_Contrato.ChangeMode(FormViewMode.ReadOnly);
+            fvCom_Contrato.ChangeMode(FormViewMode.ReadOnly);
         // Mensaje
         lbFvMsgErrorCom_Contrato.Text = ":";
         lbFvMsgInfoCom_Contrato.Text = "> Com_Contrato Seleccionado";
     }
-	// Busca y selecciona la fila indicada en el GridView
+    // Busca y selecciona la fila indicada en el GridView
     protected void SeleccionarFilaEnGVCom_Contrato(GridView gv, string txtId)
     {
         int noPagina = 0;
@@ -100,8 +100,8 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
         gvCom_Contrato.PageIndex = noPagina;
         gvCom_Contrato.SelectedIndex = noFila;
     }
-	#endregion
-	// Eventos para el FormView de Com_Contrato
+    #endregion
+    // Eventos para el FormView de Com_Contrato
     #region Eventos el FormView de Com_Contrato
     protected void fvCom_Contrato_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
     {
@@ -109,7 +109,7 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
         {
             e.ExceptionHandled = true;
             e.KeepInEditMode = true;
-			if (lbFvMsgErrorCom_Contrato.Text == ":") lbFvMsgErrorCom_Contrato.Text = e.Exception.Message;
+            if (lbFvMsgErrorCom_Contrato.Text == ":") lbFvMsgErrorCom_Contrato.Text = e.Exception.Message;
         }
         else
         {
@@ -123,7 +123,7 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
         if (e.Exception != null)
         {
             e.ExceptionHandled = true;
-			if (lbFvMsgErrorCom_Contrato.Text == ":") lbFvMsgErrorCom_Contrato.Text = e.Exception.Message;
+            if (lbFvMsgErrorCom_Contrato.Text == ":") lbFvMsgErrorCom_Contrato.Text = e.Exception.Message;
         }
         else
         {
@@ -136,7 +136,7 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
         {
             e.ExceptionHandled = true;
             e.KeepInInsertMode = true;
-			if (lbFvMsgErrorCom_Contrato.Text == ":") lbFvMsgErrorCom_Contrato.Text = e.Exception.Message;
+            if (lbFvMsgErrorCom_Contrato.Text == ":") lbFvMsgErrorCom_Contrato.Text = e.Exception.Message;
         }
         else
         {
@@ -148,28 +148,28 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
     {
         // Valor por defecto del Id y Estado
         e.Values["Id"] = -1;
-		// Cambio del formato de los campos que empiezan con Valor y Fecha
-		e.Values["Fecha_Cierre_Rec_Ofertas"] = DateTime.Parse((string)e.Values["Fecha_Cierre_Rec_Ofertas"]);
-		e.Values["Valor_Contrato"] = Decimal.Parse((string)e.Values["Valor_Contrato"]);
-		e.Values["Fecha_Inicio_Contrato"] = DateTime.Parse((string)e.Values["Fecha_Inicio_Contrato"]);
-		e.Values["Fecha_Crea"] = DateTime.Parse((string)e.Values["Fecha_Crea"]);
-		e.Values["Valor_Suma_Movs"] = Decimal.Parse((string)e.Values["Valor_Suma_Movs"]);
-		// Guarda los datos del registro en memoria
-        this.MemoriaRegistroActual = String.Format( "Id: {0} * Código: {1}.", e.Values["Id"], e.Values["Codigo"]) ;
-    }	
+        // Cambio del formato de los campos que empiezan con Valor y Fecha
+        e.Values["Fecha_Cierre_Rec_Ofertas"] = DateTime.Parse((string)e.Values["Fecha_Cierre_Rec_Ofertas"]);
+        e.Values["Valor_Contrato"] = Decimal.Parse((string)e.Values["Valor_Contrato"]);
+        e.Values["Fecha_Inicio_Contrato"] = DateTime.Parse((string)e.Values["Fecha_Inicio_Contrato"]);
+        e.Values["Fecha_Crea"] = DateTime.Parse((string)e.Values["Fecha_Crea"]);
+        e.Values["Valor_Suma_Movs"] = Decimal.Parse((string)e.Values["Valor_Suma_Movs"]);
+        // Guarda los datos del registro en memoria
+        this.MemoriaRegistroActual = String.Format("Id: {0} * Código: {1}.", e.Values["Id"], e.Values["Codigo"]);
+    }
     protected void fvCom_Contrato_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
         // Cambio del formato de los campos que empiezan con Valor y Fecha
-		e.NewValues["Fecha_Cierre_Rec_Ofertas"] = DateTime.Parse((string)e.NewValues["Fecha_Cierre_Rec_Ofertas"]);
-		e.OldValues["Fecha_Cierre_Rec_Ofertas"] = DateTime.Parse((string)e.OldValues["Fecha_Cierre_Rec_Ofertas"]);			
-		e.NewValues["Valor_Contrato"] = Decimal.Parse((string)e.NewValues["Valor_Contrato"]);
-		e.OldValues["Valor_Contrato"] = Decimal.Parse((string)e.OldValues["Valor_Contrato"]);
-		e.NewValues["Fecha_Inicio_Contrato"] = DateTime.Parse((string)e.NewValues["Fecha_Inicio_Contrato"]);
-		e.OldValues["Fecha_Inicio_Contrato"] = DateTime.Parse((string)e.OldValues["Fecha_Inicio_Contrato"]);			
-		e.NewValues["Fecha_Crea"] = DateTime.Parse((string)e.NewValues["Fecha_Crea"]);
-		e.OldValues["Fecha_Crea"] = DateTime.Parse((string)e.OldValues["Fecha_Crea"]);
-		e.NewValues["Valor_Suma_Movs"] = Decimal.Parse((string)e.NewValues["Valor_Suma_Movs"]);
-		e.OldValues["Valor_Suma_Movs"] = Decimal.Parse((string)e.OldValues["Valor_Suma_Movs"]);
+        e.NewValues["Fecha_Cierre_Rec_Ofertas"] = DateTime.Parse((string)e.NewValues["Fecha_Cierre_Rec_Ofertas"]);
+        e.OldValues["Fecha_Cierre_Rec_Ofertas"] = DateTime.Parse((string)e.OldValues["Fecha_Cierre_Rec_Ofertas"]);
+        e.NewValues["Valor_Contrato"] = Decimal.Parse((string)e.NewValues["Valor_Contrato"]);
+        e.OldValues["Valor_Contrato"] = Decimal.Parse((string)e.OldValues["Valor_Contrato"]);
+        e.NewValues["Fecha_Inicio_Contrato"] = DateTime.Parse((string)e.NewValues["Fecha_Inicio_Contrato"]);
+        e.OldValues["Fecha_Inicio_Contrato"] = DateTime.Parse((string)e.OldValues["Fecha_Inicio_Contrato"]);
+        e.NewValues["Fecha_Crea"] = DateTime.Parse((string)e.NewValues["Fecha_Crea"]);
+        e.OldValues["Fecha_Crea"] = DateTime.Parse((string)e.OldValues["Fecha_Crea"]);
+        e.NewValues["Valor_Suma_Movs"] = Decimal.Parse((string)e.NewValues["Valor_Suma_Movs"]);
+        e.OldValues["Valor_Suma_Movs"] = Decimal.Parse((string)e.OldValues["Valor_Suma_Movs"]);
         e.NewValues["Pla_Doc_Valor_Solicita"] = Decimal.Parse((string)e.NewValues["Pla_Doc_Valor_Solicita"]);
         e.OldValues["Pla_Doc_Valor_Solicita"] = Decimal.Parse((string)e.OldValues["Pla_Doc_Valor_Solicita"]);
         e.NewValues["Porcentaje_Anticipo_Ref"] = Decimal.Parse((string)e.NewValues["Porcentaje_Anticipo_Ref"]);
@@ -204,7 +204,7 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
                 e.NewValues["Par_Razon_Social_Id_Contratista"] = null;
             }
             else // Si el id = vacio pero el nombre contiene caracteres, entonces se debe insertar
-            { 
+            {
                 // Si los caracteres del nombre son muy cortos, entonces se cancela la inserción
                 sNombreContratista = sNombreContratista.Trim().ToUpper();
                 if (sNombreContratista.Length < 6)
@@ -217,12 +217,12 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
                     FEL.PAR.BO_Par_Razon_Social adpRazonSocial = new FEL.PAR.BO_Par_Razon_Social();
                     string sNumero = (string)e.NewValues["Par_Razon_Social_Numero_Contratista"];
                     // Primero se verifica que no existe una razón social con ese ruc
-                    var listaRazones = adpRazonSocial.GetByLikeNumero("",s, "00126010595787657", sNumero);
+                    var listaRazones = adpRazonSocial.GetByLikeNumero("", s, "00126010595787657", sNumero);
                     if (listaRazones.Count > 0)
                     {
                         // Si existe una razón social con dicho RUC
                         e.Cancel = true;
-                        lbFvMsgErrorCom_Contrato.Text = string.Format( "No se puede crear el RUC: {0} porque ya consta en la base.", sNumero);
+                        lbFvMsgErrorCom_Contrato.Text = string.Format("No se puede crear el RUC: {0} porque ya consta en la base.", sNumero);
                     }
                     else
                     {  // No existe una razón social con el RUC indicado y se puede insertar
@@ -254,12 +254,12 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
         {
             e.OldValues["Per_Personal_Resp_Exp"] = null;
         }
-        if (String.IsNullOrEmpty((string)e.NewValues["Per_Personal_Resp_Exp"])) 
+        if (String.IsNullOrEmpty((string)e.NewValues["Per_Personal_Resp_Exp"]))
         {
             e.NewValues["Per_Personal_Resp_Exp"] = null;
         }
-		// Guarda los datos del registro en memoria
-        this.MemoriaRegistroActual = String.Format( "Id: {0} * Código: {1}.", e.NewValues["Id"], e.NewValues["Codigo"]) ;
+        // Guarda los datos del registro en memoria
+        this.MemoriaRegistroActual = String.Format("Id: {0} * Código: {1}.", e.NewValues["Id"], e.NewValues["Codigo"]);
     }
     protected void fvCom_Contrato_ItemDeleting(object sender, FormViewDeleteEventArgs e)
     {
@@ -278,16 +278,16 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
         e.Values["Fecha_Calificaciones"] = DateTime.Parse((string)e.Values["Fecha_Calificaciones"]);
         e.Values["Fecha_Estimada_Adjudicacion"] = DateTime.Parse((string)e.Values["Fecha_Estimada_Adjudicacion"]);
         e.Values["Fecha_Adjudicacion"] = DateTime.Parse((string)e.Values["Fecha_Adjudicacion"]);
-        e.Values["Fecha_Juridico"] = DateTime.Parse((string)e.Values["Fecha_Juridico"]);        
-		// Guarda los datos del registro en memoria
-        this.MemoriaRegistroActual = String.Format( "Id: {0} * Código: {1}.", e.Values["Id"], e.Values["Codigo"]) ;
+        e.Values["Fecha_Juridico"] = DateTime.Parse((string)e.Values["Fecha_Juridico"]);
+        // Guarda los datos del registro en memoria
+        this.MemoriaRegistroActual = String.Format("Id: {0} * Código: {1}.", e.Values["Id"], e.Values["Codigo"]);
     }
-	// Inicializa los valores antes de que el FormView se dibuje en la página
+    // Inicializa los valores antes de que el FormView se dibuje en la página
     protected void fvCom_Contrato_PreRender(object sender, EventArgs e)
     {
         switch (fvCom_Contrato.CurrentMode)
         {
-            case FormViewMode.Insert:			
+            case FormViewMode.Insert:
                 //((TextBox)fvPla_Poa.FindControl("CodigoTextBox")).Text = "1";
                 //((TextBox)fvPla_Poa.FindControl("EstadoTextBox")).Text = "PEN";
                 break;
@@ -297,14 +297,14 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
                 break;
         }
     }
-	// Si no hay filas en el GridView entonces el FormView cambia a modo Insert
+    // Si no hay filas en el GridView entonces el FormView cambia a modo Insert
     protected void fvCom_Contrato_DataBound(object sender, EventArgs e)
     {
         //if (gvCom_Contrato.Rows.Count == 0)
         //    fvCom_Contrato.ChangeMode(FormViewMode.Insert);
     }
-	#endregion
-	// Eventos para el ObjectDataSource
+    #endregion
+    // Eventos para el ObjectDataSource
     #region Eventos para el ObjectDataSource
     protected void odsfvCom_Contrato_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
     {
@@ -351,116 +351,127 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
             lbFvMsgInfoCom_Contrato.Text = "Com_Contrato Registro Borrado. " + this.MemoriaRegistroActual;
             AsignarMensaje("Registro Borrado. " + this.MemoriaRegistroActual, bien);
         }
-    }	
-	#endregion
-	
-	// -----------------------------------------------------------------------------------------------------------------------
+    }
+    #endregion
 
-    #region Eventos del GridView de Com_Contrato_DocTec
+    #region Eventos del GridView de Com_Contrato_Legal
     // Evento se dispara cuando se selecciona una fila del GridView
-    protected void gvCom_Contrato_DocTec_SelectedIndexChanged(object sender, EventArgs e)
+    protected void gvCom_Contrato_Legal_SelectedIndexChanged(object sender, EventArgs e)
     {
         // Si el usuario selecciona una fila, pone el FormView en ReadOnly
-        if (fvCom_Contrato_DocTec.CurrentMode != FormViewMode.ReadOnly)
-            fvCom_Contrato_DocTec.ChangeMode(FormViewMode.ReadOnly);
+        if (fvCom_Contrato_Legal.CurrentMode != FormViewMode.ReadOnly)
+            fvCom_Contrato_Legal.ChangeMode(FormViewMode.ReadOnly);
         // Mensaje
-        lbFvMsgErrorCom_Contrato_DocTec.Text = ":";
-        lbFvMsgInfoCom_Contrato_DocTec.Text = "> Com_Contrato_DocTec Seleccionado";
+        lbFvMsgErrorCom_Contrato_Legal.Text = ":";
+        lbFvMsgInfoCom_Contrato_Legal.Text = "> Com_Contrato_Legal Seleccionado";
     }
     // Busca y selecciona la fila indicada en el GridView
-    protected void SeleccionarFilaEnGVCom_Contrato_DocTec(GridView gv, string txtId)
+    protected void SeleccionarFilaEnGVCom_Contrato_Legal(GridView gv, string txtId)
     {
         int noPagina = 0;
         int noFila = 0;
         if (!String.IsNullOrEmpty(txtId))
         {
             int nFiltroId = Convert.ToInt32(txtId);
-            var ods = (ObjectDataSource)gvCom_Contrato_DocTec.DataSourceObject;
-            List<Com_Contrato_DocTec> lista = (List<Com_Contrato_DocTec>)ods.Select();
+            var ods = (ObjectDataSource)gvCom_Contrato_Legal.DataSourceObject;
+            List<Com_Contrato_Legal> lista = (List<Com_Contrato_Legal>)ods.Select();
             int pos = lista.FindIndex(o => o.Id == nFiltroId);
             if (pos >= 0)
             {
-                noPagina = pos / gvCom_Contrato_DocTec.PageSize;
-                noFila = pos - noPagina * gvCom_Contrato_DocTec.PageSize;
+                noPagina = pos / gvCom_Contrato_Legal.PageSize;
+                noFila = pos - noPagina * gvCom_Contrato_Legal.PageSize;
             }
         }
-        gvCom_Contrato_DocTec.PageIndex = noPagina;
-        gvCom_Contrato_DocTec.SelectedIndex = noFila;
+        gvCom_Contrato_Legal.PageIndex = noPagina;
+        gvCom_Contrato_Legal.SelectedIndex = noFila;
     }
     #endregion
-    // Eventos para el FormView de Com_Contrato_DocTec
-    #region Eventos el FormView de Com_Contrato_DocTec
-    protected void fvCom_Contrato_DocTec_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
+    // Eventos para el FormView de Com_Contrato_Legal
+    #region Eventos el FormView de Com_Contrato_Legal
+    protected void fvCom_Contrato_Legal_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
     {
         if (e.Exception != null)
         {
             e.ExceptionHandled = true;
             e.KeepInEditMode = true;
-            if (lbFvMsgErrorCom_Contrato_DocTec.Text == ":") lbFvMsgErrorCom_Contrato_DocTec.Text = e.Exception.Message;
+            if (lbFvMsgErrorCom_Contrato_Legal.Text == ":") lbFvMsgErrorCom_Contrato_Legal.Text = e.Exception.Message;
         }
         else
         {
             tbFiltroId.Text = (string)e.NewValues["Id"];
-            SeleccionarFilaEnGVCom_Contrato_DocTec(gvCom_Contrato_DocTec, tbFiltroId.Text);
-            gvCom_Contrato_DocTec.DataBind();
+            SeleccionarFilaEnGVCom_Contrato_Legal(gvCom_Contrato_Legal, tbFiltroId.Text);
+            gvCom_Contrato_Legal.DataBind();
         }
     }
-    protected void fvCom_Contrato_DocTec_ItemDeleted(object sender, FormViewDeletedEventArgs e)
+    protected void fvCom_Contrato_Legal_ItemDeleted(object sender, FormViewDeletedEventArgs e)
     {
         if (e.Exception != null)
         {
             e.ExceptionHandled = true;
-            if (lbFvMsgErrorCom_Contrato_DocTec.Text == ":") lbFvMsgErrorCom_Contrato_DocTec.Text = e.Exception.Message;
+            if (lbFvMsgErrorCom_Contrato_Legal.Text == ":") lbFvMsgErrorCom_Contrato_Legal.Text = e.Exception.Message;
         }
         else
         {
             Filtrar();
         }
     }
-    protected void fvCom_Contrato_DocTec_ItemInserted(object sender, FormViewInsertedEventArgs e)
+    protected void fvCom_Contrato_Legal_ItemInserted(object sender, FormViewInsertedEventArgs e)
     {
         if (e.Exception != null)
         {
             e.ExceptionHandled = true;
             e.KeepInInsertMode = true;
-            if (lbFvMsgErrorCom_Contrato_DocTec.Text == ":") lbFvMsgErrorCom_Contrato_DocTec.Text = e.Exception.Message;
+            if (lbFvMsgErrorCom_Contrato_Legal.Text == ":") lbFvMsgErrorCom_Contrato_Legal.Text = e.Exception.Message;
         }
         else
         {
-            SeleccionarFilaEnGVCom_Contrato_DocTec(gvCom_Contrato_DocTec, tbFiltroId.Text);
-            gvCom_Contrato_DocTec.DataBind();
+            SeleccionarFilaEnGVCom_Contrato_Legal(gvCom_Contrato_Legal, tbFiltroId.Text);
+            gvCom_Contrato_Legal.DataBind();
         }
     }
-    protected void fvCom_Contrato_DocTec_ItemInserting(object sender, FormViewInsertEventArgs e)
+    protected void fvCom_Contrato_Legal_ItemInserting(object sender, FormViewInsertEventArgs e)
     {
         // Valor por defecto del Id y Estado
         e.Values["Id"] = -1;
+        // Cambio del formato de los campos que empiezan con Valor y Fecha
+        e.Values["Fecha_Firma_Contrato"] = DateTime.Parse((string)e.Values["Fecha_Firma_Contrato"]);
+        e.Values["Fecha_Contrato"] = DateTime.Parse((string)e.Values["Fecha_Contrato"]);
         // Guarda los datos del registro en memoria
         this.MemoriaRegistroActual = String.Format("Id: {0} * Código: {1}.", e.Values["Id"], e.Values["Codigo"]);
     }
-    protected void fvCom_Contrato_DocTec_ItemUpdating(object sender, FormViewUpdateEventArgs e)
+    protected void fvCom_Contrato_Legal_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
         // Cambio del formato de los campos que empiezan con Valor y Fecha
+        e.NewValues["Fecha_Firma_Contrato"] = DateTime.Parse((string)e.NewValues["Fecha_Firma_Contrato"]);
+        e.OldValues["Fecha_Firma_Contrato"] = DateTime.Parse((string)e.OldValues["Fecha_Firma_Contrato"]);
+        e.NewValues["Fecha_Contrato"] = DateTime.Parse((string)e.NewValues["Fecha_Contrato"]);
+        e.OldValues["Fecha_Contrato"] = DateTime.Parse((string)e.OldValues["Fecha_Contrato"]);
         // Guarda los datos del registro en memoria
         this.MemoriaRegistroActual = String.Format("Id: {0} * Código: {1}.", e.NewValues["Id"], e.NewValues["Codigo"]);
     }
-    protected void fvCom_Contrato_DocTec_ItemDeleting(object sender, FormViewDeleteEventArgs e)
+    protected void fvCom_Contrato_Legal_ItemDeleting(object sender, FormViewDeleteEventArgs e)
     {
         // Cambio del formato de los campos que empiezan con Valor y Fecha
+        e.Values["Fecha_Firma_Contrato"] = DateTime.Parse((string)e.Values["Fecha_Firma_Contrato"]);
+        e.Values["Fecha_Contrato"] = DateTime.Parse((string)e.Values["Fecha_Contrato"]);
         // Guarda los datos del registro en memoria
         this.MemoriaRegistroActual = String.Format("Id: {0} * Código: {1}.", e.Values["Id"], e.Values["Codigo"]);
     }
     // Inicializa los valores antes de que el FormView se dibuje en la página
-    protected void fvCom_Contrato_DocTec_PreRender(object sender, EventArgs e)
+    protected void fvCom_Contrato_Legal_PreRender(object sender, EventArgs e)
     {
-        switch (fvCom_Contrato_DocTec.CurrentMode)
+        switch (fvCom_Contrato_Legal.CurrentMode)
         {
             case FormViewMode.Insert:
-                // Pongo el Com_Contrato_Id por defecto del Grid
-                if (gvCom_Contrato.SelectedValue != null)
+                if (gvCom_Contrato.SelectedIndex != -1)
                 {
-                    string sCom_Contrato_Id = gvCom_Contrato.SelectedValue.ToString();
-                    ((TextBox)fvCom_Contrato_DocTec.FindControl("Com_Contrato_IdTextBox")).Text = sCom_Contrato_Id;
+                    // Coloca el id del contrato
+                    int iCom_Contrato_Id = (int) gvCom_Contrato.SelectedValue;
+                    ((TextBox)fvCom_Contrato_Legal.FindControl("Com_Contrato_IdTextBox")).Text = iCom_Contrato_Id.ToString();
+                    // Pone los valores iniciales de las fechas
+                    string sFechaHoy = string.Format("{0:d}",DateTime.Today);
+                    ((TextBox)fvCom_Contrato_Legal.FindControl("Fecha_Firma_ContratoTextBox")).Text = sFechaHoy;
+                    ((TextBox)fvCom_Contrato_Legal.FindControl("Fecha_ContratoTextBox")).Text = sFechaHoy;
                 }
                 break;
             case FormViewMode.Edit:
@@ -470,245 +481,57 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
         }
     }
     // Si no hay filas en el GridView entonces el FormView cambia a modo Insert
-    protected void fvCom_Contrato_DocTec_DataBound(object sender, EventArgs e)
+    protected void fvCom_Contrato_Legal_DataBound(object sender, EventArgs e)
     {
-        //if (gvCom_Contrato_DocTec.Rows.Count == 0)
-        //    fvCom_Contrato_DocTec.ChangeMode(FormViewMode.Insert);
+        if (gvCom_Contrato_Legal.Rows.Count == 0)
+            fvCom_Contrato_Legal.ChangeMode(FormViewMode.Insert);
     }
     #endregion
     // Eventos para el ObjectDataSource
     #region Eventos para el ObjectDataSource
-    protected void odsfvCom_Contrato_DocTec_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
+    protected void odsfvCom_Contrato_Legal_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
     {
         if (e.Exception != null)
         {
             SoapException ex = (SoapException)e.Exception.InnerException;
             string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgErrorCom_Contrato_DocTec.Text = errorResumen;
+            lbFvMsgErrorCom_Contrato_Legal.Text = errorResumen;
             AsignarMensaje(ex.Message, mal);
         }
         else
         {
             tbFiltroId.Text = e.ReturnValue.ToString();
-            lbFvMsgInfoCom_Contrato_DocTec.Text = "Com_Contrato_DocTec Registro Insertado. " + this.MemoriaRegistroActual;
+            lbFvMsgInfoCom_Contrato_Legal.Text = "Com_Contrato_Legal Registro Insertado. " + this.MemoriaRegistroActual;
             AsignarMensaje("Registro Insertado. " + this.MemoriaRegistroActual, bien);
         }
     }
-    protected void odsfvCom_Contrato_DocTec_Updated(object sender, ObjectDataSourceStatusEventArgs e)
+    protected void odsfvCom_Contrato_Legal_Updated(object sender, ObjectDataSourceStatusEventArgs e)
     {
         if (e.Exception != null)
         {
             SoapException ex = (SoapException)e.Exception.InnerException;
             string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgErrorCom_Contrato_DocTec.Text = errorResumen;
+            lbFvMsgErrorCom_Contrato_Legal.Text = errorResumen;
             AsignarMensaje(ex.Message, mal);
         }
         else
         {
-            lbFvMsgInfoCom_Contrato_DocTec.Text = "Com_Contrato_DocTec Registro Actualizado. " + this.MemoriaRegistroActual;
+            lbFvMsgInfoCom_Contrato_Legal.Text = "Com_Contrato_Legal Registro Actualizado. " + this.MemoriaRegistroActual;
             AsignarMensaje("Registro Actualizado. " + this.MemoriaRegistroActual, bien);
         }
     }
-    protected void odsfvCom_Contrato_DocTec_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
+    protected void odsfvCom_Contrato_Legal_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
     {
         if (e.Exception != null)
         {
             SoapException ex = (SoapException)e.Exception.InnerException;
             string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgErrorCom_Contrato_DocTec.Text = errorResumen;
+            lbFvMsgErrorCom_Contrato_Legal.Text = errorResumen;
             AsignarMensaje(ex.Message, mal);
         }
         else
         {
-            lbFvMsgInfoCom_Contrato_DocTec.Text = "Com_Contrato_DocTec Registro Borrado. " + this.MemoriaRegistroActual;
-            AsignarMensaje("Registro Borrado. " + this.MemoriaRegistroActual, bien);
-        }
-    }
-    #endregion
-
-    #region Eventos del GridView de Com_Contrato_Oferente
-    // Evento se dispara cuando se selecciona una fila del GridView
-    protected void gvCom_Contrato_Oferente_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        // Si el usuario selecciona una fila, pone el FormView en ReadOnly
-        if (fvCom_Contrato_Oferente.CurrentMode != FormViewMode.ReadOnly)
-            fvCom_Contrato_Oferente.ChangeMode(FormViewMode.ReadOnly);
-        // Mensaje
-        lbFvMsgErrorCom_Contrato_Oferente.Text = ":";
-        lbFvMsgInfoCom_Contrato_Oferente.Text = "> Com_Contrato_Oferente Seleccionado";
-    }
-    // Busca y selecciona la fila indicada en el GridView
-    protected void SeleccionarFilaEnGVCom_Contrato_Oferente(GridView gv, string txtId)
-    {
-        int noPagina = 0;
-        int noFila = 0;
-        if (!String.IsNullOrEmpty(txtId))
-        {
-            int nFiltroId = Convert.ToInt32(txtId);
-            var ods = (ObjectDataSource)gvCom_Contrato_Oferente.DataSourceObject;
-            List<Com_Contrato_Oferente> lista = (List<Com_Contrato_Oferente>)ods.Select();
-            int pos = lista.FindIndex(o => o.Id == nFiltroId);
-            if (pos >= 0)
-            {
-                noPagina = pos / gvCom_Contrato_Oferente.PageSize;
-                noFila = pos - noPagina * gvCom_Contrato_Oferente.PageSize;
-            }
-        }
-        gvCom_Contrato_Oferente.PageIndex = noPagina;
-        gvCom_Contrato_Oferente.SelectedIndex = noFila;
-    }
-    #endregion
-    // Eventos para el FormView de Com_Contrato_Oferente
-    #region Eventos el FormView de Com_Contrato_Oferente
-    protected void fvCom_Contrato_Oferente_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
-    {
-        if (e.Exception != null)
-        {
-            e.ExceptionHandled = true;
-            e.KeepInEditMode = true;
-            if (lbFvMsgErrorCom_Contrato_Oferente.Text == ":") lbFvMsgErrorCom_Contrato_Oferente.Text = e.Exception.Message;
-        }
-        else
-        {
-            tbFiltroId.Text = (string)e.NewValues["Id"];
-            SeleccionarFilaEnGVCom_Contrato_Oferente(gvCom_Contrato_Oferente, tbFiltroId.Text);
-            gvCom_Contrato_Oferente.DataBind();
-        }
-    }
-    protected void fvCom_Contrato_Oferente_ItemDeleted(object sender, FormViewDeletedEventArgs e)
-    {
-        if (e.Exception != null)
-        {
-            e.ExceptionHandled = true;
-            if (lbFvMsgErrorCom_Contrato_Oferente.Text == ":") lbFvMsgErrorCom_Contrato_Oferente.Text = e.Exception.Message;
-        }
-        else
-        {
-            Filtrar();
-        }
-    }
-    protected void fvCom_Contrato_Oferente_ItemInserted(object sender, FormViewInsertedEventArgs e)
-    {
-        if (e.Exception != null)
-        {
-            e.ExceptionHandled = true;
-            e.KeepInInsertMode = true;
-            if (lbFvMsgErrorCom_Contrato_Oferente.Text == ":") lbFvMsgErrorCom_Contrato_Oferente.Text = e.Exception.Message;
-        }
-        else
-        {
-            SeleccionarFilaEnGVCom_Contrato_Oferente(gvCom_Contrato_Oferente, tbFiltroId.Text);
-            gvCom_Contrato_Oferente.DataBind();
-        }
-    }
-    protected void fvCom_Contrato_Oferente_ItemInserting(object sender, FormViewInsertEventArgs e)
-    {
-        // Valor por defecto del Id y Estado
-        e.Values["Id"] = -1;
-        // Cambio del formato de los campos que empiezan con Valor y Fecha
-        e.Values["Fecha_Recepcion"] = DateTime.Parse((string)e.Values["Fecha_Recepcion"]);
-        // Guarda los datos del registro en memoria
-        this.MemoriaRegistroActual = String.Format("Id: {0} * Código: {1}.", e.Values["Id"], e.Values["Codigo"]);
-    }
-    protected void fvCom_Contrato_Oferente_ItemUpdating(object sender, FormViewUpdateEventArgs e)
-    {
-        // Cambio del formato de los campos que empiezan con Valor y Fecha
-        e.NewValues["Fecha_Recepcion"] = DateTime.Parse((string)e.NewValues["Fecha_Recepcion"]);
-        e.OldValues["Fecha_Recepcion"] = DateTime.Parse((string)e.OldValues["Fecha_Recepcion"]);
-        // Guarda los datos del registro en memoria
-        this.MemoriaRegistroActual = String.Format("Id: {0} * Código: {1}.", e.NewValues["Id"], e.NewValues["Codigo"]);
-    }
-    protected void fvCom_Contrato_Oferente_ItemDeleting(object sender, FormViewDeleteEventArgs e)
-    {
-        // Cambio del formato de los campos que empiezan con Valor y Fecha
-        e.Values["Fecha_Recepcion"] = DateTime.Parse((string)e.Values["Fecha_Recepcion"]);
-        // Guarda los datos del registro en memoria
-        this.MemoriaRegistroActual = String.Format("Id: {0} * Código: {1}.", e.Values["Id"], e.Values["Codigo"]);
-    }
-    // Inicializa los valores antes de que el FormView se dibuje en la página
-    protected void fvCom_Contrato_Oferente_PreRender(object sender, EventArgs e)
-    {
-        switch (fvCom_Contrato_Oferente.CurrentMode)
-        {
-            case FormViewMode.Insert:
-                // Pongo el Com_Contrato_Id por defecto del Grid
-                if (gvCom_Contrato.SelectedValue != null)
-                {
-                    string sCom_Contrato_Id = gvCom_Contrato.SelectedValue.ToString();
-                    ((TextBox)fvCom_Contrato_Oferente.FindControl("Com_Contrato_IdTextBox")).Text = sCom_Contrato_Id;
-                }
-                // Pongo el usuario que recibe la oferta
-                ((TextBox)fvCom_Contrato_Oferente.FindControl("Per_Personal_Id_RecibeTextBox")).Text = Scope.Per_Personal_Id;
-                // Pongo la fecha y hora del sistema en el campo de fecha de recepción
-                string sFechaAhora = DateTime.Now.ToString("dd/MM/yyyy hh:mm");
-                ((TextBox)fvCom_Contrato_Oferente.FindControl("Fecha_RecepcionTextBox")).Text = sFechaAhora;
-                break;
-            case FormViewMode.Edit:
-                break;
-            case FormViewMode.ReadOnly:
-                break;
-        }
-    }
-    // Si no hay filas en el GridView entonces el FormView cambia a modo Insert
-    protected void fvCom_Contrato_Oferente_DataBound(object sender, EventArgs e)
-    {
-        if (gvCom_Contrato_Oferente.Rows.Count == 0)
-            fvCom_Contrato_Oferente.ChangeMode(FormViewMode.Insert);
-        else
-        {
-            if (gvCom_Contrato_Oferente.SelectedIndex == -1)
-            {
-                gvCom_Contrato_Oferente.SelectedIndex = 0;
-                fvCom_Contrato_Oferente.ChangeMode(FormViewMode.ReadOnly);
-            }
-        }
-    }
-    #endregion
-    // Eventos para el ObjectDataSource
-    #region Eventos para el ObjectDataSource
-    protected void odsfvCom_Contrato_Oferente_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
-    {
-        if (e.Exception != null)
-        {
-            SoapException ex = (SoapException)e.Exception.InnerException;
-            string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgErrorCom_Contrato_Oferente.Text = errorResumen;
-            AsignarMensaje(ex.Message, mal);
-        }
-        else
-        {
-            tbFiltroId.Text = e.ReturnValue.ToString();
-            lbFvMsgInfoCom_Contrato_Oferente.Text = "Com_Contrato_Oferente Registro Insertado. " + this.MemoriaRegistroActual;
-            AsignarMensaje("Registro Insertado. " + this.MemoriaRegistroActual, bien);
-        }
-    }
-    protected void odsfvCom_Contrato_Oferente_Updated(object sender, ObjectDataSourceStatusEventArgs e)
-    {
-        if (e.Exception != null)
-        {
-            SoapException ex = (SoapException)e.Exception.InnerException;
-            string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgErrorCom_Contrato_Oferente.Text = errorResumen;
-            AsignarMensaje(ex.Message, mal);
-        }
-        else
-        {
-            lbFvMsgInfoCom_Contrato_Oferente.Text = "Com_Contrato_Oferente Registro Actualizado. " + this.MemoriaRegistroActual;
-            AsignarMensaje("Registro Actualizado. " + this.MemoriaRegistroActual, bien);
-        }
-    }
-    protected void odsfvCom_Contrato_Oferente_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
-    {
-        if (e.Exception != null)
-        {
-            SoapException ex = (SoapException)e.Exception.InnerException;
-            string errorResumen = ExtraeMensajeResumen(ex);
-            lbFvMsgErrorCom_Contrato_Oferente.Text = errorResumen;
-            AsignarMensaje(ex.Message, mal);
-        }
-        else
-        {
-            lbFvMsgInfoCom_Contrato_Oferente.Text = "Com_Contrato_Oferente Registro Borrado. " + this.MemoriaRegistroActual;
+            lbFvMsgInfoCom_Contrato_Legal.Text = "Com_Contrato_Legal Registro Borrado. " + this.MemoriaRegistroActual;
             AsignarMensaje("Registro Borrado. " + this.MemoriaRegistroActual, bien);
         }
     }
@@ -718,44 +541,20 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
     // WebServices para autocompletar campos de Personal
     // --------------------------------------------------------------------
     [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
-    public static string[] acxPer_Personal_GetByLikeNombre_List(string prefixText, int count, string contextKey)
+    public static string[] acxCom_Contrato_Tipo_GetByLikeNombre_List(string prefixText, int count, string contextKey)
     {
         Scope s = (Scope)HttpContext.Current.Session["Scope"];
-        FEL.PER.BO_Per_Personal adp = new FEL.PER.BO_Per_Personal();
-        var lista = adp.GetByLikeNombre("Nombre", s, prefixText);
+        FEL.COM.BO_Com_Contrato_Tipo adp = new BO_Com_Contrato_Tipo();
+        var lista = adp.GetByLikeNombre(s, prefixText,"Nombre");
         List<string> items = new List<string>();
         foreach (var fila in lista)
             items.Add(
                 AjaxControlToolkit.AutoCompleteExtender.
                     CreateAutoCompleteItem(
-                        fila.Nombre, fila.Id + "||" + fila.Codigo + "||" + fila.Nombre + "||" + fila.Par_Razon_Social_Numero  // 0 1 2 3
+                        fila.Nombre, fila.Id + "||" + fila.Nombre // 0 1
                     ));
         return items.ToArray();
     }
-    [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
-    public static string[] acxPar_Razon_Social_GetByLikeNumero_List(string prefixText, int count, string contextKey)
-    {
-        Scope s = (Scope)HttpContext.Current.Session["Scope"];
-        FEL.PAR.BO_Par_Razon_Social adp = new FEL.PAR.BO_Par_Razon_Social();
-        // 00126010595787657 es el id para RUC
-        var lista = adp.GetByLikeNumero("Numero",s, "00126010595787657", prefixText);
-        List<string> items = new List<string>();
-        // El resultado de la base
-        foreach (var fila in lista)
-            items.Add(
-                AjaxControlToolkit.AutoCompleteExtender.
-                    CreateAutoCompleteItem(
-                        fila.Numero, fila.Id + "||" + fila.Codigo + "||" + fila.Nombre + "||" + fila.Numero  // 0 1 2 3
-                    ));
-        // Aumentamos un registro para seleccionar vacio con el valor 000
-        items.Add(
-                AjaxControlToolkit.AutoCompleteExtender.
-                    CreateAutoCompleteItem(
-                        "0000000000001", "" + "||" + "" + "||" + "" + "||" + ""  // 0 1 2 3
-                    ));
-        return items.ToArray();
-    }
-
     // --------------------------------------------------------------------
     // Reportes 
     // --------------------------------------------------------------------
@@ -785,53 +584,29 @@ public partial class COM_Com_Contrato_GvFv : PaginaBase
                                 + Scope_Factory.Get_QueryString(s),
                                 "_blank", "scrollbars=yes, resizable=yes");
     }
-    protected void btReciboOferta_Click(object sender, EventArgs e)
+    
+    protected void btCrearContratoBorrador_Click(object sender, EventArgs e)
     {
-        // Tomo el Id seleccionado de la lista
-        if (gvCom_Contrato_Oferente.SelectedValue != null)
-        {
-            int xCom_Contrato_Oferente_Id = (int)gvCom_Contrato_Oferente.SelectedValue;
-            if (Session["Scope"] == null) Response.Redirect("~/PAS/PAR_ACCESO.aspx");
-            Scope s = (Scope)Session["Scope"];
-            string servidor_reporte = ConfigurationManager.AppSettings["URL_Servidor_Reportes"];
-            HER.ResponseHelper.Redirect(servidor_reporte
-                                    + "COM/COM_Com_Contrato_Oferente.aspx"
-                                    + Scope_Factory.Get_QueryString(s)
-                                    + string.Format("&v_Com_Contrato_Oferente_Id={0}", xCom_Contrato_Oferente_Id),
-                                    "_blank", "scrollbars=yes, resizable=yes");
-        }
-    }
-    protected void btActaOfertas_Click(object sender, EventArgs e)
-    {
-        // Tomo el Id seleccionado de la lista de contratos
-        if (gvCom_Contrato.SelectedValue != null)
-        {
-            int xCom_Contrato_Id = (int)gvCom_Contrato.SelectedValue;
-            if (Session["Scope"] == null) Response.Redirect("~/PAS/PAR_ACCESO.aspx");
-            Scope s = (Scope)Session["Scope"];
-            string servidor_reporte = ConfigurationManager.AppSettings["URL_Servidor_Reportes"];
-            HER.ResponseHelper.Redirect(servidor_reporte
-                                    + "COM/COM_Com_Contrato_ActaOfertas.aspx"
-                                    + Scope_Factory.Get_QueryString(s)
-                                    + string.Format("&v_Com_Contrato_Id={0}", xCom_Contrato_Id),
-                                    "_blank", "scrollbars=yes, resizable=yes");
-        }
-    }
-
-    protected void btCuadroOfertas_Click(object sender, EventArgs e)
-    {
-        // Tomo el Id seleccionado de la lista de contratos
-        if (gvCom_Contrato.SelectedValue != null)
-        {
-            int xCom_Contrato_Id = (int)gvCom_Contrato.SelectedValue;
-            if (Session["Scope"] == null) Response.Redirect("~/PAS/PAR_ACCESO.aspx");
-            Scope s = (Scope)Session["Scope"];
-            string servidor_reporte = ConfigurationManager.AppSettings["URL_Servidor_Reportes"];
-            HER.ResponseHelper.Redirect(servidor_reporte
-                                    + "COM/COM_Com_Contrato_OfertasCuadro.aspx"
-                                    + Scope_Factory.Get_QueryString(s)
-                                    + string.Format("&v_Com_Contrato_Id={0}", xCom_Contrato_Id),
-                                    "_blank", "scrollbars=yes, resizable=yes");
-        }
+        // Busco el Contrato_Legal_Id
+        if (gvCom_Contrato_Legal.SelectedIndex == -1) return;
+        int iContrato_Legal_Id = (int) gvCom_Contrato_Legal.SelectedValue;
+        // Consulto si tiene un tipo de contrato con plantilla
+        FEL.COM.BO_Com_Contrato_Legal adpLegal = new BO_Com_Contrato_Legal();
+        var oLegal = adpLegal.GetById(Scope, iContrato_Legal_Id)[0];
+        FEL.COM.BO_Com_Contrato_Tipo adpTipo = new BO_Com_Contrato_Tipo();
+        var oTipo = adpTipo.GetById(Scope,oLegal.Com_Contrato_Tipo_Id)[0];
+        if (string.IsNullOrEmpty(oTipo.URL_Plantilla_Word)) return;
+        // Consulto el contrato
+        FEL.COM.BO_Com_Contrato adpCon = new BO_Com_Contrato();
+        var oCon = adpCon.GetById(Scope,oLegal.Com_Contrato_Id)[0];
+        // Consulto los datos para generar el contrato
+        FEL.VAR.BO_Com_Contrato_Info adpInfo = new FEL.VAR.BO_Com_Contrato_Info();
+        var listaInfo = adpInfo.GetByCom_Contrato_Id(oLegal.Com_Contrato_Id);
+        // Genero el contrato con el codigo del proceso
+        string docWordNombre = string.Format("{0}-{1}-{2}.docx", oLegal.Id ,oCon.Codigo_Sercop , oLegal.Com_Contrato_Tipo_Nombre);
+        // Consulto el directorio donde se guardan las plantillas
+        string Dir_COM_Uploads = ConfigurationManager.AppSettings["Dir_COM_Uploads"];
+        string serverPath = Server.MapPath(Dir_COM_Uploads);
+        string plantillaPath = serverPath + docWordNombre;
     }
 }
