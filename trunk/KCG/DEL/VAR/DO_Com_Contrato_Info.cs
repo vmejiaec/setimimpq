@@ -79,7 +79,15 @@ namespace DEL.VAR
             datos.Add( new DO_Com_Contrato_Info( "Código de la Cédula Presupuestaria",     oCon.Pla_Doc_Cedula_Presup_Codigo));
             datos.Add( new DO_Com_Contrato_Info( "Código CPC",                             oCon.Pla_Doc_CPC_Codigo));
             datos.Add( new DO_Com_Contrato_Info( "Número de Línea del PAC",                oCon.Pla_Doc_PAC_Linea));
-            //
+
+            // Consulta el representante legal
+            datos.Add(new DO_Com_Contrato_Info(  "Representante Legal",                     oParam.Rep_Legal_Pie_Firma_Nombre));
+            // Fecha del contrato ingresada en la pantalla legal
+            if(oConLegal != null)
+                datos.Add(new DO_Com_Contrato_Info("Fecha del Contrato", string.Format("{0:D}", oConLegal.Fecha_Contrato)));
+            else
+                datos.Add(new DO_Com_Contrato_Info("Fecha del Contrato", "Sin fecha"));
+
             return datos;
         }
 
@@ -89,21 +97,23 @@ namespace DEL.VAR
             List<DO_Com_Contrato_Info> campos = new List<DO_Com_Contrato_Info>();
             // Alimento con los campos
             campos.Add(new DO_Com_Contrato_Info("c00", ""));
-            campos.Add(new DO_Com_Contrato_Info("c01","Nombre del Proyecto"));
-            campos.Add(new DO_Com_Contrato_Info("c02","Representante Legal"));
-            campos.Add(new DO_Com_Contrato_Info("c03","Código SERCOP"));
-            campos.Add(new DO_Com_Contrato_Info("c04","Nombre del Contratista"));
-            campos.Add(new DO_Com_Contrato_Info("c05","RUC del Contratista"));
-            campos.Add(new DO_Com_Contrato_Info("c06","Plazo del Contrato"));
-            campos.Add(new DO_Com_Contrato_Info("c07","Plazo del Contrato en Letras"));
-            campos.Add(new DO_Com_Contrato_Info("c08","Valor del Contrato"));
-            campos.Add(new DO_Com_Contrato_Info("c09","Valor del Contrato en Letras"));
-            campos.Add(new DO_Com_Contrato_Info("c10","Porcentaje del Anticipo"));
-            campos.Add(new DO_Com_Contrato_Info("c11","Porcentaje del Anticipo en Letras"));
-            campos.Add(new DO_Com_Contrato_Info("c12","Tipo de Procedimiento SERCOP"));
-            campos.Add(new DO_Com_Contrato_Info("c13","Código de la Cédula Presupuestaria"));
-            campos.Add(new DO_Com_Contrato_Info("c14","Código CPC"));
-            campos.Add(new DO_Com_Contrato_Info("c15","Número de Línea del PAC"));
+            campos.Add(new DO_Com_Contrato_Info("c01", "Nombre del Proyecto"));
+            campos.Add(new DO_Com_Contrato_Info("c02", "Representante Legal"));
+            campos.Add(new DO_Com_Contrato_Info("c03", "Código SERCOP"));
+            campos.Add(new DO_Com_Contrato_Info("c04", "Nombre del Contratista"));
+            campos.Add(new DO_Com_Contrato_Info("c05", "RUC del Contratista"));
+            campos.Add(new DO_Com_Contrato_Info("c06", "Plazo del Contrato"));
+            campos.Add(new DO_Com_Contrato_Info("c07", "Plazo del Contrato en Letras"));
+            campos.Add(new DO_Com_Contrato_Info("c08", "Valor del Contrato"));
+            campos.Add(new DO_Com_Contrato_Info("c09", "Valor del Contrato en Letras"));
+            campos.Add(new DO_Com_Contrato_Info("c10", "Porcentaje del Anticipo"));
+            campos.Add(new DO_Com_Contrato_Info("c11", "Porcentaje del Anticipo en Letras"));
+            campos.Add(new DO_Com_Contrato_Info("c12", "Tipo de Procedimiento SERCOP"));
+            campos.Add(new DO_Com_Contrato_Info("c13", "Código de la Cédula Presupuestaria"));
+            campos.Add(new DO_Com_Contrato_Info("c14", "Código CPC"));
+            campos.Add(new DO_Com_Contrato_Info("c15", "Número de Línea del PAC"));
+            campos.Add(new DO_Com_Contrato_Info("c16", "Representante Legal"));
+            campos.Add(new DO_Com_Contrato_Info("c17", "Fecha del Contrato"));
             //
             return campos;
         }

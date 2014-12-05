@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text; 
+using System.Text;
 
 using ADL.ComprasTableAdapters;
 using AEL.COM;
@@ -82,6 +82,21 @@ n.Id
 		{
 			List<Com_Contrato_Tipo> lista = new List<Com_Contrato_Tipo>();
 			var tabla = Adapter.GetById( p_Id);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new Com_Contrato_Tipo(
+				fila.Id,
+fila.Nombre,
+fila.URL_Plantilla_Word
+				));
+			}
+			return lista;
+		}
+		// GetByLikeNombre
+		public List<Com_Contrato_Tipo> GetByLikeNombre (Scope s , string p_Nombre)
+		{
+			List<Com_Contrato_Tipo> lista = new List<Com_Contrato_Tipo>();
+			var tabla = Adapter.GetByLikeNombre( p_Nombre);
 			foreach (var fila in tabla)
 			{
 				lista.Add(new Com_Contrato_Tipo(
