@@ -25,38 +25,6 @@ TagPrefix="ajax" %>
     Sys.WebForms.PageRequestManager.getInstance().add_endRequest(PonerFormatoNumericoACamposFV);
 </script>
 
-<%--Autocompletar del FormView de Com_Contrato_Legal --%>
-<%--[0]INICIO Javascript para manegar los campos de autocompletar --%>
-<div>
-<%--<script type="text/javascript" >
-    function acxCabecera_Nombre_Click(source, eventArgs) {
-        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
-        var params = new Array();
-        params = eventArgs.get_value().split('||');
-        // 0 Id
-        var xId = document.getElementById('<%= ((TextBox)fv.FindControl("Cabecera_Id")).ClientID %>');
-        xId.value = params[0];
-        // 1 Codigo
-        var xCodigo = document.getElementById('<%= ((TextBox)fv.FindControl("Cabecera_Codigo")).ClientID %>');
-        xCodigo.value = params[1];
-        // coloca el id del maestro en el detalle mediante el contextKey
-        $find('acxBID_Detalle_Nombre').set_contextKey(xId.value);
-    }
-    function acxDetalle_Nombre_Click(source, eventArgs) {
-        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
-        var params = new Array();
-        params = eventArgs.get_value().split('||');
-        // 0 Id
-        var xId = document.getElementById('<%= ((TextBox)fv.FindControl("Detalle_Id")).ClientID %>');
-        xId.value = params[0];
-        // 1 Codigo
-        var xCodigo = document.getElementById('<%= ((TextBox)fv.FindControl("Detalle_Codigo")).ClientID %>');
-        xCodigo.value = params[1];
-    }
-</script>--%>
-</div>
-<%--[X]FIN Javascript para manegar los campos de autocompletar --%>
-
     <%--[O] Cabecera--%>
     <asp:Panel runat="server" ID="pcabecera" GroupingText="Cabecera">
         <asp:Label ID="lbCabecera" runat="server" Text="Seleccionar el ... :"></asp:Label>
@@ -103,6 +71,40 @@ TagPrefix="ajax" %>
     </asp:GridView>
     </asp:Panel>
 	<%--[X] GridView de Com_Contrato_Legal --%>
+
+<%--Autocompletar del FormView de Com_Contrato_Legal --%>
+<%--[0]INICIO Javascript para manegar los campos de autocompletar --%>
+<div>
+<%--<script type="text/javascript" >
+    function acxCabecera_Nombre_Click(source, eventArgs) {
+        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+        var params = new Array();
+        params = eventArgs.get_value().split('||');
+        // 0 Id
+        var xId = document.getElementById('<%= ((TextBox)fv.FindControl("Cabecera_Id")).ClientID %>');
+        xId.value = params[0];
+        // 1 Codigo
+        var xCodigo = document.getElementById('<%= ((TextBox)fv.FindControl("Cabecera_Codigo")).ClientID %>');
+        xCodigo.value = params[1];
+        // coloca el id del maestro en el detalle mediante el contextKey
+        $find('acxBID_Detalle_Nombre').set_contextKey(xId.value);
+    }
+    function acxDetalle_Nombre_Click(source, eventArgs) {
+        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+        var params = new Array();
+        params = eventArgs.get_value().split('||');
+        // 0 Id
+        var xId = document.getElementById('<%= ((TextBox)fv.FindControl("Detalle_Id")).ClientID %>');
+        xId.value = params[0];
+        // 1 Codigo
+        var xCodigo = document.getElementById('<%= ((TextBox)fv.FindControl("Detalle_Codigo")).ClientID %>');
+        xCodigo.value = params[1];
+    }
+</script>--%>
+</div>
+<%--[X]FIN Javascript para manegar los campos de autocompletar --%>
+
+
 
     <%--[O] FormView de Com_Contrato_Legal --%>
     <asp:Panel runat="server" ID="pfvCom_Contrato_Legal" GroupingText="Crear, Editar o Borar un Registro">

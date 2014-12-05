@@ -3431,23 +3431,7 @@ namespace ADL {
             
             private global::System.Data.DataColumn columnFecha_Contrato;
             
-            private global::System.Data.DataColumn columnPla_Doc_Id;
-            
-            private global::System.Data.DataColumn columnValor_Contrato;
-            
-            private global::System.Data.DataColumn columnPlazo_Contrato;
-            
-            private global::System.Data.DataColumn columnPla_Tarea_Id;
-            
-            private global::System.Data.DataColumn columnPla_Tarea_Codigo;
-            
-            private global::System.Data.DataColumn columnPla_Tarea_Nombre;
-            
-            private global::System.Data.DataColumn columnPar_Razon_Social_Id_Contratista;
-            
-            private global::System.Data.DataColumn columnPar_Razon_Social_Nombre_Contratista;
-            
-            private global::System.Data.DataColumn columnPar_Razon_Social_Numero_Contratista;
+            private global::System.Data.DataColumn columnCom_Contrato_Tipo_Nombre;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -3564,73 +3548,9 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Doc_IdColumn {
+            public global::System.Data.DataColumn Com_Contrato_Tipo_NombreColumn {
                 get {
-                    return this.columnPla_Doc_Id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Valor_ContratoColumn {
-                get {
-                    return this.columnValor_Contrato;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Plazo_ContratoColumn {
-                get {
-                    return this.columnPlazo_Contrato;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Tarea_IdColumn {
-                get {
-                    return this.columnPla_Tarea_Id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Tarea_CodigoColumn {
-                get {
-                    return this.columnPla_Tarea_Codigo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Tarea_NombreColumn {
-                get {
-                    return this.columnPla_Tarea_Nombre;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Par_Razon_Social_Id_ContratistaColumn {
-                get {
-                    return this.columnPar_Razon_Social_Id_Contratista;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Par_Razon_Social_Nombre_ContratistaColumn {
-                get {
-                    return this.columnPar_Razon_Social_Nombre_Contratista;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Par_Razon_Social_Numero_ContratistaColumn {
-                get {
-                    return this.columnPar_Razon_Social_Numero_Contratista;
+                    return this.columnCom_Contrato_Tipo_Nombre;
                 }
             }
             
@@ -3671,25 +3591,7 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Com_Contrato_LegalRow AddCom_Contrato_LegalRow(
-                        int Com_Contrato_Id, 
-                        int Com_Contrato_Tipo_Id, 
-                        string URL_Contrato_Word, 
-                        string URL_Contrato_Scan, 
-                        string Desc_Alerta_1, 
-                        string Desc_Alerta_2, 
-                        string Desc_Alerta_3, 
-                        System.DateTime Fecha_Firma_Contrato, 
-                        System.DateTime Fecha_Contrato, 
-                        int Pla_Doc_Id, 
-                        decimal Valor_Contrato, 
-                        int Plazo_Contrato, 
-                        int Pla_Tarea_Id, 
-                        string Pla_Tarea_Codigo, 
-                        string Pla_Tarea_Nombre, 
-                        string Par_Razon_Social_Id_Contratista, 
-                        string Par_Razon_Social_Nombre_Contratista, 
-                        string Par_Razon_Social_Numero_Contratista) {
+            public Com_Contrato_LegalRow AddCom_Contrato_LegalRow(int Com_Contrato_Id, int Com_Contrato_Tipo_Id, string URL_Contrato_Word, string URL_Contrato_Scan, string Desc_Alerta_1, string Desc_Alerta_2, string Desc_Alerta_3, System.DateTime Fecha_Firma_Contrato, System.DateTime Fecha_Contrato, string Com_Contrato_Tipo_Nombre) {
                 Com_Contrato_LegalRow rowCom_Contrato_LegalRow = ((Com_Contrato_LegalRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3702,15 +3604,7 @@ namespace ADL {
                         Desc_Alerta_3,
                         Fecha_Firma_Contrato,
                         Fecha_Contrato,
-                        Pla_Doc_Id,
-                        Valor_Contrato,
-                        Plazo_Contrato,
-                        Pla_Tarea_Id,
-                        Pla_Tarea_Codigo,
-                        Pla_Tarea_Nombre,
-                        Par_Razon_Social_Id_Contratista,
-                        Par_Razon_Social_Nombre_Contratista,
-                        Par_Razon_Social_Numero_Contratista};
+                        Com_Contrato_Tipo_Nombre};
                 rowCom_Contrato_LegalRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCom_Contrato_LegalRow);
                 return rowCom_Contrato_LegalRow;
@@ -3750,15 +3644,7 @@ namespace ADL {
                 this.columnDesc_Alerta_3 = base.Columns["Desc_Alerta_3"];
                 this.columnFecha_Firma_Contrato = base.Columns["Fecha_Firma_Contrato"];
                 this.columnFecha_Contrato = base.Columns["Fecha_Contrato"];
-                this.columnPla_Doc_Id = base.Columns["Pla_Doc_Id"];
-                this.columnValor_Contrato = base.Columns["Valor_Contrato"];
-                this.columnPlazo_Contrato = base.Columns["Plazo_Contrato"];
-                this.columnPla_Tarea_Id = base.Columns["Pla_Tarea_Id"];
-                this.columnPla_Tarea_Codigo = base.Columns["Pla_Tarea_Codigo"];
-                this.columnPla_Tarea_Nombre = base.Columns["Pla_Tarea_Nombre"];
-                this.columnPar_Razon_Social_Id_Contratista = base.Columns["Par_Razon_Social_Id_Contratista"];
-                this.columnPar_Razon_Social_Nombre_Contratista = base.Columns["Par_Razon_Social_Nombre_Contratista"];
-                this.columnPar_Razon_Social_Numero_Contratista = base.Columns["Par_Razon_Social_Numero_Contratista"];
+                this.columnCom_Contrato_Tipo_Nombre = base.Columns["Com_Contrato_Tipo_Nombre"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3784,24 +3670,8 @@ namespace ADL {
                 base.Columns.Add(this.columnFecha_Firma_Contrato);
                 this.columnFecha_Contrato = new global::System.Data.DataColumn("Fecha_Contrato", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFecha_Contrato);
-                this.columnPla_Doc_Id = new global::System.Data.DataColumn("Pla_Doc_Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Doc_Id);
-                this.columnValor_Contrato = new global::System.Data.DataColumn("Valor_Contrato", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnValor_Contrato);
-                this.columnPlazo_Contrato = new global::System.Data.DataColumn("Plazo_Contrato", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPlazo_Contrato);
-                this.columnPla_Tarea_Id = new global::System.Data.DataColumn("Pla_Tarea_Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Tarea_Id);
-                this.columnPla_Tarea_Codigo = new global::System.Data.DataColumn("Pla_Tarea_Codigo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Tarea_Codigo);
-                this.columnPla_Tarea_Nombre = new global::System.Data.DataColumn("Pla_Tarea_Nombre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Tarea_Nombre);
-                this.columnPar_Razon_Social_Id_Contratista = new global::System.Data.DataColumn("Par_Razon_Social_Id_Contratista", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPar_Razon_Social_Id_Contratista);
-                this.columnPar_Razon_Social_Nombre_Contratista = new global::System.Data.DataColumn("Par_Razon_Social_Nombre_Contratista", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPar_Razon_Social_Nombre_Contratista);
-                this.columnPar_Razon_Social_Numero_Contratista = new global::System.Data.DataColumn("Par_Razon_Social_Numero_Contratista", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPar_Razon_Social_Numero_Contratista);
+                this.columnCom_Contrato_Tipo_Nombre = new global::System.Data.DataColumn("Com_Contrato_Tipo_Nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCom_Contrato_Tipo_Nombre);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -3812,25 +3682,20 @@ namespace ADL {
                 this.columnId.Unique = true;
                 this.columnCom_Contrato_Id.AllowDBNull = false;
                 this.columnCom_Contrato_Tipo_Id.AllowDBNull = false;
+                this.columnURL_Contrato_Word.AllowDBNull = false;
                 this.columnURL_Contrato_Word.MaxLength = 250;
+                this.columnURL_Contrato_Scan.AllowDBNull = false;
                 this.columnURL_Contrato_Scan.MaxLength = 250;
+                this.columnDesc_Alerta_1.AllowDBNull = false;
                 this.columnDesc_Alerta_1.MaxLength = 500;
+                this.columnDesc_Alerta_2.AllowDBNull = false;
                 this.columnDesc_Alerta_2.MaxLength = 500;
+                this.columnDesc_Alerta_3.AllowDBNull = false;
                 this.columnDesc_Alerta_3.MaxLength = 500;
-                this.columnPla_Doc_Id.ReadOnly = true;
-                this.columnValor_Contrato.ReadOnly = true;
-                this.columnPlazo_Contrato.ReadOnly = true;
-                this.columnPla_Tarea_Id.ReadOnly = true;
-                this.columnPla_Tarea_Codigo.ReadOnly = true;
-                this.columnPla_Tarea_Codigo.MaxLength = 200;
-                this.columnPla_Tarea_Nombre.ReadOnly = true;
-                this.columnPla_Tarea_Nombre.MaxLength = 500;
-                this.columnPar_Razon_Social_Id_Contratista.ReadOnly = true;
-                this.columnPar_Razon_Social_Id_Contratista.MaxLength = 17;
-                this.columnPar_Razon_Social_Nombre_Contratista.ReadOnly = true;
-                this.columnPar_Razon_Social_Nombre_Contratista.MaxLength = 500;
-                this.columnPar_Razon_Social_Numero_Contratista.ReadOnly = true;
-                this.columnPar_Razon_Social_Numero_Contratista.MaxLength = 200;
+                this.columnFecha_Firma_Contrato.AllowDBNull = false;
+                this.columnFecha_Contrato.AllowDBNull = false;
+                this.columnCom_Contrato_Tipo_Nombre.ReadOnly = true;
+                this.columnCom_Contrato_Tipo_Nombre.MaxLength = 300;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5374,13 +5239,7 @@ namespace ADL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string URL_Contrato_Word {
                 get {
-                    try {
-                        return ((string)(this[this.tableCom_Contrato_Legal.URL_Contrato_WordColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'URL_Contrato_Word\' in table \'Com_Contrato_Legal\' is DBNull." +
-                                "", e);
-                    }
+                    return ((string)(this[this.tableCom_Contrato_Legal.URL_Contrato_WordColumn]));
                 }
                 set {
                     this[this.tableCom_Contrato_Legal.URL_Contrato_WordColumn] = value;
@@ -5391,13 +5250,7 @@ namespace ADL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string URL_Contrato_Scan {
                 get {
-                    try {
-                        return ((string)(this[this.tableCom_Contrato_Legal.URL_Contrato_ScanColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'URL_Contrato_Scan\' in table \'Com_Contrato_Legal\' is DBNull." +
-                                "", e);
-                    }
+                    return ((string)(this[this.tableCom_Contrato_Legal.URL_Contrato_ScanColumn]));
                 }
                 set {
                     this[this.tableCom_Contrato_Legal.URL_Contrato_ScanColumn] = value;
@@ -5408,12 +5261,7 @@ namespace ADL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Desc_Alerta_1 {
                 get {
-                    try {
-                        return ((string)(this[this.tableCom_Contrato_Legal.Desc_Alerta_1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Desc_Alerta_1\' in table \'Com_Contrato_Legal\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableCom_Contrato_Legal.Desc_Alerta_1Column]));
                 }
                 set {
                     this[this.tableCom_Contrato_Legal.Desc_Alerta_1Column] = value;
@@ -5424,12 +5272,7 @@ namespace ADL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Desc_Alerta_2 {
                 get {
-                    try {
-                        return ((string)(this[this.tableCom_Contrato_Legal.Desc_Alerta_2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Desc_Alerta_2\' in table \'Com_Contrato_Legal\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableCom_Contrato_Legal.Desc_Alerta_2Column]));
                 }
                 set {
                     this[this.tableCom_Contrato_Legal.Desc_Alerta_2Column] = value;
@@ -5440,12 +5283,7 @@ namespace ADL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Desc_Alerta_3 {
                 get {
-                    try {
-                        return ((string)(this[this.tableCom_Contrato_Legal.Desc_Alerta_3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Desc_Alerta_3\' in table \'Com_Contrato_Legal\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableCom_Contrato_Legal.Desc_Alerta_3Column]));
                 }
                 set {
                     this[this.tableCom_Contrato_Legal.Desc_Alerta_3Column] = value;
@@ -5456,13 +5294,7 @@ namespace ADL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime Fecha_Firma_Contrato {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableCom_Contrato_Legal.Fecha_Firma_ContratoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Fecha_Firma_Contrato\' in table \'Com_Contrato_Legal\' is DBNu" +
-                                "ll.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableCom_Contrato_Legal.Fecha_Firma_ContratoColumn]));
                 }
                 set {
                     this[this.tableCom_Contrato_Legal.Fecha_Firma_ContratoColumn] = value;
@@ -5473,12 +5305,7 @@ namespace ADL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime Fecha_Contrato {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableCom_Contrato_Legal.Fecha_ContratoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Fecha_Contrato\' in table \'Com_Contrato_Legal\' is DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableCom_Contrato_Legal.Fecha_ContratoColumn]));
                 }
                 set {
                     this[this.tableCom_Contrato_Legal.Fecha_ContratoColumn] = value;
@@ -5487,341 +5314,31 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Pla_Doc_Id {
+            public string Com_Contrato_Tipo_Nombre {
                 get {
                     try {
-                        return ((int)(this[this.tableCom_Contrato_Legal.Pla_Doc_IdColumn]));
+                        return ((string)(this[this.tableCom_Contrato_Legal.Com_Contrato_Tipo_NombreColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Doc_Id\' in table \'Com_Contrato_Legal\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Com_Contrato_Tipo_Nombre\' in table \'Com_Contrato_Legal\' is " +
+                                "DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableCom_Contrato_Legal.Pla_Doc_IdColumn] = value;
+                    this[this.tableCom_Contrato_Legal.Com_Contrato_Tipo_NombreColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Valor_Contrato {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableCom_Contrato_Legal.Valor_ContratoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Valor_Contrato\' in table \'Com_Contrato_Legal\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCom_Contrato_Legal.Valor_ContratoColumn] = value;
-                }
+            public bool IsCom_Contrato_Tipo_NombreNull() {
+                return this.IsNull(this.tableCom_Contrato_Legal.Com_Contrato_Tipo_NombreColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Plazo_Contrato {
-                get {
-                    try {
-                        return ((int)(this[this.tableCom_Contrato_Legal.Plazo_ContratoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Plazo_Contrato\' in table \'Com_Contrato_Legal\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCom_Contrato_Legal.Plazo_ContratoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Pla_Tarea_Id {
-                get {
-                    try {
-                        return ((int)(this[this.tableCom_Contrato_Legal.Pla_Tarea_IdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Tarea_Id\' in table \'Com_Contrato_Legal\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCom_Contrato_Legal.Pla_Tarea_IdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Pla_Tarea_Codigo {
-                get {
-                    try {
-                        return ((string)(this[this.tableCom_Contrato_Legal.Pla_Tarea_CodigoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Tarea_Codigo\' in table \'Com_Contrato_Legal\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCom_Contrato_Legal.Pla_Tarea_CodigoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Pla_Tarea_Nombre {
-                get {
-                    try {
-                        return ((string)(this[this.tableCom_Contrato_Legal.Pla_Tarea_NombreColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Tarea_Nombre\' in table \'Com_Contrato_Legal\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCom_Contrato_Legal.Pla_Tarea_NombreColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Par_Razon_Social_Id_Contratista {
-                get {
-                    try {
-                        return ((string)(this[this.tableCom_Contrato_Legal.Par_Razon_Social_Id_ContratistaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Par_Razon_Social_Id_Contratista\' in table \'Com_Contrato_Leg" +
-                                "al\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCom_Contrato_Legal.Par_Razon_Social_Id_ContratistaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Par_Razon_Social_Nombre_Contratista {
-                get {
-                    try {
-                        return ((string)(this[this.tableCom_Contrato_Legal.Par_Razon_Social_Nombre_ContratistaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Par_Razon_Social_Nombre_Contratista\' in table \'Com_Contrato" +
-                                "_Legal\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCom_Contrato_Legal.Par_Razon_Social_Nombre_ContratistaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Par_Razon_Social_Numero_Contratista {
-                get {
-                    try {
-                        return ((string)(this[this.tableCom_Contrato_Legal.Par_Razon_Social_Numero_ContratistaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Par_Razon_Social_Numero_Contratista\' in table \'Com_Contrato" +
-                                "_Legal\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCom_Contrato_Legal.Par_Razon_Social_Numero_ContratistaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsURL_Contrato_WordNull() {
-                return this.IsNull(this.tableCom_Contrato_Legal.URL_Contrato_WordColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetURL_Contrato_WordNull() {
-                this[this.tableCom_Contrato_Legal.URL_Contrato_WordColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsURL_Contrato_ScanNull() {
-                return this.IsNull(this.tableCom_Contrato_Legal.URL_Contrato_ScanColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetURL_Contrato_ScanNull() {
-                this[this.tableCom_Contrato_Legal.URL_Contrato_ScanColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDesc_Alerta_1Null() {
-                return this.IsNull(this.tableCom_Contrato_Legal.Desc_Alerta_1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDesc_Alerta_1Null() {
-                this[this.tableCom_Contrato_Legal.Desc_Alerta_1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDesc_Alerta_2Null() {
-                return this.IsNull(this.tableCom_Contrato_Legal.Desc_Alerta_2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDesc_Alerta_2Null() {
-                this[this.tableCom_Contrato_Legal.Desc_Alerta_2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDesc_Alerta_3Null() {
-                return this.IsNull(this.tableCom_Contrato_Legal.Desc_Alerta_3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDesc_Alerta_3Null() {
-                this[this.tableCom_Contrato_Legal.Desc_Alerta_3Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFecha_Firma_ContratoNull() {
-                return this.IsNull(this.tableCom_Contrato_Legal.Fecha_Firma_ContratoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFecha_Firma_ContratoNull() {
-                this[this.tableCom_Contrato_Legal.Fecha_Firma_ContratoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFecha_ContratoNull() {
-                return this.IsNull(this.tableCom_Contrato_Legal.Fecha_ContratoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFecha_ContratoNull() {
-                this[this.tableCom_Contrato_Legal.Fecha_ContratoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPla_Doc_IdNull() {
-                return this.IsNull(this.tableCom_Contrato_Legal.Pla_Doc_IdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPla_Doc_IdNull() {
-                this[this.tableCom_Contrato_Legal.Pla_Doc_IdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsValor_ContratoNull() {
-                return this.IsNull(this.tableCom_Contrato_Legal.Valor_ContratoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetValor_ContratoNull() {
-                this[this.tableCom_Contrato_Legal.Valor_ContratoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPlazo_ContratoNull() {
-                return this.IsNull(this.tableCom_Contrato_Legal.Plazo_ContratoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPlazo_ContratoNull() {
-                this[this.tableCom_Contrato_Legal.Plazo_ContratoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPla_Tarea_IdNull() {
-                return this.IsNull(this.tableCom_Contrato_Legal.Pla_Tarea_IdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPla_Tarea_IdNull() {
-                this[this.tableCom_Contrato_Legal.Pla_Tarea_IdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPla_Tarea_CodigoNull() {
-                return this.IsNull(this.tableCom_Contrato_Legal.Pla_Tarea_CodigoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPla_Tarea_CodigoNull() {
-                this[this.tableCom_Contrato_Legal.Pla_Tarea_CodigoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPla_Tarea_NombreNull() {
-                return this.IsNull(this.tableCom_Contrato_Legal.Pla_Tarea_NombreColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPla_Tarea_NombreNull() {
-                this[this.tableCom_Contrato_Legal.Pla_Tarea_NombreColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPar_Razon_Social_Id_ContratistaNull() {
-                return this.IsNull(this.tableCom_Contrato_Legal.Par_Razon_Social_Id_ContratistaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPar_Razon_Social_Id_ContratistaNull() {
-                this[this.tableCom_Contrato_Legal.Par_Razon_Social_Id_ContratistaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPar_Razon_Social_Nombre_ContratistaNull() {
-                return this.IsNull(this.tableCom_Contrato_Legal.Par_Razon_Social_Nombre_ContratistaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPar_Razon_Social_Nombre_ContratistaNull() {
-                this[this.tableCom_Contrato_Legal.Par_Razon_Social_Nombre_ContratistaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPar_Razon_Social_Numero_ContratistaNull() {
-                return this.IsNull(this.tableCom_Contrato_Legal.Par_Razon_Social_Numero_ContratistaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPar_Razon_Social_Numero_ContratistaNull() {
-                this[this.tableCom_Contrato_Legal.Par_Razon_Social_Numero_ContratistaColumn] = global::System.Convert.DBNull;
+            public void SetCom_Contrato_Tipo_NombreNull() {
+                this[this.tableCom_Contrato_Legal.Com_Contrato_Tipo_NombreColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -10912,7 +10429,7 @@ namespace ADL.ComprasTableAdapters {
             return this.Update(Nombre, Com_Contrato_Tipo_Id, Origen, Descripcion, Original_Id, Original_Nombre, Original_Com_Contrato_Tipo_Id, Original_Origen, Original_Descripcion, Original_Id);
         }
         
-        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual object DelByCom_Contrato_Tipo_IdINT(global::System.Nullable<int> p_Com_Contrato_Tipo_Id) {
@@ -11130,15 +10647,7 @@ namespace ADL.ComprasTableAdapters {
             tableMapping.ColumnMappings.Add("Desc_Alerta_3", "Desc_Alerta_3");
             tableMapping.ColumnMappings.Add("Fecha_Firma_Contrato", "Fecha_Firma_Contrato");
             tableMapping.ColumnMappings.Add("Fecha_Contrato", "Fecha_Contrato");
-            tableMapping.ColumnMappings.Add("Pla_Doc_Id", "Pla_Doc_Id");
-            tableMapping.ColumnMappings.Add("Valor_Contrato", "Valor_Contrato");
-            tableMapping.ColumnMappings.Add("Plazo_Contrato", "Plazo_Contrato");
-            tableMapping.ColumnMappings.Add("Pla_Tarea_Id", "Pla_Tarea_Id");
-            tableMapping.ColumnMappings.Add("Pla_Tarea_Codigo", "Pla_Tarea_Codigo");
-            tableMapping.ColumnMappings.Add("Pla_Tarea_Nombre", "Pla_Tarea_Nombre");
-            tableMapping.ColumnMappings.Add("Par_Razon_Social_Id_Contratista", "Par_Razon_Social_Id_Contratista");
-            tableMapping.ColumnMappings.Add("Par_Razon_Social_Nombre_Contratista", "Par_Razon_Social_Nombre_Contratista");
-            tableMapping.ColumnMappings.Add("Par_Razon_Social_Numero_Contratista", "Par_Razon_Social_Numero_Contratista");
+            tableMapping.ColumnMappings.Add("Com_Contrato_Tipo_Nombre", "Com_Contrato_Tipo_Nombre");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -11148,19 +10657,12 @@ namespace ADL.ComprasTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Com_Contrato_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Com_Contrato_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Com_Contrato_Tipo_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Com_Contrato_Tipo_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_URL_Contrato_Word", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "URL_Contrato_Word", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_URL_Contrato_Word", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "URL_Contrato_Word", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_URL_Contrato_Scan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "URL_Contrato_Scan", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_URL_Contrato_Scan", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "URL_Contrato_Scan", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Desc_Alerta_1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Desc_Alerta_1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Desc_Alerta_1", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Desc_Alerta_1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Desc_Alerta_2", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Desc_Alerta_2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Desc_Alerta_2", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Desc_Alerta_2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Desc_Alerta_3", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Desc_Alerta_3", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Desc_Alerta_3", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Desc_Alerta_3", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Fecha_Firma_Contrato", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Fecha_Firma_Contrato", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Firma_Contrato", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Firma_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Fecha_Contrato", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Fecha_Contrato", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Contrato", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
@@ -11193,19 +10695,12 @@ namespace ADL.ComprasTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Com_Contrato_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Com_Contrato_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Com_Contrato_Tipo_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Com_Contrato_Tipo_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_URL_Contrato_Word", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "URL_Contrato_Word", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_URL_Contrato_Word", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "URL_Contrato_Word", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_URL_Contrato_Scan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "URL_Contrato_Scan", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_URL_Contrato_Scan", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "URL_Contrato_Scan", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Desc_Alerta_1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Desc_Alerta_1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Desc_Alerta_1", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Desc_Alerta_1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Desc_Alerta_2", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Desc_Alerta_2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Desc_Alerta_2", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Desc_Alerta_2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Desc_Alerta_3", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Desc_Alerta_3", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Desc_Alerta_3", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Desc_Alerta_3", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Fecha_Firma_Contrato", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Fecha_Firma_Contrato", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Firma_Contrato", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Firma_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Fecha_Contrato", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Fecha_Contrato", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Contrato", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Contrato", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -11403,60 +10898,46 @@ namespace ADL.ComprasTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((Original_URL_Contrato_Word == null)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_URL_Contrato_Word));
+            }
+            if ((Original_URL_Contrato_Scan == null)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_URL_Contrato_Word));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_URL_Contrato_Scan));
             }
-            if ((Original_URL_Contrato_Scan == null)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+            if ((Original_Desc_Alerta_1 == null)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Desc_Alerta_1));
+            }
+            if ((Original_Desc_Alerta_2 == null)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_URL_Contrato_Scan));
-            }
-            if ((Original_Desc_Alerta_1 == null)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Desc_Alerta_1));
-            }
-            if ((Original_Desc_Alerta_2 == null)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_Desc_Alerta_2));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Desc_Alerta_2));
             }
             if ((Original_Desc_Alerta_3 == null)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_Desc_Alerta_3));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Desc_Alerta_3));
             }
             if ((Original_Fecha_Firma_Contrato.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((System.DateTime)(Original_Fecha_Firma_Contrato.Value));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((System.DateTime)(Original_Fecha_Firma_Contrato.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             if ((Original_Fecha_Contrato.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((System.DateTime)(Original_Fecha_Contrato.Value));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((System.DateTime)(Original_Fecha_Contrato.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -11647,66 +11128,52 @@ namespace ADL.ComprasTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             if ((Original_URL_Contrato_Word == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_URL_Contrato_Word));
+            }
+            if ((Original_URL_Contrato_Scan == null)) {
                 this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_URL_Contrato_Word));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_URL_Contrato_Scan));
             }
-            if ((Original_URL_Contrato_Scan == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+            if ((Original_Desc_Alerta_1 == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Desc_Alerta_1));
+            }
+            if ((Original_Desc_Alerta_2 == null)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_URL_Contrato_Scan));
-            }
-            if ((Original_Desc_Alerta_1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Desc_Alerta_1));
-            }
-            if ((Original_Desc_Alerta_2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Desc_Alerta_2));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Desc_Alerta_2));
             }
             if ((Original_Desc_Alerta_3 == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_Desc_Alerta_3));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Desc_Alerta_3));
             }
             if ((Original_Fecha_Firma_Contrato.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((System.DateTime)(Original_Fecha_Firma_Contrato.Value));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_Fecha_Firma_Contrato.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             if ((Original_Fecha_Contrato.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((System.DateTime)(Original_Fecha_Contrato.Value));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((System.DateTime)(Original_Fecha_Contrato.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             if ((Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Id.Value));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
