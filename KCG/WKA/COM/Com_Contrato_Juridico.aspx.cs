@@ -161,6 +161,14 @@ public partial class COM_Com_Contrato_Juridico : PaginaBase
     }
     protected void fvCom_Contrato_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
+        // Valida que el nuevo estado sea ADJ o FIR, caso contratio cancela
+        string estado = (string)e.NewValues["Estado"];
+        if (!(estado == "ADJ" || estado == "FIR"))
+        {
+            e.Cancel = true;
+            lbFvMsgErrorCom_Contrato.Text = "El Estado solo puede tomar los valores de AJD o FIR:";
+            return;
+        }
         // Cambio del formato de los campos que empiezan con Valor y Fecha
         e.NewValues["Fecha_Cierre_Rec_Ofertas"] = DateTime.Parse((string)e.NewValues["Fecha_Cierre_Rec_Ofertas"]);
         e.OldValues["Fecha_Cierre_Rec_Ofertas"] = DateTime.Parse((string)e.OldValues["Fecha_Cierre_Rec_Ofertas"]);
@@ -293,7 +301,7 @@ public partial class COM_Com_Contrato_Juridico : PaginaBase
                 //((TextBox)fvPla_Poa.FindControl("CodigoTextBox")).Text = "1";
                 //((TextBox)fvPla_Poa.FindControl("EstadoTextBox")).Text = "PEN";
                 break;
-            case FormViewMode.Edit:
+            case FormViewMode.Edit:               
                 break;
             case FormViewMode.ReadOnly:
                 break;
@@ -433,6 +441,21 @@ public partial class COM_Com_Contrato_Juridico : PaginaBase
     }
     protected void fvCom_Contrato_Legal_ItemInserting(object sender, FormViewInsertEventArgs e)
     {
+        //Valida que solo exista un registro en legal
+        if (gvCom_Contrato_Legal.Rows.Count > 0)
+        {
+            e.Cancel = true;
+            lbFvMsgErrorCom_Contrato_Legal.Text = "No se puede crear un segundo contrato en este proceso:";
+            return;
+        }
+        // Valida que el proceso se encuentre en AJD
+        DropDownList EstadoDropDownList = (DropDownList)fvCom_Contrato.FindControl("EstadoDropDownList");
+        if (EstadoDropDownList.SelectedValue != "ADJ" )
+        {
+            e.Cancel = true;
+            lbFvMsgErrorCom_Contrato_Legal.Text = "El proceso solo se puede editar cuando está en AJD:";
+            return;
+        }
         // Valor por defecto del Id y Estado
         e.Values["Id"] = -1;
         // Cambio del formato de los campos que empiezan con Valor y Fecha
@@ -443,6 +466,14 @@ public partial class COM_Com_Contrato_Juridico : PaginaBase
     }
     protected void fvCom_Contrato_Legal_ItemUpdating(object sender, FormViewUpdateEventArgs e)
     {
+        // Valida que el proceso se encuentre en AJD
+        DropDownList EstadoDropDownList = (DropDownList)fvCom_Contrato.FindControl("EstadoDropDownList");
+        if (EstadoDropDownList.SelectedValue != "ADJ")
+        {
+            e.Cancel = true;
+            lbFvMsgErrorCom_Contrato_Legal.Text = "El proceso solo se puede editar cuando está en AJD:";
+            return;
+        }
         // Cambio del formato de los campos que empiezan con Valor y Fecha
         e.NewValues["Fecha_Firma_Contrato"] = DateTime.Parse((string)e.NewValues["Fecha_Firma_Contrato"]);
         e.OldValues["Fecha_Firma_Contrato"] = DateTime.Parse((string)e.OldValues["Fecha_Firma_Contrato"]);
@@ -469,6 +500,14 @@ public partial class COM_Com_Contrato_Juridico : PaginaBase
     }
     protected void fvCom_Contrato_Legal_ItemDeleting(object sender, FormViewDeleteEventArgs e)
     {
+        // Valida que el proceso se encuentre en AJD
+        DropDownList EstadoDropDownList = (DropDownList)fvCom_Contrato.FindControl("EstadoDropDownList");
+        if (EstadoDropDownList.SelectedValue != "ADJ")
+        {
+            e.Cancel = true;
+            lbFvMsgErrorCom_Contrato_Legal.Text = "El proceso solo se puede editar cuando está en AJD:";
+            return;
+        }
         // Cambio del formato de los campos que empiezan con Valor y Fecha
         e.Values["Fecha_Firma_Contrato"] = DateTime.Parse((string)e.Values["Fecha_Firma_Contrato"]);
         e.Values["Fecha_Contrato"] = DateTime.Parse((string)e.Values["Fecha_Contrato"]);
@@ -622,6 +661,7 @@ public partial class COM_Com_Contrato_Juridico : PaginaBase
     
     protected void btCrearContratoBorrador_Click(object sender, EventArgs e)
     {
+        lbFvMsgErrorCom_Contrato_Legal.Text = ".";
         // Busco el Contrato_Legal_Id
         if (gvCom_Contrato_Legal.SelectedIndex == -1) return;
         int iContrato_Legal_Id = (int) gvCom_Contrato_Legal.SelectedValue;
@@ -634,6 +674,12 @@ public partial class COM_Com_Contrato_Juridico : PaginaBase
         // Consulto el contrato
         FEL.COM.BO_Com_Contrato adpCon = new BO_Com_Contrato();
         var oCon = adpCon.GetById(Scope,oLegal.Com_Contrato_Id)[0];
+        // Valido que el contrato esté en estado ADJ, caso contrario se cancela la operación
+        if (oCon.Estado != "ADJ")
+        {
+            lbFvMsgErrorCom_Contrato_Legal.Text = "Solo se puede generar un contrato cuando el estado es ADJ.";
+            return;
+        }
         // Consulto los datos para generar el contrato
         FEL.VAR.BO_Com_Contrato_Info adpInfo = new FEL.VAR.BO_Com_Contrato_Info();
         var listaInfo = adpInfo.GetByCom_Contrato_Id(oLegal.Com_Contrato_Id);
@@ -674,6 +720,9 @@ public partial class COM_Com_Contrato_Juridico : PaginaBase
         oLegalNuevo.Fecha_Contrato = oLegal.Fecha_Contrato;
 
         adpLegal.Update(oLegal, oLegalNuevo);
+
+        // Se coloca el mensaje de Contrato generado
+        lbFvMsgInfoCom_Contrato_Legal.Text = "Un nuevo documento Word se ha generado con Exito.";
     }
 
     protected void btDescargarWord_Click(object sender, EventArgs e)
@@ -728,4 +777,34 @@ public partial class COM_Com_Contrato_Juridico : PaginaBase
 
     }
 
+    protected void fvCom_Contrato_ModeChanging(object sender, FormViewModeEventArgs e)
+    {
+        // Valida que el estado esté en ADJ o FIR para permitir la edición del registro
+        if (e.NewMode == FormViewMode.Edit)
+        {
+            if (gvCom_Contrato.SelectedIndex == -1) { e.Cancel = true;  return; }
+            DropDownList EstadoDropDownList = (DropDownList)fvCom_Contrato.FindControl("EstadoDropDownList");
+            if (!(EstadoDropDownList.SelectedValue == "ADJ" || EstadoDropDownList.SelectedValue == "FIR")) 
+            { 
+                e.Cancel = true;
+                lbFvMsgErrorCom_Contrato.Text = "El proceso solo se puede editar cuando está en AJD o FIR:";
+                return; 
+            }
+        }
+    }
+    protected void fvCom_Contrato_Legal_ModeChanging(object sender, FormViewModeEventArgs e)
+    {
+        // Valida que el estado esté en ADJ o FIR para permitir la edición del registro
+        if (e.NewMode == FormViewMode.Edit)
+        {
+            if (gvCom_Contrato.SelectedIndex == -1) { e.Cancel = true; return; }
+            DropDownList EstadoDropDownList = (DropDownList)fvCom_Contrato.FindControl("EstadoDropDownList");
+            if (!(EstadoDropDownList.SelectedValue == "ADJ" ))
+            {
+                e.Cancel = true;
+                lbFvMsgErrorCom_Contrato_Legal.Text = "El proceso solo se puede editar cuando está en AJD:";
+                return;
+            }
+        }
+    }
 }

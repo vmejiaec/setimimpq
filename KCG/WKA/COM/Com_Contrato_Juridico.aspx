@@ -156,7 +156,7 @@ TagPrefix="ajax" %>
 			ondatabound="fvCom_Contrato_DataBound" 
             onprerender="fvCom_Contrato_PreRender"
 			onitemupdating="fvCom_Contrato_ItemUpdating"
-			onitemdeleting="fvCom_Contrato_ItemDeleting"
+			onitemdeleting="fvCom_Contrato_ItemDeleting" onmodechanging="fvCom_Contrato_ModeChanging" 
 			>
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
@@ -951,7 +951,7 @@ TagPrefix="ajax" %>
 			ondatabound="fvCom_Contrato_Legal_DataBound" 
             onprerender="fvCom_Contrato_Legal_PreRender"
 			onitemupdating="fvCom_Contrato_Legal_ItemUpdating"
-			onitemdeleting="fvCom_Contrato_Legal_ItemDeleting" 
+			onitemdeleting="fvCom_Contrato_Legal_ItemDeleting" onmodechanging="fvCom_Contrato_Legal_ModeChanging" 
 			>
         <EditItemTemplate>
             <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
