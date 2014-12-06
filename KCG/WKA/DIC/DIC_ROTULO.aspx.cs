@@ -138,6 +138,8 @@ public partial class DIC_DIC_ROTULO : PaginaBaseKCG
             n.Nombre = tbEtiquetaNombre.Text;
             n.Dic_Rotulo_Id = sDic_Rotulo_Id;
             n.Ver_Version_Id = Scope.Ver_Version_Id;
+            n.Imagen_Activa = "imagen.gif";
+            n.Imagen_Desactiva = "imagenNO.gif";
             string res = adp.Insert(Scope, n);
             lbMensaje.Text = "Etiqueta insertada con Ver_Etiqueta_Id: " + res;
         }
