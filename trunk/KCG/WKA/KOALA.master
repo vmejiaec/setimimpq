@@ -93,7 +93,7 @@
                     <div style="text-align: right;">
                         <uc2:SesionKCG ID="SesionKCG1" runat="server" />
                         <uc3:wucIdiomas ID="WucIdiomas1" runat="server" Visible="false" />
-                        <asp:ImageButton ID="btnAyuda" runat="server" ImageUrl="~/imagenes/contenido/libro.gif" meta:resourcekey="Btn_AyudaRecursoKCG" Visible="false"/>
+                        <asp:ImageButton ID="btnAyuda" runat="server" ImageUrl="~/imagenes/contenido/libro.gif" meta:resourcekey="Btn_AyudaRecursoKCG" />
                     </div>
                 </td>
             </tr>

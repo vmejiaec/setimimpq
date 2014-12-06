@@ -119,7 +119,6 @@
     <Content Include="App_Code\Scope_Factory.cs" />
     <Compile Include="COM\Com_Contrato_Legal_GvFv.aspx.cs">
       <DependentUpon>GeneraASP-GvFv.txt4</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
