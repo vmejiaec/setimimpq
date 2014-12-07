@@ -1,11 +1,14 @@
 <%@ Page Language="C#" 
         AutoEventWireup="true" 
         CodeBehind="APU_RUBRO_INSUMO_BASICO_REPORTE.aspx.cs" 
-        Inherits="WKA_Rep.APU_RUBRO_INSUMO_BASICO_REPORTE" Culture="auto" meta:resourcekey="PageResource1" UICulture="auto" %>
+        Inherits="WKA_Rep.APU_RUBRO_INSUMO_BASICO_REPORTE" 
+        Culture="auto" 
+        meta:resourcekey="PageResource1" 
+        UICulture="auto" %>
         
-<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-             Namespace="Microsoft.Reporting.WebForms" 
-             TagPrefix="rsweb" %>
+<%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 
+namespace="Microsoft.Reporting.WebForms" 
+tagprefix="rsweb" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -15,6 +18,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
+            <asp:ScriptManager 
+                ID="ScriptManager1" 
+                runat="server" 
+                EnableScriptLocalization="true" 
+                EnableScriptGlobalization="true"
+                AsyncPostBackTimeout="900"         
+                ScriptMode="Auto">
+            </asp:ScriptManager>
     <div>
         <table>
             <tr>
@@ -48,7 +59,7 @@
                                 <asp:Button
                                 id="btn_Consultar"
                                 runat="server"
-                                Text="Consultar" />
+                                Text="Consultar" onclick="btn_Consultar_Click" />
                             </td>
                             <td>
                                 <asp:Label 
@@ -62,15 +73,20 @@
             <tr>
                 <td style="width: 100px; height: 21px;">
                     <rsweb:ReportViewer ID="rptRubroInsumoBasico" runat="server" Font-Names="Verdana"
-                        Font-Size="8pt" Height="29.7cm" Style="position: relative" Width="21cm">
-                        <LocalReport ReportPath="APU/APU_RUBRO_INSUMO_BASICO_REPORTE.rdlc" EnableExternalImages="true">
+                        Font-Size="8pt" InteractiveDeviceInfos="(Collection)"
+                        WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt"
+                        Height="29.7cm" Width="21cm"
+                        Style="position: relative"
+                        >
+                        <LocalReport ReportPath ="APU\APU_RUBRO_INSUMO_BASICO_REPORTE.rdlc" EnableExternalImages="true">
                             <DataSources>
                                 <rsweb:ReportDataSource DataSourceId="odsRubroInsumoBasico" Name="Apu_Rubro_Insumo" />
                             </DataSources>
                         </LocalReport>
                     </rsweb:ReportViewer>
                     <asp:ObjectDataSource ID="odsRubroInsumoBasico" runat="server" OldValuesParameterFormatString="original_{0}"
-                        SelectMethod="GetByRubro" TypeName="REL.APU.RO_Apu_Rubro_Insumo">
+                        SelectMethod="GetByRubro" 
+                        TypeName="REL.APU.RO_Apu_Rubro_Insumo">
                         <SelectParameters>
                             <asp:SessionParameter DefaultValue="" Name="s" SessionField="Scope" Type="Object" />
                             <asp:SessionParameter DefaultValue="" Name="apu_rubro_id" SessionField="Apu_Rubro_Id"

@@ -23,7 +23,7 @@
                 AsyncPostBackTimeout="900"         
                 ScriptMode="Auto">
                 <Scripts>
-                    <asp:ScriptReference Path="JavaScript/BloqueoControles.js" />
+                    <asp:ScriptReference Path="~/JavaScript/BloqueoControles.js" />
                 </Scripts>
             </asp:ScriptManager>
             <asp:Panel 
@@ -35,7 +35,7 @@
                 <table>
                     <tr>
                         <td style="width: 30px; padding: 6px 6px 6px 6px" valign="top">
-                            <img src="../imagenes/ajaximagenes/cargandoMensaje.gif" id="IMG1" />
+                            <img src="../imagenes/ajaximagenes/cargandoMensaje.gif" id="IMG1" alt="cargando" />
                         </td>
                         <td valign="top">
                             <p>El sistema esta procesando la operación</p>

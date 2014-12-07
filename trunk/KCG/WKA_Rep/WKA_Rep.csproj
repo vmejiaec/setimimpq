@@ -82,6 +82,7 @@
     <Content Include="Imagenes\LogoPerfilProyecto.png" />
     <Content Include="Imagenes\LogoReporteIMPQ_Small.jpg" />
     <Content Include="Imagenes\LogoReporteIMPQ_Small.png" />
+    <Content Include="imagenes_predeterminadas\IMPLogo.jpg" />
     <Content Include="PLA\PLA_FormatoMemoAutorizacion.aspx" />
     <Content Include="PLA\PLA_Formulario_Inicio_Proceso.aspx" />
     <Content Include="PLA\PLA_Poa_Partidas.aspx" />
