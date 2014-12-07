@@ -4570,11 +4570,14 @@
         <Image Name="LogoFonsal">
           <Source>External</Source>
           <Value>=Parameters!pr_dat_empresa_imagen.Value</Value>
+          <Sizing>Fit</Sizing>
           <Top>0.5cm</Top>
           <Height>1.08889cm</Height>
           <Width>2.60042cm</Width>
           <ZIndex>4</ZIndex>
-          <Style />
+          <Style>
+            <Border />
+          </Style>
         </Image>
         <Textbox Name="textbox2">
           <CanGrow>true</CanGrow>

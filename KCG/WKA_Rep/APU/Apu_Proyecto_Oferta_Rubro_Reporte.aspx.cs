@@ -20,6 +20,12 @@ namespace WKA_Rep.APU
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+                CargarReporte();
+        }
+
+        void CargarReporte()
+        {
             ///Seteo del Idioma
             DateTimeFormatInfo dfi = new DateTimeFormatInfo();
             CultureInfo ci = new CultureInfo("es-ES");
@@ -59,13 +65,13 @@ namespace WKA_Rep.APU
                 Txt_Capitulo.Text = "";
                 Apu_Proyecto_Info_ByCodigoTableAdapter taProyInfo =
                     new Apu_Proyecto_Info_ByCodigoTableAdapter();
-                WKA_Rep.DataSet1.Apu_Proyecto_Info_ByCodigoDataTable dtProyInfo ;
+                WKA_Rep.DataSet1.Apu_Proyecto_Info_ByCodigoDataTable dtProyInfo;
                 dtProyInfo = taProyInfo.GetData(Apu_Proyecto_Codigo_A);
                 if (dtProyInfo.Rows.Count > 0)
                 {
                     Apu_Proyecto_Nombre_A = (string)(dtProyInfo.Rows[0])["Nombre"];
                     Apu_Proyecto_Id_A = (string)(dtProyInfo.Rows[0])["ID"];
-                    Txt_Capitulo.Text = "Proyecto A: " + Apu_Proyecto_Nombre_A + "\n"; 
+                    Txt_Capitulo.Text = "Proyecto A: " + Apu_Proyecto_Nombre_A + "\n";
                 }
                 dtProyInfo = taProyInfo.GetData(Apu_Proyecto_Codigo_B);
                 if (dtProyInfo.Rows.Count > 0)
@@ -102,14 +108,14 @@ namespace WKA_Rep.APU
                 parametros[4] = new ReportParameter("pr_dat_empresa_imagen", ObtenerUrlCompleta(Empresa.Imagen));
                 rptRubro.LocalReport.SetParameters(parametros);
                 // Crea los datos a consultar
-                Apu_Proyecto_Oferta_Rubro_ByPryOfrTableAdapter taPryOfr = new Apu_Proyecto_Oferta_Rubro_ByPryOfrTableAdapter() ;
+                Apu_Proyecto_Oferta_Rubro_ByPryOfrTableAdapter taPryOfr = new Apu_Proyecto_Oferta_Rubro_ByPryOfrTableAdapter();
                 WKA_Rep.DataSet1.Apu_Proyecto_Oferta_Rubro_ByPryOfrDataTable dtPryOfr;
                 dtPryOfr = taPryOfr.GetData(s.Ver_Version_Id,
                                             Apu_Proyecto_Codigo_A, Apu_Proyecto_Codigo_B,
                                             Apu_Oferta_Codigo_A, Apu_Oferta_Codigo_B);
                 // Carga los datos al reporte
                 ReportDataSource rptDatos = new ReportDataSource("DataSet1_Apu_Proyecto_Oferta_Rubro_ByPryOfr",
-                                                                (DataTable) dtPryOfr);
+                                                                (DataTable)dtPryOfr);
                 rptRubro.LocalReport.DataSources.Clear();
                 rptRubro.LocalReport.DataSources.Add(rptDatos);
                 //Llama al reporte

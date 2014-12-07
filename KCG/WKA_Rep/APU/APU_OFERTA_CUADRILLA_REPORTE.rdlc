@@ -841,12 +841,12 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Apu_Oferta_Cuadrilla</DataSetName>
-        <Height>3.78968cm</Height>
-        <Width>18.38933cm</Width>
+        <Height>3.78971cm</Height>
+        <Width>18.38932cm</Width>
         <Style />
       </Tablix>
     </ReportItems>
-    <Height>3.78968cm</Height>
+    <Height>3.78971cm</Height>
     <Style />
   </Body>
   <ReportParameters>
@@ -997,11 +997,14 @@
         <Image Name="LogoFonsal">
           <Source>External</Source>
           <Value>=Parameters!pr_dat_empresa_imagen.Value</Value>
+          <Sizing>Fit</Sizing>
           <Top>0.5cm</Top>
           <Height>2.25cm</Height>
           <Width>4.25cm</Width>
           <ZIndex>2</ZIndex>
-          <Style />
+          <Style>
+            <Border />
+          </Style>
         </Image>
         <Rectangle Name="rectangle1">
           <DataElementOutput>ContentsOnly</DataElementOutput>

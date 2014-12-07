@@ -14,6 +14,12 @@ namespace WKA_Rep
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+                CargarReporte();
+        }
+
+        void CargarReporte()
+        {
             ///Seteo del Idioma
             DateTimeFormatInfo dfi = new DateTimeFormatInfo();
             CultureInfo ci = new CultureInfo("es-ES");
@@ -53,10 +59,10 @@ namespace WKA_Rep
                 DataTable ofertas = RO_Apu_Oferta.GetByCodigo(s, Apu_Oferta_Codigo);
                 if (ofertas.Rows.Count > 0)
                 {
-                    Apu_Oferta_Nombre = (string) (ofertas.Rows[0])["Nombre"];
-                    Apu_Oferta_Id = (string) (ofertas.Rows[0])["Id"];
-                    Apu_Lugar_Nombre = (string) (ofertas.Rows[0])["Apu_Lugar_Nombre"];
-                    Apu_Provincia_Nombre = (string) (ofertas.Rows[0])["Apu_Provincia_Nombre"];
+                    Apu_Oferta_Nombre = (string)(ofertas.Rows[0])["Nombre"];
+                    Apu_Oferta_Id = (string)(ofertas.Rows[0])["Id"];
+                    Apu_Lugar_Nombre = (string)(ofertas.Rows[0])["Apu_Lugar_Nombre"];
+                    Apu_Provincia_Nombre = (string)(ofertas.Rows[0])["Apu_Provincia_Nombre"];
                     lblMensaje.Text = "";
                 }
                 else
@@ -83,6 +89,5 @@ namespace WKA_Rep
             rptOfertaRubroInsumo.LocalReport.Refresh();
 
         }
-        
     }
 }

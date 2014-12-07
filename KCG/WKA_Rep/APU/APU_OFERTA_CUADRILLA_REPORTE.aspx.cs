@@ -15,6 +15,28 @@ namespace WKA_Rep
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+                CargarReporte();
+        }
+
+        Apu_Oferta_Cuadrilla_Diferencia DatosDiferencia(string _Id)
+        {
+            try
+            {
+                Scope s = (Scope)Session["Scope"];
+                List<Apu_Oferta_Cuadrilla_Diferencia> ltsProyectosDiferencia = RO_Apu_Oferta_Cuadrilla_Diferencia.Adapter.GetByOferta(s, _Id);
+                if (ltsProyectosDiferencia.Count == 1)
+                    return ltsProyectosDiferencia[0];
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        void CargarReporte()
+        {
             ///Seteo del Idioma
             DateTimeFormatInfo dfi = new DateTimeFormatInfo();
             CultureInfo ci = new CultureInfo("es-ES");
@@ -129,22 +151,6 @@ namespace WKA_Rep
 
             rptOfertaCuadrilla.LocalReport.SetParameters(parametros);
             rptOfertaCuadrilla.LocalReport.Refresh();
-        }
-
-        Apu_Oferta_Cuadrilla_Diferencia DatosDiferencia(string _Id)
-        {
-            try
-            {
-                Scope s = (Scope)Session["Scope"];
-                List<Apu_Oferta_Cuadrilla_Diferencia> ltsProyectosDiferencia = RO_Apu_Oferta_Cuadrilla_Diferencia.Adapter.GetByOferta(s, _Id);
-                if (ltsProyectosDiferencia.Count == 1)
-                    return ltsProyectosDiferencia[0];
-                return null;
-            }
-            catch
-            {
-                return null;
-            }
         }
     }
 }
