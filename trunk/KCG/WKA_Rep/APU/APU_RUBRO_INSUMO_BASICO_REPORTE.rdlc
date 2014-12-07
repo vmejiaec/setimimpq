@@ -729,6 +729,7 @@
         </TablixRowHierarchy>
         <DataSetName>Apu_Rubro_Insumo</DataSetName>
         <Top>0.5cm</Top>
+        <Left>0.00001cm</Left>
         <Height>2.5397cm</Height>
         <Width>18.49999cm</Width>
         <Style />
@@ -784,7 +785,7 @@
       <Prompt>pr_dat_empresa_imagen</Prompt>
     </ReportParameter>
   </ReportParameters>
-  <Width>18.5cm</Width>
+  <Width>18.50001cm</Width>
   <Page>
     <PageHeader>
       <Height>4.75cm</Height>
@@ -793,6 +794,7 @@
       <ReportItems>
         <Rectangle Name="rectangle2">
           <DataElementOutput>ContentsOnly</DataElementOutput>
+          <Left>0.00001cm</Left>
           <Height>0.25cm</Height>
           <Width>18.5cm</Width>
           <Style>
@@ -820,7 +822,7 @@
             </Paragraph>
           </Paragraphs>
           <Top>0.75cm</Top>
-          <Left>4.5cm</Left>
+          <Left>4.50001cm</Left>
           <Height>0.25cm</Height>
           <Width>14cm</Width>
           <ZIndex>1</ZIndex>
@@ -834,15 +836,20 @@
         <Image Name="LogoFonsal">
           <Source>External</Source>
           <Value>=Parameters!pr_dat_empresa_imagen.Value</Value>
+          <Sizing>Fit</Sizing>
           <Top>0.5cm</Top>
-          <Height>2.25cm</Height>
+          <Left>0.00001cm</Left>
+          <Height>1.615cm</Height>
           <Width>4.25cm</Width>
           <ZIndex>2</ZIndex>
-          <Style />
+          <Style>
+            <Border />
+          </Style>
         </Image>
         <Rectangle Name="rectangle1">
           <DataElementOutput>ContentsOnly</DataElementOutput>
           <Top>4cm</Top>
+          <Left>0.00001cm</Left>
           <Height>0.25cm</Height>
           <Width>18.5cm</Width>
           <ZIndex>3</ZIndex>
@@ -871,7 +878,7 @@
             </Paragraph>
           </Paragraphs>
           <Top>1cm</Top>
-          <Left>4.5cm</Left>
+          <Left>4.50001cm</Left>
           <Height>0.25cm</Height>
           <Width>14cm</Width>
           <ZIndex>4</ZIndex>
@@ -901,7 +908,7 @@
             </Paragraph>
           </Paragraphs>
           <Top>1.25cm</Top>
-          <Left>4.5cm</Left>
+          <Left>4.50001cm</Left>
           <Height>0.25cm</Height>
           <Width>14cm</Width>
           <ZIndex>5</ZIndex>
@@ -939,34 +946,6 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="textbox5">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>RUBRO:</Value>
-                  <Style>
-                    <FontSize>8pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <Top>2.5cm</Top>
-          <Height>0.25cm</Height>
-          <Width>2.53968cm</Width>
-          <ZIndex>7</ZIndex>
-          <Style>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
       </ReportItems>
       <Style />
     </PageHeader>
@@ -994,7 +973,7 @@
           </Paragraphs>
           <rd:DefaultName>textbox36</rd:DefaultName>
           <Top>2cm</Top>
-          <Left>0.23016cm</Left>
+          <Left>0.23017cm</Left>
           <Height>0.5cm</Height>
           <Width>5.75cm</Width>
           <Style>
@@ -1023,7 +1002,7 @@
           </Paragraphs>
           <rd:DefaultName>textbox26</rd:DefaultName>
           <Top>2cm</Top>
-          <Left>15.73016cm</Left>
+          <Left>15.73017cm</Left>
           <Height>0.5cm</Height>
           <Width>2.53968cm</Width>
           <ZIndex>1</ZIndex>
@@ -1037,6 +1016,7 @@
         <Rectangle Name="rectangle3">
           <DataElementOutput>ContentsOnly</DataElementOutput>
           <Top>1.75cm</Top>
+          <Left>0.00001cm</Left>
           <Height>0.25cm</Height>
           <Width>18.5cm</Width>
           <ZIndex>2</ZIndex>

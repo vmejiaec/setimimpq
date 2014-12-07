@@ -14,6 +14,12 @@ namespace WKA_Rep
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+                CargarReporte();
+        }
+
+        void CargarReporte()
+        {
             ///Seteo del Idioma
             DateTimeFormatInfo dfi = new DateTimeFormatInfo();
             CultureInfo ci = new CultureInfo("es-ES");
@@ -27,7 +33,7 @@ namespace WKA_Rep
             string Apu_Oferta_Id = "";
             string Apu_Oferta_Codigo = "";
             string Apu_Oferta_Nombre = "";
-            
+
 
             if (!IsPostBack)
             {
@@ -49,8 +55,8 @@ namespace WKA_Rep
                 DataTable ofertas = RO_Apu_Oferta.GetByCodigo(s, Apu_Oferta_Codigo);
                 if (ofertas.Rows.Count > 0)
                 {
-                    Apu_Oferta_Nombre = (string) (ofertas.Rows[0])["Nombre"];
-                    Apu_Oferta_Id = (string) (ofertas.Rows[0])["Id"];
+                    Apu_Oferta_Nombre = (string)(ofertas.Rows[0])["Nombre"];
+                    Apu_Oferta_Id = (string)(ofertas.Rows[0])["Id"];
                     lblMensaje.Text = "";
                 }
                 else
@@ -67,7 +73,7 @@ namespace WKA_Rep
             parametros[1] = new ReportParameter("pr_dat_sucursal_nombre", s.Int_Sucursal_Nombre);
             parametros[2] = new ReportParameter("pr_dat_oferta_nombre", Apu_Oferta_Nombre);
             parametros[3] = new ReportParameter("pr_dat_fecha", fecha);
-            parametros[4] = new ReportParameter("pr_dat_empresa_imagen",ObtenerUrlCompleta(Empresa.Imagen));
+            parametros[4] = new ReportParameter("pr_dat_empresa_imagen", ObtenerUrlCompleta(Empresa.Imagen));
 
             rptOfertaRubroMaterial.LocalReport.SetParameters(parametros);
             rptOfertaRubroMaterial.LocalReport.Refresh();

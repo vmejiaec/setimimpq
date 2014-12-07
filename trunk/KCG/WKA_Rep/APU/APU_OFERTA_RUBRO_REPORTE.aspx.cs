@@ -15,6 +15,12 @@ namespace WKA_Rep
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+                CargarReporte();
+        }
+
+        void CargarReporte()
+        {
             ///Seteo del Idioma
             DateTimeFormatInfo dfi = new DateTimeFormatInfo();
             CultureInfo ci = new CultureInfo("es-ES");
@@ -52,16 +58,16 @@ namespace WKA_Rep
             if (Apu_Oferta_Codigo == "")
             {
                 Apu_Oferta_Nombre = "";
-                
+
             }
             else
             {
                 DataTable ofertas = RO_Apu_Oferta.GetByCodigo(s, Apu_Oferta_Codigo);
                 if (ofertas.Rows.Count > 0)
                 {
-                    Apu_Oferta_Nombre = (string) (ofertas.Rows[0])["Nombre"];
-                    Apu_Oferta_Id = (string) (ofertas.Rows[0])["Id"];
-                    Costo_Total = (decimal) (ofertas.Rows[0]["Costo_Total"]);
+                    Apu_Oferta_Nombre = (string)(ofertas.Rows[0])["Nombre"];
+                    Apu_Oferta_Id = (string)(ofertas.Rows[0])["Id"];
+                    Costo_Total = (decimal)(ofertas.Rows[0]["Costo_Total"]);
                     lblMensaje.Text = "";
                 }
                 else
@@ -78,15 +84,13 @@ namespace WKA_Rep
             parametros[0] = new ReportParameter("pr_dat_empresa_nombre", s.Int_Empresa_Nombre);
             parametros[1] = new ReportParameter("pr_dat_sucursal_nombre", s.Int_Sucursal_Nombre);
             parametros[2] = new ReportParameter("pr_dat_oferta_nombre", Apu_Oferta_Nombre);
-            parametros[3] = new ReportParameter("pr_dat_costo_total", Costo_Total.ToString("N4",nfi));
+            parametros[3] = new ReportParameter("pr_dat_costo_total", Costo_Total.ToString("N2", nfi));
             parametros[4] = new ReportParameter("pr_dat_fecha", fecha);
-            parametros[5] = new ReportParameter("pr_dat_empresa_imagen",ObtenerUrlCompleta(Empresa.Imagen));
+            parametros[5] = new ReportParameter("pr_dat_empresa_imagen", ObtenerUrlCompleta(Empresa.Imagen));
 
 
             rptOfertaRubro.LocalReport.SetParameters(parametros);
             rptOfertaRubro.LocalReport.Refresh();
-
         }
-        
     }
 }

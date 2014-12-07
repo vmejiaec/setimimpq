@@ -697,7 +697,7 @@
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Format>N4</Format>
+                                <Format>N2</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -709,6 +709,7 @@
                       <rd:DefaultName>textbox10</rd:DefaultName>
                       <ZIndex>6</ZIndex>
                       <Style>
+                        <Border />
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -756,12 +757,12 @@
         </TablixRowHierarchy>
         <DataSetName>Apu_Oferta_Rubro</DataSetName>
         <Top>0.5cm</Top>
-        <Height>1.90476cm</Height>
-        <Width>18.52645cm</Width>
+        <Height>1.90477cm</Height>
+        <Width>18.52648cm</Width>
         <Style />
       </Tablix>
     </ReportItems>
-    <Height>2.40476cm</Height>
+    <Height>2.40477cm</Height>
     <Style />
   </Body>
   <ReportParameters>
@@ -854,11 +855,14 @@
           <Source>External</Source>
           <Value>=Parameters!pr_dat_empresa_imagen.Value</Value>
           <MIMEType>image/jpeg</MIMEType>
+          <Sizing>FitProportional</Sizing>
           <Top>0.5cm</Top>
           <Height>2.25cm</Height>
           <Width>4.25cm</Width>
           <ZIndex>2</ZIndex>
-          <Style />
+          <Style>
+            <Border />
+          </Style>
         </Image>
         <Rectangle Name="rectangle1">
           <DataElementOutput>ContentsOnly</DataElementOutput>

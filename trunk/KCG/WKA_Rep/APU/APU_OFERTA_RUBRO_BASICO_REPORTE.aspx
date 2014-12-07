@@ -6,7 +6,7 @@
          meta:resourcekey="PageResource1" 
          UICulture="auto" %>
          
- <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+ <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
              Namespace="Microsoft.Reporting.WebForms" 
              TagPrefix="rsweb" %>
 
@@ -18,6 +18,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
+            <asp:ScriptManager 
+                ID="ScriptManager1" 
+                runat="server" 
+                EnableScriptLocalization="true" 
+                EnableScriptGlobalization="true"
+                AsyncPostBackTimeout="900"         
+                ScriptMode="Auto">
+            </asp:ScriptManager>
     <div>
         <table>
             <tr>
