@@ -14,6 +14,14 @@ namespace WKA_Rep
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                CargarReporte();
+            }
+        }
+
+        void CargarReporte()
+        {
             ///Seteo del Idioma
             DateTimeFormatInfo dfi = new DateTimeFormatInfo();
             CultureInfo ci = new CultureInfo("es-ES");
@@ -30,8 +38,12 @@ namespace WKA_Rep
 
             if (!IsPostBack)
             {
-                Apu_Rubro_Codigo = Request.QueryString["Apu_Rubro_Codigo"];
-                Txt_Apu_Rubro_Codigo.Text = Apu_Rubro_Codigo.ToString();
+
+                if (Request.QueryString["Apu_Rubro_Codigo"] != null)
+                {
+                    Apu_Rubro_Codigo = Request.QueryString["Apu_Rubro_Codigo"];
+                    Txt_Apu_Rubro_Codigo.Text = Apu_Rubro_Codigo.ToString();
+                }
             }
             else
                 Apu_Rubro_Codigo = Txt_Apu_Rubro_Codigo.Text;
@@ -70,9 +82,11 @@ namespace WKA_Rep
 
             rptRubroInsumoBasico.LocalReport.SetParameters(parametros);
             rptRubroInsumoBasico.LocalReport.Refresh();
+        }
 
-
-
+        protected void btn_Consultar_Click(object sender, EventArgs e)
+        {
+            CargarReporte();
         }
     }
 }

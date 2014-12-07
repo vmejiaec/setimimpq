@@ -1,4 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterReportes.Master" AutoEventWireup="true" CodeBehind="COM_Com_Contrato_ActaOfertas.aspx.cs" Inherits="WKA_Rep.COM.COM_Com_Contrato_ActaOfertas" %>
+﻿<%@ Page Title="Acta de Ofertas" 
+    Language="C#" 
+    MasterPageFile="~/MasterReportes.Master" 
+    AutoEventWireup="true" 
+    CodeBehind="COM_Com_Contrato_ActaOfertas.aspx.cs" 
+    Inherits="WKA_Rep.COM.COM_Com_Contrato_ActaOfertas" %>
 
 <%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 
 namespace="Microsoft.Reporting.WebForms" 

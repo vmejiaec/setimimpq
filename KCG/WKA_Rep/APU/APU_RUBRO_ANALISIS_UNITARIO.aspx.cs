@@ -15,6 +15,17 @@ namespace WKA_Rep
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if( ! IsPostBack)
+                CargarReporte();
+        }
+
+        protected void btn_Consultar_Click(object sender, EventArgs e)
+        {
+            CargarReporte();
+        }
+
+        void CargarReporte()
+        {
             ///Seteo del Idioma
             DateTimeFormatInfo dfi = new DateTimeFormatInfo();
             CultureInfo ci = new CultureInfo("es-ES");
@@ -37,7 +48,7 @@ namespace WKA_Rep
             string Apu_Rubro_Codigo = "";
             string Apu_Rubro_Nombre = "";
             string Apu_Rubro_Unidad = "";
-            decimal Rendimiento_Equipo = 0;            
+            decimal Rendimiento_Equipo = 0;
             decimal Apu_Rubro_Equipo_Costo_Total = 0;
             decimal Apu_Rubro_Mano_Obra_Costo_Total = 0;
             decimal Apu_Rubro_Material_Costo_Total = 0;
@@ -49,7 +60,7 @@ namespace WKA_Rep
 
             if (!IsPostBack)
             {
-                Apu_Rubro_Codigo = Request.QueryString["Apu_Rubro_Codigo"];                
+                Apu_Rubro_Codigo = Request.QueryString["Apu_Rubro_Codigo"];
                 Txt_Apu_Rubro_Codigo.Text = Apu_Rubro_Codigo.ToString();
             }
             else
@@ -59,7 +70,7 @@ namespace WKA_Rep
             Session["Scope"] = s;
             if (Apu_Rubro_Codigo == "")
             {
-                Apu_Rubro_Nombre = "";                
+                Apu_Rubro_Nombre = "";
             }
             else
             {
@@ -69,7 +80,7 @@ namespace WKA_Rep
                     Apu_Rubro_Nombre = (string)(rubros.Rows[0])["Nombre"];
                     Apu_Rubro_Id = (string)(rubros.Rows[0])["Id"];
                     Apu_Rubro_Unidad = (string)(rubros.Rows[0])["Unidad"];
-                    Rendimiento_Equipo = Convert.ToDecimal((rubros.Rows[0])["Rendimiento_Equipo"]);                    
+                    Rendimiento_Equipo = Convert.ToDecimal((rubros.Rows[0])["Rendimiento_Equipo"]);
                     Apu_Rubro_Equipo_Costo_Total = Convert.ToDecimal((rubros.Rows[0])["Apu_rubro_equipo_costo_total"]);
                     Apu_Rubro_Mano_Obra_Costo_Total = Convert.ToDecimal((rubros.Rows[0])["Apu_rubro_mano_obra_costo_total"]);
                     Apu_Rubro_Material_Costo_Total = Convert.ToDecimal((rubros.Rows[0])["Apu_rubro_material_costo_total"]);
@@ -95,14 +106,14 @@ namespace WKA_Rep
             parametros[2] = new ReportParameter("pr_dat_rubro_nombre", Apu_Rubro_Nombre);
             parametros[3] = new ReportParameter("pr_dat_fecha", fecha);
             parametros[4] = new ReportParameter("pr_dat_rubro_unidad", Apu_Rubro_Unidad);
-            parametros[5] = new ReportParameter("pr_dat_rendimiento_equipo", Convert.ToString(Rendimiento_Equipo));            
+            parametros[5] = new ReportParameter("pr_dat_rendimiento_equipo", Convert.ToString(Rendimiento_Equipo));
             parametros[6] = new ReportParameter("pr_dat_apu_rubro_equipo_costo_total", Apu_Rubro_Equipo_Costo_Total.ToString("N4", nfi));
             parametros[7] = new ReportParameter("pr_dat_apu_rubro_mano_obra_costo_total", Apu_Rubro_Mano_Obra_Costo_Total.ToString("N4", nfi));
             parametros[8] = new ReportParameter("pr_dat_apu_rubro_material_costo_total", Apu_Rubro_Material_Costo_Total.ToString("N4", nfi));
             parametros[9] = new ReportParameter("pr_dat_apu_rubro_transporte_costo_total", Apu_Rubro_Transporte_Costo_Total.ToString("N4", nfi));
             parametros[10] = new ReportParameter("pr_dat_costo_directo", Costo_Directo.ToString("N4", nfi));
-            parametros[11] = new ReportParameter("pr_dat_costo_indirecto", Costo_Indirecto.ToString("N4",nfi));
-            parametros[12] = new ReportParameter("pr_dat_costo_total", Costo_Total.ToString("N2",nfi));
+            parametros[11] = new ReportParameter("pr_dat_costo_indirecto", Costo_Indirecto.ToString("N4", nfi));
+            parametros[12] = new ReportParameter("pr_dat_costo_total", Costo_Total.ToString("N2", nfi));
             parametros[13] = new ReportParameter("pr_dat_porcentaje_costo_indirecto", Convert.ToString(Apu_Procentaje_Costo_Indirecto));
             parametros[14] = new ReportParameter("pr_dat_rubro_codigo", Apu_Rubro_Codigo);
             parametros[15] = new ReportParameter("pr_dat_empresa_imagen", ObtenerUrlCompleta(Empresa.Imagen));
