@@ -187,8 +187,11 @@ public partial class APU_APU_OFERTA : PaginaBaseFormView
         for (int i = 0; i < lstSubproyecto.Count && i < count; i++)
         {
             string value = lstSubproyecto[i].Codigo_Institucional;
-
-            opciones.Add(AjaxControlToolkit.AutoCompleteExtender.CreateAutoCompleteItem(lstSubproyecto[i].Codigo_Institucional, value));
+            string nombre = lstSubproyecto[i].SPROY_NOMBRE;
+            opciones.Add(
+                AjaxControlToolkit.AutoCompleteExtender.
+                    CreateAutoCompleteItem(
+                    lstSubproyecto[i].Codigo_Institucional, value + "||" + nombre));
         }
         return opciones.ToArray();
     }

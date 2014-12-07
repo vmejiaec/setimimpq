@@ -73,7 +73,9 @@
             var Codigo_Institucion = $get("ctl00_ContentPlaceHolder1_fvApuOferta_Codigo_Institucion");
             Codigo_Institucion.value = temp[0];  
             var Auxiliar_Codigo = $get("ctl00_ContentPlaceHolder1_Auxiliar_Codigo");
-            Auxiliar_Codigo.value = temp[0];                                                                                
+            Auxiliar_Codigo.value = temp[0];
+            var NombreProyecto = $get("ctl00_ContentPlaceHolder1_fvApuOferta_Nombre");
+            NombreProyecto.value = temp[1];
         } 
         
         function checkSelectedValue_Tipo_Contrato()
@@ -259,7 +261,7 @@
                                         ValidationGroup="I"
                                         OnServerValidate="ctvCodigo_Institucion_ServerValidate">
                                     </asp:CustomValidator>                                    
-                                    <AjaxControlToolkit:MaskedEditExtender 
+                                    <%--<AjaxControlToolkit:MaskedEditExtender 
                                         ID="meeCodigo_Institucion" 
                                         runat="server"
                                         TargetControlID="Codigo_Institucion"
@@ -272,13 +274,13 @@
                                         AcceptNegative="None"
                                         DisplayMoney="None"
                                         ErrorTooltipEnabled="false"
-                                        ClearMaskOnLostFocus="False" />
+                                        ClearMaskOnLostFocus="False" />--%>
                                     <AjaxControlToolkit:AutoCompleteExtender
                                         runat="server" 
                                         BehaviorID="AutoCompleteEx_Codigo_Institucion"
                                         ID="AutoCo_Codigo_Institucion" 
                                         TargetControlID="Codigo_Institucion"
-                                        ServicePath="~/APU/APU_PROYECTO.aspx" 
+                                        ServicePath="~/APU/APU_OFERTA.aspx" 
                                         ServiceMethod="Get_Codigo_Institucion"
                                         MinimumPrefixLength="0" 
                                         CompletionInterval="500"
@@ -1248,7 +1250,7 @@
                                         ValidationGroup="I"
                                         OnServerValidate="ctvCodigo_Institucion_ServerValidate">
                                     </asp:CustomValidator>                                    
-                                    <AjaxControlToolkit:MaskedEditExtender 
+<%--                                    <AjaxControlToolkit:MaskedEditExtender 
                                         ID="meeCodigo_Institucion" 
                                         runat="server"
                                         TargetControlID="Codigo_Institucion"
@@ -1261,13 +1263,13 @@
                                         AcceptNegative="None"
                                         DisplayMoney="None"
                                         ErrorTooltipEnabled="false"
-                                        ClearMaskOnLostFocus="False" />
+                                        ClearMaskOnLostFocus="False" />--%>
                                     <AjaxControlToolkit:AutoCompleteExtender
                                         runat="server" 
                                         BehaviorID="AutoCompleteEx_Codigo_Institucion"
                                         ID="AutoCo_Codigo_Institucion" 
                                         TargetControlID="Codigo_Institucion"
-                                        ServicePath="~/APU/APU_PROYECTO.aspx" 
+                                        ServicePath="~/APU/APU_OFERTA.aspx" 
                                         ServiceMethod="Get_Codigo_Institucion"
                                         MinimumPrefixLength="0" 
                                         CompletionInterval="500"
