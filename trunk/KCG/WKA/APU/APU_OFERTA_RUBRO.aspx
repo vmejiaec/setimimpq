@@ -921,13 +921,22 @@ Runat="Server">
                         runat="server"
                          meta:resourcekey="Rec_Apu_Oferta_RubroRecursoKCG">
                          <table>
-                            <tr align="right">
+                            <tr >
                                 <td colspan="2">
                                     <asp:label
                                         id="lblestado"
                                         runat="server"                                        
                                         Text='<%# Bind("Estado_Nombre") %>'>
                                     </asp:label>                                  
+                                </td>
+                                <td>
+                                    <asp:TextBox 
+                                        ID="Id" 
+                                        runat="server" 
+                                        TabIndex="-1"
+                                        ReadOnly="true"                                        
+                                        Text='<%# Bind("Id") %>'>
+                                    </asp:TextBox>
                                 </td>
                             </tr>
                             <tr align="left">
@@ -1114,12 +1123,7 @@ Runat="Server">
                         style="display:none"
                         Text='<%# Bind("Int_Sucursal_Id") %>'>
                     </asp:TextBox>
-                    <asp:TextBox 
-                        ID="Id" 
-                        runat="server" 
-                        style="display:none"
-                        Text='<%# Bind("Id") %>'>
-                    </asp:TextBox>
+
                     <%--campos no visibles--%>
                                             
                     <asp:TextBox 

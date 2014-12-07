@@ -168,7 +168,7 @@
     
     <asp:ObjectDataSource ID="odsFvMaestroApuOferta" 
         runat="server" 
-        SelectMethod="GetById" 
+        SelectMethod="GetByIdResumido" 
         TypeName="FEL.APU.BO_Apu_Oferta"
         SortParameterName="sortExpression">
         <SelectParameters>
@@ -1001,7 +1001,7 @@
                                         runat="server"
                                         CausesValidation="False" 
                                         CommandName="Edit"
-                                        Enabled='<%# HER.PermisosMovimientos.Movimiento_Apu_Oferta_Equipo_Indice(Request.QueryString["Estado"], Request.QueryString["Apu_Presupuesto_Estado"], HER.PermisosMovimientos.ModoOperacion.Editar ) %>'
+                                        
                                         AccessKey='<%# HttpContext.GetLocalResourceObject("~/KOALA.master", "Tec_EditarRecursoKCG.AccesKey").ToString() %>'  
                                         Text='<%# HttpContext.GetLocalResourceObject("~/KOALA.master", "Btn_EditRecursoKCG.Text").ToString() %>'
                                         ToolTip='<%# HttpContext.GetLocalResourceObject("~/KOALA.master", "Btn_EditRecursoKCG.ToolTip").ToString() %>'>
@@ -1011,7 +1011,7 @@
                                         runat="server" 
                                         CausesValidation="False" 
                                         CommandName="Delete"
-                                        Enabled='<%# HER.PermisosMovimientos.Movimiento_Apu_Oferta_Equipo_Indice(Request.QueryString["Estado"], Request.QueryString["Apu_Presupuesto_Estado"], HER.PermisosMovimientos.ModoOperacion.Eliminar ) %>'
+                                        
                                         AccessKey='<%# HttpContext.GetLocalResourceObject("~/KOALA.master", "Tec_EliminarRecursoKCG.AccesKey").ToString() %>'  
                                         Text='<%# HttpContext.GetLocalResourceObject("~/KOALA.master", "Btn_DeleteRecursoKCG.Text").ToString() %>'
                                         ToolTip='<%# HttpContext.GetLocalResourceObject("~/KOALA.master", "Btn_DeleteRecursoKCG.ToolTip").ToString() %>'>
@@ -1021,7 +1021,7 @@
                                         runat="server" 
                                         CausesValidation="False" 
                                         CommandName="New"
-                                        Enabled='<%# HER.PermisosMovimientos.Movimiento_Apu_Oferta_Equipo_Indice(Request.QueryString["Estado"], Request.QueryString["Apu_Presupuesto_Estado"], HER.PermisosMovimientos.ModoOperacion.Nuevo ) %>'
+                                        
                                         AccessKey='<%# HttpContext.GetLocalResourceObject("~/KOALA.master", "Tec_NuevoRecursoKCG.AccesKey").ToString() %>'  
                                         Text='<%# HttpContext.GetLocalResourceObject("~/KOALA.master", "Btn_NewRecursoKCG.Text").ToString() %>'
                                         ToolTip='<%# HttpContext.GetLocalResourceObject("~/KOALA.master", "Btn_NewRecursoKCG.ToolTip").ToString() %>'>

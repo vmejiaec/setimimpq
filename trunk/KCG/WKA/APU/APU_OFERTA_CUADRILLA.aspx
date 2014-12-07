@@ -399,7 +399,7 @@
                         </koala:KGrid>
                     </td>
                 </tr>
-                <tr>
+                <tr style="display:none">
                     <td
                         align="right">
                         <asp:TextBox 
@@ -426,7 +426,7 @@
         ID="odsFvMaestroApuOferta" 
         runat="server" 
         OldValuesParameterFormatString="original_{0}"
-        SelectMethod="GetById" 
+        SelectMethod="GetByIdResumido" 
         SortParameterName="sortExpression" 
         TypeName="FEL.APU.BO_Apu_Oferta">
         <SelectParameters>

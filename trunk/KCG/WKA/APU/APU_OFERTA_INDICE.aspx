@@ -208,186 +208,187 @@
             </tr>
         </table>
     </asp:Panel>                    
-        <asp:Panel ID="Rec_Apu_Oferta_Indice_Oferta"
-            runat="server"
-            meta:resourcekey="Rec_Apu_Oferta_Indice_OfertaRecursoKCG">  
-            <table>
-                <tr>
-                    <td>
-                        <koala:KGrid 
-                            ID="GridView1" 
-                            runat="server" 
-                            RowStyle-BackColor="turquoise"
-                            AutoGenerateColumns="False" 
-                            DataSourceID="odsgv2ApuOfertaIndice"
-                            AccessKey='<%# HttpContext.GetLocalResourceObject("~/KOALA.master", "Tec_GridRecursoKCG.AccesKey").ToString() %>'>        
-                                <AlternatingRowStyle CssClass="alternatingrowstyle" />
-                                <HeaderStyle CssClass="headerstyle" />
-                                <PagerStyle CssClass="pagerstyle" />
-                                <SelectedRowStyle CssClass="selectedrowstyle" />
-                            <Columns>
-                                <asp:BoundField 
-                                    DataField="Apu_Indice_Nombre" 
-                                    meta:resourcekey="BoundApu_Indice_NombreRecursoKCG"
-                                    SortExpression="Apu_Indice_Nombre" >
-                                    <itemstyle wrap="False" width="600px"/>
-                                </asp:BoundField>
-                                <asp:BoundField 
-                                    DataField="costo_total" 
-                                    meta:resourcekey="BoundCosto_TotalRecursoKCG"
-                                    SortExpression="Costo_Total" 
-                                    dataformatstring="{0:N2}">
-                                    <headerstyle wrap="False" />
-                                    <itemstyle horizontalalign="Right" width="70px" />
-                                </asp:BoundField>
-                                <asp:BoundField     
-                                    DataField="coeficiente" 
-                                    meta:resourcekey="BoundCoeficienteRecursoKCG"
-                                    SortExpression="Coeficiente" dataformatstring="{0:N3}">
-                                    <itemstyle horizontalalign="Right" width="70px" />
-                                </asp:BoundField>
-                                <asp:BoundField 
-                                    DataField="Letra" 
-                                    meta:resourcekey="BoundLetraRecursoKCG"
-                                    SortExpression="Letra" >
-                                    <itemstyle horizontalalign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField 
-                                    DataField="Apu_Oferta_Id" 
-                                    HeaderText="Apu_Oferta_Id" 
-                                    SortExpression="Apu_Oferta_Id"
-                                    Visible="false" />
-                                <asp:BoundField 
-                                    DataField="Apu_Oferta_Codigo" 
-                                    HeaderText="Apu_Oferta_Codigo" 
-                                    SortExpression="Apu_Oferta_Codigo"
-                                    Visible="false" />
-                                <asp:BoundField 
-                                    DataField="Apu_Oferta_Nombre" 
-                                    HeaderText="Apu_Oferta_Nombre" 
-                                    SortExpression="Apu_Oferta_Nombre"
-                                    Visible="false" />
-                                <asp:BoundField 
-                                    DataField="Apu_Oferta_Etapa" 
-                                    HeaderText="Apu_Oferta_Etapa" 
-                                    SortExpression="Apu_Oferta_Etapa"
-                                    Visible="false" />                                
-                                <asp:BoundField 
-                                    DataField="Apu_Indice_Codigo" 
-                                    HeaderText="Apu_Indice_Codigo" 
-                                    SortExpression="Apu_Indice_Codigo"
-                                    Visible="false" />                         
-                                <asp:BoundField 
-                                    DataField="Id" 
-                                    HeaderText="Id" 
-                                    SortExpression="Id"
-                                    Visible="false" />
-                                <asp:BoundField 
-                                    DataField="Codigo" 
-                                    HeaderText="Codigo" 
-                                    SortExpression="Codigo"
-                                    Visible="false" />
-                                <asp:BoundField 
-                                    DataField="Codigo_int" 
-                                    HeaderText="Codigo_int" 
-                                    SortExpression="Codigo_int"
-                                    Visible="false" />
-                                <asp:BoundField 
-                                    DataField="Nombre" 
-                                    HeaderText="Nombre" 
-                                    SortExpression="Nombre"
-                                    Visible="false" />
-                                <asp:BoundField 
-                                    DataField="Estado" 
-                                    HeaderText="Estado" 
-                                    SortExpression="Estado"
-                                    Visible="false" />
-                            </Columns>
-                        </koala:KGrid>                                            
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <koala:KGrid ID="gvDetalleApuOfertaIndice" 
-                            Width="100%"
-                            runat="server"
-                            AllowSorting="False" 
-                            AllowPaging="False" 
-                            AutoGenerateColumns="False" 
-                            DataSourceID="odsGvDetalleApuOfertaIndice"
-                            AccessKey='<%# HttpContext.GetLocalResourceObject("~/KOALA.master", "Tec_GridRecursoKCG.AccesKey").ToString() %>'>
+
+    <asp:Panel ID="Rec_Apu_Oferta_Indice_Oferta"
+        runat="server"
+        meta:resourcekey="Rec_Apu_Oferta_Indice_OfertaRecursoKCG">  
+        <table>
+            <tr>
+                <td>
+                    <koala:KGrid 
+                        ID="GridView1" 
+                        runat="server" 
+                        RowStyle-BackColor="turquoise"
+                        AutoGenerateColumns="False" 
+                        DataSourceID="odsgv2ApuOfertaIndice"
+                        AccessKey='<%# HttpContext.GetLocalResourceObject("~/KOALA.master", "Tec_GridRecursoKCG.AccesKey").ToString() %>'>        
                             <AlternatingRowStyle CssClass="alternatingrowstyle" />
                             <HeaderStyle CssClass="headerstyle" />
                             <PagerStyle CssClass="pagerstyle" />
                             <SelectedRowStyle CssClass="selectedrowstyle" />
-                            <Columns>
-                                <asp:BoundField DataField="Apu_Indice_Nombre" 
-                                    meta:resourcekey="BoundApu_Indice_NombreRecursoKCG"
-                                    SortExpression="Apu_Indice_Nombre" >
-                                    <itemstyle wrap="False" width="600px"/>
-                                </asp:BoundField>
-                                <asp:BoundField DataField="Costo_Total" 
-                                    meta:resourcekey="BoundCosto_TotalRecursoKCG"
-                                    SortExpression="Costo_Total" 
-                                    dataformatstring="{0:N2}">
-                                    <headerstyle wrap="False" />
-                                    <itemstyle horizontalalign="Right" width="70px" />
-                                </asp:BoundField>   
-                                <asp:BoundField DataField="Coeficiente" 
-                                    meta:resourcekey="BoundCoeficienteRecursoKCG"
-                                    SortExpression="Coeficiente" dataformatstring="{0:N3}">
-                                    <itemstyle horizontalalign="Right" width="70px" />
-                                </asp:BoundField>  
-                                <asp:BoundField DataField="Letra" 
-                                    meta:resourcekey="BoundLetraRecursoKCG"
-                                    SortExpression="Letra" >
-                                    <itemstyle horizontalalign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField DataField="Id" 
-                                    Visible="False"
-                                    SortExpression="Id" />
-                            </Columns>
-                        </koala:KGrid>
-                    </td>
-                </tr>
-                <tr>
-                    <td
-                        align="right">
-                        <asp:TextBox 
-                            ID="IndiceSumatoria"
-                            runat="server"
-                            Width="70px"
-                            Style="text-align:right"
-                            BackColor="255,255,192"
-                            ReadOnly="true">
-                        </asp:TextBox>
-                        <asp:TextBox 
-                            ID="CoeficienteSumatoria"
-                            runat="server"
-                            Width="69px"
-                            Style="text-align:right"
-                            ReadOnly="true">
-                        </asp:TextBox>
-                        <asp:TextBox 
-                            ID="TextBox1" 
-                            Width="30px"
-                            BorderColor="white"
-                            BorderStyle="Solid"
-                            ReadOnly="true"
-                            runat="server"
-                            Text="">
-                        </asp:TextBox>
-                    </td>
-                </tr>
-            </table>  
-        </asp:Panel>
+                        <Columns>
+                            <asp:BoundField 
+                                DataField="Apu_Indice_Nombre" 
+                                meta:resourcekey="BoundApu_Indice_NombreRecursoKCG"
+                                SortExpression="Apu_Indice_Nombre" >
+                                <itemstyle wrap="False" width="600px"/>
+                            </asp:BoundField>
+                            <asp:BoundField 
+                                DataField="costo_total" 
+                                meta:resourcekey="BoundCosto_TotalRecursoKCG"
+                                SortExpression="Costo_Total" 
+                                dataformatstring="{0:N2}">
+                                <headerstyle wrap="False" />
+                                <itemstyle horizontalalign="Right" width="70px" />
+                            </asp:BoundField>
+                            <asp:BoundField     
+                                DataField="coeficiente" 
+                                meta:resourcekey="BoundCoeficienteRecursoKCG"
+                                SortExpression="Coeficiente" dataformatstring="{0:N3}">
+                                <itemstyle horizontalalign="Right" width="70px" />
+                            </asp:BoundField>
+                            <asp:BoundField 
+                                DataField="Letra" 
+                                meta:resourcekey="BoundLetraRecursoKCG"
+                                SortExpression="Letra" >
+                                <itemstyle horizontalalign="Center" />
+                            </asp:BoundField>
+                            <asp:BoundField 
+                                DataField="Apu_Oferta_Id" 
+                                HeaderText="Apu_Oferta_Id" 
+                                SortExpression="Apu_Oferta_Id"
+                                Visible="false" />
+                            <asp:BoundField 
+                                DataField="Apu_Oferta_Codigo" 
+                                HeaderText="Apu_Oferta_Codigo" 
+                                SortExpression="Apu_Oferta_Codigo"
+                                Visible="false" />
+                            <asp:BoundField 
+                                DataField="Apu_Oferta_Nombre" 
+                                HeaderText="Apu_Oferta_Nombre" 
+                                SortExpression="Apu_Oferta_Nombre"
+                                Visible="false" />
+                            <asp:BoundField 
+                                DataField="Apu_Oferta_Etapa" 
+                                HeaderText="Apu_Oferta_Etapa" 
+                                SortExpression="Apu_Oferta_Etapa"
+                                Visible="false" />                                
+                            <asp:BoundField 
+                                DataField="Apu_Indice_Codigo" 
+                                HeaderText="Apu_Indice_Codigo" 
+                                SortExpression="Apu_Indice_Codigo"
+                                Visible="false" />                         
+                            <asp:BoundField 
+                                DataField="Id" 
+                                HeaderText="Id" 
+                                SortExpression="Id"
+                                Visible="false" />
+                            <asp:BoundField 
+                                DataField="Codigo" 
+                                HeaderText="Codigo" 
+                                SortExpression="Codigo"
+                                Visible="false" />
+                            <asp:BoundField 
+                                DataField="Codigo_int" 
+                                HeaderText="Codigo_int" 
+                                SortExpression="Codigo_int"
+                                Visible="false" />
+                            <asp:BoundField 
+                                DataField="Nombre" 
+                                HeaderText="Nombre" 
+                                SortExpression="Nombre"
+                                Visible="false" />
+                            <asp:BoundField 
+                                DataField="Estado" 
+                                HeaderText="Estado" 
+                                SortExpression="Estado"
+                                Visible="false" />
+                        </Columns>
+                    </koala:KGrid>                                            
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <koala:KGrid ID="gvDetalleApuOfertaIndice" 
+                        Width="100%"
+                        runat="server"
+                        AllowSorting="False" 
+                        AllowPaging="False" 
+                        AutoGenerateColumns="False" 
+                        DataSourceID="odsGvDetalleApuOfertaIndice"
+                        AccessKey='<%# HttpContext.GetLocalResourceObject("~/KOALA.master", "Tec_GridRecursoKCG.AccesKey").ToString() %>'>
+                        <AlternatingRowStyle CssClass="alternatingrowstyle" />
+                        <HeaderStyle CssClass="headerstyle" />
+                        <PagerStyle CssClass="pagerstyle" />
+                        <SelectedRowStyle CssClass="selectedrowstyle" />
+                        <Columns>
+                            <asp:BoundField DataField="Apu_Indice_Nombre" 
+                                meta:resourcekey="BoundApu_Indice_NombreRecursoKCG"
+                                SortExpression="Apu_Indice_Nombre" >
+                                <itemstyle wrap="False" width="600px"/>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="Costo_Total" 
+                                meta:resourcekey="BoundCosto_TotalRecursoKCG"
+                                SortExpression="Costo_Total" 
+                                dataformatstring="{0:N2}">
+                                <headerstyle wrap="False" />
+                                <itemstyle horizontalalign="Right" width="70px" />
+                            </asp:BoundField>   
+                            <asp:BoundField DataField="Coeficiente" 
+                                meta:resourcekey="BoundCoeficienteRecursoKCG"
+                                SortExpression="Coeficiente" dataformatstring="{0:N3}">
+                                <itemstyle horizontalalign="Right" width="70px" />
+                            </asp:BoundField>  
+                            <asp:BoundField DataField="Letra" 
+                                meta:resourcekey="BoundLetraRecursoKCG"
+                                SortExpression="Letra" >
+                                <itemstyle horizontalalign="Center" />
+                            </asp:BoundField>
+                            <asp:BoundField DataField="Id" 
+                                Visible="False"
+                                SortExpression="Id" />
+                        </Columns>
+                    </koala:KGrid>
+                </td>
+            </tr>
+            <tr>
+                <td
+                    align="right" style="display:none">
+                    <asp:TextBox 
+                        ID="IndiceSumatoria"
+                        runat="server"
+                        Width="70px"
+                        Style="text-align:right"
+                        BackColor="255,255,192"
+                        ReadOnly="true">
+                    </asp:TextBox>
+                    <asp:TextBox 
+                        ID="CoeficienteSumatoria"
+                        runat="server"
+                        Width="69px"
+                        Style="text-align:right"
+                        ReadOnly="true">
+                    </asp:TextBox>
+                    <asp:TextBox 
+                        ID="TextBox1" 
+                        Width="30px"
+                        BorderColor="white"
+                        BorderStyle="Solid"
+                        ReadOnly="true"
+                        runat="server"
+                        Text="">
+                    </asp:TextBox>
+                </td>
+            </tr>
+        </table>  
+    </asp:Panel>
     </ContentTemplate>    
     </asp:UpdatePanel>
     
     <asp:ObjectDataSource ID="odsFvMaestroApuOferta" 
         runat="server" 
         OldValuesParameterFormatString="original_{0}"
-        SelectMethod="GetById" 
+        SelectMethod="GetByIdResumido" 
         SortParameterName="sortExpression" 
         TypeName="FEL.APU.BO_Apu_Oferta">
         <SelectParameters>
