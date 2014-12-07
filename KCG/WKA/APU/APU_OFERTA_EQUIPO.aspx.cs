@@ -150,10 +150,10 @@ public partial class APU_APU_OFERTA_EQUIPO : PaginaBaseKCG
 
         string estado = Request.QueryString["Estado"];
         string presupuesto_estado = Request.QueryString["Apu_Presupuesto_Estado"];
-        if (estado == "BOR" || presupuesto_estado == "PEN")
-            HabilitarControl("InsertButton");
-        else
-            DeshabilitarControl("InsertButton");
+        //if (estado == "BOR" || presupuesto_estado == "PEN")
+        //    HabilitarControl("InsertButton");
+        //else
+        //    DeshabilitarControl("InsertButton");
     }    
 
     private void HabilitarControl(string idControl)
