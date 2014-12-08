@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web.Services;
+using System.Web.Services; 
 
 using CEL.COM; // datos.xsdNombreIniciales
 using AEL.COM;
@@ -565,8 +565,23 @@ namespace EWS
         }
 		#endregion
 		#region Métodos Get
+		[WebMethod]
+		public List<Com_Planilla_Deposito> Com_Planilla_Deposito_GetByFis_Planilla_Id(Scope s , string p_Fis_Planilla_Id)
+        {
+            return Com_Planilla_Deposito.GetByFis_Planilla_Id(s,  p_Fis_Planilla_Id);
+        }
+		[WebMethod]
+		public List<Com_Planilla_Deposito> Com_Planilla_Deposito_GetById(Scope s , Int32 p_Id)
+        {
+            return Com_Planilla_Deposito.GetById(s,  p_Id);
+        }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+        public int Com_Planilla_Deposito_InsertINT(Com_Planilla_Deposito n)
+        {
+            return Com_Planilla_Deposito.InsertINT(n);
+        }
 		#endregion
 		#endregion
 		}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel;
-using HER;
+using HER; 
 
 namespace FEL.COM
 {
@@ -53,8 +53,32 @@ namespace FEL.COM
         #region Procedimientos Get
 		// Procedimientos Get
 		#region Métodos Get
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Com_Planilla_Deposito> GetByFis_Planilla_Id(Scope s , string p_Fis_Planilla_Id, string sortExpression="")
+        {
+			List<Com_Planilla_Deposito> lista = new List<Com_Planilla_Deposito>(
+				Adapter.Com_Planilla_Deposito_GetByFis_Planilla_Id(s,  p_Fis_Planilla_Id));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Com_Planilla_Deposito_Comparar(sortExpression));
+            return lista;
+        }
+		[DataObjectMethodAttribute(DataObjectMethodType.Select, false)]
+		public List<Com_Planilla_Deposito> GetById(Scope s , Int32 p_Id, string sortExpression="")
+        {
+			List<Com_Planilla_Deposito> lista = new List<Com_Planilla_Deposito>(
+				Adapter.Com_Planilla_Deposito_GetById(s,  p_Id));
+			if (!string.IsNullOrEmpty(sortExpression))
+				lista.Sort(new Com_Planilla_Deposito_Comparar(sortExpression));
+            return lista;
+        }
 		#endregion
 		#region Métodos Genéricos retornan un escalar
+		 // InsertINT
+		[DataObjectMethodAttribute(DataObjectMethodType.Insert, false)]
+		public int InsertINT(Com_Planilla_Deposito n)
+        {            
+            return Adapter.Com_Planilla_Deposito_InsertINT(n);
+        }
 		#endregion
 		#endregion
     }

@@ -343,6 +343,24 @@ TagPrefix="ajax" %>
         </SelectParameters>
     </asp:ObjectDataSource>
 	<%--Fuente de datos para los procesos genéricos --%>
+    <asp:ObjectDataSource ID="odsgvCom_Planilla_Deposito_GetByFis_Planilla_Id" runat="server" 
+        SortParameterName = "sortExpression"
+        SelectMethod="GetByFis_Planilla_Id" 
+        TypeName="FEL.COM.BO_Com_Planilla_Deposito">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+			<asp:ControlParameter ControlID="tbFiltro" Name="p_Fis_Planilla_Id" PropertyName="Text" Type="string" />
+		</SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsgvCom_Planilla_Deposito_GetById" runat="server" 
+        SortParameterName = "sortExpression"
+        SelectMethod="GetById" 
+        TypeName="FEL.COM.BO_Com_Planilla_Deposito">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+			<asp:ControlParameter ControlID="tbFiltroId" Name="p_Id" PropertyName="Text" Type="Int32" />
+		</SelectParameters>
+    </asp:ObjectDataSource>
     <%--Objetos de Datos para obtener los dominios de un campo en un objeto --%>
     <asp:ObjectDataSource ID="odsDominioAnio" runat="server" 
         SortParameterName = "sortExpression"
