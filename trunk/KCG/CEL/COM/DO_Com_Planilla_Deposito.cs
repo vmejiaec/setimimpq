@@ -5,7 +5,7 @@ using System.Text;
 
 using ADL.ComprasTableAdapters;
 using AEL.COM;
-using BEL;
+using BEL; 
 using System.Data.SqlClient;
 
 namespace CEL.COM
@@ -102,5 +102,64 @@ n.Id
         { throw (new Exception(e.Message)); }
         return res;
     } // xxx Fin de Update
-}
+	// GetByFis_Planilla_Id
+		public List<Com_Planilla_Deposito> GetByFis_Planilla_Id (Scope s , string p_Fis_Planilla_Id)
+		{
+			List<Com_Planilla_Deposito> lista = new List<Com_Planilla_Deposito>();
+			var tabla = Adapter.GetByFis_Planilla_Id( p_Fis_Planilla_Id);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new Com_Planilla_Deposito(
+				fila.Id,
+fila.Fis_Planilla_Id,
+fila.Codigo_Deposito,
+fila.Fecha_Deposito,
+fila.Comprobante_Ctbl,
+fila.Valor,
+fila.Valor_Interes,
+fila.Descripcion
+				));
+			}
+			return lista;
+		}
+		// GetById
+		public List<Com_Planilla_Deposito> GetById (Scope s , Int32 p_Id)
+		{
+			List<Com_Planilla_Deposito> lista = new List<Com_Planilla_Deposito>();
+			var tabla = Adapter.GetById( p_Id);
+			foreach (var fila in tabla)
+			{
+				lista.Add(new Com_Planilla_Deposito(
+				fila.Id,
+fila.Fis_Planilla_Id,
+fila.Codigo_Deposito,
+fila.Fecha_Deposito,
+fila.Comprobante_Ctbl,
+fila.Valor,
+fila.Valor_Interes,
+fila.Descripcion
+				));
+			}
+			return lista;
+		}
+		// InsertINT
+		public int InsertINT(Com_Planilla_Deposito n)
+    {
+        int res;
+        try {
+            res = Convert.ToInt16( Adapter.InsertINT(
+				n.Fis_Planilla_Id,
+n.Codigo_Deposito,
+n.Fecha_Deposito,
+n.Comprobante_Ctbl,
+n.Valor,
+n.Valor_Interes,
+n.Descripcion
+			));
+        }
+        catch (SqlException e)
+        { throw (new Exception( e.Message)); }
+        return res;
+    }
+	}
 }

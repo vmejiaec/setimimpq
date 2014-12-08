@@ -737,57 +737,34 @@
 			<tr >
                 <td> Codigo_Deposito </td>                
 				<td><asp:TextBox ID="Codigo_DepositoTextBox" runat="server" Text='<%# Bind("Codigo_Deposito") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqCodigo_Deposito" runat="server" 
-                    ControlToValidate="Codigo_DepositoTextBox"
-                    ErrorMessage="El campo Codigo_Deposito es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
+				
 					</td>
             </tr>
 			<tr >
                 <td> Fecha_Deposito </td>                
 				<td><asp:TextBox ID="Fecha_DepositoTextBox" runat="server" Text='<%# Bind("Fecha_Deposito","{0:d}") %>'  CssClass="txtEdit"  />
 				<asp:Button runat="server" ID="btcexFecha_Deposito" Text="."/>
-				<ajax:CalendarExtender runat="server" ID="cexFecha_Deposito" TargetControlID="Fecha_DepositoTextBox" PopupButtonID="btcexFecha_Deposito" />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqFecha_Deposito" runat="server" 
-                    ControlToValidate="Fecha_DepositoTextBox"
-                    ErrorMessage="El campo Fecha_Deposito es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
-					<asp:RangeValidator ID="rvFecha_Deposito" runat="server" 
-                    ErrorMessage="El campo Fecha_Deposito no contiene una fecha válida" 
-                    ControlToValidate="Fecha_DepositoTextBox" 
-                    Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgCom_Planilla_Deposito"/>
+				<AjaxControlToolkit:CalendarExtender runat="server" ID="cexFecha_Deposito" TargetControlID="Fecha_DepositoTextBox" PopupButtonID="btcexFecha_Deposito" />
+				
+					
 				</td>
             </tr>
 			<tr >
                 <td> Comprobante_Ctbl </td>                
 				<td><asp:TextBox ID="Comprobante_CtblTextBox" runat="server" Text='<%# Bind("Comprobante_Ctbl") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqComprobante_Ctbl" runat="server" 
-                    ControlToValidate="Comprobante_CtblTextBox"
-                    ErrorMessage="El campo Comprobante_Ctbl es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
+				
 					</td>
             </tr>
 			<tr >
                 <td> Valor </td>                
-				<td><asp:TextBox ID="ValorTextBox" runat="server" Text='<%# Bind("Valor") %>'  CssClass="txtEditValor"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqValor" runat="server" 
-                    ControlToValidate="ValorTextBox"
-                    ErrorMessage="El campo Valor es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
+				<td><asp:TextBox ID="ValorTextBox" runat="server" Text='<%# Bind("Valor","{0:N2}") %>'  CssClass="txtEditValor"  />
+				
 					</td>
             </tr>
 			<tr >
                 <td> Valor_Interes </td>                
-				<td><asp:TextBox ID="Valor_InteresTextBox" runat="server" Text='<%# Bind("Valor_Interes") %>'  CssClass="txtEditValor"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqValor_Interes" runat="server" 
-                    ControlToValidate="Valor_InteresTextBox"
-                    ErrorMessage="El campo Valor_Interes es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
+				<td><asp:TextBox ID="Valor_InteresTextBox" runat="server" Text='<%# Bind("Valor_Interes","{0:N2}") %>'  CssClass="txtEditValor"  />
+				
 					</td>
             </tr>
 			<tr >
@@ -796,7 +773,7 @@
 				</td>
             </tr>
 			</table>
-            <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" ValidationGroup="vgCom_Planilla_Deposito"/>
+            <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
             &nbsp;
             <asp:Button ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
             </asp:Panel>
@@ -817,57 +794,33 @@
 			<tr >
                 <td> Codigo_Deposito </td>                
 				<td><asp:TextBox ID="Codigo_DepositoTextBox" runat="server" Text='<%# Bind("Codigo_Deposito") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqCodigo_Deposito" runat="server" 
-                    ControlToValidate="Codigo_DepositoTextBox"
-                    ErrorMessage="El campo Codigo_Deposito es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
+				
 					</td>
             </tr>
 			<tr >
                 <td> Fecha_Deposito </td>                
 				<td><asp:TextBox ID="Fecha_DepositoTextBox" runat="server" Text='<%# Bind("Fecha_Deposito","{0:d}") %>'  CssClass="txtEdit"  />
 				<asp:Button runat="server" ID="btcexFecha_Deposito" Text="."/>
-				<ajax:CalendarExtender runat="server" ID="cexFecha_Deposito" TargetControlID="Fecha_DepositoTextBox" PopupButtonID="btcexFecha_Deposito" />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqFecha_Deposito" runat="server" 
-                    ControlToValidate="Fecha_DepositoTextBox"
-                    ErrorMessage="El campo Fecha_Deposito es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
-					<asp:RangeValidator ID="rvFecha_Deposito" runat="server" 
-                    ErrorMessage="El campo Fecha_Deposito no contiene una fecha válida" 
-                    ControlToValidate="Fecha_DepositoTextBox" 
-                    Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgCom_Planilla_Deposito"/>
+				<AjaxControlToolkit:CalendarExtender runat="server" ID="cexFecha_Deposito" TargetControlID="Fecha_DepositoTextBox" PopupButtonID="btcexFecha_Deposito" />
+				
 				</td>
             </tr>
 			<tr >
                 <td> Comprobante_Ctbl </td>                
 				<td><asp:TextBox ID="Comprobante_CtblTextBox" runat="server" Text='<%# Bind("Comprobante_Ctbl") %>'  CssClass="txtEdit"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqComprobante_Ctbl" runat="server" 
-                    ControlToValidate="Comprobante_CtblTextBox"
-                    ErrorMessage="El campo Comprobante_Ctbl es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
+				
 					</td>
             </tr>
 			<tr >
                 <td> Valor </td>                
-				<td><asp:TextBox ID="ValorTextBox" runat="server" Text='<%# Bind("Valor") %>'  CssClass="txtEditValor"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqValor" runat="server" 
-                    ControlToValidate="ValorTextBox"
-                    ErrorMessage="El campo Valor es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
+				<td><asp:TextBox ID="ValorTextBox" runat="server" Text='<%# Bind("Valor","{0:N2}") %>'  CssClass="txtEditValor"  />
+		
 					</td>
             </tr>
 			<tr >
                 <td> Valor_Interes </td>                
-				<td><asp:TextBox ID="Valor_InteresTextBox" runat="server" Text='<%# Bind("Valor_Interes") %>'  CssClass="txtEditValor"  />
-				<%--Validador--%>
-                    <asp:RequiredFieldValidator ID="rqValor_Interes" runat="server" 
-                    ControlToValidate="Valor_InteresTextBox"
-                    ErrorMessage="El campo Valor_Interes es obligatorio" 
-                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
+				<td><asp:TextBox ID="Valor_InteresTextBox" runat="server" Text='<%# Bind("Valor_Interes","{0:N2}") %>'  CssClass="txtEditValor"  />
+				
 					</td>
             </tr>
 			<tr >
@@ -876,7 +829,7 @@
 				</td>
             </tr>
 			</table>
-            <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" ValidationGroup="vgCom_Planilla_Deposito"/>
+            <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
             &nbsp;
             <asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
             </asp:Panel>
@@ -906,11 +859,11 @@
 							</tr>
 			<tr >
                 <td> Valor </td>
-				<td><asp:TextBox ID="ValorTextBox" runat="server" Text='<%# Bind("Valor") %>'  ReadOnly="true"  CssClass="txtItemValor" /></td>
+				<td><asp:TextBox ID="ValorTextBox" runat="server" Text='<%# Bind("Valor","{0:N2}") %>'  ReadOnly="true"  CssClass="txtItemValor" /></td>
 							</tr>
 			<tr >
                 <td> Valor_Interes </td>
-				<td><asp:TextBox ID="Valor_InteresTextBox" runat="server" Text='<%# Bind("Valor_Interes") %>'  ReadOnly="true"  CssClass="txtItemValor" /></td>
+				<td><asp:TextBox ID="Valor_InteresTextBox" runat="server" Text='<%# Bind("Valor_Interes","{0:N2}") %>'  ReadOnly="true"  CssClass="txtItemValor" /></td>
 							</tr>
 			<tr >
                 <td> Descripcion </td>
@@ -927,7 +880,7 @@
     </koala:FormViewSetim>
         <asp:Label ID="lbFvMsgErrorCom_Planilla_Deposito" runat="server" Text=":" CssClass="FvMensajeError"></asp:Label>
         <asp:Label ID="lbFvMsgInfoCom_Planilla_Deposito" runat="server" Text=">" CssClass="FvMensajeInfo"></asp:Label>
-        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="vgCom_Planilla_Deposito"/>
+        
     </asp:Panel>
 	<%--[X] FormView de Com_Planilla_Deposito --%>
 
@@ -1014,6 +967,24 @@
         </SelectParameters>
     </asp:ObjectDataSource>
 	<%--Fuente de datos para los procesos genéricos --%>
+    <asp:ObjectDataSource ID="odsgvCom_Planilla_Deposito_GetByFis_Planilla_Id" runat="server" 
+        SortParameterName = "sortExpression"
+        SelectMethod="GetByFis_Planilla_Id" 
+        TypeName="FEL.COM.BO_Com_Planilla_Deposito">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+			<asp:ControlParameter ControlID="Gv_Fis_Planilla_Periodo" Name="p_Fis_Planilla_Id" PropertyName="SelectedValue" Type="string" />
+		</SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsgvCom_Planilla_Deposito_GetById" runat="server" 
+        SortParameterName = "sortExpression"
+        SelectMethod="GetById" 
+        TypeName="FEL.COM.BO_Com_Planilla_Deposito">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+			<asp:ControlParameter ControlID="tbFiltroId" Name="p_Id" PropertyName="Text" Type="Int32" />
+		</SelectParameters>
+    </asp:ObjectDataSource>
     <%--Objetos de Datos para obtener los dominios de un campo en un objeto --%>
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
         SortParameterName = "sortExpression"
