@@ -355,7 +355,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <Top>3.75cm</Top>
-        <Height>0.5119cm</Height>
+        <Height>0.51191cm</Height>
         <Width>17.25cm</Width>
         <Style />
       </Tablix>
@@ -716,8 +716,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <Top>6cm</Top>
-        <Height>2.53968cm</Height>
-        <Width>15.25cm</Width>
+        <Height>2.5397cm</Height>
+        <Width>15.25001cm</Width>
         <ZIndex>4</ZIndex>
         <Style />
       </Tablix>
@@ -1481,8 +1481,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Fis_Planilla_Resumen</DataSetName>
-        <Height>3cm</Height>
-        <Width>17.5cm</Width>
+        <Height>2.99999cm</Height>
+        <Width>17.49997cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <FontSize>8pt</FontSize>
@@ -1551,7 +1551,7 @@
         <Style />
       </Tablix>
     </ReportItems>
-    <Height>8.53968cm</Height>
+    <Height>8.5397cm</Height>
     <Style />
   </Body>
   <ReportParameters>
@@ -1728,12 +1728,15 @@
         <Image Name="LogoFonsal">
           <Source>External</Source>
           <Value>=Parameters!pr_dat_empresa_imagen.Value</Value>
+          <Sizing>FitProportional</Sizing>
           <Top>0.38228cm</Top>
           <Left>0.05291cm</Left>
           <Height>2.25cm</Height>
           <Width>4.25cm</Width>
           <ZIndex>3</ZIndex>
-          <Style />
+          <Style>
+            <Border />
+          </Style>
         </Image>
         <Textbox Name="textbox8">
           <CanGrow>true</CanGrow>

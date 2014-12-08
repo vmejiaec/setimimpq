@@ -152,6 +152,12 @@
     <Compile Include="COM\DO_Com_DocTec.cs">
       <DependentUpon>GeneraCapasCOM.txt4</DependentUpon>
     </Compile>
+    <Compile Include="COM\DO_Com_Planilla_Deposito.cs">
+      <DependentUpon>GeneraCapasCOM.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="COM\DO_Com_Planilla_Pago.cs">
+      <DependentUpon>GeneraCapasCOM.txt4</DependentUpon>
+    </Compile>
     <Compile Include="COM\DO_Com_Procedimiento.cs">
       <DependentUpon>GeneraCapasCOM.txt4</DependentUpon>
     </Compile>

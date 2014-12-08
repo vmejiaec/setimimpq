@@ -152,6 +152,8 @@
       <SubType>
       </SubType>
     </Compile>
+    <Compile Include="COM\Com_Planilla_Deposito.cs" />
+    <Compile Include="COM\Com_Planilla_Pago.cs" />
     <Compile Include="COM\Com_Procedimiento.cs">
       <SubType>
       </SubType>
