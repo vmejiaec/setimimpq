@@ -1885,11 +1885,13 @@
                         </tr>
                     </table>
                 </asp:Panel>
+                
+                <div style="display:none">
                 <asp:Panel
                     ID="pnl_Codigo_Institucional"
                     runat="server"
                     meta:resourcekey="Rec_Apu_Cod_InstitucionalRecursoKCG">
-                    <table>
+                    <table >
                         <tr>
                             <td>
                                 <asp:Label 
@@ -2046,6 +2048,7 @@
                         </tr>
                     </table>
                 </asp:Panel>
+                </div>
                 <asp:Panel
                     ID="pnl_Datos_Contrato"
                     runat="server"

@@ -201,7 +201,7 @@
                     AllowPaging="True" 
                     AllowSorting="True"
                     AutoGenerateColumns="False" 
-                    DataKeyNames="Id, Apu_Presupuesto_Id" 
+                    DataKeyNames="Id" 
                     DataSourceID="odsGv_Fis_Planilla_Periodo"
                     AccessKey='<%# HttpContext.GetLocalResourceObject("~/KOALA.master", "Tec_GridRecursoKCG.AccesKey").ToString() %>'>
                                 <AlternatingRowStyle CssClass="alternatingrowstyle" />
@@ -214,10 +214,10 @@
                             SelectText="..." 
                             ShowSelectButton="True" />
                         <asp:BoundField 
-                            DataField="Apu_Presupuesto_Codigo_Institucional" 
-                            meta:resourcekey="BoundApu_Presupuesto_Codigo_InstitucionalRecursoKCG"
+                            DataField ="Apu_Presupuesto_Codigo_Institucional" 
+                            HeaderText = "Cod. Tarea"
                             SortExpression="Apu_Presupuesto_Codigo_Institucional">
-                            <ItemStyle HorizontalAlign="Right" Width="40mm" />
+                            <ItemStyle HorizontalAlign="Right" Width="40px" />
                         </asp:BoundField>
                         <asp:BoundField 
                             DataField="Apu_Presupuesto_Nombre" 
@@ -438,7 +438,618 @@
                     </SelectParameters>
                 </asp:ObjectDataSource>
             </asp:Panel>
-        </ContentTemplate>
+
+    <%--[O] GridView de Com_Planilla_Pago --%>
+    <asp:TextBox ID="tbFiltroId" runat="server" CssClass="filtroID"></asp:TextBox>
+    <asp:Panel ID="Panel1" runat="server" GroupingText="Registros">
+    <asp:GridView ID="gvCom_Planilla_Pago" runat="server" AutoGenerateColumns="False" 
+        DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvCom_Planilla_Pago" 
+        SelectedRowStyle-CssClass="selectedrowstyle" 
+		AlternatingRowStyle-CssClass="alternatingrowstyle" 
+        HeaderStyle-CssClass="headerstyle" 
+		PagerStyle-CssClass="pagerstyle"
+		AllowSorting="true"
+            onselectedindexchanged="gvCom_Planilla_Pago_SelectedIndexChanged">
+        <Columns>
+            <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
+			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  SortExpression="Id" />
+			<asp:BoundField DataField="Fis_Planilla_Id" HeaderText="Fis_Planilla_Id"   SortExpression="Fis_Planilla_Id" />
+			<asp:BoundField DataField="Fecha_Pago" HeaderText="Fecha_Pago"   DataFormatString="{0:d}" SortExpression="Fecha_Pago" />
+				<asp:BoundField DataField="Comprobante_Pago" HeaderText="Comprobante_Pago"   SortExpression="Comprobante_Pago" />
+			<asp:BoundField DataField="Factura_Memo_Pago" HeaderText="Factura_Memo_Pago"   SortExpression="Factura_Memo_Pago" />
+			<asp:BoundField DataField="Valor_Cta_X_Cobrar" HeaderText="Valor_Cta_X_Cobrar"    DataFormatString="{0:N2}"  ItemStyle-HorizontalAlign="Right"/>
+				<asp:BoundField DataField="Fecha_Pago_Confirmada" HeaderText="Fecha_Pago_Confirmada"   DataFormatString="{0:d}" SortExpression="Fecha_Pago_Confirmada" />
+				</Columns>
+    </asp:GridView>
+    </asp:Panel>
+	<%--[X] GridView de Com_Planilla_Pago --%>
+
+    <%--[O] FormView de Com_Planilla_Pago --%>
+    <asp:Panel runat="server" ID="pfvCom_Planilla_Pago" GroupingText="Crear, Editar o Borar un Registro">
+    <koala:FormViewSetim ID="fvCom_Planilla_Pago" runat="server" DataSourceID="odsfvCom_Planilla_Pago" 
+            oniteminserting="fvCom_Planilla_Pago_ItemInserting" 
+            onitemdeleted="fvCom_Planilla_Pago_ItemDeleted" 
+            oniteminserted="fvCom_Planilla_Pago_ItemInserted" 
+            onitemupdated="fvCom_Planilla_Pago_ItemUpdated"
+			ondatabound="fvCom_Planilla_Pago_DataBound" 
+            onprerender="fvCom_Planilla_Pago_PreRender"
+			onitemupdating="fvCom_Planilla_Pago_ItemUpdating"
+			onitemdeleting="fvCom_Planilla_Pago_ItemDeleting"
+			>
+        <EditItemTemplate>
+            <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
+			<table>
+			<tr style="display:none">
+                <td> Id </td>                
+				<td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  CssClass="txtEdit"  />
+				</td>
+            </tr>
+			<tr style="display:none">
+                <td> Fis_Planilla_Id </td>                
+				<td><asp:TextBox ID="Fis_Planilla_IdTextBox" runat="server" Text='<%# Bind("Fis_Planilla_Id") %>'  CssClass="txtEdit"  />
+				</td>
+            </tr>
+			<tr >
+                <td> Fecha_Pago </td>                
+				<td><asp:TextBox ID="Fecha_PagoTextBox" runat="server" Text='<%# Bind("Fecha_Pago","{0:d}") %>'  CssClass="txtEdit"  />
+				<asp:Button runat="server" ID="btcexFecha_Pago" Text="."/>
+				<AjaxControlToolkit:CalendarExtender runat="server" ID="cexFecha_Pago" TargetControlID="Fecha_PagoTextBox" PopupButtonID="btcexFecha_Pago" />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqFecha_Pago" runat="server" 
+                    ControlToValidate="Fecha_PagoTextBox"
+                    ErrorMessage="El campo Fecha_Pago es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Pago"/>
+					<asp:RangeValidator ID="rvFecha_Pago" runat="server" 
+                    ErrorMessage="El campo Fecha_Pago no contiene una fecha válida" 
+                    ControlToValidate="Fecha_PagoTextBox" 
+                    Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgCom_Planilla_Pago"/>
+				</td>
+            </tr>
+			<tr >
+                <td> Comprobante_Pago </td>                
+				<td><asp:TextBox ID="Comprobante_PagoTextBox" runat="server" Text='<%# Bind("Comprobante_Pago") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqComprobante_Pago" runat="server" 
+                    ControlToValidate="Comprobante_PagoTextBox"
+                    ErrorMessage="El campo Comprobante_Pago es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Pago"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Factura_Memo_Pago </td>                
+				<td><asp:TextBox ID="Factura_Memo_PagoTextBox" runat="server" Text='<%# Bind("Factura_Memo_Pago") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqFactura_Memo_Pago" runat="server" 
+                    ControlToValidate="Factura_Memo_PagoTextBox"
+                    ErrorMessage="El campo Factura_Memo_Pago es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Pago"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Valor_Cta_X_Cobrar </td>                
+				<td><asp:TextBox ID="Valor_Cta_X_CobrarTextBox" runat="server" Text='<%# Bind("Valor_Cta_X_Cobrar","{0:N2}") %>'  CssClass="txtEditValor"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqValor_Cta_X_Cobrar" runat="server" 
+                    ControlToValidate="Valor_Cta_X_CobrarTextBox"
+                    ErrorMessage="El campo Valor_Cta_X_Cobrar es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Pago"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Fecha_Pago_Confirmada </td>                
+				<td><asp:TextBox ID="Fecha_Pago_ConfirmadaTextBox" runat="server" Text='<%# Bind("Fecha_Pago_Confirmada","{0:d}") %>'  CssClass="txtEdit"  />
+				<asp:Button runat="server" ID="btcexFecha_Pago_Confirmada" Text="."/>
+				<AjaxControlToolkit:CalendarExtender runat="server" ID="cexFecha_Pago_Confirmada" TargetControlID="Fecha_Pago_ConfirmadaTextBox" PopupButtonID="btcexFecha_Pago_Confirmada" />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqFecha_Pago_Confirmada" runat="server" 
+                    ControlToValidate="Fecha_Pago_ConfirmadaTextBox"
+                    ErrorMessage="El campo Fecha_Pago_Confirmada es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Pago"/>
+					<asp:RangeValidator ID="rvFecha_Pago_Confirmada" runat="server" 
+                    ErrorMessage="El campo Fecha_Pago_Confirmada no contiene una fecha válida" 
+                    ControlToValidate="Fecha_Pago_ConfirmadaTextBox" 
+                    Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgCom_Planilla_Pago"/>
+				</td>
+            </tr>
+			</table>
+            <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" ValidationGroup="vgCom_Planilla_Pago"/>
+            &nbsp;
+            <asp:Button ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+            </asp:Panel>
+        </EditItemTemplate>
+        <InsertItemTemplate>
+            <asp:Panel runat="server" ID = "panelInsertTemplate" DefaultButton="InsertButton">
+			<table>
+			<tr style="display:none">
+                <td> Id </td>                
+				<td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  CssClass="txtEdit"  />
+				</td>
+            </tr>
+			<tr style="display:none">
+                <td> Fis_Planilla_Id </td>                
+				<td><asp:TextBox ID="Fis_Planilla_IdTextBox" runat="server" Text='<%# Bind("Fis_Planilla_Id") %>'  CssClass="txtEdit"  />
+				</td>
+            </tr>
+			<tr >
+                <td> Fecha_Pago </td>                
+				<td><asp:TextBox ID="Fecha_PagoTextBox" runat="server" Text='<%# Bind("Fecha_Pago","{0:d}") %>'  CssClass="txtEdit"  />
+				<asp:Button runat="server" ID="btcexFecha_Pago" Text="."/>
+				<AjaxControlToolkit:CalendarExtender runat="server" ID="cexFecha_Pago" TargetControlID="Fecha_PagoTextBox" PopupButtonID="btcexFecha_Pago" />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqFecha_Pago" runat="server" 
+                    ControlToValidate="Fecha_PagoTextBox"
+                    ErrorMessage="El campo Fecha_Pago es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Pago"/>
+					<asp:RangeValidator ID="rvFecha_Pago" runat="server" 
+                    ErrorMessage="El campo Fecha_Pago no contiene una fecha válida" 
+                    ControlToValidate="Fecha_PagoTextBox" 
+                    Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgCom_Planilla_Pago"/>
+				</td>
+            </tr>
+			<tr >
+                <td> Comprobante_Pago </td>                
+				<td><asp:TextBox ID="Comprobante_PagoTextBox" runat="server" Text='<%# Bind("Comprobante_Pago") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqComprobante_Pago" runat="server" 
+                    ControlToValidate="Comprobante_PagoTextBox"
+                    ErrorMessage="El campo Comprobante_Pago es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Pago"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Factura_Memo_Pago </td>                
+				<td><asp:TextBox ID="Factura_Memo_PagoTextBox" runat="server" Text='<%# Bind("Factura_Memo_Pago") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqFactura_Memo_Pago" runat="server" 
+                    ControlToValidate="Factura_Memo_PagoTextBox"
+                    ErrorMessage="El campo Factura_Memo_Pago es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Pago"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Valor_Cta_X_Cobrar </td>                
+				<td><asp:TextBox ID="Valor_Cta_X_CobrarTextBox" runat="server" Text='<%# Bind("Valor_Cta_X_Cobrar","{0:N2}") %>'  CssClass="txtEditValor"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqValor_Cta_X_Cobrar" runat="server" 
+                    ControlToValidate="Valor_Cta_X_CobrarTextBox"
+                    ErrorMessage="El campo Valor_Cta_X_Cobrar es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Pago"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Fecha_Pago_Confirmada </td>                
+				<td><asp:TextBox ID="Fecha_Pago_ConfirmadaTextBox" runat="server" Text='<%# Bind("Fecha_Pago_Confirmada","{0:d}") %>'  CssClass="txtEdit"  />
+				<asp:Button runat="server" ID="btcexFecha_Pago_Confirmada" Text="."/>
+				<AjaxControlToolkit:CalendarExtender runat="server" ID="cexFecha_Pago_Confirmada" TargetControlID="Fecha_Pago_ConfirmadaTextBox" PopupButtonID="btcexFecha_Pago_Confirmada" />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqFecha_Pago_Confirmada" runat="server" 
+                    ControlToValidate="Fecha_Pago_ConfirmadaTextBox"
+                    ErrorMessage="El campo Fecha_Pago_Confirmada es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Pago"/>
+					<asp:RangeValidator ID="rvFecha_Pago_Confirmada" runat="server" 
+                    ErrorMessage="El campo Fecha_Pago_Confirmada no contiene una fecha válida" 
+                    ControlToValidate="Fecha_Pago_ConfirmadaTextBox" 
+                    Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgCom_Planilla_Pago"/>
+				</td>
+            </tr>
+			</table>
+            <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" ValidationGroup="vgCom_Planilla_Pago"/>
+            &nbsp;
+            <asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+            </asp:Panel>
+        </InsertItemTemplate>
+        <ItemTemplate>
+            <asp:Panel runat="server" ID="panelItemTemplate" DefaultButton="EditButton">
+            <table>
+			<tr style="display:none">
+                <td> Id </td>
+				<td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			<tr style="display:none">
+                <td> Fis_Planilla_Id </td>
+				<td><asp:TextBox ID="Fis_Planilla_IdTextBox" runat="server" Text='<%# Bind("Fis_Planilla_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			<tr >
+                <td> Fecha_Pago </td>
+				<td><asp:TextBox ID="Fecha_PagoTextBox" runat="server" Text='<%# Bind("Fecha_Pago","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			<tr >
+                <td> Comprobante_Pago </td>
+				<td><asp:TextBox ID="Comprobante_PagoTextBox" runat="server" Text='<%# Bind("Comprobante_Pago") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			<tr >
+                <td> Factura_Memo_Pago </td>
+				<td><asp:TextBox ID="Factura_Memo_PagoTextBox" runat="server" Text='<%# Bind("Factura_Memo_Pago") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			<tr >
+                <td> Valor_Cta_X_Cobrar </td>
+				<td><asp:TextBox ID="Valor_Cta_X_CobrarTextBox" runat="server" Text='<%# Bind("Valor_Cta_X_Cobrar","{0:N2}") %>'  ReadOnly="true"  CssClass="txtItemValor" /></td>
+							</tr>
+			<tr >
+                <td> Fecha_Pago_Confirmada </td>
+				<td><asp:TextBox ID="Fecha_Pago_ConfirmadaTextBox" runat="server" Text='<%# Bind("Fecha_Pago_Confirmada","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			</table>
+            <asp:Button ID="EditButton" RunAt="server"  CausesValidation="False" CommandName="Edit" Text="Editar" />
+            &nbsp;
+            <asp:Button ID="DeleteButton" RunAt="server" CausesValidation="False" CommandName="Delete" Text="Borrar" />
+            &nbsp;
+            <asp:Button ID="NewButton" RunAt="server" CausesValidation="False" CommandName="New" Text="Nuevo" />
+            </asp:Panel>
+        </ItemTemplate>
+    </koala:FormViewSetim>
+        <asp:Label ID="lbFvMsgErrorCom_Planilla_Pago" runat="server" Text=":" CssClass="FvMensajeError"></asp:Label>
+        <asp:Label ID="lbFvMsgInfoCom_Planilla_Pago" runat="server" Text=">" CssClass="FvMensajeInfo"></asp:Label>
+        <asp:ValidationSummary ID="vsErrorResumen" runat="server" ValidationGroup="vgCom_Planilla_Pago"/>
+    </asp:Panel>
+	<%--[X] FormView de Com_Planilla_Pago --%>
+
+    <%--[O] GridView de Com_Planilla_Deposito --%>
+    <asp:Panel ID="Panel2" runat="server" GroupingText="Registros">
+    <asp:GridView ID="gvCom_Planilla_Deposito" runat="server" AutoGenerateColumns="False" 
+        DataKeyNames="Id" AllowPaging="True" DataSourceID="odsgvCom_Planilla_Deposito" 
+        SelectedRowStyle-CssClass="selectedrowstyle" 
+		AlternatingRowStyle-CssClass="alternatingrowstyle" 
+        HeaderStyle-CssClass="headerstyle" 
+		PagerStyle-CssClass="pagerstyle"
+		AllowSorting="true"
+            onselectedindexchanged="gvCom_Planilla_Deposito_SelectedIndexChanged">
+        <Columns>
+            <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
+			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  SortExpression="Id" />
+			<asp:BoundField DataField="Fis_Planilla_Id" HeaderText="Fis_Planilla_Id"   SortExpression="Fis_Planilla_Id" />
+			<asp:BoundField DataField="Codigo_Deposito" HeaderText="Codigo_Deposito"   SortExpression="Codigo_Deposito" />
+			<asp:BoundField DataField="Fecha_Deposito" HeaderText="Fecha_Deposito"   DataFormatString="{0:d}" SortExpression="Fecha_Deposito" />
+				<asp:BoundField DataField="Comprobante_Ctbl" HeaderText="Comprobante_Ctbl"   SortExpression="Comprobante_Ctbl" />
+			<asp:BoundField DataField="Valor" HeaderText="Valor"    DataFormatString="{0:N2}"  ItemStyle-HorizontalAlign="Right"/>
+				<asp:BoundField DataField="Valor_Interes" HeaderText="Valor_Interes"    DataFormatString="{0:N2}"  ItemStyle-HorizontalAlign="Right"/>
+				<asp:BoundField DataField="Descripcion" HeaderText="Descripcion"   SortExpression="Descripcion" />
+			</Columns>
+    </asp:GridView>
+    </asp:Panel>
+	<%--[X] GridView de Com_Planilla_Deposito --%>
+
+    <%--[O] FormView de Com_Planilla_Deposito --%>
+    <asp:Panel runat="server" ID="pfvCom_Planilla_Deposito" GroupingText="Crear, Editar o Borar un Registro">
+    <koala:FormViewSetim ID="fvCom_Planilla_Deposito" runat="server" DataSourceID="odsfvCom_Planilla_Deposito" 
+            oniteminserting="fvCom_Planilla_Deposito_ItemInserting" 
+            onitemdeleted="fvCom_Planilla_Deposito_ItemDeleted" 
+            oniteminserted="fvCom_Planilla_Deposito_ItemInserted" 
+            onitemupdated="fvCom_Planilla_Deposito_ItemUpdated"
+			ondatabound="fvCom_Planilla_Deposito_DataBound" 
+            onprerender="fvCom_Planilla_Deposito_PreRender"
+			onitemupdating="fvCom_Planilla_Deposito_ItemUpdating"
+			onitemdeleting="fvCom_Planilla_Deposito_ItemDeleting"
+			>
+        <EditItemTemplate>
+            <asp:Panel runat="server" ID ="panelEditTemplate" DefaultButton="UpdateButton">
+			<table>
+			<tr style="display:none">
+                <td> Id </td>                
+				<td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  CssClass="txtEdit"  />
+				</td>
+            </tr>
+			<tr >
+                <td> Fis_Planilla_Id </td>                
+				<td><asp:TextBox ID="Fis_Planilla_IdTextBox" runat="server" Text='<%# Bind("Fis_Planilla_Id") %>'  CssClass="txtEdit"  />
+				</td>
+            </tr>
+			<tr >
+                <td> Codigo_Deposito </td>                
+				<td><asp:TextBox ID="Codigo_DepositoTextBox" runat="server" Text='<%# Bind("Codigo_Deposito") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqCodigo_Deposito" runat="server" 
+                    ControlToValidate="Codigo_DepositoTextBox"
+                    ErrorMessage="El campo Codigo_Deposito es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Fecha_Deposito </td>                
+				<td><asp:TextBox ID="Fecha_DepositoTextBox" runat="server" Text='<%# Bind("Fecha_Deposito","{0:d}") %>'  CssClass="txtEdit"  />
+				<asp:Button runat="server" ID="btcexFecha_Deposito" Text="."/>
+				<ajax:CalendarExtender runat="server" ID="cexFecha_Deposito" TargetControlID="Fecha_DepositoTextBox" PopupButtonID="btcexFecha_Deposito" />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqFecha_Deposito" runat="server" 
+                    ControlToValidate="Fecha_DepositoTextBox"
+                    ErrorMessage="El campo Fecha_Deposito es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
+					<asp:RangeValidator ID="rvFecha_Deposito" runat="server" 
+                    ErrorMessage="El campo Fecha_Deposito no contiene una fecha válida" 
+                    ControlToValidate="Fecha_DepositoTextBox" 
+                    Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgCom_Planilla_Deposito"/>
+				</td>
+            </tr>
+			<tr >
+                <td> Comprobante_Ctbl </td>                
+				<td><asp:TextBox ID="Comprobante_CtblTextBox" runat="server" Text='<%# Bind("Comprobante_Ctbl") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqComprobante_Ctbl" runat="server" 
+                    ControlToValidate="Comprobante_CtblTextBox"
+                    ErrorMessage="El campo Comprobante_Ctbl es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Valor </td>                
+				<td><asp:TextBox ID="ValorTextBox" runat="server" Text='<%# Bind("Valor") %>'  CssClass="txtEditValor"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqValor" runat="server" 
+                    ControlToValidate="ValorTextBox"
+                    ErrorMessage="El campo Valor es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Valor_Interes </td>                
+				<td><asp:TextBox ID="Valor_InteresTextBox" runat="server" Text='<%# Bind("Valor_Interes") %>'  CssClass="txtEditValor"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqValor_Interes" runat="server" 
+                    ControlToValidate="Valor_InteresTextBox"
+                    ErrorMessage="El campo Valor_Interes es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Descripcion </td>                
+				<td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  CssClass="txtEditDescripcion" TextMode="MultiLine"  />
+				</td>
+            </tr>
+			</table>
+            <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" ValidationGroup="vgCom_Planilla_Deposito"/>
+            &nbsp;
+            <asp:Button ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+            </asp:Panel>
+        </EditItemTemplate>
+        <InsertItemTemplate>
+            <asp:Panel runat="server" ID = "panelInsertTemplate" DefaultButton="InsertButton">
+			<table>
+			<tr style="display:none">
+                <td> Id </td>                
+				<td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  CssClass="txtEdit"  />
+				</td>
+            </tr>
+			<tr >
+                <td> Fis_Planilla_Id </td>                
+				<td><asp:TextBox ID="Fis_Planilla_IdTextBox" runat="server" Text='<%# Bind("Fis_Planilla_Id") %>'  CssClass="txtEdit"  />
+				</td>
+            </tr>
+			<tr >
+                <td> Codigo_Deposito </td>                
+				<td><asp:TextBox ID="Codigo_DepositoTextBox" runat="server" Text='<%# Bind("Codigo_Deposito") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqCodigo_Deposito" runat="server" 
+                    ControlToValidate="Codigo_DepositoTextBox"
+                    ErrorMessage="El campo Codigo_Deposito es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Fecha_Deposito </td>                
+				<td><asp:TextBox ID="Fecha_DepositoTextBox" runat="server" Text='<%# Bind("Fecha_Deposito","{0:d}") %>'  CssClass="txtEdit"  />
+				<asp:Button runat="server" ID="btcexFecha_Deposito" Text="."/>
+				<ajax:CalendarExtender runat="server" ID="cexFecha_Deposito" TargetControlID="Fecha_DepositoTextBox" PopupButtonID="btcexFecha_Deposito" />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqFecha_Deposito" runat="server" 
+                    ControlToValidate="Fecha_DepositoTextBox"
+                    ErrorMessage="El campo Fecha_Deposito es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
+					<asp:RangeValidator ID="rvFecha_Deposito" runat="server" 
+                    ErrorMessage="El campo Fecha_Deposito no contiene una fecha válida" 
+                    ControlToValidate="Fecha_DepositoTextBox" 
+                    Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgCom_Planilla_Deposito"/>
+				</td>
+            </tr>
+			<tr >
+                <td> Comprobante_Ctbl </td>                
+				<td><asp:TextBox ID="Comprobante_CtblTextBox" runat="server" Text='<%# Bind("Comprobante_Ctbl") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqComprobante_Ctbl" runat="server" 
+                    ControlToValidate="Comprobante_CtblTextBox"
+                    ErrorMessage="El campo Comprobante_Ctbl es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Valor </td>                
+				<td><asp:TextBox ID="ValorTextBox" runat="server" Text='<%# Bind("Valor") %>'  CssClass="txtEditValor"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqValor" runat="server" 
+                    ControlToValidate="ValorTextBox"
+                    ErrorMessage="El campo Valor es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Valor_Interes </td>                
+				<td><asp:TextBox ID="Valor_InteresTextBox" runat="server" Text='<%# Bind("Valor_Interes") %>'  CssClass="txtEditValor"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqValor_Interes" runat="server" 
+                    ControlToValidate="Valor_InteresTextBox"
+                    ErrorMessage="El campo Valor_Interes es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgCom_Planilla_Deposito"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Descripcion </td>                
+				<td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  CssClass="txtEditDescripcion" TextMode="MultiLine"  />
+				</td>
+            </tr>
+			</table>
+            <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" ValidationGroup="vgCom_Planilla_Deposito"/>
+            &nbsp;
+            <asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+            </asp:Panel>
+        </InsertItemTemplate>
+        <ItemTemplate>
+            <asp:Panel runat="server" ID="panelItemTemplate" DefaultButton="EditButton">
+            <table>
+			<tr style="display:none">
+                <td> Id </td>
+				<td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			<tr >
+                <td> Fis_Planilla_Id </td>
+				<td><asp:TextBox ID="Fis_Planilla_IdTextBox" runat="server" Text='<%# Bind("Fis_Planilla_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			<tr >
+                <td> Codigo_Deposito </td>
+				<td><asp:TextBox ID="Codigo_DepositoTextBox" runat="server" Text='<%# Bind("Codigo_Deposito") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			<tr >
+                <td> Fecha_Deposito </td>
+				<td><asp:TextBox ID="Fecha_DepositoTextBox" runat="server" Text='<%# Bind("Fecha_Deposito","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			<tr >
+                <td> Comprobante_Ctbl </td>
+				<td><asp:TextBox ID="Comprobante_CtblTextBox" runat="server" Text='<%# Bind("Comprobante_Ctbl") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+			<tr >
+                <td> Valor </td>
+				<td><asp:TextBox ID="ValorTextBox" runat="server" Text='<%# Bind("Valor") %>'  ReadOnly="true"  CssClass="txtItemValor" /></td>
+							</tr>
+			<tr >
+                <td> Valor_Interes </td>
+				<td><asp:TextBox ID="Valor_InteresTextBox" runat="server" Text='<%# Bind("Valor_Interes") %>'  ReadOnly="true"  CssClass="txtItemValor" /></td>
+							</tr>
+			<tr >
+                <td> Descripcion </td>
+				<td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  ReadOnly="true"  CssClass="txtItemDescripcion" TextMode="MultiLine" /></td>
+							</tr>
+			</table>
+            <asp:Button ID="EditButton" RunAt="server"  CausesValidation="False" CommandName="Edit" Text="Editar" />
+            &nbsp;
+            <asp:Button ID="DeleteButton" RunAt="server" CausesValidation="False" CommandName="Delete" Text="Borrar" />
+            &nbsp;
+            <asp:Button ID="NewButton" RunAt="server" CausesValidation="False" CommandName="New" Text="Nuevo" />
+            </asp:Panel>
+        </ItemTemplate>
+    </koala:FormViewSetim>
+        <asp:Label ID="lbFvMsgErrorCom_Planilla_Deposito" runat="server" Text=":" CssClass="FvMensajeError"></asp:Label>
+        <asp:Label ID="lbFvMsgInfoCom_Planilla_Deposito" runat="server" Text=">" CssClass="FvMensajeInfo"></asp:Label>
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="vgCom_Planilla_Deposito"/>
+    </asp:Panel>
+	<%--[X] FormView de Com_Planilla_Deposito --%>
+
+    </ContentTemplate>
     </asp:UpdatePanel>
+
+    <%--[O]INICIO Fuentes de datos de Com_Planilla_Pago --%>
+<div>
+    <%--Fuente de datos para el GridView --%>
+    <asp:ObjectDataSource ID="odsgvCom_Planilla_Pago" runat="server" 
+        SelectMethod="Get" 
+        SortParameterName = "sortExpression"
+        TypeName="FEL.COM.BO_Com_Planilla_Pago">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+	<%--Fuente de datos para los procesos genéricos --%>
+    <asp:ObjectDataSource ID="odsgvCom_Planilla_Pago_GetByFis_Planilla_Id" runat="server" 
+        SortParameterName = "sortExpression"
+        SelectMethod="GetByFis_Planilla_Id" 
+        TypeName="FEL.COM.BO_Com_Planilla_Pago">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+			<asp:ControlParameter ControlID="Gv_Fis_Planilla_Periodo" Name="p_Fis_Planilla_Id" PropertyName="SelectedValue" Type="string" />
+		</SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsgvCom_Planilla_Pago_GetById" runat="server" 
+        SortParameterName = "sortExpression"
+        SelectMethod="GetById" 
+        TypeName="FEL.COM.BO_Com_Planilla_Pago">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+			<asp:ControlParameter ControlID="tbFiltroId" Name="p_Id" PropertyName="Text" Type="Int32" />
+		</SelectParameters>
+    </asp:ObjectDataSource>
+    <%--Objetos de Datos para obtener los dominios de un campo en un objeto --%>
+    <asp:ObjectDataSource ID="odsDominioAnio" runat="server" 
+        SortParameterName = "sortExpression"
+        SelectMethod="GetByObjetoCampo" 
+        TypeName="FEL.DIC.BO_Dic_Dominio">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="Nombre" Name="sortExpression" Type="String" />
+            <asp:SessionParameter DefaultValue="" Name="s" SessionField="Scope" Type="Object" />
+            <asp:Parameter DefaultValue="TABLA" Name="Objeto_Nombre" Type="String" />
+            <asp:Parameter DefaultValue="CAMPO" Name="Campo_Nombre" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+	<%--Objetos de Datos para el FormView --%>
+    <asp:ObjectDataSource ID="odsfvCom_Planilla_Pago" runat="server" 
+        SelectMethod="GetById"         
+        DeleteMethod="Delete" 
+        InsertMethod="InsertINT" 
+        UpdateMethod="Update"
+        SortParameterName = "sortExpression"
+        TypeName="FEL.COM.BO_Com_Planilla_Pago"
+        DataObjectTypeName="Com_Planilla_Pago"
+        ConflictDetection = "CompareAllValues"
+        OldValuesParameterFormatString="o"
+        oninserted="odsfvCom_Planilla_Pago_Inserted" 
+        onupdated="odsfvCom_Planilla_Pago_Updated" 
+		ondeleted="odsfvCom_Planilla_Pago_Deleted">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+            <asp:ControlParameter ControlID="gvCom_Planilla_Pago" Name="p_Id" PropertyName="SelectedValue" Type="Int32" />
+        </SelectParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="o" Type="Object" />
+            <asp:Parameter Name="n" Type="Object" />
+        </UpdateParameters>
+    </asp:ObjectDataSource>
+</div>
+<%--[X] FIN Fuentes de datos de Com_Planilla_Pago --%>
+
+<%--[O]INICIO Fuentes de datos de Com_Planilla_Deposito --%>
+<div>
+    <%--Fuente de datos para el GridView --%>
+    <asp:ObjectDataSource ID="odsgvCom_Planilla_Deposito" runat="server" 
+        SelectMethod="Get" 
+        SortParameterName = "sortExpression"
+        TypeName="FEL.COM.BO_Com_Planilla_Deposito">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+	<%--Fuente de datos para los procesos genéricos --%>
+    <%--Objetos de Datos para obtener los dominios de un campo en un objeto --%>
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
+        SortParameterName = "sortExpression"
+        SelectMethod="GetByObjetoCampo" 
+        TypeName="FEL.DIC.BO_Dic_Dominio">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="Nombre" Name="sortExpression" Type="String" />
+            <asp:SessionParameter DefaultValue="" Name="s" SessionField="Scope" Type="Object" />
+            <asp:Parameter DefaultValue="TABLA" Name="Objeto_Nombre" Type="String" />
+            <asp:Parameter DefaultValue="CAMPO" Name="Campo_Nombre" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+	<%--Objetos de Datos para el FormView --%>
+    <asp:ObjectDataSource ID="odsfvCom_Planilla_Deposito" runat="server" 
+        SelectMethod="GetById"         
+        DeleteMethod="Delete" 
+        InsertMethod="InsertINT" 
+        UpdateMethod="Update"
+        SortParameterName = "sortExpression"
+        TypeName="FEL.COM.BO_Com_Planilla_Deposito"
+        DataObjectTypeName="Com_Planilla_Deposito"
+        ConflictDetection = "CompareAllValues"
+        OldValuesParameterFormatString="o"
+        oninserted="odsfvCom_Planilla_Deposito_Inserted" 
+        onupdated="odsfvCom_Planilla_Deposito_Updated" 
+		ondeleted="odsfvCom_Planilla_Deposito_Deleted">
+        <SelectParameters>
+            <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
+            <asp:ControlParameter ControlID="gvCom_Planilla_Deposito" Name="p_Id" PropertyName="SelectedValue" Type="Int32" />
+        </SelectParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="o" Type="Object" />
+            <asp:Parameter Name="n" Type="Object" />
+        </UpdateParameters>
+    </asp:ObjectDataSource>
+</div>
+<%--[X] FIN Fuentes de datos de Com_Planilla_Deposito --%>
 </asp:Content>
 

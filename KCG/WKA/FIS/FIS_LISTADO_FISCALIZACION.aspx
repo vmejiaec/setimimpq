@@ -81,16 +81,15 @@
                         </asp:BoundField>
                         <asp:BoundField 
                             DataField="Codigo_Institucion" 
-                            meta:resourcekey="BoundCodigo_InstitucionRecursoKCG" 
+                            HeaderText = "Codigo Tarea"
                             SortExpression="Codigo_Institucion">
-                            <headerstyle wrap="False" />
-                            <itemstyle wrap="False" width="80mm" HorizontalAlign="Right" />
+                            <itemstyle  width="40px" HorizontalAlign="Right" />
                         </asp:BoundField>
                         <asp:BoundField 
                             DataField="SubProyecto_Costos" 
                             meta:resourcekey="BoundSubproyecto_CostosRecursoKCG"
                             SortExpression="SubProyecto_Costos" >
-                            <itemstyle wrap="False" width="80mm" Horizontalalign="Left" />
+                            
                         </asp:BoundField>
                         <asp:BoundField 
                             DataField="Costo_Total" 

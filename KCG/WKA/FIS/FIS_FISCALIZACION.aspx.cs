@@ -42,14 +42,14 @@ public partial class FIS_FIS_FISCALIZACION : PaginaBaseFormView
         TextBox txt_CodIns5 = (TextBox)Fv_Fis_Fiscalizacion.FindControl("txt_CodIns5");
         string CodInst = Codigo_Institucion.Text;
         string[] Parametros = CodInst.Split(new string[] { "-" }, StringSplitOptions.RemoveEmptyEntries);
-        if (Codigo_Institucion.Text != " ")
-        {
-            txt_CodIns1.Text = Parametros[0];
-            txt_CodIns2.Text = Parametros[1];
-            txt_CodIns3.Text = Parametros[2];
-            txt_CodIns4.Text = Parametros[3];
-            txt_CodIns5.Text = Parametros[4];
-        }
+        //if (Codigo_Institucion.Text != " ")
+        //{
+        //    txt_CodIns1.Text = Parametros[0];
+        //    txt_CodIns2.Text = Parametros[1];
+        //    txt_CodIns3.Text = Parametros[2];
+        //    txt_CodIns4.Text = Parametros[3];
+        //    txt_CodIns5.Text = Parametros[4];
+        //}
 
         if (Fv_Fis_Fiscalizacion.CurrentMode == FormViewMode.Insert)
         {

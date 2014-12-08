@@ -794,8 +794,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <Top>0.05291cm</Top>
-        <Height>3.80952cm</Height>
-        <Width>25.67123cm</Width>
+        <Height>3.80954cm</Height>
+        <Width>25.67122cm</Width>
         <Style />
       </Tablix>
       <Tablix Name="table2">
@@ -4030,8 +4030,8 @@
         </TablixRowHierarchy>
         <DataSetName>Fis_Planilla_Det_Reporte</DataSetName>
         <Top>4cm</Top>
-        <Height>5cm</Height>
-        <Width>24.78626cm</Width>
+        <Height>4.99999cm</Height>
+        <Width>24.78634cm</Width>
         <ZIndex>1</ZIndex>
         <Style />
       </Tablix>
@@ -5178,13 +5178,13 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <Top>9.5cm</Top>
-        <Height>4.44444cm</Height>
-        <Width>21.25cm</Width>
+        <Height>4.44447cm</Height>
+        <Width>21.25002cm</Width>
         <ZIndex>2</ZIndex>
         <Style />
       </Tablix>
     </ReportItems>
-    <Height>13.94444cm</Height>
+    <Height>13.94447cm</Height>
     <Style />
   </Body>
   <ReportParameters>
@@ -5709,7 +5709,7 @@
   <Width>25.75cm</Width>
   <Page>
     <PageHeader>
-      <Height>5cm</Height>
+      <Height>4.81479cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -5718,14 +5718,17 @@
             <Image Name="LogoFonsal">
               <Source>External</Source>
               <Value>=Parameters!pr_dat_empresa_imagen.Value</Value>
-              <Height>2.25cm</Height>
-              <Width>4.25cm</Width>
-              <Style />
+              <Sizing>FitProportional</Sizing>
+              <Height>1.9325cm</Height>
+              <Width>3.87958cm</Width>
+              <Style>
+                <Border />
+              </Style>
             </Image>
           </ReportItems>
           <DataElementOutput>ContentsOnly</DataElementOutput>
           <Top>2.75cm</Top>
-          <Height>2.25cm</Height>
+          <Height>1.9325cm</Height>
           <Width>25.55291cm</Width>
           <Style>
             <BackgroundColor>Gainsboro</BackgroundColor>
@@ -5840,7 +5843,7 @@
       <Style />
     </PageHeader>
     <PageFooter>
-      <Height>1cm</Height>
+      <Height>1.00003cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>

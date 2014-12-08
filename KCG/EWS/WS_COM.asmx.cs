@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Web.Services;
 
 using CEL.COM; // datos.xsdNombreIniciales
-using AEL.COM; 
+using AEL.COM;
 using BEL;
 
 namespace EWS
@@ -474,6 +474,99 @@ namespace EWS
         {
             return Com_Contrato_Legal.InsertINT(n);
         }
+		#endregion
+		#endregion
+	    #region Servicios para Com_Planilla_Pago
+        private DO_Com_Planilla_Pago _Com_Planilla_Pago;
+        public DO_Com_Planilla_Pago Com_Planilla_Pago {
+            get {
+                if (_Com_Planilla_Pago == null)
+                    _Com_Planilla_Pago = new DO_Com_Planilla_Pago();
+                return _Com_Planilla_Pago;
+            }
+        }
+
+		#region Select
+		[WebMethod]
+        public List<Com_Planilla_Pago> Com_Planilla_Pago_Get(Scope s)
+        {
+            return Com_Planilla_Pago.Get(s);
+        }
+		#endregion
+		#region Insert, Delete, Update
+		[WebMethod]
+        public int Com_Planilla_Pago_Insert(Com_Planilla_Pago n)
+        {
+            return Com_Planilla_Pago.Insert(n);
+        }
+		[WebMethod]
+        public int Com_Planilla_Pago_Delete(Com_Planilla_Pago o)
+        {
+            return Com_Planilla_Pago.Delete(o);
+        }
+		[WebMethod]
+        public int Com_Planilla_Pago_Update(Com_Planilla_Pago o,Com_Planilla_Pago n)
+        {
+            return Com_Planilla_Pago.Update(o, n);
+        }
+		#endregion
+		#region Métodos Get
+		[WebMethod]
+		public List<Com_Planilla_Pago> Com_Planilla_Pago_GetByFis_Planilla_Id(Scope s , string p_Fis_Planilla_Id)
+        {
+            return Com_Planilla_Pago.GetByFis_Planilla_Id(s,  p_Fis_Planilla_Id);
+        }
+		[WebMethod]
+		public List<Com_Planilla_Pago> Com_Planilla_Pago_GetById(Scope s , Int32 p_Id)
+        {
+            return Com_Planilla_Pago.GetById(s,  p_Id);
+        }
+		#endregion
+		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+        public int Com_Planilla_Pago_InsertINT(Com_Planilla_Pago n)
+        {
+            return Com_Planilla_Pago.InsertINT(n);
+        }
+		#endregion
+		#endregion
+	    #region Servicios para Com_Planilla_Deposito
+        private DO_Com_Planilla_Deposito _Com_Planilla_Deposito;
+        public DO_Com_Planilla_Deposito Com_Planilla_Deposito {
+            get {
+                if (_Com_Planilla_Deposito == null)
+                    _Com_Planilla_Deposito = new DO_Com_Planilla_Deposito();
+                return _Com_Planilla_Deposito;
+            }
+        }
+
+		#region Select
+		[WebMethod]
+        public List<Com_Planilla_Deposito> Com_Planilla_Deposito_Get(Scope s)
+        {
+            return Com_Planilla_Deposito.Get(s);
+        }
+		#endregion
+		#region Insert, Delete, Update
+		[WebMethod]
+        public int Com_Planilla_Deposito_Insert(Com_Planilla_Deposito n)
+        {
+            return Com_Planilla_Deposito.Insert(n);
+        }
+		[WebMethod]
+        public int Com_Planilla_Deposito_Delete(Com_Planilla_Deposito o)
+        {
+            return Com_Planilla_Deposito.Delete(o);
+        }
+		[WebMethod]
+        public int Com_Planilla_Deposito_Update(Com_Planilla_Deposito o,Com_Planilla_Deposito n)
+        {
+            return Com_Planilla_Deposito.Update(o, n);
+        }
+		#endregion
+		#region Métodos Get
+		#endregion
+		#region Métodos Genéricos retornan un escalar
 		#endregion
 		#endregion
 		}

@@ -375,7 +375,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <Top>19cm</Top>
-        <Height>0.75cm</Height>
+        <Height>0.75001cm</Height>
         <Width>14.5cm</Width>
         <Style />
       </Tablix>
@@ -1819,8 +1819,8 @@
         </TablixRowHierarchy>
         <DataSetName>Fis_Fiscalizacion</DataSetName>
         <Top>0.25cm</Top>
-        <Height>10.15872cm</Height>
-        <Width>15.97584cm</Width>
+        <Height>10.15878cm</Height>
+        <Width>15.97581cm</Width>
         <ZIndex>1</ZIndex>
         <Style />
       </Tablix>
@@ -3254,8 +3254,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <Top>11.25cm</Top>
-        <Height>7.61904cm</Height>
-        <Width>15.82937cm</Width>
+        <Height>7.61908cm</Height>
+        <Width>15.82936cm</Width>
         <ZIndex>2</ZIndex>
         <Style />
       </Tablix>
@@ -3315,12 +3315,12 @@
         </TablixRowHierarchy>
         <Top>10.5cm</Top>
         <Height>0.5cm</Height>
-        <Width>15.25cm</Width>
+        <Width>15.25001cm</Width>
         <ZIndex>3</ZIndex>
         <Style />
       </Tablix>
     </ReportItems>
-    <Height>19.75cm</Height>
+    <Height>19.75001cm</Height>
     <Style />
   </Body>
   <ReportParameters>
@@ -3639,12 +3639,15 @@
         <Image Name="LogoFonsal">
           <Source>External</Source>
           <Value>=Parameters!pr_dat_empresa_imagen.Value</Value>
+          <Sizing>FitProportional</Sizing>
           <Top>0.34392cm</Top>
           <Left>0.05291cm</Left>
           <Height>2.25cm</Height>
           <Width>4.25cm</Width>
           <ZIndex>2</ZIndex>
-          <Style />
+          <Style>
+            <Border />
+          </Style>
         </Image>
         <Rectangle Name="rectangle1">
           <DataElementOutput>ContentsOnly</DataElementOutput>
