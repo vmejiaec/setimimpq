@@ -28,7 +28,7 @@
             <asp:Panel 
                 ID="pnl_Listado" 
                 runat="server" 
-                meta:resourcekey="Rec_Apu_Presupuesto_ProvisionalRecursoKCG">
+                GroupingText="Presupuesto">
                 <koala:KGrid
                     ID="Gv_Apu_Presupuesto_Provisional" 
                     runat="server" 

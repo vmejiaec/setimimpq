@@ -90,6 +90,7 @@ public partial class PLA_Pla_Tarea_GvFv : PaginaBase
         {
             e.ExceptionHandled = true;
             e.KeepInInsertMode = true;
+            fvPla_Tarea.HayErrorInsUpd = true;
         }
         else
         {

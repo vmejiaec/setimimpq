@@ -19,9 +19,7 @@ TagPrefix="ajax" %>
     <%--Cabecera--%>
     <asp:Panel runat="server" ID="pcabAnio" GroupingText="Año">
     <p class="pTextoPagina">
-    Para filtrar las cuentas del POA de un determinado año, elija el año deseado de la lista desplegable. 
-    Para realizar una búsqueda, ingrese el criterio y luego elija el campo sobre el cual se aplicará: 
-    por Código o por Nombre.
+        Para filtrar las cuentas del POA de un determinado año, elija el año deseado de la lista desplegable. 
     </p>
         <asp:Label ID="lbFiltroAnio" runat="server" Text="Seleccionar el año:"></asp:Label>
         <asp:DropDownList ID="ddlFiltroAnio" runat="server" AutoPostBack="true" >
@@ -30,6 +28,9 @@ TagPrefix="ajax" %>
 
     <%--Filtro--%>
     <asp:Panel runat ="server" ID="pBuscar" GroupingText ="Buscar" DefaultButton="btFiltrar">
+    <p class="pTextoPagina">
+        Para realizar una búsqueda, ingrese el criterio y luego elija el campo sobre el cual se aplicará dicho criterio, ya sea por Código o por Nombre.
+    </p>
         <asp:Label ID="lbFiltro" runat="server" Text="Criterio"></asp:Label>
         <asp:TextBox ID="tbFiltro" runat="server"></asp:TextBox>
         <asp:TextBox ID="tbFiltroId" runat="server" CssClass="filtroID"></asp:TextBox>
