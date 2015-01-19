@@ -175,7 +175,7 @@ TagPrefix="ajax" %>
     relacionados con dicha tarea, así como también el árbol de cuentas por niveles a la que pertenece la tarea 
     seleccionada.
     </p>
-    <asp:FormView ID="fvPla_Tarea" runat="server" DataSourceID="odsfvPla_Tarea" 
+    <koala:FormViewSetim ID="fvPla_Tarea" runat="server" DataSourceID="odsfvPla_Tarea" 
             oniteminserting="fvPla_Tarea_ItemInserting" 
             onitemdeleted="fvPla_Tarea_ItemDeleted" 
             oniteminserted="fvPla_Tarea_ItemInserted" 
@@ -492,7 +492,7 @@ TagPrefix="ajax" %>
             <asp:Button ID="NewButton" RunAt="server" CausesValidation="False" CommandName="New" Text="Nuevo" />
             </asp:Panel>
         </ItemTemplate>
-    </asp:FormView>
+    </koala:FormViewSetim>
         <asp:Label ID="lbFvMsgErrorTarea" runat="server" Text=":" CssClass="FvMensajeError"></asp:Label>
         <asp:Label ID="lbFvMsgInfoTarea" runat="server" Text=">" CssClass="FvMensajeInfo"></asp:Label>
         <asp:ValidationSummary ID="vsErrorResumen" runat="server" ValidationGroup="vgPla_Tarea"/>

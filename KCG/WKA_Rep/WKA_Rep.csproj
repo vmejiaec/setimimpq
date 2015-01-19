@@ -534,6 +534,7 @@
     <EmbeddedResource Include="COM\Rep_Com_Contrato_Pla_Cta_Perfil.rdlc" />
     <EmbeddedResource Include="FIS\R_FIS_CATALOGO.rdlc" />
     <EmbeddedResource Include="FIS\R_FIS_LISTADO_FISCALIZACION.rdlc" />
+    <EmbeddedResource Include="FIS\R_FIS_PLANILLA.rdlc" />
     <EmbeddedResource Include="FIS\R_FIS_PLANILLA_DET.rdlc" />
     <EmbeddedResource Include="FIS\R_FIS_PLANILLA_FISCALIZADOR.rdlc" />
     <EmbeddedResource Include="FIS\R_FIS_PLANILLA_REAJUSTE.rdlc" />

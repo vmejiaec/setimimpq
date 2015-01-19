@@ -279,7 +279,8 @@ public partial class FIS_FIS_PLANILLA_PERIODO : PaginaBaseGridKCG
 
     protected void Btn_Proyecto_Click(object sender, EventArgs e)
     {        
-        string Presupuesto_Id = Gv_Fis_Planilla_Periodo.DataKeys[Gv_Fis_Planilla_Periodo.SelectedIndex].Values["Apu_Presupuesto_Id"].ToString();
+        //string Presupuesto_Id = Gv_Fis_Planilla_Periodo.DataKeys[Gv_Fis_Planilla_Periodo.SelectedIndex].Values["Apu_Presupuesto_Id"].ToString();
+        string Presupuesto_Id = "00106011285181209";
         Response.Redirect("~/FIS/FIS_FISCALIZACION.aspx?Fis_Fiscalizacion_Id=" + 
             Presupuesto_Id +
             "&Fecha_I=" + Fecha_Inicial.Text +
@@ -289,14 +290,17 @@ public partial class FIS_FIS_PLANILLA_PERIODO : PaginaBaseGridKCG
     protected void Btn_Planilla_Proyecto_Click(object sender, EventArgs e)
     {
         string Planilla_Id = Gv_Fis_Planilla_Periodo.DataKeys[Gv_Fis_Planilla_Periodo.SelectedIndex].Values["Id"].ToString();
-        string Presupuesto_Id = Gv_Fis_Planilla_Periodo.DataKeys[Gv_Fis_Planilla_Periodo.SelectedIndex].Values["Apu_Presupuesto_Id"].ToString();
+        //string Presupuesto_Id = Gv_Fis_Planilla_Periodo.DataKeys[Gv_Fis_Planilla_Periodo.SelectedIndex].Values["Apu_Presupuesto_Id"].ToString();
+        //00106011285181209
+        string Presupuesto_Id = "00106011285181209";
         Response.Redirect("~/FIS/FIS_PLANILLA_DET.aspx?Fis_Planilla_Id=" + Planilla_Id + "&Fis_Fiscalizacion_Id=" + Presupuesto_Id + "&Fecha_Inicial=" + Fecha_Inicial.Text + "&Fecha_Final=" + Fecha_Final.Text);
     }
 
     protected void Btn_Resumen_Planilla_Click(object sender, EventArgs e)
     {
         string Planilla_Id = Gv_Fis_Planilla_Periodo.DataKeys[Gv_Fis_Planilla_Periodo.SelectedIndex].Values["Id"].ToString();
-        string Presupuesto_Id = Gv_Fis_Planilla_Periodo.DataKeys[Gv_Fis_Planilla_Periodo.SelectedIndex].Values["Apu_Presupuesto_Id"].ToString();
+        //string Presupuesto_Id = Gv_Fis_Planilla_Periodo.DataKeys[Gv_Fis_Planilla_Periodo.SelectedIndex].Values["Apu_Presupuesto_Id"].ToString();
+        string Presupuesto_Id = "00106011285181209";
         Response.Redirect("~/FIS/FIS_PLANILLA_RESUMEN.aspx?Fis_Planilla_Id=" + 
             Planilla_Id + "&Fis_Fiscalizacion_Id=" + 
             Presupuesto_Id +

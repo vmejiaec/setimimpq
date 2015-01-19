@@ -209,17 +209,36 @@ public partial class PLA_Pla_Cta_GvFv : PaginaBase
                 TextBox anio = (TextBox)fvPla_Cta.FindControl("AnioTextBox");
                 anio.Text = ddlFiltroAnio.SelectedValue;
                 anio.ReadOnly = true;
+                DropDownList ddlCodigoNext = (DropDownList)fvPla_Cta.FindControl("ddlCodigo");
                 // Preparo la lista desplegable con los códigos generados auto 
-                int iPla_Cta_Id = (int)gvPla_Cta.SelectedValue;
-                FEL.VAR.BO_Pla_Cta_Codigo_Next adpCodigoNext = new FEL.VAR.BO_Pla_Cta_Codigo_Next();
-                var lista = adpCodigoNext.GetByAnio_Cta_Id(Scope, anio.Text, iPla_Cta_Id);
-                if (lista.Count > 0)
+                if (gvPla_Cta.SelectedIndex == -1)
                 {
-                    var fila = lista[0];
-                    DropDownList ddlCodigoNext = (DropDownList) fvPla_Cta.FindControl("ddlCodigo");
-                    ddlCodigoNext.Items.Add(new ListItem(fila.Cta_Bro_Next));
-                    if (!string.IsNullOrEmpty(fila.Cta_Son_Next))
-                        ddlCodigoNext.Items.Add(new ListItem(fila.Cta_Son_Next));
+                    if (gvPla_Cta.Rows.Count == 0)
+                    {
+                        // Averigua si no existen cuentas creadas en el año para proponer la primera cuenta
+                        // con código 01.
+                        FEL.PLA.BO_Pla_Cta adpCta = new BO_Pla_Cta();
+                        var ctasDelAnio = adpCta.GetByAnio(Scope, anio.Text);
+                        if ( ctasDelAnio.Count == 0)
+                            ddlCodigoNext.Items.Add(new ListItem("01."));
+                    }
+                }
+                else
+                {
+                    if (gvPla_Cta.SelectedValue != null)
+                    {
+                        int iPla_Cta_Id = (int)gvPla_Cta.SelectedValue;
+                        FEL.VAR.BO_Pla_Cta_Codigo_Next adpCodigoNext = new FEL.VAR.BO_Pla_Cta_Codigo_Next();
+                        var lista = adpCodigoNext.GetByAnio_Cta_Id(Scope, anio.Text, iPla_Cta_Id);
+                        if (lista.Count > 0)
+                        {
+                            var fila = lista[0];
+
+                            ddlCodigoNext.Items.Add(new ListItem(fila.Cta_Bro_Next));
+                            if (!string.IsNullOrEmpty(fila.Cta_Son_Next))
+                                ddlCodigoNext.Items.Add(new ListItem(fila.Cta_Son_Next));
+                        }
+                    }
                 }
                 break;
             case FormViewMode.Edit:
