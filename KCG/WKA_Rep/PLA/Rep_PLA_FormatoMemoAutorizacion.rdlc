@@ -1446,7 +1446,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>AUTORIZACION PARA INICIO DE PROCESO</Value>
+                              <Value>AUTORIZACION DE GASTO PARA INICIO DE PROCESO</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -1644,8 +1644,8 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>="Mucho agradeceré de usted se sirva autorizar el inicio del " &amp;
-"proceso para la contratación del servicio para la: " &amp; 
+                <Value>="Mucho agradeceré de usted se sirva autorizar el gasto del " &amp;
+"proceso para la contratación de: " &amp; 
 Fields!Tarea.Value &amp; 
 ", el mismo que se encuentra contemplado en el POA, " &amp;
 "de acuerdo al siguiente detalle:"</Value>
@@ -2028,7 +2028,7 @@ Parameters!pr_ProcedimientoNombre.Value &amp;
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Adj:   Términos de referencia / Estudio / Frimados por Director de Área.</Value>
+                <Value>Adj:   Términos de referencia / Estudio / Firmados por Director de Área.</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -2097,7 +2097,7 @@ Parameters!pr_ProcedimientoNombre.Value &amp;
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Revisado el pedido que antecede y sus anexos autorizo el inicio del proceso de Contratación</Value>
+                              <Value>Revisado el pedido que antecede y sus anexos autorizo el gasto para el inicio del proceso de Contratación</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>

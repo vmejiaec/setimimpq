@@ -5,7 +5,7 @@
     CodeFile="Pla_Doc_Contratacion.aspx.cs" 
     Inherits="PLA_Pla_Doc_Contratacion" %>
 
-<%@ Register tagprefix="koala" 
+<%@ Register tagprefix="koala"  
 assembly="KoalaWebControls" 
 namespace="Koala.KoalaWebControls" %>
 

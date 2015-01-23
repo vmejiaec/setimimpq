@@ -3844,6 +3844,8 @@ namespace ADL {
             
             private global::System.Data.DataColumn columnEmail_Inst;
             
+            private global::System.Data.DataColumn columnPie_Firma_Iniciales;
+            
             private global::System.Data.DataColumn columnPer_Personal_Nombre;
             
             private global::System.Data.DataColumn columnPer_Personal_NumeroDoc;
@@ -3923,6 +3925,14 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pie_Firma_InicialesColumn {
+                get {
+                    return this.columnPie_Firma_Iniciales;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Per_Personal_NombreColumn {
                 get {
                     return this.columnPer_Personal_Nombre;
@@ -3974,7 +3984,7 @@ namespace ADL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Pla_PersonalDatosRow AddPla_PersonalDatosRow(string Per_Personal_Id, string Pie_Firma_Nombre, string Pie_Firma_Cargo, string Email_Inst, string Per_Personal_Nombre, string Per_Personal_NumeroDoc) {
+            public Pla_PersonalDatosRow AddPla_PersonalDatosRow(string Per_Personal_Id, string Pie_Firma_Nombre, string Pie_Firma_Cargo, string Email_Inst, string Pie_Firma_Iniciales, string Per_Personal_Nombre, string Per_Personal_NumeroDoc) {
                 Pla_PersonalDatosRow rowPla_PersonalDatosRow = ((Pla_PersonalDatosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3982,6 +3992,7 @@ namespace ADL {
                         Pie_Firma_Nombre,
                         Pie_Firma_Cargo,
                         Email_Inst,
+                        Pie_Firma_Iniciales,
                         Per_Personal_Nombre,
                         Per_Personal_NumeroDoc};
                 rowPla_PersonalDatosRow.ItemArray = columnValuesArray;
@@ -4018,6 +4029,7 @@ namespace ADL {
                 this.columnPie_Firma_Nombre = base.Columns["Pie_Firma_Nombre"];
                 this.columnPie_Firma_Cargo = base.Columns["Pie_Firma_Cargo"];
                 this.columnEmail_Inst = base.Columns["Email_Inst"];
+                this.columnPie_Firma_Iniciales = base.Columns["Pie_Firma_Iniciales"];
                 this.columnPer_Personal_Nombre = base.Columns["Per_Personal_Nombre"];
                 this.columnPer_Personal_NumeroDoc = base.Columns["Per_Personal_NumeroDoc"];
             }
@@ -4035,6 +4047,8 @@ namespace ADL {
                 base.Columns.Add(this.columnPie_Firma_Cargo);
                 this.columnEmail_Inst = new global::System.Data.DataColumn("Email_Inst", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEmail_Inst);
+                this.columnPie_Firma_Iniciales = new global::System.Data.DataColumn("Pie_Firma_Iniciales", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPie_Firma_Iniciales);
                 this.columnPer_Personal_Nombre = new global::System.Data.DataColumn("Per_Personal_Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPer_Personal_Nombre);
                 this.columnPer_Personal_NumeroDoc = new global::System.Data.DataColumn("Per_Personal_NumeroDoc", typeof(string), null, global::System.Data.MappingType.Element);
@@ -4055,6 +4069,8 @@ namespace ADL {
                 this.columnPie_Firma_Cargo.MaxLength = 200;
                 this.columnEmail_Inst.AllowDBNull = false;
                 this.columnEmail_Inst.MaxLength = 200;
+                this.columnPie_Firma_Iniciales.AllowDBNull = false;
+                this.columnPie_Firma_Iniciales.MaxLength = 200;
                 this.columnPer_Personal_Nombre.ReadOnly = true;
                 this.columnPer_Personal_Nombre.MaxLength = 500;
                 this.columnPer_Personal_NumeroDoc.ReadOnly = true;
@@ -6223,6 +6239,17 @@ namespace ADL {
                 }
                 set {
                     this[this.tablePla_PersonalDatos.Email_InstColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Pie_Firma_Iniciales {
+                get {
+                    return ((string)(this[this.tablePla_PersonalDatos.Pie_Firma_InicialesColumn]));
+                }
+                set {
+                    this[this.tablePla_PersonalDatos.Pie_Firma_InicialesColumn] = value;
                 }
             }
             
@@ -13041,6 +13068,7 @@ namespace ADL.PlanificacionTableAdapters {
             tableMapping.ColumnMappings.Add("Pie_Firma_Nombre", "Pie_Firma_Nombre");
             tableMapping.ColumnMappings.Add("Pie_Firma_Cargo", "Pie_Firma_Cargo");
             tableMapping.ColumnMappings.Add("Email_Inst", "Email_Inst");
+            tableMapping.ColumnMappings.Add("Pie_Firma_Iniciales", "Pie_Firma_Iniciales");
             tableMapping.ColumnMappings.Add("Per_Personal_Nombre", "Per_Personal_Nombre");
             tableMapping.ColumnMappings.Add("Per_Personal_NumeroDoc", "Per_Personal_NumeroDoc");
             this._adapter.TableMappings.Add(tableMapping);
@@ -13054,6 +13082,7 @@ namespace ADL.PlanificacionTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pie_Firma_Nombre", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Pie_Firma_Nombre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pie_Firma_Cargo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Pie_Firma_Cargo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email_Inst", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Email_Inst", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pie_Firma_Iniciales", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Pie_Firma_Iniciales", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "dbo.Pla_PersonalDatos_Ins";
@@ -13063,6 +13092,7 @@ namespace ADL.PlanificacionTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pie_Firma_Nombre", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Pie_Firma_Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pie_Firma_Cargo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Pie_Firma_Cargo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email_Inst", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Email_Inst", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pie_Firma_Iniciales", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Pie_Firma_Iniciales", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "dbo.Pla_PersonalDatos_Upd";
@@ -13072,11 +13102,13 @@ namespace ADL.PlanificacionTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pie_Firma_Nombre", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Pie_Firma_Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pie_Firma_Cargo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Pie_Firma_Cargo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email_Inst", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Email_Inst", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pie_Firma_Iniciales", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Pie_Firma_Iniciales", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pie_Firma_Nombre", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Pie_Firma_Nombre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pie_Firma_Cargo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Pie_Firma_Cargo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email_Inst", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Email_Inst", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pie_Firma_Iniciales", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Pie_Firma_Iniciales", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -13281,7 +13313,7 @@ namespace ADL.PlanificacionTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(global::System.Nullable<int> Original_Id, string Original_Per_Personal_Id, string Original_Pie_Firma_Nombre, string Original_Pie_Firma_Cargo, string Original_Email_Inst) {
+        public virtual int Delete(global::System.Nullable<int> Original_Id, string Original_Per_Personal_Id, string Original_Pie_Firma_Nombre, string Original_Pie_Firma_Cargo, string Original_Email_Inst, string Original_Pie_Firma_Iniciales) {
             if ((Original_Id.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Id.Value));
             }
@@ -13312,6 +13344,12 @@ namespace ADL.PlanificacionTableAdapters {
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Email_Inst));
             }
+            if ((Original_Pie_Firma_Iniciales == null)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Pie_Firma_Iniciales));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13332,7 +13370,7 @@ namespace ADL.PlanificacionTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Per_Personal_Id, string Pie_Firma_Nombre, string Pie_Firma_Cargo, string Email_Inst) {
+        public virtual int Insert(string Per_Personal_Id, string Pie_Firma_Nombre, string Pie_Firma_Cargo, string Email_Inst, string Pie_Firma_Iniciales) {
             if ((Per_Personal_Id == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -13357,6 +13395,12 @@ namespace ADL.PlanificacionTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Email_Inst));
             }
+            if ((Pie_Firma_Iniciales == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Pie_Firma_Iniciales));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13377,7 +13421,7 @@ namespace ADL.PlanificacionTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Per_Personal_Id, string Pie_Firma_Nombre, string Pie_Firma_Cargo, string Email_Inst, global::System.Nullable<int> Original_Id, string Original_Per_Personal_Id, string Original_Pie_Firma_Nombre, string Original_Pie_Firma_Cargo, string Original_Email_Inst, global::System.Nullable<int> Id) {
+        public virtual int Update(string Per_Personal_Id, string Pie_Firma_Nombre, string Pie_Firma_Cargo, string Email_Inst, string Pie_Firma_Iniciales, global::System.Nullable<int> Original_Id, string Original_Per_Personal_Id, string Original_Pie_Firma_Nombre, string Original_Pie_Firma_Cargo, string Original_Email_Inst, string Original_Pie_Firma_Iniciales, global::System.Nullable<int> Id) {
             if ((Per_Personal_Id == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -13402,41 +13446,53 @@ namespace ADL.PlanificacionTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Email_Inst));
             }
-            if ((Original_Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Id.Value));
-            }
-            else {
+            if ((Pie_Firma_Iniciales == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((Original_Per_Personal_Id == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Pie_Firma_Iniciales));
+            }
+            if ((Original_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Per_Personal_Id));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Original_Pie_Firma_Nombre == null)) {
+            if ((Original_Per_Personal_Id == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Pie_Firma_Nombre));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Per_Personal_Id));
             }
-            if ((Original_Pie_Firma_Cargo == null)) {
+            if ((Original_Pie_Firma_Nombre == null)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Pie_Firma_Cargo));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Pie_Firma_Nombre));
             }
-            if ((Original_Email_Inst == null)) {
+            if ((Original_Pie_Firma_Cargo == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Email_Inst));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Pie_Firma_Cargo));
             }
-            if ((Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Id.Value));
+            if ((Original_Email_Inst == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Email_Inst));
+            }
+            if ((Original_Pie_Firma_Iniciales == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Pie_Firma_Iniciales));
+            }
+            if ((Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -13458,8 +13514,8 @@ namespace ADL.PlanificacionTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Per_Personal_Id, string Pie_Firma_Nombre, string Pie_Firma_Cargo, string Email_Inst, global::System.Nullable<int> Original_Id, string Original_Per_Personal_Id, string Original_Pie_Firma_Nombre, string Original_Pie_Firma_Cargo, string Original_Email_Inst) {
-            return this.Update(Per_Personal_Id, Pie_Firma_Nombre, Pie_Firma_Cargo, Email_Inst, Original_Id, Original_Per_Personal_Id, Original_Pie_Firma_Nombre, Original_Pie_Firma_Cargo, Original_Email_Inst, Original_Id);
+        public virtual int Update(string Per_Personal_Id, string Pie_Firma_Nombre, string Pie_Firma_Cargo, string Email_Inst, string Pie_Firma_Iniciales, global::System.Nullable<int> Original_Id, string Original_Per_Personal_Id, string Original_Pie_Firma_Nombre, string Original_Pie_Firma_Cargo, string Original_Email_Inst, string Original_Pie_Firma_Iniciales) {
+            return this.Update(Per_Personal_Id, Pie_Firma_Nombre, Pie_Firma_Cargo, Email_Inst, Pie_Firma_Iniciales, Original_Id, Original_Per_Personal_Id, Original_Pie_Firma_Nombre, Original_Pie_Firma_Cargo, Original_Email_Inst, Original_Pie_Firma_Iniciales, Original_Id);
         }
     }
     

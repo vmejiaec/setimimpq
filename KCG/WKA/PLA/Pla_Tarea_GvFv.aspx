@@ -7,7 +7,7 @@ Inherits="PLA_Pla_Tarea_GvFv"%>
 <%@ Register tagprefix="koala" 
 assembly="KoalaWebControls" 
 namespace="Koala.KoalaWebControls" %>
-
+ 
 <%@ Register Assembly="AjaxControlToolkit" 
 Namespace="AjaxControlToolkit" 
 TagPrefix="ajax" %>
@@ -447,18 +447,20 @@ TagPrefix="ajax" %>
                             <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" Visible="False" />
                             <asp:BoundField DataField="Estado" HeaderText="Estado"  Visible="False" />
                         </Columns>
+                        <EmptyDataTemplate>
+                            <p class="pTextoPagina">
+                            No se ha asignado.
+                            </p>
+                        </EmptyDataTemplate>
                     </asp:GridView>
 
                     <asp:ObjectDataSource ID="odsPla_Cta_Arbol" runat="server" 
-                        SelectMethod="GetByAnioArbolPla_Cta_Codigo" TypeName="FEL.PLA.BO_Pla_Cta" 
-                        onselecting="odsPla_Cta_Arbol_Selecting"
+                        SelectMethod="GetByAnioArbolPla_Tarea_Id" TypeName="FEL.PLA.BO_Pla_Cta" 
                         SortParameterName = "sortExpression">
                         <SelectParameters>
                             <asp:SessionParameter Name="s" SessionField="Scope" Type="Object" />
-                            <asp:ControlParameter ControlID="ddlCabecera" Name="p_Anio" 
-                                PropertyName="SelectedValue" Type="String" />
-                            <asp:ControlParameter ControlID="CodigoTextBox" Name="p_Pla_Cta_Codigo" 
-                                PropertyName="Text" Type="String" />
+                            <asp:ControlParameter ControlID="IdTextBox" Name="p_Pla_Tarea_Id" 
+                                PropertyName="Text" Type="Int32" />
                         </SelectParameters>
                     </asp:ObjectDataSource>
 

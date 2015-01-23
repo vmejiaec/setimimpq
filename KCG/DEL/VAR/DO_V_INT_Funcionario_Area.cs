@@ -101,6 +101,7 @@ namespace DEL.VAR
                     per_Personal_Id: sPersonal_Id,
                     pie_Firma_Nombre: oFuncionario.Persona_Nombre,
                     pie_Firma_Cargo: oFuncionario.Persona_Cargo,
+                    pie_Firma_Iniciales: oFuncionario.Persona_Nombre,
                     email_Inst: "",
                     per_Personal_Nombre:"",
                     per_Personal_NumeroDoc:"");

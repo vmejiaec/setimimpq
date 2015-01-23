@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text; 
+using System.Text;
 
 using ADL.PlanificacionTableAdapters;
 using AEL.PLA;
 using BEL;
 using System.Data.SqlClient;
- 
+
 namespace CEL.PLA
 {
     public class DO_Pla_Doc

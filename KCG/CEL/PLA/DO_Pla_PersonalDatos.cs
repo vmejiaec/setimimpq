@@ -7,8 +7,8 @@ using ADL.PlanificacionTableAdapters;
 using AEL.PLA;
 using BEL;
 using System.Data.SqlClient;
- 
-namespace CEL.PLA
+
+namespace CEL.PLA 
 {
     public class DO_Pla_PersonalDatos
     {
@@ -27,6 +27,7 @@ fila.Per_Personal_Id,
 fila.Pie_Firma_Nombre,
 fila.Pie_Firma_Cargo,
 fila.Email_Inst,
+fila.Pie_Firma_Iniciales,
 fila.Per_Personal_Nombre,
 fila.Per_Personal_NumeroDoc
 			));
@@ -42,7 +43,8 @@ fila.Per_Personal_NumeroDoc
 				n.Per_Personal_Id,
 n.Pie_Firma_Nombre,
 n.Pie_Firma_Cargo,
-n.Email_Inst
+n.Email_Inst,
+n.Pie_Firma_Iniciales
 			);
         }
         catch (SqlException e)
@@ -59,7 +61,8 @@ n.Email_Inst
 o.Per_Personal_Id,
 o.Pie_Firma_Nombre,
 o.Pie_Firma_Cargo,
-o.Email_Inst
+o.Email_Inst,
+o.Pie_Firma_Iniciales
 			);
         }
         catch (SqlException e)
@@ -77,11 +80,13 @@ o.Email_Inst
 n.Pie_Firma_Nombre,
 n.Pie_Firma_Cargo,
 n.Email_Inst,
+n.Pie_Firma_Iniciales,
 o.Id,
 o.Per_Personal_Id,
 o.Pie_Firma_Nombre,
 o.Pie_Firma_Cargo,
 o.Email_Inst,
+o.Pie_Firma_Iniciales,
 n.Id
 			);
         }
@@ -102,6 +107,7 @@ fila.Per_Personal_Id,
 fila.Pie_Firma_Nombre,
 fila.Pie_Firma_Cargo,
 fila.Email_Inst,
+fila.Pie_Firma_Iniciales,
 fila.Per_Personal_Nombre,
 fila.Per_Personal_NumeroDoc
 				));
@@ -121,6 +127,7 @@ fila.Per_Personal_Id,
 fila.Pie_Firma_Nombre,
 fila.Pie_Firma_Cargo,
 fila.Email_Inst,
+fila.Pie_Firma_Iniciales,
 fila.Per_Personal_Nombre,
 fila.Per_Personal_NumeroDoc
 				));
@@ -140,6 +147,7 @@ fila.Per_Personal_Id,
 fila.Pie_Firma_Nombre,
 fila.Pie_Firma_Cargo,
 fila.Email_Inst,
+fila.Pie_Firma_Iniciales,
 fila.Per_Personal_Nombre,
 fila.Per_Personal_NumeroDoc
 				));

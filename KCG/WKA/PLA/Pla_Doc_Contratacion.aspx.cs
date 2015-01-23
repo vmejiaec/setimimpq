@@ -9,7 +9,7 @@ using System.Configuration;
 
 public partial class PLA_Pla_Doc_Contratacion : PaginaBase
 {
-    // Nombre del contenedor
+    // Nombre del contenedor 
     protected override string Contenedor
     {
         get { return "Solicitudes Contratación"; }

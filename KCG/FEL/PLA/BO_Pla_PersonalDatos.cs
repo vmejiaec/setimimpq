@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 using HER;
- 
+
 namespace FEL.PLA
 {
     [DataObject]
@@ -126,6 +126,10 @@ namespace FEL.PLA
 				// System.String
                 case "Email_Inst":
                     retVal =  string.Compare(x.Email_Inst, y.Email_Inst);
+                    break;
+				// System.String
+                case "Pie_Firma_Iniciales":
+                    retVal =  string.Compare(x.Pie_Firma_Iniciales, y.Pie_Firma_Iniciales);
                     break;
 				// System.String
                 case "Per_Personal_Nombre":
