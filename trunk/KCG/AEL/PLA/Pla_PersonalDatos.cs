@@ -7,8 +7,8 @@
 //     se vuelve a generar el código.
 // </auto-generated>
 //------------------------------------------------------------------------------
-  
-namespace AEL.PLA
+
+namespace AEL.PLA 
 {
     using System;
     using System.Collections.Generic;
@@ -34,6 +34,9 @@ namespace AEL.PLA
         private string _Email_Inst;
         
         // Comentario
+        private string _Pie_Firma_Iniciales;
+        
+        // Comentario
         private string _Per_Personal_Nombre;
         
         // Comentario
@@ -43,13 +46,14 @@ namespace AEL.PLA
         {
         }
         
-        public Pla_PersonalDatos(int id, string per_Personal_Id, string pie_Firma_Nombre, string pie_Firma_Cargo, string email_Inst, string per_Personal_Nombre, string per_Personal_NumeroDoc)
+        public Pla_PersonalDatos(int id, string per_Personal_Id, string pie_Firma_Nombre, string pie_Firma_Cargo, string email_Inst, string pie_Firma_Iniciales, string per_Personal_Nombre, string per_Personal_NumeroDoc)
         {
             this.Id = id;
             this.Per_Personal_Id = per_Personal_Id;
             this.Pie_Firma_Nombre = pie_Firma_Nombre;
             this.Pie_Firma_Cargo = pie_Firma_Cargo;
             this.Email_Inst = email_Inst;
+            this.Pie_Firma_Iniciales = pie_Firma_Iniciales;
             this.Per_Personal_Nombre = per_Personal_Nombre;
             this.Per_Personal_NumeroDoc = per_Personal_NumeroDoc;
         }
@@ -61,6 +65,7 @@ namespace AEL.PLA
             this.Pie_Firma_Nombre = o.Pie_Firma_Nombre;
             this.Pie_Firma_Cargo = o.Pie_Firma_Cargo;
             this.Email_Inst = o.Email_Inst;
+            this.Pie_Firma_Iniciales = o.Pie_Firma_Iniciales;
             this.Per_Personal_Nombre = o.Per_Personal_Nombre;
             this.Per_Personal_NumeroDoc = o.Per_Personal_NumeroDoc;
         }
@@ -127,6 +132,19 @@ namespace AEL.PLA
             set
             {
                 this._Email_Inst = value;
+            }
+        }
+        
+        // Comentario
+        public string Pie_Firma_Iniciales
+        {
+            get
+            {
+                return this._Pie_Firma_Iniciales;
+            }
+            set
+            {
+                this._Pie_Firma_Iniciales = value;
             }
         }
         

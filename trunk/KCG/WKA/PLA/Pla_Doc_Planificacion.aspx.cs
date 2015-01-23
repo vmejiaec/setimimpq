@@ -613,6 +613,12 @@ public partial class PLA_Pla_Doc_Planificacion : PaginaBase
                     AjaxControlToolkit.AutoCompleteExtender acxPla_Partida_CodigoTextBox = new AjaxControlToolkit.AutoCompleteExtender();
                     acxPla_Partida_CodigoTextBox = (AjaxControlToolkit.AutoCompleteExtender)fvPla_Mov.FindControl("acxPla_Partida_CodigoTextBox");
                     acxPla_Partida_CodigoTextBox.ContextKey = oDoc.Pla_Tarea_Id.ToString();
+                    // Calcular el iva en el valor de planificación
+                    decimal porcentajeIVA = (decimal) 0.12;
+                    decimal valorSolicitado = oDoc.Valor_Solicita;
+                    decimal valorSolicitadoMasIVA = (1 + porcentajeIVA) * valorSolicitado;
+                    string valorSolicitadoMasIVAstring = valorSolicitadoMasIVA.ToString();
+                    ((TextBox)fvPla_Mov.FindControl("ValorTextBox")).Text = valorSolicitadoMasIVAstring;
                 }
                 break;
             case FormViewMode.Edit:

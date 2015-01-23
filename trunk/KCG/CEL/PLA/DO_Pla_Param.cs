@@ -7,7 +7,7 @@ using ADL.PlanificacionTableAdapters;
 using AEL.PLA;
 using BEL;
 using System.Data.SqlClient;
- 
+
 namespace CEL.PLA
 {
     public class DO_Pla_Param
