@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.ComponentModel;
+using System.ComponentModel; 
 using CEL.PLA;
 using BEL;
 using AEL.PLA;
-
+ 
 namespace REL.PLA
 {
     public class REL_Pla_Doc : AEL.PLA.Pla_Doc
@@ -224,7 +224,8 @@ namespace REL.PLA
                     this.Partida_Codigo_2 = listaMov[2].Pla_Partida_Codigo;
                     this.Partida_Nombre_2 = listaMov[2].Pla_Partida_Nombre;
                     this.Partida_Valor_2 = listaMov[2].Valor;
-                }                
+                }
+                
             }
             // Pongo los pies de firma
             CEL.PLA.DO_Pla_PersonalDatos adpPersonalDatos = new DO_Pla_PersonalDatos();
@@ -235,7 +236,7 @@ namespace REL.PLA
             this.Per_Personal_Id_Solicita_Pie_Firma_Cargo = filaPerDatSolicita.Pie_Firma_Cargo;
             //    Persona Planifica
             var listaPerDatPlanifica = adpPersonalDatos.GetByPer_Personal_Id(new Scope(), this.Per_Personal_Id_Planifica);
-            if (listaPerDatPlanifica.Count != 0)
+            if (listaPerDatPlanifica.Count > 0)
             {
                 var filaPerDatPlanifica = listaPerDatPlanifica[0];
                 this.Per_Personal_Id_Planifica_Pie_Firma_Nombre = filaPerDatPlanifica.Pie_Firma_Nombre;
@@ -243,7 +244,7 @@ namespace REL.PLA
             }
             //    Persona Contrata
             var listaPerDatContrata = adpPersonalDatos.GetByPer_Personal_Id(new Scope(), this.Per_Personal_Id_Contrata);
-            if (listaPerDatContrata.Count != 0)
+            if (listaPerDatContrata.Count > 0)
             {
                 var filaPerDatContrata = listaPerDatContrata[0];
                 this.Per_Personal_Id_Contrata_Pie_Firma_Nombre = filaPerDatContrata.Pie_Firma_Nombre;
@@ -256,14 +257,14 @@ namespace REL.PLA
         { 
             string Plantilla = 
                 "Yo, {0} en mi calidad de {1}, " +
-                "solicito de usted se sirva emitir certificación POA, PAC y "+
-                "certificación presupuestaria de la siguiente contratación: {2} " +
+                "solicito de usted se sirva emitir certificación POA, PAC y PRESUPUESTARIA "+
+                "de la siguiente contratación: {2} " +
                 "por un valor de: USD$ {3:N2}, más IVA.";
             string TextoLleno = String.Format(Plantilla,
                 //this.Per_Personal_Nombre_Solicita.ToUpper(),
                 this.Per_Personal_Id_Solicita_Pie_Firma_Nombre.ToUpper(),
-                this.Per_Personal_Id_Solicita_Pie_Firma_Cargo,
                 //this.Area_Nombre_Solicita.ToUpper(),
+                this.Per_Personal_Id_Solicita_Pie_Firma_Cargo,
                 this.Descripcion.ToUpper(),
                 this.Valor_Solicita
                 );
@@ -276,14 +277,14 @@ namespace REL.PLA
             string sEsta_Planificada = "";
             switch (this.Esta_Planificada)
             {
-                case "PEN": sEsta_Planificada = ""; break;
+                case "PEN": sEsta_Planificada = "NO"; break;
                 case "SIP": sEsta_Planificada = "SI"; break;
                 case "NOP": sEsta_Planificada = "NO"; break;
             }
             //
             string Plantilla =
                 "Yo, {0},  en  calidad de Jefe(a)  de  Planificación,  certifico " +
-                "que la  contratación  mencionada  por el (la) " +
+                "que la  contratación  requerida por el (la) " +
                 "{1}, {2} se encuentra contemplada en el POA,  de acuerdo al siguiente detalle: ";
             string TextoLleno = String.Format(Plantilla,
                 this.Per_Personal_Nombre_Planifica.ToUpper(),
@@ -300,22 +301,23 @@ namespace REL.PLA
             string sEsta_Contrata = "";
             switch(this.Esta_Contratada)
             {
-                case "PEN": sEsta_Contrata = ""; break;
+                case "PEN": sEsta_Contrata = "NO"; break;
                 case "SIC": sEsta_Contrata = "SI"; break;
                 case "NOC": sEsta_Contrata = "NO"; break;
             }
             //
             string Plantilla =
-                "Yo, {0} en mi calidad de Responsable de la Unidad de Contratación,  certifico que " +
-                "la contratación requerida por el área: {1}, {2} se encuentra contemplada en " +
-                "el PAC,  línea N° {3} y Código CPC: {4}";
+                "Yo, {0} en mi calidad de Responsable de la Unidad de Contratación, certifico que " +
+                "la contratación requerida por la {1}, {2} se encuentra contemplada en " +
+                "el PAC-2015:";
+                //"el PAC-2015,  línea N° {3} y Código CPC: {4}";
             string TextoLleno = String.Format(Plantilla,
                 //this.Per_Personal_Nombre_Contrata.ToUpper(),
-                this.Per_Personal_Id_Contrata_Pie_Firma_Nombre,
-                this.Area_Nombre_Solicita.ToUpper(),
-                sEsta_Contrata,
-                this.PAC_Linea,
-                this.CPC_Codigo
+                (this.Per_Personal_Id_Contrata_Pie_Firma_Nombre ?? "--").ToUpper(),
+                (this.Area_Nombre_Solicita ?? "--").ToUpper(),
+                sEsta_Contrata
+                //this.PAC_Linea,
+                //this.CPC_Codigo
                 );
             return TextoLleno;
         }
