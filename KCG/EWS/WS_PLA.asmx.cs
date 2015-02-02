@@ -571,5 +571,108 @@ namespace EWS
 		#region Métodos Genéricos retornan un escalar
 		#endregion
 		#endregion
+	    #region Servicios para Pla_Lote_Tipo
+        private DO_Pla_Lote_Tipo _Pla_Lote_Tipo;
+        public DO_Pla_Lote_Tipo Pla_Lote_Tipo {
+            get {
+                if (_Pla_Lote_Tipo == null)
+                    _Pla_Lote_Tipo = new DO_Pla_Lote_Tipo();
+                return _Pla_Lote_Tipo;
+            }
+        }
+
+		#region Select
+		[WebMethod]
+        public List<Pla_Lote_Tipo> Pla_Lote_Tipo_Get(Scope s)
+        {
+            return Pla_Lote_Tipo.Get(s);
+        }
+		#endregion
+		#region Insert, Delete, Update
+		[WebMethod]
+        public int Pla_Lote_Tipo_Insert(Pla_Lote_Tipo n)
+        {
+            return Pla_Lote_Tipo.Insert(n);
+        }
+		[WebMethod]
+        public int Pla_Lote_Tipo_Delete(Pla_Lote_Tipo o)
+        {
+            return Pla_Lote_Tipo.Delete(o);
+        }
+		[WebMethod]
+        public int Pla_Lote_Tipo_Update(Pla_Lote_Tipo o,Pla_Lote_Tipo n)
+        {
+            return Pla_Lote_Tipo.Update(o, n);
+        }
+		#endregion
+		#region Métodos Get
+		[WebMethod]
+		public List<Pla_Lote_Tipo> Pla_Lote_Tipo_GetById(Scope s , Int32 p_Id)
+        {
+            return Pla_Lote_Tipo.GetById(s,  p_Id);
+        }
+		#endregion
+		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+        public int Pla_Lote_Tipo_InsertINT(Pla_Lote_Tipo n)
+        {
+            return Pla_Lote_Tipo.InsertINT(n);
+        }
+		#endregion
+		#endregion
+	    #region Servicios para Pla_Lote
+        private DO_Pla_Lote _Pla_Lote;
+        public DO_Pla_Lote Pla_Lote {
+            get {
+                if (_Pla_Lote == null)
+                    _Pla_Lote = new DO_Pla_Lote();
+                return _Pla_Lote;
+            }
+        }
+
+		#region Select
+		[WebMethod]
+        public List<Pla_Lote> Pla_Lote_Get(Scope s)
+        {
+            return Pla_Lote.Get(s);
+        }
+		#endregion
+		#region Insert, Delete, Update
+		[WebMethod]
+        public int Pla_Lote_Insert(Pla_Lote n)
+        {
+            return Pla_Lote.Insert(n);
+        }
+		[WebMethod]
+        public int Pla_Lote_Delete(Pla_Lote o)
+        {
+            return Pla_Lote.Delete(o);
+        }
+		[WebMethod]
+        public int Pla_Lote_Update(Pla_Lote o,Pla_Lote n)
+        {
+            return Pla_Lote.Update(o, n);
+        }
+		#endregion
+		#region Métodos Get
+		[WebMethod]
+		public List<Pla_Lote> Pla_Lote_GetById(Scope s , Int32 p_Id)
+        {
+            return Pla_Lote.GetById(s,  p_Id);
+        }
+		[WebMethod]
+		public List<Pla_Lote> Pla_Lote_GetByPla_Lote_Tipo_Id(Scope s , Int32 p_Pla_Lote_Tipo_Id)
+        {
+            return Pla_Lote.GetByPla_Lote_Tipo_Id(s,  p_Pla_Lote_Tipo_Id);
+        }
+		#endregion
+		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+        public int Pla_Lote_InsertINT(Pla_Lote n)
+        {
+            return Pla_Lote.InsertINT(n);
+        }
+		#endregion
+		#endregion
 		}
 }

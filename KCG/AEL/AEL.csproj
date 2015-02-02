@@ -217,6 +217,8 @@
       <SubType>
       </SubType>
     </Compile>
+    <Compile Include="PLA\Pla_Lote.cs" />
+    <Compile Include="PLA\Pla_Lote_Tipo.cs" />
     <Compile Include="PLA\Pla_Mov.cs">
       <SubType>
       </SubType>

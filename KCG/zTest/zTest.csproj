@@ -11,7 +11,8 @@
     <RootNamespace>zTest</RootNamespace>
     <AssemblyName>zTest</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -69,6 +70,10 @@
       <Project>{B5EE6234-C960-4F34-8333-4F28A87D8941}</Project>
       <Name>CEL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DEL\DEL.csproj">
+      <Project>{C5F4EE17-BFF0-459A-B4B8-8BE62A431C07}</Project>
+      <Name>DEL</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\ADL.dll" />
@@ -110,8 +115,13 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="PACPOA2015Modificado.xlsx" />
     <None Include="PACPOA2015Original.xlsx" />
+    <None Include="PERSONAL2015.xlsx" />
+    <None Include="POA_2015_ARRASTRES.xlsx" />
+    <None Include="POA_2015_ARRASTRES_Original.xlsx" />
+    <None Include="POA_2015_SIPRO_ARRASTRES.xlsx" />
     <None Include="WordTemplates\CONTRATODEEJECUCIONDEOBRACOTIZACION.docx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
