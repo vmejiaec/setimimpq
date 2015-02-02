@@ -216,6 +216,12 @@
     <Compile Include="PLA\DO_Pla_Doc.cs">
       <DependentUpon>generaCapasPLA.txt4</DependentUpon>
     </Compile>
+    <Compile Include="PLA\DO_Pla_Lote.cs">
+      <DependentUpon>generaCapasPLA.txt4</DependentUpon>
+    </Compile>
+    <Compile Include="PLA\DO_Pla_Lote_Tipo.cs">
+      <DependentUpon>generaCapasPLA.txt4</DependentUpon>
+    </Compile>
     <Compile Include="PLA\DO_Pla_Mov.cs">
       <DependentUpon>generaCapasPLA.txt4</DependentUpon>
     </Compile>

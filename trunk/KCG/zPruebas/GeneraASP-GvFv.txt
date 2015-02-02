@@ -1,8 +1,8 @@
 ﻿
 // Generated helper templates
-// C:\IMPQ\Code\KApu_01\WEB\zGEN\COM\GeneraASP-GvFv.txt4
+// C:\IMPQ\Code\KApu_01\WEB\zGEN\PLA\GeneraASP-GvFv.txt4
 // Generated items
-// C:\IMPQ\Code\KApu_01\WEB\zGEN\COM\Com_Planilla_Deposito_GvFv.aspx.cs
-// C:\IMPQ\Code\KApu_01\WEB\zGEN\COM\Com_Planilla_Deposito_GvFv.aspx
+// C:\IMPQ\Code\KApu_01\WEB\zGEN\PLA\Pla_Lote_GvFv.aspx.cs
+// C:\IMPQ\Code\KApu_01\WEB\zGEN\PLA\Pla_Lote_GvFv.aspx
 
 // Crea una página ASP.NET tipo GridView -  FormView
