@@ -8,7 +8,7 @@
 // </auto-generated> 
 //------------------------------------------------------------------------------
 
-namespace AEL.COM
+namespace AEL.COM 
 {
     using System;
     using System.Collections.Generic;

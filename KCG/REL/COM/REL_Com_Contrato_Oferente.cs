@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using BEL;
 
-namespace REL.COM
+namespace REL.COM 
 {
     public class REL_Com_Contrato_Oferente : AEL.COM.Com_Contrato_Oferente
     {

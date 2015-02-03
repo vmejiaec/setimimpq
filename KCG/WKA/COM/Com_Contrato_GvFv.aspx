@@ -372,7 +372,7 @@ TagPrefix="ajax" %>
                 <tr >
                     <td> Cierre Ofertas </td>
 				    <td>
-                        <asp:TextBox ID="Fecha_Cierre_Rec_OfertasTextBox" runat="server" Text='<%# Bind("Fecha_Cierre_Rec_Ofertas","{0:d}") %>'  
+                        <asp:TextBox ID="Fecha_Cierre_Rec_OfertasTextBox" runat="server" Text='<%# Bind("Fecha_Cierre_Rec_Ofertas","{0:dd/MM/yyyy hh:mm}") %>'  
                             CssClass="txtEdit" />
                         <asp:Button runat="server" ID="btcexFecha_Cierre_Rec_Ofertas" Text="."/>
 				        <ajax:CalendarExtender runat="server" ID="cexFecha_Cierre_Rec_Ofertas" TargetControlID="Fecha_Cierre_Rec_OfertasTextBox" PopupButtonID="btcexFecha_Cierre_Rec_Ofertas" />
@@ -796,7 +796,7 @@ TagPrefix="ajax" %>
                 </tr>
                 <tr >
                     <td> Cierre Ofertas </td>
-				    <td><asp:TextBox ID="Fecha_Cierre_Rec_OfertasTextBox" runat="server" Text='<%# Bind("Fecha_Cierre_Rec_Ofertas","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+				    <td><asp:TextBox ID="Fecha_Cierre_Rec_OfertasTextBox" runat="server" Text='<%# Bind("Fecha_Cierre_Rec_Ofertas","{0:dd/MM/yyyy hh:mm}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 			    </tr>
             </table>
             </asp:Panel>
