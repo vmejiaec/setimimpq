@@ -595,20 +595,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="APU\Apu_Proyecto_Oferta_Rubro_Reporte.aspx" />
-    <Content Include="bin\ADL.dll" />
-    <Content Include="bin\ADL.pdb" />
-    <Content Include="bin\AEL.dll" />
-    <Content Include="bin\AEL.pdb" />
     <Content Include="bin\AjaxControlToolkit.dll" />
-    <Content Include="bin\BEL.dll" />
-    <Content Include="bin\BEL.pdb" />
-    <Content Include="bin\CEL.dll" />
-    <Content Include="bin\CEL.pdb" />
     <Content Include="bin\ConvertCantidad.dll" />
-    <Content Include="bin\HER.dll" />
-    <Content Include="bin\HER.pdb" />
-    <Content Include="bin\REL.dll" />
-    <Content Include="bin\REL.pdb" />
     <Content Include="FIS\R_FIS_PLANILLA_DET.aspx" />
     <Content Include="FIS\R_FIS_PLANILLA_FISCALIZADOR.aspx" />
     <Content Include="FIS\R_FIS_PLANILLA_REAJUSTE.aspx" />

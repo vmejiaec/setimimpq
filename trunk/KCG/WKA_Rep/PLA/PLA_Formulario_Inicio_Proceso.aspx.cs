@@ -14,7 +14,7 @@ namespace WKA_Rep.PLA
         {
             Scope = Scope_Factory.Get(Request.QueryString);
                         
-            ReportParameter[] parametros = new ReportParameter[2];
+            ReportParameter[] parametros = new ReportParameter[3];
             if (!IsPostBack)
             {
                 // Consulta el documento para obtener la persona que contrata
@@ -23,6 +23,12 @@ namespace WKA_Rep.PLA
                 var listaDocs = adpDoc.GetById(Scope, Pla_Doc_Id);
                 if (listaDocs.Count > 0)
                 {
+                    // Consulta el código de la tarea
+                    int TarId = listaDocs[0].Pla_Tarea_Id;
+                    CEL.PLA.DO_Pla_Tarea adpTar = new CEL.PLA.DO_Pla_Tarea();
+                    var listaTar = adpTar.GetById(Scope, TarId);
+                    string sTarea_Codigo = "";
+                    if (listaTar.Count > 0) sTarea_Codigo = string.Format("{0}", listaTar[0].Codigo);
                     // Consulta las iniciales del usuario para mandarlas como parámetro al reporte
                     CEL.PLA.DO_Pla_PersonalDatos adpPersonalDatos = new CEL.PLA.DO_Pla_PersonalDatos();
                     var listaPerDatUsuario = adpPersonalDatos.GetByPer_Personal_Id(Scope, listaDocs[0].Per_Personal_Id_Contrata);
@@ -37,6 +43,7 @@ namespace WKA_Rep.PLA
                     parametros[0] = new ReportParameter("pr_Usuario_Nombre", Scope.Int_Usuario_Nombre);
                     parametros[1] = new ReportParameter("pr_Logo_Imagen", urlLogo);
                     parametros[1] = new ReportParameter("pr_Per_Persona_Contrata_Iniciales", Persona_Contrata_Pie_Firma_Iniciales);
+                    parametros[2] = new ReportParameter("pr_Tarea_Codigo", sTarea_Codigo);
                     ReportViewer1.LocalReport.SetParameters(parametros);
                 }
             }
