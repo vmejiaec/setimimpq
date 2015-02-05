@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" 
 MasterPageFile="~/MasterReportes.Master" 
 AutoEventWireup="true" 
-CodeBehind="PLA_Formulario_Inicio_Proceso.aspx.cs" 
+CodeBehind="PLA_Formulario_Inicio_Proceso.aspx.cs"  
 Inherits="WKA_Rep.PLA.PLA_Formulario_Inicio_Proceso" %>
-
+ 
 <%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 
 namespace="Microsoft.Reporting.WebForms" 
 tagprefix="rsweb" %>

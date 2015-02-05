@@ -76,14 +76,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\ADL.dll" />
-    <Content Include="bin\Debug\ADL.pdb" />
+    <Content Include="archivoOUT.txt" />
     <Content Include="bin\Debug\Excel.dll" />
     <Content Include="bin\Debug\Excel.pdb" />
     <Content Include="bin\Debug\ICSharpCode.SharpZipLib.dll" />
-    <Content Include="bin\Debug\zTest.exe" />
-    <Content Include="bin\Debug\zTest.pdb" />
-    <Content Include="bin\Debug\zTest.vshost.exe" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
@@ -119,9 +115,12 @@
     <None Include="PACPOA2015Modificado.xlsx" />
     <None Include="PACPOA2015Original.xlsx" />
     <None Include="PERSONAL2015.xlsx" />
+    <None Include="POA 2015 REFORMADO.xlsx" />
     <None Include="POA_2015_ARRASTRES.xlsx" />
     <None Include="POA_2015_ARRASTRES_Original.xlsx" />
+    <None Include="POA_2015_ARRASTRE_Final.xlsx" />
     <None Include="POA_2015_SIPRO_ARRASTRES.xlsx" />
+    <None Include="POA_2015__.xlsx" />
     <None Include="WordTemplates\CONTRATODEEJECUCIONDEOBRACOTIZACION.docx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

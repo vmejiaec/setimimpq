@@ -36,7 +36,7 @@ namespace zTest
         static void Main(string[] args)
         {
             //
-            string filePath = @"../../POA_2015_SIPRO_ARRASTRES.xlsx";
+            string filePath = @"../../POA_2015_ARRASTRE_Final.xlsx";
             FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);
             IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
             excelReader.IsFirstRowAsColumnNames = true;
@@ -67,13 +67,13 @@ namespace zTest
                     case "NewPar":  // Crear partida
                         fila.CrearPAR();
                         break;
-                    case "NewACT":
+                    case "NewACT":  // Crear actividad
                         fila.CrearACT();
                         break;
-                    case "UpdVal":
+                    case "UpdVal":  // Actualizar valor
                         fila.ActualizaValorPoa();
                         break;
-                    case "NewTAR":
+                    case "NewTAR":  // Crear tarea
                         fila.CrearTAR();
                         break;
                 }
@@ -238,6 +238,8 @@ namespace zTest
             Producto_Codigo= fila.GetString(4);
             Producto_Nombre= fila.GetString(5);
             Actividad_Codigo= fila.GetString(6);
+            if (Actividad_Codigo == "0")
+            { int i = 0;}
             Actividad_Nombre= fila.GetString(7);
             Tarea_Codigo= fila.GetString(8);
             Tarea_Nombre= fila.GetString(9);
@@ -397,7 +399,11 @@ namespace zTest
             oProducto = listaCta[0];
             // verifica ACT
             listaCta = adpCta.GetByAnioLikeCodigo(scope, "2015", Actividad_Codigo);
-            if (listaCta.Count == 0) return "NewACT";
+            if (listaCta.Count == 0) 
+                return "NewACT";
+            int i = 0;
+            if (listaCta[0].Codigo == "01.06.02.")
+                i = 0;
             oActividad = new AEL.PLA.Pla_Cta();
             oActividad = listaCta[0];
             // verifica TARea
