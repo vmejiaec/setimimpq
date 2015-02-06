@@ -1709,7 +1709,7 @@ Parameters!pr_ProcedimientoNombre.Value &amp;
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Atentamente,</Value>
+                <Value>Atentamente.</Value>
                 <Style />
               </TextRun>
             </TextRuns>
