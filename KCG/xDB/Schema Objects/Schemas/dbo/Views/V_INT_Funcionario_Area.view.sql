@@ -8,7 +8,7 @@ SELECT     Area_Codigo collate Modern_Spanish_CI_AS as Area_Codigo,
 		   Persona_Cargo collate Modern_Spanish_CI_AS as Persona_Cargo, 
 		   Persona_Usuario collate Modern_Spanish_CI_AS as Persona_Usuario, 
 		   Persona_Password collate Modern_Spanish_CI_AS as Persona_Password
-FROM  SIGDOC.dbo.GD_Funcionario_Area
+FROM  dbo.GD_Funcionario_Area
 
 
 GO
