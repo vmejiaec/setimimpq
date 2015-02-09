@@ -1,0 +1,3 @@
+﻿CREATE ROLE [CONSULTAS]
+    AUTHORIZATION [dbo];
+

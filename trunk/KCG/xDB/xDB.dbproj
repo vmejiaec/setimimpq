@@ -7752,6 +7752,9 @@
     <Build Include="Schema Objects\Database Level Objects\Service Broker\Routes\AutoCreatedLocal.route.sql">
       <SubType>Code</SubType>
     </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Synonyms\Synonym2.synonym.sql">
+      <SubType>Code</SubType>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <NotInBuild Include="Schema Objects\Database Level Objects\Assemblies\KComparar.dll">
@@ -7769,5 +7772,13 @@
       <SqlOwnerName>dbo</SqlOwnerName>
       <SqlPermissionSet>SAFE</SqlPermissionSet>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\xDBref\xDBref.dbproj">
+      <Name>xDBref</Name>
+      <Project>{fe0b37a1-a099-47a1-95ad-bc2e9ffee755}</Project>
+      <Private>True</Private>
+      <DatabaseVariableName>SIGDOC</DatabaseVariableName>
+    </ProjectReference>
   </ItemGroup>
 </Project>
