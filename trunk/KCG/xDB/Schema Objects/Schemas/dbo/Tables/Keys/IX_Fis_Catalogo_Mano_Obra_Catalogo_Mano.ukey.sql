@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[Fis_Catalogo_Mano_Obra]
+    ADD CONSTRAINT [IX_Fis_Catalogo_Mano_Obra_Catalogo_Mano] UNIQUE NONCLUSTERED ([Fis_Catalogo_Id] ASC, [Apu_Mano_Obra_Id] ASC) WITH (ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, PAD_INDEX = OFF, IGNORE_DUP_KEY = OFF, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY];
+

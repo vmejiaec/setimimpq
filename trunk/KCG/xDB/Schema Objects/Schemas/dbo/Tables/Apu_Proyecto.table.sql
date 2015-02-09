@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Apu_Proyecto] (
+    [Id]                          VARCHAR (17)    NOT NULL,
+    [Codigo]                      VARCHAR (200)   NOT NULL,
+    [Codigo_Institucion]          VARCHAR (200)   NULL,
+    [Nombre]                      VARCHAR (500)   NOT NULL,
+    [Apu_Lugar_Id]                VARCHAR (17)    NOT NULL,
+    [Area]                        NUMERIC (17, 4) NOT NULL,
+    [Porcentaje_Costo_Indirecto]  NUMERIC (5, 2)  NOT NULL,
+    [Porcentaje_Costo_Otros]      NUMERIC (5, 2)  NOT NULL,
+    [Fecha_Creacion]              SMALLDATETIME   NOT NULL,
+    [Coordinador_Per_Personal_Id] VARCHAR (17)    NULL,
+    [Tecnico_Per_Personal_Id]     VARCHAR (17)    NOT NULL,
+    [Etapa]                       CHAR (3)        NOT NULL,
+    [Int_Sucursal_Id]             VARCHAR (17)    NOT NULL,
+    [Int_Moneda_Id]               VARCHAR (17)    NOT NULL,
+    [Fecha_Update]                SMALLDATETIME   NOT NULL,
+    [Creacion_Per_Personal_Id]    VARCHAR (17)    NOT NULL,
+    [Update_Per_Personal_Id]      VARCHAR (17)    NOT NULL,
+    [Estado]                      CHAR (3)        NULL,
+    [Costo_Directo]               NUMERIC (17, 4) NULL,
+    [Costo_Total]                 NUMERIC (17, 4) NULL,
+    [Costo_Indirecto]             NUMERIC (17, 4) NULL,
+    [Costo_Otros]                 NUMERIC (17, 4) NULL,
+    [Descripcion]                 VARCHAR (2000)  NULL,
+    [Tipo_Contrato]               CHAR (3)        NOT NULL
+);
+
