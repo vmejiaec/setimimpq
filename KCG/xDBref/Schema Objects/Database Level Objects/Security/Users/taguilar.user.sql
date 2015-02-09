@@ -1,0 +1,2 @@
+﻿CREATE USER [taguilar] WITHOUT LOGIN;
+

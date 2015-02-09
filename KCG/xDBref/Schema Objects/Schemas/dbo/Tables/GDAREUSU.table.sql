@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[GDAREUSU] (
+    [GD_CODIGO_INSTITUCION]  VARCHAR (40) NOT NULL,
+    [GD_CODIGO_SUCURSAL]     VARCHAR (40) NOT NULL,
+    [GD_CODIGO_AREA]         VARCHAR (8)  NOT NULL,
+    [GD_NUMERO_REESTRUCTURA] INT          NOT NULL,
+    [GD_NOMBRE_AREA]         VARCHAR (60) NOT NULL,
+    [GD_SIGLAS]              VARCHAR (10) NOT NULL,
+    [GD_AREA_PADRE]          VARCHAR (8)  NULL,
+    [GD_SUCURSAL]            VARCHAR (40) NULL,
+    [GD_INSTITUCION_PADRE]   VARCHAR (40) NULL,
+    [GD_NIVEL]               INT          NOT NULL,
+    [GD_DELEGA]              VARCHAR (2)  NOT NULL,
+    [GD_REASIGNA]            VARCHAR (2)  NOT NULL,
+    [GD_ESTADO]              VARCHAR (8)  NOT NULL,
+    [GD_USUARIO]             VARCHAR (20) NOT NULL,
+    [GD_FECHA_REGISTRO]      DATETIME     NOT NULL
+);
+

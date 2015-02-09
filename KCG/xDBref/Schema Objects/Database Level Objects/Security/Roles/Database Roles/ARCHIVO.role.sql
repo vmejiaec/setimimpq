@@ -1,0 +1,3 @@
+﻿CREATE ROLE [ARCHIVO]
+    AUTHORIZATION [dbo];
+
