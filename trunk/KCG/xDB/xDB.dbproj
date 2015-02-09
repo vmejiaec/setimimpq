@@ -7752,7 +7752,10 @@
     <Build Include="Schema Objects\Database Level Objects\Service Broker\Routes\AutoCreatedLocal.route.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Schemas\dbo\Synonyms\Synonym2.synonym.sql">
+    <Build Include="Schema Objects\Schemas\dbo\Synonyms\GD_Area.synonym.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Synonyms\GD_Funcionario_Area.synonym.sql">
       <SubType>Code</SubType>
     </Build>
   </ItemGroup>
