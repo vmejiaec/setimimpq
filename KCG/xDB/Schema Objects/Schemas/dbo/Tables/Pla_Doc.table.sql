@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[Pla_Doc] (
+    [Id]                        INT             IDENTITY (1, 1) NOT NULL,
+    [Codigo]                    VARCHAR (200)   NOT NULL,
+    [Tipo]                      CHAR (3)        NOT NULL,
+    [Fecha_Solicita]            SMALLDATETIME   NOT NULL,
+    [Per_Personal_Id_Solicita]  VARCHAR (17)    NOT NULL,
+    [Area_Codigo_Solicita]      VARCHAR (500)   NOT NULL,
+    [Descripcion]               VARCHAR (500)   NOT NULL,
+    [Estado]                    CHAR (3)        NOT NULL,
+    [Per_Personal_Id_Crea]      VARCHAR (17)    NOT NULL,
+    [Per_Personal_Id_Modifica]  VARCHAR (17)    NOT NULL,
+    [Valor_Solicita]            NUMERIC (17, 4) NOT NULL,
+    [Per_Personal_Id_Planifica] VARCHAR (17)    NULL,
+    [Esta_Planificada]          CHAR (3)        NOT NULL,
+    [Per_Personal_Id_Contrata]  VARCHAR (17)    NULL,
+    [Esta_Contratada]           CHAR (3)        NOT NULL,
+    [PAC_Linea]                 VARCHAR (50)    NOT NULL,
+    [CPC_Codigo]                VARCHAR (50)    NOT NULL,
+    [Fecha_Contrata]            SMALLDATETIME   NOT NULL,
+    [Fecha_Planifica]           SMALLDATETIME   NOT NULL,
+    [Cedula_Presup_Codigo]      VARCHAR (100)   NOT NULL,
+    [Contrata_Desc]             VARCHAR (200)   NOT NULL,
+    [Pla_Tarea_Id]              INT             NULL
+);
+

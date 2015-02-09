@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[Pla_Mov]
+    ADD CONSTRAINT [FK_Pla_Mov_Pla_Poa] FOREIGN KEY ([Pla_Poa_Id]) REFERENCES [dbo].[Pla_Poa] ([Id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+

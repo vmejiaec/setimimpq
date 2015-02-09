@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[Seg_Rol_Usuario_Det]
+    ADD CONSTRAINT [IX_Seg_Rol_Usuario_Det_Rol_Usuario_Sucursal] UNIQUE NONCLUSTERED ([Seg_Rol_Usuario_Id] ASC, [Int_Sucursal_Id] ASC) WITH (ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, PAD_INDEX = OFF, IGNORE_DUP_KEY = OFF, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY];
+
