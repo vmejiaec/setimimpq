@@ -32,8 +32,6 @@ namespace ADL {
         
         private Pla_TareaDataTable tablePla_Tarea;
         
-        private Pla_DocDataTable tablePla_Doc;
-        
         private Pla_MovDataTable tablePla_Mov;
         
         private Pla_ParamDataTable tablePla_Param;
@@ -43,6 +41,8 @@ namespace ADL {
         private Pla_Lote_TipoDataTable tablePla_Lote_Tipo;
         
         private Pla_LoteDataTable tablePla_Lote;
+        
+        private Pla_DocDataTable tablePla_Doc;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -84,9 +84,6 @@ namespace ADL {
                 if ((ds.Tables["Pla_Tarea"] != null)) {
                     base.Tables.Add(new Pla_TareaDataTable(ds.Tables["Pla_Tarea"]));
                 }
-                if ((ds.Tables["Pla_Doc"] != null)) {
-                    base.Tables.Add(new Pla_DocDataTable(ds.Tables["Pla_Doc"]));
-                }
                 if ((ds.Tables["Pla_Mov"] != null)) {
                     base.Tables.Add(new Pla_MovDataTable(ds.Tables["Pla_Mov"]));
                 }
@@ -101,6 +98,9 @@ namespace ADL {
                 }
                 if ((ds.Tables["Pla_Lote"] != null)) {
                     base.Tables.Add(new Pla_LoteDataTable(ds.Tables["Pla_Lote"]));
+                }
+                if ((ds.Tables["Pla_Doc"] != null)) {
+                    base.Tables.Add(new Pla_DocDataTable(ds.Tables["Pla_Doc"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -164,16 +164,6 @@ namespace ADL {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Pla_DocDataTable Pla_Doc {
-            get {
-                return this.tablePla_Doc;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public Pla_MovDataTable Pla_Mov {
             get {
                 return this.tablePla_Mov;
@@ -217,6 +207,16 @@ namespace ADL {
         public Pla_LoteDataTable Pla_Lote {
             get {
                 return this.tablePla_Lote;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Pla_DocDataTable Pla_Doc {
+            get {
+                return this.tablePla_Doc;
             }
         }
         
@@ -299,9 +299,6 @@ namespace ADL {
                 if ((ds.Tables["Pla_Tarea"] != null)) {
                     base.Tables.Add(new Pla_TareaDataTable(ds.Tables["Pla_Tarea"]));
                 }
-                if ((ds.Tables["Pla_Doc"] != null)) {
-                    base.Tables.Add(new Pla_DocDataTable(ds.Tables["Pla_Doc"]));
-                }
                 if ((ds.Tables["Pla_Mov"] != null)) {
                     base.Tables.Add(new Pla_MovDataTable(ds.Tables["Pla_Mov"]));
                 }
@@ -316,6 +313,9 @@ namespace ADL {
                 }
                 if ((ds.Tables["Pla_Lote"] != null)) {
                     base.Tables.Add(new Pla_LoteDataTable(ds.Tables["Pla_Lote"]));
+                }
+                if ((ds.Tables["Pla_Doc"] != null)) {
+                    base.Tables.Add(new Pla_DocDataTable(ds.Tables["Pla_Doc"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -374,12 +374,6 @@ namespace ADL {
                     this.tablePla_Tarea.InitVars();
                 }
             }
-            this.tablePla_Doc = ((Pla_DocDataTable)(base.Tables["Pla_Doc"]));
-            if ((initTable == true)) {
-                if ((this.tablePla_Doc != null)) {
-                    this.tablePla_Doc.InitVars();
-                }
-            }
             this.tablePla_Mov = ((Pla_MovDataTable)(base.Tables["Pla_Mov"]));
             if ((initTable == true)) {
                 if ((this.tablePla_Mov != null)) {
@@ -410,6 +404,12 @@ namespace ADL {
                     this.tablePla_Lote.InitVars();
                 }
             }
+            this.tablePla_Doc = ((Pla_DocDataTable)(base.Tables["Pla_Doc"]));
+            if ((initTable == true)) {
+                if ((this.tablePla_Doc != null)) {
+                    this.tablePla_Doc.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -428,8 +428,6 @@ namespace ADL {
             base.Tables.Add(this.tablePla_Partida);
             this.tablePla_Tarea = new Pla_TareaDataTable();
             base.Tables.Add(this.tablePla_Tarea);
-            this.tablePla_Doc = new Pla_DocDataTable();
-            base.Tables.Add(this.tablePla_Doc);
             this.tablePla_Mov = new Pla_MovDataTable();
             base.Tables.Add(this.tablePla_Mov);
             this.tablePla_Param = new Pla_ParamDataTable();
@@ -440,6 +438,8 @@ namespace ADL {
             base.Tables.Add(this.tablePla_Lote_Tipo);
             this.tablePla_Lote = new Pla_LoteDataTable();
             base.Tables.Add(this.tablePla_Lote);
+            this.tablePla_Doc = new Pla_DocDataTable();
+            base.Tables.Add(this.tablePla_Doc);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -463,12 +463,6 @@ namespace ADL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializePla_Tarea() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializePla_Doc() {
             return false;
         }
         
@@ -499,6 +493,12 @@ namespace ADL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializePla_Lote() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializePla_Doc() {
             return false;
         }
         
@@ -570,9 +570,6 @@ namespace ADL {
         public delegate void Pla_TareaRowChangeEventHandler(object sender, Pla_TareaRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void Pla_DocRowChangeEventHandler(object sender, Pla_DocRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void Pla_MovRowChangeEventHandler(object sender, Pla_MovRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -586,6 +583,9 @@ namespace ADL {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void Pla_LoteRowChangeEventHandler(object sender, Pla_LoteRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void Pla_DocRowChangeEventHandler(object sender, Pla_DocRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2172,820 +2172,6 @@ namespace ADL {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "Pla_TareaDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Pla_DocDataTable : global::System.Data.TypedTableBase<Pla_DocRow> {
-            
-            private global::System.Data.DataColumn columnId;
-            
-            private global::System.Data.DataColumn columnCodigo;
-            
-            private global::System.Data.DataColumn columnTipo;
-            
-            private global::System.Data.DataColumn columnFecha_Solicita;
-            
-            private global::System.Data.DataColumn columnPer_Personal_Id_Solicita;
-            
-            private global::System.Data.DataColumn columnArea_Codigo_Solicita;
-            
-            private global::System.Data.DataColumn columnDescripcion;
-            
-            private global::System.Data.DataColumn columnEstado;
-            
-            private global::System.Data.DataColumn columnPer_Personal_Id_Crea;
-            
-            private global::System.Data.DataColumn columnPer_Personal_Id_Modifica;
-            
-            private global::System.Data.DataColumn columnValor_Solicita;
-            
-            private global::System.Data.DataColumn columnPer_Personal_Id_Planifica;
-            
-            private global::System.Data.DataColumn columnEsta_Planificada;
-            
-            private global::System.Data.DataColumn columnPer_Personal_Id_Contrata;
-            
-            private global::System.Data.DataColumn columnEsta_Contratada;
-            
-            private global::System.Data.DataColumn columnPAC_Linea;
-            
-            private global::System.Data.DataColumn columnCPC_Codigo;
-            
-            private global::System.Data.DataColumn columnFecha_Contrata;
-            
-            private global::System.Data.DataColumn columnFecha_Planifica;
-            
-            private global::System.Data.DataColumn columnPer_Personal_Nombre_Solicita;
-            
-            private global::System.Data.DataColumn columnArea_Nombre_Solicita;
-            
-            private global::System.Data.DataColumn columnPer_Personal_Nombre_Crea;
-            
-            private global::System.Data.DataColumn columnPer_Personal_Nombre_Modifica;
-            
-            private global::System.Data.DataColumn columnPer_Personal_Nombre_Planifica;
-            
-            private global::System.Data.DataColumn columnPer_Personal_Nombre_Contrata;
-            
-            private global::System.Data.DataColumn columnValor_Suma_Movs;
-            
-            private global::System.Data.DataColumn columnCedula_Presup_Codigo;
-            
-            private global::System.Data.DataColumn columnContrata_Desc;
-            
-            private global::System.Data.DataColumn columnPla_Tarea_Id;
-            
-            private global::System.Data.DataColumn columnPla_Cta_Id;
-            
-            private global::System.Data.DataColumn columnPla_Cta_Codigo;
-            
-            private global::System.Data.DataColumn columnPla_Cta_Nombre;
-            
-            private global::System.Data.DataColumn columnPla_Tarea_Nombre;
-            
-            private global::System.Data.DataColumn columnEstado_Proceso;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Pla_DocDataTable() {
-                this.TableName = "Pla_Doc";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal Pla_DocDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected Pla_DocDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IdColumn {
-                get {
-                    return this.columnId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CodigoColumn {
-                get {
-                    return this.columnCodigo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TipoColumn {
-                get {
-                    return this.columnTipo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Fecha_SolicitaColumn {
-                get {
-                    return this.columnFecha_Solicita;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Per_Personal_Id_SolicitaColumn {
-                get {
-                    return this.columnPer_Personal_Id_Solicita;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Area_Codigo_SolicitaColumn {
-                get {
-                    return this.columnArea_Codigo_Solicita;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DescripcionColumn {
-                get {
-                    return this.columnDescripcion;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn EstadoColumn {
-                get {
-                    return this.columnEstado;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Per_Personal_Id_CreaColumn {
-                get {
-                    return this.columnPer_Personal_Id_Crea;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Per_Personal_Id_ModificaColumn {
-                get {
-                    return this.columnPer_Personal_Id_Modifica;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Valor_SolicitaColumn {
-                get {
-                    return this.columnValor_Solicita;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Per_Personal_Id_PlanificaColumn {
-                get {
-                    return this.columnPer_Personal_Id_Planifica;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Esta_PlanificadaColumn {
-                get {
-                    return this.columnEsta_Planificada;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Per_Personal_Id_ContrataColumn {
-                get {
-                    return this.columnPer_Personal_Id_Contrata;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Esta_ContratadaColumn {
-                get {
-                    return this.columnEsta_Contratada;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PAC_LineaColumn {
-                get {
-                    return this.columnPAC_Linea;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CPC_CodigoColumn {
-                get {
-                    return this.columnCPC_Codigo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Fecha_ContrataColumn {
-                get {
-                    return this.columnFecha_Contrata;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Fecha_PlanificaColumn {
-                get {
-                    return this.columnFecha_Planifica;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Per_Personal_Nombre_SolicitaColumn {
-                get {
-                    return this.columnPer_Personal_Nombre_Solicita;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Area_Nombre_SolicitaColumn {
-                get {
-                    return this.columnArea_Nombre_Solicita;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Per_Personal_Nombre_CreaColumn {
-                get {
-                    return this.columnPer_Personal_Nombre_Crea;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Per_Personal_Nombre_ModificaColumn {
-                get {
-                    return this.columnPer_Personal_Nombre_Modifica;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Per_Personal_Nombre_PlanificaColumn {
-                get {
-                    return this.columnPer_Personal_Nombre_Planifica;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Per_Personal_Nombre_ContrataColumn {
-                get {
-                    return this.columnPer_Personal_Nombre_Contrata;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Valor_Suma_MovsColumn {
-                get {
-                    return this.columnValor_Suma_Movs;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Cedula_Presup_CodigoColumn {
-                get {
-                    return this.columnCedula_Presup_Codigo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Contrata_DescColumn {
-                get {
-                    return this.columnContrata_Desc;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Tarea_IdColumn {
-                get {
-                    return this.columnPla_Tarea_Id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Cta_IdColumn {
-                get {
-                    return this.columnPla_Cta_Id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Cta_CodigoColumn {
-                get {
-                    return this.columnPla_Cta_Codigo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Cta_NombreColumn {
-                get {
-                    return this.columnPla_Cta_Nombre;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Pla_Tarea_NombreColumn {
-                get {
-                    return this.columnPla_Tarea_Nombre;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Estado_ProcesoColumn {
-                get {
-                    return this.columnEstado_Proceso;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Pla_DocRow this[int index] {
-                get {
-                    return ((Pla_DocRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Pla_DocRowChangeEventHandler Pla_DocRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Pla_DocRowChangeEventHandler Pla_DocRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Pla_DocRowChangeEventHandler Pla_DocRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Pla_DocRowChangeEventHandler Pla_DocRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddPla_DocRow(Pla_DocRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Pla_DocRow AddPla_DocRow(
-                        string Codigo, 
-                        string Tipo, 
-                        System.DateTime Fecha_Solicita, 
-                        string Per_Personal_Id_Solicita, 
-                        string Area_Codigo_Solicita, 
-                        string Descripcion, 
-                        string Estado, 
-                        string Per_Personal_Id_Crea, 
-                        string Per_Personal_Id_Modifica, 
-                        decimal Valor_Solicita, 
-                        string Per_Personal_Id_Planifica, 
-                        string Esta_Planificada, 
-                        string Per_Personal_Id_Contrata, 
-                        string Esta_Contratada, 
-                        string PAC_Linea, 
-                        string CPC_Codigo, 
-                        System.DateTime Fecha_Contrata, 
-                        System.DateTime Fecha_Planifica, 
-                        string Per_Personal_Nombre_Solicita, 
-                        string Area_Nombre_Solicita, 
-                        string Per_Personal_Nombre_Crea, 
-                        string Per_Personal_Nombre_Modifica, 
-                        string Per_Personal_Nombre_Planifica, 
-                        string Per_Personal_Nombre_Contrata, 
-                        decimal Valor_Suma_Movs, 
-                        string Cedula_Presup_Codigo, 
-                        string Contrata_Desc, 
-                        int Pla_Tarea_Id, 
-                        int Pla_Cta_Id, 
-                        string Pla_Cta_Codigo, 
-                        string Pla_Cta_Nombre, 
-                        string Pla_Tarea_Nombre, 
-                        string Estado_Proceso) {
-                Pla_DocRow rowPla_DocRow = ((Pla_DocRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        Codigo,
-                        Tipo,
-                        Fecha_Solicita,
-                        Per_Personal_Id_Solicita,
-                        Area_Codigo_Solicita,
-                        Descripcion,
-                        Estado,
-                        Per_Personal_Id_Crea,
-                        Per_Personal_Id_Modifica,
-                        Valor_Solicita,
-                        Per_Personal_Id_Planifica,
-                        Esta_Planificada,
-                        Per_Personal_Id_Contrata,
-                        Esta_Contratada,
-                        PAC_Linea,
-                        CPC_Codigo,
-                        Fecha_Contrata,
-                        Fecha_Planifica,
-                        Per_Personal_Nombre_Solicita,
-                        Area_Nombre_Solicita,
-                        Per_Personal_Nombre_Crea,
-                        Per_Personal_Nombre_Modifica,
-                        Per_Personal_Nombre_Planifica,
-                        Per_Personal_Nombre_Contrata,
-                        Valor_Suma_Movs,
-                        Cedula_Presup_Codigo,
-                        Contrata_Desc,
-                        Pla_Tarea_Id,
-                        Pla_Cta_Id,
-                        Pla_Cta_Codigo,
-                        Pla_Cta_Nombre,
-                        Pla_Tarea_Nombre,
-                        Estado_Proceso};
-                rowPla_DocRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowPla_DocRow);
-                return rowPla_DocRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Pla_DocRow FindById(int Id) {
-                return ((Pla_DocRow)(this.Rows.Find(new object[] {
-                            Id})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                Pla_DocDataTable cln = ((Pla_DocDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new Pla_DocDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnId = base.Columns["Id"];
-                this.columnCodigo = base.Columns["Codigo"];
-                this.columnTipo = base.Columns["Tipo"];
-                this.columnFecha_Solicita = base.Columns["Fecha_Solicita"];
-                this.columnPer_Personal_Id_Solicita = base.Columns["Per_Personal_Id_Solicita"];
-                this.columnArea_Codigo_Solicita = base.Columns["Area_Codigo_Solicita"];
-                this.columnDescripcion = base.Columns["Descripcion"];
-                this.columnEstado = base.Columns["Estado"];
-                this.columnPer_Personal_Id_Crea = base.Columns["Per_Personal_Id_Crea"];
-                this.columnPer_Personal_Id_Modifica = base.Columns["Per_Personal_Id_Modifica"];
-                this.columnValor_Solicita = base.Columns["Valor_Solicita"];
-                this.columnPer_Personal_Id_Planifica = base.Columns["Per_Personal_Id_Planifica"];
-                this.columnEsta_Planificada = base.Columns["Esta_Planificada"];
-                this.columnPer_Personal_Id_Contrata = base.Columns["Per_Personal_Id_Contrata"];
-                this.columnEsta_Contratada = base.Columns["Esta_Contratada"];
-                this.columnPAC_Linea = base.Columns["PAC_Linea"];
-                this.columnCPC_Codigo = base.Columns["CPC_Codigo"];
-                this.columnFecha_Contrata = base.Columns["Fecha_Contrata"];
-                this.columnFecha_Planifica = base.Columns["Fecha_Planifica"];
-                this.columnPer_Personal_Nombre_Solicita = base.Columns["Per_Personal_Nombre_Solicita"];
-                this.columnArea_Nombre_Solicita = base.Columns["Area_Nombre_Solicita"];
-                this.columnPer_Personal_Nombre_Crea = base.Columns["Per_Personal_Nombre_Crea"];
-                this.columnPer_Personal_Nombre_Modifica = base.Columns["Per_Personal_Nombre_Modifica"];
-                this.columnPer_Personal_Nombre_Planifica = base.Columns["Per_Personal_Nombre_Planifica"];
-                this.columnPer_Personal_Nombre_Contrata = base.Columns["Per_Personal_Nombre_Contrata"];
-                this.columnValor_Suma_Movs = base.Columns["Valor_Suma_Movs"];
-                this.columnCedula_Presup_Codigo = base.Columns["Cedula_Presup_Codigo"];
-                this.columnContrata_Desc = base.Columns["Contrata_Desc"];
-                this.columnPla_Tarea_Id = base.Columns["Pla_Tarea_Id"];
-                this.columnPla_Cta_Id = base.Columns["Pla_Cta_Id"];
-                this.columnPla_Cta_Codigo = base.Columns["Pla_Cta_Codigo"];
-                this.columnPla_Cta_Nombre = base.Columns["Pla_Cta_Nombre"];
-                this.columnPla_Tarea_Nombre = base.Columns["Pla_Tarea_Nombre"];
-                this.columnEstado_Proceso = base.Columns["Estado_Proceso"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnId);
-                this.columnCodigo = new global::System.Data.DataColumn("Codigo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCodigo);
-                this.columnTipo = new global::System.Data.DataColumn("Tipo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTipo);
-                this.columnFecha_Solicita = new global::System.Data.DataColumn("Fecha_Solicita", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFecha_Solicita);
-                this.columnPer_Personal_Id_Solicita = new global::System.Data.DataColumn("Per_Personal_Id_Solicita", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPer_Personal_Id_Solicita);
-                this.columnArea_Codigo_Solicita = new global::System.Data.DataColumn("Area_Codigo_Solicita", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArea_Codigo_Solicita);
-                this.columnDescripcion = new global::System.Data.DataColumn("Descripcion", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDescripcion);
-                this.columnEstado = new global::System.Data.DataColumn("Estado", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEstado);
-                this.columnPer_Personal_Id_Crea = new global::System.Data.DataColumn("Per_Personal_Id_Crea", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPer_Personal_Id_Crea);
-                this.columnPer_Personal_Id_Modifica = new global::System.Data.DataColumn("Per_Personal_Id_Modifica", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPer_Personal_Id_Modifica);
-                this.columnValor_Solicita = new global::System.Data.DataColumn("Valor_Solicita", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnValor_Solicita);
-                this.columnPer_Personal_Id_Planifica = new global::System.Data.DataColumn("Per_Personal_Id_Planifica", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPer_Personal_Id_Planifica);
-                this.columnEsta_Planificada = new global::System.Data.DataColumn("Esta_Planificada", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEsta_Planificada);
-                this.columnPer_Personal_Id_Contrata = new global::System.Data.DataColumn("Per_Personal_Id_Contrata", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPer_Personal_Id_Contrata);
-                this.columnEsta_Contratada = new global::System.Data.DataColumn("Esta_Contratada", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEsta_Contratada);
-                this.columnPAC_Linea = new global::System.Data.DataColumn("PAC_Linea", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPAC_Linea);
-                this.columnCPC_Codigo = new global::System.Data.DataColumn("CPC_Codigo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCPC_Codigo);
-                this.columnFecha_Contrata = new global::System.Data.DataColumn("Fecha_Contrata", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFecha_Contrata);
-                this.columnFecha_Planifica = new global::System.Data.DataColumn("Fecha_Planifica", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFecha_Planifica);
-                this.columnPer_Personal_Nombre_Solicita = new global::System.Data.DataColumn("Per_Personal_Nombre_Solicita", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPer_Personal_Nombre_Solicita);
-                this.columnArea_Nombre_Solicita = new global::System.Data.DataColumn("Area_Nombre_Solicita", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArea_Nombre_Solicita);
-                this.columnPer_Personal_Nombre_Crea = new global::System.Data.DataColumn("Per_Personal_Nombre_Crea", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPer_Personal_Nombre_Crea);
-                this.columnPer_Personal_Nombre_Modifica = new global::System.Data.DataColumn("Per_Personal_Nombre_Modifica", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPer_Personal_Nombre_Modifica);
-                this.columnPer_Personal_Nombre_Planifica = new global::System.Data.DataColumn("Per_Personal_Nombre_Planifica", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPer_Personal_Nombre_Planifica);
-                this.columnPer_Personal_Nombre_Contrata = new global::System.Data.DataColumn("Per_Personal_Nombre_Contrata", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPer_Personal_Nombre_Contrata);
-                this.columnValor_Suma_Movs = new global::System.Data.DataColumn("Valor_Suma_Movs", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnValor_Suma_Movs);
-                this.columnCedula_Presup_Codigo = new global::System.Data.DataColumn("Cedula_Presup_Codigo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCedula_Presup_Codigo);
-                this.columnContrata_Desc = new global::System.Data.DataColumn("Contrata_Desc", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnContrata_Desc);
-                this.columnPla_Tarea_Id = new global::System.Data.DataColumn("Pla_Tarea_Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Tarea_Id);
-                this.columnPla_Cta_Id = new global::System.Data.DataColumn("Pla_Cta_Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Cta_Id);
-                this.columnPla_Cta_Codigo = new global::System.Data.DataColumn("Pla_Cta_Codigo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Cta_Codigo);
-                this.columnPla_Cta_Nombre = new global::System.Data.DataColumn("Pla_Cta_Nombre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Cta_Nombre);
-                this.columnPla_Tarea_Nombre = new global::System.Data.DataColumn("Pla_Tarea_Nombre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPla_Tarea_Nombre);
-                this.columnEstado_Proceso = new global::System.Data.DataColumn("Estado_Proceso", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEstado_Proceso);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnId}, true));
-                this.columnId.AutoIncrement = true;
-                this.columnId.AutoIncrementSeed = -1;
-                this.columnId.AutoIncrementStep = -1;
-                this.columnId.AllowDBNull = false;
-                this.columnId.ReadOnly = true;
-                this.columnId.Unique = true;
-                this.columnCodigo.AllowDBNull = false;
-                this.columnCodigo.MaxLength = 200;
-                this.columnTipo.AllowDBNull = false;
-                this.columnTipo.MaxLength = 3;
-                this.columnFecha_Solicita.AllowDBNull = false;
-                this.columnPer_Personal_Id_Solicita.AllowDBNull = false;
-                this.columnPer_Personal_Id_Solicita.MaxLength = 17;
-                this.columnArea_Codigo_Solicita.AllowDBNull = false;
-                this.columnArea_Codigo_Solicita.MaxLength = 500;
-                this.columnDescripcion.AllowDBNull = false;
-                this.columnDescripcion.MaxLength = 500;
-                this.columnEstado.AllowDBNull = false;
-                this.columnEstado.MaxLength = 3;
-                this.columnPer_Personal_Id_Crea.AllowDBNull = false;
-                this.columnPer_Personal_Id_Crea.MaxLength = 17;
-                this.columnPer_Personal_Id_Modifica.AllowDBNull = false;
-                this.columnPer_Personal_Id_Modifica.MaxLength = 17;
-                this.columnValor_Solicita.AllowDBNull = false;
-                this.columnPer_Personal_Id_Planifica.MaxLength = 17;
-                this.columnEsta_Planificada.AllowDBNull = false;
-                this.columnEsta_Planificada.MaxLength = 3;
-                this.columnPer_Personal_Id_Contrata.MaxLength = 17;
-                this.columnEsta_Contratada.AllowDBNull = false;
-                this.columnEsta_Contratada.MaxLength = 3;
-                this.columnPAC_Linea.AllowDBNull = false;
-                this.columnPAC_Linea.MaxLength = 50;
-                this.columnCPC_Codigo.AllowDBNull = false;
-                this.columnCPC_Codigo.MaxLength = 50;
-                this.columnFecha_Contrata.AllowDBNull = false;
-                this.columnFecha_Planifica.AllowDBNull = false;
-                this.columnPer_Personal_Nombre_Solicita.ReadOnly = true;
-                this.columnPer_Personal_Nombre_Solicita.MaxLength = 500;
-                this.columnArea_Nombre_Solicita.ReadOnly = true;
-                this.columnArea_Nombre_Solicita.MaxLength = 60;
-                this.columnPer_Personal_Nombre_Crea.ReadOnly = true;
-                this.columnPer_Personal_Nombre_Crea.MaxLength = 500;
-                this.columnPer_Personal_Nombre_Modifica.ReadOnly = true;
-                this.columnPer_Personal_Nombre_Modifica.MaxLength = 500;
-                this.columnPer_Personal_Nombre_Planifica.ReadOnly = true;
-                this.columnPer_Personal_Nombre_Planifica.MaxLength = 500;
-                this.columnPer_Personal_Nombre_Contrata.ReadOnly = true;
-                this.columnPer_Personal_Nombre_Contrata.MaxLength = 500;
-                this.columnValor_Suma_Movs.ReadOnly = true;
-                this.columnCedula_Presup_Codigo.AllowDBNull = false;
-                this.columnCedula_Presup_Codigo.MaxLength = 100;
-                this.columnContrata_Desc.AllowDBNull = false;
-                this.columnContrata_Desc.MaxLength = 200;
-                this.columnPla_Tarea_Id.DefaultValue = ((int)(-1));
-                this.columnPla_Cta_Id.ReadOnly = true;
-                this.columnPla_Cta_Codigo.ReadOnly = true;
-                this.columnPla_Cta_Codigo.MaxLength = 200;
-                this.columnPla_Cta_Nombre.ReadOnly = true;
-                this.columnPla_Cta_Nombre.MaxLength = 500;
-                this.columnPla_Tarea_Nombre.ReadOnly = true;
-                this.columnPla_Tarea_Nombre.MaxLength = 500;
-                this.columnEstado_Proceso.ReadOnly = true;
-                this.columnEstado_Proceso.MaxLength = 10;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Pla_DocRow NewPla_DocRow() {
-                return ((Pla_DocRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Pla_DocRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(Pla_DocRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.Pla_DocRowChanged != null)) {
-                    this.Pla_DocRowChanged(this, new Pla_DocRowChangeEvent(((Pla_DocRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.Pla_DocRowChanging != null)) {
-                    this.Pla_DocRowChanging(this, new Pla_DocRowChangeEvent(((Pla_DocRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.Pla_DocRowDeleted != null)) {
-                    this.Pla_DocRowDeleted(this, new Pla_DocRowChangeEvent(((Pla_DocRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.Pla_DocRowDeleting != null)) {
-                    this.Pla_DocRowDeleting(this, new Pla_DocRowChangeEvent(((Pla_DocRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemovePla_DocRow(Pla_DocRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Planificacion ds = new Planificacion();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Pla_DocDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -5002,6 +4188,967 @@ namespace ADL {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Pla_DocDataTable : global::System.Data.TypedTableBase<Pla_DocRow> {
+            
+            private global::System.Data.DataColumn columnId;
+            
+            private global::System.Data.DataColumn columnCodigo;
+            
+            private global::System.Data.DataColumn columnTipo;
+            
+            private global::System.Data.DataColumn columnFecha_Solicita;
+            
+            private global::System.Data.DataColumn columnPer_Personal_Id_Solicita;
+            
+            private global::System.Data.DataColumn columnArea_Codigo_Solicita;
+            
+            private global::System.Data.DataColumn columnDescripcion;
+            
+            private global::System.Data.DataColumn columnEstado;
+            
+            private global::System.Data.DataColumn columnPer_Personal_Id_Crea;
+            
+            private global::System.Data.DataColumn columnPer_Personal_Id_Modifica;
+            
+            private global::System.Data.DataColumn columnValor_Solicita;
+            
+            private global::System.Data.DataColumn columnPer_Personal_Id_Planifica;
+            
+            private global::System.Data.DataColumn columnEsta_Planificada;
+            
+            private global::System.Data.DataColumn columnPer_Personal_Id_Contrata;
+            
+            private global::System.Data.DataColumn columnEsta_Contratada;
+            
+            private global::System.Data.DataColumn columnPAC_Linea;
+            
+            private global::System.Data.DataColumn columnCPC_Codigo;
+            
+            private global::System.Data.DataColumn columnFecha_Contrata;
+            
+            private global::System.Data.DataColumn columnFecha_Planifica;
+            
+            private global::System.Data.DataColumn columnCedula_Presup_Codigo;
+            
+            private global::System.Data.DataColumn columnContrata_Desc;
+            
+            private global::System.Data.DataColumn columnPla_Tarea_Id;
+            
+            private global::System.Data.DataColumn columnProyecto_Tipo;
+            
+            private global::System.Data.DataColumn columnPla_Doc_Id_Principal;
+            
+            private global::System.Data.DataColumn columnCom_Procedimiento_Id;
+            
+            private global::System.Data.DataColumn columnPer_Personal_Id_Presupuesta;
+            
+            private global::System.Data.DataColumn columnEsta_Presupuestada;
+            
+            private global::System.Data.DataColumn columnPer_Personal_Nombre_Solicita;
+            
+            private global::System.Data.DataColumn columnArea_Nombre_Solicita;
+            
+            private global::System.Data.DataColumn columnPer_Personal_Nombre_Crea;
+            
+            private global::System.Data.DataColumn columnPer_Personal_Nombre_Modifica;
+            
+            private global::System.Data.DataColumn columnPer_Personal_Nombre_Planifica;
+            
+            private global::System.Data.DataColumn columnPer_Personal_Nombre_Contrata;
+            
+            private global::System.Data.DataColumn columnValor_Suma_Movs;
+            
+            private global::System.Data.DataColumn columnPla_Tarea_Nombre;
+            
+            private global::System.Data.DataColumn columnPla_Cta_Id;
+            
+            private global::System.Data.DataColumn columnPla_Cta_Codigo;
+            
+            private global::System.Data.DataColumn columnPla_Cta_Nombre;
+            
+            private global::System.Data.DataColumn columnEstado_Proceso;
+            
+            private global::System.Data.DataColumn columnProyecto_Tipo_Nombre;
+            
+            private global::System.Data.DataColumn columnPla_Doc_Codigo_Principal;
+            
+            private global::System.Data.DataColumn columnCom_Procedimiento_Nombre;
+            
+            private global::System.Data.DataColumn columnPer_Personal_Nombre_Presupuesta;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Pla_DocDataTable() {
+                this.TableName = "Pla_Doc";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Pla_DocDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected Pla_DocDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CodigoColumn {
+                get {
+                    return this.columnCodigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TipoColumn {
+                get {
+                    return this.columnTipo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Fecha_SolicitaColumn {
+                get {
+                    return this.columnFecha_Solicita;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Per_Personal_Id_SolicitaColumn {
+                get {
+                    return this.columnPer_Personal_Id_Solicita;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Area_Codigo_SolicitaColumn {
+                get {
+                    return this.columnArea_Codigo_Solicita;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DescripcionColumn {
+                get {
+                    return this.columnDescripcion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EstadoColumn {
+                get {
+                    return this.columnEstado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Per_Personal_Id_CreaColumn {
+                get {
+                    return this.columnPer_Personal_Id_Crea;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Per_Personal_Id_ModificaColumn {
+                get {
+                    return this.columnPer_Personal_Id_Modifica;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Valor_SolicitaColumn {
+                get {
+                    return this.columnValor_Solicita;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Per_Personal_Id_PlanificaColumn {
+                get {
+                    return this.columnPer_Personal_Id_Planifica;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Esta_PlanificadaColumn {
+                get {
+                    return this.columnEsta_Planificada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Per_Personal_Id_ContrataColumn {
+                get {
+                    return this.columnPer_Personal_Id_Contrata;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Esta_ContratadaColumn {
+                get {
+                    return this.columnEsta_Contratada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PAC_LineaColumn {
+                get {
+                    return this.columnPAC_Linea;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CPC_CodigoColumn {
+                get {
+                    return this.columnCPC_Codigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Fecha_ContrataColumn {
+                get {
+                    return this.columnFecha_Contrata;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Fecha_PlanificaColumn {
+                get {
+                    return this.columnFecha_Planifica;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cedula_Presup_CodigoColumn {
+                get {
+                    return this.columnCedula_Presup_Codigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Contrata_DescColumn {
+                get {
+                    return this.columnContrata_Desc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Tarea_IdColumn {
+                get {
+                    return this.columnPla_Tarea_Id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Proyecto_TipoColumn {
+                get {
+                    return this.columnProyecto_Tipo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Doc_Id_PrincipalColumn {
+                get {
+                    return this.columnPla_Doc_Id_Principal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Com_Procedimiento_IdColumn {
+                get {
+                    return this.columnCom_Procedimiento_Id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Per_Personal_Id_PresupuestaColumn {
+                get {
+                    return this.columnPer_Personal_Id_Presupuesta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Esta_PresupuestadaColumn {
+                get {
+                    return this.columnEsta_Presupuestada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Per_Personal_Nombre_SolicitaColumn {
+                get {
+                    return this.columnPer_Personal_Nombre_Solicita;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Area_Nombre_SolicitaColumn {
+                get {
+                    return this.columnArea_Nombre_Solicita;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Per_Personal_Nombre_CreaColumn {
+                get {
+                    return this.columnPer_Personal_Nombre_Crea;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Per_Personal_Nombre_ModificaColumn {
+                get {
+                    return this.columnPer_Personal_Nombre_Modifica;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Per_Personal_Nombre_PlanificaColumn {
+                get {
+                    return this.columnPer_Personal_Nombre_Planifica;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Per_Personal_Nombre_ContrataColumn {
+                get {
+                    return this.columnPer_Personal_Nombre_Contrata;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Valor_Suma_MovsColumn {
+                get {
+                    return this.columnValor_Suma_Movs;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Tarea_NombreColumn {
+                get {
+                    return this.columnPla_Tarea_Nombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Cta_IdColumn {
+                get {
+                    return this.columnPla_Cta_Id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Cta_CodigoColumn {
+                get {
+                    return this.columnPla_Cta_Codigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Cta_NombreColumn {
+                get {
+                    return this.columnPla_Cta_Nombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Estado_ProcesoColumn {
+                get {
+                    return this.columnEstado_Proceso;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Proyecto_Tipo_NombreColumn {
+                get {
+                    return this.columnProyecto_Tipo_Nombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Pla_Doc_Codigo_PrincipalColumn {
+                get {
+                    return this.columnPla_Doc_Codigo_Principal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Com_Procedimiento_NombreColumn {
+                get {
+                    return this.columnCom_Procedimiento_Nombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Per_Personal_Nombre_PresupuestaColumn {
+                get {
+                    return this.columnPer_Personal_Nombre_Presupuesta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Pla_DocRow this[int index] {
+                get {
+                    return ((Pla_DocRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Pla_DocRowChangeEventHandler Pla_DocRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Pla_DocRowChangeEventHandler Pla_DocRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Pla_DocRowChangeEventHandler Pla_DocRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Pla_DocRowChangeEventHandler Pla_DocRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddPla_DocRow(Pla_DocRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Pla_DocRow AddPla_DocRow(
+                        string Codigo, 
+                        string Tipo, 
+                        System.DateTime Fecha_Solicita, 
+                        string Per_Personal_Id_Solicita, 
+                        string Area_Codigo_Solicita, 
+                        string Descripcion, 
+                        string Estado, 
+                        string Per_Personal_Id_Crea, 
+                        string Per_Personal_Id_Modifica, 
+                        decimal Valor_Solicita, 
+                        string Per_Personal_Id_Planifica, 
+                        string Esta_Planificada, 
+                        string Per_Personal_Id_Contrata, 
+                        string Esta_Contratada, 
+                        string PAC_Linea, 
+                        string CPC_Codigo, 
+                        System.DateTime Fecha_Contrata, 
+                        System.DateTime Fecha_Planifica, 
+                        string Cedula_Presup_Codigo, 
+                        string Contrata_Desc, 
+                        int Pla_Tarea_Id, 
+                        string Proyecto_Tipo, 
+                        int Pla_Doc_Id_Principal, 
+                        int Com_Procedimiento_Id, 
+                        string Per_Personal_Id_Presupuesta, 
+                        string Esta_Presupuestada, 
+                        string Per_Personal_Nombre_Solicita, 
+                        string Area_Nombre_Solicita, 
+                        string Per_Personal_Nombre_Crea, 
+                        string Per_Personal_Nombre_Modifica, 
+                        string Per_Personal_Nombre_Planifica, 
+                        string Per_Personal_Nombre_Contrata, 
+                        decimal Valor_Suma_Movs, 
+                        string Pla_Tarea_Nombre, 
+                        int Pla_Cta_Id, 
+                        string Pla_Cta_Codigo, 
+                        string Pla_Cta_Nombre, 
+                        string Estado_Proceso, 
+                        string Proyecto_Tipo_Nombre, 
+                        string Pla_Doc_Codigo_Principal, 
+                        string Com_Procedimiento_Nombre, 
+                        string Per_Personal_Nombre_Presupuesta) {
+                Pla_DocRow rowPla_DocRow = ((Pla_DocRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Codigo,
+                        Tipo,
+                        Fecha_Solicita,
+                        Per_Personal_Id_Solicita,
+                        Area_Codigo_Solicita,
+                        Descripcion,
+                        Estado,
+                        Per_Personal_Id_Crea,
+                        Per_Personal_Id_Modifica,
+                        Valor_Solicita,
+                        Per_Personal_Id_Planifica,
+                        Esta_Planificada,
+                        Per_Personal_Id_Contrata,
+                        Esta_Contratada,
+                        PAC_Linea,
+                        CPC_Codigo,
+                        Fecha_Contrata,
+                        Fecha_Planifica,
+                        Cedula_Presup_Codigo,
+                        Contrata_Desc,
+                        Pla_Tarea_Id,
+                        Proyecto_Tipo,
+                        Pla_Doc_Id_Principal,
+                        Com_Procedimiento_Id,
+                        Per_Personal_Id_Presupuesta,
+                        Esta_Presupuestada,
+                        Per_Personal_Nombre_Solicita,
+                        Area_Nombre_Solicita,
+                        Per_Personal_Nombre_Crea,
+                        Per_Personal_Nombre_Modifica,
+                        Per_Personal_Nombre_Planifica,
+                        Per_Personal_Nombre_Contrata,
+                        Valor_Suma_Movs,
+                        Pla_Tarea_Nombre,
+                        Pla_Cta_Id,
+                        Pla_Cta_Codigo,
+                        Pla_Cta_Nombre,
+                        Estado_Proceso,
+                        Proyecto_Tipo_Nombre,
+                        Pla_Doc_Codigo_Principal,
+                        Com_Procedimiento_Nombre,
+                        Per_Personal_Nombre_Presupuesta};
+                rowPla_DocRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPla_DocRow);
+                return rowPla_DocRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Pla_DocRow FindById(int Id) {
+                return ((Pla_DocRow)(this.Rows.Find(new object[] {
+                            Id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Pla_DocDataTable cln = ((Pla_DocDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Pla_DocDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnId = base.Columns["Id"];
+                this.columnCodigo = base.Columns["Codigo"];
+                this.columnTipo = base.Columns["Tipo"];
+                this.columnFecha_Solicita = base.Columns["Fecha_Solicita"];
+                this.columnPer_Personal_Id_Solicita = base.Columns["Per_Personal_Id_Solicita"];
+                this.columnArea_Codigo_Solicita = base.Columns["Area_Codigo_Solicita"];
+                this.columnDescripcion = base.Columns["Descripcion"];
+                this.columnEstado = base.Columns["Estado"];
+                this.columnPer_Personal_Id_Crea = base.Columns["Per_Personal_Id_Crea"];
+                this.columnPer_Personal_Id_Modifica = base.Columns["Per_Personal_Id_Modifica"];
+                this.columnValor_Solicita = base.Columns["Valor_Solicita"];
+                this.columnPer_Personal_Id_Planifica = base.Columns["Per_Personal_Id_Planifica"];
+                this.columnEsta_Planificada = base.Columns["Esta_Planificada"];
+                this.columnPer_Personal_Id_Contrata = base.Columns["Per_Personal_Id_Contrata"];
+                this.columnEsta_Contratada = base.Columns["Esta_Contratada"];
+                this.columnPAC_Linea = base.Columns["PAC_Linea"];
+                this.columnCPC_Codigo = base.Columns["CPC_Codigo"];
+                this.columnFecha_Contrata = base.Columns["Fecha_Contrata"];
+                this.columnFecha_Planifica = base.Columns["Fecha_Planifica"];
+                this.columnCedula_Presup_Codigo = base.Columns["Cedula_Presup_Codigo"];
+                this.columnContrata_Desc = base.Columns["Contrata_Desc"];
+                this.columnPla_Tarea_Id = base.Columns["Pla_Tarea_Id"];
+                this.columnProyecto_Tipo = base.Columns["Proyecto_Tipo"];
+                this.columnPla_Doc_Id_Principal = base.Columns["Pla_Doc_Id_Principal"];
+                this.columnCom_Procedimiento_Id = base.Columns["Com_Procedimiento_Id"];
+                this.columnPer_Personal_Id_Presupuesta = base.Columns["Per_Personal_Id_Presupuesta"];
+                this.columnEsta_Presupuestada = base.Columns["Esta_Presupuestada"];
+                this.columnPer_Personal_Nombre_Solicita = base.Columns["Per_Personal_Nombre_Solicita"];
+                this.columnArea_Nombre_Solicita = base.Columns["Area_Nombre_Solicita"];
+                this.columnPer_Personal_Nombre_Crea = base.Columns["Per_Personal_Nombre_Crea"];
+                this.columnPer_Personal_Nombre_Modifica = base.Columns["Per_Personal_Nombre_Modifica"];
+                this.columnPer_Personal_Nombre_Planifica = base.Columns["Per_Personal_Nombre_Planifica"];
+                this.columnPer_Personal_Nombre_Contrata = base.Columns["Per_Personal_Nombre_Contrata"];
+                this.columnValor_Suma_Movs = base.Columns["Valor_Suma_Movs"];
+                this.columnPla_Tarea_Nombre = base.Columns["Pla_Tarea_Nombre"];
+                this.columnPla_Cta_Id = base.Columns["Pla_Cta_Id"];
+                this.columnPla_Cta_Codigo = base.Columns["Pla_Cta_Codigo"];
+                this.columnPla_Cta_Nombre = base.Columns["Pla_Cta_Nombre"];
+                this.columnEstado_Proceso = base.Columns["Estado_Proceso"];
+                this.columnProyecto_Tipo_Nombre = base.Columns["Proyecto_Tipo_Nombre"];
+                this.columnPla_Doc_Codigo_Principal = base.Columns["Pla_Doc_Codigo_Principal"];
+                this.columnCom_Procedimiento_Nombre = base.Columns["Com_Procedimiento_Nombre"];
+                this.columnPer_Personal_Nombre_Presupuesta = base.Columns["Per_Personal_Nombre_Presupuesta"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columnCodigo = new global::System.Data.DataColumn("Codigo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCodigo);
+                this.columnTipo = new global::System.Data.DataColumn("Tipo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTipo);
+                this.columnFecha_Solicita = new global::System.Data.DataColumn("Fecha_Solicita", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_Solicita);
+                this.columnPer_Personal_Id_Solicita = new global::System.Data.DataColumn("Per_Personal_Id_Solicita", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Personal_Id_Solicita);
+                this.columnArea_Codigo_Solicita = new global::System.Data.DataColumn("Area_Codigo_Solicita", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnArea_Codigo_Solicita);
+                this.columnDescripcion = new global::System.Data.DataColumn("Descripcion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescripcion);
+                this.columnEstado = new global::System.Data.DataColumn("Estado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstado);
+                this.columnPer_Personal_Id_Crea = new global::System.Data.DataColumn("Per_Personal_Id_Crea", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Personal_Id_Crea);
+                this.columnPer_Personal_Id_Modifica = new global::System.Data.DataColumn("Per_Personal_Id_Modifica", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Personal_Id_Modifica);
+                this.columnValor_Solicita = new global::System.Data.DataColumn("Valor_Solicita", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnValor_Solicita);
+                this.columnPer_Personal_Id_Planifica = new global::System.Data.DataColumn("Per_Personal_Id_Planifica", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Personal_Id_Planifica);
+                this.columnEsta_Planificada = new global::System.Data.DataColumn("Esta_Planificada", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEsta_Planificada);
+                this.columnPer_Personal_Id_Contrata = new global::System.Data.DataColumn("Per_Personal_Id_Contrata", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Personal_Id_Contrata);
+                this.columnEsta_Contratada = new global::System.Data.DataColumn("Esta_Contratada", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEsta_Contratada);
+                this.columnPAC_Linea = new global::System.Data.DataColumn("PAC_Linea", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPAC_Linea);
+                this.columnCPC_Codigo = new global::System.Data.DataColumn("CPC_Codigo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCPC_Codigo);
+                this.columnFecha_Contrata = new global::System.Data.DataColumn("Fecha_Contrata", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_Contrata);
+                this.columnFecha_Planifica = new global::System.Data.DataColumn("Fecha_Planifica", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_Planifica);
+                this.columnCedula_Presup_Codigo = new global::System.Data.DataColumn("Cedula_Presup_Codigo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCedula_Presup_Codigo);
+                this.columnContrata_Desc = new global::System.Data.DataColumn("Contrata_Desc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnContrata_Desc);
+                this.columnPla_Tarea_Id = new global::System.Data.DataColumn("Pla_Tarea_Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Tarea_Id);
+                this.columnProyecto_Tipo = new global::System.Data.DataColumn("Proyecto_Tipo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProyecto_Tipo);
+                this.columnPla_Doc_Id_Principal = new global::System.Data.DataColumn("Pla_Doc_Id_Principal", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Doc_Id_Principal);
+                this.columnCom_Procedimiento_Id = new global::System.Data.DataColumn("Com_Procedimiento_Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCom_Procedimiento_Id);
+                this.columnPer_Personal_Id_Presupuesta = new global::System.Data.DataColumn("Per_Personal_Id_Presupuesta", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Personal_Id_Presupuesta);
+                this.columnEsta_Presupuestada = new global::System.Data.DataColumn("Esta_Presupuestada", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEsta_Presupuestada);
+                this.columnPer_Personal_Nombre_Solicita = new global::System.Data.DataColumn("Per_Personal_Nombre_Solicita", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Personal_Nombre_Solicita);
+                this.columnArea_Nombre_Solicita = new global::System.Data.DataColumn("Area_Nombre_Solicita", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnArea_Nombre_Solicita);
+                this.columnPer_Personal_Nombre_Crea = new global::System.Data.DataColumn("Per_Personal_Nombre_Crea", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Personal_Nombre_Crea);
+                this.columnPer_Personal_Nombre_Modifica = new global::System.Data.DataColumn("Per_Personal_Nombre_Modifica", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Personal_Nombre_Modifica);
+                this.columnPer_Personal_Nombre_Planifica = new global::System.Data.DataColumn("Per_Personal_Nombre_Planifica", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Personal_Nombre_Planifica);
+                this.columnPer_Personal_Nombre_Contrata = new global::System.Data.DataColumn("Per_Personal_Nombre_Contrata", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Personal_Nombre_Contrata);
+                this.columnValor_Suma_Movs = new global::System.Data.DataColumn("Valor_Suma_Movs", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnValor_Suma_Movs);
+                this.columnPla_Tarea_Nombre = new global::System.Data.DataColumn("Pla_Tarea_Nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Tarea_Nombre);
+                this.columnPla_Cta_Id = new global::System.Data.DataColumn("Pla_Cta_Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Cta_Id);
+                this.columnPla_Cta_Codigo = new global::System.Data.DataColumn("Pla_Cta_Codigo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Cta_Codigo);
+                this.columnPla_Cta_Nombre = new global::System.Data.DataColumn("Pla_Cta_Nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Cta_Nombre);
+                this.columnEstado_Proceso = new global::System.Data.DataColumn("Estado_Proceso", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstado_Proceso);
+                this.columnProyecto_Tipo_Nombre = new global::System.Data.DataColumn("Proyecto_Tipo_Nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProyecto_Tipo_Nombre);
+                this.columnPla_Doc_Codigo_Principal = new global::System.Data.DataColumn("Pla_Doc_Codigo_Principal", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPla_Doc_Codigo_Principal);
+                this.columnCom_Procedimiento_Nombre = new global::System.Data.DataColumn("Com_Procedimiento_Nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCom_Procedimiento_Nombre);
+                this.columnPer_Personal_Nombre_Presupuesta = new global::System.Data.DataColumn("Per_Personal_Nombre_Presupuesta", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Personal_Nombre_Presupuesta);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
+                this.columnId.AllowDBNull = false;
+                this.columnId.ReadOnly = true;
+                this.columnId.Unique = true;
+                this.columnCodigo.AllowDBNull = false;
+                this.columnCodigo.MaxLength = 200;
+                this.columnTipo.AllowDBNull = false;
+                this.columnTipo.MaxLength = 3;
+                this.columnFecha_Solicita.AllowDBNull = false;
+                this.columnPer_Personal_Id_Solicita.AllowDBNull = false;
+                this.columnPer_Personal_Id_Solicita.MaxLength = 17;
+                this.columnArea_Codigo_Solicita.AllowDBNull = false;
+                this.columnArea_Codigo_Solicita.MaxLength = 500;
+                this.columnDescripcion.AllowDBNull = false;
+                this.columnDescripcion.MaxLength = 500;
+                this.columnEstado.AllowDBNull = false;
+                this.columnEstado.MaxLength = 3;
+                this.columnPer_Personal_Id_Crea.AllowDBNull = false;
+                this.columnPer_Personal_Id_Crea.MaxLength = 17;
+                this.columnPer_Personal_Id_Modifica.AllowDBNull = false;
+                this.columnPer_Personal_Id_Modifica.MaxLength = 17;
+                this.columnValor_Solicita.AllowDBNull = false;
+                this.columnPer_Personal_Id_Planifica.MaxLength = 17;
+                this.columnEsta_Planificada.AllowDBNull = false;
+                this.columnEsta_Planificada.MaxLength = 3;
+                this.columnPer_Personal_Id_Contrata.MaxLength = 17;
+                this.columnEsta_Contratada.AllowDBNull = false;
+                this.columnEsta_Contratada.MaxLength = 3;
+                this.columnPAC_Linea.AllowDBNull = false;
+                this.columnPAC_Linea.MaxLength = 50;
+                this.columnCPC_Codigo.AllowDBNull = false;
+                this.columnCPC_Codigo.MaxLength = 50;
+                this.columnFecha_Contrata.AllowDBNull = false;
+                this.columnFecha_Planifica.AllowDBNull = false;
+                this.columnCedula_Presup_Codigo.AllowDBNull = false;
+                this.columnCedula_Presup_Codigo.MaxLength = 100;
+                this.columnContrata_Desc.AllowDBNull = false;
+                this.columnContrata_Desc.MaxLength = 200;
+                this.columnProyecto_Tipo.AllowDBNull = false;
+                this.columnProyecto_Tipo.MaxLength = 3;
+                this.columnPer_Personal_Id_Presupuesta.MaxLength = 17;
+                this.columnEsta_Presupuestada.AllowDBNull = false;
+                this.columnEsta_Presupuestada.MaxLength = 3;
+                this.columnPer_Personal_Nombre_Solicita.ReadOnly = true;
+                this.columnPer_Personal_Nombre_Solicita.MaxLength = 500;
+                this.columnArea_Nombre_Solicita.ReadOnly = true;
+                this.columnArea_Nombre_Solicita.MaxLength = 60;
+                this.columnPer_Personal_Nombre_Crea.ReadOnly = true;
+                this.columnPer_Personal_Nombre_Crea.MaxLength = 500;
+                this.columnPer_Personal_Nombre_Modifica.ReadOnly = true;
+                this.columnPer_Personal_Nombre_Modifica.MaxLength = 500;
+                this.columnPer_Personal_Nombre_Planifica.ReadOnly = true;
+                this.columnPer_Personal_Nombre_Planifica.MaxLength = 500;
+                this.columnPer_Personal_Nombre_Contrata.ReadOnly = true;
+                this.columnPer_Personal_Nombre_Contrata.MaxLength = 500;
+                this.columnValor_Suma_Movs.ReadOnly = true;
+                this.columnPla_Tarea_Nombre.ReadOnly = true;
+                this.columnPla_Tarea_Nombre.MaxLength = 500;
+                this.columnPla_Cta_Id.ReadOnly = true;
+                this.columnPla_Cta_Codigo.ReadOnly = true;
+                this.columnPla_Cta_Codigo.MaxLength = 200;
+                this.columnPla_Cta_Nombre.ReadOnly = true;
+                this.columnPla_Cta_Nombre.MaxLength = 500;
+                this.columnEstado_Proceso.ReadOnly = true;
+                this.columnEstado_Proceso.MaxLength = 10;
+                this.columnProyecto_Tipo_Nombre.ReadOnly = true;
+                this.columnProyecto_Tipo_Nombre.MaxLength = 300;
+                this.columnPla_Doc_Codigo_Principal.ReadOnly = true;
+                this.columnPla_Doc_Codigo_Principal.MaxLength = 200;
+                this.columnCom_Procedimiento_Nombre.ReadOnly = true;
+                this.columnCom_Procedimiento_Nombre.MaxLength = 500;
+                this.columnPer_Personal_Nombre_Presupuesta.ReadOnly = true;
+                this.columnPer_Personal_Nombre_Presupuesta.MaxLength = 500;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Pla_DocRow NewPla_DocRow() {
+                return ((Pla_DocRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Pla_DocRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Pla_DocRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Pla_DocRowChanged != null)) {
+                    this.Pla_DocRowChanged(this, new Pla_DocRowChangeEvent(((Pla_DocRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Pla_DocRowChanging != null)) {
+                    this.Pla_DocRowChanging(this, new Pla_DocRowChangeEvent(((Pla_DocRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Pla_DocRowDeleted != null)) {
+                    this.Pla_DocRowDeleted(this, new Pla_DocRowChangeEvent(((Pla_DocRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Pla_DocRowDeleting != null)) {
+                    this.Pla_DocRowDeleting(this, new Pla_DocRowChangeEvent(((Pla_DocRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemovePla_DocRow(Pla_DocRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                Planificacion ds = new Planificacion();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Pla_DocDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class Pla_CtaRow : global::System.Data.DataRow {
@@ -5841,654 +5988,6 @@ namespace ADL {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class Pla_DocRow : global::System.Data.DataRow {
-            
-            private Pla_DocDataTable tablePla_Doc;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal Pla_DocRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablePla_Doc = ((Pla_DocDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Id {
-                get {
-                    return ((int)(this[this.tablePla_Doc.IdColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.IdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Codigo {
-                get {
-                    return ((string)(this[this.tablePla_Doc.CodigoColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.CodigoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Tipo {
-                get {
-                    return ((string)(this[this.tablePla_Doc.TipoColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.TipoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Fecha_Solicita {
-                get {
-                    return ((global::System.DateTime)(this[this.tablePla_Doc.Fecha_SolicitaColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.Fecha_SolicitaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Per_Personal_Id_Solicita {
-                get {
-                    return ((string)(this[this.tablePla_Doc.Per_Personal_Id_SolicitaColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.Per_Personal_Id_SolicitaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Area_Codigo_Solicita {
-                get {
-                    return ((string)(this[this.tablePla_Doc.Area_Codigo_SolicitaColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.Area_Codigo_SolicitaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Descripcion {
-                get {
-                    return ((string)(this[this.tablePla_Doc.DescripcionColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.DescripcionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Estado {
-                get {
-                    return ((string)(this[this.tablePla_Doc.EstadoColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.EstadoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Per_Personal_Id_Crea {
-                get {
-                    return ((string)(this[this.tablePla_Doc.Per_Personal_Id_CreaColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.Per_Personal_Id_CreaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Per_Personal_Id_Modifica {
-                get {
-                    return ((string)(this[this.tablePla_Doc.Per_Personal_Id_ModificaColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.Per_Personal_Id_ModificaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Valor_Solicita {
-                get {
-                    return ((decimal)(this[this.tablePla_Doc.Valor_SolicitaColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.Valor_SolicitaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Per_Personal_Id_Planifica {
-                get {
-                    if (this.IsPer_Personal_Id_PlanificaNull()) {
-                        return null;
-                    }
-                    else {
-                        return ((string)(this[this.tablePla_Doc.Per_Personal_Id_PlanificaColumn]));
-                    }
-                }
-                set {
-                    this[this.tablePla_Doc.Per_Personal_Id_PlanificaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Esta_Planificada {
-                get {
-                    return ((string)(this[this.tablePla_Doc.Esta_PlanificadaColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.Esta_PlanificadaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Per_Personal_Id_Contrata {
-                get {
-                    if (this.IsPer_Personal_Id_ContrataNull()) {
-                        return null;
-                    }
-                    else {
-                        return ((string)(this[this.tablePla_Doc.Per_Personal_Id_ContrataColumn]));
-                    }
-                }
-                set {
-                    this[this.tablePla_Doc.Per_Personal_Id_ContrataColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Esta_Contratada {
-                get {
-                    return ((string)(this[this.tablePla_Doc.Esta_ContratadaColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.Esta_ContratadaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string PAC_Linea {
-                get {
-                    return ((string)(this[this.tablePla_Doc.PAC_LineaColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.PAC_LineaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string CPC_Codigo {
-                get {
-                    return ((string)(this[this.tablePla_Doc.CPC_CodigoColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.CPC_CodigoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Fecha_Contrata {
-                get {
-                    return ((global::System.DateTime)(this[this.tablePla_Doc.Fecha_ContrataColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.Fecha_ContrataColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Fecha_Planifica {
-                get {
-                    return ((global::System.DateTime)(this[this.tablePla_Doc.Fecha_PlanificaColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.Fecha_PlanificaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Per_Personal_Nombre_Solicita {
-                get {
-                    try {
-                        return ((string)(this[this.tablePla_Doc.Per_Personal_Nombre_SolicitaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Per_Personal_Nombre_Solicita\' in table \'Pla_Doc\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Doc.Per_Personal_Nombre_SolicitaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Area_Nombre_Solicita {
-                get {
-                    try {
-                        return ((string)(this[this.tablePla_Doc.Area_Nombre_SolicitaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Area_Nombre_Solicita\' in table \'Pla_Doc\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Doc.Area_Nombre_SolicitaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Per_Personal_Nombre_Crea {
-                get {
-                    try {
-                        return ((string)(this[this.tablePla_Doc.Per_Personal_Nombre_CreaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Per_Personal_Nombre_Crea\' in table \'Pla_Doc\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Doc.Per_Personal_Nombre_CreaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Per_Personal_Nombre_Modifica {
-                get {
-                    try {
-                        return ((string)(this[this.tablePla_Doc.Per_Personal_Nombre_ModificaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Per_Personal_Nombre_Modifica\' in table \'Pla_Doc\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Doc.Per_Personal_Nombre_ModificaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Per_Personal_Nombre_Planifica {
-                get {
-                    try {
-                        return ((string)(this[this.tablePla_Doc.Per_Personal_Nombre_PlanificaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Per_Personal_Nombre_Planifica\' in table \'Pla_Doc\' is DBNull" +
-                                ".", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Doc.Per_Personal_Nombre_PlanificaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Per_Personal_Nombre_Contrata {
-                get {
-                    try {
-                        return ((string)(this[this.tablePla_Doc.Per_Personal_Nombre_ContrataColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Per_Personal_Nombre_Contrata\' in table \'Pla_Doc\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Doc.Per_Personal_Nombre_ContrataColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Valor_Suma_Movs {
-                get {
-                    try {
-                        return ((decimal)(this[this.tablePla_Doc.Valor_Suma_MovsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Valor_Suma_Movs\' in table \'Pla_Doc\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Doc.Valor_Suma_MovsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Cedula_Presup_Codigo {
-                get {
-                    return ((string)(this[this.tablePla_Doc.Cedula_Presup_CodigoColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.Cedula_Presup_CodigoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Contrata_Desc {
-                get {
-                    return ((string)(this[this.tablePla_Doc.Contrata_DescColumn]));
-                }
-                set {
-                    this[this.tablePla_Doc.Contrata_DescColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Pla_Tarea_Id {
-                get {
-                    try {
-                        return ((int)(this[this.tablePla_Doc.Pla_Tarea_IdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Tarea_Id\' in table \'Pla_Doc\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Doc.Pla_Tarea_IdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Pla_Cta_Id {
-                get {
-                    try {
-                        return ((int)(this[this.tablePla_Doc.Pla_Cta_IdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Cta_Id\' in table \'Pla_Doc\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Doc.Pla_Cta_IdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Pla_Cta_Codigo {
-                get {
-                    try {
-                        return ((string)(this[this.tablePla_Doc.Pla_Cta_CodigoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Cta_Codigo\' in table \'Pla_Doc\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Doc.Pla_Cta_CodigoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Pla_Cta_Nombre {
-                get {
-                    try {
-                        return ((string)(this[this.tablePla_Doc.Pla_Cta_NombreColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Cta_Nombre\' in table \'Pla_Doc\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Doc.Pla_Cta_NombreColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Pla_Tarea_Nombre {
-                get {
-                    try {
-                        return ((string)(this[this.tablePla_Doc.Pla_Tarea_NombreColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Tarea_Nombre\' in table \'Pla_Doc\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Doc.Pla_Tarea_NombreColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Estado_Proceso {
-                get {
-                    try {
-                        return ((string)(this[this.tablePla_Doc.Estado_ProcesoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Estado_Proceso\' in table \'Pla_Doc\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePla_Doc.Estado_ProcesoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPer_Personal_Id_PlanificaNull() {
-                return this.IsNull(this.tablePla_Doc.Per_Personal_Id_PlanificaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPer_Personal_Id_PlanificaNull() {
-                this[this.tablePla_Doc.Per_Personal_Id_PlanificaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPer_Personal_Id_ContrataNull() {
-                return this.IsNull(this.tablePla_Doc.Per_Personal_Id_ContrataColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPer_Personal_Id_ContrataNull() {
-                this[this.tablePla_Doc.Per_Personal_Id_ContrataColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPer_Personal_Nombre_SolicitaNull() {
-                return this.IsNull(this.tablePla_Doc.Per_Personal_Nombre_SolicitaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPer_Personal_Nombre_SolicitaNull() {
-                this[this.tablePla_Doc.Per_Personal_Nombre_SolicitaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsArea_Nombre_SolicitaNull() {
-                return this.IsNull(this.tablePla_Doc.Area_Nombre_SolicitaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetArea_Nombre_SolicitaNull() {
-                this[this.tablePla_Doc.Area_Nombre_SolicitaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPer_Personal_Nombre_CreaNull() {
-                return this.IsNull(this.tablePla_Doc.Per_Personal_Nombre_CreaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPer_Personal_Nombre_CreaNull() {
-                this[this.tablePla_Doc.Per_Personal_Nombre_CreaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPer_Personal_Nombre_ModificaNull() {
-                return this.IsNull(this.tablePla_Doc.Per_Personal_Nombre_ModificaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPer_Personal_Nombre_ModificaNull() {
-                this[this.tablePla_Doc.Per_Personal_Nombre_ModificaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPer_Personal_Nombre_PlanificaNull() {
-                return this.IsNull(this.tablePla_Doc.Per_Personal_Nombre_PlanificaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPer_Personal_Nombre_PlanificaNull() {
-                this[this.tablePla_Doc.Per_Personal_Nombre_PlanificaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPer_Personal_Nombre_ContrataNull() {
-                return this.IsNull(this.tablePla_Doc.Per_Personal_Nombre_ContrataColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPer_Personal_Nombre_ContrataNull() {
-                this[this.tablePla_Doc.Per_Personal_Nombre_ContrataColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsValor_Suma_MovsNull() {
-                return this.IsNull(this.tablePla_Doc.Valor_Suma_MovsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetValor_Suma_MovsNull() {
-                this[this.tablePla_Doc.Valor_Suma_MovsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPla_Tarea_IdNull() {
-                return this.IsNull(this.tablePla_Doc.Pla_Tarea_IdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPla_Tarea_IdNull() {
-                this[this.tablePla_Doc.Pla_Tarea_IdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPla_Cta_IdNull() {
-                return this.IsNull(this.tablePla_Doc.Pla_Cta_IdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPla_Cta_IdNull() {
-                this[this.tablePla_Doc.Pla_Cta_IdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPla_Cta_CodigoNull() {
-                return this.IsNull(this.tablePla_Doc.Pla_Cta_CodigoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPla_Cta_CodigoNull() {
-                this[this.tablePla_Doc.Pla_Cta_CodigoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPla_Cta_NombreNull() {
-                return this.IsNull(this.tablePla_Doc.Pla_Cta_NombreColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPla_Cta_NombreNull() {
-                this[this.tablePla_Doc.Pla_Cta_NombreColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPla_Tarea_NombreNull() {
-                return this.IsNull(this.tablePla_Doc.Pla_Tarea_NombreColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPla_Tarea_NombreNull() {
-                this[this.tablePla_Doc.Pla_Tarea_NombreColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsEstado_ProcesoNull() {
-                return this.IsNull(this.tablePla_Doc.Estado_ProcesoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetEstado_ProcesoNull() {
-                this[this.tablePla_Doc.Estado_ProcesoColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class Pla_MovRow : global::System.Data.DataRow {
             
             private Pla_MovDataTable tablePla_Mov;
@@ -7308,6 +6807,873 @@ namespace ADL {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Pla_DocRow : global::System.Data.DataRow {
+            
+            private Pla_DocDataTable tablePla_Doc;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Pla_DocRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablePla_Doc = ((Pla_DocDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Id {
+                get {
+                    return ((int)(this[this.tablePla_Doc.IdColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Codigo {
+                get {
+                    return ((string)(this[this.tablePla_Doc.CodigoColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.CodigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Tipo {
+                get {
+                    return ((string)(this[this.tablePla_Doc.TipoColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.TipoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Fecha_Solicita {
+                get {
+                    return ((global::System.DateTime)(this[this.tablePla_Doc.Fecha_SolicitaColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.Fecha_SolicitaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Per_Personal_Id_Solicita {
+                get {
+                    return ((string)(this[this.tablePla_Doc.Per_Personal_Id_SolicitaColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.Per_Personal_Id_SolicitaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Area_Codigo_Solicita {
+                get {
+                    return ((string)(this[this.tablePla_Doc.Area_Codigo_SolicitaColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.Area_Codigo_SolicitaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Descripcion {
+                get {
+                    return ((string)(this[this.tablePla_Doc.DescripcionColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.DescripcionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Estado {
+                get {
+                    return ((string)(this[this.tablePla_Doc.EstadoColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.EstadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Per_Personal_Id_Crea {
+                get {
+                    return ((string)(this[this.tablePla_Doc.Per_Personal_Id_CreaColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.Per_Personal_Id_CreaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Per_Personal_Id_Modifica {
+                get {
+                    return ((string)(this[this.tablePla_Doc.Per_Personal_Id_ModificaColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.Per_Personal_Id_ModificaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Valor_Solicita {
+                get {
+                    return ((decimal)(this[this.tablePla_Doc.Valor_SolicitaColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.Valor_SolicitaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Per_Personal_Id_Planifica {
+                get {
+                    if (this.IsPer_Personal_Id_PlanificaNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tablePla_Doc.Per_Personal_Id_PlanificaColumn]));
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Per_Personal_Id_PlanificaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Esta_Planificada {
+                get {
+                    return ((string)(this[this.tablePla_Doc.Esta_PlanificadaColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.Esta_PlanificadaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Per_Personal_Id_Contrata {
+                get {
+                    if (this.IsPer_Personal_Id_ContrataNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tablePla_Doc.Per_Personal_Id_ContrataColumn]));
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Per_Personal_Id_ContrataColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Esta_Contratada {
+                get {
+                    return ((string)(this[this.tablePla_Doc.Esta_ContratadaColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.Esta_ContratadaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PAC_Linea {
+                get {
+                    return ((string)(this[this.tablePla_Doc.PAC_LineaColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.PAC_LineaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CPC_Codigo {
+                get {
+                    return ((string)(this[this.tablePla_Doc.CPC_CodigoColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.CPC_CodigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Fecha_Contrata {
+                get {
+                    return ((global::System.DateTime)(this[this.tablePla_Doc.Fecha_ContrataColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.Fecha_ContrataColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Fecha_Planifica {
+                get {
+                    return ((global::System.DateTime)(this[this.tablePla_Doc.Fecha_PlanificaColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.Fecha_PlanificaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cedula_Presup_Codigo {
+                get {
+                    return ((string)(this[this.tablePla_Doc.Cedula_Presup_CodigoColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.Cedula_Presup_CodigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Contrata_Desc {
+                get {
+                    return ((string)(this[this.tablePla_Doc.Contrata_DescColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.Contrata_DescColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Pla_Tarea_Id {
+                get {
+                    try {
+                        return ((int)(this[this.tablePla_Doc.Pla_Tarea_IdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Tarea_Id\' in table \'Pla_Doc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Pla_Tarea_IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Proyecto_Tipo {
+                get {
+                    return ((string)(this[this.tablePla_Doc.Proyecto_TipoColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.Proyecto_TipoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Pla_Doc_Id_Principal {
+                get {
+                    try {
+                        return ((int)(this[this.tablePla_Doc.Pla_Doc_Id_PrincipalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Doc_Id_Principal\' in table \'Pla_Doc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Pla_Doc_Id_PrincipalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Com_Procedimiento_Id {
+                get {
+                    try {
+                        return ((int)(this[this.tablePla_Doc.Com_Procedimiento_IdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Com_Procedimiento_Id\' in table \'Pla_Doc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Com_Procedimiento_IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Per_Personal_Id_Presupuesta {
+                get {
+                    if (this.IsPer_Personal_Id_PresupuestaNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tablePla_Doc.Per_Personal_Id_PresupuestaColumn]));
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Per_Personal_Id_PresupuestaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Esta_Presupuestada {
+                get {
+                    return ((string)(this[this.tablePla_Doc.Esta_PresupuestadaColumn]));
+                }
+                set {
+                    this[this.tablePla_Doc.Esta_PresupuestadaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Per_Personal_Nombre_Solicita {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Doc.Per_Personal_Nombre_SolicitaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Per_Personal_Nombre_Solicita\' in table \'Pla_Doc\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Per_Personal_Nombre_SolicitaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Area_Nombre_Solicita {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Doc.Area_Nombre_SolicitaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Area_Nombre_Solicita\' in table \'Pla_Doc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Area_Nombre_SolicitaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Per_Personal_Nombre_Crea {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Doc.Per_Personal_Nombre_CreaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Per_Personal_Nombre_Crea\' in table \'Pla_Doc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Per_Personal_Nombre_CreaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Per_Personal_Nombre_Modifica {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Doc.Per_Personal_Nombre_ModificaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Per_Personal_Nombre_Modifica\' in table \'Pla_Doc\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Per_Personal_Nombre_ModificaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Per_Personal_Nombre_Planifica {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Doc.Per_Personal_Nombre_PlanificaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Per_Personal_Nombre_Planifica\' in table \'Pla_Doc\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Per_Personal_Nombre_PlanificaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Per_Personal_Nombre_Contrata {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Doc.Per_Personal_Nombre_ContrataColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Per_Personal_Nombre_Contrata\' in table \'Pla_Doc\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Per_Personal_Nombre_ContrataColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Valor_Suma_Movs {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablePla_Doc.Valor_Suma_MovsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Valor_Suma_Movs\' in table \'Pla_Doc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Valor_Suma_MovsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Pla_Tarea_Nombre {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Doc.Pla_Tarea_NombreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Tarea_Nombre\' in table \'Pla_Doc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Pla_Tarea_NombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Pla_Cta_Id {
+                get {
+                    try {
+                        return ((int)(this[this.tablePla_Doc.Pla_Cta_IdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Cta_Id\' in table \'Pla_Doc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Pla_Cta_IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Pla_Cta_Codigo {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Doc.Pla_Cta_CodigoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Cta_Codigo\' in table \'Pla_Doc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Pla_Cta_CodigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Pla_Cta_Nombre {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Doc.Pla_Cta_NombreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Cta_Nombre\' in table \'Pla_Doc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Pla_Cta_NombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Estado_Proceso {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Doc.Estado_ProcesoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Estado_Proceso\' in table \'Pla_Doc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Estado_ProcesoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Proyecto_Tipo_Nombre {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Doc.Proyecto_Tipo_NombreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Proyecto_Tipo_Nombre\' in table \'Pla_Doc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Proyecto_Tipo_NombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Pla_Doc_Codigo_Principal {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Doc.Pla_Doc_Codigo_PrincipalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pla_Doc_Codigo_Principal\' in table \'Pla_Doc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Pla_Doc_Codigo_PrincipalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Com_Procedimiento_Nombre {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Doc.Com_Procedimiento_NombreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Com_Procedimiento_Nombre\' in table \'Pla_Doc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Com_Procedimiento_NombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Per_Personal_Nombre_Presupuesta {
+                get {
+                    try {
+                        return ((string)(this[this.tablePla_Doc.Per_Personal_Nombre_PresupuestaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Per_Personal_Nombre_Presupuesta\' in table \'Pla_Doc\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tablePla_Doc.Per_Personal_Nombre_PresupuestaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPer_Personal_Id_PlanificaNull() {
+                return this.IsNull(this.tablePla_Doc.Per_Personal_Id_PlanificaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPer_Personal_Id_PlanificaNull() {
+                this[this.tablePla_Doc.Per_Personal_Id_PlanificaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPer_Personal_Id_ContrataNull() {
+                return this.IsNull(this.tablePla_Doc.Per_Personal_Id_ContrataColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPer_Personal_Id_ContrataNull() {
+                this[this.tablePla_Doc.Per_Personal_Id_ContrataColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPla_Tarea_IdNull() {
+                return this.IsNull(this.tablePla_Doc.Pla_Tarea_IdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPla_Tarea_IdNull() {
+                this[this.tablePla_Doc.Pla_Tarea_IdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPla_Doc_Id_PrincipalNull() {
+                return this.IsNull(this.tablePla_Doc.Pla_Doc_Id_PrincipalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPla_Doc_Id_PrincipalNull() {
+                this[this.tablePla_Doc.Pla_Doc_Id_PrincipalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCom_Procedimiento_IdNull() {
+                return this.IsNull(this.tablePla_Doc.Com_Procedimiento_IdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCom_Procedimiento_IdNull() {
+                this[this.tablePla_Doc.Com_Procedimiento_IdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPer_Personal_Id_PresupuestaNull() {
+                return this.IsNull(this.tablePla_Doc.Per_Personal_Id_PresupuestaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPer_Personal_Id_PresupuestaNull() {
+                this[this.tablePla_Doc.Per_Personal_Id_PresupuestaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPer_Personal_Nombre_SolicitaNull() {
+                return this.IsNull(this.tablePla_Doc.Per_Personal_Nombre_SolicitaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPer_Personal_Nombre_SolicitaNull() {
+                this[this.tablePla_Doc.Per_Personal_Nombre_SolicitaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsArea_Nombre_SolicitaNull() {
+                return this.IsNull(this.tablePla_Doc.Area_Nombre_SolicitaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetArea_Nombre_SolicitaNull() {
+                this[this.tablePla_Doc.Area_Nombre_SolicitaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPer_Personal_Nombre_CreaNull() {
+                return this.IsNull(this.tablePla_Doc.Per_Personal_Nombre_CreaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPer_Personal_Nombre_CreaNull() {
+                this[this.tablePla_Doc.Per_Personal_Nombre_CreaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPer_Personal_Nombre_ModificaNull() {
+                return this.IsNull(this.tablePla_Doc.Per_Personal_Nombre_ModificaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPer_Personal_Nombre_ModificaNull() {
+                this[this.tablePla_Doc.Per_Personal_Nombre_ModificaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPer_Personal_Nombre_PlanificaNull() {
+                return this.IsNull(this.tablePla_Doc.Per_Personal_Nombre_PlanificaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPer_Personal_Nombre_PlanificaNull() {
+                this[this.tablePla_Doc.Per_Personal_Nombre_PlanificaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPer_Personal_Nombre_ContrataNull() {
+                return this.IsNull(this.tablePla_Doc.Per_Personal_Nombre_ContrataColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPer_Personal_Nombre_ContrataNull() {
+                this[this.tablePla_Doc.Per_Personal_Nombre_ContrataColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsValor_Suma_MovsNull() {
+                return this.IsNull(this.tablePla_Doc.Valor_Suma_MovsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetValor_Suma_MovsNull() {
+                this[this.tablePla_Doc.Valor_Suma_MovsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPla_Tarea_NombreNull() {
+                return this.IsNull(this.tablePla_Doc.Pla_Tarea_NombreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPla_Tarea_NombreNull() {
+                this[this.tablePla_Doc.Pla_Tarea_NombreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPla_Cta_IdNull() {
+                return this.IsNull(this.tablePla_Doc.Pla_Cta_IdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPla_Cta_IdNull() {
+                this[this.tablePla_Doc.Pla_Cta_IdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPla_Cta_CodigoNull() {
+                return this.IsNull(this.tablePla_Doc.Pla_Cta_CodigoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPla_Cta_CodigoNull() {
+                this[this.tablePla_Doc.Pla_Cta_CodigoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPla_Cta_NombreNull() {
+                return this.IsNull(this.tablePla_Doc.Pla_Cta_NombreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPla_Cta_NombreNull() {
+                this[this.tablePla_Doc.Pla_Cta_NombreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEstado_ProcesoNull() {
+                return this.IsNull(this.tablePla_Doc.Estado_ProcesoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEstado_ProcesoNull() {
+                this[this.tablePla_Doc.Estado_ProcesoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProyecto_Tipo_NombreNull() {
+                return this.IsNull(this.tablePla_Doc.Proyecto_Tipo_NombreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProyecto_Tipo_NombreNull() {
+                this[this.tablePla_Doc.Proyecto_Tipo_NombreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPla_Doc_Codigo_PrincipalNull() {
+                return this.IsNull(this.tablePla_Doc.Pla_Doc_Codigo_PrincipalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPla_Doc_Codigo_PrincipalNull() {
+                this[this.tablePla_Doc.Pla_Doc_Codigo_PrincipalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCom_Procedimiento_NombreNull() {
+                return this.IsNull(this.tablePla_Doc.Com_Procedimiento_NombreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCom_Procedimiento_NombreNull() {
+                this[this.tablePla_Doc.Com_Procedimiento_NombreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPer_Personal_Nombre_PresupuestaNull() {
+                return this.IsNull(this.tablePla_Doc.Per_Personal_Nombre_PresupuestaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPer_Personal_Nombre_PresupuestaNull() {
+                this[this.tablePla_Doc.Per_Personal_Nombre_PresupuestaColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -7429,40 +7795,6 @@ namespace ADL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Pla_TareaRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class Pla_DocRowChangeEvent : global::System.EventArgs {
-            
-            private Pla_DocRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Pla_DocRowChangeEvent(Pla_DocRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Pla_DocRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -7633,6 +7965,40 @@ namespace ADL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Pla_LoteRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class Pla_DocRowChangeEvent : global::System.EventArgs {
+            
+            private Pla_DocRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Pla_DocRowChangeEvent(Pla_DocRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Pla_DocRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -11083,1847 +11449,6 @@ namespace ADL.PlanificacionTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Pla_DocTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public Pla_DocTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Pla_Doc";
-            tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("Codigo", "Codigo");
-            tableMapping.ColumnMappings.Add("Tipo", "Tipo");
-            tableMapping.ColumnMappings.Add("Fecha_Solicita", "Fecha_Solicita");
-            tableMapping.ColumnMappings.Add("Per_Personal_Id_Solicita", "Per_Personal_Id_Solicita");
-            tableMapping.ColumnMappings.Add("Area_Codigo_Solicita", "Area_Codigo_Solicita");
-            tableMapping.ColumnMappings.Add("Descripcion", "Descripcion");
-            tableMapping.ColumnMappings.Add("Estado", "Estado");
-            tableMapping.ColumnMappings.Add("Per_Personal_Id_Crea", "Per_Personal_Id_Crea");
-            tableMapping.ColumnMappings.Add("Per_Personal_Id_Modifica", "Per_Personal_Id_Modifica");
-            tableMapping.ColumnMappings.Add("Valor_Solicita", "Valor_Solicita");
-            tableMapping.ColumnMappings.Add("Per_Personal_Id_Planifica", "Per_Personal_Id_Planifica");
-            tableMapping.ColumnMappings.Add("Esta_Planificada", "Esta_Planificada");
-            tableMapping.ColumnMappings.Add("Per_Personal_Id_Contrata", "Per_Personal_Id_Contrata");
-            tableMapping.ColumnMappings.Add("Esta_Contratada", "Esta_Contratada");
-            tableMapping.ColumnMappings.Add("PAC_Linea", "PAC_Linea");
-            tableMapping.ColumnMappings.Add("CPC_Codigo", "CPC_Codigo");
-            tableMapping.ColumnMappings.Add("Fecha_Contrata", "Fecha_Contrata");
-            tableMapping.ColumnMappings.Add("Fecha_Planifica", "Fecha_Planifica");
-            tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Solicita", "Per_Personal_Nombre_Solicita");
-            tableMapping.ColumnMappings.Add("Area_Nombre_Solicita", "Area_Nombre_Solicita");
-            tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Crea", "Per_Personal_Nombre_Crea");
-            tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Modifica", "Per_Personal_Nombre_Modifica");
-            tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Planifica", "Per_Personal_Nombre_Planifica");
-            tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Contrata", "Per_Personal_Nombre_Contrata");
-            tableMapping.ColumnMappings.Add("Valor_Suma_Movs", "Valor_Suma_Movs");
-            tableMapping.ColumnMappings.Add("Cedula_Presup_Codigo", "Cedula_Presup_Codigo");
-            tableMapping.ColumnMappings.Add("Contrata_Desc", "Contrata_Desc");
-            tableMapping.ColumnMappings.Add("Pla_Tarea_Id", "Pla_Tarea_Id");
-            tableMapping.ColumnMappings.Add("Pla_Cta_Id", "Pla_Cta_Id");
-            tableMapping.ColumnMappings.Add("Pla_Cta_Codigo", "Pla_Cta_Codigo");
-            tableMapping.ColumnMappings.Add("Pla_Cta_Nombre", "Pla_Cta_Nombre");
-            tableMapping.ColumnMappings.Add("Pla_Tarea_Nombre", "Pla_Tarea_Nombre");
-            tableMapping.ColumnMappings.Add("Estado_Proceso", "Estado_Proceso");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "dbo.Pla_Doc_Del";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Solicita", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Solicita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Solicita", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Solicita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Area_Codigo_Solicita", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Area_Codigo_Solicita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Descripcion", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Crea", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Crea", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Modifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Modifica", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Valor_Solicita", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor_Solicita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Per_Personal_Id_Planifica", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Per_Personal_Id_Planifica", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Planifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Planifica", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Esta_Planificada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Planificada", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Per_Personal_Id_Contrata", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Per_Personal_Id_Contrata", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Contrata", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Contrata", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Esta_Contratada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Contratada", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PAC_Linea", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PAC_Linea", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CPC_Codigo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CPC_Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Contrata", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Contrata", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Planifica", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Planifica", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cedula_Presup_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Presup_Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Contrata_Desc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Contrata_Desc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Tarea_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Tarea_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "dbo.Pla_Doc_Ins";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Solicita", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Solicita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Solicita", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Solicita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Area_Codigo_Solicita", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Area_Codigo_Solicita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Descripcion", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Crea", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Crea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Modifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Modifica", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Valor_Solicita", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor_Solicita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Planifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Planifica", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Esta_Planificada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Planificada", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Contrata", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Contrata", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Esta_Contratada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Contratada", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PAC_Linea", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PAC_Linea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CPC_Codigo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CPC_Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Contrata", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Contrata", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Planifica", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Planifica", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula_Presup_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Presup_Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contrata_Desc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Contrata_Desc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Tarea_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Tarea_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "dbo.Pla_Doc_Upd";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Solicita", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Solicita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Solicita", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Solicita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Area_Codigo_Solicita", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Area_Codigo_Solicita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Descripcion", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Crea", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Crea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Modifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Modifica", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Valor_Solicita", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor_Solicita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Planifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Planifica", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Esta_Planificada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Planificada", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Contrata", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Contrata", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Esta_Contratada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Contratada", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PAC_Linea", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PAC_Linea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CPC_Codigo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CPC_Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Contrata", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Contrata", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Planifica", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Planifica", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula_Presup_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Presup_Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contrata_Desc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Contrata_Desc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Tarea_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Tarea_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Solicita", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Solicita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Solicita", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Solicita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Area_Codigo_Solicita", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Area_Codigo_Solicita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Descripcion", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Crea", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Crea", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Modifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Modifica", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Valor_Solicita", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor_Solicita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Per_Personal_Id_Planifica", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Per_Personal_Id_Planifica", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Planifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Planifica", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Esta_Planificada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Planificada", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Per_Personal_Id_Contrata", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Per_Personal_Id_Contrata", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Contrata", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Contrata", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Esta_Contratada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Contratada", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PAC_Linea", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PAC_Linea", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CPC_Codigo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CPC_Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Contrata", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Contrata", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Planifica", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Planifica", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cedula_Presup_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Presup_Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Contrata_Desc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Contrata_Desc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Tarea_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Tarea_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ADL.Properties.Settings.Default.KCG_DataConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[11];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.Pla_Doc_Sel";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "dbo.Pla_Doc_SelByArea_Codigo_RangoFecha_Solicita";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Area_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Ini", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Fin", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "dbo.Pla_Doc_SelByCodigo";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "dbo.Pla_Doc_SelById";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "dbo.Pla_Doc_SelByRangoFecha_Solicita";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Ini", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Fin", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "dbo.Pla_Doc_SelByTipo_Area_Codigo_Codigo";
-            this._commandCollection[5].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Tipo", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Area_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Codigo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "dbo.Pla_Doc_SelByTipo_Area_Codigo_LikeDescripcion";
-            this._commandCollection[6].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Tipo", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Area_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Descripcion", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = "dbo.Pla_Doc_SelByTipo_Area_Codigo_RangoFecha_Solicita";
-            this._commandCollection[7].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Tipo", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Area_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Ini", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Fin", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[8].Connection = this.Connection;
-            this._commandCollection[8].CommandText = "dbo.Pla_Doc_SelByTipo_RangoFecha_Solicita";
-            this._commandCollection[8].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Tipo", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Ini", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Fin", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[9].Connection = this.Connection;
-            this._commandCollection[9].CommandText = "dbo.Pla_Doc_SelByTipo_RangoFecha_Solicita_LikeDescripcion";
-            this._commandCollection[9].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Tipo", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Ini", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Fin", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Descripcion", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[10].Connection = this.Connection;
-            this._commandCollection[10].CommandText = "dbo.Pla_Doc_Ins";
-            this._commandCollection[10].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Solicita", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Solicita", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Area_Codigo_Solicita", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Descripcion", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Crea", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Modifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Valor_Solicita", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Planifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Esta_Planificada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Contrata", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Esta_Contratada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PAC_Linea", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CPC_Codigo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Contrata", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Planifica", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula_Presup_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contrata_Desc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Tarea_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Planificacion.Pla_DocDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Planificacion.Pla_DocDataTable Get() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByArea_Codigo_RangoFecha_Solicita(Planificacion.Pla_DocDataTable dataTable, string p_Area_Codigo, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((p_Area_Codigo == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Area_Codigo));
-            }
-            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual Planificacion.Pla_DocDataTable GetByArea_Codigo_RangoFecha_Solicita(string p_Area_Codigo, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((p_Area_Codigo == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Area_Codigo));
-            }
-            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCodigo(Planificacion.Pla_DocDataTable dataTable, string p_Codigo) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((p_Codigo == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Codigo));
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual Planificacion.Pla_DocDataTable GetByCodigo(string p_Codigo) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((p_Codigo == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Codigo));
-            }
-            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillById(Planificacion.Pla_DocDataTable dataTable, global::System.Nullable<int> p_Id) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((p_Id.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(p_Id.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual Planificacion.Pla_DocDataTable GetById(global::System.Nullable<int> p_Id) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((p_Id.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(p_Id.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByRangoFecha_Solicita(Planificacion.Pla_DocDataTable dataTable, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
-            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual Planificacion.Pla_DocDataTable GetByRangoFecha_Solicita(global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
-            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByTipo_Area_Codigo_Codigo(Planificacion.Pla_DocDataTable dataTable, string p_Tipo, string p_Area_Codigo, string p_Codigo) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
-            if ((p_Tipo == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
-            }
-            if ((p_Area_Codigo == null)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(p_Area_Codigo));
-            }
-            if ((p_Codigo == null)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(p_Codigo));
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual Planificacion.Pla_DocDataTable GetByTipo_Area_Codigo_Codigo(string p_Tipo, string p_Area_Codigo, string p_Codigo) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
-            if ((p_Tipo == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
-            }
-            if ((p_Area_Codigo == null)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(p_Area_Codigo));
-            }
-            if ((p_Codigo == null)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(p_Codigo));
-            }
-            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByTipo_Area_Codigo_LikeDescripcion(Planificacion.Pla_DocDataTable dataTable, string p_Tipo, string p_Area_Codigo, string p_Descripcion) {
-            this.Adapter.SelectCommand = this.CommandCollection[6];
-            if ((p_Tipo == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
-            }
-            if ((p_Area_Codigo == null)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(p_Area_Codigo));
-            }
-            if ((p_Descripcion == null)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(p_Descripcion));
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual Planificacion.Pla_DocDataTable GetByTipo_Area_Codigo_LikeDescripcion(string p_Tipo, string p_Area_Codigo, string p_Descripcion) {
-            this.Adapter.SelectCommand = this.CommandCollection[6];
-            if ((p_Tipo == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
-            }
-            if ((p_Area_Codigo == null)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(p_Area_Codigo));
-            }
-            if ((p_Descripcion == null)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(p_Descripcion));
-            }
-            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByTipo_Area_Codigo_RangoFecha_Solicita(Planificacion.Pla_DocDataTable dataTable, string p_Tipo, string p_Area_Codigo, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[7];
-            if ((p_Tipo == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
-            }
-            if ((p_Area_Codigo == null)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(p_Area_Codigo));
-            }
-            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual Planificacion.Pla_DocDataTable GetByTipo_Area_Codigo_RangoFecha_Solicita(string p_Tipo, string p_Area_Codigo, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[7];
-            if ((p_Tipo == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
-            }
-            if ((p_Area_Codigo == null)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(p_Area_Codigo));
-            }
-            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByTipo_RangoFecha_Solicita(Planificacion.Pla_DocDataTable dataTable, string p_Tipo, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[8];
-            if ((p_Tipo == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
-            }
-            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual Planificacion.Pla_DocDataTable GetByTipo_RangoFecha_Solicita(string p_Tipo, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[8];
-            if ((p_Tipo == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
-            }
-            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByTipo_RangoFecha_Solicita_LikeDescripcion(Planificacion.Pla_DocDataTable dataTable, string p_Tipo, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin, string p_Descripcion) {
-            this.Adapter.SelectCommand = this.CommandCollection[9];
-            if ((p_Tipo == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
-            }
-            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((p_Descripcion == null)) {
-                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(p_Descripcion));
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual Planificacion.Pla_DocDataTable GetByTipo_RangoFecha_Solicita_LikeDescripcion(string p_Tipo, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin, string p_Descripcion) {
-            this.Adapter.SelectCommand = this.CommandCollection[9];
-            if ((p_Tipo == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
-            }
-            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((p_Descripcion == null)) {
-                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(p_Descripcion));
-            }
-            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Planificacion.Pla_DocDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Planificacion dataSet) {
-            return this.Adapter.Update(dataSet, "Pla_Doc");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(
-                    global::System.Nullable<int> Original_Id, 
-                    string Original_Codigo, 
-                    string Original_Tipo, 
-                    global::System.Nullable<global::System.DateTime> Original_Fecha_Solicita, 
-                    string Original_Per_Personal_Id_Solicita, 
-                    string Original_Area_Codigo_Solicita, 
-                    string Original_Descripcion, 
-                    string Original_Estado, 
-                    string Original_Per_Personal_Id_Crea, 
-                    string Original_Per_Personal_Id_Modifica, 
-                    global::System.Nullable<decimal> Original_Valor_Solicita, 
-                    string Original_Per_Personal_Id_Planifica, 
-                    string Original_Esta_Planificada, 
-                    string Original_Per_Personal_Id_Contrata, 
-                    string Original_Esta_Contratada, 
-                    string Original_PAC_Linea, 
-                    string Original_CPC_Codigo, 
-                    global::System.Nullable<global::System.DateTime> Original_Fecha_Contrata, 
-                    global::System.Nullable<global::System.DateTime> Original_Fecha_Planifica, 
-                    string Original_Cedula_Presup_Codigo, 
-                    string Original_Contrata_Desc, 
-                    global::System.Nullable<int> Original_Pla_Tarea_Id) {
-            if ((Original_Id.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Id.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Codigo == null)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Codigo));
-            }
-            if ((Original_Tipo == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Tipo));
-            }
-            if ((Original_Fecha_Solicita.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_Fecha_Solicita.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Per_Personal_Id_Solicita == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Per_Personal_Id_Solicita));
-            }
-            if ((Original_Area_Codigo_Solicita == null)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Area_Codigo_Solicita));
-            }
-            if ((Original_Descripcion == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Descripcion));
-            }
-            if ((Original_Estado == null)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Estado));
-            }
-            if ((Original_Per_Personal_Id_Crea == null)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Per_Personal_Id_Crea));
-            }
-            if ((Original_Per_Personal_Id_Modifica == null)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Per_Personal_Id_Modifica));
-            }
-            if ((Original_Valor_Solicita.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((decimal)(Original_Valor_Solicita.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Per_Personal_Id_Planifica == null)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_Per_Personal_Id_Planifica));
-            }
-            if ((Original_Esta_Planificada == null)) {
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_Esta_Planificada));
-            }
-            if ((Original_Per_Personal_Id_Contrata == null)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_Per_Personal_Id_Contrata));
-            }
-            if ((Original_Esta_Contratada == null)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_Esta_Contratada));
-            }
-            if ((Original_PAC_Linea == null)) {
-                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_PAC_Linea));
-            }
-            if ((Original_CPC_Codigo == null)) {
-                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_CPC_Codigo));
-            }
-            if ((Original_Fecha_Contrata.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((System.DateTime)(Original_Fecha_Contrata.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Fecha_Planifica.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((System.DateTime)(Original_Fecha_Planifica.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Cedula_Presup_Codigo == null)) {
-                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_Cedula_Presup_Codigo));
-            }
-            if ((Original_Contrata_Desc == null)) {
-                this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_Contrata_Desc));
-            }
-            if ((Original_Pla_Tarea_Id.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((int)(Original_Pla_Tarea_Id.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(
-                    string Codigo, 
-                    string Tipo, 
-                    global::System.Nullable<global::System.DateTime> Fecha_Solicita, 
-                    string Per_Personal_Id_Solicita, 
-                    string Area_Codigo_Solicita, 
-                    string Descripcion, 
-                    string Estado, 
-                    string Per_Personal_Id_Crea, 
-                    string Per_Personal_Id_Modifica, 
-                    global::System.Nullable<decimal> Valor_Solicita, 
-                    string Per_Personal_Id_Planifica, 
-                    string Esta_Planificada, 
-                    string Per_Personal_Id_Contrata, 
-                    string Esta_Contratada, 
-                    string PAC_Linea, 
-                    string CPC_Codigo, 
-                    global::System.Nullable<global::System.DateTime> Fecha_Contrata, 
-                    global::System.Nullable<global::System.DateTime> Fecha_Planifica, 
-                    string Cedula_Presup_Codigo, 
-                    string Contrata_Desc, 
-                    global::System.Nullable<int> Pla_Tarea_Id) {
-            if ((Codigo == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Codigo));
-            }
-            if ((Tipo == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Tipo));
-            }
-            if ((Fecha_Solicita.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(Fecha_Solicita.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Per_Personal_Id_Solicita == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Per_Personal_Id_Solicita));
-            }
-            if ((Area_Codigo_Solicita == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Area_Codigo_Solicita));
-            }
-            if ((Descripcion == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Descripcion));
-            }
-            if ((Estado == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Estado));
-            }
-            if ((Per_Personal_Id_Crea == null)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Per_Personal_Id_Crea));
-            }
-            if ((Per_Personal_Id_Modifica == null)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Per_Personal_Id_Modifica));
-            }
-            if ((Valor_Solicita.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(Valor_Solicita.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Per_Personal_Id_Planifica == null)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(Per_Personal_Id_Planifica));
-            }
-            if ((Esta_Planificada == null)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(Esta_Planificada));
-            }
-            if ((Per_Personal_Id_Contrata == null)) {
-                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(Per_Personal_Id_Contrata));
-            }
-            if ((Esta_Contratada == null)) {
-                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(Esta_Contratada));
-            }
-            if ((PAC_Linea == null)) {
-                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(PAC_Linea));
-            }
-            if ((CPC_Codigo == null)) {
-                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(CPC_Codigo));
-            }
-            if ((Fecha_Contrata.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((System.DateTime)(Fecha_Contrata.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((Fecha_Planifica.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((System.DateTime)(Fecha_Planifica.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            if ((Cedula_Presup_Codigo == null)) {
-                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(Cedula_Presup_Codigo));
-            }
-            if ((Contrata_Desc == null)) {
-                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[20].Value = ((string)(Contrata_Desc));
-            }
-            if ((Pla_Tarea_Id.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[21].Value = ((int)(Pla_Tarea_Id.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string Codigo, 
-                    string Tipo, 
-                    global::System.Nullable<global::System.DateTime> Fecha_Solicita, 
-                    string Per_Personal_Id_Solicita, 
-                    string Area_Codigo_Solicita, 
-                    string Descripcion, 
-                    string Estado, 
-                    string Per_Personal_Id_Crea, 
-                    string Per_Personal_Id_Modifica, 
-                    global::System.Nullable<decimal> Valor_Solicita, 
-                    string Per_Personal_Id_Planifica, 
-                    string Esta_Planificada, 
-                    string Per_Personal_Id_Contrata, 
-                    string Esta_Contratada, 
-                    string PAC_Linea, 
-                    string CPC_Codigo, 
-                    global::System.Nullable<global::System.DateTime> Fecha_Contrata, 
-                    global::System.Nullable<global::System.DateTime> Fecha_Planifica, 
-                    string Cedula_Presup_Codigo, 
-                    string Contrata_Desc, 
-                    global::System.Nullable<int> Pla_Tarea_Id, 
-                    global::System.Nullable<int> Original_Id, 
-                    string Original_Codigo, 
-                    string Original_Tipo, 
-                    global::System.Nullable<global::System.DateTime> Original_Fecha_Solicita, 
-                    string Original_Per_Personal_Id_Solicita, 
-                    string Original_Area_Codigo_Solicita, 
-                    string Original_Descripcion, 
-                    string Original_Estado, 
-                    string Original_Per_Personal_Id_Crea, 
-                    string Original_Per_Personal_Id_Modifica, 
-                    global::System.Nullable<decimal> Original_Valor_Solicita, 
-                    string Original_Per_Personal_Id_Planifica, 
-                    string Original_Esta_Planificada, 
-                    string Original_Per_Personal_Id_Contrata, 
-                    string Original_Esta_Contratada, 
-                    string Original_PAC_Linea, 
-                    string Original_CPC_Codigo, 
-                    global::System.Nullable<global::System.DateTime> Original_Fecha_Contrata, 
-                    global::System.Nullable<global::System.DateTime> Original_Fecha_Planifica, 
-                    string Original_Cedula_Presup_Codigo, 
-                    string Original_Contrata_Desc, 
-                    global::System.Nullable<int> Original_Pla_Tarea_Id, 
-                    global::System.Nullable<int> Id) {
-            if ((Codigo == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Codigo));
-            }
-            if ((Tipo == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Tipo));
-            }
-            if ((Fecha_Solicita.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(Fecha_Solicita.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Per_Personal_Id_Solicita == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Per_Personal_Id_Solicita));
-            }
-            if ((Area_Codigo_Solicita == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Area_Codigo_Solicita));
-            }
-            if ((Descripcion == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Descripcion));
-            }
-            if ((Estado == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Estado));
-            }
-            if ((Per_Personal_Id_Crea == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Per_Personal_Id_Crea));
-            }
-            if ((Per_Personal_Id_Modifica == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Per_Personal_Id_Modifica));
-            }
-            if ((Valor_Solicita.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Valor_Solicita.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Per_Personal_Id_Planifica == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Per_Personal_Id_Planifica));
-            }
-            if ((Esta_Planificada == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Esta_Planificada));
-            }
-            if ((Per_Personal_Id_Contrata == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Per_Personal_Id_Contrata));
-            }
-            if ((Esta_Contratada == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Esta_Contratada));
-            }
-            if ((PAC_Linea == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(PAC_Linea));
-            }
-            if ((CPC_Codigo == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(CPC_Codigo));
-            }
-            if ((Fecha_Contrata.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Fecha_Contrata.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((Fecha_Planifica.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Fecha_Planifica.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            if ((Cedula_Presup_Codigo == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Cedula_Presup_Codigo));
-            }
-            if ((Contrata_Desc == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Contrata_Desc));
-            }
-            if ((Pla_Tarea_Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Pla_Tarea_Id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_Id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Codigo == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Codigo));
-            }
-            if ((Original_Tipo == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_Tipo));
-            }
-            if ((Original_Fecha_Solicita.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((System.DateTime)(Original_Fecha_Solicita.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Per_Personal_Id_Solicita == null)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_Per_Personal_Id_Solicita));
-            }
-            if ((Original_Area_Codigo_Solicita == null)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_Area_Codigo_Solicita));
-            }
-            if ((Original_Descripcion == null)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_Descripcion));
-            }
-            if ((Original_Estado == null)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_Estado));
-            }
-            if ((Original_Per_Personal_Id_Crea == null)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_Per_Personal_Id_Crea));
-            }
-            if ((Original_Per_Personal_Id_Modifica == null)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_Per_Personal_Id_Modifica));
-            }
-            if ((Original_Valor_Solicita.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((decimal)(Original_Valor_Solicita.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Per_Personal_Id_Planifica == null)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_Per_Personal_Id_Planifica));
-            }
-            if ((Original_Esta_Planificada == null)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_Esta_Planificada));
-            }
-            if ((Original_Per_Personal_Id_Contrata == null)) {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_Per_Personal_Id_Contrata));
-            }
-            if ((Original_Esta_Contratada == null)) {
-                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_Esta_Contratada));
-            }
-            if ((Original_PAC_Linea == null)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_PAC_Linea));
-            }
-            if ((Original_CPC_Codigo == null)) {
-                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_CPC_Codigo));
-            }
-            if ((Original_Fecha_Contrata.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((System.DateTime)(Original_Fecha_Contrata.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Fecha_Planifica.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((System.DateTime)(Original_Fecha_Planifica.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Cedula_Presup_Codigo == null)) {
-                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_Cedula_Presup_Codigo));
-            }
-            if ((Original_Contrata_Desc == null)) {
-                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_Contrata_Desc));
-            }
-            if ((Original_Pla_Tarea_Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((int)(Original_Pla_Tarea_Id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
-            }
-            if ((Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((int)(Id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string Codigo, 
-                    string Tipo, 
-                    global::System.Nullable<global::System.DateTime> Fecha_Solicita, 
-                    string Per_Personal_Id_Solicita, 
-                    string Area_Codigo_Solicita, 
-                    string Descripcion, 
-                    string Estado, 
-                    string Per_Personal_Id_Crea, 
-                    string Per_Personal_Id_Modifica, 
-                    global::System.Nullable<decimal> Valor_Solicita, 
-                    string Per_Personal_Id_Planifica, 
-                    string Esta_Planificada, 
-                    string Per_Personal_Id_Contrata, 
-                    string Esta_Contratada, 
-                    string PAC_Linea, 
-                    string CPC_Codigo, 
-                    global::System.Nullable<global::System.DateTime> Fecha_Contrata, 
-                    global::System.Nullable<global::System.DateTime> Fecha_Planifica, 
-                    string Cedula_Presup_Codigo, 
-                    string Contrata_Desc, 
-                    global::System.Nullable<int> Pla_Tarea_Id, 
-                    global::System.Nullable<int> Original_Id, 
-                    string Original_Codigo, 
-                    string Original_Tipo, 
-                    global::System.Nullable<global::System.DateTime> Original_Fecha_Solicita, 
-                    string Original_Per_Personal_Id_Solicita, 
-                    string Original_Area_Codigo_Solicita, 
-                    string Original_Descripcion, 
-                    string Original_Estado, 
-                    string Original_Per_Personal_Id_Crea, 
-                    string Original_Per_Personal_Id_Modifica, 
-                    global::System.Nullable<decimal> Original_Valor_Solicita, 
-                    string Original_Per_Personal_Id_Planifica, 
-                    string Original_Esta_Planificada, 
-                    string Original_Per_Personal_Id_Contrata, 
-                    string Original_Esta_Contratada, 
-                    string Original_PAC_Linea, 
-                    string Original_CPC_Codigo, 
-                    global::System.Nullable<global::System.DateTime> Original_Fecha_Contrata, 
-                    global::System.Nullable<global::System.DateTime> Original_Fecha_Planifica, 
-                    string Original_Cedula_Presup_Codigo, 
-                    string Original_Contrata_Desc, 
-                    global::System.Nullable<int> Original_Pla_Tarea_Id) {
-            return this.Update(Codigo, Tipo, Fecha_Solicita, Per_Personal_Id_Solicita, Area_Codigo_Solicita, Descripcion, Estado, Per_Personal_Id_Crea, Per_Personal_Id_Modifica, Valor_Solicita, Per_Personal_Id_Planifica, Esta_Planificada, Per_Personal_Id_Contrata, Esta_Contratada, PAC_Linea, CPC_Codigo, Fecha_Contrata, Fecha_Planifica, Cedula_Presup_Codigo, Contrata_Desc, Pla_Tarea_Id, Original_Id, Original_Codigo, Original_Tipo, Original_Fecha_Solicita, Original_Per_Personal_Id_Solicita, Original_Area_Codigo_Solicita, Original_Descripcion, Original_Estado, Original_Per_Personal_Id_Crea, Original_Per_Personal_Id_Modifica, Original_Valor_Solicita, Original_Per_Personal_Id_Planifica, Original_Esta_Planificada, Original_Per_Personal_Id_Contrata, Original_Esta_Contratada, Original_PAC_Linea, Original_CPC_Codigo, Original_Fecha_Contrata, Original_Fecha_Planifica, Original_Cedula_Presup_Codigo, Original_Contrata_Desc, Original_Pla_Tarea_Id, Original_Id);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object InsertINT(
-                    string Codigo, 
-                    string Tipo, 
-                    global::System.Nullable<global::System.DateTime> Fecha_Solicita, 
-                    string Per_Personal_Id_Solicita, 
-                    string Area_Codigo_Solicita, 
-                    string Descripcion, 
-                    string Estado, 
-                    string Per_Personal_Id_Crea, 
-                    string Per_Personal_Id_Modifica, 
-                    global::System.Nullable<decimal> Valor_Solicita, 
-                    string Per_Personal_Id_Planifica, 
-                    string Esta_Planificada, 
-                    string Per_Personal_Id_Contrata, 
-                    string Esta_Contratada, 
-                    string PAC_Linea, 
-                    string CPC_Codigo, 
-                    global::System.Nullable<global::System.DateTime> Fecha_Contrata, 
-                    global::System.Nullable<global::System.DateTime> Fecha_Planifica, 
-                    string Cedula_Presup_Codigo, 
-                    string Contrata_Desc, 
-                    global::System.Nullable<int> Pla_Tarea_Id) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[10];
-            if ((Codigo == null)) {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[1].Value = ((string)(Codigo));
-            }
-            if ((Tipo == null)) {
-                command.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[2].Value = ((string)(Tipo));
-            }
-            if ((Fecha_Solicita.HasValue == true)) {
-                command.Parameters[3].Value = ((System.DateTime)(Fecha_Solicita.Value));
-            }
-            else {
-                command.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Per_Personal_Id_Solicita == null)) {
-                command.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[4].Value = ((string)(Per_Personal_Id_Solicita));
-            }
-            if ((Area_Codigo_Solicita == null)) {
-                command.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[5].Value = ((string)(Area_Codigo_Solicita));
-            }
-            if ((Descripcion == null)) {
-                command.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[6].Value = ((string)(Descripcion));
-            }
-            if ((Estado == null)) {
-                command.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[7].Value = ((string)(Estado));
-            }
-            if ((Per_Personal_Id_Crea == null)) {
-                command.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[8].Value = ((string)(Per_Personal_Id_Crea));
-            }
-            if ((Per_Personal_Id_Modifica == null)) {
-                command.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[9].Value = ((string)(Per_Personal_Id_Modifica));
-            }
-            if ((Valor_Solicita.HasValue == true)) {
-                command.Parameters[10].Value = ((decimal)(Valor_Solicita.Value));
-            }
-            else {
-                command.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Per_Personal_Id_Planifica == null)) {
-                command.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[11].Value = ((string)(Per_Personal_Id_Planifica));
-            }
-            if ((Esta_Planificada == null)) {
-                command.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[12].Value = ((string)(Esta_Planificada));
-            }
-            if ((Per_Personal_Id_Contrata == null)) {
-                command.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[13].Value = ((string)(Per_Personal_Id_Contrata));
-            }
-            if ((Esta_Contratada == null)) {
-                command.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[14].Value = ((string)(Esta_Contratada));
-            }
-            if ((PAC_Linea == null)) {
-                command.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[15].Value = ((string)(PAC_Linea));
-            }
-            if ((CPC_Codigo == null)) {
-                command.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[16].Value = ((string)(CPC_Codigo));
-            }
-            if ((Fecha_Contrata.HasValue == true)) {
-                command.Parameters[17].Value = ((System.DateTime)(Fecha_Contrata.Value));
-            }
-            else {
-                command.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((Fecha_Planifica.HasValue == true)) {
-                command.Parameters[18].Value = ((System.DateTime)(Fecha_Planifica.Value));
-            }
-            else {
-                command.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            if ((Cedula_Presup_Codigo == null)) {
-                command.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[19].Value = ((string)(Cedula_Presup_Codigo));
-            }
-            if ((Contrata_Desc == null)) {
-                command.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[20].Value = ((string)(Contrata_Desc));
-            }
-            if ((Pla_Tarea_Id.HasValue == true)) {
-                command.Parameters[21].Value = ((int)(Pla_Tarea_Id.Value));
-            }
-            else {
-                command.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            object returnValue;
-            try {
-                returnValue = command.ExecuteScalar();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return null;
-            }
-            else {
-                return ((object)(returnValue));
-            }
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class Pla_MovTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -15816,6 +14341,2090 @@ namespace ADL.PlanificacionTableAdapters {
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class Pla_DocTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public Pla_DocTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Pla_Doc";
+            tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("Codigo", "Codigo");
+            tableMapping.ColumnMappings.Add("Tipo", "Tipo");
+            tableMapping.ColumnMappings.Add("Fecha_Solicita", "Fecha_Solicita");
+            tableMapping.ColumnMappings.Add("Per_Personal_Id_Solicita", "Per_Personal_Id_Solicita");
+            tableMapping.ColumnMappings.Add("Area_Codigo_Solicita", "Area_Codigo_Solicita");
+            tableMapping.ColumnMappings.Add("Descripcion", "Descripcion");
+            tableMapping.ColumnMappings.Add("Estado", "Estado");
+            tableMapping.ColumnMappings.Add("Per_Personal_Id_Crea", "Per_Personal_Id_Crea");
+            tableMapping.ColumnMappings.Add("Per_Personal_Id_Modifica", "Per_Personal_Id_Modifica");
+            tableMapping.ColumnMappings.Add("Valor_Solicita", "Valor_Solicita");
+            tableMapping.ColumnMappings.Add("Per_Personal_Id_Planifica", "Per_Personal_Id_Planifica");
+            tableMapping.ColumnMappings.Add("Esta_Planificada", "Esta_Planificada");
+            tableMapping.ColumnMappings.Add("Per_Personal_Id_Contrata", "Per_Personal_Id_Contrata");
+            tableMapping.ColumnMappings.Add("Esta_Contratada", "Esta_Contratada");
+            tableMapping.ColumnMappings.Add("PAC_Linea", "PAC_Linea");
+            tableMapping.ColumnMappings.Add("CPC_Codigo", "CPC_Codigo");
+            tableMapping.ColumnMappings.Add("Fecha_Contrata", "Fecha_Contrata");
+            tableMapping.ColumnMappings.Add("Fecha_Planifica", "Fecha_Planifica");
+            tableMapping.ColumnMappings.Add("Cedula_Presup_Codigo", "Cedula_Presup_Codigo");
+            tableMapping.ColumnMappings.Add("Contrata_Desc", "Contrata_Desc");
+            tableMapping.ColumnMappings.Add("Pla_Tarea_Id", "Pla_Tarea_Id");
+            tableMapping.ColumnMappings.Add("Proyecto_Tipo", "Proyecto_Tipo");
+            tableMapping.ColumnMappings.Add("Pla_Doc_Id_Principal", "Pla_Doc_Id_Principal");
+            tableMapping.ColumnMappings.Add("Com_Procedimiento_Id", "Com_Procedimiento_Id");
+            tableMapping.ColumnMappings.Add("Per_Personal_Id_Presupuesta", "Per_Personal_Id_Presupuesta");
+            tableMapping.ColumnMappings.Add("Esta_Presupuestada", "Esta_Presupuestada");
+            tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Solicita", "Per_Personal_Nombre_Solicita");
+            tableMapping.ColumnMappings.Add("Area_Nombre_Solicita", "Area_Nombre_Solicita");
+            tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Crea", "Per_Personal_Nombre_Crea");
+            tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Modifica", "Per_Personal_Nombre_Modifica");
+            tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Planifica", "Per_Personal_Nombre_Planifica");
+            tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Contrata", "Per_Personal_Nombre_Contrata");
+            tableMapping.ColumnMappings.Add("Valor_Suma_Movs", "Valor_Suma_Movs");
+            tableMapping.ColumnMappings.Add("Pla_Tarea_Nombre", "Pla_Tarea_Nombre");
+            tableMapping.ColumnMappings.Add("Pla_Cta_Id", "Pla_Cta_Id");
+            tableMapping.ColumnMappings.Add("Pla_Cta_Codigo", "Pla_Cta_Codigo");
+            tableMapping.ColumnMappings.Add("Pla_Cta_Nombre", "Pla_Cta_Nombre");
+            tableMapping.ColumnMappings.Add("Estado_Proceso", "Estado_Proceso");
+            tableMapping.ColumnMappings.Add("Proyecto_Tipo_Nombre", "Proyecto_Tipo_Nombre");
+            tableMapping.ColumnMappings.Add("Pla_Doc_Codigo_Principal", "Pla_Doc_Codigo_Principal");
+            tableMapping.ColumnMappings.Add("Com_Procedimiento_Nombre", "Com_Procedimiento_Nombre");
+            tableMapping.ColumnMappings.Add("Per_Personal_Nombre_Presupuesta", "Per_Personal_Nombre_Presupuesta");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "dbo.Pla_Doc_Del";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Solicita", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Solicita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Solicita", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Solicita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Area_Codigo_Solicita", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Area_Codigo_Solicita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Descripcion", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Crea", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Crea", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Modifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Modifica", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Valor_Solicita", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor_Solicita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Per_Personal_Id_Planifica", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Per_Personal_Id_Planifica", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Planifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Planifica", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Esta_Planificada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Planificada", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Per_Personal_Id_Contrata", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Per_Personal_Id_Contrata", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Contrata", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Contrata", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Esta_Contratada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Contratada", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PAC_Linea", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PAC_Linea", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CPC_Codigo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CPC_Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Contrata", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Contrata", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Planifica", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Planifica", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cedula_Presup_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Presup_Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Contrata_Desc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Contrata_Desc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Pla_Tarea_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Tarea_Id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Tarea_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Tarea_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Proyecto_Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Proyecto_Tipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Pla_Doc_Id_Principal", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id_Principal", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Doc_Id_Principal", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id_Principal", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Com_Procedimiento_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Com_Procedimiento_Id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Com_Procedimiento_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Com_Procedimiento_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Per_Personal_Id_Presupuesta", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Per_Personal_Id_Presupuesta", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Presupuesta", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Presupuesta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Esta_Presupuestada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Presupuestada", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "dbo.Pla_Doc_Ins";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Solicita", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Solicita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Solicita", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Solicita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Area_Codigo_Solicita", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Area_Codigo_Solicita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Descripcion", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Crea", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Crea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Modifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Modifica", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Valor_Solicita", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor_Solicita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Planifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Planifica", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Esta_Planificada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Planificada", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Contrata", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Contrata", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Esta_Contratada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Contratada", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PAC_Linea", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PAC_Linea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CPC_Codigo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CPC_Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Contrata", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Contrata", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Planifica", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Planifica", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula_Presup_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Presup_Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contrata_Desc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Contrata_Desc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Tarea_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Tarea_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Proyecto_Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Proyecto_Tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Doc_Id_Principal", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id_Principal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Com_Procedimiento_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Com_Procedimiento_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Presupuesta", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Presupuesta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Esta_Presupuestada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Presupuestada", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "dbo.Pla_Doc_Upd";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Solicita", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Solicita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Solicita", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Solicita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Area_Codigo_Solicita", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Area_Codigo_Solicita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Descripcion", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Crea", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Crea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Modifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Modifica", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Valor_Solicita", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor_Solicita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Planifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Planifica", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Esta_Planificada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Planificada", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Contrata", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Contrata", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Esta_Contratada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Contratada", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PAC_Linea", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PAC_Linea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CPC_Codigo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CPC_Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Contrata", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Contrata", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Planifica", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Planifica", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula_Presup_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Presup_Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contrata_Desc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Contrata_Desc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Tarea_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Tarea_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Proyecto_Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Proyecto_Tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Doc_Id_Principal", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id_Principal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Com_Procedimiento_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Com_Procedimiento_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Presupuesta", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Presupuesta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Esta_Presupuestada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Presupuestada", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Solicita", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Solicita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Solicita", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Solicita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Area_Codigo_Solicita", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Area_Codigo_Solicita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Descripcion", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Crea", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Crea", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Modifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Modifica", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Valor_Solicita", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, "Valor_Solicita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Per_Personal_Id_Planifica", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Per_Personal_Id_Planifica", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Planifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Planifica", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Esta_Planificada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Planificada", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Per_Personal_Id_Contrata", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Per_Personal_Id_Contrata", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Contrata", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Contrata", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Esta_Contratada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Contratada", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PAC_Linea", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PAC_Linea", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CPC_Codigo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CPC_Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Contrata", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Contrata", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Planifica", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, "Fecha_Planifica", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cedula_Presup_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Presup_Codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Contrata_Desc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Contrata_Desc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Pla_Tarea_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Tarea_Id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Tarea_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Tarea_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Proyecto_Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Proyecto_Tipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Pla_Doc_Id_Principal", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id_Principal", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pla_Doc_Id_Principal", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Pla_Doc_Id_Principal", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Com_Procedimiento_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Com_Procedimiento_Id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Com_Procedimiento_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Com_Procedimiento_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Per_Personal_Id_Presupuesta", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Per_Personal_Id_Presupuesta", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Per_Personal_Id_Presupuesta", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, "Per_Personal_Id_Presupuesta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Esta_Presupuestada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Esta_Presupuestada", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::ADL.Properties.Settings.Default.KCG_DataConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[11];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.Pla_Doc_Sel";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "dbo.Pla_Doc_SelByArea_Codigo_RangoFecha_Solicita";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Area_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Ini", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Fin", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "dbo.Pla_Doc_SelByCodigo";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "dbo.Pla_Doc_SelById";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "dbo.Pla_Doc_SelByRangoFecha_Solicita";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Ini", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Fin", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "dbo.Pla_Doc_SelByTipo_Area_Codigo_Codigo";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Tipo", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Area_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Codigo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = "dbo.Pla_Doc_SelByTipo_Area_Codigo_LikeDescripcion";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Tipo", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Area_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Descripcion", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = "dbo.Pla_Doc_SelByTipo_Area_Codigo_RangoFecha_Solicita";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Tipo", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Area_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Ini", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Fin", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[8].Connection = this.Connection;
+            this._commandCollection[8].CommandText = "dbo.Pla_Doc_SelByTipo_RangoFecha_Solicita";
+            this._commandCollection[8].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Tipo", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Ini", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Fin", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[9].Connection = this.Connection;
+            this._commandCollection[9].CommandText = "dbo.Pla_Doc_SelByTipo_RangoFecha_Solicita_LikeDescripcion";
+            this._commandCollection[9].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Tipo", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Ini", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Fecha_Solicita_Fin", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_Descripcion", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[10].Connection = this.Connection;
+            this._commandCollection[10].CommandText = "dbo.Pla_Doc_Ins";
+            this._commandCollection[10].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Solicita", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Solicita", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Area_Codigo_Solicita", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Descripcion", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Crea", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Modifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Valor_Solicita", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 17, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Planifica", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Esta_Planificada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Contrata", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Esta_Contratada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PAC_Linea", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CPC_Codigo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Contrata", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Planifica", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 16, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula_Presup_Codigo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contrata_Desc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Tarea_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Proyecto_Tipo", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pla_Doc_Id_Principal", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Com_Procedimiento_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Per_Personal_Id_Presupuesta", global::System.Data.SqlDbType.VarChar, 17, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Esta_Presupuestada", global::System.Data.SqlDbType.Char, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(Planificacion.Pla_DocDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual Planificacion.Pla_DocDataTable Get() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByArea_Codigo_RangoFecha_Solicita(Planificacion.Pla_DocDataTable dataTable, string p_Area_Codigo, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((p_Area_Codigo == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Area_Codigo));
+            }
+            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Planificacion.Pla_DocDataTable GetByArea_Codigo_RangoFecha_Solicita(string p_Area_Codigo, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((p_Area_Codigo == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Area_Codigo));
+            }
+            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByCodigo(Planificacion.Pla_DocDataTable dataTable, string p_Codigo) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((p_Codigo == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Codigo));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Planificacion.Pla_DocDataTable GetByCodigo(string p_Codigo) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((p_Codigo == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Codigo));
+            }
+            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillById(Planificacion.Pla_DocDataTable dataTable, global::System.Nullable<int> p_Id) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((p_Id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(p_Id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Planificacion.Pla_DocDataTable GetById(global::System.Nullable<int> p_Id) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((p_Id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(p_Id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByRangoFecha_Solicita(Planificacion.Pla_DocDataTable dataTable, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Planificacion.Pla_DocDataTable GetByRangoFecha_Solicita(global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTipo_Area_Codigo_Codigo(Planificacion.Pla_DocDataTable dataTable, string p_Tipo, string p_Area_Codigo, string p_Codigo) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((p_Tipo == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
+            }
+            if ((p_Area_Codigo == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(p_Area_Codigo));
+            }
+            if ((p_Codigo == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(p_Codigo));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Planificacion.Pla_DocDataTable GetByTipo_Area_Codigo_Codigo(string p_Tipo, string p_Area_Codigo, string p_Codigo) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((p_Tipo == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
+            }
+            if ((p_Area_Codigo == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(p_Area_Codigo));
+            }
+            if ((p_Codigo == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(p_Codigo));
+            }
+            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTipo_Area_Codigo_LikeDescripcion(Planificacion.Pla_DocDataTable dataTable, string p_Tipo, string p_Area_Codigo, string p_Descripcion) {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
+            if ((p_Tipo == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
+            }
+            if ((p_Area_Codigo == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(p_Area_Codigo));
+            }
+            if ((p_Descripcion == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(p_Descripcion));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Planificacion.Pla_DocDataTable GetByTipo_Area_Codigo_LikeDescripcion(string p_Tipo, string p_Area_Codigo, string p_Descripcion) {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
+            if ((p_Tipo == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
+            }
+            if ((p_Area_Codigo == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(p_Area_Codigo));
+            }
+            if ((p_Descripcion == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(p_Descripcion));
+            }
+            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTipo_Area_Codigo_RangoFecha_Solicita(Planificacion.Pla_DocDataTable dataTable, string p_Tipo, string p_Area_Codigo, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin) {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
+            if ((p_Tipo == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
+            }
+            if ((p_Area_Codigo == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(p_Area_Codigo));
+            }
+            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Planificacion.Pla_DocDataTable GetByTipo_Area_Codigo_RangoFecha_Solicita(string p_Tipo, string p_Area_Codigo, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin) {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
+            if ((p_Tipo == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
+            }
+            if ((p_Area_Codigo == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(p_Area_Codigo));
+            }
+            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTipo_RangoFecha_Solicita(Planificacion.Pla_DocDataTable dataTable, string p_Tipo, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin) {
+            this.Adapter.SelectCommand = this.CommandCollection[8];
+            if ((p_Tipo == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
+            }
+            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Planificacion.Pla_DocDataTable GetByTipo_RangoFecha_Solicita(string p_Tipo, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin) {
+            this.Adapter.SelectCommand = this.CommandCollection[8];
+            if ((p_Tipo == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
+            }
+            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTipo_RangoFecha_Solicita_LikeDescripcion(Planificacion.Pla_DocDataTable dataTable, string p_Tipo, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin, string p_Descripcion) {
+            this.Adapter.SelectCommand = this.CommandCollection[9];
+            if ((p_Tipo == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
+            }
+            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((p_Descripcion == null)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(p_Descripcion));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Planificacion.Pla_DocDataTable GetByTipo_RangoFecha_Solicita_LikeDescripcion(string p_Tipo, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Ini, global::System.Nullable<global::System.DateTime> p_Fecha_Solicita_Fin, string p_Descripcion) {
+            this.Adapter.SelectCommand = this.CommandCollection[9];
+            if ((p_Tipo == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(p_Tipo));
+            }
+            if ((p_Fecha_Solicita_Ini.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(p_Fecha_Solicita_Ini.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((p_Fecha_Solicita_Fin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(p_Fecha_Solicita_Fin.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((p_Descripcion == null)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(p_Descripcion));
+            }
+            Planificacion.Pla_DocDataTable dataTable = new Planificacion.Pla_DocDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(Planificacion.Pla_DocDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(Planificacion dataSet) {
+            return this.Adapter.Update(dataSet, "Pla_Doc");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(
+                    global::System.Nullable<int> Original_Id, 
+                    string Original_Codigo, 
+                    string Original_Tipo, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Solicita, 
+                    string Original_Per_Personal_Id_Solicita, 
+                    string Original_Area_Codigo_Solicita, 
+                    string Original_Descripcion, 
+                    string Original_Estado, 
+                    string Original_Per_Personal_Id_Crea, 
+                    string Original_Per_Personal_Id_Modifica, 
+                    global::System.Nullable<decimal> Original_Valor_Solicita, 
+                    string Original_Per_Personal_Id_Planifica, 
+                    string Original_Esta_Planificada, 
+                    string Original_Per_Personal_Id_Contrata, 
+                    string Original_Esta_Contratada, 
+                    string Original_PAC_Linea, 
+                    string Original_CPC_Codigo, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Contrata, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Planifica, 
+                    string Original_Cedula_Presup_Codigo, 
+                    string Original_Contrata_Desc, 
+                    global::System.Nullable<int> Original_Pla_Tarea_Id, 
+                    string Original_Proyecto_Tipo, 
+                    global::System.Nullable<int> Original_Pla_Doc_Id_Principal, 
+                    global::System.Nullable<int> Original_Com_Procedimiento_Id, 
+                    string Original_Per_Personal_Id_Presupuesta, 
+                    string Original_Esta_Presupuestada) {
+            if ((Original_Id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Codigo == null)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Codigo));
+            }
+            if ((Original_Tipo == null)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Tipo));
+            }
+            if ((Original_Fecha_Solicita.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_Fecha_Solicita.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Per_Personal_Id_Solicita == null)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Per_Personal_Id_Solicita));
+            }
+            if ((Original_Area_Codigo_Solicita == null)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Area_Codigo_Solicita));
+            }
+            if ((Original_Descripcion == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Descripcion));
+            }
+            if ((Original_Estado == null)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Estado));
+            }
+            if ((Original_Per_Personal_Id_Crea == null)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Per_Personal_Id_Crea));
+            }
+            if ((Original_Per_Personal_Id_Modifica == null)) {
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Per_Personal_Id_Modifica));
+            }
+            if ((Original_Valor_Solicita.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((decimal)(Original_Valor_Solicita.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Per_Personal_Id_Planifica == null)) {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_Per_Personal_Id_Planifica));
+            }
+            if ((Original_Esta_Planificada == null)) {
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_Esta_Planificada));
+            }
+            if ((Original_Per_Personal_Id_Contrata == null)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_Per_Personal_Id_Contrata));
+            }
+            if ((Original_Esta_Contratada == null)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_Esta_Contratada));
+            }
+            if ((Original_PAC_Linea == null)) {
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_PAC_Linea));
+            }
+            if ((Original_CPC_Codigo == null)) {
+                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_CPC_Codigo));
+            }
+            if ((Original_Fecha_Contrata.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((System.DateTime)(Original_Fecha_Contrata.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fecha_Planifica.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((System.DateTime)(Original_Fecha_Planifica.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Cedula_Presup_Codigo == null)) {
+                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_Cedula_Presup_Codigo));
+            }
+            if ((Original_Contrata_Desc == null)) {
+                this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_Contrata_Desc));
+            }
+            if ((Original_Pla_Tarea_Id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((int)(Original_Pla_Tarea_Id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Proyecto_Tipo == null)) {
+                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(Original_Proyecto_Tipo));
+            }
+            if ((Original_Pla_Doc_Id_Principal.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((int)(Original_Pla_Doc_Id_Principal.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Com_Procedimiento_Id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((int)(Original_Com_Procedimiento_Id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Per_Personal_Id_Presupuesta == null)) {
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((string)(Original_Per_Personal_Id_Presupuesta));
+            }
+            if ((Original_Esta_Presupuestada == null)) {
+                this.Adapter.DeleteCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((string)(Original_Esta_Presupuestada));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(
+                    string Codigo, 
+                    string Tipo, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Solicita, 
+                    string Per_Personal_Id_Solicita, 
+                    string Area_Codigo_Solicita, 
+                    string Descripcion, 
+                    string Estado, 
+                    string Per_Personal_Id_Crea, 
+                    string Per_Personal_Id_Modifica, 
+                    global::System.Nullable<decimal> Valor_Solicita, 
+                    string Per_Personal_Id_Planifica, 
+                    string Esta_Planificada, 
+                    string Per_Personal_Id_Contrata, 
+                    string Esta_Contratada, 
+                    string PAC_Linea, 
+                    string CPC_Codigo, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Contrata, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Planifica, 
+                    string Cedula_Presup_Codigo, 
+                    string Contrata_Desc, 
+                    global::System.Nullable<int> Pla_Tarea_Id, 
+                    string Proyecto_Tipo, 
+                    global::System.Nullable<int> Pla_Doc_Id_Principal, 
+                    global::System.Nullable<int> Com_Procedimiento_Id, 
+                    string Per_Personal_Id_Presupuesta, 
+                    string Esta_Presupuestada) {
+            if ((Codigo == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Codigo));
+            }
+            if ((Tipo == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Tipo));
+            }
+            if ((Fecha_Solicita.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(Fecha_Solicita.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Per_Personal_Id_Solicita == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Per_Personal_Id_Solicita));
+            }
+            if ((Area_Codigo_Solicita == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Area_Codigo_Solicita));
+            }
+            if ((Descripcion == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Descripcion));
+            }
+            if ((Estado == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Estado));
+            }
+            if ((Per_Personal_Id_Crea == null)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Per_Personal_Id_Crea));
+            }
+            if ((Per_Personal_Id_Modifica == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Per_Personal_Id_Modifica));
+            }
+            if ((Valor_Solicita.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(Valor_Solicita.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Per_Personal_Id_Planifica == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(Per_Personal_Id_Planifica));
+            }
+            if ((Esta_Planificada == null)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(Esta_Planificada));
+            }
+            if ((Per_Personal_Id_Contrata == null)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(Per_Personal_Id_Contrata));
+            }
+            if ((Esta_Contratada == null)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(Esta_Contratada));
+            }
+            if ((PAC_Linea == null)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(PAC_Linea));
+            }
+            if ((CPC_Codigo == null)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(CPC_Codigo));
+            }
+            if ((Fecha_Contrata.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((System.DateTime)(Fecha_Contrata.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_Planifica.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((System.DateTime)(Fecha_Planifica.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((Cedula_Presup_Codigo == null)) {
+                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(Cedula_Presup_Codigo));
+            }
+            if ((Contrata_Desc == null)) {
+                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[20].Value = ((string)(Contrata_Desc));
+            }
+            if ((Pla_Tarea_Id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[21].Value = ((int)(Pla_Tarea_Id.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((Proyecto_Tipo == null)) {
+                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[22].Value = ((string)(Proyecto_Tipo));
+            }
+            if ((Pla_Doc_Id_Principal.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[23].Value = ((int)(Pla_Doc_Id_Principal.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((Com_Procedimiento_Id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[24].Value = ((int)(Com_Procedimiento_Id.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Per_Personal_Id_Presupuesta == null)) {
+                this.Adapter.InsertCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[25].Value = ((string)(Per_Personal_Id_Presupuesta));
+            }
+            if ((Esta_Presupuestada == null)) {
+                this.Adapter.InsertCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[26].Value = ((string)(Esta_Presupuestada));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string Codigo, 
+                    string Tipo, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Solicita, 
+                    string Per_Personal_Id_Solicita, 
+                    string Area_Codigo_Solicita, 
+                    string Descripcion, 
+                    string Estado, 
+                    string Per_Personal_Id_Crea, 
+                    string Per_Personal_Id_Modifica, 
+                    global::System.Nullable<decimal> Valor_Solicita, 
+                    string Per_Personal_Id_Planifica, 
+                    string Esta_Planificada, 
+                    string Per_Personal_Id_Contrata, 
+                    string Esta_Contratada, 
+                    string PAC_Linea, 
+                    string CPC_Codigo, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Contrata, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Planifica, 
+                    string Cedula_Presup_Codigo, 
+                    string Contrata_Desc, 
+                    global::System.Nullable<int> Pla_Tarea_Id, 
+                    string Proyecto_Tipo, 
+                    global::System.Nullable<int> Pla_Doc_Id_Principal, 
+                    global::System.Nullable<int> Com_Procedimiento_Id, 
+                    string Per_Personal_Id_Presupuesta, 
+                    string Esta_Presupuestada, 
+                    global::System.Nullable<int> Original_Id, 
+                    string Original_Codigo, 
+                    string Original_Tipo, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Solicita, 
+                    string Original_Per_Personal_Id_Solicita, 
+                    string Original_Area_Codigo_Solicita, 
+                    string Original_Descripcion, 
+                    string Original_Estado, 
+                    string Original_Per_Personal_Id_Crea, 
+                    string Original_Per_Personal_Id_Modifica, 
+                    global::System.Nullable<decimal> Original_Valor_Solicita, 
+                    string Original_Per_Personal_Id_Planifica, 
+                    string Original_Esta_Planificada, 
+                    string Original_Per_Personal_Id_Contrata, 
+                    string Original_Esta_Contratada, 
+                    string Original_PAC_Linea, 
+                    string Original_CPC_Codigo, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Contrata, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Planifica, 
+                    string Original_Cedula_Presup_Codigo, 
+                    string Original_Contrata_Desc, 
+                    global::System.Nullable<int> Original_Pla_Tarea_Id, 
+                    string Original_Proyecto_Tipo, 
+                    global::System.Nullable<int> Original_Pla_Doc_Id_Principal, 
+                    global::System.Nullable<int> Original_Com_Procedimiento_Id, 
+                    string Original_Per_Personal_Id_Presupuesta, 
+                    string Original_Esta_Presupuestada, 
+                    global::System.Nullable<int> Id) {
+            if ((Codigo == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Codigo));
+            }
+            if ((Tipo == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Tipo));
+            }
+            if ((Fecha_Solicita.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(Fecha_Solicita.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Per_Personal_Id_Solicita == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Per_Personal_Id_Solicita));
+            }
+            if ((Area_Codigo_Solicita == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Area_Codigo_Solicita));
+            }
+            if ((Descripcion == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Descripcion));
+            }
+            if ((Estado == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Estado));
+            }
+            if ((Per_Personal_Id_Crea == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Per_Personal_Id_Crea));
+            }
+            if ((Per_Personal_Id_Modifica == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Per_Personal_Id_Modifica));
+            }
+            if ((Valor_Solicita.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Valor_Solicita.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Per_Personal_Id_Planifica == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Per_Personal_Id_Planifica));
+            }
+            if ((Esta_Planificada == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Esta_Planificada));
+            }
+            if ((Per_Personal_Id_Contrata == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Per_Personal_Id_Contrata));
+            }
+            if ((Esta_Contratada == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Esta_Contratada));
+            }
+            if ((PAC_Linea == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(PAC_Linea));
+            }
+            if ((CPC_Codigo == null)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(CPC_Codigo));
+            }
+            if ((Fecha_Contrata.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Fecha_Contrata.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_Planifica.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Fecha_Planifica.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((Cedula_Presup_Codigo == null)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Cedula_Presup_Codigo));
+            }
+            if ((Contrata_Desc == null)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Contrata_Desc));
+            }
+            if ((Pla_Tarea_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Pla_Tarea_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((Proyecto_Tipo == null)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Proyecto_Tipo));
+            }
+            if ((Pla_Doc_Id_Principal.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Pla_Doc_Id_Principal.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((Com_Procedimiento_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Com_Procedimiento_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Per_Personal_Id_Presupuesta == null)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Per_Personal_Id_Presupuesta));
+            }
+            if ((Esta_Presupuestada == null)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Esta_Presupuestada));
+            }
+            if ((Original_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Codigo == null)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_Codigo));
+            }
+            if ((Original_Tipo == null)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_Tipo));
+            }
+            if ((Original_Fecha_Solicita.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((System.DateTime)(Original_Fecha_Solicita.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Per_Personal_Id_Solicita == null)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_Per_Personal_Id_Solicita));
+            }
+            if ((Original_Area_Codigo_Solicita == null)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_Area_Codigo_Solicita));
+            }
+            if ((Original_Descripcion == null)) {
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_Descripcion));
+            }
+            if ((Original_Estado == null)) {
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_Estado));
+            }
+            if ((Original_Per_Personal_Id_Crea == null)) {
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_Per_Personal_Id_Crea));
+            }
+            if ((Original_Per_Personal_Id_Modifica == null)) {
+                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_Per_Personal_Id_Modifica));
+            }
+            if ((Original_Valor_Solicita.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((decimal)(Original_Valor_Solicita.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Per_Personal_Id_Planifica == null)) {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_Per_Personal_Id_Planifica));
+            }
+            if ((Original_Esta_Planificada == null)) {
+                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_Esta_Planificada));
+            }
+            if ((Original_Per_Personal_Id_Contrata == null)) {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_Per_Personal_Id_Contrata));
+            }
+            if ((Original_Esta_Contratada == null)) {
+                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_Esta_Contratada));
+            }
+            if ((Original_PAC_Linea == null)) {
+                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_PAC_Linea));
+            }
+            if ((Original_CPC_Codigo == null)) {
+                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Original_CPC_Codigo));
+            }
+            if ((Original_Fecha_Contrata.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((System.DateTime)(Original_Fecha_Contrata.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fecha_Planifica.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((System.DateTime)(Original_Fecha_Planifica.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Cedula_Presup_Codigo == null)) {
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_Cedula_Presup_Codigo));
+            }
+            if ((Original_Contrata_Desc == null)) {
+                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(Original_Contrata_Desc));
+            }
+            if ((Original_Pla_Tarea_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((int)(Original_Pla_Tarea_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Proyecto_Tipo == null)) {
+                this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((string)(Original_Proyecto_Tipo));
+            }
+            if ((Original_Pla_Doc_Id_Principal.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((int)(Original_Pla_Doc_Id_Principal.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Com_Procedimiento_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((int)(Original_Com_Procedimiento_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[56].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Per_Personal_Id_Presupuesta == null)) {
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[58].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((string)(Original_Per_Personal_Id_Presupuesta));
+            }
+            if ((Original_Esta_Presupuestada == null)) {
+                this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((string)(Original_Esta_Presupuestada));
+            }
+            if ((Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((int)(Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[60].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string Codigo, 
+                    string Tipo, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Solicita, 
+                    string Per_Personal_Id_Solicita, 
+                    string Area_Codigo_Solicita, 
+                    string Descripcion, 
+                    string Estado, 
+                    string Per_Personal_Id_Crea, 
+                    string Per_Personal_Id_Modifica, 
+                    global::System.Nullable<decimal> Valor_Solicita, 
+                    string Per_Personal_Id_Planifica, 
+                    string Esta_Planificada, 
+                    string Per_Personal_Id_Contrata, 
+                    string Esta_Contratada, 
+                    string PAC_Linea, 
+                    string CPC_Codigo, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Contrata, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Planifica, 
+                    string Cedula_Presup_Codigo, 
+                    string Contrata_Desc, 
+                    global::System.Nullable<int> Pla_Tarea_Id, 
+                    string Proyecto_Tipo, 
+                    global::System.Nullable<int> Pla_Doc_Id_Principal, 
+                    global::System.Nullable<int> Com_Procedimiento_Id, 
+                    string Per_Personal_Id_Presupuesta, 
+                    string Esta_Presupuestada, 
+                    global::System.Nullable<int> Original_Id, 
+                    string Original_Codigo, 
+                    string Original_Tipo, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Solicita, 
+                    string Original_Per_Personal_Id_Solicita, 
+                    string Original_Area_Codigo_Solicita, 
+                    string Original_Descripcion, 
+                    string Original_Estado, 
+                    string Original_Per_Personal_Id_Crea, 
+                    string Original_Per_Personal_Id_Modifica, 
+                    global::System.Nullable<decimal> Original_Valor_Solicita, 
+                    string Original_Per_Personal_Id_Planifica, 
+                    string Original_Esta_Planificada, 
+                    string Original_Per_Personal_Id_Contrata, 
+                    string Original_Esta_Contratada, 
+                    string Original_PAC_Linea, 
+                    string Original_CPC_Codigo, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Contrata, 
+                    global::System.Nullable<global::System.DateTime> Original_Fecha_Planifica, 
+                    string Original_Cedula_Presup_Codigo, 
+                    string Original_Contrata_Desc, 
+                    global::System.Nullable<int> Original_Pla_Tarea_Id, 
+                    string Original_Proyecto_Tipo, 
+                    global::System.Nullable<int> Original_Pla_Doc_Id_Principal, 
+                    global::System.Nullable<int> Original_Com_Procedimiento_Id, 
+                    string Original_Per_Personal_Id_Presupuesta, 
+                    string Original_Esta_Presupuestada) {
+            return this.Update(Codigo, Tipo, Fecha_Solicita, Per_Personal_Id_Solicita, Area_Codigo_Solicita, Descripcion, Estado, Per_Personal_Id_Crea, Per_Personal_Id_Modifica, Valor_Solicita, Per_Personal_Id_Planifica, Esta_Planificada, Per_Personal_Id_Contrata, Esta_Contratada, PAC_Linea, CPC_Codigo, Fecha_Contrata, Fecha_Planifica, Cedula_Presup_Codigo, Contrata_Desc, Pla_Tarea_Id, Proyecto_Tipo, Pla_Doc_Id_Principal, Com_Procedimiento_Id, Per_Personal_Id_Presupuesta, Esta_Presupuestada, Original_Id, Original_Codigo, Original_Tipo, Original_Fecha_Solicita, Original_Per_Personal_Id_Solicita, Original_Area_Codigo_Solicita, Original_Descripcion, Original_Estado, Original_Per_Personal_Id_Crea, Original_Per_Personal_Id_Modifica, Original_Valor_Solicita, Original_Per_Personal_Id_Planifica, Original_Esta_Planificada, Original_Per_Personal_Id_Contrata, Original_Esta_Contratada, Original_PAC_Linea, Original_CPC_Codigo, Original_Fecha_Contrata, Original_Fecha_Planifica, Original_Cedula_Presup_Codigo, Original_Contrata_Desc, Original_Pla_Tarea_Id, Original_Proyecto_Tipo, Original_Pla_Doc_Id_Principal, Original_Com_Procedimiento_Id, Original_Per_Personal_Id_Presupuesta, Original_Esta_Presupuestada, Original_Id);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object InsertINT(
+                    string Codigo, 
+                    string Tipo, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Solicita, 
+                    string Per_Personal_Id_Solicita, 
+                    string Area_Codigo_Solicita, 
+                    string Descripcion, 
+                    string Estado, 
+                    string Per_Personal_Id_Crea, 
+                    string Per_Personal_Id_Modifica, 
+                    global::System.Nullable<decimal> Valor_Solicita, 
+                    string Per_Personal_Id_Planifica, 
+                    string Esta_Planificada, 
+                    string Per_Personal_Id_Contrata, 
+                    string Esta_Contratada, 
+                    string PAC_Linea, 
+                    string CPC_Codigo, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Contrata, 
+                    global::System.Nullable<global::System.DateTime> Fecha_Planifica, 
+                    string Cedula_Presup_Codigo, 
+                    string Contrata_Desc, 
+                    global::System.Nullable<int> Pla_Tarea_Id, 
+                    string Proyecto_Tipo, 
+                    global::System.Nullable<int> Pla_Doc_Id_Principal, 
+                    global::System.Nullable<int> Com_Procedimiento_Id, 
+                    string Per_Personal_Id_Presupuesta, 
+                    string Esta_Presupuestada) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[10];
+            if ((Codigo == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Codigo));
+            }
+            if ((Tipo == null)) {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[2].Value = ((string)(Tipo));
+            }
+            if ((Fecha_Solicita.HasValue == true)) {
+                command.Parameters[3].Value = ((System.DateTime)(Fecha_Solicita.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Per_Personal_Id_Solicita == null)) {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[4].Value = ((string)(Per_Personal_Id_Solicita));
+            }
+            if ((Area_Codigo_Solicita == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[5].Value = ((string)(Area_Codigo_Solicita));
+            }
+            if ((Descripcion == null)) {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[6].Value = ((string)(Descripcion));
+            }
+            if ((Estado == null)) {
+                command.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[7].Value = ((string)(Estado));
+            }
+            if ((Per_Personal_Id_Crea == null)) {
+                command.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[8].Value = ((string)(Per_Personal_Id_Crea));
+            }
+            if ((Per_Personal_Id_Modifica == null)) {
+                command.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[9].Value = ((string)(Per_Personal_Id_Modifica));
+            }
+            if ((Valor_Solicita.HasValue == true)) {
+                command.Parameters[10].Value = ((decimal)(Valor_Solicita.Value));
+            }
+            else {
+                command.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Per_Personal_Id_Planifica == null)) {
+                command.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[11].Value = ((string)(Per_Personal_Id_Planifica));
+            }
+            if ((Esta_Planificada == null)) {
+                command.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[12].Value = ((string)(Esta_Planificada));
+            }
+            if ((Per_Personal_Id_Contrata == null)) {
+                command.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[13].Value = ((string)(Per_Personal_Id_Contrata));
+            }
+            if ((Esta_Contratada == null)) {
+                command.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[14].Value = ((string)(Esta_Contratada));
+            }
+            if ((PAC_Linea == null)) {
+                command.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[15].Value = ((string)(PAC_Linea));
+            }
+            if ((CPC_Codigo == null)) {
+                command.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[16].Value = ((string)(CPC_Codigo));
+            }
+            if ((Fecha_Contrata.HasValue == true)) {
+                command.Parameters[17].Value = ((System.DateTime)(Fecha_Contrata.Value));
+            }
+            else {
+                command.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_Planifica.HasValue == true)) {
+                command.Parameters[18].Value = ((System.DateTime)(Fecha_Planifica.Value));
+            }
+            else {
+                command.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((Cedula_Presup_Codigo == null)) {
+                command.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[19].Value = ((string)(Cedula_Presup_Codigo));
+            }
+            if ((Contrata_Desc == null)) {
+                command.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[20].Value = ((string)(Contrata_Desc));
+            }
+            if ((Pla_Tarea_Id.HasValue == true)) {
+                command.Parameters[21].Value = ((int)(Pla_Tarea_Id.Value));
+            }
+            else {
+                command.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((Proyecto_Tipo == null)) {
+                command.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[22].Value = ((string)(Proyecto_Tipo));
+            }
+            if ((Pla_Doc_Id_Principal.HasValue == true)) {
+                command.Parameters[23].Value = ((int)(Pla_Doc_Id_Principal.Value));
+            }
+            else {
+                command.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((Com_Procedimiento_Id.HasValue == true)) {
+                command.Parameters[24].Value = ((int)(Com_Procedimiento_Id.Value));
+            }
+            else {
+                command.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Per_Personal_Id_Presupuesta == null)) {
+                command.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[25].Value = ((string)(Per_Personal_Id_Presupuesta));
+            }
+            if ((Esta_Presupuestada == null)) {
+                command.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[26].Value = ((string)(Esta_Presupuestada));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -15835,8 +16444,6 @@ namespace ADL.PlanificacionTableAdapters {
         
         private Pla_TareaTableAdapter _pla_TareaTableAdapter;
         
-        private Pla_DocTableAdapter _pla_DocTableAdapter;
-        
         private Pla_MovTableAdapter _pla_MovTableAdapter;
         
         private Pla_ParamTableAdapter _pla_ParamTableAdapter;
@@ -15846,6 +16453,8 @@ namespace ADL.PlanificacionTableAdapters {
         private Pla_Lote_TipoTableAdapter _pla_Lote_TipoTableAdapter;
         
         private Pla_LoteTableAdapter _pla_LoteTableAdapter;
+        
+        private Pla_DocTableAdapter _pla_DocTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -15923,20 +16532,6 @@ namespace ADL.PlanificacionTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public Pla_DocTableAdapter Pla_DocTableAdapter {
-            get {
-                return this._pla_DocTableAdapter;
-            }
-            set {
-                this._pla_DocTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
         public Pla_MovTableAdapter Pla_MovTableAdapter {
             get {
                 return this._pla_MovTableAdapter;
@@ -16004,6 +16599,20 @@ namespace ADL.PlanificacionTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public Pla_DocTableAdapter Pla_DocTableAdapter {
+            get {
+                return this._pla_DocTableAdapter;
+            }
+            set {
+                this._pla_DocTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -16037,10 +16646,6 @@ namespace ADL.PlanificacionTableAdapters {
                             && (this._pla_TareaTableAdapter.Connection != null))) {
                     return this._pla_TareaTableAdapter.Connection;
                 }
-                if (((this._pla_DocTableAdapter != null) 
-                            && (this._pla_DocTableAdapter.Connection != null))) {
-                    return this._pla_DocTableAdapter.Connection;
-                }
                 if (((this._pla_MovTableAdapter != null) 
                             && (this._pla_MovTableAdapter.Connection != null))) {
                     return this._pla_MovTableAdapter.Connection;
@@ -16060,6 +16665,10 @@ namespace ADL.PlanificacionTableAdapters {
                 if (((this._pla_LoteTableAdapter != null) 
                             && (this._pla_LoteTableAdapter.Connection != null))) {
                     return this._pla_LoteTableAdapter.Connection;
+                }
+                if (((this._pla_DocTableAdapter != null) 
+                            && (this._pla_DocTableAdapter.Connection != null))) {
+                    return this._pla_DocTableAdapter.Connection;
                 }
                 return null;
             }
@@ -16086,9 +16695,6 @@ namespace ADL.PlanificacionTableAdapters {
                 if ((this._pla_TareaTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._pla_DocTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._pla_MovTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -16104,6 +16710,9 @@ namespace ADL.PlanificacionTableAdapters {
                 if ((this._pla_LoteTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._pla_DocTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -16115,24 +16724,6 @@ namespace ADL.PlanificacionTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(Planificacion dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._pla_ParamTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Pla_Param.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._pla_ParamTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._pla_MovTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Pla_Mov.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._pla_MovTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._pla_PersonalDatosTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Pla_PersonalDatos.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -16142,12 +16733,12 @@ namespace ADL.PlanificacionTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._pla_LoteTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Pla_Lote.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._pla_ParamTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Pla_Param.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._pla_LoteTableAdapter.Update(updatedRows));
+                    result = (result + this._pla_ParamTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -16157,6 +16748,24 @@ namespace ADL.PlanificacionTableAdapters {
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._pla_Lote_TipoTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._pla_DocTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Pla_Doc.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._pla_DocTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._pla_LoteTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Pla_Lote.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._pla_LoteTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -16187,12 +16796,12 @@ namespace ADL.PlanificacionTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._pla_DocTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Pla_Doc.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._pla_MovTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Pla_Mov.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._pla_DocTableAdapter.Update(updatedRows));
+                    result = (result + this._pla_MovTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -16215,22 +16824,6 @@ namespace ADL.PlanificacionTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(Planificacion dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._pla_ParamTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Pla_Param.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._pla_ParamTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._pla_MovTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Pla_Mov.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._pla_MovTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._pla_PersonalDatosTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Pla_PersonalDatos.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -16239,11 +16832,11 @@ namespace ADL.PlanificacionTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._pla_LoteTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Pla_Lote.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._pla_ParamTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Pla_Param.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._pla_LoteTableAdapter.Update(addedRows));
+                    result = (result + this._pla_ParamTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -16252,6 +16845,22 @@ namespace ADL.PlanificacionTableAdapters {
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._pla_Lote_TipoTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._pla_DocTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Pla_Doc.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._pla_DocTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._pla_LoteTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Pla_Lote.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._pla_LoteTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -16279,11 +16888,11 @@ namespace ADL.PlanificacionTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._pla_DocTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Pla_Doc.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._pla_MovTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Pla_Mov.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._pla_DocTableAdapter.Update(addedRows));
+                    result = (result + this._pla_MovTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -16313,11 +16922,11 @@ namespace ADL.PlanificacionTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._pla_DocTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Pla_Doc.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._pla_MovTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Pla_Mov.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._pla_DocTableAdapter.Update(deletedRows));
+                    result = (result + this._pla_MovTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -16345,14 +16954,6 @@ namespace ADL.PlanificacionTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._pla_Lote_TipoTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Pla_Lote_Tipo.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._pla_Lote_TipoTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._pla_LoteTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Pla_Lote.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -16361,19 +16962,19 @@ namespace ADL.PlanificacionTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._pla_PersonalDatosTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Pla_PersonalDatos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._pla_DocTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Pla_Doc.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._pla_PersonalDatosTableAdapter.Update(deletedRows));
+                    result = (result + this._pla_DocTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._pla_MovTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Pla_Mov.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._pla_Lote_TipoTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Pla_Lote_Tipo.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._pla_MovTableAdapter.Update(deletedRows));
+                    result = (result + this._pla_Lote_TipoTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -16382,6 +16983,14 @@ namespace ADL.PlanificacionTableAdapters {
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._pla_ParamTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._pla_PersonalDatosTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Pla_PersonalDatos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._pla_PersonalDatosTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -16444,11 +17053,6 @@ namespace ADL.PlanificacionTableAdapters {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._pla_DocTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._pla_DocTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             if (((this._pla_MovTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._pla_MovTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
@@ -16471,6 +17075,11 @@ namespace ADL.PlanificacionTableAdapters {
             }
             if (((this._pla_LoteTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._pla_LoteTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._pla_DocTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._pla_DocTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -16542,15 +17151,6 @@ namespace ADL.PlanificacionTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this._pla_TareaTableAdapter.Adapter);
                     }
                 }
-                if ((this._pla_DocTableAdapter != null)) {
-                    revertConnections.Add(this._pla_DocTableAdapter, this._pla_DocTableAdapter.Connection);
-                    this._pla_DocTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._pla_DocTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._pla_DocTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._pla_DocTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._pla_DocTableAdapter.Adapter);
-                    }
-                }
                 if ((this._pla_MovTableAdapter != null)) {
                     revertConnections.Add(this._pla_MovTableAdapter, this._pla_MovTableAdapter.Connection);
                     this._pla_MovTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -16594,6 +17194,15 @@ namespace ADL.PlanificacionTableAdapters {
                     if (this._pla_LoteTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._pla_LoteTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._pla_LoteTableAdapter.Adapter);
+                    }
+                }
+                if ((this._pla_DocTableAdapter != null)) {
+                    revertConnections.Add(this._pla_DocTableAdapter, this._pla_DocTableAdapter.Connection);
+                    this._pla_DocTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._pla_DocTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._pla_DocTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._pla_DocTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._pla_DocTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -16670,10 +17279,6 @@ namespace ADL.PlanificacionTableAdapters {
                     this._pla_TareaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._pla_TareaTableAdapter]));
                     this._pla_TareaTableAdapter.Transaction = null;
                 }
-                if ((this._pla_DocTableAdapter != null)) {
-                    this._pla_DocTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._pla_DocTableAdapter]));
-                    this._pla_DocTableAdapter.Transaction = null;
-                }
                 if ((this._pla_MovTableAdapter != null)) {
                     this._pla_MovTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._pla_MovTableAdapter]));
                     this._pla_MovTableAdapter.Transaction = null;
@@ -16693,6 +17298,10 @@ namespace ADL.PlanificacionTableAdapters {
                 if ((this._pla_LoteTableAdapter != null)) {
                     this._pla_LoteTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._pla_LoteTableAdapter]));
                     this._pla_LoteTableAdapter.Transaction = null;
+                }
+                if ((this._pla_DocTableAdapter != null)) {
+                    this._pla_DocTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._pla_DocTableAdapter]));
+                    this._pla_DocTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

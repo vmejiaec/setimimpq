@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web.Services;
+using System.Web.Services; 
 
 using CEL.PLA; // datos.xsdNombreIniciales
 using AEL.PLA;
-using BEL; 
+using BEL;
 
 namespace EWS
 {
@@ -330,95 +330,6 @@ namespace EWS
         }
 		#endregion
 		#endregion
-	    #region Servicios para Pla_Doc
-        private DO_Pla_Doc _Pla_Doc;
-        public DO_Pla_Doc Pla_Doc {
-            get {
-                if (_Pla_Doc == null)
-                    _Pla_Doc = new DO_Pla_Doc();
-                return _Pla_Doc;
-            }
-        }
-
-		#region Select
-		[WebMethod]
-        public List<Pla_Doc> Pla_Doc_Get(Scope s)
-        {
-            return Pla_Doc.Get(s);
-        }
-		#endregion
-		#region Insert, Delete, Update
-		[WebMethod]
-        public int Pla_Doc_Insert(Pla_Doc n)
-        {
-            return Pla_Doc.Insert(n);
-        }
-		[WebMethod]
-        public int Pla_Doc_Delete(Pla_Doc o)
-        {
-            return Pla_Doc.Delete(o);
-        }
-		[WebMethod]
-        public int Pla_Doc_Update(Pla_Doc o,Pla_Doc n)
-        {
-            return Pla_Doc.Update(o, n);
-        }
-		#endregion
-		#region Métodos Get
-		[WebMethod]
-		public List<Pla_Doc> Pla_Doc_GetByArea_Codigo_RangoFecha_Solicita(Scope s , string p_Area_Codigo, DateTime p_Fecha_Solicita_Ini, DateTime p_Fecha_Solicita_Fin)
-        {
-            return Pla_Doc.GetByArea_Codigo_RangoFecha_Solicita(s,  p_Area_Codigo, p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin);
-        }
-		[WebMethod]
-		public List<Pla_Doc> Pla_Doc_GetByCodigo(Scope s , string p_Codigo)
-        {
-            return Pla_Doc.GetByCodigo(s,  p_Codigo);
-        }
-		[WebMethod]
-		public List<Pla_Doc> Pla_Doc_GetById(Scope s , Int32 p_Id)
-        {
-            return Pla_Doc.GetById(s,  p_Id);
-        }
-		[WebMethod]
-		public List<Pla_Doc> Pla_Doc_GetByRangoFecha_Solicita(Scope s , DateTime p_Fecha_Solicita_Ini, DateTime p_Fecha_Solicita_Fin)
-        {
-            return Pla_Doc.GetByRangoFecha_Solicita(s,  p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin);
-        }
-		[WebMethod]
-		public List<Pla_Doc> Pla_Doc_GetByTipo_Area_Codigo_Codigo(Scope s , string p_Tipo, string p_Area_Codigo, string p_Codigo)
-        {
-            return Pla_Doc.GetByTipo_Area_Codigo_Codigo(s,  p_Tipo, p_Area_Codigo, p_Codigo);
-        }
-		[WebMethod]
-		public List<Pla_Doc> Pla_Doc_GetByTipo_Area_Codigo_LikeDescripcion(Scope s , string p_Tipo, string p_Area_Codigo, string p_Descripcion)
-        {
-            return Pla_Doc.GetByTipo_Area_Codigo_LikeDescripcion(s,  p_Tipo, p_Area_Codigo, p_Descripcion);
-        }
-		[WebMethod]
-		public List<Pla_Doc> Pla_Doc_GetByTipo_Area_Codigo_RangoFecha_Solicita(Scope s , string p_Tipo, string p_Area_Codigo, DateTime p_Fecha_Solicita_Ini, DateTime p_Fecha_Solicita_Fin)
-        {
-            return Pla_Doc.GetByTipo_Area_Codigo_RangoFecha_Solicita(s,  p_Tipo, p_Area_Codigo, p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin);
-        }
-		[WebMethod]
-		public List<Pla_Doc> Pla_Doc_GetByTipo_RangoFecha_Solicita(Scope s , string p_Tipo, DateTime p_Fecha_Solicita_Ini, DateTime p_Fecha_Solicita_Fin)
-        {
-            return Pla_Doc.GetByTipo_RangoFecha_Solicita(s,  p_Tipo, p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin);
-        }
-		[WebMethod]
-		public List<Pla_Doc> Pla_Doc_GetByTipo_RangoFecha_Solicita_LikeDescripcion(Scope s , string p_Tipo, DateTime p_Fecha_Solicita_Ini, DateTime p_Fecha_Solicita_Fin, string p_Descripcion)
-        {
-            return Pla_Doc.GetByTipo_RangoFecha_Solicita_LikeDescripcion(s,  p_Tipo, p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin, p_Descripcion);
-        }
-		#endregion
-		#region Métodos Genéricos retornan un escalar
-				[WebMethod]
-        public int Pla_Doc_InsertINT(Pla_Doc n)
-        {
-            return Pla_Doc.InsertINT(n);
-        }
-		#endregion
-		#endregion
 	    #region Servicios para Pla_Mov
         private DO_Pla_Mov _Pla_Mov;
         public DO_Pla_Mov Pla_Mov {
@@ -671,6 +582,95 @@ namespace EWS
         public int Pla_Lote_InsertINT(Pla_Lote n)
         {
             return Pla_Lote.InsertINT(n);
+        }
+		#endregion
+		#endregion
+	    #region Servicios para Pla_Doc
+        private DO_Pla_Doc _Pla_Doc;
+        public DO_Pla_Doc Pla_Doc {
+            get {
+                if (_Pla_Doc == null)
+                    _Pla_Doc = new DO_Pla_Doc();
+                return _Pla_Doc;
+            }
+        }
+
+		#region Select
+		[WebMethod]
+        public List<Pla_Doc> Pla_Doc_Get(Scope s)
+        {
+            return Pla_Doc.Get(s);
+        }
+		#endregion
+		#region Insert, Delete, Update
+		[WebMethod]
+        public int Pla_Doc_Insert(Pla_Doc n)
+        {
+            return Pla_Doc.Insert(n);
+        }
+		[WebMethod]
+        public int Pla_Doc_Delete(Pla_Doc o)
+        {
+            return Pla_Doc.Delete(o);
+        }
+		[WebMethod]
+        public int Pla_Doc_Update(Pla_Doc o,Pla_Doc n)
+        {
+            return Pla_Doc.Update(o, n);
+        }
+		#endregion
+		#region Métodos Get
+		[WebMethod]
+		public List<Pla_Doc> Pla_Doc_GetByArea_Codigo_RangoFecha_Solicita(Scope s , string p_Area_Codigo, DateTime p_Fecha_Solicita_Ini, DateTime p_Fecha_Solicita_Fin)
+        {
+            return Pla_Doc.GetByArea_Codigo_RangoFecha_Solicita(s,  p_Area_Codigo, p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin);
+        }
+		[WebMethod]
+		public List<Pla_Doc> Pla_Doc_GetByCodigo(Scope s , string p_Codigo)
+        {
+            return Pla_Doc.GetByCodigo(s,  p_Codigo);
+        }
+		[WebMethod]
+		public List<Pla_Doc> Pla_Doc_GetById(Scope s , Int32 p_Id)
+        {
+            return Pla_Doc.GetById(s,  p_Id);
+        }
+		[WebMethod]
+		public List<Pla_Doc> Pla_Doc_GetByRangoFecha_Solicita(Scope s , DateTime p_Fecha_Solicita_Ini, DateTime p_Fecha_Solicita_Fin)
+        {
+            return Pla_Doc.GetByRangoFecha_Solicita(s,  p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin);
+        }
+		[WebMethod]
+		public List<Pla_Doc> Pla_Doc_GetByTipo_Area_Codigo_Codigo(Scope s , string p_Tipo, string p_Area_Codigo, string p_Codigo)
+        {
+            return Pla_Doc.GetByTipo_Area_Codigo_Codigo(s,  p_Tipo, p_Area_Codigo, p_Codigo);
+        }
+		[WebMethod]
+		public List<Pla_Doc> Pla_Doc_GetByTipo_Area_Codigo_LikeDescripcion(Scope s , string p_Tipo, string p_Area_Codigo, string p_Descripcion)
+        {
+            return Pla_Doc.GetByTipo_Area_Codigo_LikeDescripcion(s,  p_Tipo, p_Area_Codigo, p_Descripcion);
+        }
+		[WebMethod]
+		public List<Pla_Doc> Pla_Doc_GetByTipo_Area_Codigo_RangoFecha_Solicita(Scope s , string p_Tipo, string p_Area_Codigo, DateTime p_Fecha_Solicita_Ini, DateTime p_Fecha_Solicita_Fin)
+        {
+            return Pla_Doc.GetByTipo_Area_Codigo_RangoFecha_Solicita(s,  p_Tipo, p_Area_Codigo, p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin);
+        }
+		[WebMethod]
+		public List<Pla_Doc> Pla_Doc_GetByTipo_RangoFecha_Solicita(Scope s , string p_Tipo, DateTime p_Fecha_Solicita_Ini, DateTime p_Fecha_Solicita_Fin)
+        {
+            return Pla_Doc.GetByTipo_RangoFecha_Solicita(s,  p_Tipo, p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin);
+        }
+		[WebMethod]
+		public List<Pla_Doc> Pla_Doc_GetByTipo_RangoFecha_Solicita_LikeDescripcion(Scope s , string p_Tipo, DateTime p_Fecha_Solicita_Ini, DateTime p_Fecha_Solicita_Fin, string p_Descripcion)
+        {
+            return Pla_Doc.GetByTipo_RangoFecha_Solicita_LikeDescripcion(s,  p_Tipo, p_Fecha_Solicita_Ini, p_Fecha_Solicita_Fin, p_Descripcion);
+        }
+		#endregion
+		#region Métodos Genéricos retornan un escalar
+				[WebMethod]
+        public int Pla_Doc_InsertINT(Pla_Doc n)
+        {
+            return Pla_Doc.InsertINT(n);
         }
 		#endregion
 		#endregion

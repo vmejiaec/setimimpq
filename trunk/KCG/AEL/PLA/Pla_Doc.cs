@@ -7,8 +7,8 @@
 //     se vuelve a generar el código.
 // </auto-generated>
 //------------------------------------------------------------------------------
-  
-namespace AEL.PLA
+
+namespace AEL.PLA 
 {
     using System;
     using System.Collections.Generic;
@@ -76,6 +76,30 @@ namespace AEL.PLA
         private System.DateTime _Fecha_Planifica;
         
         // Comentario
+        private string _Cedula_Presup_Codigo;
+        
+        // Comentario
+        private string _Contrata_Desc;
+        
+        // Comentario
+        private int _Pla_Tarea_Id;
+        
+        // Comentario
+        private string _Proyecto_Tipo;
+        
+        // Comentario
+        private int _Pla_Doc_Id_Principal;
+        
+        // Comentario
+        private int _Com_Procedimiento_Id;
+        
+        // Comentario
+        private string _Per_Personal_Id_Presupuesta;
+        
+        // Comentario
+        private string _Esta_Presupuestada;
+        
+        // Comentario
         private string _Per_Personal_Nombre_Solicita;
         
         // Comentario
@@ -97,13 +121,7 @@ namespace AEL.PLA
         private decimal _Valor_Suma_Movs;
         
         // Comentario
-        private string _Cedula_Presup_Codigo;
-        
-        // Comentario
-        private string _Contrata_Desc;
-        
-        // Comentario
-        private int _Pla_Tarea_Id;
+        private string _Pla_Tarea_Nombre;
         
         // Comentario
         private int _Pla_Cta_Id;
@@ -115,10 +133,19 @@ namespace AEL.PLA
         private string _Pla_Cta_Nombre;
         
         // Comentario
-        private string _Pla_Tarea_Nombre;
+        private string _Estado_Proceso;
         
         // Comentario
-        private string _Estado_Proceso;
+        private string _Proyecto_Tipo_Nombre;
+        
+        // Comentario
+        private string _Pla_Doc_Codigo_Principal;
+        
+        // Comentario
+        private string _Com_Procedimiento_Nombre;
+        
+        // Comentario
+        private string _Per_Personal_Nombre_Presupuesta;
         
         public Pla_Doc()
         {
@@ -144,6 +171,14 @@ namespace AEL.PLA
                     string cPC_Codigo, 
                     System.DateTime fecha_Contrata, 
                     System.DateTime fecha_Planifica, 
+                    string cedula_Presup_Codigo, 
+                    string contrata_Desc, 
+                    int pla_Tarea_Id, 
+                    string proyecto_Tipo, 
+                    int pla_Doc_Id_Principal, 
+                    int com_Procedimiento_Id, 
+                    string per_Personal_Id_Presupuesta, 
+                    string esta_Presupuestada, 
                     string per_Personal_Nombre_Solicita, 
                     string area_Nombre_Solicita, 
                     string per_Personal_Nombre_Crea, 
@@ -151,14 +186,15 @@ namespace AEL.PLA
                     string per_Personal_Nombre_Planifica, 
                     string per_Personal_Nombre_Contrata, 
                     decimal valor_Suma_Movs, 
-                    string cedula_Presup_Codigo, 
-                    string contrata_Desc, 
-                    int pla_Tarea_Id, 
+                    string pla_Tarea_Nombre, 
                     int pla_Cta_Id, 
                     string pla_Cta_Codigo, 
                     string pla_Cta_Nombre, 
-                    string pla_Tarea_Nombre, 
-                    string estado_Proceso)
+                    string estado_Proceso, 
+                    string proyecto_Tipo_Nombre, 
+                    string pla_Doc_Codigo_Principal, 
+                    string com_Procedimiento_Nombre, 
+                    string per_Personal_Nombre_Presupuesta)
         {
             this.Id = id;
             this.Codigo = codigo;
@@ -179,6 +215,14 @@ namespace AEL.PLA
             this.CPC_Codigo = cPC_Codigo;
             this.Fecha_Contrata = fecha_Contrata;
             this.Fecha_Planifica = fecha_Planifica;
+            this.Cedula_Presup_Codigo = cedula_Presup_Codigo;
+            this.Contrata_Desc = contrata_Desc;
+            this.Pla_Tarea_Id = pla_Tarea_Id;
+            this.Proyecto_Tipo = proyecto_Tipo;
+            this.Pla_Doc_Id_Principal = pla_Doc_Id_Principal;
+            this.Com_Procedimiento_Id = com_Procedimiento_Id;
+            this.Per_Personal_Id_Presupuesta = per_Personal_Id_Presupuesta;
+            this.Esta_Presupuestada = esta_Presupuestada;
             this.Per_Personal_Nombre_Solicita = per_Personal_Nombre_Solicita;
             this.Area_Nombre_Solicita = area_Nombre_Solicita;
             this.Per_Personal_Nombre_Crea = per_Personal_Nombre_Crea;
@@ -186,14 +230,15 @@ namespace AEL.PLA
             this.Per_Personal_Nombre_Planifica = per_Personal_Nombre_Planifica;
             this.Per_Personal_Nombre_Contrata = per_Personal_Nombre_Contrata;
             this.Valor_Suma_Movs = valor_Suma_Movs;
-            this.Cedula_Presup_Codigo = cedula_Presup_Codigo;
-            this.Contrata_Desc = contrata_Desc;
-            this.Pla_Tarea_Id = pla_Tarea_Id;
+            this.Pla_Tarea_Nombre = pla_Tarea_Nombre;
             this.Pla_Cta_Id = pla_Cta_Id;
             this.Pla_Cta_Codigo = pla_Cta_Codigo;
             this.Pla_Cta_Nombre = pla_Cta_Nombre;
-            this.Pla_Tarea_Nombre = pla_Tarea_Nombre;
             this.Estado_Proceso = estado_Proceso;
+            this.Proyecto_Tipo_Nombre = proyecto_Tipo_Nombre;
+            this.Pla_Doc_Codigo_Principal = pla_Doc_Codigo_Principal;
+            this.Com_Procedimiento_Nombre = com_Procedimiento_Nombre;
+            this.Per_Personal_Nombre_Presupuesta = per_Personal_Nombre_Presupuesta;
         }
         
         public Pla_Doc(Pla_Doc o)
@@ -217,6 +262,14 @@ namespace AEL.PLA
             this.CPC_Codigo = o.CPC_Codigo;
             this.Fecha_Contrata = o.Fecha_Contrata;
             this.Fecha_Planifica = o.Fecha_Planifica;
+            this.Cedula_Presup_Codigo = o.Cedula_Presup_Codigo;
+            this.Contrata_Desc = o.Contrata_Desc;
+            this.Pla_Tarea_Id = o.Pla_Tarea_Id;
+            this.Proyecto_Tipo = o.Proyecto_Tipo;
+            this.Pla_Doc_Id_Principal = o.Pla_Doc_Id_Principal;
+            this.Com_Procedimiento_Id = o.Com_Procedimiento_Id;
+            this.Per_Personal_Id_Presupuesta = o.Per_Personal_Id_Presupuesta;
+            this.Esta_Presupuestada = o.Esta_Presupuestada;
             this.Per_Personal_Nombre_Solicita = o.Per_Personal_Nombre_Solicita;
             this.Area_Nombre_Solicita = o.Area_Nombre_Solicita;
             this.Per_Personal_Nombre_Crea = o.Per_Personal_Nombre_Crea;
@@ -224,14 +277,15 @@ namespace AEL.PLA
             this.Per_Personal_Nombre_Planifica = o.Per_Personal_Nombre_Planifica;
             this.Per_Personal_Nombre_Contrata = o.Per_Personal_Nombre_Contrata;
             this.Valor_Suma_Movs = o.Valor_Suma_Movs;
-            this.Cedula_Presup_Codigo = o.Cedula_Presup_Codigo;
-            this.Contrata_Desc = o.Contrata_Desc;
-            this.Pla_Tarea_Id = o.Pla_Tarea_Id;
+            this.Pla_Tarea_Nombre = o.Pla_Tarea_Nombre;
             this.Pla_Cta_Id = o.Pla_Cta_Id;
             this.Pla_Cta_Codigo = o.Pla_Cta_Codigo;
             this.Pla_Cta_Nombre = o.Pla_Cta_Nombre;
-            this.Pla_Tarea_Nombre = o.Pla_Tarea_Nombre;
             this.Estado_Proceso = o.Estado_Proceso;
+            this.Proyecto_Tipo_Nombre = o.Proyecto_Tipo_Nombre;
+            this.Pla_Doc_Codigo_Principal = o.Pla_Doc_Codigo_Principal;
+            this.Com_Procedimiento_Nombre = o.Com_Procedimiento_Nombre;
+            this.Per_Personal_Nombre_Presupuesta = o.Per_Personal_Nombre_Presupuesta;
         }
         
         // Comentario
@@ -482,6 +536,110 @@ namespace AEL.PLA
         }
         
         // Comentario
+        public string Cedula_Presup_Codigo
+        {
+            get
+            {
+                return this._Cedula_Presup_Codigo;
+            }
+            set
+            {
+                this._Cedula_Presup_Codigo = value;
+            }
+        }
+        
+        // Comentario
+        public string Contrata_Desc
+        {
+            get
+            {
+                return this._Contrata_Desc;
+            }
+            set
+            {
+                this._Contrata_Desc = value;
+            }
+        }
+        
+        // Comentario
+        public int Pla_Tarea_Id
+        {
+            get
+            {
+                return this._Pla_Tarea_Id;
+            }
+            set
+            {
+                this._Pla_Tarea_Id = value;
+            }
+        }
+        
+        // Comentario
+        public string Proyecto_Tipo
+        {
+            get
+            {
+                return this._Proyecto_Tipo;
+            }
+            set
+            {
+                this._Proyecto_Tipo = value;
+            }
+        }
+        
+        // Comentario
+        public int Pla_Doc_Id_Principal
+        {
+            get
+            {
+                return this._Pla_Doc_Id_Principal;
+            }
+            set
+            {
+                this._Pla_Doc_Id_Principal = value;
+            }
+        }
+        
+        // Comentario
+        public int Com_Procedimiento_Id
+        {
+            get
+            {
+                return this._Com_Procedimiento_Id;
+            }
+            set
+            {
+                this._Com_Procedimiento_Id = value;
+            }
+        }
+        
+        // Comentario
+        public string Per_Personal_Id_Presupuesta
+        {
+            get
+            {
+                return this._Per_Personal_Id_Presupuesta;
+            }
+            set
+            {
+                this._Per_Personal_Id_Presupuesta = value;
+            }
+        }
+        
+        // Comentario
+        public string Esta_Presupuestada
+        {
+            get
+            {
+                return this._Esta_Presupuestada;
+            }
+            set
+            {
+                this._Esta_Presupuestada = value;
+            }
+        }
+        
+        // Comentario
         public string Per_Personal_Nombre_Solicita
         {
             get
@@ -573,41 +731,15 @@ namespace AEL.PLA
         }
         
         // Comentario
-        public string Cedula_Presup_Codigo
+        public string Pla_Tarea_Nombre
         {
             get
             {
-                return this._Cedula_Presup_Codigo;
+                return this._Pla_Tarea_Nombre;
             }
             set
             {
-                this._Cedula_Presup_Codigo = value;
-            }
-        }
-        
-        // Comentario
-        public string Contrata_Desc
-        {
-            get
-            {
-                return this._Contrata_Desc;
-            }
-            set
-            {
-                this._Contrata_Desc = value;
-            }
-        }
-        
-        // Comentario
-        public int Pla_Tarea_Id
-        {
-            get
-            {
-                return this._Pla_Tarea_Id;
-            }
-            set
-            {
-                this._Pla_Tarea_Id = value;
+                this._Pla_Tarea_Nombre = value;
             }
         }
         
@@ -651,19 +783,6 @@ namespace AEL.PLA
         }
         
         // Comentario
-        public string Pla_Tarea_Nombre
-        {
-            get
-            {
-                return this._Pla_Tarea_Nombre;
-            }
-            set
-            {
-                this._Pla_Tarea_Nombre = value;
-            }
-        }
-        
-        // Comentario
         public string Estado_Proceso
         {
             get
@@ -673,6 +792,58 @@ namespace AEL.PLA
             set
             {
                 this._Estado_Proceso = value;
+            }
+        }
+        
+        // Comentario
+        public string Proyecto_Tipo_Nombre
+        {
+            get
+            {
+                return this._Proyecto_Tipo_Nombre;
+            }
+            set
+            {
+                this._Proyecto_Tipo_Nombre = value;
+            }
+        }
+        
+        // Comentario
+        public string Pla_Doc_Codigo_Principal
+        {
+            get
+            {
+                return this._Pla_Doc_Codigo_Principal;
+            }
+            set
+            {
+                this._Pla_Doc_Codigo_Principal = value;
+            }
+        }
+        
+        // Comentario
+        public string Com_Procedimiento_Nombre
+        {
+            get
+            {
+                return this._Com_Procedimiento_Nombre;
+            }
+            set
+            {
+                this._Com_Procedimiento_Nombre = value;
+            }
+        }
+        
+        // Comentario
+        public string Per_Personal_Nombre_Presupuesta
+        {
+            get
+            {
+                return this._Per_Personal_Nombre_Presupuesta;
+            }
+            set
+            {
+                this._Per_Personal_Nombre_Presupuesta = value;
             }
         }
     }
