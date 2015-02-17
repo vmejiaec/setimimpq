@@ -5,7 +5,7 @@ using System.Text;
 using System.ComponentModel;
 using HER;
 
-namespace FEL.PLA
+namespace FEL.PLA 
 {
     [DataObject]
     public partial class BO_Pla_Doc
@@ -240,6 +240,38 @@ namespace FEL.PLA
                     retVal =  DateTime.Compare(x.Fecha_Planifica, y.Fecha_Planifica);
                     break;
 				// System.String
+                case "Cedula_Presup_Codigo":
+                    retVal =  string.Compare(x.Cedula_Presup_Codigo, y.Cedula_Presup_Codigo);
+                    break;
+				// System.String
+                case "Contrata_Desc":
+                    retVal =  string.Compare(x.Contrata_Desc, y.Contrata_Desc);
+                    break;
+              // System.Int32
+                case "Pla_Tarea_Id":
+                    retVal =  x.Pla_Tarea_Id - y.Pla_Tarea_Id ;
+                    break;
+				// System.String
+                case "Proyecto_Tipo":
+                    retVal =  string.Compare(x.Proyecto_Tipo, y.Proyecto_Tipo);
+                    break;
+              // System.Int32
+                case "Pla_Doc_Id_Principal":
+                    retVal =  x.Pla_Doc_Id_Principal - y.Pla_Doc_Id_Principal ;
+                    break;
+              // System.Int32
+                case "Com_Procedimiento_Id":
+                    retVal =  x.Com_Procedimiento_Id - y.Com_Procedimiento_Id ;
+                    break;
+				// System.String
+                case "Per_Personal_Id_Presupuesta":
+                    retVal =  string.Compare(x.Per_Personal_Id_Presupuesta, y.Per_Personal_Id_Presupuesta);
+                    break;
+				// System.String
+                case "Esta_Presupuestada":
+                    retVal =  string.Compare(x.Esta_Presupuestada, y.Esta_Presupuestada);
+                    break;
+				// System.String
                 case "Per_Personal_Nombre_Solicita":
                     retVal =  string.Compare(x.Per_Personal_Nombre_Solicita, y.Per_Personal_Nombre_Solicita);
                     break;
@@ -264,16 +296,8 @@ namespace FEL.PLA
                     retVal =  string.Compare(x.Per_Personal_Nombre_Contrata, y.Per_Personal_Nombre_Contrata);
                     break;
 				// System.String
-                case "Cedula_Presup_Codigo":
-                    retVal =  string.Compare(x.Cedula_Presup_Codigo, y.Cedula_Presup_Codigo);
-                    break;
-				// System.String
-                case "Contrata_Desc":
-                    retVal =  string.Compare(x.Contrata_Desc, y.Contrata_Desc);
-                    break;
-              // System.Int32
-                case "Pla_Tarea_Id":
-                    retVal =  x.Pla_Tarea_Id - y.Pla_Tarea_Id ;
+                case "Pla_Tarea_Nombre":
+                    retVal =  string.Compare(x.Pla_Tarea_Nombre, y.Pla_Tarea_Nombre);
                     break;
               // System.Int32
                 case "Pla_Cta_Id":
@@ -288,12 +312,24 @@ namespace FEL.PLA
                     retVal =  string.Compare(x.Pla_Cta_Nombre, y.Pla_Cta_Nombre);
                     break;
 				// System.String
-                case "Pla_Tarea_Nombre":
-                    retVal =  string.Compare(x.Pla_Tarea_Nombre, y.Pla_Tarea_Nombre);
-                    break;
-				// System.String
                 case "Estado_Proceso":
                     retVal =  string.Compare(x.Estado_Proceso, y.Estado_Proceso);
+                    break;
+				// System.String
+                case "Proyecto_Tipo_Nombre":
+                    retVal =  string.Compare(x.Proyecto_Tipo_Nombre, y.Proyecto_Tipo_Nombre);
+                    break;
+				// System.String
+                case "Pla_Doc_Codigo_Principal":
+                    retVal =  string.Compare(x.Pla_Doc_Codigo_Principal, y.Pla_Doc_Codigo_Principal);
+                    break;
+				// System.String
+                case "Com_Procedimiento_Nombre":
+                    retVal =  string.Compare(x.Com_Procedimiento_Nombre, y.Com_Procedimiento_Nombre);
+                    break;
+				// System.String
+                case "Per_Personal_Nombre_Presupuesta":
+                    retVal =  string.Compare(x.Per_Personal_Nombre_Presupuesta, y.Per_Personal_Nombre_Presupuesta);
                     break;
             }
             return (retVal * (_reverse ? -1 : 1));
