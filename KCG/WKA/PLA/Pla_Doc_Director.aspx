@@ -24,10 +24,42 @@ TagPrefix="ajax" %>
 
 <asp:UpdatePanel runat="server" ID="udp">
 <ContentTemplate>
+
 <%--Ejecuta la función antes de presentar los objetos en pantalla mediante PageRequestManager--%>
 <script type="text/javascript">
     Sys.WebForms.PageRequestManager.getInstance().add_endRequest(PonerFormatoNumericoACamposFV);
 </script>
+<%--Autocompletar del FormView de Pla_Doc --%>
+<%--[0]INICIO Javascript para manegar los campos de autocompletar --%>
+<div>
+<%--<script type="text/javascript" >
+    function acxCabecera_Nombre_Click(source, eventArgs) {
+        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+        var params = new Array();
+        params = eventArgs.get_value().split('||');
+        // 0 Id
+        var xId = document.getElementById('<%= ((TextBox)fv.FindControl("Cabecera_Id")).ClientID %>');
+        xId.value = params[0];
+        // 1 Codigo
+        var xCodigo = document.getElementById('<%= ((TextBox)fv.FindControl("Cabecera_Codigo")).ClientID %>');
+        xCodigo.value = params[1];
+        // coloca el id del maestro en el detalle mediante el contextKey
+        $find('acxBID_Detalle_Nombre').set_contextKey(xId.value);
+    }
+    function acxDetalle_Nombre_Click(source, eventArgs) {
+        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
+        var params = new Array();
+        params = eventArgs.get_value().split('||');
+        // 0 Id
+        var xId = document.getElementById('<%= ((TextBox)fv.FindControl("Detalle_Id")).ClientID %>');
+        xId.value = params[0];
+        // 1 Codigo
+        var xCodigo = document.getElementById('<%= ((TextBox)fv.FindControl("Detalle_Codigo")).ClientID %>');
+        xCodigo.value = params[1];
+    }
+</script>--%>
+</div>
+<%--[X]FIN Javascript para manegar los campos de autocompletar --%>
 
     <%--[O] Cabecera--%>
     <asp:Panel runat="server" ID="pcabecera" GroupingText="Solicitudes del Area">        
@@ -92,30 +124,19 @@ TagPrefix="ajax" %>
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="..." ShowSelectButton="True" />
 			<asp:BoundField DataField="Id" HeaderText="Id" Visible = "false"  />
+
 			<asp:BoundField DataField="Codigo" HeaderText="Codigo"   />
 			<asp:BoundField DataField="Tipo" HeaderText="Tipo"  Visible = "false"  />
 			<asp:BoundField DataField="Fecha_Solicita" HeaderText="Fecha_Solicita"   DataFormatString="{0:d}" />
-				<asp:BoundField DataField="Per_Personal_Id_Solicita" HeaderText="Per_Personal_Id_Solicita"   Visible = "false" />
-			<asp:BoundField DataField="Per_Personal_Nombre_Solicita" HeaderText="Persona_Solicita"   Visible = "false"/>
-			<asp:BoundField DataField="Area_Codigo_Solicita" HeaderText="Area_Codigo_Solicita"   Visible = "false" />
-			<asp:BoundField DataField="Area_Nombre_Solicita" HeaderText="Area_Nombre_Solicita"   Visible = "false" />
-			<asp:BoundField DataField="Descripcion" HeaderText="Descripcion"  ItemStyle-Width="380px" />
-			<asp:BoundField DataField="Estado" HeaderText="Estado" Visible = "false"  />
-			<asp:BoundField DataField="Per_Personal_Id_Crea" HeaderText="Per_Personal_Id_Crea"   Visible = "false" />
-			<asp:BoundField DataField="Per_Personal_Nombre_Crea" HeaderText="Per_Personal_Nombre_Crea"    Visible = "false"/>
-			<asp:BoundField DataField="Per_Personal_Id_Modifica" HeaderText="Per_Personal_Id_Modifica"    Visible = "false"/>
-			<asp:BoundField DataField="Per_Personal_Nombre_Modifica" HeaderText="Per_Personal_Nombre_Modifica"   Visible = "false" />
+            <asp:BoundField DataField="Proyecto_Tipo" HeaderText="Tipo"   />
+			<asp:BoundField DataField="Descripcion" HeaderText="Descripcion"  ItemStyle-Width="350px" />			
 			<asp:BoundField DataField="Valor_Solicita" HeaderText="Valor_Solicita"    DataFormatString="{0:N2}" ItemStyle-HorizontalAlign="Right"/>
-				<asp:BoundField DataField="Per_Personal_Id_Planifica" HeaderText="Per_Personal_Id_Planifica"   Visible = "false" />
-			<asp:BoundField DataField="Per_Personal_Nombre_Planifica" HeaderText="Persona_Planifica"  Visible = "false" />
-			<asp:BoundField DataField="Esta_Planificada" HeaderText="Esta_Planif"   />
-            <asp:BoundField DataField="Fecha_Planifica" HeaderText="Fecha_Planif"   DataFormatString="{0:d}" Visible = "false"/>
-			<asp:BoundField DataField="Per_Personal_Id_Contrata" HeaderText="Per_Personal_Id_Contrata"   Visible = "false" />
-			<asp:BoundField DataField="Per_Personal_Nombre_Contrata" HeaderText="Persona_Contrata"   Visible = "false"/>
-			<asp:BoundField DataField="Esta_Contratada" HeaderText="Esta_Contrat"   />
-			<asp:BoundField DataField="Fecha_Contrata" HeaderText="Fecha_Contrat"   DataFormatString="{0:d}" Visible = "false"/>
-            <asp:BoundField DataField="PAC_Linea" HeaderText="PAC_Linea"   />
+            <asp:BoundField DataField="Esta_Planificada" HeaderText="Esta_POA"   />
+            <asp:BoundField DataField="Esta_Presupuestada" HeaderText="Esta_Presp"   />
+            <asp:BoundField DataField="Esta_Contratada" HeaderText="Esta_PAC"   />
+			<asp:BoundField DataField="PAC_Linea" HeaderText="PAC_Linea"   />
 			<asp:BoundField DataField="CPC_Codigo" HeaderText="CPC_Codigo"   />
+
 		</Columns>
     </asp:GridView>
     </asp:Panel>
@@ -146,40 +167,6 @@ TagPrefix="ajax" %>
         </table>
     </asp:Panel>
     <%--[X] Barras del Reporte --%>
-
-<%--Autocompletar del FormView de Pla_Doc --%>
-<%--[0]INICIO Javascript para manegar los campos de autocompletar --%>
-<div>
-<%--<script type="text/javascript" >
-    function acxCabecera_Nombre_Click(source, eventArgs) {
-        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
-        var params = new Array();
-        params = eventArgs.get_value().split('||');
-        // 0 Id
-        var xId = document.getElementById('<%= ((TextBox)fv.FindControl("Cabecera_Id")).ClientID %>');
-        xId.value = params[0];
-        // 1 Codigo
-        var xCodigo = document.getElementById('<%= ((TextBox)fv.FindControl("Cabecera_Codigo")).ClientID %>');
-        xCodigo.value = params[1];
-        // coloca el id del maestro en el detalle mediante el contextKey
-        $find('acxBID_Detalle_Nombre').set_contextKey(xId.value);
-    }
-    function acxDetalle_Nombre_Click(source, eventArgs) {
-        //alert(" Key : " + eventArgs.get_text() + "  Value :  " + eventArgs.get_value());
-        var params = new Array();
-        params = eventArgs.get_value().split('||');
-        // 0 Id
-        var xId = document.getElementById('<%= ((TextBox)fv.FindControl("Detalle_Id")).ClientID %>');
-        xId.value = params[0];
-        // 1 Codigo
-        var xCodigo = document.getElementById('<%= ((TextBox)fv.FindControl("Detalle_Codigo")).ClientID %>');
-        xCodigo.value = params[1];
-    }
-</script>--%>
-</div>
-<%--[X]FIN Javascript para manegar los campos de autocompletar --%>
-
-
 
     <%--[O] FormView de Pla_Doc --%>
     <asp:Panel runat="server" ID="pfvPla_Doc" >
@@ -344,7 +331,7 @@ TagPrefix="ajax" %>
 				</td>
             </tr>
             <tr style="display:none">
-                <td> Cedula_Prsp_Codigo </td>                
+                <td> Cedula_Presup </td>                
 				<td>
                     <asp:TextBox ID="Cedula_Presup_CodigoTextBox" runat="server" Text='<%# Bind("Cedula_Presup_Codigo") %>'  CssClass="txtItem" Width="380px" ReadOnly="true"  />
 				</td>
@@ -355,6 +342,74 @@ TagPrefix="ajax" %>
                     <asp:TextBox ID="Contrata_DescTextBox" runat="server" Text='<%# Bind("Contrata_Desc") %>'  CssClass="txtItemDescripcion" ReadOnly="true" TextMode="MultiLine" />
 				</td>
             </tr>
+
+            <%--Nuevos cambios--%>
+            <tr >
+                <td> Proyecto_Tipo </td>                
+				<td><asp:TextBox ID="Proyecto_TipoTextBox" runat="server" Text='<%# Bind("Proyecto_Tipo") %>'  CssClass="txtEdit"  />
+			</td>
+            </tr>
+			<tr >
+                <td> Pla_Doc_Id_Principal </td>                
+				<td><asp:TextBox ID="Pla_Doc_Id_PrincipalTextBox" runat="server" Text='<%# Bind("Pla_Doc_Id_Principal") %>'  CssClass="txtEdit"  />
+			</td>
+            </tr>
+			<tr >
+                <td> Com_Procedimiento_Id </td>                
+				<td><asp:TextBox ID="Com_Procedimiento_IdTextBox" runat="server" Text='<%# Bind("Com_Procedimiento_Id") %>'  CssClass="txtEdit"  />
+				</td>
+            </tr>
+			<tr style="display:none">
+                <td> Per_Personal_Id_Presupuesta </td>                
+				<td><asp:TextBox ID="Per_Personal_Id_PresupuestaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Presupuesta") %>'  CssClass="txtEdit"  />
+			</td>
+            </tr>
+			<tr style="display:none">
+                <td> Esta_Presupuestada </td>                
+				<td><asp:TextBox ID="Esta_PresupuestadaTextBox" runat="server" Text='<%# Bind("Esta_Presupuestada") %>'  CssClass="txtEdit"  />
+			</td>
+            </tr>
+			<tr style="display:none">
+                <td> Fecha_Presup </td>                
+				<td><asp:TextBox ID="Fecha_PresupuestaTextBox" runat="server" Text='<%# Bind("Fecha_Presupuesta","{0:d}") %>'  CssClass="txtEdit"  />
+			</td>
+            </tr>
+			<tr style="display:none">
+                <td> Desc_Presup </td>                
+				<td><asp:TextBox ID="Desc_PresupuestaTextBox" runat="server" Text='<%# Bind("Desc_Presupuesta") %>'  CssClass="txtEdit"  />
+				</td>
+            </tr>
+			<tr style="display:none">
+                <td> Desc_Planifica </td>                
+				<td><asp:TextBox ID="Desc_PlanificaTextBox" runat="server" Text='<%# Bind("Desc_Planifica") %>'  CssClass="txtEdit"  />
+			</td>
+            </tr>
+            <tr style="display:none">
+                <td> Proyecto_Tipo_Nombre </td>                
+				<td><asp:TextBox ID="Proyecto_Tipo_NombreTextBox" runat="server" Text='<%# Bind("Proyecto_Tipo_Nombre") %>'  CssClass="txtEdit"  />
+			</td>
+            </tr>
+			<tr style="display:none">
+                <td> Pla_Doc_Codigo_Principal </td>                
+				<td><asp:TextBox ID="Pla_Doc_Codigo_PrincipalTextBox" runat="server" Text='<%# Bind("Pla_Doc_Codigo_Principal") %>'  CssClass="txtEdit"  />
+			</td>
+            </tr>
+			<tr style="display:none">
+                <td> Com_Procedimiento_Nombre </td>                
+				<td><asp:TextBox ID="Com_Procedimiento_NombreTextBox" runat="server" Text='<%# Bind("Com_Procedimiento_Nombre") %>'  CssClass="txtEdit"  />
+			</td>
+            </tr>
+			<tr style="display:none">
+                <td> Per_Personal_Nombre_Presupuesta </td>                
+				<td><asp:TextBox ID="Per_Personal_Nombre_PresupuestaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Presupuesta") %>'  CssClass="txtEdit"  />
+			</td>
+            </tr>
+			<tr style="display:none">
+                <td> Desc_Solicita </td>                
+				<td><asp:TextBox ID="Desc_SolicitaTextBox" runat="server" Text='<%# Bind("Desc_Solicita") %>'  CssClass="txtEdit"  />
+			</td>
+            </tr>
+
 			</table>
             <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" ValidationGroup="vgPla_Doc"/>
             &nbsp;
@@ -523,6 +578,138 @@ TagPrefix="ajax" %>
                     <asp:TextBox ID="Contrata_DescTextBox" runat="server" Text='<%# Bind("Contrata_Desc") %>'  CssClass="txtItemDescripcion" ReadOnly="true" TextMode="MultiLine" />
 				</td>
             </tr>
+            <%--Nuevos campos para Insertar--%>
+			<tr >
+                <td> Proyecto_Tipo </td>                
+				<td><asp:TextBox ID="Proyecto_TipoTextBox" runat="server" Text='<%# Bind("Proyecto_Tipo") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqProyecto_Tipo" runat="server" 
+                    ControlToValidate="Proyecto_TipoTextBox"
+                    ErrorMessage="El campo Proyecto_Tipo es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Pla_Doc_Id_Principal </td>                
+				<td><asp:TextBox ID="Pla_Doc_Id_PrincipalTextBox" runat="server" Text='<%# Bind("Pla_Doc_Id_Principal") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqPla_Doc_Id_Principal" runat="server" 
+                    ControlToValidate="Pla_Doc_Id_PrincipalTextBox"
+                    ErrorMessage="El campo Pla_Doc_Id_Principal es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Com_Procedimiento_Id </td>                
+				<td><asp:TextBox ID="Com_Procedimiento_IdTextBox" runat="server" Text='<%# Bind("Com_Procedimiento_Id") %>'  CssClass="txtEdit"  />
+				</td>
+            </tr>
+			<tr >
+                <td> Per_Personal_Id_Presupuesta </td>                
+				<td><asp:TextBox ID="Per_Personal_Id_PresupuestaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Presupuesta") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqPer_Personal_Id_Presupuesta" runat="server" 
+                    ControlToValidate="Per_Personal_Id_PresupuestaTextBox"
+                    ErrorMessage="El campo Per_Personal_Id_Presupuesta es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Esta_Presupuestada </td>                
+				<td><asp:TextBox ID="Esta_PresupuestadaTextBox" runat="server" Text='<%# Bind("Esta_Presupuestada") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqEsta_Presupuestada" runat="server" 
+                    ControlToValidate="Esta_PresupuestadaTextBox"
+                    ErrorMessage="El campo Esta_Presupuestada es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Fecha_Presup </td>                
+				<td><asp:TextBox ID="Fecha_PresupuestaTextBox" runat="server" Text='<%# Bind("Fecha_Presupuesta","{0:d}") %>'  CssClass="txtEdit"  />
+				<asp:Button runat="server" ID="btcexFecha_Presupuesta" Text="."/>
+				<ajax:CalendarExtender runat="server" ID="cexFecha_Presupuesta" TargetControlID="Fecha_PresupuestaTextBox" PopupButtonID="btcexFecha_Presupuesta" />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqFecha_Presupuesta" runat="server" 
+                    ControlToValidate="Fecha_PresupuestaTextBox"
+                    ErrorMessage="El campo Fecha_Presupuesta es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+					<asp:RangeValidator ID="rvFecha_Presupuesta" runat="server" 
+                    ErrorMessage="El campo Fecha_Presupuesta no contiene una fecha válida" 
+                    ControlToValidate="Fecha_PresupuestaTextBox" 
+                    Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgPla_Doc"/>
+				</td>
+            </tr>
+			<tr >
+                <td> Desc_Presup </td>                
+				<td><asp:TextBox ID="Desc_PresupuestaTextBox" runat="server" Text='<%# Bind("Desc_Presupuesta") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqDesc_Presupuesta" runat="server" 
+                    ControlToValidate="Desc_PresupuestaTextBox"
+                    ErrorMessage="El campo Desc_Presupuesta es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Desc_Planifica </td>                
+				<td><asp:TextBox ID="Desc_PlanificaTextBox" runat="server" Text='<%# Bind("Desc_Planifica") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqDesc_Planifica" runat="server" 
+                    ControlToValidate="Desc_PlanificaTextBox"
+                    ErrorMessage="El campo Desc_Planifica es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Desc_Solicita </td>                
+				<td><asp:TextBox ID="Desc_SolicitaTextBox" runat="server" Text='<%# Bind("Desc_Solicita") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqDesc_Solicita" runat="server" 
+                    ControlToValidate="Desc_SolicitaTextBox"
+                    ErrorMessage="El campo Desc_Solicita es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Proyecto_Tipo_Nombre </td>                
+				<td><asp:TextBox ID="Proyecto_Tipo_NombreTextBox" runat="server" Text='<%# Bind("Proyecto_Tipo_Nombre") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqProyecto_Tipo_Nombre" runat="server" 
+                    ControlToValidate="Proyecto_Tipo_NombreTextBox"
+                    ErrorMessage="El campo Proyecto_Tipo_Nombre es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Pla_Doc_Codigo_Principal </td>                
+				<td><asp:TextBox ID="Pla_Doc_Codigo_PrincipalTextBox" runat="server" Text='<%# Bind("Pla_Doc_Codigo_Principal") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqPla_Doc_Codigo_Principal" runat="server" 
+                    ControlToValidate="Pla_Doc_Codigo_PrincipalTextBox"
+                    ErrorMessage="El campo Pla_Doc_Codigo_Principal es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Com_Procedimiento_Nombre </td>                
+				<td><asp:TextBox ID="Com_Procedimiento_NombreTextBox" runat="server" Text='<%# Bind("Com_Procedimiento_Nombre") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqCom_Procedimiento_Nombre" runat="server" 
+                    ControlToValidate="Com_Procedimiento_NombreTextBox"
+                    ErrorMessage="El campo Com_Procedimiento_Nombre es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+					</td>
+            </tr>
+			<tr >
+                <td> Per_Personal_Nombre_Presupuesta </td>                
+				<td><asp:TextBox ID="Per_Personal_Nombre_PresupuestaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Presupuesta") %>'  CssClass="txtEdit"  />
+				<%--Validador--%>
+                    <asp:RequiredFieldValidator ID="rqPer_Personal_Nombre_Presupuesta" runat="server" 
+                    ControlToValidate="Per_Personal_Nombre_PresupuestaTextBox"
+                    ErrorMessage="El campo Per_Personal_Nombre_Presupuesta es obligatorio" 
+                    Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
+					</td>
+            </tr>
 			</table>
             <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" ValidationGroup="vgPla_Doc"/>
             &nbsp;
@@ -535,11 +722,20 @@ TagPrefix="ajax" %>
 			<tr style="display:none">
                 <td> Id </td>
 				<td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
+			</tr>
+            <tr >
+                <td> Persona_Solicita </td>
+				<td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  
+                    ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
+			</tr>
 			<tr >
                 <td> Codigo </td>
 				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>
+			</tr>
+            <tr >
+                <td> Fecha_Solicita </td>
+				<td><asp:TextBox ID="Fecha_SolicitaTextBox" runat="server" Text='<%# Bind("Fecha_Solicita","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			</tr>
 			<tr style="display:none">
                 <td> Tipo </td>
 				<td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
@@ -547,20 +743,41 @@ TagPrefix="ajax" %>
             <tr style="display:none">
                 <td> Per_Personal_Id_Solicita </td>
 				<td><asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			</tr>            
+            <tr style="display:none">
+                <td> Proyecto_Tipo </td>
+				<td><asp:TextBox ID="Proyecto_TipoTextBox" runat="server" Text='<%# Bind("Proyecto_Tipo") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+            <tr >
+                <td > Proyecto_Tipo </td>
+				<td > 
+                     <asp:TextBox ID="Proyecto_Tipo_NombreTextBox" runat="server" Text='<%# Bind("Proyecto_Tipo_Nombre") %>'  ReadOnly="true"  CssClass="txtItem" />
+                     Codigo_Principal 
+				     <asp:TextBox ID="Pla_Doc_Codigo_PrincipalTextBox" runat="server" Text='<%# Bind("Pla_Doc_Codigo_Principal") %>'  ReadOnly="true"  CssClass="txtItem" Width="50px" />
+                </td>
 			</tr>
-			<tr >
-                <td> Persona_Solicita </td>
-				<td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  
-                    ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
+			<tr style="display:none">
+                <td> Pla_Doc_Id_Principal </td>
+				<td><asp:TextBox ID="Pla_Doc_Id_PrincipalTextBox" runat="server" Text='<%# Bind("Pla_Doc_Id_Principal") %>'  ReadOnly="true"  CssClass="txtItem" /></td>                
 			</tr>
-			<tr >
-                <td> Fecha_Solicita </td>
-				<td><asp:TextBox ID="Fecha_SolicitaTextBox" runat="server" Text='<%# Bind("Fecha_Solicita","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			<tr style="display:none">
+                <td> Com_Procedimiento_Id </td>
+				<td><asp:TextBox ID="Com_Procedimiento_IdTextBox" runat="server" Text='<%# Bind("Com_Procedimiento_Id") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
 			<tr >
-                <td> Descripcion </td>
+                <td> Procedimiento </td>
+				<td><asp:TextBox ID="Com_Procedimiento_NombreTextBox" runat="server" Text='<%# Bind("Com_Procedimiento_Nombre") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			</tr>
+			<tr >
+                <td> Solicitud </td>
 				<td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  ReadOnly="true"  CssClass="txtItemDescripcion" TextMode="MultiLine"  Height="83px"/></td>
-							</tr>
+			</tr>
+            <tr >
+                <td> Desc_Solicita </td>                
+				<td>
+                    <asp:TextBox ID="Desc_SolicitaTextBox" runat="server" Text='<%# Bind("Desc_Solicita") %>'  CssClass="txtItemDescripcion" ReadOnly="true" TextMode="MultiLine" />
+				</td>
+            </tr>
 			<tr style="display:none">
                 <td> Estado </td>
 				<td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
@@ -584,7 +801,7 @@ TagPrefix="ajax" %>
 			<tr >
                 <td> Valor_Solicita </td>
 				<td><asp:TextBox ID="Valor_SolicitaTextBox" runat="server" Text='<%# Bind("Valor_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
-							</tr>			
+			</tr>
 			</table>
             <asp:Button ID="EditButton" RunAt="server"  CausesValidation="False" CommandName="Edit" Text="Editar" />
             &nbsp;
@@ -593,6 +810,7 @@ TagPrefix="ajax" %>
             <asp:Button ID="NewButton" RunAt="server" CausesValidation="False" CommandName="New" Text="Nuevo" />
             </asp:Panel>
             <asp:Panel runat="server" ID="panel2"  CssClass="panCol2">
+            <%--1.- Datos de Planificación--%>
             <asp:Panel runat="server" ID="panel3"  GroupingText="Planificación">
             <table  >
 			<tr style="display:none">
@@ -601,7 +819,6 @@ TagPrefix="ajax" %>
                 <asp:TextBox ID="Area_Codigo_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Codigo_Solicita") %>'  ReadOnly="true"  CssClass="txtItem" Width ="60px"/>
                 </td>
 			</tr>
-
             <tr style="display:none">
                 <td> Per_Personal_Id_Planifica </td>
 				<td><asp:TextBox ID="Per_Personal_Id_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Planifica") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
@@ -620,13 +837,48 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="Fecha_PlanificaTextBox" runat="server" Text='<%# Bind("Fecha_Planifica","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 			</tr>
             <tr >
-                <td> Cedula_Prsp_Codigo </td>                
+                <td> Desc_Planifica </td>                
 				<td>
-                    <asp:TextBox ID="Cedula_Presup_CodigoTextBox" runat="server" Text='<%# Bind("Cedula_Presup_Codigo") %>'  CssClass="txtItem" Width="380px" ReadOnly="true"  />
+                    <asp:TextBox ID="Desc_PlanificaTextBox" runat="server" Text='<%# Bind("Desc_Planifica") %>'  CssClass="txtItemDescripcion" ReadOnly="true" TextMode="MultiLine" />
 				</td>
             </tr>
 			</table>
             </asp:Panel>
+            <%--2.- Datos de Presupuesto--%>
+            <asp:Panel runat="server" ID="panel5"  GroupingText="Presupuesto">
+            <table  >
+            <tr style="display:none">
+                <td> Per_Personal_Id_Presupuesta </td>
+				<td><asp:TextBox ID="Per_Personal_Id_PresupuestaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Presupuesta") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			</tr>
+			<tr >
+                <td> Persona_Presup </td>
+				<td><asp:TextBox ID="Per_Personal_Nombre_PresupuestaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Presupuesta") %>'  
+                ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
+			</tr>
+			<tr >
+                <td> Esta_Presup </td>
+				<td><asp:TextBox ID="Esta_PresupuestadaTextBox" runat="server" Text='<%# Bind("Esta_Presupuestada") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+							</tr>
+            <tr >
+                <td> Fecha_Presup </td>
+				<td><asp:TextBox ID="Fecha_PresupuestaTextBox" runat="server" Text='<%# Bind("Fecha_Presupuesta","{0:d}") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
+			</tr>
+            <tr >
+                <td> Cedula_Presup </td>                
+				<td>
+                    <asp:TextBox ID="Cedula_Presup_CodigoTextBox" runat="server" Text='<%# Bind("Cedula_Presup_Codigo") %>'  CssClass="txtItem" Width="380px" ReadOnly="true"  />
+				</td>
+            </tr>
+            <tr >
+                <td> Desc_Presup </td>                
+				<td>
+                    <asp:TextBox ID="Desc_PresupuestaTextBox" runat="server" Text='<%# Bind("Desc_Presupuesta") %>'  CssClass="txtItemDescripcion" ReadOnly="true" TextMode="MultiLine" />
+				</td>
+            </tr>
+			</table>
+            </asp:Panel>
+            <%--3.- Datos de Contratación--%>
             <asp:Panel runat="server" ID="panel4"  GroupingText="Contratación">
             <table>
             <tr style="display:none">
@@ -634,7 +886,7 @@ TagPrefix="ajax" %>
 				<td><asp:TextBox ID="Per_Personal_Id_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Contrata") %>'  ReadOnly="true"  CssClass="txtItem" /></td>
 							</tr>
 			<tr >
-                <td style="width:146px;"> Personal_Contrata </td>
+                <td> Personal_Contrata </td>
 				<td><asp:TextBox ID="Per_Personal_Nombre_ContrataTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Contrata") %>'  
                 ReadOnly="true"  CssClass="txtItem" Width="380px" /></td>
 							</tr>

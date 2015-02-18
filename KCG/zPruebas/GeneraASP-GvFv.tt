@@ -11,7 +11,7 @@
 	string Iniciales = "PLA";
 	//string PathXSD = @"C:\IMPQ\Code\KApu_01\WEB\ADL\Compras.xsd";
 	//string Iniciales = "COM";
-	string TablaBase = "Pla_Lote";
+	string TablaBase = "Pla_Doc";
 	//Proceso
 	var manager = TemplateFileManager.Create(this);
 	ExtraeMetaDatos datos = new ExtraeMetaDatos(PathXSD);	

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.ComponentModel;
+using System.ComponentModel; 
 using HER;
 
-namespace FEL.PLA 
+namespace FEL.PLA
 {
     [DataObject]
     public partial class BO_Pla_Doc
@@ -270,6 +270,22 @@ namespace FEL.PLA
 				// System.String
                 case "Esta_Presupuestada":
                     retVal =  string.Compare(x.Esta_Presupuestada, y.Esta_Presupuestada);
+                    break;
+			   // System.DateTime
+                case "Fecha_Presupuesta":
+                    retVal =  DateTime.Compare(x.Fecha_Presupuesta, y.Fecha_Presupuesta);
+                    break;
+				// System.String
+                case "Desc_Presupuesta":
+                    retVal =  string.Compare(x.Desc_Presupuesta, y.Desc_Presupuesta);
+                    break;
+				// System.String
+                case "Desc_Planifica":
+                    retVal =  string.Compare(x.Desc_Planifica, y.Desc_Planifica);
+                    break;
+				// System.String
+                case "Desc_Solicita":
+                    retVal =  string.Compare(x.Desc_Solicita, y.Desc_Solicita);
                     break;
 				// System.String
                 case "Per_Personal_Nombre_Solicita":

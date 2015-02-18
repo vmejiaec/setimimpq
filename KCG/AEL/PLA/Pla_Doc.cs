@@ -7,8 +7,8 @@
 //     se vuelve a generar el código.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-namespace AEL.PLA 
+ 
+namespace AEL.PLA
 {
     using System;
     using System.Collections.Generic;
@@ -100,6 +100,18 @@ namespace AEL.PLA
         private string _Esta_Presupuestada;
         
         // Comentario
+        private System.DateTime _Fecha_Presupuesta;
+        
+        // Comentario
+        private string _Desc_Presupuesta;
+        
+        // Comentario
+        private string _Desc_Planifica;
+        
+        // Comentario
+        private string _Desc_Solicita;
+        
+        // Comentario
         private string _Per_Personal_Nombre_Solicita;
         
         // Comentario
@@ -179,6 +191,10 @@ namespace AEL.PLA
                     int com_Procedimiento_Id, 
                     string per_Personal_Id_Presupuesta, 
                     string esta_Presupuestada, 
+                    System.DateTime fecha_Presupuesta, 
+                    string desc_Presupuesta, 
+                    string desc_Planifica, 
+                    string desc_Solicita, 
                     string per_Personal_Nombre_Solicita, 
                     string area_Nombre_Solicita, 
                     string per_Personal_Nombre_Crea, 
@@ -223,6 +239,10 @@ namespace AEL.PLA
             this.Com_Procedimiento_Id = com_Procedimiento_Id;
             this.Per_Personal_Id_Presupuesta = per_Personal_Id_Presupuesta;
             this.Esta_Presupuestada = esta_Presupuestada;
+            this.Fecha_Presupuesta = fecha_Presupuesta;
+            this.Desc_Presupuesta = desc_Presupuesta;
+            this.Desc_Planifica = desc_Planifica;
+            this.Desc_Solicita = desc_Solicita;
             this.Per_Personal_Nombre_Solicita = per_Personal_Nombre_Solicita;
             this.Area_Nombre_Solicita = area_Nombre_Solicita;
             this.Per_Personal_Nombre_Crea = per_Personal_Nombre_Crea;
@@ -270,6 +290,10 @@ namespace AEL.PLA
             this.Com_Procedimiento_Id = o.Com_Procedimiento_Id;
             this.Per_Personal_Id_Presupuesta = o.Per_Personal_Id_Presupuesta;
             this.Esta_Presupuestada = o.Esta_Presupuestada;
+            this.Fecha_Presupuesta = o.Fecha_Presupuesta;
+            this.Desc_Presupuesta = o.Desc_Presupuesta;
+            this.Desc_Planifica = o.Desc_Planifica;
+            this.Desc_Solicita = o.Desc_Solicita;
             this.Per_Personal_Nombre_Solicita = o.Per_Personal_Nombre_Solicita;
             this.Area_Nombre_Solicita = o.Area_Nombre_Solicita;
             this.Per_Personal_Nombre_Crea = o.Per_Personal_Nombre_Crea;
@@ -636,6 +660,58 @@ namespace AEL.PLA
             set
             {
                 this._Esta_Presupuestada = value;
+            }
+        }
+        
+        // Comentario
+        public System.DateTime Fecha_Presupuesta
+        {
+            get
+            {
+                return this._Fecha_Presupuesta;
+            }
+            set
+            {
+                this._Fecha_Presupuesta = value;
+            }
+        }
+        
+        // Comentario
+        public string Desc_Presupuesta
+        {
+            get
+            {
+                return this._Desc_Presupuesta;
+            }
+            set
+            {
+                this._Desc_Presupuesta = value;
+            }
+        }
+        
+        // Comentario
+        public string Desc_Planifica
+        {
+            get
+            {
+                return this._Desc_Planifica;
+            }
+            set
+            {
+                this._Desc_Planifica = value;
+            }
+        }
+        
+        // Comentario
+        public string Desc_Solicita
+        {
+            get
+            {
+                return this._Desc_Solicita;
+            }
+            set
+            {
+                this._Desc_Solicita = value;
             }
         }
         
