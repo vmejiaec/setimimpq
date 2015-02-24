@@ -254,19 +254,20 @@ namespace REL.PLA
 
         // Métodos para formatear los textos
         public string Llena_TextoSolicita()
-        { 
-            string Plantilla = 
+        {
+            string Plantilla =
                 "Yo, {0} en mi calidad de {1}, " +
-                "solicito de usted se sirva emitir certificación POA, PAC y PRESUPUESTARIA "+
-                "de la siguiente contratación: {2} " +
-                "por un valor de: USD$ {3:N2}, más IVA.";
+                "solicito de usted se sirva emitir certificación POA, PAC y PRESUPUESTARIA " +
+                "de la siguiente contratación: ";
+                //"de la siguiente contratación: {2} " +
+                //"por un valor de: USD$ {3:N2}, más IVA.";
             string TextoLleno = String.Format(Plantilla,
                 //this.Per_Personal_Nombre_Solicita.ToUpper(),
                 this.Per_Personal_Id_Solicita_Pie_Firma_Nombre.ToUpper(),
                 //this.Area_Nombre_Solicita.ToUpper(),
-                this.Per_Personal_Id_Solicita_Pie_Firma_Cargo,
-                this.Descripcion.ToUpper(),
-                this.Valor_Solicita
+                this.Per_Personal_Id_Solicita_Pie_Firma_Cargo
+                //this.Descripcion.ToUpper(),
+                //this.Valor_Solicita
                 );
             return TextoLleno;
         }
@@ -308,7 +309,7 @@ namespace REL.PLA
             //
             string Plantilla =
                 "Yo, {0} en mi calidad de Responsable de la Unidad de Contratación, certifico que " +
-                "la contratación requerida por la {1}, {2} se encuentra contemplada en " +
+                "la contratación requerida por: {1}, {2} se encuentra contemplada en " +
                 "el PAC-2015:";
                 //"el PAC-2015,  línea N° {3} y Código CPC: {4}";
             string TextoLleno = String.Format(Plantilla,
