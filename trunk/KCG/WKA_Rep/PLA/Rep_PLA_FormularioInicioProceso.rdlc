@@ -625,7 +625,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.32963in</Height>
+              <Height>0.35057in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -675,7 +675,7 @@
                         </TablixColumns>
                         <TablixRows>
                           <TablixRow>
-                            <Height>0.21442in</Height>
+                            <Height>0.22489in</Height>
                             <TablixCells>
                               <TablixCell>
                                 <CellContents>
@@ -745,7 +745,7 @@
                             </TablixCells>
                           </TablixRow>
                           <TablixRow>
-                            <Height>0.1152in</Height>
+                            <Height>0.12567in</Height>
                             <TablixCells>
                               <TablixCell>
                                 <CellContents>
@@ -756,7 +756,7 @@
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>Valor:</Value>
+                                            <Value>Valor mas IVA $:</Value>
                                             <Style>
                                               <FontSize>8pt</FontSize>
                                             </Style>
@@ -4404,7 +4404,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Se adjunta certificación emitida por el Sistema Sipari</Value>
+                              <Value xml:space="preserve"> </Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -5247,7 +5247,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Height>21.73122cm</Height>
+        <Height>21.78443cm</Height>
         <Width>18.45887cm</Width>
         <Style>
           <Border>
@@ -5256,7 +5256,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>8.6218in</Height>
+    <Height>8.81613in</Height>
     <Style />
   </Body>
   <ReportParameters>
