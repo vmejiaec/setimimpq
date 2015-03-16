@@ -36,7 +36,7 @@ namespace zTest
         static void Main(string[] args)
         {
             //
-            string filePath = @"../../POA_2015_ARRASTRE_Final.xlsx";
+            string filePath = @"../../POA_SIPRO_REFORMA.xlsx";
             FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);
             IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
             excelReader.IsFirstRowAsColumnNames = true;
@@ -44,6 +44,7 @@ namespace zTest
             
             // Lee los nombres de las columnas
             excelReader.Read();
+
             bool esPrimeraCta = true;
             string codigo;
             
@@ -88,7 +89,8 @@ namespace zTest
 
             // Crea la reasignación Doc
             Poa tmpPoa = new Poa();
-            int DocId = tmpPoa.crearReasignacionDoc();
+            int DocId = 43;
+            DocId = tmpPoa.crearReasignacionDoc();
             listaFilasNoProcesadas.Add("---");
             listaFilasNoProcesadas.Add("Nueva reasignación POA creada con código: " + DocId);
             listaFilasNoProcesadas.Add("---");
@@ -97,7 +99,8 @@ namespace zTest
             // Crea los movimientos
             foreach (var fila in listaPorReasignar)
             {
-                int MovId = fila.CrearReasignacionMov(tmpPoa);
+                int MovId = -1;
+                MovId = fila.CrearReasignacionMov(tmpPoa);
                 listaFilasNoProcesadas.Add(String.Format("  {0}: \t {1} {2} {3} {4} {5}",MovId, fila.oActividad.Codigo, fila.oTarea.Codigo, fila.oPartida.Codigo, fila.oMov.Tipo, fila.oMov.Valor));
             }
 
@@ -271,11 +274,13 @@ namespace zTest
             oDoc.Fecha_Planifica = DateTime.Today;
             oDoc.Cedula_Presup_Codigo = "";
             oDoc.Contrata_Desc = "";
-            int DocId = adpDoc.InsertINT(oDoc);
+            int DocId = 43;
+            //DocId = adpDoc.InsertINT(oDoc);
             // recupera el registro insertado
-            var listaDoc = adpDoc.GetById(scope, DocId);
-            if (listaDoc.Count == 0) return -1;
-            oDoc = listaDoc[0];
+            //var listaDoc = adpDoc.GetById(scope, DocId);
+            //if (listaDoc.Count == 0) return -1;
+            //oDoc = listaDoc[0];
+            oDoc.Id = DocId;
             return DocId;
         }
 
@@ -288,6 +293,8 @@ namespace zTest
             oMov.Valor = (DEBITO == 0) ? CREDITO : DEBITO;
             oMov.Pla_Poa_Id = oPoa.Id;
             oMov.Pla_Doc_Id = oDoc.Id;
+            // Verifico el valor que no supere los millones
+            if ( Math.Abs(oMov.Valor) > 100000000 ) return -1;
             int MovId = adpMov.InsertINT(oMov);
             // recupero el registro insertado
             var listaMov = adpMov.GetById(scope, MovId);

@@ -768,6 +768,10 @@ fila.Per_Personal_Nombre_Presupuesta
 		public int InsertINT(Pla_Doc n)
     {
         int res;
+        // Código para inicializar valores de fechas y estados
+        n.Fecha_Presupuesta = DateTime.Today;
+        n.Esta_Presupuestada = "PEN";
+        // Fin del código
         try {
             res = Convert.ToInt16( Adapter.InsertINT(
 				n.Codigo,

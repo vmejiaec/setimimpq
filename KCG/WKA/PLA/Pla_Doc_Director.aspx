@@ -185,28 +185,26 @@ TagPrefix="ajax" %>
 			<table>
 			<tr style="display:none">
                 <td> Id </td>                
-				<td><asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  CssClass="txtEdit"  />
+				<td>
+                <asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>'  CssClass="txtEdit"  />
 				</td>
             </tr>
-			<tr >
-                <td> Codigo </td>                
-				<td><asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  CssClass="txtItem"  />
-					</td>
-            </tr>
-			<tr style="display:none">
-                <td> Tipo </td>                
-				<td><asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  CssClass="txtItem"  />
-					</td>
-            </tr>
-            <tr style="display:none">
-                <td> Per_Personal_Id_Solicita </td>                
-				<td><asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'   />
-			</td>
-            </tr>
-			<tr >
+            <tr >
                 <td> Persona_Solicita </td>                
 				<td><asp:TextBox ID="Per_Personal_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Solicita") %>'  
                     ReadOnly="true"  CssClass="txtItem" Width="380px"/>
+				</td>
+            </tr>
+            <tr style="display:none">
+                <td> Per_Personal_Id_Solicita </td>                
+				<td>
+                <asp:TextBox ID="Per_Personal_Id_SolicitaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Solicita") %>'   />
+			    </td>
+            </tr>
+			<tr >
+                <td> Codigo </td>                
+				<td>
+                <asp:TextBox ID="CodigoTextBox" runat="server" Text='<%# Bind("Codigo") %>'  CssClass="txtItem"  />
 				</td>
             </tr>
 			<tr >
@@ -225,18 +223,28 @@ TagPrefix="ajax" %>
                     Type="Date" MinimumValue="01/01/2000" MaximumValue="01/01/2020" ValidationGroup="vgPla_Doc"/>
 				</td>
             </tr>
-			<tr style="display:none">
-                <td> Area_Codigo_Solicita </td>                
-				<td><asp:TextBox ID="Area_Codigo_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Codigo_Solicita") %>'  />
-					</td>
+            <tr >
+                <td> Proyecto_Tipo </td>                
+				<td><asp:TextBox ID="Proyecto_TipoTextBox" runat="server" Text='<%# Bind("Proyecto_Tipo") %>'  CssClass="txtEdit"  />
+			    </td>
             </tr>
-			<tr style="display:none">
-                <td> Area_Nombre_Solicita </td>                
-				<td><asp:TextBox ID="Area_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Nombre_Solicita") %>'  />
-					</td>
+            <tr style="display:none">
+                <td> Proyecto_Tipo_Nombre </td>                
+				<td><asp:TextBox ID="Proyecto_Tipo_NombreTextBox" runat="server" Text='<%# Bind("Proyecto_Tipo_Nombre") %>'  CssClass="txtEdit"  />
+			    </td>
+            </tr>
+            <tr >
+                <td> Procedimiento </td>                
+				<td><asp:TextBox ID="Com_Procedimiento_IdTextBox" runat="server" Text='<%# Bind("Com_Procedimiento_Id") %>'  CssClass="txtEdit"  />
+				</td>
+            </tr>
+            <tr style="display:none">
+                <td> Com_Procedimiento_Nombre </td>                
+				<td><asp:TextBox ID="Com_Procedimiento_NombreTextBox" runat="server" Text='<%# Bind("Com_Procedimiento_Nombre") %>'  CssClass="txtEdit"  />
+			    </td>
             </tr>
 			<tr >
-                <td> Descripcion </td>                
+                <td> Solicitud </td>                
 				<td><asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("Descripcion") %>'  CssClass="txtEditDescripcion" TextMode="MultiLine"  />
 				<%--Validador--%>
                     <asp:RequiredFieldValidator ID="rqDescripcionTextBox" runat="server" 
@@ -245,30 +253,10 @@ TagPrefix="ajax" %>
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
 				</td>
             </tr>
-			<tr style="display:none">
-                <td> Estado </td>                
-				<td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  CssClass="txtEdit"  />
-				</td>
-            </tr>
-			<tr  style="display:none">
-                <td> Per_Personal_Id_Crea </td>                
-				<td><asp:TextBox ID="Per_Personal_Id_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Crea") %>'  CssClass="txtEdit"  />
-					</td>
-            </tr>
-			<tr  style="display:none">
-                <td> Per_Personal_Nombre_Crea </td>                
-				<td><asp:TextBox ID="Per_Personal_Nombre_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Crea") %>'   />
-					</td>
-            </tr>
-			<tr  style="display:none">
-                <td> Per_Personal_Id_Modifica </td>                
-				<td><asp:TextBox ID="Per_Personal_Id_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Modifica") %>'  />
-					</td>
-            </tr>
-			<tr  style="display:none">
-                <td> Per_Personal_Nombre_Modifica </td>                
-				<td><asp:TextBox ID="Per_Personal_Nombre_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Modifica") %>'  />
-					</td>
+            <tr >
+                <td> Desc_Solicita </td>                
+				<td><asp:TextBox ID="Desc_SolicitaTextBox" runat="server" Text='<%# Bind("Desc_Solicita") %>'  CssClass="txtEditDescripcion" TextMode="MultiLine"  />
+			    </td>
             </tr>
 			<tr >
                 <td> Valor_Solicita </td>                
@@ -280,10 +268,14 @@ TagPrefix="ajax" %>
                     Text="X" Display="Dynamic" ValidationGroup="vgPla_Doc"/>
 					</td>
             </tr>
-			<tr  style="display:none">
+
+
+            <%--Campos ocultos--%>
+            <panel>
+            <tr  style="display:none">
                 <td> Per_Personal_Id_Planifica </td>                
 				<td><asp:TextBox ID="Per_Personal_Id_PlanificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Planifica") %>'    />
-					</td>
+				</td>
             </tr>
 			<tr  style="display:none">
                 <td> Per_Personal_Nombre_Planifica </td>                
@@ -343,36 +335,25 @@ TagPrefix="ajax" %>
 				</td>
             </tr>
 
-            <%--Nuevos cambios--%>
-            <tr >
-                <td> Proyecto_Tipo </td>                
-				<td><asp:TextBox ID="Proyecto_TipoTextBox" runat="server" Text='<%# Bind("Proyecto_Tipo") %>'  CssClass="txtEdit"  />
-			</td>
-            </tr>
-			<tr >
+			<tr style="display:none">
                 <td> Pla_Doc_Id_Principal </td>                
 				<td><asp:TextBox ID="Pla_Doc_Id_PrincipalTextBox" runat="server" Text='<%# Bind("Pla_Doc_Id_Principal") %>'  CssClass="txtEdit"  />
-			</td>
-            </tr>
-			<tr >
-                <td> Com_Procedimiento_Id </td>                
-				<td><asp:TextBox ID="Com_Procedimiento_IdTextBox" runat="server" Text='<%# Bind("Com_Procedimiento_Id") %>'  CssClass="txtEdit"  />
-				</td>
+			    </td>
             </tr>
 			<tr style="display:none">
                 <td> Per_Personal_Id_Presupuesta </td>                
 				<td><asp:TextBox ID="Per_Personal_Id_PresupuestaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Presupuesta") %>'  CssClass="txtEdit"  />
-			</td>
+			    </td>
             </tr>
 			<tr style="display:none">
                 <td> Esta_Presupuestada </td>                
 				<td><asp:TextBox ID="Esta_PresupuestadaTextBox" runat="server" Text='<%# Bind("Esta_Presupuestada") %>'  CssClass="txtEdit"  />
-			</td>
+			    </td>
             </tr>
 			<tr style="display:none">
                 <td> Fecha_Presup </td>                
 				<td><asp:TextBox ID="Fecha_PresupuestaTextBox" runat="server" Text='<%# Bind("Fecha_Presupuesta","{0:d}") %>'  CssClass="txtEdit"  />
-			</td>
+			    </td>
             </tr>
 			<tr style="display:none">
                 <td> Desc_Presup </td>                
@@ -382,34 +363,61 @@ TagPrefix="ajax" %>
 			<tr style="display:none">
                 <td> Desc_Planifica </td>                
 				<td><asp:TextBox ID="Desc_PlanificaTextBox" runat="server" Text='<%# Bind("Desc_Planifica") %>'  CssClass="txtEdit"  />
-			</td>
-            </tr>
-            <tr style="display:none">
-                <td> Proyecto_Tipo_Nombre </td>                
-				<td><asp:TextBox ID="Proyecto_Tipo_NombreTextBox" runat="server" Text='<%# Bind("Proyecto_Tipo_Nombre") %>'  CssClass="txtEdit"  />
-			</td>
+			    </td>
             </tr>
 			<tr style="display:none">
                 <td> Pla_Doc_Codigo_Principal </td>                
 				<td><asp:TextBox ID="Pla_Doc_Codigo_PrincipalTextBox" runat="server" Text='<%# Bind("Pla_Doc_Codigo_Principal") %>'  CssClass="txtEdit"  />
-			</td>
-            </tr>
-			<tr style="display:none">
-                <td> Com_Procedimiento_Nombre </td>                
-				<td><asp:TextBox ID="Com_Procedimiento_NombreTextBox" runat="server" Text='<%# Bind("Com_Procedimiento_Nombre") %>'  CssClass="txtEdit"  />
-			</td>
+			    </td>
             </tr>
 			<tr style="display:none">
                 <td> Per_Personal_Nombre_Presupuesta </td>                
 				<td><asp:TextBox ID="Per_Personal_Nombre_PresupuestaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Presupuesta") %>'  CssClass="txtEdit"  />
-			</td>
+			    </td>
+            </tr>
+            <tr style="display:none">
+                <td> Tipo </td>                
+				<td>
+                <asp:TextBox ID="TipoTextBox" runat="server" Text='<%# Bind("Tipo") %>'  CssClass="txtItem"  />
+				</td>
             </tr>
 			<tr style="display:none">
-                <td> Desc_Solicita </td>                
-				<td><asp:TextBox ID="Desc_SolicitaTextBox" runat="server" Text='<%# Bind("Desc_Solicita") %>'  CssClass="txtEdit"  />
-			</td>
+                <td> Area_Codigo_Solicita </td>                
+				<td><asp:TextBox ID="Area_Codigo_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Codigo_Solicita") %>'  />
+					</td>
             </tr>
-
+			<tr style="display:none">
+                <td> Area_Nombre_Solicita </td>                
+				<td><asp:TextBox ID="Area_Nombre_SolicitaTextBox" runat="server" Text='<%# Bind("Area_Nombre_Solicita") %>'  />
+					</td>
+            </tr>
+            			<tr style="display:none">
+                <td> Estado </td>                
+				<td><asp:TextBox ID="EstadoTextBox" runat="server" Text='<%# Bind("Estado") %>'  CssClass="txtEdit"  />
+				</td>
+            </tr>
+			<tr  style="display:none">
+                <td> Per_Personal_Id_Crea </td>                
+				<td><asp:TextBox ID="Per_Personal_Id_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Crea") %>'  CssClass="txtEdit"  />
+					</td>
+            </tr>
+			<tr  style="display:none">
+                <td> Per_Personal_Nombre_Crea </td>                
+				<td><asp:TextBox ID="Per_Personal_Nombre_CreaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Crea") %>'   />
+					</td>
+            </tr>
+			<tr  style="display:none">
+                <td> Per_Personal_Id_Modifica </td>                
+				<td><asp:TextBox ID="Per_Personal_Id_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Id_Modifica") %>'  />
+					</td>
+            </tr>
+			<tr  style="display:none">
+                <td> Per_Personal_Nombre_Modifica </td>                
+				<td><asp:TextBox ID="Per_Personal_Nombre_ModificaTextBox" runat="server" Text='<%# Bind("Per_Personal_Nombre_Modifica") %>'  />
+					</td>
+            </tr>
+            </panel>
+            <%--Campos ocultos--%>
 			</table>
             <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" ValidationGroup="vgPla_Doc"/>
             &nbsp;

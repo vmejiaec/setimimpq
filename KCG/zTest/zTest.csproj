@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CargaPOA2014.cs" />
     <Compile Include="DocWord.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="ARRASTRES_2014_subir.xls" />
     <None Include="PACPOA2015Modificado.xlsx" />
     <None Include="PACPOA2015Original.xlsx" />
     <None Include="PERSONAL2015.xlsx" />
@@ -121,6 +123,7 @@
     <None Include="POA_2015_ARRASTRE_Final.xlsx" />
     <None Include="POA_2015_SIPRO_ARRASTRES.xlsx" />
     <None Include="POA_2015__.xlsx" />
+    <None Include="POA_SIPRO_REFORMA.xlsx" />
     <None Include="WordTemplates\CONTRATODEEJECUCIONDEOBRACOTIZACION.docx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
